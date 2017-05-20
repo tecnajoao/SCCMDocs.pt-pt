@@ -1,8 +1,8 @@
-## Microsoft Open Source Code of Conduct
+## <a name="microsoft-open-source-code-of-conduct"></a>Código de Conduta Open Source da Microsoft
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments. 
+Este projeto adotou o [Código de Conduta Open Source da Microsoft](https://opensource.microsoft.com/codeofconduct/).
+Para obter mais informações, veja as [Code of Conduct FAQ (FAQ do Código de Conduta)](https://opensource.microsoft.com/codeofconduct/faq/) ou contacte [ opencode@microsoft.com ](mailto:opencode@microsoft.com) com quaisquer perguntas ou comentários adicionais. 
 
-# Docs.microsoft.com Github repository
+# <a name="docsmicrosoftcom-github-repository"></a>Repositório do Docs.microsoft.com Github
 
-You've found one of the GitHub repositories that houses the source for content published to [https://docs.microsoft.com](https://docs.microsoft.com/.), home of all technical content for Microsoft's Cloud and Enterprise Division.
+Encontrar uma dos repositórios de GitHub que aloja a origem de conteúdo publicados [https://docs.microsoft.com](https://docs.microsoft.com/.), casa de todo o conteúdo técnico de nuvem e de divisão de empresa da Microsoft.
