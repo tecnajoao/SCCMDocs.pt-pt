@@ -1,0 +1,68 @@
+---
+title: "Pré-requisitos para relatórios | Documentos do Microsoft"
+description: "Compreenda várias dependências que causam impacto na sua utilização dos relatórios no System Center Configuration Manager."
+ms.custom: na
+ms.date: 10/06/2016
+ms.prod: configuration-manager
+ms.reviewer: na
+ms.suite: na
+ms.technology:
+- configmgr-other
+ms.tgt_pltfrm: na
+ms.topic: get-started-article
+ms.assetid: 9cc508a5-5023-4833-b776-ae9a6971138f
+caps.latest.revision: 5
+caps.handback.revision: 0
+author: Dougeby
+ms.author: dougeby
+manager: angrobe
+ms.translationtype: Machine Translation
+ms.sourcegitcommit: 70034213442f4c3d5a28ab65c2ceb51aa64320ad
+ms.openlocfilehash: 2e624eb2ea061a4eb7d92365410fada335640224
+ms.contentlocale: pt-pt
+ms.lasthandoff: 05/17/2017
+
+
+---
+# <a name="prerequisites-for-reporting-in-system-center-configuration-manager"></a>Pré-requisitos para relatórios no System Center Configuration Manager
+
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+
+Reporting no System Center Configuration Manager tem dependências externas e dependências contidas no produto.  
+
+## <a name="dependencies-external-to-configuration-manager"></a>Dependências externas ao Configuration Manager  
+ A tabela seguinte lista as dependências externas dos relatórios.  
+
+|Pré-requisito|Mais informações|  
+|------------------|----------------------|  
+|Serviços de Relatórios do SQL Server|Antes de poder utilizar relatórios no Configuration Manager, tem de instalar e configurar o SQL Server Reporting Services.<br /><br /> Para obter informações sobre o planeamento e implementação do Reporting Services no seu ambiente, consulte a secção [Reporting Services](http://go.microsoft.com/fwlink/p/?LinkId=212032) do SQL Server 2008 Books Online.|  
+|Dependências da função do sistema de sites para os computadores que executem o ponto do Reporting Services.|[Configurações suportadas para o System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md)|  
+
+## <a name="dependencies-internal-to-configuration-manager"></a>Dependências internas do Configuration Manager  
+ A tabela seguinte lista as dependências dos relatórios no Configuration Manager.  
+
+|Pré-requisito|Mais informações|  
+|------------------|----------------------|  
+|Ponto do Reporting Services|Do ponto de função de sistema de sites tem de ser configurada para poder utilizar relatórios no Configuration Manager reporting services. Para obter mais informações sobre como instalar e configurar um ponto do reporting services, consulte o artigo [configurar relatórios no System Center Configuration Manager](../../../core/servers/manage/configuring-reporting.md).|  
+
+## <a name="supported-sql-server-versions-for-the-reporting-services-point"></a>Versões suportadas do SQL Server para o Ponto do Reporting Services  
+ A base de dados do Reporting Services pode ser instalada na instância predefinida ou numa instância nomeada de uma instalação do SQL Server de 64 bits. A instância do SQL Server pode estar colocalizada com o servidor do sistema de sites ou encontrar-se num computador remoto.  
+
+ A tabela seguinte lista as versões do SQL Server suportadas pelo ponto do Reporting Services.  
+
+|Versão do SQL Server|Ponto do Reporting Services|  
+|------------------------|------------------------------|  
+|SQL Server 2008 SP2 com pelo menos a atualização cumulativa 9<br /><br /> -Padrão<br />-Enterprise<br />-Datacenter|Sim|  
+|SQL Server 2008 SP3 com pelo menos a atualização cumulativa 4<br /><br /> -Padrão<br />-Enterprise<br />-Datacenter|Sim|  
+|SQL Server 2008 R2 com SP1 e com pelo menos a atualização cumulativa 6<br /><br /> -Padrão<br />-Enterprise<br />-Datacenter|Sim|  
+|SQL Server 2008 R2 com SP2<br /><br /> -Padrão<br />-Enterprise<br />-Datacenter|Sim|  
+|SQL Server Express 2008 R2 com SP1 e com pelo menos a atualização cumulativa 4|Não Suportado|  
+|SQL Server Express 2008 R2 com SP2|Não Suportado|  
+|SQL Server 2012 com pelo menos a atualização cumulativa 2<br /><br /> -Padrão<br />-Enterprise|Sim|  
+|SQL Server 2012 com SP1 sem atualização cumulativa mínima<br /><br /> -Padrão<br />-Enterprise|Sim|  
+|SQL Server 2014<br /><br /> -Padrão<br />-Enterprise|Sim|
+|SQL Server 2016<br /><br /> -Padrão<br />-Enterprise|Sim|
+|SQL Server 2016 com SP1<br /><br /> -Padrão<br />-Enterprise|Sim|
+## <a name="next-steps"></a>Passos seguintes
+[Operações e manutenção de relatórios](operations-and-maintenance-for-reporting.md)
+
