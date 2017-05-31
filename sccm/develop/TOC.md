@@ -74,7 +74,7 @@
 ### [Como Ler e Escrever no Ficheiro de Controlo do Site ao Utilizar o Código Gerido](core/understand/how-to-read-and-write-to-the-site-control-file-by-using-managed-code.md)
 ### [Como Ler e Escrever no Ficheiro de Controlo do Site ao Utilizar a WMI](core/understand/how-to-read-and-write-to-the-site-control-file-by-using-wmi.md)
 ### [Como Ler uma Lista de Propriedades Incorporadas do Ficheiro de Controlo do Site](core/understand/how-to-read-a-configuration-manager-site-control-file-embedded-property-list.md)
-### [Como Implementar uma Função do Sistema de Sites (por exemplo: Ponto de Estado de Contingência)](core/understand/how-to-deploy-a-site-system-role--example---fallback-status-point-.md)
+### [Como implantar uma função de sistema de Site (exemplo:  Ponto de Status de fallback)](core/understand/how-to-deploy-a-site-system-role--example---fallback-status-point-.md)
 ## [Esquema de Classes do Configuration Manager](core/understand/configuration-manager-class-schema.md)
 ### [Formatos de Data e Hora](core/understand/date-and-time-formats.md)
 ### [Interpretar Propriedades do Campo de Bits](core/understand/interpreting-bitfield-properties.md)
@@ -105,7 +105,7 @@
 
 # [Extensão de Gestão de Aplicações](apps/application-management-extension.md)
 ## [Controlo de Versões da Extensão do Tipo de Implementação](apps/deployment-type-extension-versioning.md)
-## [Cenário: Expansão da Gestão de Aplicações](apps/scenario--extending-application-management.md)
+## [Cenário: Estendendo o gerenciamento de aplicativos](apps/scenario--extending-application-management.md)
 ### [Descrição Geral da Expansão da Gestão de Aplicações](apps/extending-application-management-overview.md)
 ### [Criar a Assemblagem do SDK Personalizada](apps/creating-the-custom-sdk-assembly.md)
 #### [Como Definir a Tecnologia de Implementação](apps/how-to-define-the-deployment-technology.md)
