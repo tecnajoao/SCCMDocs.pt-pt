@@ -27,7 +27,7 @@ ms.lasthandoff: 05/17/2017
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Com o lançamento de versões de atualização para System Center Configuration Manager atual ramificação, existem novos cenários para simplificar a instalação de uma nova hierarquia para uma versão de atualização (como atualizar 1610) e para atualizar a partir do Microsoft System Center 2012 Configuration Manager. 
+Com o lançamento de versões de atualização para System Center Configuration Manager atual ramificação, existem novos cenários para simplificar a instalação de uma nova hierarquia para uma versão de atualização (como atualizar 1610) e para atualizar a partir do Microsoft System Center 2012 Configuration Manager.
 
 Os cenários suportados incluem:  
 
@@ -113,9 +113,7 @@ Siga esta sequência:
     -   Um site primário subordinado instala automaticamente as mesmas atualizações que o utilizador instala num site de administração central.  
     -   Sties secundários não instalam automaticamente novas versões. Deve atualizá-los manualmente a partir de dentro da consola.  
 
-   
-
-    Após este passo, quando instalar atualizações no site de administração central, os sites primários subordinados irão instalar apenas essa atualização quando for permitido pela respetiva janela de manutenção.  
+  Após este passo, quando instalar atualizações no site de administração central, os sites primários subordinados irão instalar apenas essa atualização quando for permitido pela respetiva janela de manutenção.  
 
 4.  **Instale a versão de atualização no seu site de nível superior.** Este procedimento atualiza o site de nível superior. Depois de um site de administração central instala a versão de atualização, cada site primário subordinado instala automaticamente a atualização, a menos que a instalação está bloqueada por uma janela de manutenção.  
 
