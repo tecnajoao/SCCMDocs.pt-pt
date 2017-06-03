@@ -55,6 +55,8 @@
 
 ## [Gerir uma subscrição do Intune](deploy-use/manage-intune-subscriptions.md)
 
+## [Alterar sua autoridade MDM](deploy-use/change-mdm-authority.md)
+
 ## Gerir o acesso a recursos
 ### [Criar perfis Wi-Fi](deploy-use/create-wifi-profiles.md)
 ### [Criar perfis de certificado PFX](deploy-use/create-pfx-certificate-profiles.md)
