@@ -1,6 +1,8 @@
 # Compreender e explorar
 ## [Descrição Geral](understand\protect-data-and-site-infrastructure.md)
-## [Cópia de segurança e recuperação](understand/backup-and-recovery.md)
+## [Fazer backup de sites](understand/backup-and-recovery.md)
+## [Recuperar os sites](understand/recover-sites.md)
+## [Recuperação autônoma do site](understand/unattended-recovery.md)
 ## [Opções de elevada disponibilidade](understand/high-availability-options.md)
 ## [Gerir implementações de alto risco](understand/settings-to-manage-high-risk-deployments.md)
 
