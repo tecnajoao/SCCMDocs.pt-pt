@@ -8,7 +8,7 @@
       "build_source_folder": "sccm",
       "build_output_subfolder": "sccm",
       "locale": "pt-pt",
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
@@ -22,6 +22,8 @@
   "branches_to_filter": [
     "live-oldev", "live"
   ],
+  "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/SCCMDocs-pr.pt-pt",
+  "git_repository_branch_open_to_public_contributors": "live",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "dependent_repositories": [
