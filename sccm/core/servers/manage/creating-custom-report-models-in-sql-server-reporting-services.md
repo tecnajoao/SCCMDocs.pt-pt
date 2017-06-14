@@ -65,7 +65,7 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
     > [!NOTE]  
     >  Se o painel do **Solution Explorer** não for apresentado, clique em **Ver**e clique em **Solution Explorer**.  
 
-###  <a name="BKMK_DefineReportModelDataSource"></a> To define the data source for the report model  
+###  <a name="BKMK_DefineReportModelDataSource"></a>Para definir a origem de dados para o modelo de relatório  
 
 1.  No painel **Solution Explorer** do **SQL Server Business Intelligence Development Studio**, clique com o botão direito do rato em **Origens de Dados** e selecione **Adicionar Nova Origem de Dados**.  
 
@@ -94,7 +94,7 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
     > [!NOTE]  
     >  Para editar as propriedades de uma origem de dados existente, faça duplo clique na origem de dados na pasta **Origens de Dados** do painel do **Solution Explorer** para apresentar as propriedades da origem de dados no Estruturador de Origens de Dados.  
 
-###  <a name="BKMK_DefineReportModelDataSourceView"></a> To define the data source view for the report model  
+###  <a name="BKMK_DefineReportModelDataSourceView"></a>Para definir a vista de origem de dados para o modelo de relatório  
 
 1.  No **Solution Explorer**, clique com o botão direito do rato em **Vistas de Origem de Dados** e selecione **Adicionar Nova Vista de Origem de Dados**.  
 
@@ -133,7 +133,7 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 8.  Para sair do assistente, clique em **Concluir**. O modelo de relatório é apresentado na janela Estrutura.  
 
-###  <a name="BKMK_PublishReportModel"></a> To publish the report model for use in SQL Server Reporting Services  
+###  <a name="BKMK_PublishReportModel"></a>Para publicar o modelo de relatório para utilização no SQL Server Reporting Services  
 
 1.  No **Solution Explorer**, clique com o botão direito do rato no modelo de relatório e selecione **Implementar**. Neste exemplo, o modelo de relatório é **Simple_Model.smdl**.  
 
@@ -182,7 +182,7 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
     > [!IMPORTANT]  
     >  Depois de copiar o ficheiro de modelo de relatório para o servidor do site do Configuration Manager, terá de sair e reiniciar a consola do Configuration Manager antes de poder utilizar o modelo de relatório no **Assistente para criar relatório**.  
 
-##  <a name="AdvancedReportModel"></a> Steps for Creating an Advanced Report Model in SQL Server Reporting Services  
+##  <a name="AdvancedReportModel"></a>Passos para criar um modelo de relatório avançado no SQL Server Reporting Services  
  Pode utilizar os procedimentos seguintes para criar um modelo de relatório avançado que os utilizadores do seu site poderão usar para criar relatórios baseados em modelos específicos com base nos dados de várias vistas da base de dados do Configuration Manager. Crie um modelo de relatório que apresente as informações sobre os computadores cliente e sobre o sistema operativo instalado nesses computadores ao autor do relatório. Estas informações são obtidas a partir do seguintes vistas da base de dados do Configuration Manager:  
 
 -   **V_R_System**: Contém informações sobre computadores detetados e o cliente do Configuration Manager.  
@@ -210,7 +210,7 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
     > [!NOTE]  
     >  Se o painel do **Solution Explorer** não for apresentado, clique em **Ver**e clique em **Solution Explorer**.  
 
-#### <a name="to-define-the-data-source-for-the-report-model"></a>To define the data source for the report model  
+#### <a name="to-define-the-data-source-for-the-report-model"></a>Para definir a origem de dados para o modelo de relatório  
 
 1.  No painel **Solution Explorer** do **SQL Server Business Intelligence Development Studio**, clique com o botão direito do rato em **Origens de Dados** e selecione **Adicionar Nova Origem de Dados**.  
 
@@ -239,7 +239,7 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
     > [!NOTE]  
     >  Para editar as propriedades de uma origem de dados existente, faça duplo clique na origem de dados na pasta **Origens de Dados** do painel do **Solution Explorer** para apresentar as propriedades da origem de dados no Estruturador de Origens de Dados.  
 
-#### <a name="to-define-the-data-source-view-for-the-report-model"></a>To define the data source view for the report model  
+#### <a name="to-define-the-data-source-view-for-the-report-model"></a>Para definir a vista de origem de dados para o modelo de relatório  
 
 1.  No **Solution Explorer**, clique com o botão direito do rato em **Vistas de Origem de Dados** e selecione **Adicionar Nova Vista de Origem de Dados**.  
 
@@ -376,7 +376,7 @@ Modelos de relatórios de exemplo estão incluídos no System Center Configurati
 
 4.  Quando tiver concluído a mudança do nome de objetos, clique em **Ficheiro**e, em seguida, clique em **Guardar Tudo**.  
 
-#### <a name="to-publish-the-report-model-for-use-in-sql-server-reporting-services"></a>To publish the report model for use in SQL Server Reporting Services  
+#### <a name="to-publish-the-report-model-for-use-in-sql-server-reporting-services"></a>Para publicar o modelo de relatório para utilização no SQL Server Reporting Services  
 
 1.  No **Solution Explorer**, clique com o botão direito do rato em **Advanced_Model.smdl** e selecione **Implementar**.  
 
