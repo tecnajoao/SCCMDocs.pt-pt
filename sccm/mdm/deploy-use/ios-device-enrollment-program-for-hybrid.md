@@ -1,6 +1,6 @@
 ---
-title: "Inscrever dispositivos iOS com o programa de inscrição de dispositivos (DEP) - Configuration Manager | Documentos do Microsoft"
-description: "Ative a inscrição do programa de inscrição de dispositivos (DEP) para implementações híbridas no Configuration Manager com o Intune do iOS."
+title: Registrar dispositivos iOS com dispositivo registro programa (DEP) - Configuration Manager | Microsoft Docs
+description: "Habilite o registro de dispositivo registro programa (DEP) para implantações híbridas no Configuration Manager com Intune do iOS."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,116 +16,119 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: ae60eb25383f4bd07faaa1265185a471ee79b1e9
-ms.openlocfilehash: 5b5eadd7b4026eae59acceaef43cdacd7a33d3ac
+ms.sourcegitcommit: 255249332350843ba0b78128423482e260974521
+ms.openlocfilehash: 1ea0360b5b182b92e11ea9dfe78b5a3552ae4845
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/30/2017
 
 ---
-# <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>inscrição do iOS programa de inscrição de dispositivos (DEP) para implementações híbridas com o Configuration Manager
+# <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>registro do programa de registro de dispositivo (DEP) iOS para implantações híbridas com o Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
-As empresas podem comprar dispositivos iOS através do programa de inscrição de dispositivos da Apple e, em seguida, geri-los através do Microsoft Intune. Para gerir dispositivos iOS pertencentes à empresa com o Programa de Inscrição de Dispositivos (DEP) da Apple, as empresas têm de concluir os passos junto da Apple para participar no programa e adquirir dispositivos através do mesmo. Os detalhes desse processo estão disponíveis em:  [https://deploy.apple.com](https://deploy.apple.com). As vantagens do programa incluem a configuração automatizada de dispositivos sem ligar por USB cada dispositivo a um computador.  
+As empresas podem adquirir dispositivos iOS por meio do programa de registro de dispositivo da Apple e, em seguida, gerenciá-los usando o Microsoft Intune. Para gerir dispositivos iOS pertencentes à empresa com o Programa de Inscrição de Dispositivos (DEP) da Apple, as empresas têm de concluir os passos junto da Apple para participar no programa e adquirir dispositivos através do mesmo. Os detalhes desse processo estão disponíveis em:  [https://deploy.apple.com](https://deploy.apple.com). As vantagens do programa incluem a configuração automatizada de dispositivos sem ligar por USB cada dispositivo a um computador.  
 
- Antes de poder inscrever dispositivos iOS pertencentes à empresa com o DEP, precisa de um token do DEP da Apple. Este token permite ao Intune sincronizar informações sobre os participantes no DEP dispositivos pertencentes à. Também permite ao Intune carregar perfis de inscrição para a Apple e atribuir dispositivos a esses perfis.  
+ Antes de poder inscrever dispositivos iOS pertencentes à empresa com o DEP, precisa de um token do DEP da Apple. Este token permite que Intune sincronize informações sobre dispositivos participantes no DEP pertencentes à sua empresa. Ele também permite que Intune carregue perfis de registro para a Apple e atribua dispositivos a esses perfis.  
 
 ## <a name="apple-dep-enrollment-for-ios-devices"></a>Inscrição através do Apple DEP de dispositivos iOS  
- Os procedimentos seguintes descrevem como especificar os dispositivos iOS adquiridos através do DEP da Apple como geridos pelo Intune dispositivos pertencentes à empresa. Quando as potências primeiro utilizador até o dispositivo este irá receber o perfil de gestão do DEP e execute o Assistente de configuração e torná-los a gestão.  
+ Os procedimentos a seguir descrevem como especificar dispositivos iOS adquiridos por meio do DEP da Apple como dispositivos da empresa gerenciados pelo Intune. Quando as potências de primeiro do usuário até o dispositivo ele receberá o perfil de gerenciamento de DEP e execute o Assistente de configuração e colocá-los em gerenciamento.  
 
-###  <a name="enable-dep-enrollment-in-configuration-manager-with-intune"></a>Ativar a inscrição de DEP no Configuration Manager com o Intune  
+###  <a name="enable-dep-enrollment-in-configuration-manager-with-intune"></a>Habilitar o registro de DEP no Configuration Manager com Intune  
 
 1.  **Começar a gerir dispositivos iOS com o Configuration Manager**   
-    Antes de poder inscrever dispositivos do programa de inscrição de dispositivos (DEP), tem de concluir os passos para [configurar a gestão de dispositivos móveis híbrida](../../mdm/deploy-use/setup-hybrid-mdm.md) incluindo [passos para suportar a inscrição de iOS](../deploy-use/enroll-hybrid-ios-mac.md).
+    Antes de poder registrar dispositivos no programa de registro de dispositivo (DEP) iOS, você deve concluir as etapas [configurar o gerenciamento de dispositivo móvel híbrido](../../mdm/deploy-use/setup-hybrid-mdm.md) incluindo [etapas para dar suporte ao registro do iOS](../deploy-use/enroll-hybrid-ios-mac.md).
 
 2.  **Criar um pedido de token DEP**   
-    Na consola do Configuration Manager, no **administração** área de trabalho, expanda **configuração da hierarquia**, expanda **serviços em nuvem**e clique em **subscrições do Microsoft Intune**. Clique em **Criar Pedido de Token DEP** no separador **Home Page** , clique em **Procurar** para especificar a localização da transferência para o pedido de token DEP e, em seguida, clique em **Transferir**. Guarde o ficheiro de pedido de token do DEP (.pem) localmente. O ficheiro .pem é serve para pedir um token fidedigno (.p7m) a partir do portal do Programa de Inscrição de Dispositivos da Apple.  
+    No console do Configuration Manager, no **administração** espaço de trabalho, expanda **configuração da hierarquia**, expanda **serviços de nuvem**e clique em **assinaturas do Microsoft Intune**. Clique em **Criar Pedido de Token DEP** no separador **Home Page** , clique em **Procurar** para especificar a localização da transferência para o pedido de token DEP e, em seguida, clique em **Transferir**. Guarde o ficheiro de pedido de token do DEP (.pem) localmente. O ficheiro .pem é serve para pedir um token fidedigno (.p7m) a partir do portal do Programa de Inscrição de Dispositivos da Apple.  
 
 3.  **Obter um token do Programa de Inscrição de Dispositivos**   
     Aceda ao [portal do Programa de Inscrição de Dispositivos](https://deploy.apple.com) (https://deploy.apple.com) e inicie sessão com o Apple ID da sua empresa. Este ID Apple tem de ser utilizado no futuro para renovar o seu token do DEP.  
 
     1.  Na consola do [portal do Programa de Inscrição de Dispositivos](https://deploy.apple.com), aceda a **Programa de Inscrição de Dispositivos** > **Gerir Servidores**e, em seguida, clique em **Adicionar Servidor MDM**.  
 
-    2.  Introduza o **Nome do Servidor MDM**e, em seguida, clique em **Seguinte**. O nome do servidor é uma referência para identificar o servidor MDM. Não é o nome ou o URL do servidor do Intune ou o Configuration Manager.  
+    2.  Introduza o **Nome do Servidor MDM**e, em seguida, clique em **Seguinte**. O nome do servidor é uma referência para identificar o servidor MDM. Não é o nome ou URL do servidor Intune ou Configuration Manager.  
 
-    3.  O **adicionar < ServerName\>**  é aberta a caixa de diálogo. Clique em **Escolher ficheiro…** para carregar o ficheiro .pem que criou no passo anterior e, em seguida, clique em **Seguinte**.  
+    3.  O **adicionar < ServerName\>**  caixa de diálogo é aberta. Clique em **Escolher ficheiro…** para carregar o ficheiro .pem que criou no passo anterior e, em seguida, clique em **Seguinte**.  
 
-    4.  O **adicionar < ServerName\>**  caixa de diálogo apresenta um **Token do seu servidor** ligação. Transfira o ficheiro de token (.p7m) do servidor para o seu computador e, em seguida, clique em **Concluído**.  
+    4.  O **adicionar < ServerName\>**  caixa de diálogo exibe uma **seu Token do servidor** link. Transfira o ficheiro de token (.p7m) do servidor para o seu computador e, em seguida, clique em **Concluído**.  
 
      Este ficheiro de certificado (.p7m) serve para estabelecer uma relação de confiança entre os servidores do Programa de Inscrição de Dispositivos do Intune e da Apple.  
 
 4.  **Adicionar o token do DEP ao Configuration Manager**   
-    Na consola do Configuration Manager, no **administração** área de trabalho, expanda **configuração da hierarquia** e clique em **subscrições do Microsoft Intune**. Clique em **Configurar Plataformas** no separador **Home Page** e, em seguida, clique em **iOS**. Selecione **Ativar o Programa de Inscrição de Dispositivos**, procure o ficheiro de certificado (.p7m), clique em **Abrir**, clique em **Carregar**e, em seguida, clique em **OK**.  
+    No console do Configuration Manager, no **administração** espaço de trabalho, expanda **configuração da hierarquia** e clique em **assinaturas do Microsoft Intune**. Clique em **Configurar Plataformas** no separador **Home Page** e, em seguida, clique em **iOS**. Selecione **Ativar o Programa de Inscrição de Dispositivos**, procure o ficheiro de certificado (.p7m), clique em **Abrir**, clique em **Carregar**e, em seguida, clique em **OK**.  
 
-#### <a name="set-up-enrollment-for-apple-device-enrollment-program-dep-ios-devices"></a>Configurar a inscrição para dispositivos iOS de programa de inscrição de dispositivos da Apple (DEP)  
+#### <a name="set-up-enrollment-for-apple-device-enrollment-program-dep-ios-devices"></a>Configurar o registro para dispositivos iOS de Apple dispositivo registro programa (DEP)  
 
-1.  **Adicionar uma política de inscrição de dispositivos da empresa**   
-    Na consola do Configuration Manager, no **ativos e compatibilidade** área de trabalho, expanda **descrição geral**, expanda **todos os dispositivos pertencentes**, expanda **iOS**e clique em **perfis de inscrição**. Clique em **Criar Perfil** no separador **Home Page** para abrir o assistente Criar Perfil. Configure as definições nas seguintes páginas:  
+1.  **Adicionar uma política de registro de dispositivo corporativo**   
+    No console do Configuration Manager, no **ativos e conformidade** espaço de trabalho, expanda **visão geral**, expanda **todos os dispositivos corporativos**, expanda **iOS**e clique em **perfis de registro**. Clique em **Criar Perfil** no separador **Home Page** para abrir o assistente Criar Perfil. Configure as definições nas seguintes páginas:  
 
     1.  On the **Geral** , especifique as seguintes informações e clique em **Seguinte**.  
 
         -   **Nome** – nome do perfil de inscrição de dispositivos. (Não visível aos utilizadores)  
 
-        -   **Descrição** -descrição do perfil de inscrição de dispositivos. (Não visível aos utilizadores)  
+        -   **Descrição** -descrição do perfil de registro do dispositivo. (Não visível aos utilizadores)  
 
-        -   **Afinidade do utilizador** – especifica como os dispositivos são inscritos. Consulte o artigo [afinidade do utilizador para uma implementação híbrida geridos dispositivos no Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
+        -   **Afinidade do utilizador** – especifica como os dispositivos são inscritos. Consulte [afinidade de usuário para híbrida gerenciado dispositivos no Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
 
-            -   **Pedido de afinidade de utilizador de**: O dispositivo tem de ser afiliado a um utilizador durante a configuração inicial e, em seguida, foi permitido para aceder ao e-mail desse utilizador e dados da empresa.  A afinidade de utilizador deve ser configurada para dispositivos geridos por DEP que pertencem aos utilizadores e que precisam de utilizar o portal da empresa (por exemplo, para instalar aplicações).  
+            -   **Solicitar afinidade do usuário**: O dispositivo deve ser afiliado a um usuário durante a instalação inicial e depois receber permissão para acessar dados da empresa e email como esse usuário.  A afinidade de utilizador deve ser configurada para dispositivos geridos por DEP que pertencem aos utilizadores e que precisam de utilizar o portal da empresa (por exemplo, para instalar aplicações).  
 
             > [!NOTE]
-            > DEP com afinidade do utilizador necessita de ponto final de ADFS WS-Trust 1.3 Username/Mixed estar ativado para solicitar o token de utilizador.
+            > DEP com afinidade de usuário requer o ponto de extremidade do ADFS WS-Trust 1.3 nome de usuário/misto deve ser habilitada a solicitação de token de usuário.
 
-            -   **Sem afinidade de utilizador**: O dispositivo não está afiliado a um utilizador. Utilize esta afiliação em dispositivos que efetuem tarefas sem aceder aos dados de utilizador locais. As aplicações que precisem da afiliação de utilizador não funcionam.  
-             ![Captura de ecrã do DEP nome, descrição e perfil pedido de afinidade do utilizador](../media/dep-general.png)
+            -   **Sem afinidade de usuário**: O dispositivo não está afiliado a um usuário. Utilize esta afiliação em dispositivos que efetuem tarefas sem aceder aos dados de utilizador locais. As aplicações que precisem da afiliação de utilizador não funcionam.  
+             ![Nome do perfil de captura de tela de DEP, a descrição e o prompt de afinidade de usuário](../media/dep-general.png)
 
-    2.  No **definições do programa de inscrição de dispositivos** página, especifique as seguintes informações e, em seguida, clique em **seguinte**.  
+    2.  Sobre o **configurações do programa de registro de dispositivo** página, especifique as seguintes informações e, em seguida, clique em **próximo**.  
 
-        -   **Departamento**: Esta informação é apresentada quando os utilizadores toque em "Sobre a configuração de" durante a ativação.  
+        -   **Departamento**: Essas informações são exibidas quando os usuários tocam em "Sobre a configuração" durante a ativação.  
 
-        -   **Número de telefone de suporte**: Apresentada quando o utilizador clica o **precisar de ajuda** botão durante a ativação.
-       ![Captura de ecrã de atribuir o perfil DEP para dispositivos iOS](../media/dep-settings.png)
+        -   **Número de telefone de suporte**: Exibido quando o usuário clica o **precisa de Ajuda** botão durante a ativação.
+       ![Captura de tela da atribuição de perfil DEP para dispositivos iOS](../media/dep-settings.png)
 
-        -   **Modo de preparação**: Este estado é definido durante a ativação e não pode ser alterado sem as definições de fábrica repor o dispositivo:  
+        -   **Modo de preparação**: Esse estado é definido durante a ativação e não pode ser alterado sem redefinir o dispositivo de fábrica:  
 
-            -   **Unsupervised** -limitada de funcionalidades de gestão  
+            -   **Sem supervisão** -recursos de gerenciamento limitados  
 
-            -   **Supervisionado** - ativa mais opções de gestão e desativa o bloqueio de ativação por predefinição  
+            -   **Supervisionado** - permite mais opções de gerenciamento e desabilita o bloqueio de ativação por padrão  
 
-        -   **Bloquear perfil de inscrição para dispositivos**: Este estado é definido durante a ativação e não pode ser alterado sem uma reposição de fábrica.  
+        -   **Bloquear perfil de registro de dispositivo**: Esse estado é definido durante a ativação e não pode ser alterado sem uma redefinição de fábrica.  
 
-            -   **Desativar** -permite que o perfil de gestão ser removido o **definições** menu  
+            -   **Desabilitar** -permite que o perfil de gerenciamento a ser removido do **configurações** menu  
 
-            -   **Ativar** -(requer **preparação modo** = **Supervised**) desativa as definições do iOS que podem permitir a remoção do perfil de gestão  
+            -   **Habilitar** -(requer **modo de preparação** = **supervisionado**) desabilita as configurações do iOS que podem permitir a remoção do perfil de gerenciamento  
 
     3.  Na página **Assistente de Configuração** , configure as definições que personalizam o Assistente de Configuração iOS que inicia quando o dispositivo é ligado pela primeira vez e, em seguida, clique em **Seguinte**. Estas definições incluem:  
-        -   **Código de acesso** - pedido de código de acesso durante a ativação. Necessitam sempre de um código de acesso, a menos que o dispositivo vai ser protegidos ou ter acesso controlado de alguma forma (ou seja, a modo de local público que restringe o dispositivo a uma aplicação).  
-        -   **Serviços de localização** - se ativada, o Assistente de configuração lhe pedir para o serviço durante a ativação  
-        -   **Restaurar** - se ativada, o Assistente de configuração lhe pedir para cópia de segurança do iCloud durante a ativação  
-        -   **Apple ID** -um ID Apple é necessário para transferir iOS App Store aplicações, incluindo os instalados através do Intune. Se estiver ativada, iOS pedirá utilizadores para um ID Apple quando Intune tenta instalar uma aplicação sem um ID.  
-        -   **Termos e condições** -se ativada, Assistente de configuração solicita-lhe os utilizadores para aceitar os termos e condições da Apple durante a ativação  
-        -   **ID de toque** - se ativada, o Assistente de configuração lhe pedir para este serviço durante a ativação
-        -   **Apple pagar** - se ativada, o Assistente de configuração lhe pedir para este serviço durante a ativação
-        -   **Zoom** - se ativada, o Assistente de configuração lhe pedir para este serviço durante a ativação
-        -   **A Siri** - se ativada, o Assistente de configuração lhe pedir para este serviço durante a ativação  
-        -   **Enviar dados de diagnóstico para a Apple** - se ativada, o Assistente de configuração lhe pedir para este serviço durante a ativação  
-        ![Captura de ecrã de atribuir o perfil DEP para dispositivos iOS](../media/dep-setup-assistant.png)
+        -   **Senha** - solicitar senha durante a ativação. Sempre exigir uma senha, a menos que o dispositivo esteja protegido ou tenha acesso controlado de alguma outra forma (ou seja, modo de quiosque que restringe o dispositivo a um aplicativo).  
+        -   **Serviços de localização** - se habilitado, o Assistente de instalação solicitará o serviço durante a ativação  
+        -   **Restaurar** - se habilitado, o Assistente de instalação solicitará backup do iCloud durante a ativação  
+        -   **ID da Apple** -uma ID da Apple é exigida para baixar iOS da App Store, incluindo aqueles instalados pelo Intune. Se habilitada, o iOS solicitará aos usuários para uma ID da Apple ao Intune tenta instalar um aplicativo sem uma ID.  
+        -   **Termos e condições** -se habilitado, o Assistente de instalação solicitará os usuários aceitem os termos e condições da Apple durante a ativação  
+        -   **ID de toque** - se habilitado, o Assistente de instalação solicitará o serviço durante a ativação
+        -   **Pagamento da Apple** - se habilitado, o Assistente de instalação solicitará o serviço durante a ativação
+        -   **Zoom** - se habilitado, o Assistente de instalação solicitará o serviço durante a ativação
+        -   **Siri** - se habilitado, o Assistente de instalação solicitará o serviço durante a ativação  
+        -   **Enviar dados de diagnóstico para a Apple** - se habilitado, o Assistente de instalação solicitará o serviço durante a ativação  
+        ![Captura de tela da atribuição de perfil DEP para dispositivos iOS](../media/dep-setup-assistant.png)
 
-    4.  No **gestão adicional** página, especifique se uma ligação de USB pode ser utilizada para as definições de gestão adicionais. Quando seleciona **necessitam de certificado**, tem de importar um certificado de gestão do Apple Configurator para utilizar para este perfil.  Definido como **não permitir** para impedir a sincronização de ficheiros com o iTunes ou o gestão através do Apple Configurator. A Microsoft recomenda que definido como **não permitir**, exportar qualquer configuração adicional do Apple Configurator e, em seguida, implementar como um perfil de configuração de iOS personalizadas, em vez de utilizar esta definição para permitir a implementação manual com ou sem um certificado.  
+    4.  Sobre o **gerenciamento adicional** página, especifique se uma conexão USB pode ser usado para configurações de gerenciamento adicional. Quando você seleciona **exigir certificado**, você deve importar um certificado de gerenciamento do Apple Configurator a ser usado para este perfil.  Definido como **não permitir** para impedir a sincronização de arquivos com iTunes ou gerenciamento por meio do Apple Configurator. A Microsoft recomenda que você defina como **não permitir**, exportar qualquer configuração adicional do Apple Configurator e, em seguida, implantar como um perfil de configuração do iOS personalizado, em vez de usar essa configuração para permitir a implantação manual com ou sem um certificado.  
 
-        -   **Não permitir** -impede o dispositivo de comunicar através de USB (desativa emparelhamento)  
+        -   **Não permitir** -impede que o dispositivo se comunique via USB (desabilita emparelhamento)  
 
-        -   **Permitir** -permite que dispositivo comunicar através de ligação de USB com qualquer PC ou Mac  
+        -   **Permitir** -permite que dispositivos se comuniquem via conexão USB com qualquer PC ou Mac  
 
-        -   **Requer certificado**-permite que o emparelhamento com um Mac com um certificado importado para o perfil de inscrição  
+        -   **Exigir certificado**-permite o emparelhamento com um Mac com um certificado importado para o perfil de registro  
 
-2.  **Atribuir dispositivos DEP para gestão**   
-    Aceda ao [portal do Programa de Inscrição de Dispositivos](https://deploy.apple.com) (https://deploy.apple.com) e inicie sessão com o Apple ID da sua empresa. Aceda a **Programa de Implementação** > **Programa de Inscrição de Dispositivos** > **Gerir Dispositivos**. Especifique como irá **Escolher Dispositivos**, forneça informações sobre o dispositivo e especifique detalhes por **Número de Série**e **Número da Encomenda**do dispositivo, ou como **Carregar Ficheiro CSV**. Em seguida, selecione **atribuir ao servidor** e selecione o <*ServerName*> especificada no passo 3 e, em seguida, clique em **OK**.  
+2.  **Atribuir dispositivos DEP para gerenciamento**   
+    Aceda ao [portal do Programa de Inscrição de Dispositivos](https://deploy.apple.com) (https://deploy.apple.com) e inicie sessão com o Apple ID da sua empresa. Aceda a **Programa de Implementação** > **Programa de Inscrição de Dispositivos** > **Gerir Dispositivos**. Especifique como irá **Escolher Dispositivos**, forneça informações sobre o dispositivo e especifique detalhes por **Número de Série**e **Número da Encomenda**do dispositivo, ou como **Carregar Ficheiro CSV**. Em seguida, selecione **atribuir ao servidor** e selecione o <*ServerName*> que você especificou na etapa 3 e, em seguida, clique em **Okey**.  
 
 3.  **Sincronizar dispositivos geridos pelo DEP**   
-    No **ativos e compatibilidade** área de trabalho, aceda a **todos os dispositivos pertencentes** > **Predeclared dispositivos**. No separador **Home Page** , clique em **Sincronização DEP**. É enviado um pedido de sincronização para a Apple. Após a conclusão da sincronização, são apresentados os dispositivos geridos pelo DEP.
+    No **ativos e conformidade** , vá para **todos os dispositivos corporativos** > **dispositivos declaradas previamente**. No separador **Home Page** , clique em **Sincronização DEP**. É enviado um pedido de sincronização para a Apple. Após a conclusão da sincronização, são apresentados os dispositivos geridos pelo DEP.
 
-4.  **Atribua o perfil DEP**<br>No **ativos e compatibilidade** área de trabalho, aceda a **todos os dispositivos pertencentes** > **iOS** > **perfis de inscrição**. Selecione o perfil de inscrição de DEP e, em seguida, no **base** separador, clique em **atribuir aos dispositivos**. Selecione os dispositivos que irão utilizar este perfil de inscrição, clique em **adicionar**e, em seguida, clique em **OK**.   
-     ![Captura de ecrã de atribuir o perfil DEP para dispositivos iOS](../media/dep-assign-profile.png)
+> [!NOTE]
+> Na configuração híbrida, a operação de sincronização DEP é disparada manualmente clicando **sincronização DEP** no console do Configuration Manager.
+
+4.  **Atribuir perfil de DEP**<br>No **ativos e conformidade** , vá para **todos os dispositivos corporativos** > **iOS** > **perfis de registro**. Selecione o perfil de registro de DEP e, em seguida, no **início** , clique em **atribuir a dispositivos**. Selecione os dispositivos que usarão este perfil de registro, clique em **adicionar**e, em seguida, clique em **Okey**.   
+     ![Captura de tela da atribuição de perfil DEP para dispositivos iOS](../media/dep-assign-profile.png)
 
 5.  **Distribuir dispositivos aos utilizadores**   
     Já pode dar os dispositivos pertencentes à empresa aos utilizadores. A caixa de diálogo **Estado de Inscrição** dos dispositivos geridos indica **Não contactado** até que o dispositivo seja ligado e execute o Assistente de Configuração para inscrever o dispositivo. Quando um dispositivo iOS é ativado, será inscrito para gestão pelo Intune.

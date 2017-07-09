@@ -1,6 +1,6 @@
 ---
-title: "Operações e manutenção de relatórios | Documentos do Microsoft"
-description: "Saber os detalhes de gerir relatórios e subscrições de relatórios no System Center Configuration Manager."
+title: "Operações e manutenção para relatórios | Microsoft Docs"
+description: "Obter os detalhes de gerenciamento de relatórios e assinaturas de relatório no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,348 +16,351 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: f5a58ba9ecd9b0998c2859b6d3f45e493d7ef3cb
+ms.sourcegitcommit: f62d969dd49fb00b688602128df74b28ff551135
+ms.openlocfilehash: df572cd0c64c82e25164430a53e1b893b3ba3cf5
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
-# <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Operações e manutenção de relatórios no System Center Configuration Manager
+# <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Operações e manutenção para relatórios no System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
-Depois da infraestrutura no local para relatórios no System Center Configuration Manager, existem um número de operações que são geralmente efetuadas para gerir relatórios e subscrições de relatórios.  
+Após implantar a infraestrutura em vigor para a emissão de relatórios no System Center Configuration Manager, há um número de operações que você poderá realizar para gerenciar relatórios e assinaturas de relatório.  
 
-##  <a name="BKMK_ManageReports"></a>Gerir relatórios do Configuration Manager  
- O Configuration Manager oferece mais de 400 relatórios predefinidos que o ajudam a recolher, organizarem e apresentam informações sobre utilizadores, hardware e inventário de software, atualizações de software, aplicações, estado do site e outras operações do Configuration Manager na sua organização. Pode utilizar os relatórios predefinidos tal como estão ou pode modificar um relatório para satisfazer as suas necessidades. Também pode criar o modelo personalizado\-com base e o SQL\-com base em relatórios que satisfaçam os requisitos. Utilize as secções seguintes para ajudar a gerir relatórios do Configuration Manager.  
+##  <a name="BKMK_ManageReports"></a>Gerenciar relatórios do Configuration Manager  
+ Configuration Manager fornece mais de 400 relatórios predefinidos que ajudarão a coletam, organizam e apresentam informações sobre usuários, hardware e inventário de software, atualizações de software, aplicativos, status do site e outras operações do Configuration Manager na sua organização. Você pode usar os relatórios predefinidos como estão, ou você pode modificar um relatório para atender às suas necessidades. Também é possível criar um modelo personalizado\-com base em SQL e\-com base em relatórios para atender às suas necessidades. Use as seções a seguir para ajudá-lo a gerenciar relatórios do Configuration Manager.  
 
 ###  <a name="BKMK_RunReport"></a>Executar um relatório do Configuration Manager  
- Relatórios no Configuration Manager são armazenados no SQL Server Reporting Services e os dados compostos no relatório obtidos a partir da base de dados do site do Configuration Manager. Pode aceder a relatórios na consola do Configuration Manager ou utilizando o Gestor de relatórios, que poderá aceder num browser. Pode abrir os relatórios em qualquer computador que tenha acesso ao computador que está a executar o SQL Server Reporting Services e tem de ter direitos suficientes para visualizar os relatórios. Quando executa um relatório, o título do relatório, descrição e categoria são apresentados no idioma do sistema operativo local.  
+ Relatórios no Configuration Manager são armazenados no SQL Server Reporting Services e os dados renderizados no relatório são recuperados do banco de dados de site do Configuration Manager. Você pode acessar relatórios no console do Configuration Manager ou usando o Gerenciador de relatórios, acessar em um navegador da web. Você pode abrir relatórios em qualquer computador que tenha acesso ao computador que está executando o SQL Server Reporting Services, e você deve ter direitos suficientes para exibir os relatórios. Quando você executa um relatório, o título do relatório, a descrição e categoria são exibidos no idioma do sistema operacional local.  
 
 > [!NOTE]  
->  Em algumas não\-inglês idiomas, carateres poderão não ser corretamente apresentados nos relatórios.  Neste caso, os relatórios podem ser visualizados utilizando web\-com base em Gestor de relatórios ou através da consola do administrador remoto.  
+>  Em alguns não\-inglês idiomas, caracteres podem não aparecer corretamente nos relatórios.  Nesse caso, relatórios podem ser exibidos usando a web\-com base em Gerenciador de relatórios ou pelo Console do administrador remoto.  
 
 > [!WARNING]  
->  Para executar relatórios, tem de ter **leitura** direitos para o **Site** permissão e o **executar relatório** permissão que esteja configurado para objetos específicos.  
+>  Para executar relatórios, você deve ter **leitura** direitos para o **Site** permissão e o **executar relatório** permissão que está configurado para objetos específicos.  
+
+> [!IMPORTANT]    
+> Deve haver uma relação de confiança bidirecional estabelecida para usuários de um domínio diferente do que a conta do ponto de Reporting Servicies a execução de relatórios com êxito.
 
 > [!NOTE]  
->  Gestor de relatórios é um web\-com base em ferramentas de acesso e gestão de relatório que utiliza para administrar uma instância de servidor único relatório numa localização remota através de uma ligação HTTP. Pode utilizar Gestor de relatórios para tarefas operacionais, por exemplo, para visualizar relatórios, modificar propriedades de relatórios e gerir subscrições de relatórios associadas. Este tópico fornece os passos para visualizar um relatório e modificar propriedades de relatórios no Gestor de relatórios, mas para obter mais informações sobre as restantes opções Gestor de relatórios fornecidas pelo, consulte o artigo [Gestor de relatórios](http://go.microsoft.com/fwlink/p/?LinkId=224916) no SQL Server 2008 Books Online.  
+>  Gerenciador de relatórios é uma web\-com base em ferramenta de acesso e gerenciamento de relatórios que você pode usar para administrar uma instância de servidor de relatório único em um local remoto por meio de uma conexão HTTP. Você pode usar o Gerenciador de relatórios para tarefas operacionais como, por exemplo, para exibir relatórios, modificar propriedades de relatórios e gerenciar assinaturas de relatório associado. Este tópico fornece as etapas para exibir um relatório e modificar propriedades de relatório no Gerenciador de relatórios, mas para obter mais informações sobre as outras opções que fornece o Gerenciador de relatórios, consulte [Gerenciador de relatórios](http://go.microsoft.com/fwlink/p/?LinkId=224916) nos Manuais Online do SQL Server 2008.  
 
- Utilize os procedimentos seguintes para executar um relatório do Configuration Manager.  
+ Use os procedimentos a seguir para executar um relatório do Configuration Manager.  
 
-##### <a name="to-run-a-report-in-the-configuration-manager-console"></a>Para executar um relatório na consola do Configuration Manager  
+##### <a name="to-run-a-report-in-the-configuration-manager-console"></a>Para executar um relatório no console do Configuration Manager  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  No console do Configuration Manager, clique em **monitoramento**.  
 
-2.  No **monitorização** área de trabalho, expanda **relatórios**e, em seguida, clique em **relatórios** para listar os relatórios disponíveis.  
+2.  No **monitoramento** espaço de trabalho, expanda **relatórios**e, em seguida, clique em **relatórios** para listar os relatórios disponíveis.  
 
     > [!IMPORTANT]  
-    >  Nesta versão do Configuration Manager, o **todo o conteúdo** relatórios apresentam apenas pacotes, e não aplicações.  
+    >  Nesta versão do Configuration Manager, o **todo o conteúdo** relatórios exibem somente pacotes e não aplicativos.  
 
     > [!TIP]  
-    >  Se não estiver listados nenhum relatórios, certifique-se de que o ponto do reporting services está instalado e configurado. Para obter mais informações, consulte o artigo [configurar reporting](configuring-reporting.md).  
+    >  Se não houver relatórios listados, verifique se que o ponto do reporting services está instalado e configurado. Para obter mais informações, consulte [Configurando reporting](configuring-reporting.md).  
 
-3.  Selecione o relatório que pretende executar, e, em seguida, no **base** separador o **grupo de relatórios** secção, clique em **executar** para abrir o relatório.  
+3.  Selecione o relatório que você deseja executar, e, em seguida, no **início** guia o **grupo relatório** seção, clique em **executar** para abrir o relatório.  
 
-4.  Quando existirem parâmetros necessários, especifique os parâmetros e, em seguida, clique em **Ver relatório**.  
+4.  Quando houver parâmetros obrigatórios, especifique os parâmetros e, em seguida, clique em **Exibir relatório**.  
 
-#### <a name="to-run-a-report-in-a-web-browser"></a>Para executar um relatório num browser  
+#### <a name="to-run-a-report-in-a-web-browser"></a>Para executar um relatório em um navegador da web  
 
-1.  No seu browser, introduza o URL do Gestor de relatórios, por exemplo, **http:\/\/servidor1\/relatórios**. Poderá determinar o URL do Gestor de relatórios no **URL do Gestor de relatórios** página no Reporting Services Configuration Manager.  
+1.  No navegador da web, digite a URL do Gerenciador de relatórios, por exemplo, **http:\/\/Server1\/relatórios**. Você pode determinar a URL do Gerenciador de relatórios no **URL do Report Manager** página no Reporting Services Configuration Manager.  
 
-2.  No Gestor de relatórios, clique em pasta de relatórios no Configuration Manager, por exemplo, **ConfigMgr\_CAS**.  
+2.  No Gerenciador de relatórios, clique em pasta de relatórios do Configuration Manager, por exemplo, **ConfigMgr\_CAS**.  
 
     > [!TIP]  
-    >  Se não estiver listados nenhum relatórios, certifique-se de que o ponto do reporting services está instalado e configurado. Para obter mais informações, consulte o artigo [configurar reporting](configuring-reporting.md).  
+    >  Se não houver relatórios listados, verifique se que o ponto do reporting services está instalado e configurado. Para obter mais informações, consulte [Configurando reporting](configuring-reporting.md).  
 
-3.  Clique na categoria de relatório para o relatório que pretende executar e, em seguida, clique na ligação para o relatório. O relatório é apresentado no Gestor de relatórios.  
+3.  Clique na categoria do relatório que você deseja executar e, em seguida, clique no link para o relatório. O relatório é aberto no Gerenciador de relatórios.  
 
-4.  Quando existirem parâmetros necessários, especifique os parâmetros e, em seguida, clique em **Ver relatório**.  
+4.  Quando houver parâmetros obrigatórios, especifique os parâmetros e, em seguida, clique em **Exibir relatório**.  
 
 ###  <a name="BKMK_ModifyReportProperties"></a>Modificar as propriedades de um relatório do Configuration Manager  
- Na consola do Configuration Manager, pode visualizar as propriedades de um relatório, tais como o nome do relatório e a descrição, mas para alterar as propriedades, utilize o Gestor de relatórios. Utilize o procedimento seguinte para modificar as propriedades de um relatório do Configuration Manager.  
+ No console do Configuration Manager, você pode exibir as propriedades de um relatório, como o nome do relatório e a descrição, mas para alterar as propriedades, use o Gerenciador de relatórios. Use o procedimento a seguir para modificar as propriedades de um relatório do Configuration Manager.  
 
-#### <a name="to-modify-report-properties-in-report-manager"></a>Para modificar as propriedades de relatório no Gestor de relatórios  
+#### <a name="to-modify-report-properties-in-report-manager"></a>Para modificar propriedades de relatório no Gerenciador de relatórios  
 
-1.  No seu browser, introduza o URL do Gestor de relatórios, por exemplo, **http:\/\/servidor1\/relatórios**. Poderá determinar o URL do Gestor de relatórios no **URL do Gestor de relatórios** página no Reporting Services Configuration Manager.  
+1.  No navegador da web, digite a URL do Gerenciador de relatórios, por exemplo, **http:\/\/Server1\/relatórios**. Você pode determinar a URL do Gerenciador de relatórios no **URL do Report Manager** página no Reporting Services Configuration Manager.  
 
-2.  No Gestor de relatórios, clique em pasta de relatórios no Configuration Manager, por exemplo, **ConfigMgr\_CAS**.  
+2.  No Gerenciador de relatórios, clique em pasta de relatórios do Configuration Manager, por exemplo, **ConfigMgr\_CAS**.  
 
     > [!TIP]  
-    >  Se não estiver listados nenhum relatórios, certifique-se de que o ponto do Reporting Services está instalado e configurado. Para obter mais informações, consulte o artigo [configurar relatórios](configuring-reporting.md)  
+    >  Se não houver relatórios listados, verifique se que o ponto do Reporting Services está instalado e configurado. Para obter mais informações, consulte [Configurando relatórios](configuring-reporting.md)  
 
-3.  Clique na categoria de relatório para o relatório para o qual pretende modificar as propriedades e, em seguida, clique na ligação para o relatório. O relatório é apresentado no Gestor de relatórios.  
+3.  Clique na categoria de relatório para o relatório para o qual você deseja modificar as propriedades e, em seguida, clique no link para o relatório. O relatório é aberto no Gerenciador de relatórios.  
 
-4.  Clique na **propriedades** separador. Pode modificar o nome do relatório e a descrição.  
+4.  Clique o **propriedades** guia. Você pode modificar o nome do relatório e a descrição.  
 
-5.  Quando tiver terminado, clique em **aplicar**. As propriedades de relatório são guardadas no servidor de relatórios e consola do Configuration Manager obtém as propriedades atualizadas para o relatório.  
+5.  Quando tiver terminado, clique em **aplicar**. As propriedades do relatório são salvos no servidor de relatório e o console do Configuration Manager recupera as propriedades do relatório atualizado para o relatório.  
 
 ###  <a name="BKMK_EditReport"></a>Editar um relatório do Configuration Manager  
- Quando um relatório existente do Configuration Manager não obtiver as informações que necessita ou não fornece o esquema ou estrutura pretendidos, pode editar o relatório no Report Builder.  
+ Quando um relatório existente do Configuration Manager não recuperar as informações que você precisa ter ou não fornece o layout ou o design desejado, você pode editar o relatório no construtor de relatórios.  
 
 > [!NOTE]  
->  Também pode optar por clonar um relatório existente, abrindo-o para edição e clicando em **guardar como** guardá-lo como um novo relatório.  
+>  Você também pode optar por clonar um relatório existente ao abri-lo para edição ou clicar em **Salvar como** salvá-lo como um novo relatório.  
 
 > [!IMPORTANT]  
->  A conta de utilizador tem de ter **modificar Site** permissão e **modificar relatório** permissões nos objetos específicos associados ao relatório que pretende modificar.  
+>  A conta de usuário deve ter **modificar do Site** permissão e **modificar relatório** permissões em objetos específicos associados com o relatório que você deseja modificar.  
 
 > [!IMPORTANT]  
->  Quando Configuration Manager é atualizado para uma versão mais recente, os relatórios predefinidos são substituem novos relatórios. Se modificar um relatório predefinido, tem uma cópia de segurança do relatório antes de instalar a nova versão e, em seguida, restaurar o relatório no Reporting Services. Se estiver a efetuar alterações significativas a um relatório predefinido, considere criar um novo relatório em vez disso. Novos relatórios que criar antes de atualizar o site não são substituídos.  
+>  Quando o Configuration Manager é atualizado para uma versão mais recente, substituídos por novos relatórios os relatórios predefinidos. Se você modificar um relatório predefinido, você deve fazer backup do relatório antes de instalar a nova versão e, em seguida, restaure o relatório no Reporting Services. Se você estiver fazendo alterações significativas em um relatório predefinido, considere criar um novo relatório em vez disso. Novos relatórios criados antes de atualizar um site não serão substituídos.  
 
- Utilize o procedimento seguinte para editar as propriedades de um relatório do Configuration Manager.  
+ Use o procedimento a seguir para editar as propriedades de um relatório do Configuration Manager.  
 
 #### <a name="to-edit-report-properties"></a>Para editar as propriedades de relatório  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  No console do Configuration Manager, clique em **monitoramento**.  
 
-2.  No **monitorização** área de trabalho, expanda **relatórios**e, em seguida, clique em **relatórios** para listar os relatórios disponíveis.  
+2.  No **monitoramento** espaço de trabalho, expanda **relatórios**e, em seguida, clique em **relatórios** para listar os relatórios disponíveis.  
 
-3.  Selecione o relatório que pretende modificar, e, em seguida, no **base** separador o **grupo de relatórios** secção, clique em **editar**. Introduza a conta de utilizador e palavra-passe se-á pedido e, em seguida, clique em **OK**. Se o Report Builder não estiver instalado no computador, lhe for pedido para instalá-lo. Clique em **executar** para instalar o Report Builder, necessário para modificar e criar relatórios.  
+3.  Selecione o relatório que você deseja modificar, e, em seguida, no **início** guia o **grupo relatório** seção, clique em **editar**. Insira sua conta de usuário e senha, se você for solicitado e, em seguida, clique em **Okey**. Se o construtor de relatórios não estiver instalado no computador, você precisará instalá-lo. Clique em **executar** para instalar o construtor de relatórios, que é necessário para modificar e criar relatórios.  
 
-4.  No Report Builder, modifique as definições de relatório adequadas e, em seguida, clique em **guardar** para guardar o relatório para o servidor de relatórios.  
+4.  No construtor de relatórios, modifique as configurações apropriadas do relatório e, em seguida, clique em **salvar** para salvar o relatório para o servidor de relatório.  
 
 ###  <a name="BKMK_CreateModelBasedReport"></a>Criar um modelo de\-com base em relatórios  
- Um modelo de\-com base permite de relatório selecionar interativamente os itens que pretende incluir no relatório. Para obter mais informações sobre como criar modelos de relatório personalizado, consulte o artigo [criar modelos de relatório personalizado para o System Center Configuration Manager no SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
+ Um modelo de\-com base permite que o relatório você interativamente seleciona os itens que você deseja incluir em seu relatório. Para obter mais informações sobre como criar modelos de relatório personalizado, consulte [criando modelos de relatório personalizado para o System Center Configuration Manager no SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
 
 > [!IMPORTANT]  
->  A conta de utilizador tem de ter **modificar Site** permissão para criar um novo relatório. O utilizador só pode criar um relatório em pastas para que o utilizador tenha **modificar relatório** permissões.  
+>  A conta de usuário deve ter **modificar do Site** permissão para criar um novo relatório. O usuário só pode criar um relatório em pastas para os quais o usuário tem **modificar relatório** permissões.  
 
- Utilize o procedimento seguinte para criar um modelo\-com base relatório do Configuration Manager.  
+ Use o procedimento a seguir para criar um modelo de\-com base em relatórios do Configuration Manager.  
 
 #### <a name="to-create-a-model-based-report"></a>Para criar um modelo\-com base em relatórios  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  No console do Configuration Manager, clique em **monitoramento**.  
 
-2.  No **monitorização** área de trabalho, expanda **relatórios** e clique em **relatórios**.  
+2.  No **monitoramento** espaço de trabalho, expanda **relatórios** e clique em **relatórios**.  
 
-3.  No **base** separador o **criar** secção, clique em **criar relatório** para abrir o **Assistente para criar relatório**.  
+3.  No **início** guia o **criar** seção, clique em **criar relatório** para abrir o **Assistente para criar relatório**.  
 
-4.  No **informações** página, configure as seguintes definições:  
+4.  Sobre o **informações** página, defina as seguintes configurações:  
 
-    -   **Tipo de**: Selecione **modelo\-com base relatório** para criar um relatório no Report Builder utilizando um modelo do Reporting Services.  
+    -   **Tipo**: Selecione **modelo\-relatório baseado em** para criar um relatório no construtor de relatórios usando um modelo do Reporting Services.  
 
     -   **Nome**: Especifique um nome para o relatório.  
 
     -   **Descrição**: Especifique uma descrição para o relatório.  
 
-    -   **Servidor**: Apresenta o nome do servidor de relatórios no qual está a criar este relatório.  
+    -   **Servidor**: Exibe o nome do servidor de relatório no qual você está criando o relatório.  
 
-    -   **Caminho**: Clique em **procurar** para especificar a pasta na qual pretende armazenar o relatório.  
+    -   **Caminho**: Clique em **procurar** para especificar uma pasta na qual você deseja armazenar o relatório.  
 
      Clique em **Seguinte**.  
 
-5.  No **seleção do modelo** página, selecione um modelo disponível na lista que utiliza para criar este relatório. Quando seleciona o modelo de relatório, o **pré-visualização** secção apresenta as vistas do SQL Server e entidades que são disponibilizadas pelo modelo de relatório selecionado.  
+5.  Sobre o **seleção de modelo** , selecione um modelo disponível na lista que você pode usar para criar o relatório. Quando você seleciona o modelo de relatório, o **visualização** seção exibe os modos de exibição do SQL Server e entidades que estão disponíveis pelo modelo de relatório selecionado.  
 
-6.  Na página **Resumo** , reveja as definições. Clique em **anterior** para alterar as definições ou clique em **seguinte** para criar o relatório no Configuration Manager.  
+6.  Na página **Resumo** , reveja as definições. Clique em **anterior** para alterar as configurações ou clique em **próximo** para criar o relatório no Configuration Manager.  
 
-7.  No **confirmação** página, clique em **fechar** para sair do assistente e reabrir o Report Builder para configurar as definições de relatório. Introduza a conta de utilizador e palavra-passe se-á pedido e, em seguida, clique em **OK**. Se o Report Builder não estiver instalado no computador, lhe for pedido para instalá-lo. Clique em **executar** para instalar o Report Builder, necessário para modificar e criar relatórios.  
+7.  Sobre o **confirmação** , clique em **fechar** para sair do assistente e, em seguida, abra o construtor de relatórios para definir as configurações de relatório. Insira sua conta de usuário e senha, se você for solicitado e, em seguida, clique em **Okey**. Se o construtor de relatórios não estiver instalado no computador, você precisará instalá-lo. Clique em **executar** para instalar o construtor de relatórios, que é necessário para modificar e criar relatórios.  
 
-8.  No Microsoft Report Builder, crie o esquema do relatório, selecione os dados nas vistas do SQL Server disponíveis, adicione parâmetros ao relatório e assim sucessivamente. Para obter mais informações sobre como utilizar o Report Builder para criar um novo relatório, consulte a ajuda do Report Builder.  
+8.  No construtor de relatórios da Microsoft, crie o layout do relatório, selecione dados nos modos de exibição disponíveis do SQL Server, adicionar parâmetros ao relatório e assim por diante. Para obter mais informações sobre como usar o construtor de relatórios para criar um novo relatório, consulte a Ajuda do construtor de relatórios.  
 
-9. Clique em **executar** para executar o relatório. Certifique-se de que o relatório fornece as informações que esperava. Clique em **estrutura** para regressar à vista de estrutura e modificar o relatório, se necessário.  
+9. Clique em **executar** para executar o relatório. Verifique se o relatório contém as informações que você espera. Clique em **Design** para retornar para a exibição de Design para modificar o relatório, se necessário.  
 
-10. Clique em **guardar** para guardar o relatório para o servidor de relatórios. Pode executar e modificar o novo relatório no **relatórios** nó o **monitorização** área de trabalho.  
+10. Clique em **salvar** para salvar o relatório para o servidor de relatório. Você pode executar e modificar o novo relatório no **relatórios** nó o **monitoramento** espaço de trabalho.  
 
 ###  <a name="BKMK_CreateSQLBasedReport"></a>Criar um SQL\-com base em relatórios  
- Um SQL\-com base permite de relatório, é possível obter dados com base numa instrução SQL de relatório.  
+ Um SQL\-com base permite que o relatório recuperar dados com base em um instrução SQL do relatório.  
 
 > [!IMPORTANT]  
->  Quando cria uma instrução SQL para um relatório personalizado, não faça diretamente referência tabelas do SQL Server. Em vez disso, a referência vistas de relatórios do SQL Server \(ver nomes que começam por v\_ \) a partir da base de dados do site. Também pode referenciar procedimentos armazenados públicos \(armazenados nomes de procedimento que começam por sp\_ \) a partir da base de dados do site.  
+>  Quando você cria uma instrução SQL para um relatório personalizado, não faça referência diretamente tabelas do SQL Server. Em vez disso, a referência de visualizações de relatórios do SQL Server \(exibir nomes que comecem com v\_ \) do banco de dados do site. Você também pode fazer referência a procedimentos armazenados públicos \(os nomes de procedimento que iniciam com sp armazenado\_ \) do banco de dados do site.  
 
 > [!IMPORTANT]  
->  A conta de utilizador tem de ter **modificar Site** permissão para criar um novo relatório. O utilizador só pode criar um relatório em pastas para que o utilizador tenha **modificar relatório** permissões.  
+>  A conta de usuário deve ter **modificar do Site** permissão para criar um novo relatório. O usuário só pode criar um relatório em pastas para os quais o usuário tem **modificar relatório** permissões.  
 
- Utilize o procedimento seguinte para criar um SQL\-com base relatório do Configuration Manager.  
+ Use o procedimento a seguir para criar um SQL\-com base em relatórios do Configuration Manager.  
 
 #### <a name="to-create-a-sql-based-report"></a>Para criar um SQL\-com base em relatórios  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  No console do Configuration Manager, clique em **monitoramento**.  
 
 2.  Na área de trabalho **Monitorização** , expanda **Comunicar**e clique em **Relatórios**.  
 
-3.  No **base** separador o **criar** secção, clique em **criar relatório** para abrir o **Assistente para criar relatório**.  
+3.  No **início** guia o **criar** seção, clique em **criar relatório** para abrir o **Assistente para criar relatório**.  
 
-4.  No **informações** página, configure as seguintes definições:  
+4.  Sobre o **informações** página, defina as seguintes configurações:  
 
-    -   **Tipo de**: Selecione **SQL\-com base relatório** para criar um relatório no Report Builder utilizando uma instrução de SQL Server.  
+    -   **Tipo**: Selecione **SQL\-relatório baseado em** para criar um relatório no construtor de relatórios usando uma instrução SQL.  
 
     -   **Nome**: Especifique um nome para o relatório.  
 
     -   **Descrição**: Especifique uma descrição para o relatório.  
 
-    -   **Servidor**: Apresenta o nome do servidor de relatórios no qual está a criar este relatório.  
+    -   **Servidor**: Exibe o nome do servidor de relatório no qual você está criando o relatório.  
 
-    -   **Caminho**: Clique em **procurar** para especificar a pasta na qual pretende armazenar o relatório.  
+    -   **Caminho**: Clique em **procurar** para especificar uma pasta na qual você deseja armazenar o relatório.  
 
      Clique em **Seguinte**.  
 
-5.  Na página **Resumo** , reveja as definições. Clique em **anterior** para alterar as definições ou clique em **seguinte** para criar o relatório no Configuration Manager.  
+5.  Na página **Resumo** , reveja as definições. Clique em **anterior** para alterar as configurações ou clique em **próximo** para criar o relatório no Configuration Manager.  
 
-6.  No **confirmação** página, clique em **fechar** para sair do assistente e reabrir o Report Builder para configurar as definições de relatório. Introduza a conta de utilizador e palavra-passe se-á pedido e, em seguida, clique em **OK**. Se o Report Builder não estiver instalado no computador, lhe for pedido para instalá-lo. Clique em **executar** para instalar o Report Builder, necessário para modificar e criar relatórios.  
+6.  Sobre o **confirmação** , clique em **fechar** para sair do assistente e abrir o construtor de relatórios para definir as configurações de relatório. Insira sua conta de usuário e senha, se você for solicitado e, em seguida, clique em **Okey**. Se o construtor de relatórios não estiver instalado no computador, você precisará instalá-lo. Clique em **executar** para instalar o construtor de relatórios, que é necessário para modificar e criar relatórios.  
 
-7.  No Microsoft Report Builder, forneça a instrução SQL para o relatório ou crie a instrução SQL utilizando colunas nas vistas do SQL Server disponíveis, adicione parâmetros ao relatório e assim sucessivamente.  
+7.  No construtor de relatórios, forneça a instrução SQL para o relatório ou crie a instrução SQL usando colunas nas exibições disponíveis do SQL Server, adicionar parâmetros ao relatório e assim por diante.  
 
-8.  Clique em **executar** para executar o relatório. Certifique-se de que o relatório fornece as informações que esperava. Clique em **estrutura** para regressar à vista de estrutura e modificar o relatório, se necessário.  
+8.  Clique em **executar** para executar o relatório. Verifique se o relatório contém as informações que você espera. Clique em **Design** para retornar para a exibição de Design para modificar o relatório, se necessário.  
 
-9. Clique em **guardar** para guardar o relatório para o servidor de relatórios. Pode executar o novo relatório **relatórios** nó o **monitorização** área de trabalho.  
+9. Clique em **salvar** para salvar o relatório para o servidor de relatório. Você pode executar o novo relatório **relatórios** nó o **monitoramento** espaço de trabalho.  
 
-##  <a name="BKMK_ManageReportSubscriptions"></a>Gerir subscrições de relatórios  
- Subscrições de relatórios do SQL Server Reporting Services permitem configurar a entrega automática de relatórios especificados por correio eletrónico ou uma partilha de ficheiros em intervalos agendados. Utilize o **Assistente para criar subscrição** no System Center 2012 Configuration Manager para configurar subscrições de relatórios.  
+##  <a name="BKMK_ManageReportSubscriptions"></a>Gerenciar assinaturas de relatório  
+ Assinaturas de relatório no SQL Server Reporting Services permitem configurar a entrega automática de relatórios especificados por email ou para um compartilhamento de arquivos em intervalos agendados. Use o **Assistente para criar assinatura** no System Center 2012 Configuration Manager para configurar assinaturas de relatório.  
 
-###  <a name="BKMK_ReportSubscriptionFileShare"></a>Criar uma subscrição de relatório para entregar um relatório numa partilha de ficheiros  
- Quando cria uma subscrição de relatório para entregar um relatório para uma partilha de ficheiros, o relatório é copiado no formato especificado para a partilha de ficheiros que especificar. Poderá subscrever e solicitar a entrega de apenas um relatório de cada vez.  
+###  <a name="BKMK_ReportSubscriptionFileShare"></a>Criar uma assinatura de relatório para entregar um relatório em um compartilhamento de arquivos  
+ Quando você cria uma assinatura de relatório para entregar um relatório para um compartilhamento de arquivos, o relatório é copiado no formato especificado para o compartilhamento de arquivo que você especificar. Você pode assinar e solicitar entrega de apenas um relatório por vez.  
 
- Ao contrário dos relatórios alojados e geridos por um servidor de relatórios, relatórios que são entregues para uma pasta partilhada são ficheiros estáticos. As funcionalidades interativas definidas para o relatório não funcionam em relatórios que estão armazenados como ficheiros no sistema de ficheiros. As funcionalidades de interação são representadas como elementos estáticos. Se o relatório incluir gráficos, é utilizada a apresentação predefinida. Se o relatório ligar a outro relatório, a ligação é apresentada como texto estático. Se pretender manter as funcionalidades interativas num relatório entregue, opte por utilizar entrega de e-mail. Para obter mais informações sobre a entrega de correio eletrónico, consulte o [criar uma subscrição de relatório para entregar um relatório por correio eletrónico](#BKMK_ReportSubscriptionEmail) secção mais à frente neste tópico.  
+ Diferentemente dos relatórios hospedados e gerenciados por um servidor de relatório, relatórios que são entregues em uma pasta compartilhada são arquivos estáticos. Recursos interativos definidos para o relatório não funcionam para relatórios que são armazenados como arquivos no sistema de arquivos. Recursos de interação são representados como elementos estáticos. Se o relatório incluir gráficos, a apresentação padrão será usada. Se o relatório estiver vinculado a outro relatório, o link é processado como texto estático. Se você quiser reter recursos interativos em um relatório entregue, use a entrega de email. Para obter mais informações sobre a entrega de email, consulte o [criar uma assinatura de relatório para entregar um relatório por email](#BKMK_ReportSubscriptionEmail) seção mais adiante neste tópico.  
 
- Quando cria uma subscrição que utilize a entrega de partilha de ficheiros, tem de especificar uma pasta existente como pasta de destino. O servidor de relatórios não cria pastas no sistema de ficheiros. A pasta que especificar tem de ser acessível através de uma ligação de rede. Quando especificar a pasta de destino de uma subscrição, utilize um caminho UNC e não inclua barras invertidas no caminho da pasta. Por exemplo, é um caminho UNC válido para a pasta de destino: \\ \\ &lt;servername\>\\reportfiles\\operations\\2011.  
+ Quando você cria uma assinatura que usa a entrega de compartilhamento de arquivos, você deve especificar uma pasta existente como a pasta de destino. O servidor de relatório não cria pastas no sistema de arquivos. A pasta que você especificar deve ser acessível por uma conexão de rede. Quando você especificar a pasta de destino em uma assinatura, use um caminho UNC e não inclua barras invertidas no caminho da pasta. Por exemplo, um caminho UNC válido para a pasta de destino é: \\ \\ &lt;servername\>\\reportfiles\\operações\\2011.  
 
- Os relatórios podem ser compostos numa variedade de formatos de ficheiro, tais como MHTML ou Excel. Para guardar o relatório no formato de ficheiro específico, selecione esse formato de composição ao criar a sua subscrição. Por exemplo, escolher o Excel guarda o relatório como um ficheiro do Microsoft Excel. Embora possa selecionar qualquer formato de composição suportado, alguns formatos funcionam melhor do que outros durante a composição para um ficheiro.  
+ Os relatórios podem ser renderizados em uma variedade de formatos de arquivo, como MHTML ou Excel. Para salvar o relatório em um formato de arquivo específico, selecione o formato de renderização ao criar sua assinatura. Por exemplo, escolher o Excel salva o relatório como um arquivo do Microsoft Excel. Embora você possa selecionar qualquer formato de renderização com suporte, alguns formatos funcionam melhor do que outros na renderização de um arquivo.  
 
- Utilize o procedimento seguinte para criar uma subscrição de relatório para entregar um relatório para uma partilha de ficheiros.  
+ Use o procedimento a seguir para criar uma assinatura de relatório para entregar um relatório em um compartilhamento de arquivos.  
 
-#### <a name="to-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a>Para criar uma subscrição de relatório para entregar um relatório para uma partilha de ficheiros  
+#### <a name="to-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a>Para criar uma assinatura de relatório para entregar um relatório para um compartilhamento de arquivos  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  No console do Configuration Manager, clique em **monitoramento**.  
 
-2.  No **monitorização** área de trabalho, expanda **relatórios** e clique em **relatórios** para listar os relatórios disponíveis. Pode selecionar uma pasta de relatório para listar apenas os relatórios que estão associados essa pasta.  
+2.  No **monitoramento** espaço de trabalho, expanda **relatórios** e clique em **relatórios** para listar os relatórios disponíveis. Você pode selecionar uma pasta de relatório para listar somente os relatórios que estão associados com a pasta.  
 
-3.  Selecione o relatório que pretende adicionar à subscrição e, em seguida, no **base** separador o **grupo de relatórios** secção, clique em **criar subscrição** para abrir o **Assistente para criar subscrição**.  
+3.  Selecione o relatório que você deseja adicionar à assinatura, e, em seguida, no **início** guia o **grupo relatório** seção, clique em **Criar assinatura** para abrir o **Assistente para criar assinatura**.  
 
-4.  No **entrega de subscrição** página, configure as seguintes definições:  
+4.  Sobre o **entrega da assinatura** página, defina as seguintes configurações:  
 
-    -   Relatório entregue por: Selecione **partilha de ficheiros Windows** para entregar o relatório a uma partilha de ficheiros.  
+    -   Relatório entregue por: Selecione **compartilhamento de arquivos do Windows** para entregar o relatório para um compartilhamento de arquivos.  
 
-    -   **Nome do ficheiro**: Especifique o nome de ficheiro para o relatório. Por predefinição, o ficheiro de relatório não inclui uma extensão de nome de ficheiro. Selecione **Adicionar extensão de ficheiro ao ser criado** para adicionar automaticamente uma extensão de nome de ficheiro a esse relatório com base no formato de composição.  
+    -   **Nome do arquivo**: Especifique o nome de arquivo para o relatório. Por padrão, o arquivo de relatório não inclui uma extensão de nome de arquivo. Selecione **Adicionar extensão de arquivo quando criada** para adicionar automaticamente uma extensão de nome de arquivo para esse relatório com base no formato de renderização.  
 
-    -   **Caminho**: Especifique um caminho UNC para uma pasta existente para fornecer este relatório onde pretende \(por exemplo, \\ \\ &lt;nome do servidor\>\\&lt;partilha de servidor\>\\&lt;à pasta de relatórios\>\).  
+    -   **Caminho**: Especifique um caminho UNC para uma pasta existente onde você deseja enviar esse relatório \(por exemplo, \\ \\ &lt;nome do servidor\>\\&lt;compartilhamento de servidor\>\\&lt;pasta relatório\>\).  
 
         > [!NOTE]  
-        >  O nome de utilizador especificado posteriormente nesta página tem de ter acesso a esta partilha de servidor e ter permissões de escrita na pasta de destino.  
+        >  O nome de usuário especificado posteriormente nesta página deve ter acesso a esse compartilhamento de servidor e ter permissões de gravação na pasta de destino.  
 
-    -   **Formato de composição**: Selecione um dos seguintes formatos para o ficheiro de relatório:  
+    -   **Renderizar formato**: Selecione um dos seguintes formatos de arquivo de relatório:  
 
-        -   **Ficheiro XML com dados de relatório**: Guarda o relatório no formato de Extensible Markup Language.  
+        -   **Arquivo XML com dados de relatório**: Salva o relatório no formato de linguagem de marcação.  
 
-        -   **CSV \(delimitado por vírgulas\)**: Guarda o relatório no vírgula\-separados\-formato de valores.  
+        -   **CSV \(delimitada por vírgula\)**: Salva o relatório no vírgula\-separados\-formato de valor.  
 
-        -   **Ficheiro TIFF**: Guarda o relatório no formato de ficheiro de imagem etiquetados.  
+        -   **Arquivo TIFF**: Salva o relatório no formato TIFF.  
 
-        -   **Acrobat \(PDF\) ficheiro**: Guarda o relatório no Acrobat Portable Document Format.  
+        -   **Acrobat \(PDF\) arquivo**: Salva o relatório no formato PDF do Acrobat.  
 
-        -   **HTML 4.0**: Guarda o relatório como uma página Web visualizável apenas em browsers que suportam HTML 4.0. Internet Explorer 5 e versões posteriores suportam HTML 4.0.  
+        -   **O HTML 4.0**: Salva o relatório como uma página da Web visível apenas em navegadores que oferecem suporte a HTML 4.0. O Internet Explorer 5 e versões posteriores oferecem suporte a HTML 4.0.  
 
             > [!NOTE]  
-            >  Se tiver imagens no relatório, o formato HTML 4.0 não as inclui no ficheiro.  
+            >  Se houver imagens em seu relatório, no formato HTML 4.0 não irá incluí-las no arquivo.  
 
-        -   **MHTML \(arquivo web\)**: Guarda o relatório no formato MIME HTML \(mhtml\), que é visualizável em muitos browsers.  
+        -   **MHTML \(arquivo da web\)**: Salva o relatório no formato MIME HTML \(mhtml\), que é visível em muitos navegadores da web.  
 
-        -   **Compositor de RPL**: Guarda o relatório no esquema de página do relatório \(RPL\) formato.  
+        -   **Processador RPL**: Salva o relatório no Layout de página de relatório \(RPL\) formato.  
 
-        -   **Excel**: Guarda o relatório como uma folha de cálculo do Microsoft Excel.  
+        -   **Excel**: Salva o relatório como uma planilha do Microsoft Excel.  
 
-        -   **Word**: Guarda o relatório como um documento do Microsoft Word.  
+        -   **Word**: Salva o relatório como um documento do Word.  
 
-    -   **Nome de utilizador**: Especifique uma conta de utilizador do Windows com permissões para aceder à partilha de servidor de destino e pasta. A conta de utilizador tem de ter acesso a esta partilha de servidor e permissão de escrita na pasta de destino.  
+    -   **Nome de usuário**: Especifique uma conta de usuário do Windows com permissões para acessar o compartilhamento do servidor de destino e a pasta. A conta de usuário deve ter acesso a esse compartilhamento de servidor e ter permissão de gravação na pasta de destino.  
 
-    -   **Palavra-passe**: Especifique a palavra-passe para a conta de utilizador do Windows. No **Confirmar palavra-passe**, repetir a\-introduza a palavra-passe.  
+    -   **Senha**: Especifique a senha da conta de usuário do Windows. Em **Confirmar senha**, re\-digite a senha.  
 
-    -   Selecione uma das seguintes opções para configurar o comportamento quando existe um ficheiro com o mesmo nome na pasta de destino:  
+    -   Selecione uma das opções a seguir para configurar o comportamento quando um arquivo de mesmo nome existe na pasta de destino:  
 
-        -   **Substituir ficheiro existente por uma versão mais recente**: Especifica que quando o ficheiro de relatório já existe, a substituído pela nova versão.  
+        -   **Substituir um arquivo existente com uma versão mais recente**: Especifica que quando o arquivo de relatório já existe, a nova versão o substitui.  
 
-        -   **Não substituir um ficheiro existente**: Especifica que quando o ficheiro de relatório já existe, não existe nenhuma ação.  
+        -   **Não substituir um arquivo existente**: Especifica que, quando o arquivo de relatório já existe, não há nenhuma ação.  
 
-        -   **Incrementar nomes de ficheiro são adicionadas novas versões**: Especifica que, quando o ficheiro de relatório já existe, um número é adicionado para o novo relatório para o nome de ficheiro para o distinguir de outras versões.  
+        -   **Incrementar nomes de arquivos quando versões mais recentes são adicionadas**: Especifica que, quando o arquivo de relatório já existe, um número é adicionado ao novo relatório para o nome do arquivo para diferenciá-la de outras versões.  
 
-    -   **Descrição**: Especifica a descrição para a subscrição do relatório.  
+    -   **Descrição**: Especifica a descrição para a assinatura de relatório.  
 
      Clique em **Seguinte**.  
 
-5.  No **agendamento da subscrição** página, selecione uma das seguintes opções de agendamento de entrega para a subscrição de relatório:  
+5.  Sobre o **agendamento da assinatura** página, selecione uma das seguintes opções de agendamento de entrega para a assinatura de relatório:  
 
-    -   **Utilizar agendamento partilhado**: Um agendamento partilhado é um agendamento definido anteriormente que pode ser utilizado por outras subscrições de relatório. Selecione esta caixa de verificação e, em seguida, selecione um agendamento partilhado na lista se tiver sido especificado algum.  
+    -   **Usar agendamento compartilhado**: Uma agenda compartilhada é um agendamento previamente definido que pode ser usado por outras assinaturas de relatório. Marque esta caixa de seleção e, em seguida, selecione uma agenda compartilhada na lista se algum tiver sido especificado.  
 
-    -   **Criar nova agenda**: Configure a agenda no qual é executado este relatório, incluindo o intervalo, a hora de início e data e a data de fim para esta subscrição.  
+    -   **Criar novo agendamento**: Configure o agendamento no qual este relatório é executado, incluindo o intervalo, hora de início e data e a data de término para essa assinatura.  
 
-6.  No **parâmetros de subscrições** página, especifique os parâmetros deste relatório, que são utilizados quando é executado de forma automática. Quando não existem parâmetros para o relatório, esta página não é apresentada.  
+6.  Sobre o **parâmetros de assinatura** , especifique os parâmetros para este relatório que são usados quando ele é executado de forma autônomo. Quando não existem parâmetros para o relatório, essa página não é exibida.  
 
-7.  No **resumo** página, reveja as definições de subscrição de relatório. Clique em **anterior** para alterar as definições ou clique em **seguinte** para criar a subscrição de relatório.  
+7.  Sobre o **resumo** , examine as configurações de assinatura de relatório. Clique em **anterior** para alterar as configurações ou clique em **próximo** para criar a assinatura de relatório.  
 
-8.  Na página **Conclusão** , clique em **Fechar** para sair do assistente. Certifique-se de que a subscrição do relatório foi criada com êxito. Pode ver e modificar subscrições de relatórios no **subscrições** nó **relatórios** no **monitorização** área de trabalho.  
+8.  Na página **Conclusão** , clique em **Fechar** para sair do assistente. Verifique se a assinatura do relatório foi criada com êxito. Você pode exibir e modificar as assinaturas de relatório no **assinaturas** nó **relatórios** no **monitoramento** espaço de trabalho.  
 
-###  <a name="BKMK_ReportSubscriptionEmail"></a>Criar uma subscrição de relatório para entregar um relatório por correio eletrónico  
- Quando cria uma subscrição de relatório para entregar um relatório por correio eletrónico, é enviado um e-mail para os destinatários que forem configuradas e o relatório é incluído como um anexo. O servidor de relatórios não valida endereços de correio eletrónico ou obter os endereços de correio eletrónico a partir de um servidor de correio eletrónico. Tem de saber com antecedência que endereços que pretende utilizar de correio eletrónico. Por predefinição, pode enviar por e-mail relatórios para qualquer conta de correio eletrónico válido dentro ou fora da sua organização. Pode selecionar uma ou ambas as seguintes opções de entrega de correio eletrónico:  
+###  <a name="BKMK_ReportSubscriptionEmail"></a>Criar uma assinatura de relatório para entregar um relatório por email  
+ Quando você cria uma assinatura de relatório para entregar um relatório por email, um email é enviado aos destinatários que você configurar, e o relatório é incluído como um anexo. O servidor de relatório não valida endereços de email ou obter endereços de email de um servidor de email. Você deve saber com antecedência quais endereços que deseja usar. Por padrão, você pode enviar por email relatórios a qualquer conta de email válida dentro ou fora de sua organização. Você pode selecionar uma ou ambas das seguintes opções de entrega de email:  
 
--   Envie uma notificação e uma hiperligação para o relatório gerado.  
+-   Envie uma notificação e um hiperlink para o relatório gerado.  
 
--   Envie um relatório incorporado ou anexado. O formato de composição e o browser determinam se o relatório é incorporado ou anexado. Se o browser suportar HTML 4.0 e MHTML e selecionar o MHTML \(arquivo web\) formato de composição, o relatório é incorporado como parte da mensagem. Todos os outros formatos de composição \(CSV, PDF, Word, e assim sucessivamente\) fornecem relatórios como anexos. O Reporting Services não verifica o tamanho do anexo ou da mensagem antes de enviar o relatório. Se o anexo ou a mensagem excederem o limite máximo permitido pelo servidor de correio, o relatório não é entregue.  
+-   Envie um relatório anexado ou inserido. O formato de renderização e o navegador determinam se o relatório é inserido ou anexado. Se seu navegador dá suporte a HTML 4.0 e MHTML, e selecione o MHTML \(arquivo da web\) formato de renderização, o relatório será inserido como parte da mensagem. Todos os outros formatos de renderização \(CSV, PDF, Word, e assim por diante\) entregar relatórios como anexos. O Reporting Services não verifica o tamanho do anexo ou mensagem antes de enviar o relatório. Se o anexo ou a mensagem exceder o limite máximo permitido pelo servidor de email, o relatório não será entregue.  
 
 > [!IMPORTANT]  
->  Tem de configurar as definições de correio eletrónico no Reporting Services para o **E-Mail** opção de entrega para que esteja disponível. Para obter mais informações sobre como configurar as definições de correio eletrónico no Reporting Services, consulte o artigo [configurar um servidor de relatórios para entrega de E-Mail](http://go.microsoft.com/fwlink/p/?LinkId=226668) no SQL Server Books Online.  
+>  Você deve configurar as configurações de email no Reporting Services para o **Email** opção de entrega para estar disponível. Para obter mais informações sobre como configurar as configurações de email no Reporting Services, consulte [Configurando um servidor de relatório para entrega de Email](http://go.microsoft.com/fwlink/p/?LinkId=226668) no SQL Server Books Online.  
 
- Utilize o procedimento seguinte para criar uma subscrição de relatório para entregar um relatório por correio eletrónico.  
+ Use o procedimento a seguir para criar uma assinatura de relatório para entregar um relatório por email.  
 
-#### <a name="to-create-a-report-subscription-to-deliver-a-report-by-email"></a>Para criar uma subscrição de relatório para entregar um relatório por correio eletrónico  
+#### <a name="to-create-a-report-subscription-to-deliver-a-report-by-email"></a>Para criar uma assinatura de relatório para entregar um relatório por email  
 
--   Na consola do Configuration Manager, clique em **monitorização**.  
+-   No console do Configuration Manager, clique em **monitoramento**.  
 
--   No **monitorização** área de trabalho, expanda **relatórios** e clique em **relatórios** para listar os relatórios disponíveis. Pode selecionar uma pasta de relatório para listar apenas os relatórios que estão associados essa pasta.  
+-   No **monitoramento** espaço de trabalho, expanda **relatórios** e clique em **relatórios** para listar os relatórios disponíveis. Você pode selecionar uma pasta de relatório para listar somente os relatórios que estão associados com a pasta.  
 
--   Selecione o relatório que pretende adicionar à subscrição e, em seguida, no **base** separador o **grupo de relatórios** secção, clique em **criar subscrição** para abrir o **Assistente para criar subscrição**.  
+-   Selecione o relatório que você deseja adicionar à assinatura, e, em seguida, no **início** guia o **grupo relatório** seção, clique em **Criar assinatura** para abrir o **Assistente para criar assinatura**.  
 
--   No **entrega de subscrição** página, configure as seguintes definições:  
+-   Sobre o **entrega da assinatura** página, defina as seguintes configurações:  
 
-    -   **Relatório entregue por**: Selecione **i\-correio** para entregar o relatório como um anexo numa mensagem de e-mail.  
+    -   **Relatório entregue por**: Selecione **E\-mail** para entregar o relatório como um anexo em uma mensagem de email.  
 
-    -   **To**: Especifique um endereço de correio eletrónico válido para enviar este relatório.  
+    -   **To**: Especifique um endereço de email válido para enviar esse relatório.  
 
         > [!NOTE]  
-        >  Pode introduzir vários destinatários de correio eletrónico, separando cada endereço de correio eletrónico com um ponto e vírgula.  
+        >  Você pode inserir vários destinatários de email, separando cada endereço de email com um ponto e vírgula.  
 
-    -   **Cc**: Opcionalmente, especifique um endereço de correio eletrónico para copiar este relatório.  
+    -   **Cc**: Opcionalmente, especifique um endereço de email para copiar esse relatório.  
 
-    -   **Bcc**: Opcionalmente, especifique um endereço de correio eletrónico para enviar uma cópia oculta do relatório.  
+    -   **Bcc**: Opcionalmente, especifique um endereço de email para enviar uma cópia oculta desse relatório.  
 
-    -   **Responder a**: Especifique o endereço de resposta a utilizar se o destinatário responder à mensagem de correio eletrónico.  
+    -   **Responder a**: Especifique o endereço de resposta a ser usado se o destinatário responder à mensagem de email.  
 
-    -   **Assunto**: Especifique uma linha de assunto para a mensagem de correio eletrónico de subscrição.  
+    -   **Entidade**: Especifique uma linha de assunto da mensagem de email de assinatura.  
 
-    -   **Prioridade**: Selecione o sinalizador de prioridade para esta mensagem de correio eletrónico. Select **Low**, **Normal**, or **High**. A definição de prioridade é utilizada pelo Microsoft Exchange para definir um sinalizador que indica a importância da mensagem de e-mail.  
+    -   **Prioridade**: Selecione o sinalizador de prioridade para essa mensagem de email. Select **Low**, **Normal**, or **High**. A configuração de prioridade é usada pelo Microsoft Exchange para definir um sinalizador que indica a importância da mensagem de email.  
 
-    -   **Comentário**: Especifique o texto a ser adicionado ao corpo da mensagem de correio eletrónico de subscrição.  
+    -   **Comentário**: Especifique o texto a ser adicionado ao corpo da mensagem de email de assinatura.  
 
-    -   **Descrição**: Especifique a descrição para esta subscrição de relatório.  
+    -   **Descrição**: Especifique a descrição para essa assinatura de relatório.  
 
-    -   **Incluir ligação**: Inclui um URL para o relatório subscrito no corpo da mensagem de correio eletrónico.  
+    -   **Incluir Link**: Inclui uma URL ao relatório inscrito no corpo da mensagem de email.  
 
-    -   **Incluir relatório**: Especifique que o relatório é anexado ao i\-mensagem de correio. O formato em que o relatório será anexado é especificado no **formato de composição** lista.  
+    -   **Incluir relatório**: Especifique que o relatório é anexado à e\-mensagem de email. O formato no qual o relatório será anexado é especificado no **formato de renderização** lista.  
 
-    -   **Formato de composição**: Selecione um dos seguintes formatos para o relatório anexado:  
+    -   **Renderizar formato**: Selecione um dos seguintes formatos para o relatório anexado:  
 
-        -   **Ficheiro XML com dados de relatório**: Guarda o relatório no formato de Extensible Markup Language.  
+        -   **Arquivo XML com dados de relatório**: Salva o relatório no formato de linguagem de marcação.  
 
-        -   **CSV \(delimitado por vírgulas\)**: Guarda o relatório no vírgula\-separados\-formato de valores.  
+        -   **CSV \(delimitada por vírgula\)**: Salva o relatório no vírgula\-separados\-formato de valor.  
 
-        -   **Ficheiro TIFF**: Guarda o relatório no formato de ficheiro de imagem etiquetados.  
+        -   **Arquivo TIFF**: Salva o relatório no formato TIFF.  
 
-        -   **Acrobat \(PDF\) ficheiro**: Guarda o relatório no Acrobat Portable Document Format.  
+        -   **Acrobat \(PDF\) arquivo**: Salva o relatório no formato PDF do Acrobat.  
 
-        -   **MHTML \(arquivo web\)**: Guarda o relatório no formato MIME HTML \(mhtml\), que é visualizável em muitos browsers.  
+        -   **MHTML \(arquivo da web\)**: Salva o relatório no formato MIME HTML \(mhtml\), que é visível em muitos navegadores da web.  
 
-        -   **Excel**: Guarda o relatório como uma folha de cálculo do Microsoft Excel.  
+        -   **Excel**: Salva o relatório como uma planilha do Microsoft Excel.  
 
-        -   **Word**: Guarda o relatório como um documento do Microsoft Word.  
+        -   **Word**: Salva o relatório como um documento do Word.  
 
--   No **agendamento da subscrição** página, selecione uma das seguintes opções de agendamento de entrega para a subscrição de relatório:  
+-   Sobre o **agendamento da assinatura** página, selecione uma das seguintes opções de agendamento de entrega para a assinatura de relatório:  
 
-    -   **Utilizar agendamento partilhado**: Um agendamento partilhado é um agendamento definido anteriormente que pode ser utilizado por outras subscrições de relatório. Selecione esta caixa de verificação e, em seguida, selecione um agendamento partilhado na lista se tiver sido especificado algum.  
+    -   **Usar agendamento compartilhado**: Uma agenda compartilhada é um agendamento previamente definido que pode ser usado por outras assinaturas de relatório. Marque esta caixa de seleção e, em seguida, selecione uma agenda compartilhada na lista se algum tiver sido especificado.  
 
-    -   **Criar nova agenda**: Configure a agenda de execução deste relatório, incluindo o intervalo, a hora de início e data e a data de fim para esta subscrição.  
+    -   **Criar novo agendamento**: Configure o agendamento no qual este relatório será executado, incluindo o intervalo, a hora de início e a data e a data de término para essa assinatura.  
 
--   No **parâmetros de subscrições** página, especifique os parâmetros deste relatório, que são utilizados quando é executado de forma automática. Quando não existem parâmetros para o relatório, esta página não é apresentada.  
+-   Sobre o **parâmetros de assinatura** , especifique os parâmetros para este relatório que são usados quando ele é executado de forma autônomo. Quando não existem parâmetros para o relatório, essa página não é exibida.  
 
--   No **resumo** página, reveja as definições de subscrição de relatório. Clique em **anterior** para alterar as definições ou clique em **seguinte** para criar a subscrição de relatório.  
+-   Sobre o **resumo** , examine as configurações de assinatura de relatório. Clique em **anterior** para alterar as configurações ou clique em **próximo** para criar a assinatura de relatório.  
 
--   Na página **Conclusão** , clique em **Fechar** para sair do assistente. Certifique-se de que a subscrição do relatório foi criada com êxito. Pode ver e modificar subscrições de relatórios no **subscrições** nó **relatórios** no **monitorização** área de trabalho.  
+-   Na página **Conclusão** , clique em **Fechar** para sair do assistente. Verifique se a assinatura do relatório foi criada com êxito. Você pode exibir e modificar as assinaturas de relatório no **assinaturas** nó **relatórios** no **monitoramento** espaço de trabalho.  
 

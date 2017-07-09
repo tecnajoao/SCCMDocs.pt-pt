@@ -1,8 +1,8 @@
 ---
-title: "Lista de verificação para 1606 | Documentos do Microsoft"
-description: "Saiba mais sobre as ações a efetuar antes de atualizar a partir do System Center Configuration Manager versão 1511 ou 1602 para versão 1606."
+title: "Lista de verificação para 1606 | Microsoft Docs"
+description: "Saiba mais sobre as ações a serem tomadas antes da atualização do System Center Configuration Manager versão 1511 ou 1602 para a versão 1606."
 ms.custom: na
-ms.date: 2/7/2017
+ms.date: 6/6/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,45 +16,45 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 30af3326578d39c6d995672071705bcaeb877e4d
-ms.openlocfilehash: b0def6eb962d243a7ea5910b8d56bbb448b3a2e4
+ms.sourcegitcommit: 3619a73d3a39659de927e1711a7ec81de9918064
+ms.openlocfilehash: a6bda116499845fedff0126e2890755931de85bb
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="checklist-for-installing-update-1606-for-system-center-configuration-manager"></a>Lista de verificação para instalar a atualização 1606 para o System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
-Versão 1606 para ramificação atual do System Center Configuration Manager é uma atualização que pode utilizar para atualizar a partir da versão 1511 ou 1602.
+A versão 1606 de ramificação atual do System Center Configuration Manager é uma atualização que você pode usar para atualizar da versão 1511 ou da 1602.
 
-Antes de instalar a versão 1606 como uma atualização, reveja as seguintes informações e lista de verificação para ações a efetuar antes de iniciar a atualização.
+Antes de instalar a versão 1606 como uma atualização, revise as seguintes informações e lista de verificação de ações a serem tomadas antes de iniciar a atualização.
 
-Para obter informações sobre as versões do plano base, consulte o artigo [versões de linha de base e atualização](../../../core/servers/manage/updates.md#bkmk_Baselines) no [atualizações para o System Center Configuration Manager](../../../core/servers/manage/updates.md).
+Para obter informações sobre as versões de linha de base, consulte [versões de linha de base e atualização](../../../core/servers/manage/updates.md#bkmk_Baselines) na [atualizações para o System Center Configuration Manager](../../../core/servers/manage/updates.md).
 
- ## <a name="about-installing-update-1606"></a>Sobre a instalação de atualização 1606
+ ## <a name="about-installing-update-1606"></a>Sobre como instalar a atualização 1606
 
-Como um *atualizar*, 1606 apenas podem ser instaladas no site de nível superior da hierarquia. Isto significa iniciar a instalação do seu site de administração central, se tiver um, ou a partir do seu site primário autónomo.  
+Como um *atualizar*, 1606 só pode ser instalado no site de nível superior da sua hierarquia. Isso significa que você inicia a instalação de seu site de administração central se você tiver um, ou de seu site primário autônomo.  
 
--   Os sites primários subordinados instalam automaticamente a atualização após a conclusão da instalação da atualização do site de administração central. Pode utilizar janelas de serviço para controlar quando um site instala as atualizações. Antes da versão 1606, windows serviço foram chamados janelas de manutenção. Para obter mais informações, consulte o artigo [windows dos servidores do site do serviço](/sccm/core/servers/manage/service-windows).  
+-   Os sites primários filho instalam a atualização automaticamente após a conclusão da instalação da atualização do site de administração central. Você pode usar as janelas de serviço para controlar quando um site instala atualizações. Antes da versão 1606, janelas de serviço foram chamadas de janelas de manutenção. Para obter mais informações, consulte [serviço windows para servidores do site](/sccm/core/servers/manage/service-windows).  
 
--   Tem de atualizar manualmente os sites secundários a partir da consola do Configuration Manager após a conclusão da instalação da atualização do site primário principal. A atualização automática dos servidores de site secundários não é suportada.  
+-   Você deve atualizar manualmente os sites secundários de dentro do console do Configuration Manager após a conclusão da instalação da atualização do site pai primário. A atualização automática dos servidores de site secundários não é suportada.  
 
-Quando o servidor do site instala a atualização, funções de sistema de sites que estão instaladas no servidor do site e os que são instaladas em computadores remotos atualizadas automaticamente. Por conseguinte, antes de instalar a atualização, certifique-se de que cada servidor de sistema de sites cumpre os novos pré-requisitos para as operações com a nova versão de atualização.  
+Quando o servidor do site instala a atualização, as funções de sistema de site que estão instaladas no servidor do site e aquelas que são instalados em computadores remotos são atualizadas automaticamente. Portanto, antes de instalar a atualização, verifique se cada servidor do sistema de sites atende algum dos novos pré-requisitos para operações com a nova versão de atualização.  
 
-A primeira vez que utiliza uma consola do Configuration Manager após a atualização foi instalada, será solicitado para atualizar a consola.  Para tal, tem de executar a configuração do Configuration Manager no computador que aloja a consola e, em seguida, escolha a opção para atualizar a consola. Recomendamos que não adie a instalação da atualização na consola.
+Na primeira vez que você usar um console do Configuration Manager após a atualização foi instalada, você será solicitado a atualização desse console.  Para fazer isso, você deve executar a instalação do Configuration Manager no computador que hospeda o console e, em seguida, escolha a opção para atualizar o console. Recomendamos que não adie a instalação da atualização na consola.
 
- **Problemas conhecidos para esta atualização**   
-  Os problemas seguintes aplicam-se quando visualiza o estado de instalação do pacote de atualização:
-  - Ao atualizar a partir da versão 1602 para 1606, o passo **payload do pacote de atualização de extração** apresenta o estado **não iniciado**, mesmo que a transferência foi concluída.
-  - Ao atualizar a partir da versão 1511 para 1606, alguns passos mostram um Estado de **concluído** mas não será apresentado um valor para **hora da última atualização**.
+ **Problemas conhecidos desta atualização**   
+  Os problemas a seguir se aplicam quando você exibir o status de instalação do pacote de atualização:
+  - Ao atualizar da versão 1602 a 1606, a etapa **carga do pacote de atualização de extração** exibe um Status de **não iniciado**, mesmo que o download estiver concluído.
+  - Ao atualizar da versão 1511 para 1606, algumas etapas mostrará um status de **concluído** , mas não exibirá um valor para **hora da última atualização**.
 
 
 ## <a name="checklist"></a>Lista de verificação  
 
- **Certifique-se de que todos os sites executem uma versão suportada do System Center Configuration Manager:**  Antes de iniciar a instalação da atualização 1606, cada servidor de site na hierarquia tem de executar a mesma versão do System Center Configuration Manager: qualquer uma das versões 1511 ou 1602.
+ **Certifique-se de que todos os sites executem uma versão com suporte do System Center Configuration Manager:**  Antes de iniciar a instalação da atualização 1606, cada servidor do site na hierarquia deve executar a mesma versão do System Center Configuration Manager: a versão 1511 ou da 1602.
 
- **Rever instaladas Microsoft.NET versões em servidores de sistema de sites:** Quando instala um site atualização 1606, Configuration Manager instala automaticamente o .NET Framework 4.5.2 em cada computador que aloja uma das seguintes funções do sistema de sites (se o .NET Framework 4.5 ou posterior não está já instalada):  
+ **Revisão instalou versões do Microsoft.NET nos servidores de sistema de site:** Quando um site instala a atualização 1606, Configuration Manager instala automaticamente o .NET Framework 4.5.2 em cada computador que hospeda uma das seguintes funções do sistema de site (se o .NET Framework 4.5 ou posterior já não estiver instalado):  
 
 -   Ponto proxy de registo  
 
@@ -64,38 +64,34 @@ A primeira vez que utiliza uma consola do Configuration Manager após a atualiza
 
 -   Ponto de ligação de serviço  
 
-Esta instalação pode colocar o servidor de sistema de sites num reinício pendente estado e o relatório de erros para o Visualizador de estado do componente do Configuration Manager. Além disso, as aplicações .NET no servidor podem ter falhas aleatórias até que o servidor seja reiniciado.  
+Esta instalação pode colocar o servidor do sistema de site em uma reinicialização pendente estado e o relatório de erros para o Visualizador de status de componente do Configuration Manager. Além disso, as aplicações .NET no servidor podem ter falhas aleatórias até que o servidor seja reiniciado.  
 
- Para mais informações consulte [Site e os pré-requisitos de sistema de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+ Para obter mais informações, consulte [Site e pré-requisitos de sistema de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
- **Rever o estado de site e da hierarquia e certifique-se de que não existem sem problemas por resolver:** Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, o servidor de base de dados do site e funções de sistema de sites que estão instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.
+ **Examine o status do site e hierarquia e verifique se há problemas não resolvidos:** Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, o servidor de banco de dados do site e funções do sistema de site que são instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.
 
  Para obter mais informações, veja [Utilizar alertas e o sistema de estado para o System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
- **Reveja o ficheiro e dados de replicação entre sites:**  Certifique-se esse ficheiro e a replicação de base de dados entre sites é operacional e atual. Atrasos ou os registos de segurança no podem impedir que uma atualização suave, com êxito.    
+ **Examine o arquivo e dados de replicação entre sites:**  Verifique se esse arquivo e replicação de banco de dados entre sites esteja funcionando e atualizada. Atrasos ou listas de pendências em qualquer um podem impedir uma atualização simples e bem-sucedida.    
 
-Para a replicação de base de dados, pode utilizar o Analisador de Ligações de Replicação para ajudar a resolver problemas antes de iniciar a atualização. Para obter mais informações, consulte o artigo [sobre o analisador de ligações de replicação](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA) no tópico [monitorizar a infraestrutura hierarquia e replicação no System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
+Para a replicação de base de dados, pode utilizar o Analisador de Ligações de Replicação para ajudar a resolver problemas antes de iniciar a atualização. Para obter mais informações, consulte [sobre o Replication Link Analyzer](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA) no tópico [monitorar replicação de infraestrutura de hierarquia e no System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
 
- **Instale todas as atualizações críticas aplicáveis a sistemas operativos em computadores que alojam o site, o servidor de base de dados de sites e funções do sistema de sites remoto:** Antes de instalar uma atualização para o Configuration Manager, instale as atualizações críticas em cada sistema de sites aplicável. Se uma atualização que instalar necessitar de um reinício, reinicie os computadores aplicáveis antes de iniciar a atualização.  
+ **Instale todas as atualizações críticas aplicáveis para sistemas operacionais em computadores que hospedam o site, o servidor de banco de dados do site e funções do sistema de site remoto:** Antes de instalar uma atualização para o Configuration Manager, instale todas as atualizações críticas para cada sistema de site aplicável. Se uma atualização que instalar necessitar de um reinício, reinicie os computadores aplicáveis antes de iniciar a atualização.  
 
- **Desative as réplicas de base de dados para pontos de gestão em sites primários:** O Configuration Manager não é possível atualizar com êxito um site primário que tenha uma réplica de base de dados para pontos de gestão ativada. Desative a replicação de base de dados antes de:  
+ **Desabilite as réplicas de banco de dados para pontos de gerenciamento em sites primários:** Do Configuration Manager não pode atualizar um site primário que tenha uma réplica de banco de dados para pontos de gerenciamento habilitado com êxito. Desabilite a replicação de banco de dados antes de instalar uma atualização para o Configuration Manager.  
 
--   Crie uma cópia de segurança da base de dados do site para testar a atualização de base de dados.  
+Para obter mais informações, consulte [Database replicas para pontos de gerenciamento do System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
--   Instale uma atualização para o Configuration Manager.  
+ **Definir grupos de disponibilidade do AlwaysOn do SQL Server para failover manual:**  
+ Antes de instalar atualizações, como versão 1606, certifique-se de que o grupo de disponibilidade é definido como failover manual. Depois que o site tiver sido atualizado, você pode restaurar o failover para automático. Para obter mais informações, consulte [AlwaysOn do SQL Server para um banco de dados do site](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
 
-Para obter mais informações, consulte o artigo [da base de dados réplicas para pontos de gestão do System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+ **Reconfigure pontos de atualização de software que usam NLBs:** Configuration Manager não pode atualizar um site que usa um cluster de balanceamento de carga de rede (NLB) para hospedar pontos de atualização de software.  
 
- **Definir grupos de Disponibilidade AlwaysOn do SQL Server para ativação pós-falha manual:**  
- Antes de instalar atualizações, tais como versão 1606, certifique-se de que o grupo de disponibilidade está configurado para ativação pós-falha manual. Após ter sido atualizado o site, pode restaurar a ativação pós-falha para ser automática. Para obter mais informações, consulte o artigo [SQL Server AlwaysOn numa base de dados do site](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
-
- **Reconfigure os pontos de atualização de software que utilizem NLBs:** O Configuration Manager não é possível atualizar um site que utiliza um cluster de balanceamento de carga na rede (NLB) para alojar pontos de atualização de software.  
-
-Se utilizar clusters de NLB para pontos de atualização de software, utilize o Windows PowerShell para remover o cluster NLB.    
+Se você usar clusters NLB para pontos de atualização de software, use o Windows PowerShell para remover do cluster NLB.    
 
  Para obter mais informações, veja [Planear atualizações de software no System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
 
- **Desative todas as tarefas de manutenção do site em cada site durante a instalação da atualização nesse site:** Antes de instalar a atualização, desative as tarefas de manutenção do site que poderão ser executado durante o tempo que o processo de atualização estiver ativo. Estas incluem as seguintes, entre outras:  
+ **Desabilite todas as tarefas de manutenção de site em cada site durante a instalação da atualização do site:** Antes de instalar a atualização, desabilite as tarefas de manutenção de site que possam ser executadas durante o tempo que o processo de atualização está ativo. Estas incluem as seguintes, entre outras:  
 
 -   Servidor do Site de Reserva  
 
@@ -103,50 +99,51 @@ Se utilizar clusters de NLB para pontos de atualização de software, utilize o 
 
 -   Eliminar Dados de Deteção Desatualizados  
 
-Quando uma tarefa de manutenção da base de dados do site é executada durante a instalação da atualização, a instalação da atualização pode falhar. Antes de desativar uma tarefa, registe a agenda da tarefa para que possa restaurar a respetiva configuração após a atualização foi instalada.  
+Quando uma tarefa de manutenção da base de dados do site é executada durante a instalação da atualização, a instalação da atualização pode falhar. Antes de desabilitar uma tarefa, registre o agendamento da tarefa para que você possa restaurar sua configuração após a atualização foi instalada.  
 
-Para obter mais informações, consulte o artigo [tarefas de manutenção para o System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md) e [referência para a manutenção de tarefas para o System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
+Para obter mais informações, consulte [tarefas de manutenção para o System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md) e [tarefas de referência para a manutenção do System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
 
- **Crie uma cópia de segurança da base de dados do site no site de administração central e sites primários:** Antes de atualizar um site, criar uma cópia de segurança da base de dados do site para se certificar de que tem uma cópia de segurança a utilizar para recuperação após desastre.   
+ **Crie um backup do banco de dados do site no site de administração central e sites primários:** Antes de atualizar um site, faça backup do banco de dados do site para garantir que você tenha um backup bem-sucedido a ser usado para recuperação de desastres.   
 
-Para obter mais informações, consulte o artigo [cópia de segurança e recuperação para o System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
+Para obter mais informações, consulte [Backup e recuperação para o System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
 
+<!-- Removed from update guidance 6/6/2017
+ **Test the database upgrade on a copy of the most recent site database backup:** Before you update a System Center Configuration Manager central administration site or primary site, test the site database upgrade process on a copy of the site database.  
 
- **Teste a atualização de base de dados numa cópia da cópia de segurança de base de dados site mais recente:** Antes de atualizar um site de administração central do System Center Configuration Manager ou o site primário, teste o processo de atualização de base de dados de site numa cópia da base de dados do site.  
+-   You should test the site database upgrade process because when you upgrade a site, the site database might be modified.  
 
--   Deve testar o processo de atualização de base de dados de site porque, quando atualizar um site, a base de dados do site pode ser modificado.  
+-   Although a test database upgrade is not required, it can identify problems for the upgrade before your production database is affected.  
 
--   Embora o teste da atualização da base de dados não seja necessário, poderá identificar potenciais problemas na atualização antes da base de dados de produção é afetada.  
+-   A failed site database upgrade can render your site database inoperable and might require a site recovery to restore functionality.  
 
--   Uma atualização de base de dados do site que falhou pode inoperacional a base de dados do site e poderá requerer uma recuperação de site para restaurar a funcionalidade.  
+-   Although the site database is shared between sites in a hierarchy, plan to test the database at each applicable site before you upgrade that site.  
 
--   Embora a base de dados do site seja partilhada entre os sites numa hierarquia, planeie testar a base de dados em cada site aplicável antes de atualizar esse site.  
+-   If you use database replicas for management points at a primary site, disable replication before you create the backup of the site database.  
 
--   Se utilizar réplicas de base de dados para pontos de gestão num site primário, desative a replicação antes de criar cópias de segurança da base de dados do site.  
+Configuration Manager does not support the backup of secondary sites nor does it support the test upgrade of a secondary site database.   
 
-O Configuration Manager não suporta a cópia de segurança de sites secundários nem suporta o teste da atualização de uma base de dados do site secundário.   
+Do not run a test database upgrade on the production site database. Doing so updates the site database and could render your site inoperable. For more information, For more information, see [Step 2: Test the database upgrade before installing an update](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) from **Before you install an in-console update**.
+-->
 
-Não execute um teste de atualização de base de dados na base de dados de site de produção. Tal procedimento atualiza a base de dados do site e pode fazer com que deixe de funcionar. Para obter mais informações, para obter mais informações, consulte o artigo [passo 2: Teste a atualização de base de dados antes de instalar uma atualização](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) de **antes de instalar uma atualização na consola**.
+ **Plano piloto do cliente:** Quando você instala uma atualização que atualiza o cliente, você pode testar essa nova atualização do cliente na pré-produção antes que implanta e atualiza todos os seus clientes ativos.   
 
- **Planear cliente piloting:** Quando instala uma atualização que o cliente de atualizações, pode testar essa nova atualização do cliente no pré-produção antes de implementa e atualiza todos os clientes ativos.   
+ Para aproveitar essa opção, antes de iniciar a instalação da atualização, você deve configurar seu site para dar suporte a atualizações automáticas para pré-produção. Para obter mais informações, veja [Atualização dos clientes no System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) e   
+[Como testar atualizações do cliente em uma coleção de pré-produção no System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
 
- Para tirar partido desta opção, antes de iniciar a instalação da atualização, tem de configurar o seu site para suportar as atualizações automáticas de pré-produção. Para obter mais informações, veja [Atualização dos clientes no System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) e   
-[Como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
-
- **Planear a utilização de janelas de serviço para controlar quando os servidores do site instalam atualizações:** Pode utilizar as janelas de serviço para definir um período durante o qual as atualizações para um servidor do site podem ser instaladas.
+ **Planeje usar as janelas de serviço para controlar quando os servidores do site instalam as atualizações:** Você pode usar janelas de serviço para definir um período durante o qual as atualizações para um servidor do site podem ser instaladas.
 
 Isto pode ajudar a controlar quando os sites na hierarquia instalam a atualização.
-Antes da versão 1606, windows serviço foram chamados janelas de manutenção. Para obter mais informações, consulte o artigo [windows dos servidores do site do serviço](/sccm/core/servers/manage/service-windows).  
+Antes da versão 1606, janelas de serviço foram chamadas de janelas de manutenção. Para obter mais informações, consulte [serviço windows para servidores do site](/sccm/core/servers/manage/service-windows).  
 
- **Execute Verificador de pré-requisitos do programa de configuração:**  Antes de instalar a atualização 1606, pode executar o Verificador de pré-requisitos independentemente da instalação da atualização. Quando instala a atualização do site, o Verificador de pré-requisitos será novamente executado.  
+ **Execute o verificador de pré-requisitos de instalação:**  Antes de instalar a atualização 1606, você pode executar o verificador de pré-requisitos independentemente da instalação de atualização. Quando você instala a atualização no site, o verificador de pré-requisitos é executado novamente.  
 
-Para obter mais informações, consulte o artigo **passo 3: Executar o Verificador de pré-requisitos antes de instalar uma atualização** no [atualizações para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md) tópico.  
+Para obter mais informações, consulte **etapa 3: Executar o verificador de pré-requisitos antes de instalar uma atualização** no [atualizações para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md) tópico.  
 
 > [!IMPORTANT]  
->  Quando o Verificador de pré-requisitos é executada forma independente ou como parte de uma instalação de atualização, o processo atualizará alguns ficheiros de origem do produto que são utilizados para tarefas de manutenção do site. Por conseguinte, depois de executar o Verificador de pré-requisitos, mas antes a instalar a atualização 1606, se precisar de efetuar uma tarefa de manutenção do site, executar **Setupwpf.exe** (programa de configuração do Configuration Manager) a partir do CD. Pasta mais recente no servidor do site.  
+>  Quando o verificador de pré-requisitos é executado independentemente ou como parte de uma instalação de atualização, o processo atualiza alguns arquivos de origem do produto que são usados para tarefas de manutenção do site. Portanto, depois de executar o verificador de pré-requisitos mas antes de instalar a atualização 1606, se você precisar executar uma tarefa de manutenção do site, execute **Setupwpf.exe** (instalação do Configuration Manager) do CD. Pasta mais recente no servidor do site.  
 
- **Atualizar sites:** Agora está pronto para iniciar a instalação da atualização para a sua hierarquia.  
-  Recomendamos que planeie instalar a atualização fora do horário comercial normal para cada site, quando o processo de instalação da atualização e as respetivas ações para reinstalar os componentes do site e funções de sistema de sites terão o efeito, pelo menos, nas suas operações de negócio.
+ **Sites de atualização:** Agora você está pronto para iniciar a instalação da atualização para sua hierarquia.  
+  É recomendável que você planeje a instalação da atualização fora do horário comercial normal de cada site, quando o processo de instalação da atualização e suas ações de reinstalação dos componentes de site e funções do sistema de site terão um efeito mínimo sobre as operações de negócios.
 
 Para obter mais informações, veja [Atualizações para o System Center Configuration Manager](../../../core/servers/manage/updates.md).  
 

@@ -1,8 +1,8 @@
 ---
-title: Atualizar para o System Center Configuration Manager | Documentos do Microsoft
-description: "Saber os passos para a execução de uma atualização no local com êxito a partir de um site e hierarquia que executa o System Center 2012 Configuration Manager."
+title: "Atualização para o System Center Configuration Manager | Microsoft Docs"
+description: "Conhecer as etapas para executar uma atualização in-loco bem-sucedida de um site e hierarquia que executa o System Center 2012 Configuration Manager."
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 6/6/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,47 +16,47 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: d940fd1bbf96767d44f8c55315e814be55a83897
-ms.openlocfilehash: 9e58ab8dd892adf25429564adfd6f86849ddcbdf
+ms.sourcegitcommit: 3619a73d3a39659de927e1711a7ec81de9918064
+ms.openlocfilehash: 1166b739e1e8d667172d97883f484fdbc3a142c1
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Atualizar para o System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
-Pode executar uma atualização no local a atualização para System Center Configuration Manager a partir de um site e hierarquia que executa o System Center 2012 Configuration Manager.  
+Você pode executar uma atualização para atualização in-loco para o System Center Configuration Manager de um site e hierarquia que executa o System Center 2012 Configuration Manager.  
 
- Antes de atualizar a partir do System Center 2012 Configuration Manager, tem de preparar sites que requer que remova configurações específicas que podem impedir que uma atualização efetuada com êxito e, em seguida, siga a sequência de atualização quando mais do que um único site está envolvida.  
+ Antes de atualizar do System Center 2012 Configuration Manager, você deve preparar sites, o que exige que você remova configurações específicas que podem impedir uma atualização bem-sucedida e, em seguida, execute a sequência de atualização quando mais de um único site envolvido.  
 
  > [!TIP]
- > Ao gerir o site do System Center Configuration Manager e a infraestrutura da hierarquia, os termos *atualizar*, *atualizar*, e *instalar* são utilizados para descrever três conceitos separados. Para saber como cada termo é utilizado, consulte o artigo [sobre a atualização, atualização e instalação](/sccm/core/understand/upgrade-update-install).
+ > Ao gerenciar o site do System Center Configuration Manager e infraestrutura de hierarquia, os termos de *atualização*, *atualizar*, e *instalar* são usados para descrever os três conceitos separados. Para saber como cada termo é usado, consulte [sobre atualização, atualização e instalação](/sccm/core/understand/upgrade-update-install).
 
 ##  <a name="bkmk_path"></a> Caminhos de atualização no local  
 
-**Atualizar para versão 1702**   
-Quando tiver versão 1702 linha de base de dados, pode atualizar o seguinte procedimento para uma versão totalmente licenciada do System Center Configuration Manager versão 1702:   
--      Uma instalação de avaliação do System Center Configuration Manager versão 1702
--      System Center 2012 Configuration Manager sem Service Pack 1
--      System Center 2012 Configuration Manager sem Service Pack 2
--      System Center 2012 R2 Configuration Manager
--      System Center 2012 R2 Configuration Manager sem Service Pack 1
+**Atualizar para a versão 1702**   
+Quando você tiver a mídia de linha de base de 1702 de versão, você pode atualizar o seguinte para uma versão totalmente licenciada do System Center Configuration Manager versão 1702:   
+-     Uma instalação de avaliação do System Center Configuration Manager versão 1702
+-     System Center 2012 Configuration Manager com Service Pack 1
+-     System Center 2012 Configuration Manager com Service Pack 2
+-     System Center 2012 R2 Configuration Manager
+-     System Center 2012 R2 Configuration Manager com Service Pack 1
 
-**Atualizar para versão 1606**  
-No dia 15 de Dezembro de 2016, o suporte de dados de linha de base para a versão 1606 foi rereleased adicionar suporte para cenários adicionais de atualização. Esta nova versão suporta a atualização dos seguintes procedimentos para uma versão totalmente licenciada do System Center Configuration Manager versão 1606:  
+**Atualizar para a versão 1606**  
+No dia 15 de dezembro de 2016, a mídia de linha de base para a versão 1606 foi disponibilizada para adicionar suporte para cenários adicionais de atualização. Esta nova versão oferece suporte a atualização das seguintes maneiras para uma versão totalmente licenciada do System Center Configuration Manager versão 1606:  
 -   Uma instalação de avaliação do System Center Configuration Manager versão 1606
--   Uma instalação de candidatos de versão do System Center Configuration Manager  
--   System Center 2012 Configuration Manager sem Service Pack 1  
--   System Center 2012 Configuration Manager sem Service Pack 2  
+-   Uma instalação do release candidate do System Center Configuration Manager  
+-   System Center 2012 Configuration Manager com Service Pack 1  
+-   System Center 2012 Configuration Manager com Service Pack 2  
 -   System Center 2012 R2 Configuration Manager  
--   System Center 2012 R2 Configuration Manager sem Service Pack 1  
+-   System Center 2012 R2 Configuration Manager com Service Pack 1  
 
-Se utilizar suportes de dados do plano base 1606 versão transferido antes do dia 15 de Dezembro de 2016, pode atualizar apenas o seguinte procedimento para uma versão totalmente licenciada do System Center Configuration Manager versão 1606:
+Se você usar a mídia de linha de base 1606 versão baixada antes de 15 de dezembro de 2016, você pode atualizar apenas o seguinte para uma versão totalmente licenciada do System Center Configuration Manager versão 1606:
 -   Uma instalação de avaliação do System Center Configuration Manager versão 1606
--   System Center 2012 Configuration Manager sem Service Pack 2
--   System Center 2012 R2 Configuration Manager sem Service Pack 1
+-   System Center 2012 Configuration Manager com Service Pack 2
+-   System Center 2012 R2 Configuration Manager com Service Pack 1
 
 <!-- Version 1511 has now dropped out of support
 **Upgrade to version 1511**  
@@ -71,69 +71,69 @@ When you have version 1511 baseline media, you can upgrade the following to a fu
 
 
 > [!TIP]  
->  Ao atualizar a partir de uma versão do System Center 2012 Configuration Manager para a qual ramificar atual, poderá conseguir simplificar o processo de atualização. Para obter mais informações, consulte o seguinte:  
+>  Quando você atualiza de uma versão do System Center 2012 Configuration Manager para a ramificação atual, você poderá simplificar o processo de atualização. Para obter mais informações, consulte o seguinte:  
 >   
 >  -   A secção [Versões de linha de base e de atualização](../../../../core/servers/manage/updates.md#bkmk_Baselines) em [Atualizações para o System Center Configuration Manager](../../../../core/servers/manage/updates.md)  
->  -   [CD. Pasta mais recente para o System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md)  
+>  -   [O CD. Pasta mais recente para o System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md)  
 
  **As seguintes ações não são suportadas:**  
--   Não é suportada para atualizar uma pré-visualização técnica do System Center Configuration Manager para uma instalação completamente licenciada.  Uma versão de Technical Preview só pode atualizar para uma versão posterior do Technical Preview.  
+-   Não há suporte para atualizar uma visualização técnica do System Center Configuration Manager para uma instalação totalmente licenciada.  Uma versão de Technical Preview só pode atualizar para uma versão posterior do Technical Preview.  
 
--   Migração a partir de uma pré-visualização técnica para uma versão totalmente licenciada não é suportada.  
+-   Não há suporte para a migração de uma Technical Preview para uma versão totalmente licenciada.  
 
 ##  <a name="bkmk_checklist"></a> Listas de verificação de atualização  
- As listas de verificação seguintes podem ajudar a planear uma atualização efetuada com êxito para o System Center Configuration Manager.  
+ As listas de verificação a seguir podem ajudá-lo a planejar uma atualização bem-sucedida para o System Center Configuration Manager.  
 
 ### <a name="before-you-upgrade"></a>Antes da atualização  
 
-**Rever o seu ambiente do System Center 2012 Configuration Manager** e resolver problemas conforme especificado no KB4018655: [Clientes do Configuration Manager reinstale a cada cinco horas devido a uma tarefa de repetição periódica e pode provocar uma atualização do cliente inadvertida](https://support.microsoft.com/help/4018655).
+**Revisar seu ambiente do System Center 2012 Configuration Manager** e resolver problemas como detalhado no KB4018655: [Clientes do Configuration Manager reinstale a cada cinco horas devido a uma tarefa recorrente de repetição e pode causar uma atualização de cliente inadvertida](https://support.microsoft.com/help/4018655).
 
-**Certifique-se de que o ambiente informático satisfaz as configurações suportadas** que são necessárias para atualizar para o System Center Configuration Manager:  
+**Certifique-se de que o ambiente computacional atende às configurações com suporte** que são necessárias para atualizar para o System Center Configuration Manager:  
 
 Reveja os sistemas operativos de servidor utilizados para alojar funções do sistema de sites:  
 
--   Alguns sistemas operativos mais antigos suportados pelo System Center 2012 Configuration Manager não são suportados pelo System Center Configuration Manager e funções de sistema de sites nesses sistemas de operativos tem de ser alteradas ou removidas antes da atualização. Rever o [sistemas operativos suportados para servidores do sistema de sites](../../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md) documentação.   
--   Verificador de pré-requisitos para o Configuration Manager não verificar os pré-requisitos de funções de sistema de sites no servidor do site ou nos sistemas de sites remoto  
+-   Alguns sistemas operacionais mais antigos com suporte do System Center 2012 Configuration Manager não são suportados pelo System Center Configuration Manager, e funções do sistema de site nesses sistemas operacionais devem ser realocadas ou removidas antes da atualização. Examine o [sistemas operacionais com suporte para servidores de sistema de Site](../../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md) documentação.   
+-   O verificador de pré-requisitos para o Configuration Manager não verifica os pré-requisitos para funções do sistema de site no servidor do site ou em sistemas de site remoto  
 
 Reveja os pré-requisitos necessários de cada computador que aloje uma função do sistema de sites:  
 
--   Por exemplo, para implementar um sistema operativo, System Center Configuration Manager utiliza o Windows 10 Assessment and Deployment Kit (Windows ADK). Antes de executar o Programa de Configuração, tem de transferir e instalar o Windows 10 ADK no servidor do site e em cada computador que execute uma instância do Fornecedor de SMS.  
+-   Por exemplo, para implantar um sistema operacional, o System Center Configuration Manager usa o Windows 10 Kit de avaliação e implantação (Windows ADK). Antes de executar o Programa de Configuração, tem de transferir e instalar o Windows 10 ADK no servidor do site e em cada computador que execute uma instância do Fornecedor de SMS.  
 
 Para obter informações gerais sobre as plataformas suportadas e configurações de pré-requisitos, veja [Configurações suportadas do System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md).  
 
-Para obter informações sobre como utilizar o Windows ADK com o Configuration Manager, consulte o artigo [requisitos de infraestrutura de implementação do sistema operativo no System Center Configuration Manager](../../../../osd/plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+Para obter informações sobre como usar o Windows ADK com o Configuration Manager, consulte [requisitos de infraestrutura para implantação de sistema operacional no System Center Configuration Manager](../../../../osd/plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
-**Rever o estado de site e da hierarquia e certifique-se de que não existem sem problemas por resolver:**  
+**Examine o status do site e hierarquia e verifique se há problemas não resolvidos:**  
 Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, do servidor da base de dados do site e de funções de sistema de sites que se encontrem instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.  
 
-**Instale todas as atualizações críticas aplicáveis a sistemas operativos em computadores que alojam o site, o servidor de base de dados de sites e funções do sistema de sites remoto:**  
+**Instale todas as atualizações críticas aplicáveis para sistemas operacionais em computadores que hospedam o site, o servidor de banco de dados do site e funções do sistema de site remoto:**  
 Antes de atualizar um site, instale as atualizações críticas em cada sistema de sites aplicável. Se uma atualização que instalar necessitar de um reinício, reinicie os computadores aplicáveis antes de iniciar a atualização do service pack.  
 
-Para obter mais informações, consulte o artigo [Windows Update](http://go.microsoft.com/fwlink/p/?LinkId=105851).  
+Para obter mais informações, consulte [Windows Update](http://go.microsoft.com/fwlink/p/?LinkId=105851).  
 
-**Desinstale as funções de sistema de sites não suportadas pelo System Center Configuration Manager:**  
-As seguintes funções de sistema de sites já não são utilizadas no System Center Configuration Manager e tem de ser desinstaladas antes de atualizar a partir do System Center 2012 Configuration Manager:  
+**Desinstale as funções de sistema de site não tem suportadas pelo System Center Configuration Manager:**  
+As seguintes funções de sistema de site não são mais usadas no System Center Configuration Manager e devem ser desinstaladas antes da atualização do System Center 2012 Configuration Manager:  
 
 -   Ponto de Gestão Fora de Banda  
--   Ponto de Validação do Estado de Funcionamento do Serviço  
+-   Ponto de Validação do Estado de Funcionamento do Sistema  
 
-**Desative as réplicas de base de dados para pontos de gestão em sites primários:**  
-O Configuration Manager não é possível atualizar com êxito um site primário que tenha uma réplica de base de dados para pontos de gestão ativada. Desative a replicação de base de dados antes de:  
+**Desabilite as réplicas de banco de dados para pontos de gerenciamento em sites primários:**  
+Gerenciador de configuração não é possível atualizar um site primário que tenha uma réplica de banco de dados para pontos de gerenciamento habilitado com êxito. Desative a replicação de base de dados antes de:  
 
 -   Criar uma cópia de segurança da base de dados do site para testar a atualização da base de dados  
 -   Atualizar o site de produção para o System Center Configuration Manager  
 
 Para obter mais informações, consulte o seguinte:  
--   System Center 2012 Configuration Manager:  [Configurar réplicas de base de dados para pontos de gestão](https://technet.microsoft.com/library/hh846234.aspx)  
--   O System Center Configuration Manager: [Réplicas de base de dados para pontos de gestão do System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md)  
+-   System Center 2012 Configuration Manager:  [Configurar réplicas de banco de dados para pontos de gerenciamento](https://technet.microsoft.com/library/hh846234.aspx)  
+-   System Center Configuration Manager: [Réplicas de banco de dados para pontos de gerenciamento do System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md)  
 
-**Reconfigure os pontos de atualização de software que utilizem NLBs:**  
-O Configuration Manager não é possível atualizar um site que utiliza um cluster de balanceamento de carga na rede (NLB) para alojar pontos de atualização de software.  
+**Reconfigure pontos de atualização de software que usam NLBs:**  
+Gerenciador de configuração não pode atualizar um site que usa um cluster de balanceamento de carga de rede (NLB) para hospedar pontos de atualização de software.  
 
-Se utilizar clusters de NLB em pontos de atualização de software, utilize o PowerShell para remover o cluster de NLB. (A partir do System Center 2012 Configuration Manager SP1, ocorreu nenhuma opção na consola do Configuration Manager para configurar um cluster NLB)  
+Se utilizar clusters de NLB em pontos de atualização de software, utilize o PowerShell para remover o cluster de NLB. (Não começando com o System Center 2012 Configuration Manager SP1, havia nenhuma opção no console do Configuration Manager para configurar um cluster NLB)  
 
-**Desative todas as tarefas de manutenção do site em cada site durante a atualização desse site:**  
-Antes de atualizar para o System Center Configuration Manager, desative as tarefas de manutenção do site que possam ser executadas enquanto o que o processo de atualização estiver ativo. Estas incluem as seguintes, entre outras:  
+**Desabilite todas as tarefas de manutenção de site em cada site para a duração da atualização do site:**  
+Antes de atualizar para o System Center Configuration Manager, desabilite qualquer tarefa de manutenção de site que possam ser executadas durante o tempo que o processo de atualização está ativo. Estas incluem as seguintes, entre outras:  
 
 -   Servidor do Site de Reserva  
 -   Eliminar Operações de Cliente Desatualizadas  
@@ -145,26 +145,26 @@ Antes de desativar uma tarefa, registe a agenda da tarefa para que possa restaur
 
 Para obter mais informações sobre tarefas de manutenção do site, consulte:  
 
--   System Center 2012 Configuration Manager:  [Planear tarefas de manutenção do Configuration Manager](https://technet.microsoft.com/library/gg712686.aspx)  
--   O System Center Configuration Manager:  [Referência para as tarefas de manutenção para o System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md)  
+-   System Center 2012 Configuration Manager:  [Planejando tarefas de manutenção do Configuration Manager](https://technet.microsoft.com/library/gg712686.aspx)  
+-   System Center Configuration Manager:  [Referência para tarefas de manutenção para o System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md)  
 
 **Execute o Verificador de Pré-requisitos da Configuração**:  
-Antes de atualizar um site, pode executar o **Verificador de Pré-requisitos** independentemente da Configuração para confirmar que o site cumpre os pré-requisitos. Mais tarde, quando atualizar o site, o Verificador de pré-requisitos será novamente executado.  
+Antes de atualizar um site, pode executar o **Verificador de Pré-requisitos** independentemente da Configuração para confirmar que o site cumpre os pré-requisitos. Posteriormente, quando você atualiza o site, o verificador de pré-requisitos é executado novamente.  
 
-Se utilizar o suporte de dados do plano base para versão 1606 de uma versão Outubro de 2016, a verificação de pré-requisitos independente avalia o site para a atualização para o ramo atual e a longo prazo manutenção ramo (LTSB) do System Center Configuration gerir. Uma vez que algumas funcionalidades não são suportadas pelo LTSB, poderá ver as entradas a *Configmgrprereq* que são semelhantes ao seguinte:
- - INFORMAÇÕES: O site é uma edição de LTSB.
- - Função do sistema de sites não suportada 'Ponto de sincronização de Asset Intelligence' para a edição de LTSB;    Erro;    Configuration Manager detetou que o 'ponto de sincronização de Asset Intelligence' está instalado. O Asset Intelligence não é suportado na edição LTSB. Tem de desinstalar a função de sistema de sites do ponto de sincronização do Asset Intelligence antes de poder continuar.
+Se você usar a mídia de linha de base para a versão 1606 da versão de outubro de 2016, a verificação de pré-requisitos independente avalia o site para atualização para o Branch atual e a longo prazo manutenção LTSB (Branch) do System Center Configuration Manage. Porque não há suporte para alguns recursos de LTSB, você poderá ver entradas na *ConfigMgrPrereq.log* que são semelhante à seguinte:
+ - INFO: O site é uma edição LTSB.
+ - Função do sistema de site sem suporte 'Ponto de sincronização do Asset Intelligence' para a edição de LTSB;    Erro;    Configuration Manager detectou que o 'ponto de sincronização do Asset Intelligence' está instalado. Não há suporte para a inteligência de ativos na edição LTSB. Você deve desinstalar a função de sistema de site do ponto de sincronização do Asset Intelligence antes de continuar.
 
-Se planear a atualização para o ramo atual, erros para a edição de LTSB podem ser ignorados com segurança. Estes só se aplicam se planear a atualização para o LTSB.
+Se você pretende atualizar para o Branch atual, erros para a edição de LTSB podem ser ignorados. Elas se aplicam apenas se você pretende atualizar para o LTSB.
 
-Mais tarde, quando executar a configuração do Configuration Manager para efetuar a atualização, a verificação de pré-requisitos irá executar novamente e avaliar o seu site com base no ramo do System Center Configuration Manager que optar por instalar (ramo atual ou LTSB). Se optar por atualizar para o ramo atual, a verificação para funcionalidades que não são suportadas pelo LTSB não serão executadas.
+Posteriormente, quando você executa a instalação do Configuration Manager para fazer a atualização, a verificação de pré-requisitos executar novamente e avaliar o seu site com base na ramificação do System Center Configuration Manager você optar por instalar (ramificação atual ou LTSB). Se você optar por atualizar para a ramificação atual, a verificação de recursos que não há suporte para o LTSB não são executados.
 
-Para obter mais informações, consulte o [Verificador de pré-requisitos](/sccm/core/servers/deploy/install/prerequisite-checker) e [lista de pré-requisitos verificações para o System Center Configuration Manager](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
+Para obter mais informações, consulte o [Verificador de pré-requisitos](/sccm/core/servers/deploy/install/prerequisite-checker) e [List of Prerequisite Checks for System Center Configuration Manager](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
 
-**Transfira os ficheiros de pré-requisitos e ficheiros redistribuíveis para o System Center Configuration Manager:**    
-Utilize **dispositivo de transferência da configuração** para transferir os ficheiros redistribuíveis de pré-requisitos, pacotes de idiomas e as mais recentes atualizações do produto para o System Center Configuration Manager.  
+**Baixe arquivos de pré-requisitos e arquivos redistribuíveis para o System Center Configuration Manager:**    
+Use **Downloader de instalação** para baixar arquivos de pré-requisitos redistribuíveis, pacotes de idiomas e as atualizações de produto mais recentes para o System Center Configuration Manager.  
 
-Para obter informações, consulte o artigo [dispositivo de transferência da configuração](/sccm/core/servers/deploy/install/setup-downloader).  
+Para obter informações, consulte [Downloader de instalação](/sccm/core/servers/deploy/install/setup-downloader).  
 
 **Planeie a gestão do servidor e dos idiomas de cliente**:  
 Quando atualiza um site, a atualização do site instala apenas as versões do pacote de idiomas que selecionar durante a atualização.  
@@ -174,22 +174,22 @@ Quando atualiza um site, a atualização do site instala apenas as versões do p
 -   Apenas pode selecionar os pacotes de idiomas que estão disponíveis quando executa o Programa de Configuração (os quais obtém juntamente com os ficheiros dos pré-requisitos que transfere).  
 
 > [!NOTE]  
->  Não é possível utilizar pacotes de idiomas do System Center 2012 Configuration Manager para ativar idiomas para um site do System Center Configuration Manager.  
+>  Você não pode usar os pacotes de idiomas do System Center 2012 Configuration Manager para habilitar idiomas para um site do System Center Configuration Manager.  
 
-Para obter mais informações sobre pacotes de idiomas, consulte o artigo [pacotes de idiomas no System Center Configuration Manager](../../../../core/servers/deploy/install/language-packs.md).  
+Para obter mais informações sobre pacotes de idiomas, consulte [pacotes de idiomas no System Center Configuration Manager](../../../../core/servers/deploy/install/language-packs.md).  
 
 **Reveja as considerações sobre as atualizações de sites**:  
 Ao atualizar um site, algumas funcionalidades e configurações são repostas para uma configuração predefinida. Para o ajudar a preparar-se para estas e outras alterações relacionadas, reveja a informação disponível em  [Considerações sobre atualizações](#bkmk_considerations).  
 
-**Crie uma cópia de segurança da base de dados do site no site de administração central e sites primários:**  
+**Crie um backup do banco de dados do site no site de administração central e sites primários:**  
 Antes de atualizar um site, efetue uma cópia de segurança da base de dados do site para garantir que poderá utilizar uma cópia de segurança válida em caso de recuperação de desastres.  
 
-Consulte o artigo [cópia de segurança e recuperação para o System Center Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
+Consulte [Backup e recuperação para o System Center Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
 
 **Cópia de segurança de um ficheiro Configuration.mof personalizado**:  
-Se utilizar um ficheiro Configuration.mof personalizado para definir as classes de dados que utiliza com o inventário de hardware, crie uma cópia de segurança deste ficheiro antes de atualizar o site. Em seguida, após a atualização, restaure este ficheiro para o seu site. Para mais informações sobre como utilizar este ficheiro consulte [como expandir o inventário de hardware no System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+Se utilizar um ficheiro Configuration.mof personalizado para definir as classes de dados que utiliza com o inventário de hardware, crie uma cópia de segurança deste ficheiro antes de atualizar o site. Em seguida, após a atualização, restaure este ficheiro para o seu site. Para obter mais informações sobre como usar esse arquivo, consulte [como estender o inventário de hardware no System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
-**Teste o processo de atualização de base de dados numa cópia da cópia de segurança de base de dados site mais recente:**  
+**Teste o processo de atualização de banco de dados em uma cópia do backup do banco de dados mais recente do site:**  
 Antes de atualizar um site de administração central do Configuration Manager ou um site primário, teste o processo de atualização da base de dados do site numa cópia da base de dados do site.  
 
 -   Deve testar o processo de atualização da base de dados do site porque, ao atualizar um site, a base de dados do mesmo pode ser modificada  
@@ -198,42 +198,42 @@ Antes de atualizar um site de administração central do Configuration Manager o
 -   Embora a base de dados do site seja partilhada entre os sites de uma hierarquia, planeie o teste da base de dados em cada site aplicável antes de atualizar esse site  
 -   Se utiliza réplicas de bases de dados para pontos de gestão num site primário, desative a replicação antes de criar a cópia de segurança da base de dados do site  
 
-O Configuration Manager não suporta a cópia de segurança de sites secundários nem o teste da atualização de uma base de dados do site secundário.  
+Configuration Manager não oferece suporte o backup de sites secundários nem o teste de atualização de um banco de dados do site secundário.  
 
 A execução de um teste de atualização da base de dados na base de dados do site de produção não é suportada. Tal procedimento atualiza a base de dados do site, podendo fazer com que este deixe de funcionar.  
 
 Para obter mais informações, veja [Testar a atualização da base de dados do site](#bkmk_test).  
 
-**Reinicie o servidor de site e cada computador que aloje uma função de sistema de sites**:  
-Isto é feito para se certificar de que existem existem ações pendentes de uma instalação recente de atualizações ou de pré-requisitos e é um processo interno específico da empresa.  
+**Reinicie o servidor do site e cada computador que hospeda uma função de sistema de site**:  
+Isso é feito para garantir que existe há ações pendentes de uma instalação recente de atualizações ou de pré-requisitos e é um processo interno específico da empresa.  
 
 **Atualizar sites**:  
-Começando no site de nível superior na hierarquia, execute o Setup.exe a partir do suporte de dados de origem do System Center Configuration Manager.  
+Iniciando no site de nível superior na hierarquia, execute Setup.exe da mídia de origem do System Center Configuration Manager.  
 
 Após a atualização do site de nível superior, pode começar a atualização de cada site subordinado. Conclua a atualização de cada site antes de iniciar a atualização do site seguinte  
 
-Até todos os sites da hierarquia serem atualizados para o System Center Configuration Manager, a hierarquia funciona num modo com versões mistas.  
+Até que todos os sites em sua hierarquia sejam atualizados para o System Center Configuration Manager, a hierarquia opera em um modo com versões mistas.  
 
-Para obter informações sobre como executar a atualização, consulte o artigo [atualizar sites](#bkmk_upgrade).  
+Para obter informações sobre como executar a atualização, consulte [atualizar sites](#bkmk_upgrade).  
 
 ### <a name="after-you-upgrade"></a>Depois da atualização  
-**Atualizar consolas do Configuration Manager autónomo**:  
-Por predefinição, ao atualizar um site de administração central ou site primário, a instalação também atualiza a consola do Configuration Manager que está instalada no servidor do site. No entanto, tem de atualizar manualmente cada consola que esteja instalada num computador que não seja o servidor do site.  
+**Atualizar consoles autônomos do Configuration Manager**:  
+Por padrão, quando você atualiza um site de administração central ou site primário, a instalação também atualiza o console do Configuration Manager está instalado no servidor do site. No entanto, tem de atualizar manualmente cada consola que esteja instalada num computador que não seja o servidor do site.  
 
 > [!TIP]  
 >  Feche cada consola aberta antes de iniciar a atualização.  
 
 Para obter mais informações, veja [Instalar consolas do System Center Configuration Manager](../../../../core/servers/deploy/install/install-consoles.md).  
 
-**Reconfigure réplicas de base de dados para pontos de gestão em sites primários:**  
+**Reconfigure réplicas de banco de dados para pontos de gerenciamento em sites primários:**  
 Se utilizar réplicas de base de dados para pontos de gestão em sites primários, necessitará de desinstalar as réplicas de base de dados antes de atualizar o site. Após atualizar um site primário, reconfigure a réplica da base de dados para pontos de gestão.   
 Para obter mais informações, veja [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](../../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
-**Reconfigure as tarefas de manutenção de base de dados desativadas antes da atualização:**  
+**Reconfigure quaisquer tarefas de manutenção de banco de dados desabilitadas antes da atualização:**  
 Se tiver desativado [tarefas de manutenção da base de dados para o System Center Configuration Manager](../../../../core/servers/manage/reference-for-maintenance-tasks.md) num site antes da atualização, reconfigure essas tarefas no site com as definições que estavam aplicadas antes da atualização do site.  
 
 **Atualizar clientes**:  
-Depois de todos os seus sites atualizar para o System Center Configuration Manager, planeie a atualização dos clientes.  
+Depois que todos os seus sites de atualização para o System Center Configuration Manager, planeje a atualização de clientes.  
 
 Ao atualizar um cliente, o software atual do cliente é desinstalado e é instalada a nova versão do software de cliente. Para atualizar os clientes, pode utilizar qualquer método suportado pelo Configuration Manager.  
 
@@ -244,23 +244,23 @@ Para obter informações sobre como atualizar clientes existentes e sobre como i
 
 ##  <a name="bkmk_considerations"></a> Considerações sobre atualizações  
 **Ações automáticas**:  
-Ao atualizar para o System Center Configuration Manager, as seguintes ações ocorrem automaticamente:  
+Quando você atualiza para o System Center Configuration Manager, as seguintes ações ocorrem automaticamente:  
 
 -   O site efetua uma reposição do site, a qual inclui uma reinstalação de todas as funções do sistema de sites.  
 -   Caso o site seja o site de nível superior de uma hierarquia, atualizará o pacote de instalação de cliente em todos os pontos de distribuição da hierarquia. O site também atualiza as imagens de arranque predefinidas para utilizar a nova versão do Windows PE incluída no Windows Assessment and Deployment Kit 10. No entanto, a atualização não atualiza suportes de dados existentes para utilização com implementação de imagens.  
 -   Caso o site seja um site primário, atualizará o pacote de atualização de cliente para esse site.  
 
-**Ações manuais do utilizador administrativo após uma atualização**   
-Depois de atualizar um site, certifique-se de que as seguintes ações são efetuadas:  
+**Ações manuais do usuário administrativo após uma atualização**   
+Depois de atualizar um site, certifique-se de que as seguintes ações são executadas:  
 
 -   Certifique-se de que os clientes atribuídos a cada site primário atualizam e instalam o software de cliente da nova versão  
--   Atualizar cada consola do Configuration Manager que liga ao site e que é executado num computador que seja remoto relativamente ao servidor de site  
+-   Atualizar cada console do Configuration Manager que se conecta ao site e que são executados em um computador remoto do servidor do site  
 -   Nos sites primários onde utiliza réplicas de bases de dados para pontos de gestão, reconfigure as réplicas de base de dados  
--   Depois da atualização do site, tem de atualizar manualmente os suportes de dados físicos, tais como ficheiros ISO para CD e DVD ou pens USB, ou suportes de dados pré-configurados utilizados para implementações do Windows To Go ou fornecidos a fornecedores de hardware. Embora a atualização do site Atualize as imagens de arranque predefinidas, não pode atualizar estes ficheiros de suporte de dados ou dispositivos utilizados externas ao Configuration Manager  
+-   Depois da atualização do site, tem de atualizar manualmente os suportes de dados físicos, tais como ficheiros ISO para CD e DVD ou pens USB, ou suportes de dados pré-configurados utilizados para implementações do Windows To Go ou fornecidos a fornecedores de hardware. Embora a atualização do site atualize as imagens de inicialização padrão, não é possível atualizar esses arquivos de mídia ou dispositivos usados externos ao Configuration Manager  
 -   Planeie a atualização de imagens de arranque não predefinidas quando não precisa da versão original (mais antiga) do Windows PE.  
 
 **Ações que afetam configurações e definições**   
-Quando um site é atualizado para o System Center Configuration Manager, algumas configurações e definições não são mantidas após a atualização ou são definidas para uma nova configuração predefinida. A tabela seguinte inclui as definições que não são mantidas ou que são alteradas, bem como informações que o ajudam a efetuar o planeamento das mesmas durante a atualização de sites:  
+Quando um site é atualizado para o System Center Configuration Manager, algumas definições e configurações não permanecem após a atualização ou são definidas para uma nova configuração padrão. A tabela seguinte inclui as definições que não são mantidas ou que são alteradas, bem como informações que o ajudam a efetuar o planeamento das mesmas durante a atualização de sites:  
 
 -   **Centro de Software:**  
     Os seguintes itens do Centro de Software são repostos nos valores predefinidos:  
@@ -271,39 +271,39 @@ Quando um site é atualizado para o System Center Configuration Manager, algumas
      Os agendamentos de resumo personalizados para atualizações de software ou grupos de atualizações de software são repostos no valor predefinido de 1 hora. Após a conclusão da atualização, reponha os valores de resumo personalizados na frequência pretendida.  
 
 ##  <a name="bkmk_test"></a> Testar a atualização da base de dados do site  
-As seguintes informações aplicam-se apenas quando estiver a atualizar uma versoin anterior como o System Center 2012 Configuration Manager para System Center Configuration Manager. Se o site já é executado System Center Configuration Manager e estiver a instalar uma nova atualização, consulte o artigo [passo 2: Teste a atualização de base de dados antes de instalar uma atualização](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) de **antes de instalar uma atualização na consola**.
+As informações a seguir se aplica somente quando você estiver atualizando uma versão anterior, como o System Center 2012 Configuration Manager para o System Center Configuration Manager.
 
-Antes de atualizar um site, teste uma cópia da base de dados desse site para a atualização.  
+Antes de atualizar um site, teste uma cópia do banco de dados do site para a atualização.  
 
-Para testar a base de dados para uma atualização, restaure primeiro uma cópia da base de dados do site para uma instância do SQL Server que não aloje um site do Configuration Manager. A versão do SQL Server que utilizar para alojar a cópia da base de dados tem de ser uma versão do SQL Server que a versão do Configuration Manager suporta, ou seja, a origem da cópia da base de dados.  
+Para testar o banco de dados para uma atualização, primeiro restaure uma cópia do banco de dados do site para uma instância do SQL Server que não hospede um site do Configuration Manager. A versão do SQL Server que você pode usar para hospedar a cópia do banco de dados deve ser uma versão do SQL Server que a versão do Configuration Manager oferece suporte a que é a origem da cópia do banco de dados.  
 
-Em seguida, depois de restaurar a base de dados do site, no computador do SQL Server, execute a configuração do Configuration Manager a partir da pasta de suporte de dados de origem para o System Center Configuration Manager com o **/TESTDBUPGRADE** opção da linha de comandos.  
+Em seguida, depois de restaurar o banco de dados do site, no computador do SQL Server, execute a instalação do Configuration Manager da pasta de mídia de origem para o System Center Configuration Manager com o **/TESTDBUPGRADE** opção de linha de comando.  
 
 -   Para obter informações sobre como criar e restaurar uma cópia de segurança da base de dados do site, veja [Opções da linha de comandos para Configuração](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
 -   Para obter informações sobre a opção da linha de comandos **/TESTDBUPGRADE**, veja a tabela da secção [Opções da linha de comandos para Configuração](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
 -   Para obter informações sobre as versões suportadas do SQL Server, veja o tópico [Suporte para versões do SQL Server para o System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
 > [!TIP]  
->  Se a integrar o Microsoft Intune com o Configuration Manager:  
+>  Se você integrar o Microsoft Intune com o Configuration Manager:  
 >   
 >  Quando executa um teste de atualização da base de dados numa cópia da base de dados do site com 5 ou mais dias, poderá receber uma das seguintes mensagens:  
 >   
->  -   AVISAR: Atualização forçará uma sincronização completa para a nuvem.  
->  -   ERRO: Atualização de base de dados forçará uma sincronização completa para a nuvem.  
+>  -   AVISO: A atualização forçará uma sincronização completa para a nuvem.  
+>  -   ERRO: Atualização do banco de dados forçará uma sincronização completa para a nuvem.  
 >   
-> Tanto podem ser ignorados com segurança durante o teste de uma atualização de base de dados não indicam uma falha ou um problema com o teste da atualização. Em vez disso, que indicam que durante a atualização em si, dados a partir do **nuvem** grupo de replicação de base de dados poderá sincronizar com o Microsoft Intune.  
+> Ambos podem ser ignoradas durante o teste de uma atualização de banco de dados, pois elas não indicam uma falha ou problema com a atualização de teste. Em vez disso, eles indicam que, durante a atualização real, dados do **nuvem** grupo de replicação de banco de dados pode ser sincronizados com o Microsoft Intune.  
 
 Utilize o seguinte procedimento em cada site de administração central e site primário que pretenda atualizar.  
 
 #### <a name="to-test-a-site-database-for-upgrade"></a>Para testar uma base de dados do site para atualização  
 
-1.  Faça uma cópia da base de dados do site e, em seguida, restaure-a para uma instância do SQL Server que utiliza a mesma edição que a base de dados do site e que não aloje um site do Configuration Manager. Por exemplo, se a base de dados do site for executada numa instância da edição Enterprise do SQL Server, certifique-se de que restaura a base de dados para uma instância do SQL Server que também execute a edição Enterprise do SQL Server.  
+1.  Faça uma cópia do banco de dados do site e, em seguida, restaure essa cópia para uma instância do SQL Server que usa a mesma edição do banco de dados do site e que não hospede um site do Configuration Manager. Por exemplo, se a base de dados do site for executada numa instância da edição Enterprise do SQL Server, certifique-se de que restaura a base de dados para uma instância do SQL Server que também execute a edição Enterprise do SQL Server.  
 
-2.  Depois de restaurar a cópia da base de dados, execute a configuração do suporte de dados de origem para o System Center Configuration Manager. Ao executar a Configuração, utilize a opção da linha de comandos **/TESTDBUPGRADE** . Se a instância do SQL Server que aloja a cópia da base de dados não for a instância predefinida, terá de fornecer também os argumentos da linha de comandos para identificar a instância que aloja a cópia da base de dados do site.  
+2.  Depois de restaurar a cópia do banco de dados, execute a instalação da mídia de origem para o System Center Configuration Manager. Ao executar a Configuração, utilize a opção da linha de comandos **/TESTDBUPGRADE** . Se a instância do SQL Server que aloja a cópia da base de dados não for a instância predefinida, terá de fornecer também os argumentos da linha de comandos para identificar a instância que aloja a cópia da base de dados do site.  
 
-     Por exemplo, planeia atualizar uma base de dados do site denominada SMS_ABC. Restaura uma cópia desta base de dados do site para uma instância suportada do SQL Server com o nome de instância DBTest. Para testar uma atualização desta cópia da base de dados do site, utilize a seguinte linha de comandos: **Setup.exe /TESTDBUPGRADE DBtest\CM_ABC**  
+     Por exemplo, planeia atualizar uma base de dados do site denominada SMS_ABC. Restaura uma cópia desta base de dados do site para uma instância suportada do SQL Server com o nome de instância DBTest. Para testar uma atualização dessa cópia do banco de dados do site, use a seguinte linha de comando: **Setup.exe /TESTDBUPGRADE DBtest\CM_ABC**  
 
-     Pode encontrar Setup.exe na seguinte localização do suporte de dados de origem para o System Center Configuration Manager: **SMSSETUP\BIN\X64**.  
+     Você pode encontrar o Setup.exe no seguinte local na mídia de origem para o System Center Configuration Manager: **SMSSETUP\BIN\X64**.  
 
 3.  Na instância do SQL Server em que executou o teste da atualização da base de dados, monitorize o progresso e êxito do ficheiro ConfigMgrSetup.log, na raiz da unidade do sistema:  
 
@@ -313,18 +313,18 @@ Utilize o seguinte procedimento em cada site de administração central e site p
         > [!NOTE]  
         >  O restauro da cópia da base de dados do site utilizada para o teste da atualização não é suportado para utilização como base de dados de qualquer site.  
 
-Após a atualização com êxito uma cópia da base de dados do site, continue com a atualização do site do Configuration Manager e a respetiva base de dados do site.  
+Após atualizar com êxito uma cópia do banco de dados do site, prossiga com a atualização de site do Configuration Manager e seu banco de dados do site.  
 
 ##  <a name="bkmk_upgrade"></a> Atualizar sites  
-Depois de concluir as configurações de pré-atualização do seu site, testar a atualização da base de dados do site numa cópia da base de dados e transferir os ficheiros de pré-requisitos e pacotes de idiomas para a versão de service pack que planeia instalar, estará pronto para atualizar o seu site do Configuration Manager.  
+Depois de concluir as configurações de pré-atualização do seu site, teste a atualização de dados do site em uma cópia do banco de dados e baixar arquivos de pré-requisitos e pacotes de idiomas para a versão do service pack que planeja instalar, você está pronto para atualizar seu site do Configuration Manager.  
 
-Ao atualizar um site numa hierarquia, deverá atualizar primeiro o site de nível superior da hierarquia. Este site de nível superior é um site de administração central ou um site primário autónomo. Após a conclusão da atualização de um site de administração central, será possível atualizar os sites primários subordinados pela ordem que entender. Depois de atualizar um site primário, pode atualizar os sites secundários subordinados desse site ou atualizar sites primários adicionais antes de atualizar quaisquer sites secundários.  
+Ao atualizar um site numa hierarquia, deverá atualizar primeiro o site de nível superior da hierarquia. Este site de nível superior é um site de administração central ou um site primário autónomo. Após a conclusão da atualização de um site de administração central, será possível atualizar os sites primários subordinados pela ordem que entender. Depois de atualizar um site primário, você pode atualizar sites secundários do filho do site ou atualizar sites primários adicionais antes de atualizar quaisquer sites secundários.  
 
-Para atualizar um site de administração central ou site primário, executar a configuração do suporte de dados de origem do System Center Configuration Manager. No entanto, não deverá executar o Programa de Configuração para atualizar sites secundários. Em vez disso, é utilizar a consola do Configuration Manager para atualizar um site secundário após concluir a atualização do respetivo site primário principal.  
+Para atualizar um site de administração central ou site primário, execute o programa de instalação da mídia de origem do System Center Configuration Manager. No entanto, não deverá executar o Programa de Configuração para atualizar sites secundários. Em vez disso, você deve usar o console do Configuration Manager para atualizar um site secundário após concluir a atualização do seu site pai primário.  
 
-Antes de atualizar um site, feche a consola do Configuration Manager que está instalada no servidor de site até que a atualização do site é concluída. Além disso, feche cada consola do Configuration Manager que é executado em computadores que não seja o servidor do site. Poderá voltar a ligar a consola após a conclusão da atualização do site. No entanto, até atualizar uma consola do Configuration Manager para a nova versão do Configuration Manager, essa consola não poderá apresentar alguns objetos e informações que estão disponíveis na nova versão do Configuration Manager.  
+Antes de atualizar um site, feche o console do Configuration Manager está instalado no servidor do site até após a atualização do site. Além disso, feche cada console do Configuration Manager que é executado em computadores diferentes do servidor do site. Poderá voltar a ligar a consola após a conclusão da atualização do site. No entanto, até você atualizar um console do Configuration Manager para a nova versão do Configuration Manager, esse console não poderá exibir alguns objetos e informações que estão disponíveis na nova versão do Configuration Manager.  
 
-Utilize os procedimentos seguintes para atualizar sites do Configuration Manager:  
+Use os procedimentos a seguir para atualizar sites do Configuration Manager:  
 
 #### <a name="to-upgrade-a-central-administration-site-or-primary-site"></a>Para atualizar um site de administração central ou site primário  
 
@@ -333,9 +333,9 @@ Utilize os procedimentos seguintes para atualizar sites do Configuration Manager
     -   Direitos de Administrador Local no computador do servidor de site.  
     -   Direitos de Administrador Local no servidor da base de dados do site remoto, se for remoto.    </br></br>
 
-2.  No computador do servidor do site, abra o Explorador do Windows e navegue para  **&lt;ConfigMgSourceMedia\>\smssetup\bin\x64.**.  
+2.  No computador do servidor do site, abra o Windows Explorer e navegue para  **&lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
 
-3.  Faça duplo clique em **Setup.exe**. É aberto o Assistente de configuração do Configuration Manager.  
+3.  Faça duplo clique em **Setup.exe**. Abre o Assistente de instalação do Configuration Manager.  
 
 4.  Na página **Antes de Começar** , clique em **Seguinte**.  
 
@@ -343,37 +343,37 @@ Utilize os procedimentos seguintes para atualizar sites do Configuration Manager
 
 6.  Na página **Chave de Produto** , clique em **Seguinte**.  
 
-     Se instalou anteriormente a avaliação do Configuration Manager, pode selecionar **instalar a edição licenciada deste produto**e, em seguida, introduza a chave de produto para a instalação completa do Configuration Manager para converter o site para a versão completa.  
+     Se você instalou anteriormente a avaliação do Configuration Manager, você pode selecionar **instalar a edição licenciada deste produto**e, em seguida, insira a chave do produto para a instalação completa do Configuration Manager para converter o site para a versão completa.  
 
-     Iniciar com a versão de Outubro de 2016 do suporte de dados de linha de base de 1606 de versão para o System Center Configuration Manager, pode especificar a data de expiração do seu contrato do Software Assurance. Tem também a opção de especificar o **data de expiração de Software Assurance** do seu contrato de licenciamento, como um lembrete para si conveniente dessa data. Se não introduzir esta durante a configuração, pode especificar mais tarde a partir da consola do Configuration Manager.
+     Começando com a versão de outubro de 2016 da mídia versão 1606 da linha de base para o System Center Configuration Manager, você pode especificar a data de validade do seu contrato de Software Assurance. Você também tem a opção de especificar o **data de expiração do Software Assurance** do seu contrato de licença como um lembrete conveniente dessa data. Se você não inserir isso durante a instalação, você pode especificá-lo mais tarde no console do Configuration Manager.
 
      >  [!NOTE]   
-     >  Microsoft não valida a data de expiração que introduziu e não irá utilizar esta data para validação de licença.  Em vez disso, pode utilizá-lo como um lembrete da data de validade. Isto é útil porque a Configuration Manager periodicamente verifica a existência de novas atualizações de software oferecidas online e o estado da licença de software assurance deve ser atual para ser elegível para utilizar estas atualizações adicionais.    
+     >  Microsoft não valida a data de validade inserido e não usará essa data para validação de licença.  Em vez disso, você pode usá-lo como um lembrete de data de expiração. Isso é útil porque o Configuration Manager periodicamente verifica se há novas atualizações de software oferecido online e o status de licença do software assurance deve ser atualizado para ser qualificado para usar essas atualizações adicionais.    
 
-     Para obter mais informações, consulte o artigo [licenciamento e ramos para o System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+     Para obter mais informações, consulte [licenciamento e ramificações para o System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
 7.  Na página **Termos de Licenciamento para Software Microsoft** , leia e aceite os termos de licenciamento e clique em **Seguinte**.  
 
 8.  Na página **Licenças de Pré-requisitos** , leia e aceite os termos de licenciamento do software de pré-requisito e clique em **Seguinte**. O programa de configuração transfere e instala automaticamente o software em sistemas de sites ou clientes, quando necessário. Tem de selecionar todas as caixas de verificação para avançar para a página seguinte.  
 
-9. Na página **Transferências de Pré-requisitos** , especifique se a Configuração deverá transferir os ficheiros redistribuíveis de pré-requisitos, pacotes de idiomas e atualizações de produto mais recentes a partir da Internet ou utilizar ficheiros transferidos anteriormente, e clique em **Seguinte**. Se tiver transferido anteriormente os ficheiros através do Dispositivo de Transferência da Configuração, selecione **Utilizar ficheiros anteriormente transferidos** e especifique a pasta para transferência. Para obter mais informações, consulte o artigo [dispositivo de transferência da configuração](/sccm/core/servers/deploy/install/setup-downloader).
+9. Na página **Transferências de Pré-requisitos** , especifique se a Configuração deverá transferir os ficheiros redistribuíveis de pré-requisitos, pacotes de idiomas e atualizações de produto mais recentes a partir da Internet ou utilizar ficheiros transferidos anteriormente, e clique em **Seguinte**. Se tiver transferido anteriormente os ficheiros através do Dispositivo de Transferência da Configuração, selecione **Utilizar ficheiros anteriormente transferidos** e especifique a pasta para transferência. Para obter mais informações, consulte [Downloader de instalação](/sccm/core/servers/deploy/install/setup-downloader).
 
     > [!NOTE]  
     >  Quando utilizar ficheiros transferidos anteriormente, verifique se o caminho para a pasta de transferência contém a versão mais recente dos ficheiros.  
 
-10. Na página **Seleção do Idioma do Servidor** , veja a lista de idiomas atualmente instalados para o site. Selecione idiomas adicionais que estão disponíveis neste site para a consola do Configuration Manager e para relatórios ou desmarque os idiomas que já não pretende suportar no site e, em seguida, clique em **seguinte**. Por predefinição, está seleccionado o inglês e não pode ser removido.  
+10. Na página **Seleção do Idioma do Servidor** , veja a lista de idiomas atualmente instalados para o site. Selecione os idiomas adicionais que estão disponíveis nesse site para o Configuration Manager console e relatórios, ou limpe os idiomas que você não deseja oferecer suporte nesse site e, em seguida, clique em **próximo**. Por predefinição, está seleccionado o inglês e não pode ser removido.  
 
     > [!IMPORTANT]  
-    >  Cada versão do Configuration Manager não é possível utilizar pacotes de idiomas de uma versão anterior do Configuration Manager. Para ativar o suporte para um idioma num site do Configuration Manager se que Atualize, tem de utilizar a versão do pacote de idiomas dessa nova versão. Para exemplo, durante a atualização do System Center 2012 Configuration Manager para System Center Configuration Manager, se a versão do System Center Configuration Manager de um pacote de idiomas não estiver disponível com os ficheiros de pré-requisitos que transfere, suporte para esse idioma não pode ser instalado.  
+    >  Cada versão do Configuration Manager não pode usar pacotes de idiomas de uma versão anterior do Configuration Manager. Para habilitar o suporte para um idioma em um site do Configuration Manager que você atualizar, você deve usar a versão do pacote de idiomas da nova versão. Por exemplo, durante a atualização do System Center 2012 Configuration Manager para o System Center Configuration Manager, se a versão do System Center Configuration Manager de um pacote de idiomas não estiver disponível com os arquivos de pré-requisitos baixados, suporte para o idioma não pode ser instalado.  
 
 11. Na página **Seleção do Idioma do Cliente** , veja a lista de idiomas atualmente instalados para o site. Selecione idiomas adicionais disponíveis neste site para computadores cliente ou desmarque os idiomas que já não seja necessário suportar no site. Especifique se pretende ativar todos os idiomas de cliente para clientes de dispositivos móveis e clique em **Seguinte**. Por predefinição, está seleccionado o inglês e não pode ser removido.  
 
     > [!IMPORTANT]  
-    >  Cada versão do Configuration Manager não é possível utilizar pacotes de idiomas de uma versão anterior do Configuration Manager. Para ativar o suporte para um idioma num site do Configuration Manager se que Atualize, tem de utilizar a versão do pacote de idiomas dessa nova versão. Para exemplo, durante a atualização do System Center 2012 Configuration Manager para System Center Configuration Manager, se a versão do System Center Configuration Manager de um pacote de idiomas não estiver disponível com os ficheiros de pré-requisitos que transfere, suporte para esse idioma não pode ser instalado.  
+    >  Cada versão do Configuration Manager não pode usar pacotes de idiomas de uma versão anterior do Configuration Manager. Para habilitar o suporte para um idioma em um site do Configuration Manager que você atualizar, você deve usar a versão do pacote de idiomas da nova versão. Por exemplo, durante a atualização do System Center 2012 Configuration Manager para o System Center Configuration Manager, se a versão do System Center Configuration Manager de um pacote de idiomas não estiver disponível com os arquivos de pré-requisitos baixados, suporte para o idioma não pode ser instalado.  
 
 12. Na página **Resumo de Definições** , clique em **Seguinte** para iniciar o Verificador de Pré-requisitos para verificar a prontidão do servidor para a atualização do site.  
 
-13. Se não forem listados problemas na página **Verificação da Instalação de Pré-requisitos** , clique em **Seguinte** para atualizar o site e as funções do sistema de sites. Quando o Verificador de Pré-requisitos detetar um problema, clique num item da lista para obter detalhes sobre como resolver o problema. Antes de continuar a Configuração, resolva todos os itens da lista com estado de **Erro** . Depois de resolver o problema, clique em **Executar Verificação** para reiniciar a verificação de pré-requisitos. Pode também abrir o ficheiro ConfigMgrPrereq.log na raiz da unidade do sistema para rever os resultados do Verificador de Pré-requisitos. O ficheiro de registo pode conter informações adicionais que não são apresentadas na interface de utilizador. Para obter uma lista de regras de pré-requisitos de instalação e as descrições, consulte o artigo [Verificador de pré-requisito](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
+13. Se não forem listados problemas na página **Verificação da Instalação de Pré-requisitos** , clique em **Seguinte** para atualizar o site e as funções do sistema de sites. Quando o Verificador de Pré-requisitos detetar um problema, clique num item da lista para obter detalhes sobre como resolver o problema. Antes de continuar a Configuração, resolva todos os itens da lista com estado de **Erro** . Depois de resolver o problema, clique em **Executar Verificação** para reiniciar a verificação de pré-requisitos. Pode também abrir o ficheiro ConfigMgrPrereq.log na raiz da unidade do sistema para rever os resultados do Verificador de Pré-requisitos. O ficheiro de registo pode conter informações adicionais que não são apresentadas na interface de utilizador. Para obter uma lista de regras de pré-requisitos de instalação e descrições, consulte [Verificador de pré-requisito](/sccm/core/servers/deploy/install/list-of-prerequisite-checks).  
 
 Na página **Atualizar** , a Configuração apresenta o estado do progresso global. Quando o Programa de Configuração concluir a instalação do servidor do site principal e do sistema de sites, pode fechar o assistente. A configuração do site continua em segundo plano.  
 
@@ -393,13 +393,13 @@ Na página **Atualizar** , a Configuração apresenta o estado do progresso glob
 
 5.  Clique em **Sim** para confirmar a decisão e iniciar a atualização do site secundário.  
 
-A atualização do site secundário continuará em segundo plano. Após a conclusão da atualização, poderá confirmar o estado na consola do Configuration Manager. Para confirmar o estado, selecione o servidor do site secundário e, no separador **Home Page** , no grupo **Site** , clique em **Mostrar Estado da Instalação**.  
+A atualização do site secundário continuará em segundo plano. Depois que a atualização for concluída, você pode confirmar o status no console do Configuration Manager. Para confirmar o estado, selecione o servidor do site secundário e, no separador **Home Page** , no grupo **Site** , clique em **Mostrar Estado da Instalação**.  
 
 ##  <a name="BKMK_PostUpgrade"></a> Efetuar tarefas pós-atualização  
-Após atualizar um site para um novo Service Pack, poderá ter de executar tarefas adicionais para concluir a atualização ou reconfigurar o site. Estas tarefas podem incluir a atualização de clientes do Configuration Manager ou de consolas do Configuration Manager, reactivação réplicas de base de dados para pontos de gestão ou o restauro de definições para a funcionalidade do Configuration Manager que utilize e que não sejam mantidas após a atualização do service pack.  
+Após atualizar um site para um novo Service Pack, poderá ter de executar tarefas adicionais para concluir a atualização ou reconfigurar o site. Essas tarefas podem incluir a atualização de clientes do Configuration Manager ou de consoles do Configuration Manager, reabilitar réplicas de banco de dados para pontos de gerenciamento ou restaurar as configurações para a funcionalidade do Configuration Manager que você usar e que não persiste após a atualização do service pack.  
 
 **Problemas conhecidos para sites secundários:**  
-- **Ao atualizar para versão 1511:** Para garantir que os clientes de sites secundários pode localizar o ponto de gestão do site secundário (ponto de proxy de gestão), adicionar manualmente o ponto de gestão para grupos de limites que também incluem os pontos de distribuição no site secundário.  
+- **Quando você atualizar para a versão 1511:** Para garantir que os clientes em sites secundários podem localizar o ponto de gerenciamento do site secundário (ponto de gerenciamento proxy), adicione manualmente o ponto de gerenciamento para grupos de limites que também incluem os pontos de distribuição no site secundário.  
 
-- **Ao atualizar para versão 1606 ou posterior:** Pontos de gestão do proxy são automaticamente adicionados a grupos de limites que incluem pontos de distribuição no site secundário.
+- **Quando você atualizar para a versão 1606 ou posterior:** Pontos de gerenciamento proxy são automaticamente adicionados a grupos de limites que incluem pontos de distribuição no site secundário.
 

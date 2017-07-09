@@ -1,8 +1,8 @@
 ---
-title: "Gerir uma subscrição do Intune associada com o System Center Configuration Manager | Documentos do Microsoft"
-description: "Gerir uma subscrição do Intune associada com o System Center Configuration Manager."
+title: Gerenciar uma assinatura do Intune associada com o System Center Configuration Manager | Microsoft Docs
+description: Gerencie uma assinatura do Intune associada com o System Center Configuration Manager.
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 06/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,36 +17,36 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 2e0b3cd1070d0f8adb1219acd33c3126d2758a49
+ms.sourcegitcommit: 662901e850566756759fcfc61c58f3c0e56bc5aa
+ms.openlocfilehash: 2cb4d724c8b78657458a30c0bb020f67c6b62795
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/03/2017
 
 ---
-# <a name="manage-an-intune-subscription-associated-with-system-center-configuration-manager"></a>Gerir uma subscrição do Intune associada com o System Center Configuration Manager
+# <a name="manage-an-intune-subscription-associated-with-system-center-configuration-manager"></a>Gerenciar uma assinatura do Intune associada com o System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
-Se adicionar um Microsoft Intune (uma subscrição de avaliação ou subscrição paga) do Configuration Manager e, em seguida, ter de mudar para outra subscrição do Intune, tem de eliminar ambos o **subscrição do Windows Intune** e **ponto de ligação de serviço** a partir da consola do Configuration Manager antes de poder adicionar uma nova subscrição.
+Se você adicionar um Microsoft Intune (em uma assinatura de avaliação ou assinatura paga) ao Configuration Manager e, em seguida, é necessário alternar para uma assinatura diferente do Intune, será preciso excluir tanto a **assinatura do Microsoft Intune** e **ponto de conexão de serviço** do console do Configuration Manager antes de adicionar uma nova assinatura.
 
 > [!NOTE]
-> Pode configurar apenas uma subscrição do Intune cada vez em gestão de dispositivos móveis híbrida.
+> Você pode configurar apenas uma assinatura do Intune em uma hora no gerenciamento de dispositivo móvel híbrido.
 
 ## <a name="how-to-delete-an-intune-subscription-from-configuration-manager"></a>Como eliminar uma subscrição do Intune do Configuration Manager
 
 > [!IMPORTANT]
->  Todo o conteúdo incluindo inscrições através do utilizador, as políticas e as implementações das aplicações configuradas para dispositivos geridos pela subscrição do Intune são removidas quando eliminar a subscrição.
+>  Todo o conteúdo incluindo registros do usuário, políticas e implantações de aplicativo configurados para dispositivos gerenciados por assinatura do Intune são removidos quando você excluir a assinatura.
 
-1.  Na consola do Configuration Manager, aceda a **administração** > **descrição geral** > **serviços em nuvem** > **subscrições do Microsoft Intune**.
+1.  No console do Configuration Manager, vá para **administração** > **visão geral** > **serviços de nuvem** > **assinaturas do Microsoft Intune**.
 
-2.  Com o botão direito do indicadas **subscrição do Windows Intune**e, em seguida, clique em **eliminar**.
+2.  Clique com botão direito listado **assinatura do Microsoft Intune**e, em seguida, clique em **excluir**.
 
-3.   No assistente, clique em **remover subscrição do Windows Intune do Configuration Manager**, clique em **seguinte**e, em seguida, clique em **seguinte** novamente para remover a subscrição.
+3.   No assistente, clique em **remover assinatura do Microsoft Intune do Configuration Manager**, clique em **próximo**e, em seguida, clique em **próximo** novamente para remover a assinatura.
 
 
-## <a name="how-to-remove-the-service-connection-point-role"></a>Como remover a função de ponto de ligação de serviço
+## <a name="how-to-remove-the-service-connection-point-role"></a>Como remover a função de ponto de conexão de serviço
 
-1.  Aceda a **administração** > **descrição geral** > **configuração do Site** > **servidores e funções de sistema de sites**.
+1.  Vá para **administração** > **visão geral** > **configuração de Site** > **servidores e funções de sistema de Site**.
 
 2.  Selecione o servidor que aloja a função **Ponto de ligação de serviço**.
 
@@ -54,7 +54,6 @@ Se adicionar um Microsoft Intune (uma subscrição de avaliação ou subscriçã
 
 Agora pode criar um novo ponto de ligação de serviço, adicione uma nova subscrição do Intune ao Configuration Manager e defina o Configuration Manager como a Autoridade de MDM.
 
-## <a name="how-to-change-mdm-authority-to-intune"></a>Como alterar a autoridade de MDM do Intune
-
-A partir na versão 1610, pode mudar a autoridade de MDM do Configuration Manager para o Intune. Informações sobre esta funcionalidade estará disponível em breve.
+## <a name="how-to-change-mdm-authority-to-intune"></a>Como alterar a autoridade MDM como Intune
+A partir do Configuration Manager versão 1610 e Microsoft Intune version 1705, você pode alterar sua autoridade MDM sem precisar entrar em contato com o Microsoft Support e sem a necessidade de cancelar o registro e registrar novamente os dispositivos gerenciados existentes. Para obter detalhes, consulte [alterar sua autoridade MDM](/sccm/mdm/deploy-use/change-mdm-authority).
 

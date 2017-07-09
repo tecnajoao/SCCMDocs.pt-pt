@@ -1,6 +1,6 @@
 ---
-title: "Instalação da linha de comandos | Documentos do Microsoft"
-description: "Saiba como executar a configuração do System Center Configuration Manager numa linha de comandos para uma variedade das instalações de site."
+title: "Instalação de linha de comando | Microsoft Docs"
+description: "Saiba como executar a instalação do System Center Configuration Manager em um prompt de comando para uma variedade de instalações do site."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -16,45 +16,45 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: fefa5f3aa12d82b66a251cf0525475496e1e35cf
+ms.sourcegitcommit: f7cd9c71287d62c9f5d36e2f032bc2a6065572ae
+ms.openlocfilehash: 8ff48b08d1abb7481592c0ea076d4efa15c3d8ee
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/06/2017
 
 ---
-# <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Utilizar uma linha de comandos para instalar sites do System Center Configuration Manager
+# <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Usar uma linha de comando para instalar sites do System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
- Pode executar o programa de configuração do System Center Configuration Manager numa linha de comandos para instalar uma variedade de tipos de site.
+ Você pode executar a instalação do System Center Configuration Manager em um prompt de comando para instalar uma variedade de tipos de site.
 
-## <a name="supported-tasks-for-command-line-installations"></a>Tarefas suportadas para instalações da linha de comandos
- Este método de executar a configuração suporta a instalação do site seguinte e tarefas de manutenção do site:
+## <a name="supported-tasks-for-command-line-installations"></a>Tarefas com suporte para instalações de linha de comando
+ Esse método de instalação oferece suporte a tarefas de manutenção do site e após a instalação de site:
 
--   **Instalar um site de administração central ou site primário a partir de uma linha de comandos**  
-  Vista [opções da linha de comandos para a configuração](../../../../core/servers/deploy/install/command-line-options-for-setup.md)
+-   **Instalar um site de administração central ou site primário de um prompt de comando**  
+  Exibição [opções de linha de comando para instalação](../../../../core/servers/deploy/install/command-line-options-for-setup.md)
 
--  **Modificar os idiomas em utilização num site de administração central ou site primário**  
-    Para modificar os idiomas que estão instalados num site a partir de uma linha de comandos (incluindo idiomas para dispositivos móveis), tem de:  
+-  **Modificar os idiomas em uso em um site de administração central ou site primário**  
+    Para modificar os idiomas que estão instalados em um site em um prompt de comando (incluindo idiomas para dispositivos móveis), você deve:  
 
-     -   Execute a configuração a partir de  **&lt;ConfigMgrInstallationPath\>\bin\x64.** no servidor do site,
-     -   Utilize o **/MANAGELANGS** opção da linha de comandos,
-     -   Especifique um ficheiro de script de idioma que especifica os idiomas que pretende adicionar ou remover,  
+     -   Execute a instalação do  **&lt;ConfigMgrInstallationPath\>\Bin\X64** no servidor do site,
+     -   Use o **/MANAGELANGS** opção de linha de comando
+     -   Especifique um arquivo de script de idioma que especifica os idiomas que você deseja adicionar ou remover  
 
-    Por exemplo, utilize a seguinte sintaxe de comando: **setupwpf.exe /MANAGELANGS &lt;ficheiro de script de idioma\>**  
+    Por exemplo, use a seguinte sintaxe de comando: **setupwpf.exe /MANAGELANGS &lt;arquivo de script de idioma\>**  
 
-    Para criar o ficheiro de script de idioma, utilize as informações no [opções de linha de comandos para gerir idiomas](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang)  
+    Para criar o arquivo de script de idioma, use as informações em [opções de linha de comando para gerenciar idiomas](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang)  
 
--  **Utilizar um ficheiro de script de instalação para as instalações de site automática ou recuperação de site**  
-    Pode executar a configuração a partir de uma linha de comandos, utilizando um script de instalação e executar uma instalação de site automática. Também pode utilizar esta opção para recuperar um site.    
+-  **Usar um arquivo de script de instalação para instalações autônomas de site ou a recuperação de site**  
+    Você pode executar a instalação em um prompt de comando usando um script de instalação e executar uma instalação autônoma do site. Você também pode usar essa opção para recuperar um site.    
 
-    Para utilizar um script com a configuração:  
+    Para usar um script com a instalação:  
 
-    -   Executar a configuração com a opção de linha de comandos **/SCRIPT** e especifique um ficheiro de script.  
+    -   Execute a instalação com a opção de linha de comando **/SCRIPT** e especifique um arquivo de script.  
 
-    -   O ficheiro de script deve ser configurado com as chaves necessárias e valores.  
+    -   O arquivo de script deve ser configurado com os valores e chaves necessárias.  
 
-    Para a instalação automática de um site de administração central ou site primário, o ficheiro de script tem de ter as seguintes secções:  
+    Para uma instalação autônoma de um site de administração central ou site primário, o arquivo de script deve ter as seguintes seções:  
 
     -   Identificação    
     -   Opções    
@@ -62,68 +62,68 @@ ms.lasthandoff: 05/17/2017
       -   HierarchyOptions    
     -   CloudConnectorOptions   
 
-    Para recuperar um site, tem também de incluir as seguintes secções do ficheiro de script:  
+    Para recuperar um site, você também deve incluir as seguintes seções do arquivo de script:  
 
     -   Identificação  
     -   Recuperação
 
-Para obter mais informações sobre a cópia de segurança e recuperação, consulte o [chaves de ficheiro de script de recuperação de site automática](../../../../protect/understand/backup-and-recovery.md#BKMK_UnattendedSiteRecoveryKeys) no [cópia de segurança e recuperação no Configuration Manager](../../../../protect/understand/backup-and-recovery.md) tópico.  
+Para obter mais informações, consulte [recuperação autônoma do site do Configuration Manager](/sccm/protect/understand/unattended-recovery).  
 
-Para obter uma lista de chaves e valores para utilizar um ficheiro de script de instalação automática, consulte o artigo [chaves de ficheiro de script de configuração automática](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
+Para obter uma lista de chaves e valores a serem usados em um arquivo de script de instalação autônoma, consulte [chaves de arquivo de script de instalação autônoma](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
 
-## <a name="about-the-command-line-script-file"></a>Sobre o ficheiro de script da linha de comandos  
- Para instalações automáticas do Configuration Manager, pode executar a configuração com a opção da linha de comandos **/SCRIPT**e especifique um ficheiro de script que contém as opções de instalação. As seguintes tarefas são suportadas através deste método:  
+## <a name="about-the-command-line-script-file"></a>Sobre o arquivo de script de linha de comando  
+ Para instalações autônomas do Configuration Manager, você pode executar a instalação com a opção de linha de comando **/SCRIPT**e especificar um arquivo de script que contém opções de instalação. As tarefas a seguir têm suporte usando esse método:  
 
 -   Instalar um site de administração central  
 -   Instalar um site primário  
--   Instalar uma consola do configuration Manager  
+-   Instalar um console do configuration Manager  
 -   Recuperar um site  
 
 > [!NOTE]  
->  Não é possível utilizar o ficheiro de script automático para atualizar um site de avaliação para uma instalação licenciada do Configuration Manager.  
+>  Você não pode usar o arquivo de script autônomo para atualizar um site de avaliação para uma instalação licenciada do Configuration Manager.  
 
 ### <a name="the-cdlatest-key-name"></a>O nome da chave CDLatest
-Quando utiliza suportes de dados a partir do CD. Instalar pasta mais recente para ser executada com um script das seguintes opções de instalação de quatro, o script tem de incluir o **CDLatest** chave com um valor de **1**:
+Quando você usa mídia a partir do CD. Instalar a pasta mais recente para executar um script das seguintes opções de instalação de quatro, o script deve incluir o **CDLatest** chave com um valor de **1**:
 - Instalar um novo site de administração central
 - Instalar um novo site primário
 - Recuperar um site de administração central
-- Recuperar um site primário 
+- Recuperar um site primário
 
-Este valor não é suportado para utilização com o suporte de instalação que que obtém a partir do site de licenciamento em Volume da Microsoft.
-Consulte o artigo [opções da linha de comandos](/sccm/core/servers/deploy/install/command-line-options-for-setup) para obter informações sobre como utilizar este nome da chave no ficheiro de script.
+Esse valor não é suportado para uso com a mídia de instalação que você obtém do site de licença de Volume da Microsoft.
+Consulte [opções de linha de comando](/sccm/core/servers/deploy/install/command-line-options-for-setup) para obter informações sobre como usar esse nome de chave no arquivo de script.
 
 
 
 ### <a name="create-the-script"></a>Criar o script
-O script de instalação é criado automaticamente quando é [executar a configuração para instalar um site utilizando a interface de utilizador](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  Quando confirma as definições no **resumo** acontece de página do assistente, o seguinte:  
+O script de instalação é automaticamente criado quando você [execute a instalação para instalar um site usando a interface do usuário](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  Quando você confirma as configurações no **resumo** página do assistente, o seguinte acontece:  
 
--   A configuração cria o script **%TEMP%\ConfigMgrAutoSave.ini**.  Pode mudar o nome este ficheiro antes, utilizá-lo, mas têm de reter a extensão de ficheiro. ini.  
--   O script de instalação automática contém as definições que selecionou no assistente.  
--   Após a criação do script, pode modificar o script para instalar outros sites na hierarquia.  
--   Em seguida, pode utilizar este script para efetuar uma configuração automática do Configuration Manager.  
+-   A instalação cria o script **%TEMP%\ConfigMgrAutoSave.ini**.  Você pode renomear esse arquivo antes de você usá-lo, mas ele deve manter a extensão de arquivo. ini.  
+-   O script de instalação autônoma contém as configurações que você selecionou no assistente.  
+-   Depois que o script é criado, você pode modificar o script para instalar outros sites na sua hierarquia.  
+-   Você pode usar esse script para executar uma instalação autônoma do Configuration Manager.  
 
-Este ficheiro de script fornece as mesmas informações pedidas pelo Assistente de configuração de, exceto que não existem não existem predefinições.   
-Tem de especificar todos os valores para as chaves de configuração que se aplicam ao tipo de instalação que está a utilizar.   
+Esse arquivo de script fornece as mesmas informações que o Assistente de instalação solicita, exceto que não há nenhuma configuração padrão.   
+Você deve especificar todos os valores para as chaves de instalação que se aplicam ao tipo de instalação que você está usando.   
 
-Quando a configuração cria o script de instalação automática, este é preenchido com o valor de chave de produto que introduziu durante a configuração. Isto pode ser uma chave de produto válida, ou **EVAL** ao instalar uma versão de avaliação do Configuration Manager. O valor da chave de produto no script está preenchido para que pode concluir a verificação de pré-requisitos.   
+Quando a instalação cria o script de instalação autônoma, ele é preenchido com o valor de chave de produto inserido durante a instalação. Isso pode ser uma chave de produto válida, ou **EVAL** quando você instala uma versão de avaliação do Configuration Manager. O valor de chave do produto no script é preenchido para que possa concluir a verificação de pré-requisitos.   
 
-Quando a configuração iniciar a instalação do site real, o script criado automaticamente é novamente gravado para limpar o valor da chave de produto no script criado. Antes de utilizar o script para a instalação automática de um novo site, pode editar o script para fornecer uma chave de produto válida ou especificar uma instalação de avaliação do Configuration Manager.  
+Quando a instalação inicia a instalação real do site, o script criado automaticamente é gravado para novamente limpar o valor de chave do produto no script que ele cria. Antes de usar o script para uma instalação autônoma de um novo site, você pode editar o script para fornecer uma chave de produto válida ou especificar uma instalação de avaliação do Configuration Manager.  
 
-### <a name="section-names-key-names-and-values"></a>Nomes de secções, nomes de chaves e valores
-O script contém nomes de secções, nomes de chaves e valores. Tenha em atenção as seguintes informações:
--   Nomes de chaves de secção necessários variam consoante o tipo de instalação que está a processar scripts.
--   A ordem das chaves dentro das secções e a ordem das secções no ficheiro não são importantes.     
--   As chaves não são maiúsculas e minúsculas.  
--   Quando está a fornecer valores para as chaves, o nome da chave deve ser seguido um sinal de igual (=) e o valor da chave.    
+### <a name="section-names-key-names-and-values"></a>Os nomes de seção, nomes de chave e valores
+O script contém nomes de secções, nomes de chaves e valores. Observe as seguintes informações:
+-   Nomes de chave da seção necessários variam dependendo do tipo de instalação que você está criando scripts.
+-   A ordem das chaves dentro das seções e a ordem das seções dentro do arquivo não é importantes.     
+-   As chaves não diferenciam maiusculas de minúsculas.  
+-   Quando você fornece valores para chaves, o nome da chave deve ser seguido por um sinal de igual (=) e o valor da chave.    
 
 > [!TIP]  
->  Para ver o conjunto completo de opções, consulte o artigo [opções da linha de comandos para configuração e scripts](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
+>  Para exibir o conjunto completo de opções, consulte [opções de linha de comando para instalação e scripts](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
 
-## <a name="use-the-script-setup-command-line-option"></a>Utilize a opção da linha de comandos /SCRIPT de configuração
+## <a name="use-the-script-setup-command-line-option"></a>Use a opção de linha de comando de instalação /SCRIPT
 
--   Tem de utilizar um ficheiro de script de configuração e especificar o nome de ficheiro após a **/SCRIPT** opção da linha de comandos. Tenha em atenção as seguintes informações:   
-    -   O nome do ficheiro tem de ter o **. ini** extensão de nome de ficheiro.  
-    -   Quando referenciar o ficheiro de script de configuração na linha de comando, tem de fornecer o caminho completo para o ficheiro. Por exemplo, se o ficheiro de inicialização da configuração tiver o nome e é armazenado na pasta C:\Setup, a linha de comandos, escreva: **configuração/script c:\setup\setup.ini**.  
+-   Você deve usar um arquivo de script de instalação e especifique o nome do arquivo após o **/SCRIPT** opção de linha de comando de instalação. Observe as seguintes informações:   
+    -   O nome do arquivo deve ter o **. ini** extensão de nome de arquivo.  
+    -   Quando você referenciar o arquivo de script de instalação no prompt de comando, você deve fornecer o caminho completo para o arquivo. Por exemplo, se o arquivo de inicialização de instalação for nomeado como Setup.ini e é armazenado na pasta C:\Setup, no prompt de comando, digite: **de instalação /script c:\setup\setup.ini**.  
 
--   A conta que executa a configuração tem de ter **administrador** direitos no computador. Quando executar a configuração com o script automático, abra a janela de linha de comandos, utilizando o **executar como administrador** opção.   
+-   A conta que executa a instalação deve ter **administrador** direitos no computador. Quando você executar a instalação com o script autônomo, abra a janela de Prompt de comando usando o **executar como administrador** opção.   
 

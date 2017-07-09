@@ -1,8 +1,8 @@
 ---
-title: "Lista de verificação para 1610 | O System Center Configuration Manager"
-description: "Saiba mais sobre as ações a efetuar antes de atualizar para o System Center Configuration Manager versão 1610."
+title: "Lista de verificação para 1610 | System Center Configuration Manager"
+description: "Saiba mais sobre as ações a serem tomadas antes de atualizar para System Center Configuration Manager versão 1610."
 ms.custom: na
-ms.date: 2/7/2017
+ms.date: 6/6/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,157 +16,157 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 30af3326578d39c6d995672071705bcaeb877e4d
-ms.openlocfilehash: 640fc5ddb4e0a6828901b7f406ca72fc210b2970
+ms.sourcegitcommit: 3619a73d3a39659de927e1711a7ec81de9918064
+ms.openlocfilehash: 54b243fd33ed13b8ccde48fa5e2525204455d96c
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/13/2017
 
 ---
 # <a name="checklist-for-installing-update-1610-for-system-center-configuration-manager"></a>Lista de verificação para instalar a atualização 1610 para o System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
-Quando utiliza o ramo atual do System Center Configuration Manager, pode instalar a atualização na consola para a versão 1610 para atualizar a hierarquia a partir da versão 1606. Se a hierarquia executa versão 1511, 1602 ou 1606, pode atualizar para versão 1610.
+Quando você usa o branch atual do System Center Configuration Manager, você pode instalar a atualização no console para a versão 1610 para atualizar sua hierarquia de versão 1606. Se sua hierarquia executa a versão 1511, 1602 ou 1606, você pode atualizar a versão 1610.
 
-Para obter a atualização da versão 1610, tem de utilizar uma função de sistema de sites de ponto de ligação de serviço no site de nível superior da hierarquia. Isto pode ser no modo online ou offline. Depois da hierarquia transfere o pacote de atualização da Microsoft, pode encontrá-lo na consola em **administração &gt; descrição geral &gt; serviços em nuvem &gt; atualizações e a manutenção**.
+Para obter a atualização de versão 1610, você deve usar uma função do sistema de site do ponto de conexão de serviço no site de nível superior da sua hierarquia. Isso pode estar no modo online ou offline. Depois de sua hierarquia baixa o pacote de atualização da Microsoft, você pode encontrá-lo no console em **administração &gt; visão geral &gt; serviços de nuvem &gt; atualizações e manutenção**.
 
--   Se a atualização estiver listada como **disponível**, está pronta para instalar a atualização. Antes de instalar a versão 1610, reveja as seguintes informações [sobre a instalação de atualização 1610](#about-installing-update-1610) e [lista de verificação](#checklist) configurações efetuar antes de iniciar a atualização.
+-   Quando a atualização está listada como **disponível**, a atualização está pronta para instalar. Antes de instalar a versão 1610, examine as informações a seguir [sobre como instalar a atualização 1610](#about-installing-update-1610) e [lista de verificação](#checklist) para configurações a serem feitas antes de iniciar a atualização.
 
--   Se a atualização apresenta como **transferir** e não altere, reveja o **hman** e **dmpdownloader** erros.
+-   Se a atualização exibe como **baixando** e não de alteração, examine o **hman.log** e **dmpdownloader.log** para erros.
 
-    -   Normalmente, também pode reiniciar o **SMS_Executive** serviço no servidor do site para reiniciar a transferência de ficheiros de redistribuição a atualização.
+    -   Normalmente, você também pode reiniciar o **SMS_Executive** serviço no servidor do site para reiniciar o download de arquivos de redistribuição da atualização.
 
-    -   Outro problema de transferência comuns ocorre quando as definições do servidor proxy impedem transferências do <http://silverlight.dlservice.microsoft.com> e <http://download.microsoft.com>.
+    -   Outro problema de download comum ocorre quando o servidor proxy evitar downloads do <http://silverlight.dlservice.microsoft.com> e <http://download.microsoft.com>.
 
-Para obter mais informações sobre a instalação de atualizações, consulte o artigo [em-consola atualizações e a servir](/sccm/core/servers/manage/updates#a-namebkmkinconsolea-in-console-updates-and-servicing).
+Para obter mais informações sobre como instalar atualizações, consulte [atualizações e manutenção no console](/sccm/core/servers/manage/updates#a-namebkmkinconsolea-in-console-updates-and-servicing).
 
-Para obter informações sobre as versões do mesmo atual, consulte o artigo [versões de linha de base e atualização](/sccm/core/servers/manage/updates#bkmk_Baselines) no [atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
+Para obter informações sobre as versões da ramificação atual, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#bkmk_Baselines) na [atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
 ## <a name="about-installing-update-1610"></a>Sobre a instalação de atualização 1610
 
 **Sites:**  
-Atualização 1610 apenas pode ser instalada no site de nível superior da hierarquia. Isto significa iniciar a instalação do seu site de administração central, se tiver um, ou a partir do seu site primário autónomo. Após a atualização obtém instalada no site de nível superior, os sites subordinados têm o seguinte comportamento de atualização:
+Atualização 1610 pode ser instalada somente no site de nível superior da sua hierarquia. Isso significa que você inicia a instalação de seu site de administração central se você tiver um, ou de seu site primário autônomo. Depois que a atualização é instalada no site de nível superior, os sites filho tem o seguinte comportamento de atualização:
 
--   Os sites primários subordinados instalam automaticamente a atualização depois do site de administração central conclui a instalação da atualização. Pode utilizar janelas de serviço para controlar quando um site instala as atualizações. Antes da versão 1606, windows serviço foram chamados janelas de manutenção. Para obter mais informações, consulte o artigo [windows dos servidores do site do serviço](/sccm/core/servers/manage/service-windows).
+-   Os sites primários filho instalam a atualização automaticamente depois que o site de administração central conclui a instalação da atualização. Você pode usar as janelas de serviço para controlar quando um site instala atualizações. Antes da versão 1606, janelas de serviço foram chamadas de janelas de manutenção. Para obter mais informações, consulte [serviço windows para servidores do site](/sccm/core/servers/manage/service-windows).
 
--   Tem de atualizar manualmente os sites secundários a partir da consola do Configuration Manager depois do site primário principal concluída a instalação da atualização. A atualização automática dos servidores de site secundários não é suportada.
+-   Você deve atualizar manualmente os sites secundários de dentro do console do Configuration Manager depois que o site pai primário conclui a instalação da atualização. A atualização automática dos servidores de site secundários não é suportada.
 
-**Funções de sistema de sites:**  
-Quando o servidor do site instala a atualização, as funções de sistema de sites que estão instaladas no servidor do site e os que são instaladas automaticamente em computadores remotos atualizadas. Por isso, antes de instalar a atualização, certifique-se de que cada servidor de sistema de sites cumpre os novos pré-requisitos para a operação com a nova versão de atualização.
+**Funções do sistema de site:**  
+Quando o servidor do site instala a atualização, as funções de sistema de site que estão instaladas no servidor do site e aquelas que são instalados automaticamente em computadores remotos são atualizadas. Portanto antes de instalar a atualização, certifique-se de que cada servidor do sistema de sites atende algum dos novos pré-requisitos para operação com a nova versão de atualização.
 
-**Consolas do Configuration Manager:**   
-A primeira vez que utiliza uma consola do Configuration Manager após a atualização estiver concluída, será solicitado para atualizar a consola. Para tal, tem de executar a configuração do Configuration Manager no computador que aloja a consola e, em seguida, escolha a opção para atualizar a consola. Recomendamos que não adie a instalação da atualização na consola.
+**Consoles do Configuration Manager:**   
+Na primeira vez que você usar um console do Configuration Manager após a atualização, você será solicitado a atualização desse console. Para fazer isso, você deve executar a instalação do Configuration Manager no computador que hospeda o console e, em seguida, escolha a opção para atualizar o console. Recomendamos que não adie a instalação da atualização na consola.
 
 
 
 ## <a name="checklist"></a>Lista de verificação
 
-**Certifique-se de que todos os sites executem uma versão suportada do System Center Configuration Manager:** Antes de iniciar a instalação da atualização 1610, cada site na hierarquia têm de ter a mesma versão do System Center Configuration Manager: qualquer uma das versões 1511, 1602 ou 1606.
+**Certifique-se de que todos os sites executem uma versão com suporte do System Center Configuration Manager:** Antes de iniciar a instalação da atualização 1610, cada site na hierarquia deve estar executando a mesma versão do System Center Configuration Manager: a versão 1511, 1602 ou 1606.
 
-**Rever o estado do seu Software Assurance ou direitos equivalentes de subscrição:**   
-Tem de ter um contrato de Software Assurance (SA) de Active Directory para instalar a atualização 1610. Quando instala a versão 1610, terá a opção **licenciamento** separador para confirmar o **data de expiração de Software Assurance**.
+**Examine o status do Software Assurance ou direitos de assinatura equivalente:**   
+Você deve ter um contrato de Software Assurance (SA) ativo para instalar a atualização 1610. Quando você instala a versão 1610, você terá a opção **licenciamento** tab para confirmar sua **data de expiração do Software Assurance**.
 
-Este é um valor opcional que pode ser especificado como um lembrete conveniente de sua data de expiração de licença, que está visível quando a instalação de atualizações futuras. Se tiver instalado o Configuration Manager a partir do suporte de dados de linha de base da versão 1606, poderá ter anteriormente especificado este valor durante a configuração, ou no **licenciamento** separador do **definições de hierarquia** após a instalação de site.
+Este é um valor opcional que você pode especificar como um lembrete conveniente de data de expiração de licença, que fica visível quando você instala as atualizações futuras. Se você instalou o Configuration Manager a partir da mídia de linha de base da versão 1606, você pode ter especificado anteriormente esse valor durante a instalação ou no **licenciamento** guia o **configurações da hierarquia** após a instalação do site.
 
-Para obter mais informações, consulte o artigo [licenciamento e ramos para o System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+Para obter mais informações, consulte [licenciamento e ramificações para o System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
-**Rever instaladas versões do Microsoft .NET em servidores de sistema de sites:** Quando instala um site atualização 1610, o Configuration Manager instala automaticamente o .NET Framework 4.5.2 em cada computador que aloje um dos seguintes funções do sistema de site quando o .NET Framework 4.5 ou posterior não está já instalada:
+**Revisão instaladas versões do Microsoft .NET em servidores de sistema de site:** Quando um site instala a atualização 1610, o Configuration Manager instala automaticamente o .NET Framework 4.5.2 em cada computador que hospeda uma das seguintes funções do sistema de site quando o .NET Framework 4.5 ou posterior ainda não foi instalado:
 
 -   Ponto proxy de registo
 -   Ponto de inscrição
 -   Ponto de gestão
 -   Ponto de ligação de serviço
 
-Esta instalação pode colocar o servidor de sistema de sites num reinício pendente estado e o relatório de erros para o Visualizador de estado do componente do Configuration Manager. Além disso, aplicações de .NET no servidor podem ocorrer falhas aleatórias até que o servidor seja reiniciado.
+Esta instalação pode colocar o servidor do sistema de site em uma reinicialização pendente estado e o relatório de erros para o Visualizador de status de componente do Configuration Manager. Além disso, aplicativos .NET no servidor podem apresentar falhas aleatórias até que o servidor seja reiniciado.
 
 Para obter mais informações, veja [Pré-requisitos de site e sistema de sites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
-**Rever o estado de site e da hierarquia e certifique-se de que não existem sem problemas por resolver:** Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, o servidor de base de dados do site e funções de sistema de sites que estão instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.
+**Examine o status do site e hierarquia e verifique se há problemas não resolvidos:** Antes de atualizar um site, resolva todos os problemas operacionais do servidor do site, o servidor de banco de dados do site e funções do sistema de site que são instaladas em computadores remotos. Uma atualização de site pode falhar devido a problemas operacionais existentes.
 
 Para obter mais informações, veja [Utilizar alertas e o sistema de estado para o System Center Configuration Manager](/sccm/core/servers/manage/use-alerts-and-the-status-system).
 
-**Reveja o ficheiro e dados de replicação entre sites:**   
-Certifique-se esse ficheiro e a replicação de base de dados entre sites é operacional e atual. Atrasos ou os registos de segurança no podem impedir que uma atualização suave, com êxito.
+**Examine o arquivo e dados de replicação entre sites:**   
+Verifique se esse arquivo e replicação de banco de dados entre sites esteja funcionando e atualizada. Atrasos ou listas de pendências em qualquer um podem impedir uma atualização simples e bem-sucedida.
 Para a replicação de base de dados, pode utilizar o Analisador de Ligações de Replicação para ajudar a resolver problemas antes de iniciar a atualização.
 
-Para obter mais informações, consulte o artigo [sobre o analisador de ligações de replicação](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA) no [monitorizar a infraestrutura hierarquia e replicação no System Center Configuration Manager](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure) tópico.
+Para obter mais informações, consulte [sobre o Replication Link Analyzer](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA) no [monitorar replicação de infraestrutura de hierarquia e no System Center Configuration Manager](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure) tópico.
 
-**Instale todas as atualizações críticas aplicáveis a sistemas operativos em computadores que alojam o site, o servidor de base de dados de sites e funções do sistema de sites remoto:** Antes de instalar uma atualização para o Configuration Manager, instale as atualizações críticas em cada sistema de sites aplicável. Se uma atualização que instalar necessitar de um reinício, reinicie os computadores aplicáveis antes de iniciar a atualização do Configuration Manager.
+**Instale todas as atualizações críticas aplicáveis para sistemas operacionais em computadores que hospedam o site, o servidor de banco de dados do site e funções do sistema de site remoto:** Antes de instalar uma atualização para o Configuration Manager, instale todas as atualizações críticas para cada sistema de site aplicável. Se uma atualização que você instala exigir uma reinicialização, reinicie os computadores aplicáveis antes de iniciar a atualização do Configuration Manager.
 
-**Desative as réplicas de base de dados para pontos de gestão em sites primários:**   
-O Configuration Manager não é possível atualizar com êxito um site primário que tenha uma réplica de base de dados para pontos de gestão ativada. Desative a replicação de base de dados antes de:
-
--   Crie uma cópia de segurança da base de dados do site para testar a atualização de base de dados.
--   Instale uma atualização para o Configuration Manager.
+**Desabilite as réplicas de banco de dados para pontos de gerenciamento em sites primários:**   
+Do Configuration Manager não pode atualizar um site primário que tenha uma réplica de banco de dados para pontos de gerenciamento habilitado com êxito. Desabilite a replicação de banco de dados antes de instalar uma atualização para o Configuration Manager.
 
 Para obter mais informações, veja [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](/sccm/core/servers/deploy/configure/database-replicas-for-management-points).
 
-**Definir grupos de Disponibilidade AlwaysOn do SQL Server para ativação pós-falha manual:**   
-Antes de instalar atualizações, tais como versão 1610, certifique-se de que o grupo de disponibilidade está configurado para ativação pós-falha manual. Após ter sido atualizado o site, pode restaurar a ativação pós-falha para ser automática. Para mais informações consulte [SQL Server AlwaysOn numa base de dados do site](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database).
+**Definir grupos de disponibilidade do AlwaysOn do SQL Server para failover manual:**   
+Antes de instalar atualizações, como versão 1610, certifique-se de que o grupo de disponibilidade é definido como failover manual. Depois que o site tiver sido atualizado, você pode restaurar o failover para automático. Para obter mais informações, consulte [AlwaysOn do SQL Server para um banco de dados do site](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database).
 
-**Reconfigure os pontos de atualização de software que utilizem NLBs:**   
-O Configuration Manager não é possível atualizar um site que utiliza uma cluster de (NLB) para alojar pontos de atualização de software de balanceamento de carga na rede.
+**Reconfigure pontos de atualização de software que usam NLBs:**   
+Configuration Manager não pode atualizar um site que usa um cluster (NLB) para hospedar pontos de atualização de software de balanceamento de carga de rede.
 
-Se utilizar clusters de NLB para pontos de atualização de software, utilize o Windows PowerShell para remover o cluster NLB.
+Se você usar clusters NLB para pontos de atualização de software, use o Windows PowerShell para remover do cluster NLB.
 Para obter mais informações, veja [Planear atualizações de software no System Center Configuration Manager](/sccm/sum/plan-design/plan-for-software-updates).
 
-**Desative todas as tarefas de manutenção do site em cada site durante a instalação da atualização nesse site:**   
-Antes de instalar a atualização, desative as tarefas de manutenção do site que possam ser executadas enquanto o que o processo de atualização estiver ativo. Estas incluem as seguintes, entre outras:
+**Desabilite todas as tarefas de manutenção de site em cada site durante a instalação da atualização do site:**   
+Antes de instalar a atualização, desabilite qualquer tarefa de manutenção de site que possam ser executadas durante o tempo que o processo de atualização está ativo. Estas incluem as seguintes, entre outras:
 
 -   Servidor do Site de Reserva
 -   Eliminar Operações de Cliente Desatualizadas
 -   Eliminar Dados de Deteção Desatualizados
 
-Quando uma tarefa de manutenção da base de dados do site é executada durante a instalação da atualização, a instalação da atualização pode falhar. Antes de desativar uma tarefa, registe a agenda da tarefa para que possa restaurar a respetiva configuração após a atualização foi instalada.
+Quando uma tarefa de manutenção da base de dados do site é executada durante a instalação da atualização, a instalação da atualização pode falhar. Antes de desabilitar uma tarefa, registre o agendamento da tarefa para que você possa restaurar sua configuração após a atualização foi instalada.
 
-Para obter mais informações, consulte o artigo [tarefas de manutenção para o System Center Configuration Manager](/sccm/core/servers/manage/maintenance-tasks) e [referência para a manutenção de tarefas para o System Center Configuration Manager](/sccm/core/servers/manage/reference-for-maintenance-tasks).
+Para obter mais informações, consulte [tarefas de manutenção para o System Center Configuration Manager](/sccm/core/servers/manage/maintenance-tasks) e [tarefas de referência para a manutenção do System Center Configuration Manager](/sccm/core/servers/manage/reference-for-maintenance-tasks).
 
-**Crie uma cópia de segurança da base de dados do site no site de administração central e sites primários:** Antes de atualizar um site, criar uma cópia de segurança da base de dados do site para se certificar de que tem uma cópia de segurança a utilizar para recuperação após desastre.
+**Crie um backup do banco de dados do site no site de administração central e sites primários:** Antes de atualizar um site, faça backup do banco de dados do site para garantir que você tenha um backup bem-sucedido a ser usado para recuperação de desastres.
 
-Para obter mais informações, consulte o artigo [cópia de segurança e recuperação para o System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
+Para obter mais informações, consulte [Backup e recuperação para o System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
-**Teste a atualização de base de dados numa cópia da cópia de segurança de base de dados site mais recente:** Antes de atualizar um site de administração central do System Center Configuration Manager ou o site primário, teste o processo de atualização de base de dados de site numa cópia da base de dados do site.
+<!-- Removed from update guidance 6/6/2017
+**Test the database upgrade on a copy of the most recent site database backup:** 
+Before you update a System Center Configuration Manager central administration site or primary site, test the site database upgrade process on a copy of the site database.
 
--   Recomendamos que teste o processo de atualização de base de dados de site porque, quando atualizar um site, a base de dados do site pode ser modificado.
+-   We recommend that you test the site database upgrade process because when you upgrade a site, the site database might be modified.
 
--   Embora o teste da atualização da base de dados não seja necessário, poderá identificar potenciais problemas na atualização antes da base de dados de produção é afetada.
+-   Although a test database upgrade is not required, it can identify problems for the upgrade before your production database is affected.
 
--   Uma atualização de base de dados do site que falhou pode inoperacional a base de dados do site e poderá requerer uma recuperação de site para restaurar a funcionalidade.
+-   A failed site database upgrade can render your site database inoperable and might require a site recovery to restore functionality.
 
--   Embora a base de dados do site seja partilhada entre os sites numa hierarquia, planeie testar a base de dados em cada site aplicável antes de atualizar esse site.
+-   Although the site database is shared between sites in a hierarchy, plan to test the database at each applicable site before you upgrade that site.
 
--   Se utilizar réplicas de base de dados para pontos de gestão num site primário, desative a replicação antes de criar cópias de segurança da base de dados do site.
+-   If you use database replicas for management points at a primary site, disable replication before you create the backup of the site database.
 
-O Configuration Manager não suporta a cópia de segurança de sites secundários nem suporta o teste da atualização de uma base de dados do site secundário.
+Configuration Manager does not support the backup of secondary sites nor does it support the test upgrade of a secondary site database.
 
-Não execute um teste de atualização de base de dados na base de dados de site de produção. Tal procedimento atualiza a base de dados do site e pode fazer com que deixe de funcionar. Para obter mais informações, consulte o artigo [passo 2: Teste a atualização de base de dados antes de instalar uma atualização](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) de **antes de instalar uma atualização na consola**.
+Do not run a test database upgrade on the production site database. Doing so updates the site database and could render your site inoperable. For more information, see [Step 2: Test the database upgrade before installing an update](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) from **Before you install an in-console update**.
+-->
 
-**Planear cliente piloting:**   
-Quando instala uma atualização que o cliente de atualizações, pode testar essa nova atualização do cliente no pré-produção antes de implementa e atualiza todos os clientes ativos.
+**Plano piloto do cliente:**   
+Quando você instala uma atualização que atualiza o cliente, você pode testar essa nova atualização do cliente na pré-produção antes que implanta e atualiza todos os seus clientes ativos.
 
-Para tirar partido desta opção, tem de configurar o seu site para suportar as atualizações automáticas de pré-produção antes de iniciar a instalação da atualização.
+Para aproveitar essa opção, você deve configurar seu site para dar suporte a atualizações automáticas para pré-produção antes de iniciar a instalação da atualização.
 
-Para obter mais informações, consulte o artigo [atualizar os clientes no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/upgrade-clients) e [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/test-client-upgrades).
+Para obter mais informações, consulte [atualizar clientes no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/upgrade-clients) e [como testar atualizações do cliente em uma coleção de pré-produção no System Center Configuration Manager](/sccm/core/clients/manage/upgrade/test-client-upgrades).
 
-**Planear a utilização de janelas de serviço para controlar quando os servidores do site instalam atualizações:**   
-Pode utilizar as janelas de serviço para definir um período durante o qual as atualizações para um servidor do site podem ser instaladas.
+**Planeje usar as janelas de serviço para controlar quando os servidores do site instalam as atualizações:**   
+Você pode usar janelas de serviço para definir um período durante o qual as atualizações para um servidor do site podem ser instaladas.
 
-Isto pode ajudar a controlar quando os sites na hierarquia instalam a atualização. Antes da versão 1606, windows serviço foram chamados janelas de manutenção. Para obter mais informações, consulte o artigo [windows dos servidores do site do serviço](/sccm/core/servers/manage/service-windows).
+Isto pode ajudar a controlar quando os sites na hierarquia instalam a atualização. Antes da versão 1606, janelas de serviço foram chamadas de janelas de manutenção. Para obter mais informações, consulte [serviço windows para servidores do site](/sccm/core/servers/manage/service-windows).
 
-**Execute o Verificador de pré-requisitos do programa de configuração:**   
-Se a atualização estiver listada na consola do como **disponível,** independentemente pode executar o Verificador de pré-requisitos antes de instalar a atualização. (Quando instala a atualização do site, o Verificador de pré-requisitos será novamente executado.)
+**Execute o verificador de pré-requisitos de instalação:**   
+Quando a atualização está listada no console como **disponível,** independentemente você pode executar o verificador de pré-requisitos antes de instalar a atualização. (Quando você instala a atualização no site, o verificador de pré-requisitos é executado novamente.)
 
-Para executar uma verificação de pré-requisitos a partir da consola, aceda a **administração > Descrição geral > Serviços em nuvem > atualizações e a manutenção.** Em seguida, faça duplo clique **pacote de atualização do Configuration Manager 1610**e, em seguida, escolha **executar verificação de pré-requisitos**.
+Para executar uma verificação de pré-requisitos do console, vá para **Administração > Visão geral > Serviços de nuvem > atualizações e manutenção.** Em seguida, clique com botão direito **pacote de atualização do Configuration Manager 1610**e, em seguida, escolha **executar verificação de pré-requisitos**.
 
-Para obter mais informações sobre como iniciar e, em seguida, monitorizar a verificação dos pré-requisitos, consulte o artigo **passo 3: Executar o Verificador de pré-requisitos antes de instalar uma atualização** no tópico [instalar as atualizações na consola do System Center Configuration Manager](/sccm/core/servers/manage/install-in-console-updates).
+Para obter mais informações sobre como iniciar e, em seguida, a verificação de pré-requisitos de monitoramento, consulte **etapa 3: Executar o verificador de pré-requisitos antes de instalar uma atualização** no tópico [instalar atualizações no console do System Center Configuration Manager](/sccm/core/servers/manage/install-in-console-updates).
 
 > [!IMPORTANT]  
-> Quando o Verificador de pré-requisitos é executada forma independente ou como parte de uma instalação de atualização, o processo atualizará alguns ficheiros de origem do produto que são utilizados para tarefas de manutenção do site. Por conseguinte, depois de executar o Verificador de pré-requisitos, mas antes a instalar a atualização 1610, se precisar de efetuar uma tarefa de manutenção do site, executar **Setupwpf.exe** (programa de configuração do Configuration Manager) a partir do CD. Pasta mais recente no servidor do site.
+> Quando o verificador de pré-requisitos é executado independentemente ou como parte de uma instalação de atualização, o processo atualiza alguns arquivos de origem do produto que são usados para tarefas de manutenção do site. Portanto, depois de executar o verificador de pré-requisitos mas antes de instalar a atualização de 1610, se você precisar executar uma tarefa de manutenção do site, execute **Setupwpf.exe** (instalação do Configuration Manager) do CD. Pasta mais recente no servidor do site.
 
-**Atualizar sites:**   
-Agora está pronto para iniciar a instalação da atualização para a sua hierarquia. Para obter mais informações sobre como instalar a atualização, consulte o artigo [instalar atualizações na consola.](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates)
+**Sites de atualização:**   
+Agora você está pronto para iniciar a instalação da atualização para sua hierarquia. Para obter mais informações sobre como instalar a atualização, consulte [instalar atualizações no console.](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates)
 
-Recomendamos que planeie instalar a atualização fora do horário comercial normal para cada site, quando o processo de instalação da atualização e as respetivas ações para reinstalar os componentes do site e funções de sistema de sites terão o efeito, pelo menos, nas suas operações de negócio.
+É recomendável que você planeje a instalação da atualização fora do horário comercial normal de cada site, quando o processo de instalação da atualização e suas ações de reinstalação dos componentes de site e funções do sistema de site terão um efeito mínimo sobre as operações de negócios.
 
 Para obter mais informações, veja [Atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
 

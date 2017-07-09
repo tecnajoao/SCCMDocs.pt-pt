@@ -1,7 +1,8 @@
 ---
-title: AlwaysOn do SQL Server | Documentos do Microsoft
+title: SQL Server AlwaysOn | Microsoft Docs
+description: Planeje usar um grupo sempre na disponibilidade do SQL Server com o SCCM.
 ms.custom: na
-ms.date: 1/4/2017
+ms.date: 5/26/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,262 +16,242 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: aaaab003ddd22f18160d4be63cfeab3a7e7f6b03
+ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
+ms.openlocfilehash: 188ae877368a6cb2ec9998bff74259b4e5b5e7ce
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="sql-server-alwayson-for-a-highly-available-site-database-for-system-center-configuration-manager"></a>SQL Server AlwaysOn para uma base de dados de site de elevada disponibilidade para o System Center Configuration Manager
+# <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Preparar para usar grupos de disponibilidade do SQL Server Always On com o Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
+Prepare o System Center Configuration Manager para usar grupos de disponibilidade do SQL Server Always On como uma solução de recuperação de desastres e disponibilidade alta para o banco de dados do site.  
+Configuration Manager dá suporte usando grupos de disponibilidade:
+-     Em sites primários e o site de administração central.
+-     No local, ou no Microsoft Azure.
 
- Iniciar com o System Center Configuration Manager versão 1602, pode utilizar SQL Server [grupos de Disponibilidade AlwaysOn](https://msdn.microsoft.com/library/hh510230\(v=sql.120\).aspx) para alojar a base de dados do site em sites primários e o site de administração central como uma solução de elevada disponibilidade e recuperação de desastres. O grupo de disponibilidade pode ser alojado no local ou no Microsoft Azure.  
+Quando você usa grupos de disponibilidade no Microsoft Azure, você pode aumentar ainda mais a disponibilidade do seu banco de dados do site usando *conjuntos de disponibilidade do Azure*. Para obter mais informações sobre Conjuntos de Disponibilidade do Azure, veja [Gerir a disponibilidade das máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/).
 
- Quando utiliza o Microsoft Azure para alojar o grupo de disponibilidade, pode aumentar ainda mais a disponibilidade da sua base de dados do site através da utilização de Grupos de Disponibilidade AlwaysOn do SQL Server com Conjuntos de Disponibilidade do Azure. Para obter mais informações sobre Conjuntos de Disponibilidade do Azure, veja [Gerir a disponibilidade das máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/).  
+>  [!Important]   
+>  Antes de continuar, esteja familiarizado com a configuração do SQL Server e grupos de disponibilidade do SQL Server. As informações a seguir faz referência a biblioteca de documentação do SQL Server e procedimentos.
 
- O Configuration Manager suporta a alojar a base de dados do site num grupo de disponibilidade do SQL Server que está atrás um internas ou externas Balanceador de carga. Para além de configurar exceções de firewall em cada réplica, terá de adicionar regras para as seguintes portas de balanceamento de carga:
-  - SQL sobre TCP: TCP 1433
-  - SQL Server Service Broker: TCP 4022
-  - Bloco de mensagem de servidor (SMB): TCP 445
-  - Mapeador de pontos finais RPC: TCP 135
+## <a name="supported-scenarios"></a>Cenários suportados
+A seguir estão os cenários com suporte para usar grupos de disponibilidade com o Configuration Manager. Detalhes e procedimentos para cada um podem ser encontrados em [configurar grupos de disponibilidade para o Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag).
 
 
-Seguem-se alguns cenários que são suportados com grupos de disponibilidade:  
+-      [Criar um grupo de disponibilidade para uso com o Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag#create-and-configure-an-availability-group).
+-     [Configurar um site para usar um grupo de disponibilidade](/sccm/core/servers/deploy/configure/configure-aoag#configure-a-site-to-use-the-database-in-the-availability-group).
+-     [Adicionar ou remover membros de réplica de um grupo de disponibilidade que hospeda um banco de dados do site](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-replica-members).
+-     [Mover um banco de dados fora de um grupo de disponibilidade para um padrão ou instância nomeada de um SQL Server autônomo](/sccm/core/servers/deploy/configure/configure-aoag#stop-using-an-availability-group).
 
--   Pode mover a base de dados do site para a instância predefinida do grupo de disponibilidade  
 
--   Pode adicionar ou remover membros de réplicas de um grupo de disponibilidade que aloja uma base de dados do site  
+## <a name="prerequisites"></a>Pré-requisitos
+Os pré-requisitos a seguir se aplicam a todos os cenários. Se os pré-requisitos adicionais se aplicam a um cenário específico, aqueles serão detalhadas com esse cenário.   
 
--   Pode mover a base de dados do site de um grupo de disponibilidade para uma instância predefinida ou nomeada de um SQL Server autónomo  
+### <a name="configuration-manager-accounts-and-permissions"></a>Permissões e contas do configuration Manager
+**Servidor do site para acesso de membro de réplica:**   
+A conta de computador do servidor do site tem de ser membro do grupo **Administradores Locais** em todos os computadores membros do grupo de disponibilidade.
 
-> [!Important]  
-> Quando utilizar o Microsoft Intune com o Configuration Manager numa configuração híbrida, a deslocação da base de dados do site ou para um acionadores do grupo de disponibilidade uma ressincronização de dados com a nuvem. Não pode ser evitado. 
+### <a name="sql-server"></a>SQL Server
+**Versão:**  
+Cada réplica no grupo de disponibilidade deve executar uma versão do SQL Server que é compatível com sua versão do Configuration Manager. Quando o suporte do SQL Server, nós diferentes de um grupo de disponibilidade podem executar versões diferentes do SQL Server.
 
+**Edição:**  
+Você deve usar um *Enterprise* edição do SQL Server.
 
+**Conta:**  
+Cada instância do SQL Server pode ser executado sob uma conta de usuário de domínio (**conta de serviço**) ou **sistema Local**. Cada réplica em um grupo pode ter uma configuração diferente. Por [práticas recomendadas do SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation#before-installing-includessnoversionincludesssnoversion-mdmd), use uma conta com as menores permissões possíveis.
 
-> [!NOTE]  
->  A configuração com êxito e a utilização de grupos de disponibilidade exige que esteja familiarizado com a configuração do SQL Server e com os grupos de disponibilidade do SQL Server. Os procedimentos para o System Center Configuration Manager neste tópico baseiam-se em obter documentação adicional e procedimentos que se encontram na biblioteca de documentação do SQL Server.  
+Por exemplo, para configurar contas de serviço e permissões para o SQL Server 2016, consulte [configurar contas de serviço do Windows e permissões](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) no MSDN.
 
- **Problemas conhecidos quando utiliza grupos de disponibilidade AlwaysOn com o Configuration Manager:**  
+  Se você usar **sistema Local** para executar uma réplica, você deve configurar a autenticação de ponto de extremidade. Isso inclui a delegação de direitos para habilitar uma conexão para o ponto de extremidade do servidor de réplica.
+  -     Delegar os direitos do SQL Server, adicionando a conta de computador de cada SQL Server como um logon nos outros servidores SQL no nó e conceder essa conta direitos SA.  
+  -     Delegar os direitos de ponto de extremidade para cada servidor remoto no ponto de extremidade local executando o seguinte script em cada réplica:    
 
--   **Todos os servidores de réplica exigem um caminho de ficheiro idêntico no momento em que define o Configuration Manager para utilizar o grupo de disponibilidade:**  
+              GRANT CONNECT ON endpoint::[endpoint_name]  
+              TO [domain\servername$]
 
-    -   No momento que executar a configuração do Configuration Manager para redirecionar o site para utilizar a base de dados num grupo de disponibilidade, cada servidor de réplica secundária no grupo tem de ter um caminho de ficheiro que é idêntico do caminho do ficheiro utilizado para alojar os ficheiros de base de dados do site na réplica primária atual. Se não existir um caminho idêntico em réplicas secundárias, a Configuração não irá adicionar a instância de grupos de disponibilidade como a nova localização da base de dados do site.  
+Para obter mais informações, consulte [criar um ponto de extremidade de espelhamento de banco de dados para grupos de disponibilidade AlwaysOn](/sql/database-engine/availability-groups/windows/database-mirroring-always-on-availability-groups-powershell).
 
-         Além disso, em cada servidor de réplica secundária, a conta de serviço do SQL Server local tem de ter a permissão **Controlo Total** para esta pasta.  
+### <a name="availability-group-configurations"></a>Configurações de grupo de disponibilidade
+**Membros de réplica:**  
+O grupo de disponibilidade deve ter uma réplica primária e pode ter até duas réplicas secundárias síncronas.  Cada membro de réplica deve:
+-   Utilizar a **instância predefinida**  
+    *A partir da versão 1702, você pode usar um* ***instância nomeada***.
 
-         Os servidores de réplica secundária apenas exigem este caminho de ficheiro enquanto estiver a utilizar a Configuração para especificar a instância de base de dados no grupo de disponibilidade.  Após a Configuração concluir a alteração para utilizar a base de dados do site no grupo de disponibilidade, pode eliminar o caminho não utilizado dos servidores de réplica secundária.  
+-      Ter **conexões na função primária** definida como **Sim**
+-      Ter **secundária legível** definida como **Sim**  
+-      Estar definida para **Ativação Pós-falha Manual**       
 
-         Por exemplo, considere os seguintes cenários:  
+    >  [!TIP]
+    >  Configuration Manager oferece suporte ao uso de réplicas de grupo de disponibilidade quando definidas como **Failover automático**. No entanto, **Failover Manual** deve ser definido quando:
+    >  -  Execute a instalação para especificar o uso do banco de dados do site no grupo de disponibilidade.
+    >  -  Quando você instala qualquer atualização para o Configuration Manager (não apenas as atualizações que se aplicam ao banco de dados do site).  
 
-        -   Cria um grupo de disponibilidade que utiliza três SQL Servers  
+**Local do membro de réplica:**  
+Todas as réplicas de um grupo de disponibilidade devem ser hospedado no local ou hospedado no Microsoft Azure. Não há suporte para um grupo que inclui um membro local e um membro no Azure.     
 
-        -   O servidor de réplica primária é uma nova instalação do SQL Server 2014.  Por predefinição, os ficheiros .MDF e .LDF de base de dados são armazenados em C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA  
+Quando você configurar um grupo de disponibilidade no Azure e o grupo estiver atrás de um balanceador de carga internos ou externos, esses são portas padrão precisam ser abertas para habilitar o acesso de instalação para cada réplica:   
 
-        -   Ambos os servidores de réplica secundária foram atualizados para o SQL Server 2014 de versões anteriores e mantêm o caminho de ficheiro original para armazenar ficheiros de base de dados de: C:\Program Files\Microsoft SQL Server\MSSQL10. MSSQLSERVER\MSSQL\DATA  
+-      Mapeador de ponto de extremidade RCP - **TCP 135**   
+-      Server Message Block – **TCP 445**  
+    *Você pode remover essa porta após a movimentação do banco de dados. A partir da versão 1702, essa porta não é mais necessária.*
+-      SQL Server Service Broker - **TCP 4022**
+-      SQL sobre TCP – **TCP 1433**   
 
-        -   Antes de tentar mover a base de dados do site para este grupo de disponibilidade, em cada servidor de réplica secundária tem de criar o seguinte caminho de ficheiro mesmo se réplicas secundárias não irão utilizar esta localização do ficheiro:  C:\Program Files\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL\DATA (isto é um duplicado do caminho que está a ser utilizado na réplica primária)  
+Após a conclusão da instalação, as seguintes portas devem permanecer acessíveis:
+-      SQL Server Service Broker - **TCP 4022**
+-      SQL sobre TCP – **TCP 1433**
 
-        -   Em seguida, concede à conta de serviço do SQL Server em cada réplica secundária acesso de controlo total à localização do ficheiro recentemente criado nesse servidor  
+A partir da versão 1702, você pode usar portas personalizadas para essas configurações. As mesmas portas devem ser usadas pelo ponto de extremidade e em todas as réplicas no grupo de disponibilidade.
 
-        -   Agora pode com êxito executar a configuração do Configuration Manager para direcionar o site para utilizar a base de dados do site no grupo de disponibilidade  
 
--   **Quando a Configuração é executada para direcionar a base de dados do site para utilizar o grupo de disponibilidade, erros semelhantes ao seguinte poderão ser registados no ficheiro ConfigMgrSetup.log:**  
+**Ouvinte:**   
+O grupo de disponibilidade tem de ter, pelo menos, um **serviço de escuta do grupo de disponibilidade**. O nome virtual desse ouvinte é usado quando você configura o Configuration Manager para usar o banco de dados do site no grupo de disponibilidade. Embora um grupo de disponibilidade possa conter vários ouvintes, o Configuration Manager só pode fazer uso de um. Consulte [criar ou configurar um ouvinte de grupo de disponibilidade (SQL Server)](/sql/database-engine/availability-groups/windows/create-or-configure-an-availability-group-listener-sql-server) para obter mais informações.
 
-    -   ERRO: Erro do SQL Server: [25000] [3906] [Microsoft] [SQL Server Native cliente 11.0] [SQL Server] Falha ao atualizar a base de dados "CM_AAA" porque a base de dados é só de leitura.   Configuração do Configuration Manager 1/21/2016 4:54:59 PM  7344 (0x1CB0)  
+**Caminhos de arquivo:**   
+Quando você executar a instalação do Configuration Manager para configurar um site para usar o banco de dados em um grupo de disponibilidade, cada servidor de réplica secundária deve ter um caminho de arquivo do SQL Server que é idêntico ao caminho do arquivo para os arquivos de banco de dados do site como encontradas na réplica primária atual.
+-   Se não existir um caminho idêntico, a instalação falhará ao adicionar a instância do grupo de disponibilidade como o novo local do banco de dados do site.
+-   Além disso, a conta de serviço local do SQL Server deve ter **controle total** permissão para esta pasta.
 
-     Estes erros são registados quando a Configuração tenta processar as funções de base de dados nas réplicas secundárias do grupo de disponibilidade. Estes erros podem ser ignorados com segurança.
-- **Servidores SQL que alojam os grupos de disponibilidade adicionais:**
+Os servidores de réplica secundária apenas exigem este caminho de ficheiro enquanto estiver a utilizar a Configuração para especificar a instância de base de dados no grupo de disponibilidade. Após a instalação conclui a configuração do banco de dados de site no grupo de disponibilidade, você pode excluir o caminho não utilizado de secundário os servidores de réplica.
 
-  Antes de instalar a versão 1610, quando utilizar um grupo de disponibilidade e, em seguida, execute a configuração do Configuration Manager ou instalar uma atualização para o Configuration Manager, cada réplica em cada grupo de disponibilidade adicionais no SQL Server que aloja o grupo de disponibilidade do Configuration Manager tem de ter as seguintes configurações:
-    - **Ativação Pós-falha Manual**
-    - **permitir todas as ligações só de leitura**
+Por exemplo, considere os seguintes cenários:
+-    Criar um grupo de disponibilidade que usa três SQL Servers.
 
+-    O servidor de réplica primária é uma nova instalação do SQL Server 2014. Por padrão, o banco de dados. MDF e. Arquivos LDF são armazenados no Server \ mssql12 do C:\Program Files\Microsoft SQL. MSSQLSERVER\MSSQL\DATA.
 
-##  <a name="bkmk_BnR"></a> Alterações à Cópia de Segurança e Recuperação quando utiliza um grupo de disponibilidade AlwaysOn do SQL Server  
- **Cópia de segurança:**  
+-    Ambos os servidores de réplica secundária foram atualizados para o SQL Server 2014 de versões anteriores e mantém o caminho do arquivo original para armazenar arquivos de banco de dados do: C:\Program Files\Microsoft SQL Server\MSSQL10. MSSQLSERVER\MSSQL\DATA.
 
- Quando uma base de dados do site é executada num grupo de disponibilidade, deve continuar a executar o incorporado **Site de reserva** tarefa de manutenção do servidor para cópia de segurança de ficheiros e definições do Configuration Manager comuns, mas pretende utilizar não o. MDF ou. Ficheiros LDF criados dessa cópia de segurança. Em alternativa, planeie efetuar cópias de segurança diretas da base de dados do site utilizando o SQL Server.  
+-    Antes de tentar mover o banco de dados do site para esse grupo de disponibilidade, em cada servidor de réplica secundária você deve criar o seguinte caminho de arquivo mesmo se as réplicas secundárias não usará o local do arquivo: Server \ mssql12 SQL de Programas\Microsoft C:\Program. MSSQLSERVER\MSSQL\DATA (Esta é uma duplicata do caminho que está em uso na réplica primária).
 
- Além disso, dado que o modelo de recuperação da base de dados está definido como completa, terá de planear a monitorização e manutenção do tamanho do registo de transações da base de dados do site.  No modelo de recuperação completa, as transações não são protegidas até ser feita uma cópia de segurança completa da base de dados ou do registo de transações. Um modelo de recuperação de completo é um requisito de utilizar a base de dados do site num grupo de disponibilidade e o conjunto ao configurar o grupo para utilização com o Configuration Manager. Para obter mais informações sobre a cópia de segurança e o restauro do SQL Server, veja [Cópia de Segurança e Restauro de Bases de Dados do SQL Server](https://msdn.microsoft.com/library/ms187048\(v=sql.120\).aspx) na documentação do SQL Server.  
+-    Você, em seguida, conceder a conta de serviço do SQL Server em cada réplica secundária completa controlar o acesso ao local do arquivo criado recentemente no servidor.
 
- **Recuperação:**  
+-    Agora você pode executar com êxito a instalação do Configuration Manager para configurar o site para usar o banco de dados do site no grupo de disponibilidade.
 
- Durante uma recuperação de site, desde que um nó do grupo de disponibilidade permaneça funcional, pode utilizar a opção de recuperação de sites **Ignorar recuperação de base de dados (Utilize esta opção se a base de dados não tiver sido afetada)**.  
+**Configure o banco de dados em uma nova réplica:**   
+ O banco de dados de cada réplica deve ser definido com o seguinte:
+-     **Integração CLR** devem ser *habilitado*
+-      **Tamanho máximo de repl de texto** devem ser *2147483647*
+-      O proprietário do banco de dados deve ser o *conta SA*
+-      **TRUSTWORTY** devem ser **ON**
+-      **O Service Broker** devem ser *habilitado*
 
- No entanto, se todos os nós de um grupo de disponibilidade tem sido perdidos, para poder recuperar o site, tem de recriar o grupo de disponibilidade (System Center Configuration Manager não é possível reconstruir ou restaurar o nó de disponibilidade.)  Depois de o grupo ter sido recriado com uma cópia de segurança restaurada e reconfigurada, em seguida, pode utilizar a opção de recuperação de sites **Ignorar recuperação de base de dados (Utilize esta opção se a base de dados não tiver sido afetada)**.  
+Você pode fazer essas configurações em apenas uma réplica primária. Para configurar uma réplica secundária, você deve primeiro o primário para o secundário para tornar o secundário que torna a nova réplica primária de secundário de failover.   
 
- Para obter mais informações sobre cópia de segurança e recuperação, veja [Cópia de segurança e recuperação no System Center Configuration Manager](../../../../protect/understand/backup-and-recovery.md).  
+Use a documentação do SQL Server, quando necessário, para ajudá-lo a definir as configurações. Por exemplo, consulte [TRUSTWORTHY](/sql/relational-databases/security/trustworthy-database-property) ou [integração CLR](/sql/relational-databases/clr-integration/clr-integration-enabling) na documentação do SQL Server.
 
-##  <a name="bkmk_create"></a> Configurar um grupo de disponibilidade para utilização com o Configuration Manager  
- Antes de começar o procedimento seguinte, estar familiarizado com os procedimentos de SQL Server necessários para concluir esta configuração e os seguintes detalhes que se aplicam a grupos de disponibilidade que configura para ser utilizado com o Configuration Manager.  
+### <a name="verification-script"></a>Script de verificação
+Você pode executar o script a seguir para verificar as configurações de banco de dados para réplicas primárias e secundárias. Antes de você pode corrigir um problema em uma réplica secundária, você deve alterar essa réplica secundária para ser a réplica primária.
 
- **Requisitos para grupos de disponibilidade AlwaysOn que utiliza com o System Center Configuration Manager:**  
+    SET NOCOUNT ON
 
--  *Versão*: Cada nó (ou a réplica) no grupo de disponibilidade tem de executar uma versão do SQL Server suportadas pelo System Center Configuration Manager. Se suportado pelo SQL Server, diferentes nós do grupo de disponibilidade podem executar diferentes versões do SQL Server.   
+    DECLARE @dbname NVARCHAR(128)
 
-- *Edição*: Tem de utilizar uma edição Enterprise do SQL Server.  SQL Server 2016 Standard edition introduz grupos de disponibilidade básica, que não são suportados pelo Configuration Manager.
+    SELECT @dbname = sd.name FROM sys.sysdatabases sd WHERE sd.dbid = DB_ID()
 
+    IF (@dbname = N'master' OR @dbname = N'model' OR @dbname = N'msdb' OR @dbname = N'tempdb' OR @dbname = N'distribution' ) BEGIN
+    RAISERROR(N'ERROR: Script is targetting a system database.  It should be targeting the DB you created instead.', 0, 1)
+    GOTO Branch_Exit;
+    END ELSE
+    PRINT N'INFO: Targetted database is ' + @dbname + N'.'
 
--   O grupo de disponibilidade tem de ter uma réplica primária e pode ter até duas réplicas secundárias síncronas.  
+    PRINT N'INFO: Running verifications....'
 
--  Depois de adicionar uma base de dados a um grupo de disponibilidade, tem de fazer a ativação pós-falha da réplica primária para uma secundária (tornando-a na nova réplica primária) e, em seguida, configurar a base de dados com o seguinte:
-    - Ativar Trustworthy: igual a VERDADEIRO
-    - Ativar o Service Broker: igual a VERDADEIRO
-    - Definir o dbowner: igual a SA
+    IF NOT EXISTS (SELECT * FROM sys.configurations c WHERE c.name = 'clr enabled' AND c.value_in_use = 1)
+    PRINT N'ERROR: CLR is not enabled!'
+    ELSE
+    PRINT N'PASS: CLR is enabled.'
 
-    Pode executar o seguinte script para configurar estas definições, em que cm_ABC é o nome da sua base de dados do site:  
+    DECLARE @repltable TABLE (
+    name nvarchar(max),
+    minimum int,
+    maximum int,
+    config_value int,
+    run_value int )
 
-    >     Modelo global de utilização  
-    >     Cm_ABC ALTER DATABASE SET NEW_BROKER   
-    >     ALTER DATABASE cm_ABC definir ativar_broker  
-    >     ALTER DATABASE cm_ABC ON definir fidedigna;  
-    >     UTILIZAR cm_ABC  
-    >     EXEC sp_changedbowner "sa"  
-    >     Exec sp_configure ' max text repl size (B)', 2147483647 reconfigurar
+    INSERT INTO @repltable
+    EXEC sp_configure 'max text repl size (B)'
 
+    IF NOT EXISTS(SELECT * from @repltable where config_value = 2147483647 and run_value = 2147483647 )
+    PRINT N'ERROR: Max text repl size is not correct!'
+    ELSE
+    PRINT N'PASS: Max text repl size is correct.'
 
+    IF NOT EXISTS (SELECT db.owner_sid FROM sys.databases db WHERE db.database_id = DB_ID() AND db.owner_sid = 0x01)
+    PRINT N'ERROR: Database owner is not sa account!'
+    ELSE
+    PRINT N'PASS: Database owner is sa account.'
 
--   O grupo de disponibilidade tem de ter, pelo menos, um **serviço de escuta do grupo de disponibilidade**.  O nome virtual deste serviço de escuta é utilizado quando configurar o Configuration Manager para utilizar a base de dados do site no grupo de disponibilidade. Apesar de um grupo de disponibilidade pode conter vários serviços de escuta, o Configuration Manager só pode efetuar utilizam um  
+    IF NOT EXISTS( SELECT * FROM sys.databases db WHERE db.database_id = DB_ID() AND db.is_trustworthy_on = 1 )
+    PRINT N'ERROR: Trustworthy bit is not on!'
+    ELSE
+    PRINT N'PASS: Trustworthy bit is on.'
 
--   Cada réplica primária e secundária tem de:  
-    - Estar definida para **permitir todas as ligações só de leitura**
-    - Utilizar a **instância predefinida**
-    - Estar definida para **Ativação Pós-falha Manual**  
+    IF NOT EXISTS( SELECT * FROM sys.databases db WHERE db.database_id = DB_ID() AND db.is_broker_enabled = 1 )
+    PRINT N'ERROR: Service broker is not enabled!'
+    ELSE
+    PRINT N'PASS: Service broker is enabled.'
 
-        > [!TIP]  
-        >  Suporta o System Center Configuration Manager utilizando as réplicas do grupo de disponibilidade quando definidas para ativação pós-falha automática. No entanto, a ativação pós-falha Manual deve ser definida quando executar a configuração para especificar a utilização da base de dados do site no grupo de disponibilidade e o momento instalar quaisquer atualizações do Configuration Manager (não apenas as atualizações aplicáveis a base de dados do site).  
+    IF NOT EXISTS( SELECT * FROM sys.databases db WHERE db.database_id = DB_ID() AND db.is_honor_broker_priority_on = 1 )
+    PRINT N'ERROR: Service broker priority is not set!'
+    ELSE
+    PRINT N'PASS: Service broker priority is set.'
 
-  **Limitações para grupos de disponibilidade**
-   - Grupos de disponibilidade básica (introduzidos com o SQL Server 2016 Standard edition) não são suportados. Isto acontece porque os grupos de disponibilidade básicas não suportam o acesso de leitura para réplicas secundárias, um requisito para utilização com o Configuration Manager. Para obter mais informações, consulte o artigo [básicas grupos de disponibilidade (sempre no grupos de disponibilidade)](https://msdn.microsoft.com/en-us/library/mt614935.aspx).
+    PRINT N'Done!'
 
-   - Grupos de disponibilidade são suportados apenas para a base de dados do site e não para o software de atualização de base de dados ou base de dados de relatórios.   
-   - Quando utiliza um grupo de disponibilidade, tem de configurar manualmente o ponto de relato para utilizar a réplica primária atual e não o serviço de escuta do grupo de disponibilidade. Se a réplica primária fizer a ativação pós-falha para outra réplica, terá de reconfigurar o ponto de relato para utilizar a nova réplica primária.  
-   - Antes de instalar atualizações, como a versão 1606, certifique-se de que o grupo de disponibilidade está definido para ativação pós-falha manual. Após a atualização do site, pode restaurar a ativação pós-falha para ser automática.
+    Branch_Exit:
 
+## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
+As seguintes limitações se aplicam a todos os cenários.   
 
+**Não há suporte para grupos de disponibilidade básica:**  
+Introduzido com o SQL Server 2016 Standard edition, [grupos de disponibilidade básica](https://msdn.microsoft.com/library/mt614935.aspx) não oferecem suporte a acesso de leitura a réplicas secundárias, um requisito para uso com o Configuration Manager.
 
- **Permissões necessárias para configurar e utilizar grupos de disponibilidade:**  
+**Servidores SQL que hospedam os grupos de disponibilidade adicional:**   
+Antes do Configuration Manager versão 1610, quando um grupo de disponibilidade em um host do SQL Server que um ou mais grupos de disponibilidade, além do grupo que você usa para o Configuration Manager, cada réplica em cada um desses grupos de disponibilidade adicional devem ter as seguintes configurações definida no momento em que você execute a instalação do Configuration Manager ou instala uma atualização para o Configuration Manager:
+-   **Ativação Pós-falha Manual**
+-     **permitir todas as ligações só de leitura**
 
--   A conta de computador do servidor do site tem de ser membro do grupo **Administradores Locais** em todos os computadores membros do grupo de disponibilidade.  
+**Uso do banco de dados não são suportados:**
+-   **Configuration Manager dá suporte a apenas o banco de dados do site em um grupo de disponibilidade:** O exemplo a seguir não têm suporte:
+    -   Base de dados de relatórios
+    -   Banco de dados do WSUS
+-   **O banco de dados já existente:** Você não pode usar o novo banco de dados que criou na réplica. Em vez disso, você deve restaurar uma cópia de um banco de dados existente do Configuration Manager para a réplica primária ao configurar um grupo de disponibilidade.
 
-#### <a name="to-configure-an-availability-group-to-host-a-site-database"></a>Para configurar um grupo de disponibilidade para alojar uma base de dados do site  
+**Erros de instalação em ConfigMgrSetup.log:**  
+Quando você executa a instalação para mover um banco de dados do site para um grupo de disponibilidade, a instalação tenta processar funções de banco de dados nas réplicas secundárias do grupo de disponibilidade e logs de erros, como o seguinte:
+-   ERRO: Erro do SQL Server: [25000] [3906] [Microsoft] [SQL Server Native Client 11.0] [SQL Server] Falha ao atualizar o banco de dados "CM_AAA" porque o banco de dados é somente leitura. Gerenciador de configurações de instalação 1/21/2016 4:54:59 PM 7344 (0x1CB0)  
 
-1.  Utilize o seguinte comando para parar o site do Configuration Manager:  
-     **Preinst.exe /stopsite**  
+Esses erros são seguros ignorar.
 
-     Para obter mais informações sobre a utilização de Preinst.exe, veja [Ferramenta Manutenção da Hierarquia (Preinst.exe) para o System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
+## <a name="changes-for-site-backup"></a>Alterações para o backup do site
+**Arquivos de backup do banco de dados:**  
+Quando um banco de dados do site é executado em um grupo de disponibilidade, você deve executar o interno **servidor do Site de Backup** tarefas de manutenção para fazer backup de arquivos e configurações do Gerenciador de configuração comuns. No entanto, não use o. MDF ou. Arquivos LDF criados por esse backup. Em vez disso, fazer backups diretos desses arquivos de banco de dados usando o SQL Server.
 
-2.  Altere o modelo de cópia de segurança para a base de dados do site de **SIMPLES** para **COMPLETA**.  
+**Log de transações:**  
+O modelo de recuperação do banco de dados do site deve ser definido como **completo** (um requisito para uso em um grupo de disponibilidade). Com essa configuração, planeje monitorar e manter o tamanho do log de transações de banco de dados de site. No modelo de recuperação completa, as transações não são protegidas até ser feita uma cópia de segurança completa da base de dados ou do registo de transações. Consulte [Back Up and Restore of SQL Server Databases](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) na documentação do SQL Server para obter mais informações.
 
-     Veja [Ver ou Alterar o Modelo de Recuperação de uma Base de Dados](https://msdn.microsoft.com/library/ms189272\(v=sql.120\).aspx) na documentação do SQL Server. (Os grupos de disponibilidade só suportam COMPLETA).  
+## <a name="changes-for-site-recovery"></a>Alterações para a recuperação de site
+Você pode usar a opção de recuperação de site **ignorar a recuperação do banco de dados (Use esta opção se o banco de dados do site tiver sido afetado)** se pelo menos um nó do grupo de disponibilidade permaneça funcionando.
 
-3.  No servidor que irá alojar a réplica primária do grupo, utilize o **Assistente de Novo Grupo de Disponibilidade** para criar o grupo de disponibilidade. No assistente:  
+ Antes de recuperar o site quando todos os nós de um grupo de disponibilidade tiveram sido perdidos, você deve recriar o grupo de disponibilidade. Gerenciador de configuração não pode recriar nem restaurar o nó de disponibilidade. Depois que o grupo é recriado, e um backup restaurado e reconfigurado, você pode usar a opção de recuperação de site **ignorar a recuperação do banco de dados (Use esta opção se o banco de dados do site tiver sido afetado)**.
 
-    -   No **selecionar base de dados** página, selecione a base de dados para que o site do Configuration Manager  
+Para obter mais informações, consulte [Backup e recuperação para o System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
-    -   Na página **Especificar Réplicas** , configure:  
+## <a name="changes-for-reporting"></a>Alterações para relatórios
+**Instale o ponto do reporting service:**  
+O ponto do reporting services não oferece suporte usando o nome virtual do ouvinte do grupo de disponibilidade ou o que hospeda o banco de dados de serviços de relatórios em um grupo de disponibilidade do SQL Server Always On:
+-   Por padrão, o reporting services conjuntos de instalação do ponto de **nome do servidor de banco de dados de Site** para o nome virtual que é especificado como o ouvinte. Altere essa opção para especificar um nome de computador e a instância de uma réplica no grupo de disponibilidade.
+-   Para descarregar a carga de emissão de relatórios e para aumentar a disponibilidade quando um nó de réplica estiver offline, considere a instalação de pontos do reporting services em cada nó de réplica adicional e configurando o cada ponto a ponto para seu próprio nome de computador do reporting services.
 
-        -   **Réplicas**: Especifique os servidores que irão alojar réplicas secundárias  
+Quando você instala um ponto do reporting service em cada réplica do grupo de disponibilidade, relatórios sempre podem se conectar a um servidor ativo de ponto de relatório.
 
-        -   **Serviço de escuta**: Especifique o **nome de DNS do serviço de escuta** como um nome DNS completo, como  **&lt;Listener_Server >. fabrikam.com**. Isto é utilizado quando configurar o Configuration Manager para utilizar a base de dados no grupo de disponibilidade.
+**Alterne o ponto do reporting services usado pelo console do:**  
+Para executar relatórios, no console, vá para **monitoramento** > **visão geral** > **reporting** > **relatórios**e, em seguida, escolha **opções de relatório**. Na caixa de diálogo Opções de relatório, selecione o ponto do reporting services desejado.
 
-    -   Na página **Selecionar Sincronização de Dados Inicial** , selecione **Completa**. Depois de o assistente criar o grupo de disponibilidade, o assistente irá criar cópias de segurança da base de dados primária e do registo de transações e restaurá-las em cada servidor que aloja uma réplica secundária. Se não utilizar este passo, terá de restaurar uma cópia da base de dados do site para cada servidor que aloja uma réplica secundária e associar manualmente essa base de dados ao grupo.  
-
-    Para obter mais informações, veja [Utilizar o Assistente de Grupo de Disponibilidade](https://msdn.microsoft.com/library/hh403415\(v=sql.120\).aspx) na documentação do SQL Server.  
-
-4.  Depois de o grupo de disponibilidade estar configurado, configure a base de dados do site na réplica primária com a propriedade **TRUSTWORTHY** e, em seguida, **ative a integração do CLR**. Para obter informações sobre como fazer estas configurações, veja [Propriedade de Base de Dados TRUSTWORTHY](https://msdn.microsoft.com/library/ms187861\(v=sql.120\).aspx) e  [Ativar a Integração do CLR](https://msdn.microsoft.com/library/ms131048\(v=sql.120\).aspx) na documentação do SQL Server.  
-
-5.  Efetue as seguintes ações para configurar cada réplica secundária no grupo de disponibilidade:  
-
-    1.  Manualmente, execute a ativação pós-falha da réplica primária atual para uma réplica secundária. Veja [Executar uma Ativação Pós-falha Manual Planeada de um Grupo de Disponibilidade](https://msdn.microsoft.com/library/hh231018\(v=sql.120\).aspx) na documentação do SQL Server.  
-
-    2.  Configure a base de dados na nova réplica primária com a propriedade **TRUSTWORTHY** e, em seguida, **ative a integração do CLR**.  
-
-6.  Depois de todas as réplicas são promovidas para réplicas primárias e as bases de dados configuradas, o grupo de disponibilidade está pronto para ser utilizado com o Configuration Manager.  
-
-
-
-
-
-##  <a name="bkmk_direct"></a> Mover uma base de dados do site para um grupo de disponibilidade  
- Pode mover uma base de dados de site de um site anteriormente instalado para um grupo de disponibilidade. Primeiro tem de criar o grupo de disponibilidade e, em seguida, configurar a base de dados para funcionamento no grupo de disponibilidade.  
-
- Para concluir este procedimento, a conta de utilizador que executa a configuração do Configuration Manager tem de ser um membro do **administradores locais** grupo em cada computador que seja um membro do grupo de disponibilidade.  
-
-#### <a name="to-move-a-site-database-to-an-availability-group"></a>Para mover uma base de dados do site para um grupo de disponibilidade  
-
-1.  Executar **configuração do Configuration Manager** de  **&lt;pasta de instalação de site do Configuration Manager\>\bin\x64\setup.exe.**.  
-
-2.  Na página **Introdução** , selecione **Executar a manutenção do site ou repor este site**e clique em **Seguinte**.  
-
-3.  Selecione a opção **Modificar a configuração do SQL Server** e clique em **Seguinte**.  
-
-4.  Reconfigure as seguintes opções para a base de dados do site:  
-
-    -   **Nome do SQL Server:** Introduza o nome virtual para o serviço de escuta de grupo de disponibilidade que configurou ao criar o grupo de disponibilidade. O nome virtual deve ser um nome DNS completo, como  **&lt;endpointServer\>. fabrikam.com**  
-
-    -   **Instância:** Este valor tem de estar em branco para especificar a instância predefinida para o serviço de escuta de grupo de disponibilidade do grupo de disponibilidade.  Se a base de dados atual estiver instalada numa instância nomeada, a instância nomeada será listada e tem de ser desmarcada  
-
-    -   **Base de dados:** Mantenha o nome, tal como é apresentado. Este é o nome da base de dados do site atual.  
-
-5.  Depois de fornecer estas informações para a nova localização da base de dados, conclua a Configuração com o procedimento e configurações normais.  
-
-##  <a name="bkmk_change"></a> Adicionar ou remover membros de um grupo de disponibilidade ativo  
- Depois do Configuration Manager está a utilizar uma base de dados do site alojado num grupo de disponibilidade pode remover um membro de réplica ou adicionar um membro de réplica adicionais (não deve exceder um site primário e dois nós secundários).  
-
-#### <a name="to-add-a-new-replica-member"></a>Para adicionar um novo membro de réplica  
-
-1.  Adicione o novo servidor como réplica secundária ao grupo de disponibilidade. Veja  [Adicionar uma Réplica Secundária a um Grupo de Disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh213247\(v=sql.120\).aspx)na biblioteca de documentação do SQL Server.  
-
-2.  Parar o site do Configuration Manager, executando **Preinst.exe /stopsite** consulte [ferramenta de manutenção da hierarquia (Preinst.exe) para o System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
-
-3.  Configure cada réplica secundária. Efetue as seguintes ações para cada réplica secundária no grupo de disponibilidade:  
-
-    1.  Manualmente, execute a ativação pós-falha da réplica primária para a nova réplica secundária. Veja [Executar uma Ativação Pós-falha Manual Planeada de um Grupo de Disponibilidade](https://msdn.microsoft.com/library/hh231018\(v=sql.120\).aspx) na documentação do SQL Server.  
-
-    2.  Configure a base de dados no novo servidor para ser Trustworthy e ative a integração do CLR. Veja [Propriedade de Base de Dados TRUSTWORTHY](https://msdn.microsoft.com/library/ms187861\(v=sql.120\).aspx) e  [Ativar a Integração do CLR](https://msdn.microsoft.com/library/ms131048\(v=sql.120\).aspx)na documentação do SQL Server.  
-
-4.  Reinicie o site, iniciando os serviços (**sitecomp**) e **SMS_Executive** do Gestor de Componentes do Site.  
-
-#### <a name="to-remove-a-replica-member-from-the-availability-group"></a>Para remover um membro de réplica do grupo de disponibilidade  
-
--   Utilize as informações em [Remover uma Réplica Secundária de um Grupo de Disponibilidade](https://msdn.microsoft.com/library/hh213149\(v=sql.120\).aspx) na documentação do SQL Server.  
-
-##  <a name="bkmk_remove"></a> Mover a base de dados do site de um grupo de disponibilidade de volta para um SQL Server de instância única  
- Utilize o procedimento seguinte quando já não pretender alojar a base de dados do site num grupo de disponibilidade.  
-
-#### <a name="to-move-the-site-database-from-an-availability-group-back-to-a-single-instance-sql-server"></a>Para mover a base de dados do site de um grupo de disponibilidade de volta para um SQL Server de instância única  
-
-1.  Pare o site do Configuration Manager, utilizando o seguinte comando:  
-     **Preinst.exe /stopsite**.  Para obter mais informações, veja [Ferramenta Manutenção da Hierarquia (Preinst.exe) para o System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
-
-2.  Utilize o SQL Server para criar uma cópia de segurança completa da sua base de dados do site a partir da réplica primária. Para obter informações sobre como executar este passo, veja [Criar uma Cópia de Segurança Completa da Base de Dados](https://msdn.microsoft.com/library/ms187510\(v=sql.120\).aspx) na documentação do SQL Server.  
-
-3.  Se o servidor que aloja a réplica primária do grupo de disponibilidade alojar agora a instância única da base de dados do site, pode ignorar este passo:  
-
-    -   Utilize o SQL Server para restaurar a cópia de segurança da base de dados do site para o servidor que irá aloja a base de dados do site.  Veja [Restaurar uma Cópia de Segurança da Base de Dados (SQL Server Management Studio)](https://msdn.microsoft.com/library/ms177429\(v=sql.120\).aspx) na documentação do SQL Server.  
-
-4.  Na base de dados do site restaurada, altere o modelo de cópia de segurança para a base de dados do site de **COMPLETA** para **SIMPLES**.  Veja [Ver ou Alterar o Modelo de Recuperação de uma Base de Dados](https://msdn.microsoft.com/library/ms189272\(v=sql.120\).aspx) na documentação do SQL Server.  
-
-5.  Executar **configuração do Configuration Manager** de  **&lt;pasta de instalação de site do Configuration Manager\>\bin\x64\setup.exe.**.  
-
-6.  Na página **Introdução** , selecione **Executar a manutenção do site ou repor este site**e clique em **Seguinte**.  
-
-7.  Selecione a opção **Modificar a configuração do SQL Server** e clique em **Seguinte**.  
-
-8.  Reconfigure as seguintes opções para a base de dados do site:  
-
-    -   **Nome do SQL Server:** Introduza o nome do servidor que aloja agora a base de dados do site.  
-
-    -   **Instância:** Especifique a instância com nome que aloja a base de dados do site ou deixe em branco, se a base de dados estiver na instância predefinida.  
-
-    -   **Base de dados:** Mantenha o nome, tal como é apresentado. Este é o nome da base de dados do site atual.  
-
-9. Depois de fornecer estas informações para a nova localização da base de dados, conclua a Configuração com o procedimento e configurações normais. Quando tiver concluído a Configuração, o site é reiniciado e começa a utilizar a nova localização da base de dados.  
-
-10. Para limpar os servidores que eram membros do grupo de disponibilidade, siga as orientações em [Remover um Grupo de Disponibilidade](https://msdn.microsoft.com/library/ff878113\(v=sql.120\).aspx) na documentação do SQL Server.
+## <a name="next-steps"></a>Passos seguintes
+Depois de entender os pré-requisitos, limitações e as alterações para tarefas comuns que são necessárias quando você usa grupos de disponibilidade, consulte [configurar grupos de disponibilidade para o Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag), para os procedimentos para instalar e configurar seu site para usar grupos de disponibilidade.
 

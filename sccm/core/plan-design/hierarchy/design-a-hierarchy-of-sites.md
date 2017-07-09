@@ -1,8 +1,8 @@
 ---
-title: Estruturar uma hierarquia do site - Configuration Manager | Documentos do Microsoft
-description: "Compreenda as topologias disponíveis e as opções de gestão do System Center Configuration Manager pelo que pode planear a hierarquia de sites."
+title: Criar uma hierarquia de site - Configuration Manager | Microsoft Docs
+description: "Compreenda as topologias disponíveis e as opções de gerenciamento do System Center Configuration Manager para que possa planejar a hierarquia de sites."
 ms.custom: na
-ms.date: 1/3/2017
+ms.date: 6/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,175 +17,175 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 35e48666f4d1a2363304650f960531fd0630a291
-ms.openlocfilehash: e346e83b0ae0dc7a612cef7a7b9fb1fdb42236bc
+ms.sourcegitcommit: db673277d1cc2d24e8dba2439b2b1891c883ebd0
+ms.openlocfilehash: 4710b1b89eb50cb7bcf4c4ee50c12a96b6561bc9
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/16/2017
 
 
 ---
 # <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Estruturar uma hierarquia de sites do System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
-Antes de instalar o primeiro site numa nova hierarquia do System Center Configuration Manager, é uma boa ideia a compreender as topologias de disponíveis para o Configuration Manager, os tipos de sites disponíveis e respetivas relações entre si e o âmbito de gestão que fornece a cada tipo de site.
-Em seguida, após considerar as opções de gestão de conteúdo que podem reduzir o número de sites que tem de instalar, pode planeia numa topologia de forma eficiente serva necessidades da sua empresa atual e pode expandir posteriormente para gerir futuro crescimento.  
+Antes de instalar o primeiro site de uma nova hierarquia do System Center Configuration Manager, é uma boa ideia para entender as topologias disponíveis para o Configuration Manager, os tipos de sites disponíveis e suas relações entre si e o escopo de gerenciamento que cada tipo de site fornece.
+Em seguida, após considerar as opções de gerenciamento de conteúdo que podem reduzir o número de sites que você precisa instalar, você pode planejar uma topologia que atenda suas necessidades de negócios atuais de maneira eficaz e posteriormente pode ser expandido para gerenciar o crescimento futuro.  
 
 > [!NOTE]
-> Quando planear uma nova instalação do Configuration Manager, tenha em consideração o [notas de versão]( /sccm/core/servers/deploy/install/release-notes), que detalhe atuais problemas nas versões Active Directory. As notas de versão aplicam-se a todos os ramos do Configuration Manager.  No entanto, quando utiliza o [ramo de pré-visualização técnica]( /sccm/core/get-started/technical-preview), irá encontrar problemas específicos apenas nessa sucursal na documentação para cada versão do Technical Preview.  
+> Ao planejar uma nova instalação do Configuration Manager, esteja atento a [notas de versão]( /sccm/core/servers/deploy/install/release-notes), que detalham problemas atuais nas versões do ativos. As notas de versão se aplicam a todas as ramificações do Configuration Manager.  No entanto, quando você usa o [ramificação de visualização técnica]( /sccm/core/get-started/technical-preview), você encontrará problemas específicos apenas para essa ramificação na documentação para cada versão de Technical Preview.  
 
 ##  <a name="bkmk_topology"></a>Topologia de hierarquia  
- Hierarquia topologias variar desde um único site primário autónomo a um grupo de sites primários e secundários ligadas com um site de administração central no site de nível superior (superior) da hierarquia.   O controlador do tipo de chave e contagem de sites que utilizam uma hierarquia são normalmente o número e tipo de dispositivos que têm de suportar, da seguinte forma:   
+ Intervalo de topologias de hierarquia de um único site primário autônomo para um grupo de sites primários e secundários conectados com um site de administração central no site de nível superior (camada superior) da hierarquia.   O driver de chave do tipo e contagem de sites que você usa em uma hierarquia é normalmente o número e tipo de dispositivos, que você deve dar suporte, da seguinte maneira:   
 
- **Site primário autónomo:** Utilizar um site primário autónomo, quando um único site primário pode suportar a gestão de todos os seus dispositivos e utilizadores (consulte [números dimensionamento e a escala](/sccm/core/plan-design/configs/size-and-scale-numbers)). Esta topologia também é efetuada com êxito quando diferentes localizações geográficas da sua empresa podem ser efetuadas com êxito por um único site primário.  Para ajudar a gerir o tráfego de rede, pode utilizar pontos de gestão preferenciais e de uma infraestrutura de conteúdo cuidadosamente planeada (consulte [os conceitos fundamentais para gestão de conteúdo no System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
+ **Site primário autônomo:** Usar um site primário autônomo quando um único site primário pode dar suporte a gerenciamento de todos os seus dispositivos e usuários (consulte [números de dimensionamento e escala](/sccm/core/plan-design/configs/size-and-scale-numbers)). Essa topologia também tem êxito quando diferentes localizações geográficas de sua empresa podem ser atendidas com êxito por um único site primário.  Para ajudar a gerenciar o tráfego de rede, você pode usar pontos de gerenciamento preferenciais e uma infraestrutura de conteúdo cuidadosamente planejada (consulte [conceitos fundamentais para o gerenciamento de conteúdo no System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
 
  As vantagens desta topologia incluem:  
 
--   Overhead administrativo simplificado.  
+-   Simplifica a sobrecarga administrativa.  
 
--   A atribuição de site simplificado e a deteção de serviços e recursos disponíveis.  
+-   Atribuição de site do cliente simplificado e descoberta de recursos e serviços disponíveis.  
 
--   Eliminação de atraso possíveis que é introduzida através da replicação de base de dados entre sites.
+-   Eliminação de latência possível introduzida pela replicação de banco de dados entre sites.
 
--   Opção de expandir uma hierarquia primária autónoma para uma hierarquia de grandes dimensões com um site de administração central. o que lhe permite, depois, instalar novos sites primários para expandir a escala da implementação.  
-
-
-**Site de administração central com um ou mais sites primários subordinados:** Utilize esta topologia quando necessitar de mais do que um site primário para suportar a gestão de todos os seus dispositivos e utilizadores.  É obrigatório quando precisar de utilizar mais do que um único site primário. As vantagens desta topologia incluem:  
+-   Opção de expandir uma hierarquia primária autônoma em uma hierarquia maior com um site de administração central. o que lhe permite, depois, instalar novos sites primários para expandir a escala da implementação.  
 
 
--   Suporta até 25 sites primários que permitem-lhe expandir a escala da hierarquia.  
+**Site de administração central com um ou mais sites primários filho:** Use essa topologia quando precisar de mais de um site primário para dar suporte ao gerenciamento de todos os seus dispositivos e usuários.  É necessário quando você precisa usar mais de um único site primário. As vantagens desta topologia incluem:  
 
--   Irá utilizar sempre o site de administração central (exceto se reinstalar os sites). Esta é uma opção permanente. Não é possível anular a exposição de um site primário subordinado para torná-la um site primário autónomo.
+
+-   Ele dá suporte a até 25 sites primários que permitem que você estenda a escala de sua hierarquia.  
+
+-   Você sempre usará o site de administração central (a menos que você reinstale seus sites). Essa é uma opção permanente. Não é possível desanexar um site primário filho para torná-lo um site primário autônomo.
 
  As secções seguintes podem ajudá-lo a compreender quando deve utilizar um site específico ou a opção de gestão de conteúdos em vez de um site adicional.  
 
-##  <a name="BKMK_ChooseCAS"></a>Determinar quando deve utilizar um site de administração central  
- Utilize um site de administração central para configurar definições ao nível da hierarquia e para monitorizar todos os sites e objetos da hierarquia. Este tipo de site não gere diretamente os clientes mas coordenar a replicação de dados entre sites, que inclui a configuração de sites e clientes em toda a hierarquia.  
+##  <a name="BKMK_ChooseCAS"></a>Determinar quando usar um site de administração central  
+ Use um site de administração central para definir as configurações de toda a hierarquia e monitorar todos os sites e objetos na hierarquia. Esse tipo de site não gerencia diretamente clientes mas coordena a replicação de dados entre sites, que inclui a configuração de sites e clientes em toda a hierarquia.  
 
-**As seguintes informações podem ajudar a decidir quando pretende instalar um site de administração central:**  
+**As informações a seguir podem ajudá-lo a decidir quando instalar um site de administração central:**  
 
--   O site de administração central é o site de nível superior numa hierarquia.  
+-   O site de administração central é o site de nível superior em uma hierarquia.  
 
--   Quando configura uma hierarquia que tem mais do que um site primário, tem de instalar um site de administração central e tem de ser o primeiro site que instalar.  
+-   Quando você configura uma hierarquia que tem mais de um site primário, você deve instalar um site de administração central. Se você precisar imediatamente dois ou mais sites primários, instale primeiro o site de administração central. Quando você já tiver um site primário e, em seguida, instalar um site de administração central, você deve [expandir o site primário autônomo](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) para instalar o site de administração central. 
 
--   O site de administração central suporta apenas sites primários como sites subordinados.  
+-   O site de administração central oferece suporte a apenas sites primários como sites filho.  
 
 -   O site de administração central não pode ter clientes atribuídos a ele.  
 
--   O site de administração central não suporta funções de sistema de sites que suportam diretamente clientes, tais como pontos de gestão e pontos de distribuição.  
+-   O site de administração central não oferece suporte a funções de sistema de site que suporte diretamente aos clientes, como pontos de gerenciamento e pontos de distribuição.  
 
--   Pode gerir todos os clientes da hierarquia e executar tarefas de gestão do site para o site subordinado quando utiliza uma consola do Configuration Manager que está ligada ao site de administração central. Isto pode incluir a instalação de pontos de gestão ou de outras funções de sistema de sites em sites primários ou secundários subordinados.  
+-   Você pode gerenciar todos os clientes na hierarquia e executar tarefas de gerenciamento do site para qualquer site filho, quando você usar um console do Configuration Manager que está conectado ao site de administração central. Isso pode incluir a instalação de pontos de gerenciamento ou outras funções de sistema de site em sites filho primários ou secundários.  
 
--   Quando utiliza um site de administração central, este é o único local onde pode ver os dados de todos os sites na hierarquia. Estes dados incluem informações como mensagens de estado e dados de inventário.  
+-   Quando utiliza um site de administração central, este é o único local onde pode ver os dados de todos os sites na hierarquia. Esses dados incluem informações como mensagens de status e dados de inventário.  
 
--   Pode configurar operações de Deteção em toda a hierarquia do site de administração central através da atribuição de métodos de deteção a executar em sites individuais.  
+-   Você pode configurar operações de descoberta em toda a hierarquia do site de administração central ao atribuir métodos de descoberta para ser executado em sites individuais.  
 
--   Pode gerir a segurança em toda a hierarquia atribuindo diferentes funções de segurança, âmbitos de segurança e coleções a diferentes utilizadores administrativos. Estas configurações aplicam-se em cada site na hierarquia.  
+-   Pode gerir a segurança em toda a hierarquia atribuindo diferentes funções de segurança, âmbitos de segurança e coleções a diferentes utilizadores administrativos. Essas configurações se aplicam a cada site na hierarquia.  
 
--   Pode configurar a replicação de ficheiros e a replicação de base de dados para controlar a comunicação entre sites na hierarquia. Isto inclui agendar a replicação de base de dados para dados do site e gerir a largura de banda para a transferência de dados baseados em ficheiros entre sites.  
+-   Pode configurar a replicação de ficheiros e a replicação de base de dados para controlar a comunicação entre sites na hierarquia. Isso inclui o agendamento de replicação de banco de dados para dados do site e gerenciar a largura de banda para a transferência de dados com base em arquivo entre sites.  
 
-##  <a name="BKMK_ChoosePriimary"></a>Determinar quando deve utilizar um site primário  
- Utilize sites primários para gerir clientes. Pode instalar um site primário como site primário subordinado abaixo de um site de administração central ou como o primeiro site numa nova hierarquia. Um site primário que é instalado como o primeiro site de uma hierarquia cria um site primário autónomo. Sites primários subordinados e sites primários autónomos suportam sites secundários como sites subordinados do site primário.  
+##  <a name="BKMK_ChoosePriimary"></a>Determinar quando usar um site primário  
+ Utilize sites primários para gerir clientes. Pode instalar um site primário como site primário subordinado abaixo de um site de administração central ou como o primeiro site numa nova hierarquia. Um site primário que é instalado como o primeiro site de uma hierarquia cria um site primário autônomo. Os sites primários filho e sites primários autônomos oferecem suporte a sites secundários como sites filho do site primário.  
 
  Considere a utilização de um site primário por qualquer um dos seguintes motivos:  
 
--   Para gerir dispositivos e utilizadores.  
+-   Para gerenciar usuários e dispositivos.  
 
--   Para aumentar o número de dispositivos que pode gerir com uma única hierarquia.  
+-   Para aumentar o número de dispositivos, você pode gerenciar com uma única hierarquia.  
 
--   Para fornecer um ponto de conectividade adicional para a administração da implementação.  
+-   Para fornecer um ponto adicional de conectividade para a administração da sua implantação.  
 
--   Para satisfazer requisitos de gestão organizacional. Por exemplo, poderá instalar um site primário numa localização remota para gerir a transferência de conteúdo de implementação através de uma rede de largura de banda reduzida. No entanto, com o System Center Configuration Manager, pode utilizar as opções para otimizar a utilização de largura de banda de rede ao transferir dados para um ponto de distribuição. Esta capacidade de gestão de conteúdo pode substituir a necessidade de instalar sites adicionais.  
+-   Para satisfazer requisitos de gestão organizacional. Por exemplo, você pode instalar um site primário em uma localização remota para gerenciar a transferência de conteúdo de implantação em uma rede de baixa largura de banda. No entanto, com o System Center Configuration Manager, você pode usar opções para restringir o uso de largura de banda de rede ao transferir dados para um ponto de distribuição. Essa capacidade de gerenciamento de conteúdo pode substituir a necessidade de instalar sites adicionais.  
 
 
-**As seguintes informações podem ajudar a decidir quando pretende instalar um site primário:**  
+**As informações a seguir podem ajudá-lo a decidir quando instalar um site primário:**  
 
--   Um site primário pode ser um site primário autónomo ou um site primário subordinado numa hierarquia de grandes dimensões. Quando um site primário é um membro de uma hierarquia com um site de administração central, os sites utilizam a replicação de base de dados para replicar dados entre os sites. A menos que são necessários para suportar mais clientes e dispositivos que um único site primário pode suportar, considere a instalação de um site primário autónomo.  Depois de um site primário autónomo estiver instalado, pode expandi-lo para reportar a um novo site de administração central para dimensionar a sua implementação.  
+-   Um site primário pode ser um site primário autônomo ou um site primário filho em uma hierarquia maior. Quando um site primário é um membro de uma hierarquia com um site de administração central, os sites utilizam a replicação de base de dados para replicar dados entre os sites. A menos que você precisa dar suporte a mais clientes e dispositivos que pode oferecer suporte a um único site primário, considere a instalação de um site primário autônomo.  Depois que um site primário autônomo é instalado, você pode expandi-lo para relatar para um novo site de administração central para escalar verticalmente sua implantação.  
 
--   Um site primário suporta apenas um site de administração central como site principal.  
+-   Um site primário oferece suporte a apenas um site de administração central como um site pai.  
 
--   Um site primário suporta apenas sites secundários como sites subordinados e pode também suporta vários sites subordinados secundários.  
+-   Um site primário oferece suporte somente a sites secundários como sites filho e também pode oferecer suporte a múltiplos sites secundários filho.  
 
--   Os sites primários são responsáveis por processar todos os dados de cliente dos respetivos clientes atribuídos.  
+-   Os sites primários são responsáveis pelo processamento de todos os dados de cliente de seus clientes atribuídos.  
 
--   Sites primários utilizam a replicação de base de dados para comunicar diretamente com o respetivo site de administração central (que é configurado automaticamente quando instala um novo site).  
+-   Sites primários usam a replicação de banco de dados para se comunicar diretamente com seu site de administração central (que é configurado automaticamente quando um novo site é instalado).  
 
-##  <a name="BKMK_ChooseSecondary"></a>Determinar quando deve utilizar um site secundário  
- Utilize sites secundários para gerir a transferência de dados de conteúdo e o cliente de implementação através de redes com pouca largura de banda.  
+##  <a name="BKMK_ChooseSecondary"></a>Determinar quando usar um site secundário  
+ Use sites secundários para gerenciar a transferência de dados de cliente e conteúdo de implantação em redes de baixa largura de banda.  
 
- Gerir um site secundário a partir de um site de administração central ou site primário principal direta do site secundário. Sites secundários tem de estar associados a um site primário e não é possível movê-los para outro site principal sem primeiro desinstalá-los e, em seguida, reinstalar como site subordinado abaixo do novo site primário.
+ Gerencie um site secundário de um site de administração central ou site primário do pai direto do site secundário. Sites secundários devem ser anexados a um site primário, e você não pode movê-los para um site pai diferente sem desinstalá-los e, em seguida, reinstalá-los como um site filho abaixo do novo site primário.
 
-No entanto, pode encaminhar conteúdos entre dois sites secundário membros para ajudar a gerir a replicação baseada em ficheiros de conteúdo de implementação. Para transferir dados de cliente a um site primário, o site secundário utiliza a replicação baseada em ficheiros. Um site secundário também utiliza a replicação de base de dados para comunicar com o respetivo site primário principal.  
+No entanto, você pode rotear o conteúdo entre dois sites secundários pares para ajudar a gerenciar a replicação baseada em arquivo de conteúdo de implantação. Para transferir dados do cliente para um site primário, o site secundário usa replicação baseada em arquivo. Um site secundário também utiliza a replicação de base de dados para comunicar com o respetivo site primário principal.  
 
  Considere a instalação de um site secundário se qualquer uma das seguintes condições se aplicar:  
 
--   Não necessita de um ponto local de conectividade para um utilizador administrativo.  
+-   Você precisa de um ponto local de conectividade para um usuário administrativo.  
 
--   Tem de gerir a transferência de conteúdo de implementação para sites num nível inferior da hierarquia.  
+-   Você deve gerenciar a transferência de conteúdo de implantação para sites inferiores na hierarquia.  
 
--   Tem de gerir informações de cliente que são enviadas para sites num nível superior na hierarquia.  
+-   Você deve gerenciar as informações de cliente que são enviadas para sites mais altos na hierarquia.  
 
- Se não pretender instalar um site secundário e tiver clientes em localizações remotas, considere utilizar o Windows BranchCache ou instalar pontos de distribuição ativados para o controlo da largura de banda e agendamento. Pode utilizar estas opções de gestão de conteúdo com ou sem sites secundários e estes podem ajudar a reduzir o número de sites e servidores que tem de instalar. Para obter informações sobre as opções de gestão de conteúdo no Configuration Manager, consulte o artigo [determinar quando deve utilizar as opções de gestão de conteúdo](#BKMK_ChooseSecondaryorDP).  
-
-
-**As seguintes informações podem ajudar a decidir quando pretende instalar um site secundário:**  
-
--   Os sites secundários automaticamente instalam o SQL Server Express durante a instalação de site se não estiver disponível uma instância local do SQL Server.  
-
--   Instalação do site secundário é iniciada a partir da consola do Configuration Manager, em vez de executar o programa de configuração diretamente num computador.  
-
--   Os sites secundários utilizam um subconjunto de informações na base de dados do site, o que reduz a quantidade de dados que replicam através da replicação de base de dados entre o site primário principal e secundário.  
-
--   Os sites secundários suportam o encaminhamento de conteúdo baseado em ficheiros para outros sites secundários que tenham um site primário principal comum.  
-
--   As instalações de site secundário implementam automaticamente um ponto de gestão e o ponto de distribuição que estão localizados no servidor do site secundário.  
-
-##  <a name="BKMK_ChooseSecondaryorDP"></a>Determinar quando deve utilizar as opções de gestão de conteúdo  
- Se tiver clientes em localizações de rede remotas, considere utilizar uma ou mais opções de gestão de conteúdo em vez de um site primário ou secundário. Muitas vezes, pode remover a necessidade de instalar um site quando utiliza o Windows BranchCache, configura pontos de distribuição para controlo de largura de banda ou copia manualmente conteúdo para pontos de distribuição (conteúdo pré-configurado).  
+ Se não pretender instalar um site secundário e tiver clientes em localizações remotas, considere utilizar o Windows BranchCache ou instalar pontos de distribuição ativados para o controlo da largura de banda e agendamento. Você pode usar essas opções de gerenciamento de conteúdo com ou sem sites secundários, e eles podem ajudar a reduzir o número de sites e servidores que você deve instalar. Para obter informações sobre as opções de gerenciamento de conteúdo no Configuration Manager, consulte [determinar quando usar as opções de gerenciamento de conteúdo](#BKMK_ChooseSecondaryorDP).  
 
 
-**Considere a implementação de um ponto de distribuição em vez de instalar outro site, se qualquer uma das seguintes condições se aplicar:**  
+**As informações a seguir podem ajudá-lo a decidir quando instalar um site secundário:**  
 
--   A largura de banda de rede é suficiente para computadores cliente na localização remota comuniquem com um ponto de gestão para transferir a política de cliente e enviar o inventário, comunicar o estado e informações de deteção.  
+-   Sites secundários instalam automaticamente SQL Server Express durante a instalação do site se uma instância local do SQL Server não está disponível.  
 
--   Serviço de transferência inteligente em segundo plano em segundo plano (BITS) não fornece controlo de largura de banda suficiente para os requisitos da rede.  
+-   Instalação do site secundário é iniciada do console do Configuration Manager, em vez de executar a instalação diretamente em um computador.  
 
- Para obter mais informações sobre as opções de gestão de conteúdo no Configuration Manager, consulte o artigo [os conceitos fundamentais para gestão de conteúdo no System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+-   Sites secundários usam um subconjunto das informações do banco de dados do site, que reduz a quantidade de dados replicados pela replicação de banco de dados entre o site pai primário e secundário.  
 
-##  <a name="bkmk_beyond"></a>Para além da topologia de hierarquia  
- Além da topologia de uma hierarquia inicial, considere os serviços ou capacidades estará disponíveis a partir de diversos sites da hierarquia (funções de sistema de sites) e como em toda a hierarquia configurações e as funcionalidades serão geridas na sua infraestrutura. As seguintes considerações comuns são abordadas em tópicos separados. Estas são importantes porque pode influenciar ou influenciados pela estrutura da hierarquia:  
+-   Sites secundários oferecem suporte a roteamento de conteúdo baseado em arquivo para outros sites secundários que têm um site primário pai em comum.  
 
--   Quando estiver a preparar para [gerir computadores e dispositivos com o System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), considere se os dispositivos que gere estão no local, na nuvem, incluem ou dispositivos detidos pelos utilizadores (BYOD).  Além disso, considere como gerir os dispositivos que são suportados pelo várias opções de gestão, tais como computadores Windows 10 que podem ser geridos diretamente pelo Configuration Manager ou embora integração com o Microsoft Intune.  
+-   As instalações do site secundário implantam automaticamente um ponto de gerenciamento e ponto de distribuição que estão localizados no servidor do site secundário.  
 
--   Compreender como a sua infraestrutura de rede disponível pode afetar o fluxo de dados entre localizações remotas (consulte [preparar o ambiente de rede para o System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)). Pondere também onde os utilizadores e dispositivos que gere se encontram geograficamente e que aceder à sua infraestrutura através do seu domínio da empresa ou na Internet.  
-
--   Plano para uma infraestrutura de conteúdo para distribuir eficazmente as informações que implementa (ficheiros e aplicações) aos dispositivos que gere (consulte [gerir a infraestrutura do conteúdo e conteúda para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md)).  
-
--   Determinar que [funcionalidades e capacidades do System Center Configuration Manager](../../../core/plan-design/changes/features-and-capabilities.md) que pretende utilizar, as funções do sistema de sites ou de infraestrutura do Windows necessitam e em quais os sites numa hierarquia vários sites pode implementá-las para a utilização mais eficaz dos seus recursos de rede e dos servidores.  
-
--   Considere a segurança dos dados e dispositivos, incluindo a utilização de um PKI. Consulte o artigo [requisitos de certificados PKI para o System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+##  <a name="BKMK_ChooseSecondaryorDP"></a>Determinar quando usar as opções de gerenciamento de conteúdo  
+ Se tiver clientes em localizações de rede remotas, considere utilizar uma ou mais opções de gestão de conteúdo em vez de um site primário ou secundário. Geralmente, você pode remover a necessidade de instalar um site quando você usa o Windows BranchCache, configurar pontos de distribuição para controle de largura de banda ou copia manualmente conteúdo para pontos de distribuição (conteúdo de pré-teste).  
 
 
-**Reveja os seguintes recursos para configurações especificas de sites:**  
+**Considere a implantação de um ponto de distribuição em vez de instalar outro site se alguma das seguintes condições se aplicar:**  
 
--   [Planear o fornecedor SMS para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md)  
+-   A largura de banda de rede é suficiente para computadores cliente no local remoto para se comunicar com um ponto de gerenciamento para baixar política do cliente e enviar inventário, status do relatório e informações de descoberta.  
 
--   [Planear a base de dados do site para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-site-database.md)  
+-   Serviço de transferência inteligente em segundo plano (BITS) não fornece controle de largura de banda suficiente para suas necessidades de rede.  
 
--   [Planear servidores de sistema de sites e funções de sistema de sites para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md)  
+ Para obter mais informações sobre as opções de gerenciamento de conteúdo no Configuration Manager, consulte [conceitos fundamentais para o gerenciamento de conteúdo no System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   [Planear a segurança no System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
+##  <a name="bkmk_beyond"></a>Além da topologia de hierarquia  
+ Além de uma topologia de hierarquia inicial, considere quais serviços ou recursos estarão disponíveis em diferentes sites em que a hierarquia (funções de sistema de site) e as configurações e recursos de toda a hierarquia como serão gerenciados na sua infraestrutura. As seguintes considerações comuns são abordadas em tópicos separados. Estes são importantes, porque eles podem influenciar ou ser influenciados por seu design de hierarquia:  
+
+-   Quando você estiver se preparando para [gerenciar computadores e dispositivos com o System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), considere se os dispositivos que você gerencia estão no local, na nuvem ou incluem dispositivos pertencentes ao usuário (BYOD).  Além disso, considere como você gerenciará dispositivos que são suportados por várias opções de gerenciamento, como computadores Windows 10 que podem ser gerenciados diretamente pelo Configuration Manager ou que a integração com o Microsoft Intune.  
+
+-   Entender como a infraestrutura de rede disponível pode afetar o fluxo de dados entre locais remotos (consulte [preparar seu ambiente de rede para o System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)). Considere também onde os usuários e dispositivos que você gerencia estão localizados geograficamente e se eles acessarem sua infraestrutura por meio de seu domínio corporativo ou pela Internet.  
+
+-   Plano para uma infraestrutura de conteúdo distribuir com eficiência as informações que você implanta (arquivos e aplicativos) para dispositivos gerenciados (consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md)).  
+
+-   Determinar qual [recursos e funcionalidades do System Center Configuration Manager](../../../core/plan-design/changes/features-and-capabilities.md) você planeja usar a infraestrutura do Windows ou funções do sistema de site precisam e em quais sites em uma hierarquia de sites múltiplos você pode implantá-los para o uso mais eficiente dos recursos de rede e servidor.  
+
+-   Considere a segurança dos dados e dispositivos, incluindo a utilização de um PKI. Consulte [requisitos de certificado PKI para o System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+
+
+**Revise os seguintes recursos para configurações específicas de site:**  
+
+-   [Planejar o provedor de SMS para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md)  
+
+-   [Planejar o banco de dados do site para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-site-database.md)  
+
+-   [Planejar para servidores de sistema de site e funções do sistema de site para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md)  
+
+-   [Planejar a segurança no System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
 
 -   [Gerir a largura de banda da rede](../../../core/plan-design/hierarchy/manage-network-bandwidth.md) ao implementar conteúdos num site  
 
 
-**Considere as configurações que abrangem sites e hierarquias:**  
+**Considere as configurações que estendem sites e hierarquias:**  
 
 -   [Opções de elevada disponibilidade para o System Center Configuration Manager](/sccm/protect/understand/high-availability-options) para sites e hierarquias
 
--   [Expandir o esquema do Active Directory para o System Center Configuration Manager](../../../core/plan-design/network/extend-the-active-directory-schema.md) e configurar sites para [publicar dados do site para o System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md)  
+-   [Estender o esquema do Active Directory para o System Center Configuration Manager](../../../core/plan-design/network/extend-the-active-directory-schema.md) e configurar sites para [publicar dados do site para o System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md)  
 
--   [Transferências de dados entre sites no System Center Configuration Manager](../../../core/servers/manage/data-transfers-between-sites.md)  
+-   [Transferência de dados entre sites no System Center Configuration Manager](../../../core/servers/manage/data-transfers-between-sites.md)  
 
--   [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md)
+-   [Fundamentos da administração baseada em função para o System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md)
 
