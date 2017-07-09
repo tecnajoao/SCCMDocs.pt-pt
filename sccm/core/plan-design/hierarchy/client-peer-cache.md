@@ -1,8 +1,8 @@
 ---
-title: Cache de elemento de rede do cliente | O System Center Configuration Manager
-description: "Utilize Cache ponto a ponto para localizações de origem de conteúdo de cliente quando implementar o conteúdo com o System Center Configuration Manager."
+title: "Cache de mesmo nível do cliente | System Center Configuration Manager"
+description: "Use o Cache par para locais de origem de conteúdo do cliente durante a implantação de conteúdo com o System Center Configuration Manager."
 ms.custom: na
-ms.date: 4/4/2017
+ms.date: 7/3/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -16,94 +16,96 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 26feb0b166beb7e48cb800a5077d00dbc3eec51a
-ms.openlocfilehash: dcd05d7d120f8997562da7d92b38c8b52a512357
+ms.sourcegitcommit: ed6b65a1a5aabc0970cd0333cb033405cf6d2aea
+ms.openlocfilehash: 94802680747a3d371716c1b345b2cba098150716
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/03/2017
 
 ---
 
-# <a name="peer-cache-for-configuration-manager-clients"></a>Cache de elementos para clientes do Configuration Manager
+# <a name="peer-cache-for-configuration-manager-clients"></a>Cache de sistemas pares para clientes do Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
-Iniciar com o System Center Configuration Manager versão 1610, pode utilizar **cache de elementos da** para ajudar a gerir a implementação de conteúdos para clientes em localizações remotas. Cache de elementos da é uma solução incorporadas do Configuration Manager que permite que os clientes partilhem conteúdos com outros clientes diretamente a partir da respetiva cache local.   
+Começando com o System Center Configuration Manager versão 1610, você pode usar **Cache par** para ajudar a gerenciar a implantação de conteúdo para clientes em locais remotos. Cache de mesmo nível é uma solução interna do Configuration Manager que permite que os clientes compartilhem conteúdo com outros clientes diretamente do seu cache local.   
 
 > [!TIP]  
-> Introduzida com a versão 1610, Cache ponto a ponto e o dashboard de origens de dados do cliente são funcionalidades da versão de pré-lançamento. Para ativá-las, consulte o artigo [utilizar funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/pre-release-features).
+> Introduzida com a versão 1610, Cache de mesmo nível e o painel de fontes de dados do cliente são recursos de pré-lançamento. Para habilitá-las, consulte [usar recursos de pré-lançamento de atualizações](/sccm/core/servers/manage/pre-release-features).
 
 ## <a name="overview"></a>Descrição Geral
- -     Utilize as definições de cliente para permitir que os clientes utilizam Cache ponto a ponto.
- -     Para partilhar conteúdo, os clientes de Cache ponto a ponto tem ambos de ser membros do grupo de limites atual do cliente que está a procurar o conteúdo. Os clientes de Cache ponto a ponto vizinho grupos de limites não são incluídos com o conjunto de localizações de origem de conteúdo disponível quando um cliente utiliza contingência procurar conteúdo a partir de um grupo de limites de vizinho. Para mais informações sobre grupos de limites atuais e vizinhança, consulte o artigo [grupos de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
- - Os clientes que não estão ativados para Cache ponto a ponto, mas são o atual grupo de limites com Cache ponto a ponto ativada clientes, pode obter conteúdos a partir do cliente de Cache de elemento de rede ativada.  
- - Cada tipo de conteúdo que está retido na cache de um cliente do Configuration Manager pode ser servido para outros clientes através da utilização de Cache ponto a ponto.
- -    Cache de elementos da substitui a utilização de outras soluções como o BranchCache, mas funciona em vez disso, lado a lado com o mesmo para dar-lhe mais opções para expandir as soluções de implementação de conteúdos tradicional, tais como pontos de distribuição. Esta é uma solução personalizada com nenhuma dependência no BranchCache, para que se não ativar ou utilizar o Windows BranchCache, ainda funcione.
+Um cliente de Cache de mesmo nível é um cliente do Configuration Manager que está habilitado para usar o Cache par. Um cliente que possui o conteúdo pode compartilhar com outros clientes de Cache de mesmo nível é uma fonte de Cache de mesmo nível.
+ -  Você pode usar as configurações do cliente para permitir que os clientes usar o Cache par.
+ -  Para compartilhar conteúdo como uma fonte de Cache de mesmo nível, um cliente de Cache de mesmo nível:
+    -  Deve ser ingressado no domínio. No entanto, um cliente que não está associado a um domínio pode obter o conteúdo de um domínio ingressou na fonte de Cache par.
+    -  Deve ser um membro do grupo de limite atual do cliente que está procurando o conteúdo. Um cliente de Cache de mesmo nível em um grupo de limites de vizinho não está incluído com o pool de locais de origem de conteúdo disponíveis quando um cliente usa fallback para conteúdo de um grupo de limites de vizinho de busca. Para obter mais informações sobre grupos de limite atuais e próximos, consulte [grupos de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups##a-namebkmkboundarygroupsa-boundary-groups).
+ - Cada tipo de conteúdo que é mantido no cache de um cliente do Configuration Manager pode ser atendido para outros clientes usando o Cache de mesmo nível.
+ -  Cache de mesmo nível não substitui o uso de outras soluções como o BranchCache, mas trabalha lado a lado com ele para fornecer mais opções para estender as soluções tradicionais de implantação de conteúdo, como pontos de distribuição. Esta é uma solução personalizada com nenhuma dependência de BranchCache, portanto, se você não habilitar ou usar o Windows BranchCache, ele ainda funciona.
 
 ### <a name="operations"></a>Operações
 
-Depois de implementar as definições de cliente que permitem Cache ponto a ponto para uma coleção, os membros da coleção de que podem agir como uma origem de conteúdo ponto a ponto para outros clientes no mesmo grupo de limites:
- -    Um cliente que funciona como uma origem de conteúdo ponto a ponto submete uma lista de conteúdo em cache disponível para o respetivo ponto de gestão.
- -    Em seguida, quando o cliente seguinte nesse grupo de limites solicita que o conteúdo, cada origem de cache de elemento de rede que tenha o conteúdo é devolvida como uma potencial origem de conteúdo, juntamente com os pontos de distribuição e de outras localizações de origem de conteúdo nesse grupo de limites.
- -    Pelo processo normal de sistema operativo, o cliente que está a procurar o conteúdo seleciona uma origem de conteúdo do conjunto de origens forneceu e, em seguida, procede para tentar obter o conteúdo.
+Depois de implantar configurações de cliente que habilitar o Cache de mesmo nível em uma coleção, os membros da coleção podem agir como uma fonte de conteúdo ponto a ponto para outros clientes no mesmo grupo de limites:
+ -  Um cliente que funciona como uma fonte de conteúdo ponto a ponto envia uma lista de conteúdo armazenado em cache disponível para seu ponto de gerenciamento.
+ -  Em seguida, quando o próximo cliente no grupo de limite solicita que o conteúdo, cada fonte de cache de mesmo nível que tem o conteúdo é retornado como uma possível fonte de conteúdo juntamente com os pontos de distribuição e outros locais de origem de conteúdo no grupo de limite.
+ -  Por que o processo de operação normal, o cliente que está procurando o conteúdo seleciona uma fonte de conteúdo do conjunto de fontes que ele foi fornecido e, em seguida, prossegue para tentar obter o conteúdo.
 
 > [!NOTE]
-> No caso de contingência para um grupo de limites de vizinho para conteúdo ocorre, a cache de elementos da localizações de origem de conteúdo a partir do grupo de limites de vizinho não são adicionadas ao agrupamento do cliente de potenciais localizações de origem de conteúdo.  
+> Se o fallback para um grupo de limites de vizinho de conteúdo ocorre, o Cache par locais de origem de conteúdo do grupo de limite de vizinho não são adicionados ao pool do cliente potencial conteúdo de locais de origem.  
 
 
-Embora o pode fazer com que todos os clientes participam como uma origem de cache ponto a ponto, é melhor prática para selecionar apenas os clientes que são melhores adequada para ser ponto a ponto origens de cache.  A adequabilidade dos clientes pode ser avaliada com base no tipo de chassis de um cliente, espaço em disco, a conectividade da rede e muito mais. Para obter mais informações que podem ajudar a selecionar os clientes para utilizar para a cache de elementos da melhor, consulte o artigo [esta blogue por um consultor de Microsoft](https://blogs.technet.microsoft.com/setprice/2016/06/29/pe-peer-cache-custom-reporting-examples/).
+Embora seja possível fazer todos os clientes participem como uma fonte de cache de mesmo nível, ele é uma prática recomendada para escolher somente a clientes que são mais adequada para sendo par fontes de cache.  A adequação de clientes pode ser avaliada com base no tipo de chassi do cliente, espaço em disco, conectividade de rede e muito mais. Para obter mais informações que podem ajudá-lo a selecionar os melhores clientes usem para o Cache par, consulte [este blog por um consultor de Microsoft](https://blogs.technet.microsoft.com/setprice/2016/06/29/pe-peer-cache-custom-reporting-examples/).
 
-**Acesso limitado a uma origem de cache ponto a ponto**  
-A partir da versão 1702, um computador de origem de cache ponto a ponto irão rejeitar um pedido de conteúdo quando o computador de origem de cache ponto a ponto cumpra qualquer um dos seguintes condições:  
-  -  Está no modo de bateria baixo.
-  -  Carga de CPU excede 80% o momento que o conteúdo de exemplos é solicitado.
-  -  E/s de disco tem um *AvgDiskQueueLength* que excede 10.
-  -  Não existem ligações não mais disponíveis para o computador.   
+**Acesso limitado a uma fonte de cache de mesmo nível**  
+A partir da versão 1702, um computador de origem do cache de mesmo nível rejeitará uma solicitação de conteúdo quando o computador de origem do cache de mesmo nível atende a qualquer uma das seguintes condições:  
+  -  Está no modo de bateria fraca.
+  -  Carga da CPU excede 80% no momento em que o conteúdo seja solicitado.
+  -  E/s de disco tem um *AvgDiskQueueLength* que exceder 10.
+  -  Não há conexões não mais disponíveis no computador.   
 
-Pode configurar estas definições utilizando o servidor de configuração de cliente classe WMI para a funcionalidade de origem do elemento de rede (*SMS_WinPEPeerCacheConfig*) ao utilizar o SDK do System Center Configuration Manager.
+Você pode definir essas configurações usando o servidor de configuração de cliente classe WMI para o recurso de origem correspondente (*SMS_WinPEPeerCacheConfig*) quando você usa o System Center Configuration Manager SDK.
 
-Quando o computador rejeita um pedido para o conteúdo, o computador que efetuou irão continuar a pesquisa de conteúdo a partir de fontes alternativas no seu agrupamento das localizações de origem de conteúdo disponível.   
+Quando o computador rejeita uma solicitação para o conteúdo, do computador solicitante continuará a busca de conteúdo de fontes alternativas em seu pool de locais de origem de conteúdo disponível.   
 
 
 
 ### <a name="monitoring"></a>Monitorização   
-Para ajudar a compreender a utilização da Cache ponto a ponto, pode ver o dashboard de origens de dados de cliente. Consulte o artigo [dashboard de origens de dados de cliente](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).
+Para ajudá-lo a entender o uso do Cache de mesmo nível, você pode exibir o painel de fontes de dados do cliente. Consulte [painel fontes de dados do cliente](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard).
 
-A partir da versão 1702, pode utilizar três relatórios para ver a utilização de cache ponto a ponto. Na consola, vá para **monitorização** > **relatórios** > **relatórios**. Os relatórios todos os têm um tipo de **conteúdo de distribuição do Software**:
-1.  **Elemento de rejeição de conteúdo de origem de cache**:  
-Utilize este relatório para compreender com que frequência as origens de cache ponto a ponto num grupo de limites rejeitaram um pedido de conteúdo.
- - **Problemas conhecidos:** Quando a desagregação num resultados goste *MaxCPULoad* ou *MaxDiskIO*, poderá receber um erro que sugere o relatório ou não não possível encontrar os detalhes. Para contornar este problema, utilize os seguintes dois relatórios que mostram os resultados diretamente.
+A partir da versão 1702, você pode usar três relatórios para exibir o uso de cache de mesmo nível. No console, vá para **monitoramento** > **relatórios** > **relatórios**. Todos os relatórios têm um tipo de **conteúdo de distribuição de Software**:
+1.  **Rejeição de conteúdo de origem do cache de mesmo nível**:  
+Use esse relatório para entender com que frequência as fontes de cache de mesmo nível em um grupo de limites rejeitou uma solicitação de conteúdo.
+ - **Problema conhecido:** Quando fazer uma busca detalhada nos resultados como *MaxCPULoad* ou *MaxDiskIO*, você poderá receber um erro que sugere o relatório ou detalhes não podem ser encontrados. Para resolver esse problema, use os seguintes dois relatórios que mostram os resultados diretamente.
 
-2. **Elemento de rejeição de conteúdo de origem de cache pela condição**:  
-Utilize este relatório para compreender os detalhes de rejeição de um tipo de grupo ou rejeição do limite especificado. Pode especificar
+2. **Rejeição de conteúdo de origem do cache de mesmo nível pela condição**:  
+Use esse relatório para entender os detalhes de rejeição para um tipo de grupo ou a rejeição de limite especificado. Você pode especificar
 
-  - **Problemas conhecidos:** Não é possível selecionar a partir de parâmetros disponíveis e em vez disso, tem de introduzi-los manualmente. Introduza os valores para *nome do grupo de limites* e *rejeição tipo* conforme se verificava em primeiro o relatório. Por exemplo, para *rejeição tipo* poderá introduzir *MaxCPULoad* ou *MaxDiskIO*.
+  - **Problema conhecido:** Você não poderá selecionar parâmetros disponíveis e em vez disso, deve inseri-los manualmente. Insira os valores para *nome do grupo de limite* e *tipo rejeição* como visto no primeiro relatório. Por exemplo, para *tipo rejeição* você pode inserir *MaxCPULoad* ou *MaxDiskIO*.
 
-3. **Detalhes de rejeição de conteúdo de origem de cache de elemento**:   
-  Utilize este relatório para compreender o conteúdo que estava a ser solicitado quando foi rejeitado.
+3. **Detalhes de rejeição de conteúdo da fonte de cache de mesmo nível**:   
+  Use esse relatório para entender o conteúdo que está sendo solicitada quando ele foi rejeitado.
 
- - **Problemas conhecidos:** Não é possível selecionar a partir de parâmetros disponíveis e em vez disso, tem de introduzi-los manualmente. Introduza o valor para *rejeição tipo* tal como apresentados no primeiro relatório (elemento de rede cache origem conteúda rejeição) e, em seguida, introduza o *ID do recurso* para a origem de conteúdo que pretende obter mais informações.  Para localizar o ID de recurso da origem de conteúdo:  
+ - **Problema conhecido:** Você não poderá selecionar parâmetros disponíveis e em vez disso, deve inseri-los manualmente. Insira o valor para *tipo rejeição* conforme exibido no primeiro relatório (Peer cache fonte conteúda rejeição) e insira o *ID de recurso* para a fonte de conteúdo que você deseja obter mais informações sobre.  Para localizar a ID de recurso da fonte de conteúdo:  
 
-    1. Localizar o nome do computador que é apresentado como o *origem de cache ponto a ponto* nos resultados do relatório 2. (ponto a ponto cache origem conteúdo rejeição pela condição).  
-    2. Em seguida, aceda à **ativos e compatibilidade** > **dispositivos** e, em seguida, procure esse nome de computadores. Utilize o valor da coluna ID do recurso.  
+    1. Localizar o nome do computador que é exibido como o *fonte de cache par* nos resultados do relatório 2º (Peer cache fonte conteúdo rejeição pela condição).  
+    2. Em seguida, vá para **ativos e conformidade** > **dispositivos** e, em seguida, procure esse nome de computadores. Use o valor da coluna de ID de recurso.  
 
 
-## <a name="requirements-and-considerations-for-peer-cache"></a>Requisitos e considerações para a Cache ponto a ponto
--   Cache de elementos da é suportada em qualquer sistema operativo Windows que é suportado como o cliente do Configuration Manager. Sistemas operativos Windows não não são suportados para Cache ponto a ponto.
+## <a name="requirements-and-considerations-for-peer-cache"></a>Requisitos e considerações para o Cache par
+-   Cache de mesmo nível tem suporte em qualquer sistema operacional Windows que tem suporte como cliente do Configuration Manager. Não há suporte para sistemas operacionais não-Windows para o Cache par.
 
--   Os clientes apenas podem transferir conteúdos a partir de clientes de Cache ponto a ponto que estejam no respetivo grupo de limites atual.
+-   Os clientes só podem transferir conteúdo de clientes de Cache de mesmo nível que estão em seu grupo de limites atual.
 
--   Cada site onde os clientes utilizam a cache de elementos da deve ser configurado com um [conta de acesso à rede](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). A conta é utilizada pelo computador de origem de Cache ponto a ponto para autenticar pedidos de transferência de elementos da rede e necessita de permissões de utilizador de domínio apenas para esta finalidade.
+-   Cada site em que os clientes usam o Cache de mesmo nível deve ser configurado com um [Network Access Account](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). A conta é usada pelo computador de origem de Cache par para autenticar solicitações de download de pares e exige apenas permissões de usuário de domínio para essa finalidade.
 
--     Porque o limite atual de uma origem de conteúdo de Cache de elementos é determinado por submissão de inventário de hardware esse cliente último, um cliente fizer roaming para uma localização de rede e está num grupo de limites diferentes pode ainda ser considerado um membro do respetivo grupo de limites anterior para as finalidades de Cache ponto a ponto. Isto pode resultar num cliente que está a ser oferecido numa origem de conteúdo da Cache de elemento de rede que não se encontra na respetiva localização de rede imediata. É recomendável excluir clientes que estejam propensas a esta configuração a participação como uma origem de Cache ponto a ponto.
+-   Como o limite atual de uma fonte de conteúdo do Cache de mesmo nível é determinado pelo último envio de inventário de hardware do cliente, um cliente que passa para um local de rede e está em um grupo de limites diferentes ainda pode ser considerado um membro de seu grupo de limites anterior para fins de Cache de mesmo nível. Isso pode resultar em um cliente que está sendo oferecido a uma fonte de conteúdo de Cache de mesmo nível que não está em seu local de rede imediata. É recomendável excluindo os clientes que estão sujeitos a essa configuração da participação como uma fonte de Cache de mesmo nível.
 
-## <a name="to-configure-client-peer-cache-client-settings"></a>Para configurar as definições de cliente de Cache do cliente ponto a ponto
-1.    Na consola do Configuration Manager, aceda a **administração** > **definições de cliente**e, em seguida, abra o objeto de definições de cliente de dispositivo que pretende utilizar. Também pode modificar o objeto de predefinições de cliente.
-2.    A partir da lista de definições disponíveis, escolha **definições de Cache do cliente**.
-3.    Definir **cliente de ativar o Configuration Manager no SO completo para partilhar conteúdo** para **Sim**.
-4.    Configure as seguintes definições para definir as portas que pretende utilizar para a cache de elementos da:  
+## <a name="to-configure-client-peer-cache-client-settings"></a>Para definir configurações de cliente de Cache de mesmo nível do cliente
+1.  No console do Configuration Manager, vá para **administração** > **configurações do cliente**e, em seguida, abra o objeto de configurações de cliente de dispositivo que você deseja usar. Você também pode modificar o objeto de configurações do cliente padrão.
+2.  Na lista de configurações disponíveis, escolha **configurações de Cache do cliente**.
+3.  Definir **cliente habilitar o Configuration Manager no SO completo compartilhe conteúdo** para **Sim**.
+4.  Defina as seguintes configurações para definir as portas que você deseja usar para o Cache par:  
   -  **Porta para difusão de rede inicial**
-  -  **Ativar HTTPS para comunicação do cliente ponto a ponto**
-  -  **Porta para transferência de conteúdo a partir do ponto a ponto (HTTP/HTTPS)**
+  -  **Habilitar HTTPS para comunicação ponto a ponto do cliente**
+  -  **Porta para download de conteúdo de pares (HTTP/HTTPS)**
 
-Em cada computador que está ativada para a Cache ponto a ponto, se a Firewall do Windows está a ser utilizado, o Configuration Manager configura-o para permitir a utilização das portas que configurar.
+Em cada computador que está habilitado para o Cache de mesmo nível, se o Firewall do Windows está em uso, o Configuration Manager configura-o para permitir o uso de portas que você configurar.
 

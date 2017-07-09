@@ -1,6 +1,6 @@
 ---
-title: "Configurar a gestão de dispositivos Android híbrida com o System Center Configuration Manager e o Microsoft Intune | Documentos do Microsoft"
-description: "Prepare para gerir dispositivos móveis Android com o Configuration Manager e do Intune."
+title: "Configurar o gerenciamento de dispositivo híbrido do Android com o System Center Configuration Manager e o Microsoft Intune | Microsoft Docs"
+description: "Prepare para gerenciar dispositivos móveis Android com o Configuration Manager e o Intune."
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -17,66 +17,66 @@ author: nathbarn
 ms.author: nathbarn
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 27a92dc1c3710ff55f0b145386319dda371533d9
-ms.openlocfilehash: 0e93cd55ce49afb6395dcbe758c933bf509dd367
+ms.sourcegitcommit: 86620254897aa9a775dc433de7010b5814c1ec3e
+ms.openlocfilehash: af6fa2dfae5549e89c46d05d0cef1e24342558f9
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/06/2017
 
 
 ---
 # <a name="set-up-android-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos híbrida do Android com o System Center Configuration Manager e o Microsoft Intune
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Aplica-se a: System Center Configuration Manager (ramificação atual)*
 
-Este tópico ajuda o ativar a inscrição de híbrido do Android e Android para dispositivos de trabalho do administrador de TI. O administrador de TI pode então utilizar o System Center Configuration Manager para gerir os dispositivos através de uma subscrição do Microsoft Intune configurado. A partir do Google Play, os utilizadores podem transferir a aplicação do portal da empresa Android que permite inscrever Android (incluindo Samsung KNOX Standard) e o Android, para dispositivos de trabalho. 
+Este tópico ajuda o administrador de TI habilitar o registro de híbrido do Android e Android para dispositivos de trabalho. O administrador de TI, em seguida, pode usar o System Center Configuration Manager para gerenciar os dispositivos por meio de uma assinatura Microsoft Intune configurado. No Google Play, os usuários podem baixar o aplicativo do portal da empresa Android que permite que eles registrem Android (incluindo Samsung KNOX Standard) e Android para dispositivos de trabalho.
 
-Como administrador do Configuration Manager, pode gerir as definições de compatibilidade, apagar ou extinguir dispositivos Android, implementar aplicações e recolher inventário de hardware e software. Se a aplicação do portal da empresa para Android não está instalada em dispositivos Android, em seguida, não terá todas as funcionalidades de gestão (como definições de inventário e de conformidade), mas ainda pode implementar aplicações em dispositivos Android.  
+Como um administrador do Configuration Manager, você pode gerenciar as configurações de conformidade, apagar ou excluir dispositivos Android, implantar aplicativos e coletar inventários de hardware e software. Sem o aplicativo de Portal da empresa Android instalado no dispositivo, você não tem recursos de gerenciamento, como as configurações de inventário e de conformidade, mas você ainda pode implantar aplicativos para dispositivos Android.  
 
-## <a name="enable-android-enrollment"></a>Ativar a inscrição do Android  
-Os seguintes passos permitem gerir dispositivos Android sem um perfil de trabalho (ou seja, a inscrição de "Android clássico") do Configuration Manager.
+## <a name="enable-android-enrollment"></a>Habilitar o registro do Android  
+As etapas a seguir permitem que o Configuration Manager gerenciar dispositivos Android sem um perfil de trabalho (ou seja, o registro de "Android clássico").
 
-1. Antes de poder configurar a inscrição para qualquer plataforma, concluir os pré-requisitos e procedimentos [híbrida configuração MDM](setup-hybrid-mdm.md).  
-2. Na consola do Configuration Manager no **administração** área de trabalho, selecione **descrição geral** > **serviços em nuvem** > **subscrição do Windows Intune** e escolha a sua subscrição do Intune.  
-3. No **base** separador o **subscrição** grupo, selecione **configurar platformas** > **Android**.  
-4. No **as propriedades de subscrição do Microsoft Intune** diálogo caixa, selecione o **Android** separador e verifique o **inscrição do Android ativar** caixa.  
+1. Antes de configurar o registro para qualquer plataforma, concluir os pré-requisitos e procedimentos em [MDM híbrido do programa de instalação](setup-hybrid-mdm.md).  
+2. No console do Configuration Manager no **administração** espaço de trabalho, escolha **visão geral** > **serviços de nuvem** > **assinatura do Microsoft Intune** e escolha sua assinatura do Intune.  
+3. No **início** guia o **assinatura** de grupo, escolha **configurar plataformas** > **Android**.  
+4. No **propriedades de assinatura do Microsoft Intune** caixa de diálogo caixa, escolha o **Android** guia e verifique o **habilitar registro do Android** caixa.  
 
- Depois da configurar, tem de informar os utilizadores como inscrever os respetivos dispositivos. Veja [O que dizer aos utilizadores finais sobre a utilização do Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
+ Depois de você configurá-lo, você precisa permitir que os usuários saibam como registrar seus dispositivos. Veja [O que dizer aos utilizadores finais sobre a utilização do Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
 
-## <a name="enable-android-for-work-enrollment"></a>Ativar Android para a inscrição de trabalho
-Os seguintes passos permitem gerir dispositivos Android sem um perfil de trabalho (ou seja, a inscrição de "Android clássico") do Configuration Manager.
+## <a name="enable-android-for-work-enrollment"></a>Habilitar o Android para o registro de trabalho
+As etapas a seguir permitem que o Configuration Manager gerenciar dispositivos Android com um perfil de trabalho.
 
-1. Crie uma conta do Google https://accounts.google.com/SignUp a utilizar como seu Android para a conta de administrador de trabalho. Em alternativa, inicie sessão com a conta que será associada a todos os Android trabalho em tarefas de gestão para este inquilino do Intune. Isto pode ser uma conta do Google que é partilhada entre os administradores a gerir dispositivos Android. Esta é a conta do Google que a organização utiliza para gerir e publicar aplicações no Play para a consola de trabalho. Irá utilizar esta conta para aprovar aplicações na Play para o arquivo de trabalho, por isso, manter um registo de nome de conta e palavra-passe.
-2. Ative a inscrição do Android por enlace a conta do Google para o inquilino do Intune, que é gerido no Configuration Manager:
-   1. Na consola do Configuration Manager no **administração** área de trabalho, selecione **descrição geral** > **serviços em nuvem** > **subscrições do Microsoft Intune** e escolha a sua subscrição do Intune.
-   2. No **base** separador o **subscrição** grupo, selecione **configurar platformas** > **Android para trabalhar**.
-   3. Na caixa de diálogo, selecione **configurar Android para trabalhar na consola do Intune**. Abre a consola do Intune no seu browser.
-   4. Utilize as credenciais de administrador do Intune para iniciar sessão no portal do Intune.
-   5. Escolher **configurar** para abrir o Google Play Android para o Web site de trabalho.
-   6. No página de sessão da Google, introduza as credenciais da conta Google do passo 1 e, em seguida, forneça as informações da empresa.
-3. Quando regressar ao portal do Intune, Android para o trabalho está ativado e tem três opções de inscrição para Android para dispositivos de trabalho:
-   - **Gerir todos os dispositivos como Android** (desativado). Todos os dispositivos Android, incluindo dispositivos que suportem Android para trabalhar, estão inscritos como dispositivos Android convencionais.
-   - **Gerir os dispositivos suportados como Android para trabalhar** (ativado). Todos os dispositivos que suportem Android para trabalhar são inscritos como Android, para dispositivos de trabalho. Todos os dispositivos Android que não suporta Android para o trabalho está inscrito como um dispositivo Android convencional.
-   - **Gerir os dispositivos suportados para os utilizadores apenas destes grupos como Android para trabalhar** (ativado para apenas alguns grupos). Esta definição permite aos destino Android para gestão de trabalho para um conjunto limitado de utilizadores. Os dispositivos que suportem Android para trabalhar são inscritos como Android para dispositivos de trabalho apenas quando os membros de grupos selecionados inscrevam-los. Todos os outros dispositivos são inscritos como dispositivos Android.
+1. Crie uma conta do Google no https://accounts.google.com/SignUp para usar como o Android para a conta de administrador do trabalho. Ou entre com a conta associada com Android todas as tarefas de gerenciamento de trabalho para este locatário do Intune. Essa conta pode ser uma conta do Google que é compartilhada entre os administradores que gerenciam dispositivos Android. Essa é a conta do Google que sua organização usa para gerenciar e publicar aplicativos no Play para o console do trabalho. Você pode usar essa conta para aprovar aplicativos Play para armazenamento de trabalho, para manter o controle do nome de conta e senha.
+2. Habilite registro do Android associando-se a conta do Google para o locatário do Intune gerenciado no Configuration Manager:
+   1. No console do Configuration Manager no **administração** espaço de trabalho, escolha **visão geral** > **serviços de nuvem** > **assinaturas do Microsoft Intune** e escolha sua assinatura do Intune.
+   2. No **início** guia o **assinatura** de grupo, escolha **configurar plataformas** > **Android para trabalho**.
+   3. Na caixa de diálogo, escolha **configurar Android para o trabalho no console do Intune**. O console do Intune será aberto no navegador da web.
+   4. Use suas credenciais de administrador do Intune para entrar no portal do Intune.
+   5. Escolha **configurar** para abrir o Android da Google Play para o site de trabalho.
+   6. Na entrada do Google na página, digite as credenciais de conta do Google da etapa 1 e, em seguida, fornecer informações de sua empresa.
+3. Ao retornar ao portal do Intune, Android para o trabalho está habilitado e você tem três opções de registro para o Android para dispositivos de trabalho:
+   - **Gerenciar todos os dispositivos, como Android** (desabilitado). Todos os dispositivos Android, incluindo dispositivos que dão suporte ao Android para o trabalho, são registrados como dispositivos Android convencionais.
+   - **Gerenciar dispositivos com suporte, como Android para o trabalho** (habilitado). Todos os dispositivos que dão suporte ao Android para o trabalho são registrados, como Android, para dispositivos de trabalho. Qualquer dispositivo Android que não dão suporte ao Android para o trabalho é registrado como um dispositivo Android convencional.
+   - **Gerenciar dispositivos com suporte para os usuários somente desses grupos como Android para trabalho** (habilitadas para apenas alguns grupos). Permite que você Android para gerenciamento de trabalho a um conjunto limitado de usuários de destino. Dispositivos que dão suporte ao Android para o trabalho são registrados como Android para dispositivos de trabalho somente quando os membros dos grupos selecionados registrá-los. Todos os outros dispositivos são registrados como dispositivos Android.
 
 > [!NOTE]
-> Um problema conhecido impede o **gerir dispositivos suportados para os utilizadores apenas destes grupos como Android para trabalhar** opção trabalhem conforme esperado. Os dispositivos dos utilizadores no Azure AD especificado grupos irão inscrever como Android, em vez de Android para trabalhar. Para ativar Android para trabalhar, tem de utilizar o **gerir todos os dispositivos suportados como Android para trabalhar** opção.
+> Impede que um problema conhecido do **gerenciar dispositivos com suporte para os usuários somente desses grupos como Android para trabalho** opção funcione conforme o esperado. Os dispositivos dos usuários do registro de grupos do AD do Azure como Android, em vez de Android para o trabalho. Para habilitar o Android para o trabalho, você deve usar o **gerenciar todos os dispositivos com suporte, como Android para o trabalho** opção.
 
 
-Depois da configurar, tem de informar os utilizadores como inscrever os respetivos dispositivos. Veja [O que dizer aos utilizadores finais sobre a utilização do Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
+Depois de você configurá-lo, você precisa permitir que os usuários saibam como registrar seus dispositivos. Veja [O que dizer aos utilizadores finais sobre a utilização do Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
 
-Verá o nome de conta e o nome da organização no portal do Intune quando o enlace estiver concluído. Nesse momento, pode fechar ambos os browsers.
+Quando a associação é concluída, você deve ver o nome da conta e o nome de organização no portal do Intune. Nesse momento, você pode fechar ambos os navegadores.
 
-### <a name="enroll-an-android-for-work-device"></a>Inscrever Android para o dispositivo de trabalho
-Como os utilizadores inscrevem Android para dispositivos de trabalho é semelhante a inscrição para Android. Os utilizadores podem transferir e instalar a aplicação de Portal da empresa para Android nos respetivos dispositivos móveis. O app solicita-lhe-los para criar um perfil de trabalho como parte do processo de inscrição. Depois de criar o perfil de trabalho, os utilizadores tem de mudar para a versão do Portal da empresa gerida. O Portal da empresa gerido está etiquetado com um briefcase laranja pequena no canto inferior direito.
+### <a name="enroll-an-android-for-work-device"></a>Registrar um Android para o dispositivo de trabalho
+Como os usuários registram Android para dispositivos de trabalho é semelhante ao registro para o Android. Os usuários podem baixar e instalar o aplicativo de Portal da empresa para Android em seus dispositivos móveis. O aplicativo solicita-los para criar um perfil de trabalho como parte do processo de registro. Depois que o perfil de trabalho é criado, os usuários devem alternar para a versão gerenciada do Portal da empresa. O Portal da empresa gerenciados é marcado com uma pequena pasta laranja no canto inferior direito.
 
-### <a name="manage-android-for-work-devices"></a>Gerir Android para dispositivos de trabalho
-Depois de ativar Android para a inscrição de trabalho, pode efetuar as seguintes tarefas de gestão para Android para dispositivos de trabalho:
-- [Aprovar aplicações](/sccm/mdm/deploy-use/creating-android-applications#approve-and-deploy-android-for-work-apps)
+### <a name="manage-android-for-work-devices"></a>Gerenciar Android para dispositivos de trabalho
+Depois de habilitar o Android para o registro de trabalho, você pode executar as seguintes tarefas de gerenciamento para o Android para dispositivos de trabalho:
+- [Aprovar aplicativos](/sccm/mdm/deploy-use/creating-android-applications#approve-and-deploy-android-for-work-apps)
 - [Criar itens de configuração](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client)
-- [Gerir definições de compatibilidade](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client)
-- [Gerir perfis de e-mail](/sccm/mdm/deploy-use/create-exchange-activesync-profiles)
-- [Eliminação seletiva o perfil de trabalho](/sccm/mdm/deploy-use/wipe-lock-reset-devices#selective-wipe)
+- [Gerir as definições de conformidade](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client)
+- [Gerenciar perfis de email](/sccm/mdm/deploy-use/create-exchange-activesync-profiles)
+- [Apagar seletivamente o perfil de trabalho](/sccm/mdm/deploy-use/wipe-lock-reset-devices#selective-wipe)
 
 > [!div class="button"]
-[< Passo anterior](create-service-connection-point.md)[junto passo >  ](set-up-additional-management.md)
+[< Anterior etapa](create-service-connection-point.md)[próxima etapa >  ](set-up-additional-management.md)
 
