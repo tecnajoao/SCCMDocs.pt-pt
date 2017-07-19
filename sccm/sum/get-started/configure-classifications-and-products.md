@@ -1,5 +1,4 @@
 ---
-
 title: "Configurar classificações e produtos a sincronizar | Documentos do Microsoft"
 description: "Siga estes passos para configurar classificações e produtos a sincronizar na consola do Configuration Manager."
 keywords: 
@@ -18,8 +17,6 @@ ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
 ms.openlocfilehash: 6add66e625c790b65edf64216c2262a5d082f820
 ms.contentlocale: pt-pt
 ms.lasthandoff: 05/17/2017
-
-
 
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configurar classificações e produtos a sincronizar  
