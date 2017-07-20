@@ -123,3 +123,4 @@ Após a conclusão da instalação, execute **UpdatesPublisher.exe** do *Updates
 
  No entanto, se você quiser usar os padrões e não pretende implantar as atualizações para um servidor de atualização ou a dispositivos gerenciados, você pode ir direito [Gerenciando catálogos de atualização de software](updates-publisher-catalogs.md), ou [criar atualizações de software](create-updates-with-updates-publisher.md) e criar catálogos de atualização de sua preferência.
 
+
