@@ -15,12 +15,11 @@ caps.latest.revision: 15
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c8717925dba42451b1e241a7c2f59e43896d7d99
-ms.openlocfilehash: e78fe989b7ff445717c8320c4eae3900eb46baea
+ms.translationtype: MT
+ms.sourcegitcommit: 5ebdd12672fecc633321a66738a0978f94ba0aa4
+ms.openlocfilehash: aede531a0406c3d30c9cca957896e002ed22ae51
 ms.contentlocale: pt-pt
-ms.lasthandoff: 06/19/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gerir o acesso aos serviços do O365 para computadores geridos pelo System Center Configuration Manager
@@ -46,7 +45,17 @@ Se estiver à procura de informações sobre como configurar o acesso condiciona
 
 -   Windows 7
 -   Windows 8,1
--   Windows 10 
+-   Windows 10
+
+## <a name="supported-windows-servers"></a>Servidores de Windows suportados
+
+-   2008 R2
+-   2012
+-   2012 R2
+-   2016
+
+    > [!IMPORTANT]
+    > Para servidores de Windows que pode ter vários utilizadores com sessão iniciados em simultâneo, as mesmas políticas de acesso condicional tem de ser implementadas para todos os utilizadores com sessão iniciados.
 
 ## <a name="configure-conditional-access"></a>Configurar o acesso condicional  
  Para configurar o acesso condicional, tem primeiro de criar uma política de conformidade e configurar a política de acesso condicional. Quando configurar as políticas de acesso condicional para PC, pode exigir que os computadores estejam em conformidade com a política de conformidade para aceder aos serviços Exchange Online e SharePoint Online.  
