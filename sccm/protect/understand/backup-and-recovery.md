@@ -167,7 +167,7 @@ A biblioteca de conteúdo no Configuration Manager é o local onde todos os arqu
 
 1.  No computador que executa o Updates Publisher, navegue até o arquivo de banco de dados do Updates Publisher (Scupdb.sdf) em %*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\\. Há um arquivo de banco de dados diferente para cada usuário que executa o Updates Publisher.  
 
-2.  Copie o ficheiro de base de dados para o destino de cópia de segurança. Por exemplo, se o destino do backup for E:\ConfigMgr_Backup, você poderá copiar o arquivo de banco de dados do Updates Publisher em e:\configmgr_backup\scup2011..  
+2.  Copie o ficheiro de base de dados para o destino de cópia de segurança. Por exemplo, se o destino do backup for E:\ConfigMgr_Backup, você poderá copiar o arquivo de banco de dados do Updates Publisher em e:\configmgr_backup\scup2011.  
 
     > [!TIP]  
     >  Quando há mais de um arquivo de banco de dados em um computador, considere armazenar o arquivo em uma subpasta que indique o perfil de usuário associado ao arquivo de banco de dados. Por exemplo, pode ter um ficheiro de base de dados em E:\ConfigMgr_Backup\SCUP2011\User1 e outro ficheiro de base de dados em E:\ConfigMgr_Backup\SCUP2011\User2.  
