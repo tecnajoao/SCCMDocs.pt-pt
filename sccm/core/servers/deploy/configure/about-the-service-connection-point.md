@@ -110,7 +110,7 @@ Para habilitar a operação, o computador que hospeda o ponto de conexão de ser
 
 -   *manage.microsoft.com  
 -   https://bspmts.MP.microsoft.com/V
--   https://login.microsoftonline.com/ {TenantID}
+-   https://login.microsoftonline.com/{TenantID}
 
 
 **Serviço do Windows 10**  
