@@ -1,8 +1,8 @@
 ---
-title: Criar perfis de e-mail do Exchange ActiveSync | Documentos do Microsoft
+title: Criar perfis de e-mail do Exchange ActiveSync | Microsoft Docs
 description: Saiba como criar e configurar perfis de e-mail no System Center Configuration Manager que funcionam com o Microsoft Intune.
 ms.custom: na
-ms.date: 03/28/2017
+ms.date: 07/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 761c3f58f7c57d8f87ee802da37821895062546d
-ms.openlocfilehash: bcf337d2abbcd5aad0f99098f6afd4a73ada3a0b
+ms.translationtype: MT
+ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
+ms.openlocfilehash: 7434c98f2217cf63fdcd250b91e772de72daaea9
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/17/2017
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Ao utilizar o Microsoft Intune e Exchange ActiveSync, pode configurar dispositivos com perfis de e-mail e restrições. Isto permite aos seus utilizadores acesso um e-mail empresarial nos respetivos dispositivos com um mínimo de informações de configuração por parte dos mesmos.  
+Ao utilizar o Microsoft Intune e Exchange ActiveSync, pode configurar dispositivos com perfis de e-mail e restrições. Para permitir que os utilizadores aceder a e-mail empresarial nos respetivos dispositivos com requisitos mínimos de configuração da sua parte.  
 
  Pode configurar os seguintes tipos de dispositivos com perfis de e-mail:  
 
@@ -44,37 +43,37 @@ Ao utilizar o Microsoft Intune e Exchange ActiveSync, pode configurar dispositiv
 Para implementar perfis de e-mail em dispositivos, têm de inscrever os dispositivos no Intune. Para obter mais informações sobre como inscrever os seus dispositivos, consulte [Gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).
 
 > [!NOTE]
-> Intune fornece dois Android para perfis de e-mail de trabalho, uma cada para a aplicação de correio eletrónico do Gmail e a aplicação de correio eletrónico nove trabalho. Estas aplicações estão disponíveis no Google Play Store e suportam ligações ao Exchange. Para ativar a conectividade de e-mail, implemente uma destas aplicações de correio eletrónico para os dispositivos dos utilizadores e, em seguida, criar e implementar o perfil adequado. As aplicações de e-mail como o trabalho nove poderão não estar livres. Do revisão da aplicação licenciamento detalhes ou contacte a empresa de aplicação com todas as perguntas.
+> O Intune fornece duas Android para perfis de e-mail de trabalho, uma para a aplicação de e-mail do Gmail e a aplicação de e-mail do trabalho nove. Estas aplicações estão disponíveis no Google Play Store, e suportam ligações ao Exchange. Para ativar a conectividade de e-mail, implementar uma destas aplicações de e-mail nos dispositivos dos utilizadores e, em seguida, crie e implemente o perfil adequado. Aplicações de e-mail como nove trabalho poderão não estar livres. Do reveja a aplicação detalhes de licenciamento, ou contacte a empresa de aplicações com quaisquer perguntas.
 
  Para além de configurar uma conta de e-mail no dispositivo, pode configurar as definições de sincronização para contactos, calendários e tarefas.  
 
- Quando cria um perfil de e-mail, pode incluir um vasto leque de definições de segurança. Estas definições incluem certificados para identidade, encriptação e assinatura que configurou através da utilização de perfis de certificado do System Center Configuration Manager. Para obter mais informações sobre perfis de certificado, veja [Perfis de certificado no System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).    
+ Quando cria um perfil de e-mail, pode incluir um vasto leque de definições de segurança. Estas definições incluem certificados para identidade, encriptação e assinatura que configurou através da utilização de perfis de certificado do System Center Configuration Manager. Para obter mais informações sobre perfis de certificado, veja [Perfis de certificado no System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles.md).    
 
 ## <a name="create-an-exchange-activesync-email-profile"></a>Criar um perfil de e-mail do Exchange ActiveSync  
 
-Para criar um perfil, utilize o Exchange ActiveSync E-Mail Assistente para criar perfil. 
+Para criar um perfil, pode utilizar o Exchange ActiveSync E-Mail Assistente para criar perfil. 
 
 1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade**.  
 
-2.  No **ativos e compatibilidade** área de trabalho, expanda **definições de compatibilidade**, expanda **acesso a recursos da empresa**e, em seguida, escolha **perfis de E-Mail**.  
+2.  No **ativos e compatibilidade** área de trabalho, expanda **as definições de compatibilidade**, expanda **acesso a recursos da empresa**e, em seguida, escolha **perfis de E-Mail**.  
 
-3.  No **base** separador o **criar** grupo, selecione **criar perfil de E-Mail do Exchange ActiveSync** para iniciar o assistente.
+3.  No **home page** separador o **criar** grupo, escolha **criar perfil de E-Mail do Exchange ActiveSync** para iniciar o assistente.
 
-4.  No **geral** página do assistente, configure as seguintes opções:
+4.  No **geral** página do assistente, configure o seguinte:
 
     - **Nome**. Forneça um nome descritivo para o perfil de e-mail.
 
-    - **Descrição**. Opcionalmente, forneça uma descrição para o perfil de e-mail que irão ajudar a identificá-la na consola do Configuration Manager.
+    - **Descrição**. Opcionalmente, indique uma descrição para o perfil de e-mail que o irão ajudar a identificá-la na consola do Configuration Manager.
 
-    - **Este perfil de e-mail é para Android para trabalhar**. Escolha esta opção se irá implementar este perfil de correio eletrónico apenas Android para dispositivos de trabalho. Se selecionar esta caixa, o **plataformas suportadas** não é apresentada a página do assistente. Android apenas para perfis de e-mail de trabalho estão configurados.
+    - **Este perfil de e-mail é para Android para trabalho**. Escolha esta opção se irá implementar este perfil de e-mail apenas Android para dispositivos de trabalho. Se selecionar esta caixa, a **plataformas suportadas** não é apresentada a página do assistente. Android apenas para perfis de e-mail de trabalho estão configuradas.
 
 4.  No **do Exchange ActiveSync** página do assistente, especifique as seguintes informações:  
 
-    -   **Anfitrião do Exchange ActiveSync**. Especifique o nome de anfitrião do Exchange server da empresa que aloja serviços do Exchange ActiveSync.  
+    -   **Anfitrião do Exchange ActiveSync**. Especifique o nome de anfitrião do servidor Exchange da empresa que aloja os serviços do Exchange ActiveSync.  
 
-    -   **Nome da conta**. Especifique o nome a apresentar para a conta de correio eletrónico tal como será apresentado aos utilizadores nos respetivos dispositivos.  
+    -   **Nome da conta**. Especifique o nome a apresentar para a conta de e-mail, tal como será apresentado aos utilizadores nos respetivos dispositivos.  
 
-    -   **Nome da conta de utilizador**. Escolha a forma como o nome de utilizador de conta de e-mail está configurado nos dispositivos cliente. É possível escolher uma das seguintes opções da lista pendente:  
+    -   **Nome da conta de utilizador**. Escolha como o nome de utilizador de conta de e-mail está configurado nos dispositivos cliente. Pode escolher uma das seguintes opções da lista pendente:  
 
         -   **Nome Principal de utilizador**. Utilize o nome principal de utilizador completo para iniciar sessão no Exchange.  
 
@@ -82,7 +81,7 @@ Para criar um perfil, utilize o Exchange ActiveSync E-Mail Assistente para criar
 
         -   **Endereço SMTP principal**. Utilize o endereço SMTP principal do utilizador para iniciar sessão no Exchange.  
 
-    -   **Endereço de correio eletrónico**. Escolha como é gerado o endereço de e-mail para o utilizador em cada dispositivo cliente. É possível escolher uma das seguintes opções da lista pendente:  
+    -   **Endereço de correio eletrónico**. Escolha como é gerado o endereço de correio eletrónico para o utilizador em cada dispositivo cliente. Pode escolher uma das seguintes opções da lista pendente:  
 
         -   **Endereço SMTP principal**. Utilize o endereço SMTP principal do utilizador para iniciar sessão no Exchange.  
 
@@ -94,53 +93,55 @@ Para criar um perfil, utilize o Exchange ActiveSync E-Mail Assistente para criar
 
         -   **Personalizar**  
 
-         Este campo é aplicável apenas se **sAMAccountName** está selecionada no **nome da conta de utilizador** na lista pendente.  
+         Este campo é aplicável apenas se **sAMAccountName** está selecionado no **nome da conta de utilizador** na lista pendente.  
 
     -   **Método de autenticação**. Escolha um dos seguintes métodos de autenticação que serão utilizados para autenticar a ligação ao Exchange ActiveSync:  
 
         -   **Certificados**. Um certificado de identidade será utilizado para autenticar a ligação do Exchange ActiveSync.  
 
-        -   **Nome de utilizador e palavra-passe**. O utilizador do dispositivo tem de fornecer uma palavra-passe para ligar ao Exchange ActiveSync. (O nome de utilizador é configurado como parte do perfil de e-mail.)  
+        -   **Nome de utilizador e palavra-passe**. O utilizador do dispositivo tem de fornecer uma palavra-passe para ligar ao Exchange ActiveSync. (O nome de utilizador é configurado como parte do perfil de e-mail).  
 
-    -   **Certificado de identidade**. Escolher **selecione** e, em seguida, selecione um certificado a utilizar para a identidade.  
+    -   **Certificado de identidade**. Escolha **selecione** e, em seguida, escolha um certificado a utilizar para a identidade.  
 
-        > [!NOTE]  
-        > Antes de poder escolher o certificado de identidade, deve configurá-lo primeiro como um perfil de certificado Simple Certificate Enrollment Protocol (SCEP). Para obter mais informações sobre perfis de certificado, veja [Perfis de certificado no System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+         Certificados de identidade tem de ser certificados SCEP; Não é possível utilizar um certificado PFX.  Para obter mais informações, consulte [no System Center Configuration Manager de perfis de certificado](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-         Esta opção só está disponível se optou por **certificados** em **método de autenticação**.  
+         Esta opção só está disponível se tiver escolhido **certificados** em **método de autenticação**.  
 
-    -   **Utilizar S/MIME**. Envie e-mail de envio utilizando a encriptação S/MIME. Esta opção só é aplicável a dispositivos iOS. Pode escolher uma das seguintes opções:
+    -   **Utilizar S/MIME**. Envie e-mails utilizando a encriptação S/MIME. Esta opção só é aplicável a dispositivos iOS. Pode escolher uma das seguintes opções:
 
-        -   **Certificados de encriptação**. Escolher **selecione** e, em seguida, selecione um certificado a utilizar para encriptação. Pode escolher apenas um certificado PFX para utilizar como um certificado de encriptação.
+        -   **Certificados de assinatura**.  Escolha **selecione** e, em seguida, escolha um perfil de certificado a utilizar para encriptação.  
 
-        Se escolher um certificado de encriptação e um certificado de assinatura, estas devem ser ambos no formato PFX.
+            O perfil pode ser o certificado ou um SCEP ou. PFX.  No entanto, se forem utilizadas simultaneamente assinatura e encriptação, tem de selecionar os perfis de certificado PFX para *ambos* assinatura e encriptação.
 
-        > [!NOTE]  
-        > Antes de poder escolher certificados, tem primeiro de configurá-los como um perfil de certificado SCEP ou PFX. Para obter mais informações sobre perfis de certificado, veja [Perfis de certificado no System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+        -   **Certificados de encriptação**. Escolha **selecione** e, em seguida, escolha um certificado a utilizar para a encriptação. Pode escolher apenas um certificado PFX para utilizar como um certificado de encriptação.
+
+        -   Para encriptar todas as mensagens de correio em dispositivos iOS, ative o **exigir encriptação** caixa de verificação.    
+
+         Tem de criar perfis de certiciate pode escolher aqui.  Para obter mais informações, consulte [no System Center Configuration Manager de perfis de certificado](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
 ## <a name="configure-synchronization-settings-for-the-exchange-activesync-email-profile"></a>Configurar definições de sincronização para o perfil de e-mail do Exchange ActiveSync  
 
 Na página **Configurar definições de sincronização** do Assistente para Criar um Perfil de E-mail do Exchange ActiveSync, especifique as seguintes informações:  
 
--   **Agenda**. Escolha o agendamento através do qual dispositivos irão sincronizar dados do Exchange server. Esta opção só é aplicável a dispositivos Windows Phone. Escolha entre:  
+-   **Agenda**. Escolha a agenda através do qual dispositivos irão sincronizar os dados do Exchange server. Esta opção só é aplicável a dispositivos Windows Phone. Escolha entre:  
 
-    -   **Não configurado**. Não é imposto um agendamento de sincronização. Isto permite que os utilizadores configurem o seu próprio agendamento de sincronização.  
+    -   **Não configurado**. Não é imposto um agendamento de sincronização. Isto permite aos utilizadores configurar a sua própria agenda de sincronização.  
 
-    -   **Chegarem novas mensagens**. Dados, tal como itens de calendário e mensagens de correio eletrónico serão automaticamente sincronizados quando chegarem.  
+    -   **Chegarem novas mensagens**. Dados como itens de calendário e os e-mails serão automaticamente sincronizados quando chegarem.  
 
-    -   **15 minutos**. Os dados como itens de calendário e mensagens de correio eletrónico serão automaticamente sincronizados a cada 15 minutos.  
+    -   **15 minutos**. Dados como itens de calendário e os e-mails serão automaticamente sincronizados a cada 15 minutos.  
 
-    -   **30 minutos**. Os dados como itens de calendário e mensagens de correio eletrónico serão automaticamente sincronizados a cada 30 minutos.  
+    -   **30 minutos**. Dados como itens de calendário e os e-mails serão automaticamente sincronizados a cada 30 minutos.  
 
-    -   **60 minutos**. Os dados como itens de calendário e mensagens de correio eletrónico serão automaticamente sincronizados a cada 60 minutos.  
+    -   **60 minutos**. Dados como itens de calendário e os e-mails serão automaticamente sincronizados a cada 60 minutos.  
 
     -   **Manual**. O utilizador do dispositivo tem de Iniciar sincronização manualmente.  
 
--   **Número de dias de e-mail a sincronizar**. Na lista pendente, escolha o número de dias de e-mail que pretende sincronizar. Escolha um dos seguintes valores:  
+-   **Número de dias do correio eletrónico a sincronizar**. Na lista pendente, escolha o número de dias de e-mail que pretende sincronizar. Escolha um dos seguintes valores:  
 
-    -   **Não configurado**. A definição não é imposta. -Permite que os utilizadores configurem a quantidade de e-mails é transferido para o respetivo dispositivo.  
+    -   **Não configurado**. Não é imposta a definição. Permitir que os utilizadores configurem a quantidade de e-mails é transferido para o respetivo dispositivo.  
 
-    -   **Ilimitado**. Sincronize todos os e-mails disponíveis.  
+    -   **Ilimitados**. Sincroniza todos os e-mails disponíveis.  
 
     -   **1 dia**  
 
@@ -154,13 +155,13 @@ Na página **Configurar definições de sincronização** do Assistente para Cri
 
 -   **Permitir que as mensagens sejam movidas para outras contas de e-mail**. Escolha esta opção para permitir que os utilizadores movam mensagens de e-mail entre contas diferentes configuradas nos respetivos dispositivos. Esta opção só é aplicável a dispositivos iOS.  
 
--   **Permitir que o e-mail seja enviado a partir de aplicações de terceiros**. Escolha esta opção para permitir que os utilizadores enviem e-mails de determinadas aplicações de e-mail de terceiros não predefinidas. Esta opção só é aplicável a dispositivos iOS.  
+-   **Permitir o correio eletrónico a partir de aplicações de terceiros**. Escolha esta opção para permitir que os utilizadores enviem e-mails de determinadas aplicações de e-mail de terceiros não predefinidas. Esta opção só é aplicável a dispositivos iOS.  
 
--   **Sincronizar endereços de e-mail utilizados recentemente**. Escolha esta opção para sincronizar a lista de endereços de e-mail que foram utilizados recentemente no dispositivo. Esta opção só é aplicável a dispositivos iOS.  
+-   **Sincronizar endereços de correio eletrónico utilizados recentemente**. Escolha esta opção para sincronizar a lista de endereços de e-mail que foram recentemente utilizados no dispositivo. Esta opção só é aplicável a dispositivos iOS.  
 
--   **Utilizar SSL**. Escolha esta opção para utilizar a comunicação de Secure Sockets Layer (SSL) para mensagens de correio eletrónico a enviar, receber e-mails e ao comunicar com o Exchange server.  
+-   **Utilizar SSL**. Escolha esta opção para utilizar a comunicação de Secure Sockets Layer (SSL) para enviar mensagens de correio eletrónico, mensagens de correio eletrónico a receber e a comunicar com o Exchange server.  
 
--   **Tipo para sincronizar de conteúdo**. Escolha os tipos de conteúdo que pretende sincronizar nos dispositivos. Esta opção só é aplicável a dispositivos Windows Phone. Escolha entre:  
+-   **Tipo de conteúdo a sincronizar**. Escolha os tipos de conteúdos que pretende sincronizar nos dispositivos. Esta opção só é aplicável a dispositivos Windows Phone. Escolha entre:  
 
     -   **E-mail**  
 
@@ -172,9 +173,9 @@ Na página **Configurar definições de sincronização** do Assistente para Cri
 
 ## <a name="specify-supported-platforms-for-the-exchange-activesync-email-profile"></a>Especificar as plataformas suportadas para o perfil de e-mail do Exchange ActiveSync  
 
-1.  No **plataformas suportadas** página do Exchange ActiveSync perfil Assistente para criar E-Mail, selecione os sistemas operativos nos quais o perfil de e-mail será instalado. Em alternativa, selecione **Selecionar tudo** para instalar o perfil de e-mail em todos os sistemas operativos disponíveis.  
+1.  No **plataformas suportadas** página do Exchange ActiveSync E-Mail Assistente Criar perfil, selecione os sistemas operativos em que o perfil de e-mail será instalado. Ou escolha **Selecionar tudo** para instalar o perfil de e-mail em todos os sistemas operativos disponíveis.  
 
 2.  Conclua o assistente.
 
-Para obter informações sobre como implementar os perfis de e-mail do Exchange ActiveSync, consulte o artigo [como implementar perfis no System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).  
+Para obter informações sobre como implementar os perfis de e-mail do Exchange ActiveSync, consulte [como implementar perfis no System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).  
 

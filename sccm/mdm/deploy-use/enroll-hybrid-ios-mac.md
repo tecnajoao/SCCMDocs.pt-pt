@@ -1,8 +1,8 @@
 ---
-title: "Configurar o gerenciamento de iOS e Mac híbrida dispositivo com o System Center Configuration Manager e o Microsoft Intune | Microsoft Docs"
-description: Configure o gerenciamento de dispositivo do iOS com o System Center Configuration Manager e o Microsoft Intune.
+title: "Configurar a gestão iOS e Mac híbrida dispositivo com o System Center Configuration Manager e o Microsoft Intune | Microsoft Docs"
+description: "Configure a gestão de dispositivos iOS com o System Center Configuration Manager e o Microsoft Intune."
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,60 +16,60 @@ caps.handback.revision: 0
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: ed6b65a1a5aabc0970cd0333cb033405cf6d2aea
-ms.openlocfilehash: 52596b211acb1182cb38259cba267bdd0846de80
+ms.translationtype: MT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 1a93a542f55d02df20865fa4ae8d7590dd9be753
 ms.contentlocale: pt-pt
-ms.lasthandoff: 07/03/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="set-up-ios-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos iOS híbrida com o System Center Configuration Manager e o Microsoft Intune
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Com o Configuration Manager e o Intune, você habilitar o registro de dispositivo iOS e macOS dar acesso ao email da empresa e recursos para usuários do Mac, iPhone e iPad. Assim que os utilizadores instalarem a aplicação do portal da empresa do Intune, os respetivos dispositivos podem ser visados pela política. Antes de poder gerir dispositivos iOS e Mac, tem de importar um certificado do serviço Apple Push Notification (APNs) da Apple. Este certificado permite que o Intune gerenciar dispositivos iOS e Mac, estabelecendo uma conexão com o serviço de gerenciamento de dispositivos da Apple.  
+Com o Configuration Manager e o Intune, ativar a inscrição de dispositivos iOS e macOS dar acesso ao e-mail da empresa e recursos para iPhone, iPad e os utilizadores de Mac. Assim que os utilizadores instalarem a aplicação do portal da empresa do Intune, os respetivos dispositivos podem ser visados pela política. Antes de poder gerir dispositivos iOS e Mac, tem de importar um certificado do serviço Apple Push Notification (APNs) da Apple. Este certificado permite ao Intune gerir dispositivos iOS e Mac ao estabelecer uma ligação com o serviço de gestão de dispositivos da Apple.  
 
- Também pode inscrever dispositivos iOS pertencentes à empresa.  Consulte [registrar dispositivos da empresa](enroll-company-owned-devices.md).  
+ Também pode inscrever dispositivos iOS pertencentes à empresa.  Consulte [inscrever dispositivos pertencentes à empresa](enroll-company-owned-devices.md).  
 
-## <a name="enable-ios-device-enrollment"></a>Ativar a inscrição de dispositivos iOS  
- Para suportar a inscrição de dispositivos iOS, tem de seguir estes passos:  
+**Pré-requisitos**<br>
+Antes de poder configurar a inscrição para qualquer plataforma, conclua os pré-requisitos e procedimentos [mm híbrida do programa de configuração](setup-hybrid-mdm.md).
 
-#### <a name="set-up-ios-device-enrollment-in-configuration-manager"></a>Configurar a inscrição de dispositivos iOS no Configuration Manager  
+Para suportar a inscrição de dispositivos iOS, tem de seguir estes passos:  
 
-1.  **Pré-requisitos** - antes de você configurar o registro para qualquer plataforma, conclua os pré-requisitos e procedimentos [MDM híbrido do programa de instalação](setup-hybrid-mdm.md).    
+## <a name="download-a-certificate-signing-request"></a>Transferir um pedido de assinatura de certificado
+É necessário um ficheiro de pedido de assinatura de certificado para pedir um certificado do APNs da Apple.  
 
-2.  **Baixar uma solicitação de assinatura de certificado** -um arquivo de solicitação de assinatura de certificado é necessário para solicitar um certificado APNs da Apple.  
+1.  Na consola do Configuration Manager, na área de trabalho **Administração** , aceda a **Serviços Cloud**> **Subscrições do Microsoft Intune**.  
 
-    1.  Na consola do Configuration Manager, na área de trabalho **Administração** , aceda a **Serviços Cloud**> **Subscrições do Microsoft Intune**.  
+2.  No separador **Home Page** , clique em **Criar pedido de certificado do APNs**. É aberta a caixa de diálogo **Pedido de Assinatura de Certificado do Serviço Apple Push Notification** .  
 
-    2.  No separador **Home Page** , clique em **Criar pedido de certificado do APNs**. É aberta a caixa de diálogo **Pedido de Assinatura de Certificado do Serviço Apple Push Notification** .  
+3.  **Procurar** para o caminho onde pretende guardar o ficheiro de pedido de assinatura de certificado novo. Guarde o ficheiro localmente do pedido de assinatura de certificado.  
 
-    3.  **Procurar** até o caminho para salvar o novo arquivo de solicitação de assinatura de certificado. Salve o certificado de assinatura de arquivo de solicitação localmente.  
+4.  Clique em **Transferir**. A assinatura de certificado de novo Microsoft Intune, pedir as transferências de ficheiros e é guardado pelo Configuration Manager. O ficheiro de pedido de assinatura de certificado é utilizado para pedir um certificado de relação de fidedignidade do Apple Push Certificates Portal.  
 
-    4.  Clique em **Transferir**. A assinatura do Microsoft Intune certificado novo solicitar downloads de arquivo e é salvo pelo Configuration Manager. O arquivo de solicitação de assinatura de certificado é usado para solicitar um certificado de relação de confiança do Portal de certificados por Push da Apple.  
+## <a name="request-an-mdm-push-certificate-from-apple"></a>Pedir um certificado MDM Push da Apple
+O certificado Push de MDM é utilizado para estabelecer uma relação de confiança entre o serviço de gestão, o Intune e a dispositivos móveis iOS inscritos.  
 
-3.  **Pedir um certificado APNs da Apple** - O certificado do serviço Apple Push Notification (APNs) é utilizado para estabelecer uma relação de confiança entre o serviço de gestão, o Intune e os dispositivos móveis iOS inscritos.  
+1.  Num browser, aceda ao [Portal de Certificados Apple Push](http://go.microsoft.com/fwlink/?LinkId=269844) e inicie sessão com o ID Apple da sua empresa. Este ID Apple tem de ser utilizado no futuro para renovar o certificado APNs.  
 
-    1.  Num browser, aceda ao [Portal de Certificados Apple Push](http://go.microsoft.com/fwlink/?LinkId=269844) e inicie sessão com o ID Apple da sua empresa. Este ID Apple tem de ser utilizado no futuro para renovar o certificado APNs.  
+2.  Conclua o assistente utilizando o ficheiro de pedido de assinatura de certificado (.csr). Transfira o certificado Push de MDM e guarde o ficheiro pem localmente. Este ficheiro de certificado (. pem) é utilizado para estabelecer uma relação de confiança entre o servidor de notificação Push da Apple e a autoridade de gestão de dispositivos móveis do Intune.  
 
-    2.  Conclua o assistente utilizando o ficheiro de pedido de assinatura de certificado (.csr). Baixe o certificado APNs e salve o arquivo pem localmente. Este arquivo de certificado (. PEM) APNs é usado para estabelecer uma relação de confiança entre o servidor do Apple Push Notification e a autoridade de gerenciamento de dispositivo móvel do Intune.  
+> [!NOTE]  
+>  Não carregue o certificado do Apple Push Notification (APNs) do serviço Intune até, ativar a inscrição do iOS na consola do Configuration Manager.  
 
-4.  **Ativar a inscrição e carregar o certificado APNs** - Para ativar a inscrição iOS, carregue o certificado APNs.  
+## <a name="enable-enrollment-and-upload-the-mdm-push-certificate"></a>Ativar a inscrição e carregar o certificado Push de MDM
+Para ativar a inscrição de iOS, carregue o certificado do APNs.  
 
-    1.  Na consola do Configuration Manager, na área de trabalho **Administração** , aceda a **Serviços Cloud** > **Subscrição do Microsoft Intune**.  
+1.  Na consola do Configuration Manager, na área de trabalho **Administração** , aceda a **Serviços Cloud** > **Subscrição do Microsoft Intune**.  
 
-    2.  No separador **Home Page** no grupo **Subscrição** , clique em **Configurar Plataformas** > **iOS**.  
+2.  No separador **Home Page** no grupo **Subscrição** , clique em **Configurar Plataformas** > **iOS**.  
 
-        > [!NOTE]  
-        >  Não carregue o certificado do serviço Apple Push Notification (APNs) até que tenha ativado a inscrição iOS na consola do Configuration Manager.  
+3.  Na caixa de diálogo **Propriedades da Subscrição do Windows Intune** , selecione o separador **iOS** e clique para selecionar a caixa de verificação **Ativar a inscrição iOS** .  
+4.  Clique em **Procurar**e aceda ao ficheiro do certificado APNs (.cer) transferido a partir da Apple. O Configuration Manager apresenta as informações do certificado APNs. Clique em **OK** para guardar o certificado APNs no Intune.  
 
-    3.  Na caixa de diálogo **Propriedades da Subscrição do Windows Intune** , selecione o separador **iOS** e clique para selecionar a caixa de verificação **Ativar a inscrição iOS** .  
-
-    4.  Clique em **Procurar**e aceda ao ficheiro do certificado APNs (.cer) transferido a partir da Apple. O Configuration Manager apresenta as informações do certificado APNs. Clique em **OK** para guardar o certificado APNs no Intune.  
-
- Depois de você configurá-lo, você precisa permitir que os usuários saibam como registrar seus dispositivos. Veja [O que dizer aos utilizadores finais sobre a utilização do Microsoft Intune](https://docs.microsoft.com/intune/end-user-educate). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
+> [!NOTE]
+> O **restrições de inscrição** capacidade não está disponível neste momento. 
 
 > [!div class="button"]
-[< Anterior etapa](create-service-connection-point.md)[próxima etapa >  ](set-up-additional-management.md)
+[< Anterior passo](create-service-connection-point.md)[passo seguinte >  ](set-up-additional-management.md)
 

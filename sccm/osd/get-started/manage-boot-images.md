@@ -1,6 +1,6 @@
 ---
-title: Gerir imagens de arranque - Configuration Manager | Documentos do Microsoft
-description: "No Configuration Manager, saiba como gerir as imagens de arranque do Windows PE que utilizar durante a implementação de um sistema operativo."
+title: Gerir imagens de arranque - Configuration Manager | Microsoft Docs
+description: "No Configuration Manager, saiba como gerir as imagens de arranque do Windows PE que utilizar durante a implementação do sistema operativo."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -16,51 +16,57 @@ caps.handback.revision: 0
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 0cf2ac6440588ccf4848baa7a195f78e8675447d
-ms.openlocfilehash: c6a1eb9ccaee45eb242fb320cb6b492d1a39d349
+ms.translationtype: MT
+ms.sourcegitcommit: 0663ba84762c44a5c303562548499f195bae9e1c
+ms.openlocfilehash: cc678c1133b1944f55bcad309cf9ede9f0660b57
 ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="manage-boot-images-with-system-center-configuration-manager"></a>Gerir imagens de arranque com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Uma imagem de arranque no Configuration Manager é um [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) imagem que é utilizada durante a implementação de um sistema operativo. As imagens de arranque são utilizadas para iniciar um computador no WinPE, que é um sistema operativo minimalista com componentes e serviços limitados que preparam o computador de destino para a instalação do Windows.  Utilize as secções seguintes para gerir imagens de arranque.
+Uma imagem de arranque no Configuration Manager é uma [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) imagem que é utilizada durante a implementação do sistema operativo. As imagens de arranque são utilizadas para iniciar um computador no WinPE, que é um sistema operativo minimalista com componentes e serviços limitados que preparam o computador de destino para a instalação do Windows.  Utilize as secções seguintes para gerir imagens de arranque.
 
 ## <a name="BKMK_BootImageDefault"></a>Imagens de arranque predefinidas
-O Configuration Manager oferece duas imagens de arranque predefinidas: Uma para suportar x86 plataformas e outra para suportar x64 plataformas. Estas imagens são armazenadas na: \\ \\ *servername*> \SMS_ <*sitecode*> \osd\boot\\<*x64*> ou <*i386*>. Imagens de arranque predefinidas são atualizadas ou regeneradas dependendo da ação que efetuar.
+Configuration Manager fornece duas imagens de arranque predefinidas: Uma para suportar plataformas x86 e outra para suportar x64 plataformas. Estas imagens estão armazenadas em: \\ \\ *servername*> \SMS_ <*sitecode*> \osd\boot\\<*x64*> ou <*i386*>. Imagens de arranque predefinidas são atualizadas ou regeneradas consoante a ação que efetuar.
 
-**Utilizar as atualizações e a servir para instalar a versão mais recente do Configuration Manager** iniciar na versão 1702, quando atualizar a versão do Windows ADK e, em seguida, utilizar as atualizações e manutenção para instalar a versão mais recente do Configuration Manager, Configuration Manager gera novamente as imagens de arranque predefinidas. Isto inclui a nova versão de janela PE a partir do Windows ADK atualizado, a nova versão do cliente do Configuration Manager, controladores, personalizações, etc. Imagens de arranque personalizadas não são modificadas.
-
-Antes da versão 1702, o Configuration Manager atualiza a imagem de arranque existentes (Boot) com os componentes de cliente, controladores, personalizações, etc. mas não irá utilizar a versão mais recente do Windows PE a partir do Windows ADK. Tem de modificar manualmente a imagem de arranque para utilizar a nova versão do Windows ADK.
-
-**Atualizar a partir do Configuration Manager 2012 para Configuration Manager atual ramo (CB)** quando atualizar do Configuration Manager 2012 para o Configuration Manager CB utilizando o processo de configuração, do Configuration Manager irá gerar imagens de arranque predefinidas. Isto inclui a nova versão de janela PE a partir do Windows ADK atualizado, a nova versão do cliente do Configuration Manager, e todas as personalizações se mantêm inalteradas. Imagens de arranque personalizadas não são modificadas.
-
-**Atualizar pontos de distribuição com a imagem de arranque** quando utiliza o **atualizar pontos de distribuição** ação a partir de **imagens de arranque** nó na consola do Configuration Manager, Configuration Manager atualiza as imagens de arranque predefinidas com os componentes de cliente, controladores, personalizações, etc. mas não irá utilizar a versão mais recente do Windows PE a partir do Windows ADK. Imagens de arranque personalizadas não são modificadas.
-
-Além disso, considere o seguinte procedimento para qualquer uma das ações acima:
-- Os objetos do controlador de origem tem de ser válidos, incluindo os ficheiros de origem de controlador ou os controladores não será adicionada às imagens de arranque no site.
-- Imagens de arranque que não são baseadas em imagens de arranque predefinidas, mesmo utilizem a mesma versão do Windows PE, não serão modificadas.
-- Necessitará de redistribuir as imagens de arranque modificadas para pontos de distribuição.
-- Tem de recriar qualquer suporte de dados que utiliza as imagens de arranque modificada.
-- Se não pretender que as imagens de arranque personalizado/predefinidas atualizadas automaticamente, não armazene-os na localização predefinida.
+Considere o seguinte para qualquer uma das ações descritas nas secções seguintes:
+- Os objetos do controlador de origem tem de ser válidos, incluindo os ficheiros de origem do controlador ou os controladores não será adicionado às imagens de arranque no site.
+- Imagens de arranque que não são baseadas nas imagens de arranque predefinidas, mesmo que utilizem a mesma versão do Windows PE, não serão modificadas.
+- Necessitará de redistribuir as imagens de arranque modificado para pontos de distribuição.
+- Tem de recriar qualquer suporte de dados que utiliza as imagens de arranque modificadas.
+- Se não pretender que as imagens de arranque personalizadas/predefinidas atualizadas automaticamente, não armazene-os na localização predefinida.
 
 > [!NOTE]
-> A ferramenta de registo de rastreio do Configuration Manager é adicionada a todas as imagens de arranque que adicionou à **biblioteca de Software**. Quando estiver no Windows PE, pode iniciar a ferramenta de registo de rastreio do Configuration Manager escrevendo **CMTrace** a partir de uma linha de comandos.  
+> A ferramenta de registo de rastreio do Configuration Manager é adicionada a todas as imagens de arranque que adiciona à **biblioteca de Software**. Quando estiver no Windows PE, pode iniciar a ferramenta de registo de rastreio do Configuration Manager escrevendo **CMTrace** numa linha de comandos.  
+
+### <a name="use-updates-and-servicing-to-install-the-latest-version-of-configuration-manager"></a>Utilização de atualizações e manutenção para instalar a versão mais recente do Configuration Manager
+A partir da versão 1702, quando atualizar a versão do Windows ADK e, em seguida, utilizar as atualizações e manutenção para instalar a versão mais recente do Configuration Manager, Configuration Manager gera de novo as imagens de arranque predefinidas. Isto inclui a nova versão do PE de janela do Windows ADK atualizado, a nova versão do cliente do Configuration Manager, controladores, personalizações, etc. Imagens de arranque personalizadas não são modificadas.
+
+Antes de versão 1702, Configuration Manager atualiza a imagem de arranque (boot.wim) existente com os componentes de cliente, controladores, personalizações, etc., mas não irá utilizar a versão mais recente do Windows PE do Windows ADK. Tem de modificar manualmente a imagem de arranque para utilizar a nova versão do Windows ADK.
+
+### <a name="upgrade-from-configuration-manager-2012-to-configuration-manager-current-branch-cb"></a>Atualização do Configuration Manager 2012 para o Configuration Manager atual Branch (CB)
+Quando a atualização do Configuration Manager 2012 para CB do Configuration Manager, utilizando o processo de configuração, do Configuration Manager irá regenerar as imagens de arranque predefinidas. Isto inclui a nova versão do PE de janela do Windows ADK atualizado, a nova versão do cliente do Configuration Manager, e todas as personalizações permanecem inalteradas. Imagens de arranque personalizadas não são modificadas.
+
+### <a name="update-distribution-points-with-the-boot-image"></a>Atualizar pontos de distribuição com a imagem de arranque
+Quando utiliza o **atualizar pontos de distribuição** ação o **imagens de arranque** nó na consola do Configuration Manager, Configuration Manager atualiza as imagens de arranque predefinido com os componentes de cliente, controladores, personalizações, etc.    
+
+A partir do Configuration Manager versão 1706, pode optar por recarregar a versão mais recente do Windows PE (a partir do diretório de instalação do Windows ADK) na imagem de arranque. O **geral** página do assistente atualizar pontos de distribuição fornece informações sobre a versão do Windows ADK instalada no servidor do site, a versão do Windows ADK partir do qual o Windows PE foi utilizado na imagem de arranque e a versão do cliente do Configuration Manager. Pode utilizar estas informações para ajudar a decidir se pretende recarregar a imagem de arranque. Além disso, uma nova coluna (**versão de cliente**) foi adicionado ao ver as imagens de arranque no **imagens de arranque** nó para saber qual a versão do cliente do Configuration Manager utiliza de cada imagem de arranque.    
+
+Imagens de arranque personalizadas não são modificadas.
 
 ##  <a name="BKMK_BootImageCustom"></a>Personalizar uma imagem de arranque  
- Pode personalizar uma imagem de arranque, ou [modificar uma imagem de arranque](#BKMK_ModifyBootImages), a partir da consola do Configuration Manager quando baseia-se uma versão do Windows PE da versão suportada do Windows ADK. Quando um site é atualizado com uma nova versão e uma nova versão do Windows ADK estiver instalada, as imagens de arranque personalizadas (que não estejam na localização das imagens de arranque predefinidas) não são atualizadas com a nova versão do Windows ADK. Quando tal acontece, já não será possível personalizar as imagens de arranque na consola do Configuration Manager. No entanto, estas continuarão a funcionar como antes da atualização.  
+ Pode personalizar uma imagem de arranque, ou [modificar uma imagem de arranque](#BKMK_ModifyBootImages), da consola do Configuration Manager quando se basear numa versão do Windows PE da versão suportada do Windows ADK. Quando um site é atualizado com uma nova versão e uma nova versão do Windows ADK estiver instalada, as imagens de arranque personalizadas (que não estejam na localização das imagens de arranque predefinidas) não são atualizadas com a nova versão do Windows ADK. Quando isso acontece, já não será possível personalizar as imagens de arranque na consola do Configuration Manager. No entanto, estas continuarão a funcionar como antes da atualização.  
 
- Quando uma imagem de arranque é baseada numa versão diferente do Windows ADK instalado num site, deve personalizar as imagens de arranque através de outro método, como a ferramenta de linha de comandos Gestão e Atualização de Imagens de Implementação (DISM) que faz parte do Windows AIK e do Windows ADK. Para obter mais informações, consulte o artigo [personalizar imagens de arranque](customize-boot-images.md).  
+ Quando uma imagem de arranque é baseada numa versão diferente do Windows ADK instalado num site, deve personalizar as imagens de arranque através de outro método, como a ferramenta de linha de comandos Gestão e Atualização de Imagens de Implementação (DISM) que faz parte do Windows AIK e do Windows ADK. Para obter mais informações, consulte [personalizar imagens de arranque](customize-boot-images.md).  
 
 ##  <a name="BKMK_AddBootImages"></a>Adicionar uma imagem de arranque  
 
- Durante a instalação do site, o Configuration Manager adiciona automaticamente imagens de arranque que são baseadas numa versão WinPE da versão suportada do Windows ADK. Dependendo da versão do Configuration Manager, poderá conseguir adicionar imagens de arranque baseadas numa versão WinPE diferente da versão suportada do Windows ADK.  Ocorre um erro quando tenta adicionar uma imagem de arranque que contém uma versão não suportada do WinPE.  
+ Durante a instalação de site do Configuration Manager adiciona automaticamente imagens de arranque baseadas numa versão do WinPE da versão suportada do Windows ADK. Dependendo da versão do Configuration Manager, poderá conseguir adicionar imagens de arranque baseadas numa versão do WinPE diferente da versão suportada do Windows ADK.  Ocorre um erro quando tenta adicionar uma imagem de arranque que contém uma versão não suportada do WinPE.  
 
- O seguinte procedimento fornece da versão suportada do Windows ADK, a versão do Windows PE nas quais se baseia a imagem de arranque que pode ser personalizada a partir da consola do Configuration Manager e as versões do Windows PE na qual se baseia a imagem de arranque que pode personalizar com o DISM e, em seguida, adicionar a imagem para o Configuration Manager.  
+ O seguinte fornece a versão suportada do Windows ADK, a versão do Windows PE nas quais se baseia a imagem de arranque que pode ser personalizada a partir da consola do Configuration Manager e as versões do Windows PE na qual se baseia a imagem de arranque que pode personalizar com o DISM e depois adicione a imagem para o Configuration Manager.  
 
 -   **Versão do Windows ADK**  
 
@@ -70,13 +76,13 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
 
      Windows PE 10  
 
--   **Versões do Windows PE para imagens de arranque não podem ser personalizadas a partir da consola do Configuration Manager**  
+-   **Versões do Windows PE para imagens de arranque não podem ser personalizadas na consola do Configuration Manager**  
 
      Windows PE 3.1<sup>1</sup> e Windows PE 5  
 
-     <sup>1</sup> só pode adicionar uma imagem de arranque no Configuration Manager quando se baseia no Windows PE 3.1. Instale o Suplemento do Windows AIK para o Windows 7 SP1 para atualizar o Windows AIK para o Windows 7 (baseado no Windows PE 3) com o Suplemento do Windows AIK para Windows 7 SP1 (baseado no Windows PE 3.1). Poderá transferir o Suplemento do Windows AIK para Windows 7 SP1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> só é possível adicionar uma imagem de arranque para o Configuration Manager quando se baseia no Windows PE 3.1. Instale o Suplemento do Windows AIK para o Windows 7 SP1 para atualizar o Windows AIK para o Windows 7 (baseado no Windows PE 3) com o Suplemento do Windows AIK para Windows 7 SP1 (baseado no Windows PE 3.1). Poderá transferir o Suplemento do Windows AIK para Windows 7 SP1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Por exemplo, quando tiver do Configuration Manager, pode personalizar imagens de arranque a partir do Windows ADK para Windows 10 (baseado no Windows PE 10) a partir da consola do Configuration Manager. No entanto, embora as imagens de arranque baseadas no Windows PE 5 sejam suportadas, tem de personalizá-las a partir de um computador diferente e utilizar a versão do DISM que é instalada com o Windows ADK para Windows 8. Em seguida, pode adicionar a imagem de arranque à consola do Configuration Manager. Para obter mais informações com os passos para personalizar uma imagem de arranque (adicionar componentes e controladores opcionais), ativar suporte de comando para a imagem de arranque, adicionar a imagem de arranque à consola do Configuration Manager e atualizar pontos de distribuição com a imagem de arranque, consulte o artigo [personalizar imagens de arranque](customize-boot-images.md).
+     Por exemplo, quando tiver do Configuration Manager, pode personalizar imagens de arranque do Windows ADK para Windows 10 (baseado no Windows PE 10) na consola do Configuration Manager. No entanto, embora as imagens de arranque baseadas no Windows PE 5 sejam suportadas, tem de personalizá-las a partir de um computador diferente e utilizar a versão do DISM que é instalada com o Windows ADK para Windows 8. Em seguida, pode adicionar a imagem de arranque à consola do Configuration Manager. Para obter mais informações sobre os passos para personalizar uma imagem de arranque (adicionar componentes e controladores opcionais), ativar suporte de comando para a imagem de arranque, adicionar a imagem de arranque à consola do Configuration Manager e atualizar pontos de distribuição com a imagem de arranque, consulte [personalizar imagens de arranque](customize-boot-images.md).
 
  Utilize o procedimento seguinte para adicionar manualmente uma imagem de arranque.  
 
@@ -106,7 +112,7 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
 
 6.  Conclua o assistente.  
 
- A imagem de arranque é agora listada no **imagem de arranque** nó da consola do Configuration Manager. No entanto, para poder utilizar a imagem de arranque para implementar um sistema operativo, tem de distribuir a imagem de arranque aos pontos de distribuição, grupos de pontos de distribuição ou coleções associadas a grupos de pontos de distribuição.  
+ A imagem de arranque é agora listada no **imagem de arranque** nós da consola do Configuration Manager. No entanto, para poder utilizar a imagem de arranque para implementar um sistema operativo, tem de distribuir a imagem de arranque aos pontos de distribuição, grupos de pontos de distribuição ou coleções associadas a grupos de pontos de distribuição.  
 
 > [!NOTE]  
 >  Quando seleciona o **imagem de arranque** nó na consola do Configuration Manager, o **tamanho (KB)** coluna apresenta o tamanho descomprimido de cada imagem de arranque. No entanto, quando o Configuration Manager envia uma imagem de arranque através da rede, envia uma cópia comprimida da imagem, que é normalmente muito menor do que o tamanho listado no **tamanho (KB)** coluna.  
@@ -119,11 +125,11 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
 >   
 >  -   O ponto de distribuição tem de ser configurado para aceitar pedidos PXE.  
 > -   Tem de distribuir uma imagem de arranque preparada para PXE x86 e x64 para, pelo menos, um ponto de distribuição preparado para PXE.  
-> -   O Configuration Manager distribui as imagens de arranque para o **RemoteInstall** pasta no ponto de distribuição com PXE ativado.  
+> -   As imagens de arranque para o Configuration Manager distribui o **RemoteInstall** pasta no ponto de distribuição com PXE ativado.  
 >   
->  Para obter mais informações sobre como utilizar o PXE para implementar sistemas operativos, consulte o artigo [utilizar PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+>  Para obter mais informações sobre como utilizar o PXE para implementar sistemas operativos, consulte [utilizar o PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
- Para obter os passos para distribuir uma imagem de arranque, veja [Distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+ Para obter os passos para distribuir uma imagem de arranque, veja [Distribuir conteúdo](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).  
 
 ##  <a name="BKMK_ModifyBootImages"></a>Modificar uma imagem de arranque  
  Pode adicionar ou remover controladores de dispositivo da imagem ou editar as propriedades associadas à imagem de arranque. Os controladores de dispositivo que adicionar ou remover podem incluir controladores de placas de rede ou de dispositivos de armazenamento de massa. Ao modificar imagens de arranque, considere os seguintes fatores:  
@@ -132,7 +138,7 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
 
 -   Quando modifica uma imagem de arranque, esta não altera nenhum dos pacotes associados aos quais a imagem de arranque faz referência.  
 
--   Depois de alterar uma imagem de arranque, tem de **atualizar** a imagem de arranque nos pontos de distribuição que já têm a imagem de arranque, para que esteja disponível a versão mais atual da imagem de arranque. Para obter mais informações, veja [Gerir conteúdo que distribuiu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkmanagea-manage-the-content-you-have-distributed).  
+-   Depois de alterar uma imagem de arranque, tem de **atualizar** a imagem de arranque nos pontos de distribuição que já têm a imagem de arranque, para que esteja disponível a versão mais atual da imagem de arranque. Para obter mais informações, veja [Gerir conteúdo que distribuiu](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_manage).  
 
  Utilize o procedimento seguinte para modificar uma imagem de arranque.  
 
@@ -152,7 +158,7 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
 
     -   No separador **Controladores**, adicione os controladores de dispositivo Windows que são precisos para iniciar o WinPE. Quando adicionar controladores de dispositivo, considere o seguinte:  
 
-        -   Selecione **Ocultar controladores que não correspondem à arquitetura da imagem de arranque** para apresentar apenas apenas os controladores para a arquitetura da imagem de arranque. A arquitetura baseia-se na arquitetura reportada no .INF do fabricante.  
+        -   Selecione **Ocultar controladores que não correspondem à arquitetura da imagem de arranque** para apresentar apenas os controladores para a arquitetura da imagem de arranque. A arquitetura baseia-se na arquitetura reportada no .INF do fabricante.  
 
         -   Selecione **Ocultar controladores fora da classe de armazenamento ou de rede (para imagens de arranque)** para apresentar apenas controladores de armazenamento e de rede, e ocultar outros controladores que normalmente não são necessários para imagens de arranque, como um controlador de vídeo ou controlador de modem.  
 
@@ -165,7 +171,7 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
         -   Certifique-se de que os controladores que adiciona à imagem de arranque correspondem à arquitetura da imagem de arranque.  
 
         > [!NOTE]  
-        >  Tem de importar controladores de dispositivo para o catálogo de controladores antes de os adicionar a uma imagem de arranque. Para obter informações sobre como importar controladores de dispositivo, consulte o artigo [gerir controladores](manage-drivers.md).  
+        >  Tem de importar controladores de dispositivo para o catálogo de controladores antes de os adicionar a uma imagem de arranque. Para obter informações sobre como importar controladores de dispositivo, consulte [gerir controladores](manage-drivers.md).  
 
     -   No separador **Personalização**, selecione qualquer uma das seguintes definições:  
 
@@ -175,7 +181,7 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
             >  Tem de adicionar **cmd /c** ao início da linha de comandos. Se não especificar **cmd /c**, o comando não será fechado depois de ser executado. A implementação continua a aguardar que o comando seja concluído e não irá iniciar quaisquer outros comandos ou ações configurados.  
 
             > [!TIP]  
-            >  Durante a criação de suportes de dados da sequência de tarefas, a sequência de tarefas escreve o ID de pacote e um comando de Pré-início da linha de comandos, incluindo o valor das eventuais variáveis de sequência de tarefas, para o ficheiro de registo Createtsmedia no computador que executa a consola do Configuration Manager. Poderá consultar este ficheiro de registo para verificar o valor das variáveis da sequência de tarefas.  
+            >  Durante a criação de suportes de dados de sequência de tarefas, a sequência de tarefas escreve o ID de pacote e da linha de comandos, incluindo o valor das eventuais variáveis de sequência de tarefas, para o ficheiro de registo CreateTSMedia.log no computador que executa a consola do Configuration Manager de Pré-início. Poderá consultar este ficheiro de registo para verificar o valor das variáveis da sequência de tarefas.  
 
         -   Configure as definições de **Fundo do Windows PE** para especificar se pretende utilizar o fundo predefinido do WinPE ou um fundo personalizado.  
 
@@ -196,13 +202,13 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
         -   Selecione **Implementar esta imagem de arranque a partir do ponto de distribuição ativado por PXE** se a imagem de arranque for utilizada numa implementação com PXE ativado.  
 
             > [!NOTE]  
-            >  Para obter mais informações, consulte o artigo [utilizar PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+            >  Para obter mais informações, consulte [utilizar o PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
     -   No separador **Acesso a Dados**, selecione qualquer uma das seguintes definições:  
 
         -   Configure as **Definições de partilha de pacote** se pretender que os clientes instalem o conteúdo deste pacote a partir da rede.  
 
-        -   Definir o **definições de atualização do pacote** para especificar como pretende que o Configuration Manager para desligar os utilizadores do ponto de distribuição. O Configuration Manager poderão não é possível atualizar a imagem de arranque quando os utilizadores estão ligados ao ponto de distribuição.  
+        -   Definir o **definições de atualização do pacote** para especificar como pretende que o Configuration Manager para desligar os utilizadores a partir do ponto de distribuição. O Configuration Manager poderá ser incapaz de atualizar a imagem de arranque quando os utilizadores estão ligados ao ponto de distribuição.  
 
     -   No separador **Definições de Distribuição**, selecione qualquer uma das seguintes definições:  
 
@@ -213,7 +219,7 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
         -   Configure as **Definições pré-configuradas de ponto de distribuição** para especificar como pretende que a imagem de arranque seja distribuída pelos pontos de distribuição ativados para conteúdo pré-configurado.  
 
             > [!NOTE]  
-            >  Para obter mais informações sobre conteúdo pré-configurado, veja [Pré-configurar conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
+            >  Para obter mais informações sobre conteúdo pré-configurado, veja [Pré-configurar conteúdo](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).  
 
     -   No separador **Localizações de Conteúdo**, selecione o ponto de distribuição ou o grupo de pontos de distribuição e execute qualquer uma das seguintes ações:  
 
@@ -221,7 +227,7 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
 
         -   Clique em **Validar** para verificar a integridade do pacote de imagem de arranque no ponto de distribuição ou grupo de pontos de distribuição selecionado.  
 
-    -   No **componentes opcionais** separador, especifique os componentes que são adicionados ao Windows PE para utilização com o Configuration Manager. Para obter mais informações sobre os componentes opcionais disponíveis, consulte o artigo [WinPE: Adicionar pacotes (referência de componentes opcionais)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx).  
+    -   No **componentes opcionais** separador, especifique os componentes que são adicionados ao Windows PE para utilização com o Configuration Manager. Para mais informações sobre os componentes opcionais disponíveis, consulte [WinPE: Adicionar pacotes (referência de componentes opcionais)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx).  
 
     -   No separador **Segurança**, selecione um utilizador administrativo e altere as operações que este pode realizar.  
 
@@ -243,14 +249,14 @@ Além disso, considere o seguinte procedimento para qualquer uma das ações aci
 5.  No separador **Origem de Dados**, selecione **Implementar esta imagem de arranque a partir do ponto de distribuição ativado por PXE**.  
 
     > [!NOTE]  
-    >  Para obter mais informações, consulte o artigo [utilizar PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+    >  Para obter mais informações, consulte [utilizar o PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
 6.  Depois de configurar as propriedades, clique em **OK**.  
 
-##  <a name="BKMK_BootImageLanguage"></a>Configurar vários idiomas para implementação de imagens de arranque  
+##  <a name="BKMK_BootImageLanguage"></a>Configurar vários idiomas para implementação de imagem de arranque  
  As imagens de arranque são independentes de idiomas. Isso permite utilizar uma imagem de arranque que apresentará o texto da sequência de tarefas em vários idiomas no WinPE, se incluir o suporte de idioma apropriado dos Componentes Opcionais do Windows PE e definir a variável de sequência de tarefas apropriada para indicar o idioma que pode ser visualizado. O idioma do sistema operativo que implementar é independente do idioma que será apresentado no WinPE, independentemente da versão do Configuration Manager. O idioma que é apresentado ao utilizador é determinado do seguinte modo:  
 
--   Quando um utilizador executa a sequência de tarefas a partir de um sistema operativo existente, Configuration Manager utiliza automaticamente o idioma configurado para o utilizador. Quando a sequência de tarefas é executada automaticamente em resultado de um prazo de implementação obrigatório, o Configuration Manager utiliza o idioma do sistema operativo.  
+-   Quando um utilizador executa a sequência de tarefas a partir de um sistema operativo existente, o Configuration Manager utiliza automaticamente o idioma configurado para o utilizador. Quando a sequência de tarefas é executada automaticamente em resultado de um prazo de implementação obrigatório, o Configuration Manager utiliza o idioma do sistema operativo.  
 
 -   Para implementações do sistema operativo que utilizam o PXE ou suporte de dados, pode definir o valor do ID de idioma na variável SMSTSLanguageFolder como parte de um comando de pré-início. Quando o computador inicia o WinPE, as mensagens são apresentadas no idioma que especificou na variável. Se ocorrer um erro ao aceder ao ficheiro de recursos do idioma na pasta especificada ou se não tiver definido a variável, as mensagens serão apresentadas no idioma do WinPE.  
 

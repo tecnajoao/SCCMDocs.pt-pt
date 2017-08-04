@@ -2,7 +2,7 @@
 title: "Pré-visualização técnica 1707 | Microsoft Docs"
 description: "Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1707 para o System Center Configuration Manager."
 ms.custom: na
-ms.date: 06/30/2017
+ms.date: 07/28/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
@@ -15,8 +15,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: MT
-ms.sourcegitcommit: 1f57c63ceeb13c7f7d760d7ecfb48df749da6770
-ms.openlocfilehash: 118f20768ffc99364eb9e8cf2074d7a23f4dc572
+ms.sourcegitcommit: 6e890862fd02786b675e2b7abaca7ede7c0e977a
+ms.openlocfilehash: 91fd850f055a7e892a54487307109a291e336696
 ms.contentlocale: pt-pt
 ms.lasthandoff: 07/28/2017
 
@@ -62,7 +62,7 @@ Clique na secção do **superfície modelos** gráfico para uma lista completa d
 ## <a name="configure-and-deploy-windows-defender-application-guard-policies"></a>Configurar e implementar políticas de proteção de aplicações do Windows Defender
 <!-- 1351960 -->
 
-[Proteção de aplicações do Windows Defender](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) é uma nova funcionalidade do Windows que ajuda a proteger os seus utilizadores abrindo não fidedignos web sites num contentor isolado seguro que não pode ser acedido por outras partes do sistema operativo. Esta pré-visualização técnica, adicionámos suporte para configurar esta funcionalidade utilizando as definições de compatibilidade do Configuration Manager que configurar e, em seguida, implementar numa coleção. Esta funcionalidade será lançada em pré-visualização para a versão de 64 bits da atualização do Windows 10 Creator (nome: RS2). Para testar esta funcionalidade agora, tem de utilizar uma versão de pré-visualização desta atualização.
+[Proteção de aplicações do Windows Defender](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) é uma nova funcionalidade do Windows que ajuda a proteger os seus utilizadores abrindo não fidedignos web sites num contentor isolado seguro que não pode ser acedido por outras partes do sistema operativo. Esta pré-visualização técnica, adicionámos suporte para configurar esta funcionalidade utilizando as definições de compatibilidade do Configuration Manager que configurar e, em seguida, implementar numa coleção. Esta funcionalidade será lançada em pré-visualização para a versão de 64 bits do atualização do Windows 10, enquadram-se criador (nome: RS3). Para testar esta funcionalidade agora, tem de utilizar uma versão de pré-visualização desta atualização.
 
 ### <a name="before-you-start"></a>Antes de começar
 
@@ -87,12 +87,12 @@ Para ler mais informações sobre proteção de aplicações do Windows Defender
 
 <!-- 1236459 --->
 
-No último Technical Preview, introduzimos uma nova capacidade que permite-lhe [criar e executadas scripts do PowerShell da consola do Configuration Manager]( /core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
+No último Technical Preview, introduzimos uma nova capacidade que permite-lhe [criar e executadas scripts do PowerShell da consola do Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
 Nesta pré-visualização técnica, iremos tiver expandido sobre esta capacidade. Configuration Manager agora lê o script do PowerShell e apresenta quaisquer parâmetros no Assistente de criação de scripts. Pode fornecer um valor para o parâmetro no assistente que será utilizado quando o script é executado. Em alternativa, pode deixar o parâmetro em branco. Se o fizer, terá de fornecer um valor para o parâmetro ao executar o script.
 
 ### <a name="try-it-out"></a>Experimente!
 
-1. Siga as instruções para [criar e executadas scripts do PowerShell da consola do Configuration Manager]( /core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
+1. Siga as instruções para [criar e executadas scripts do PowerShell da consola do Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console). 
 2. No novo **parâmetros do Script** página do **Assistente de criação de scripts**, escolha um parâmetro e, em seguida, clique em **editar**.
 3. Forneça um valor de parâmetro para o parâmetro selecionado e, em seguida, clique em **OK**.
 4. Conclua o assistente.
