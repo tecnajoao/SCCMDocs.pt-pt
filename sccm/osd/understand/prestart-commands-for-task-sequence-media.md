@@ -1,28 +1,25 @@
 ---
-title: "Comandos para suporte de dados de sequência de tarefas de Pré-início | Documentos do Microsoft"
-description: "Criar um script para utilizar o comando de Pré-início, distribuir o conteúdo associado o comando de Pré-início e configurar o comando de Pré-início no suporte de dados."
+title: "Comandos de suporte de dados de sequência de tarefas de Pré-início | Microsoft Docs"
+description: "Criar um script para utilizar para o comando de Pré-início, distribuir o conteúdo associado o comando de Pré-início e configurar o comando de Pré-início no suporte de dados."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ccc9f652-2953-4c38-8a90-c799484105ca
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: 1c396534425179c6828d48acc578295167c566be
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="prestart-commands-for-task-sequence-media-in-system-center-configuration-manager"></a>Comandos de Pré-início para suportes de dados do sequência de tarefas no System Center Configuration Manager
 
@@ -45,12 +42,12 @@ env("MyCustomVariable") = "varname"
 ## <a name="create-a-package-for-the-script-file-and-distribute-the-content"></a>Criar um Pacote para o Ficheiro de Script e Distribuir o Conteúdo  
  Depois de criar o script ou executável para o comando de pré-início, tem de criar uma origem de pacote para alojar os ficheiros para o script ou executável, criar um pacote para os ficheiros (não é necessário nenhum programa) e depois distribuir o conteúdo para um ponto de distribuição.  
 
- Para obter mais informações sobre como criar um pacote, consulte o artigo [pacotes e programas](../../apps/deploy-use/packages-and-programs.md).  
+ Para obter mais informações sobre como criar um pacote, consulte [pacotes e programas](../../apps/deploy-use/packages-and-programs.md).  
 
- Para obter mais informações sobre a distribuição de conteúdo, consulte o artigo [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
+ Para obter mais informações sobre a distribuição de conteúdo, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 ## <a name="configure-the-prestart-command-in-media"></a>Configurar o Comando de Pré-início no Suporte de Dados  
- No Assistente de Criação do Suporte de Dados da Sequência de Tarefas, é possível configurar um comando de pré-início para suportes de dados autónomos, suportes de dados de arranque ou suportes de dados de pré-configuração. Para obter mais informações sobre os tipos de suportes de dados, consulte o artigo [criar suportes de dados de sequência de tarefas](../deploy-use/create-task-sequence-media.md). Utilize o procedimento seguinte para criar um comando de pré-início no suporte de dados.  
+ No Assistente de Criação do Suporte de Dados da Sequência de Tarefas, é possível configurar um comando de pré-início para suportes de dados autónomos, suportes de dados de arranque ou suportes de dados de pré-configuração. Para obter mais informações sobre os tipos de suportes de dados, consulte [criar suportes de dados de sequência de tarefas](../deploy-use/create-task-sequence-media.md). Utilize o procedimento seguinte para criar um comando de pré-início no suporte de dados.  
 
 #### <a name="to-create-a-prestart-command-in-media"></a>Para criar um comando de pré-início no suporte de dados  
 
@@ -62,7 +59,7 @@ env("MyCustomVariable") = "varname"
 
 4.  Na página **Selecionar Tipo de Suporte de Dados** , selecione **Suporte de dados autónomo**, **Suporte de dados de arranque**ou **Suporte de dados de pré-configuração**e, em seguida, clique em **Seguinte**.  
 
-5.  Navegue para a página **Personalização** do assistente. Para obter mais informações sobre a configuração das outras páginas no assistente, consulte o artigo [criar suportes de dados de sequência de tarefas](../deploy-use/create-task-sequence-media.md).  
+5.  Navegue para a página **Personalização** do assistente. Para obter mais informações sobre a configuração das outras páginas no assistente, consulte [criar suportes de dados de sequência de tarefas](../deploy-use/create-task-sequence-media.md).  
 
 6.  Na página **Personalização** , especifique as seguintes informações e clique em **Seguinte**.  
 
@@ -80,4 +77,3 @@ env("MyCustomVariable") = "varname"
     -   Clique em **Procurar** para selecionar o ponto de distribuição que aloja o conteúdo para o comando de pré-início.  
 
 7.  Conclua o assistente.  
-

@@ -1,101 +1,99 @@
 ---
-title: Alterar sua autoridade MDM | Microsoft Docs
-description: "Saiba como alterar a autoridade MDM do Configuration Manager (híbrido) para o Intune autônomo ou vice-versa."
+title: Alterar a autoridade de MDM | Microsoft Docs
+description: "Saiba como alterar a autoridade de MDM do Configuration Manager (híbrido) para o Intune autónomo ou vice-versa."
 keywords: 
 author: dougeby
 manager: angrobe
 ms.date: 06/02/2017
 ms.topic: article
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.assetid: cc397ab5-125f-4f17-905b-fab980194f49
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 662901e850566756759fcfc61c58f3c0e56bc5aa
-ms.openlocfilehash: b80fec937b50dca3ab995be281c44c3145300f9f
-ms.contentlocale: pt-pt
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 74b9dbb1ed0172d99956e726fca3aec2b658ce77
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="change-your-mdm-authority"></a>Alterar sua autoridade MDM
-A partir do Configuration Manager versão 1610 e Microsoft Intune version 1705, você pode alterar sua autoridade MDM sem precisar entrar em contato com o Microsoft Support e sem a necessidade de cancelar o registro e registrar novamente os dispositivos gerenciados existentes.
+# <a name="change-your-mdm-authority"></a>Alterar a autoridade de MDM
+A partir do Configuration Manager versão 1610 e Microsoft Intune version 1705, pode alterar a autoridade de MDM sem ter de contactar o Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes.
 
-## <a name="change-the-mdm-authority-to-intune-standalone"></a>Alterar a autoridade MDM como Intune autônomo
-Use esta seção para alterar um locatário existente do Microsoft Intune configurado no console do Configuration Manager (híbrido) ao Intune autônomo, sem a necessidade de cancelar o registro e registrar novamente os dispositivos gerenciados existentes.
+## <a name="change-the-mdm-authority-to-intune-standalone"></a>Alterar a autoridade de MDM ao Intune autónomo
+Utilize esta secção para alterar um inquilino existente do Microsoft Intune configurado a partir da consola do Configuration Manager (híbrido) para o Intune autónomo sem ter de anular a inscrição e inscrever-se novamente existentes dispositivos geridos.
 
-### <a name="key-considerations"></a>Considerações importantes
-Depois de alterar para a nova autoridade MDM, provavelmente haverá tempo de transição (até 8 horas) antes do dispositivo verifica e sincroniza com o serviço. Será necessário configurar a autoridade MDM novo (Intune autônomo) para garantir que os dispositivos continuarão a ser gerenciado e protegido após a alteração. Tenha em atenção o seguinte:
-- Dispositivos devem se conectar com o serviço após a alteração para que as configurações da autoridade de MDM novo (Intune autônomo) substituirá as configurações existentes no dispositivo.
-- Depois de alterar a autoridade MDM, algumas das configurações básicas (como perfis) da autoridade de MDM anterior (híbrido) permanecem no dispositivo por até 7 dias. É recomendável que você configure aplicativos e configurações (políticas, perfis, aplicativos, etc.) na autoridade de MDM novo, assim que possível e implanta as configurações para os grupos de usuários que contém usuários que têm dispositivos registrados existentes. Assim que um dispositivo se conecta ao serviço após a alteração na autoridade MDM, ele receber as novas configurações da autoridade de MDM novo e evitar falhas na proteção e gerenciamento. As políticas de destino recentemente substituirão as políticas existentes no dispositivo.
-- Após você alterar para a nova autoridade MDM, os dados de conformidade no console de administração do Microsoft Intune poderá levar até uma semana para relatar com precisão. No entanto, os estados de conformidade no Azure Active Directory e do dispositivo serão precisos para que o dispositivo ainda será protegido.
+### <a name="key-considerations"></a>Considerações-chave
+Depois de alterar para a autoridade de MDM novo, há será provavelmente ser hora de transição (até 8 horas) antes do dispositivo ser registado e sincroniza com o serviço. Será necessário configurar as definições no novo autoridade de MDM (Intune autónomo) para se certificar de que os dispositivos inscritos continuarão a ser geridos e protegido após a alteração. Tenha em atenção o seguinte:
+- Dispositivos tem de ligar com o serviço após a alteração, para que as definições da autoridade de MDM novo (Intune autónomo) irão substituir as definições existentes no dispositivo.
+- Depois de alterar a autoridade de MDM, algumas das definições básicas (por exemplo, perfis) da autoridade de MDM anterior (híbrido) permanecem no dispositivo 7 dias. Recomenda-se que configure aplicações e definições (políticas, perfis, aplicações, etc.) na autoridade MDM novo logo que possível e implementar as definições para os grupos de utilizadores que contém utilizadores que têm dispositivos já inscritos. Assim que um dispositivo se liga ao serviço após a alteração na autoridade de MDM, irá receber as novas definições da autoridade de MDM novo e impedir lacunas na gestão e da proteção. As políticas de destino recentemente irão substituir as políticas existentes no dispositivo.
+- Depois de alterar para a nova autoridade de MDM, os dados de conformidade na consola de administração do Microsoft Intune podem demorar até uma semana comuniquem com precisão. No entanto, os Estados de compatibilidade no Azure Active Directory e o dispositivo será precisos para que o dispositivo ainda será protegido.
 
-### <a name="prepare-to-change-the-mdm-authority-to-intune-standalone"></a>Preparar para alterar a autoridade MDM para o Intune autônomo
-Examine as informações a seguir para preparar para a alteração para a autoridade MDM:
-- Você deve ter o Configuration Manager versão 1610 ou superior para a opção para alterar a autoridade MDM esteja disponível.
-- Pode levar até 8 horas para um dispositivo conectar-se ao serviço após você alterar para a nova autoridade MDM.
-- Verifique se todos os usuários que estão sendo gerenciados pelo híbrido tem uma licença do Intune/EMS especificamente atribuída a eles antes da alteração na autoridade MDM. Isso irá garantir que o usuário e seus dispositivos serão gerenciados pelo Intune autônomo após a alteração na autoridade MDM. Para obter mais informações, consulte [Intune atribuir licenças às suas contas de usuário](https://docs.microsoft.com/intune/get-started/start-with-a-paid-subscription-to-microsoft-intune-step-4).
-- Certifique-se de que a conta de usuário de administrador tem uma licença do EMS/Intune atribuída e confirme que a conta de usuário administrador pode entrar no Intune antes da alteração para a autoridade MDM. A autoridade de MDM deve exibir **definida para o Configuration Manager** (locatário híbrido) no console de administração do Microsoft Intune antes da alteração na autoridade MDM.
-- No console do Configuration Manager, remova todas as funções do Gerenciador de registro do dispositivo. Vá para **administração** > **serviços de nuvem** > **assinaturas do Microsoft Intune**, selecione a assinatura do Microsoft Intune, clique em **propriedades**, clique no **Gerenciador de registro de dispositivo** guia e remova todas as funções do Gerenciador de registro do dispositivo.
-- No console do Configuration Manager, remova as categorias de dispositivo existentes. Vá para **ativos e conformidade** > **visão geral** > **coleções de dispositivos**, escolha **gerenciar categorias de dispositivo**e remover categorias de dispositivo existentes.
-- Não deve haver nenhum impacto perceptível para os usuários finais durante a alteração na autoridade MDM. No entanto, você talvez queira comunicar esta alteração aos usuários para certificar-se de que seus dispositivos estejam ligados e que eles se conectam com o serviço logo após a alteração. Isso garantirá que a tantos dispositivos possível se conectar e registrar com o serviço por meio da nova autoridade assim que possível.
-- Se você estiver usando o Configuration Manager (locatário híbrido) para gerenciar dispositivos iOS antes da alteração na autoridade MDM, você deve garantir que o mesmo certificado de serviço (APNs) Apple Push Notification que era usado no Configuration Manager é renovado e usado para configurar o locatário novamente no Intune autônomo.
+### <a name="prepare-to-change-the-mdm-authority-to-intune-standalone"></a>Preparar para alterar a autoridade de MDM ao Intune autónomo
+Reveja as informações seguintes para se preparar para a alteração à autoridade de MDM:
+- Tem de ter o Configuration Manager versão 1610 ou superior para a opção para alterar a autoridade de MDM para estar disponível.
+- Pode demorar até 8 horas para um dispositivo para ligar ao serviço depois de alterar para a autoridade de MDM de novo.
+- Certifique-se de que todos os utilizadores que sejam atualmente geridos pelo híbrida ter uma licença do Intune/EMS especificamente atribuída aos mesmos antes da alteração na autoridade de MDM. Isto irá garantir que o utilizador e os respetivos dispositivos serão geridos pelo Intune autónomo após a alteração na autoridade de MDM. Para obter mais informações, consulte [licenças do Intune atribuir às suas contas de utilizador](https://docs.microsoft.com/intune/get-started/start-with-a-paid-subscription-to-microsoft-intune-step-4).
+- Certifique-se de que a conta de utilizador de administrador tem uma licença do Intune/EMS atribuída e confirme que a conta de utilizador administrador pode iniciar sessão no Intune antes da alteração para a autoridade de MDM. A autoridade de MDM deve apresentar **definida para o Configuration Manager** (inquilino híbrida) na consola de administração do Microsoft Intune antes da alteração na autoridade de MDM.
+- Na consola do Configuration Manager, remova todas as funções do Gestor de inscrição de dispositivos. Aceda a **administração** > **serviços em nuvem** > **subscrições do Microsoft Intune**, selecione a subscrição do Microsoft Intune, clique em **propriedades**, clique em de **Gestor de inscrição de dispositivos** separador e remova todas as funções do Gestor de inscrição de dispositivos.
+- Na consola do Configuration Manager, remova as categorias de dispositivos existentes. Aceda a **ativos e compatibilidade** > **descrição geral** > **coleções de dispositivos**, escolha **gerir categorias de dispositivo**e remover as categorias de dispositivos existentes.
+- Não deverá haver nenhum impacto considerável aos utilizadores finais durante a alteração na autoridade de MDM. No entanto, pode querer comunicar esta alteração aos utilizadores para se certificar de que os seus dispositivos estão a alimentação ligados e que se ligam com o serviço logo após a alteração. Isto irá garantir que os dispositivos tantas quanto possível se ligará e registar com o serviço através de autoridade de nova logo que possível.
+- Se estiver a utilizar o Configuration Manager (inquilino híbrida) para gerir dispositivos iOS antes da alteração na autoridade de MDM, tem de se certificar de que o mesmo certificado de serviço (APNs) da notificação Push da Apple que foi utilizado anteriormente no Configuration Manager é renovado e utilizado para configurar o inquilino novamente no Intune autónomo.
 
     > [!IMPORTANT]  
-    > Se um certificado de APNs diferente for usado para o Intune autônomo, já registrado anteriormente todos os dispositivos iOS ficará não registrados e você precisará passar pelo processo de registrar novamente-los. Antes de fazer com que a autoridade MDM alterar, certifique-se de que você saiba exatamente qual certificado APNs foi usado para gerenciar dispositivos iOS no Configuration Manager. Localizar o mesmo certificado listado no Portal certificados por Push da Apple (https://identity.apple.com) e verifique se o usuário cuja ID Apple usada para criar o certificado APNs original é identificado e disponível para renovar o certificado APNs mesmo como parte da mudança para a novo autoridade MDM.  
+    > Se outro certificado do APNs é utilizado para o Intune autónomo, em seguida, inscrito anteriormente todos os dispositivos iOS deixará de estar não inscritos e terá de percorrer o processo de se registá-los. Antes de efetuar a alteração de autoridade de MDM, certifique-se de que sabe exatamente o certificado do APNs foi utilizado para gerir dispositivos iOS no Configuration Manager. Localizar o mesmo certificado listado no Portal Apple Push Certificates (https://identity.apple.com) e certifique-se o utilizador cujo ID Apple utilizado para criar o certificado do APNs original foi identificado e está disponível para renovar o certificado do APNs mesmo como parte da alteração à autoridade MDM de novo.  
 
-### <a name="change-the-mdm-authority-to-intune-standalone"></a>Alterar a autoridade MDM como Intune autônomo
-O processo para alterar a autoridade MDM para o Intune autônomo inclui as seguintes etapas de alto nível:  
-- No console do Configuration Manager, use o **autoridade de MDM de alteração para o Microsoft Intune** opção para remover a assinatura do Microsoft Intune existente.
-- No console de administração do Microsoft Intune, defina a autoridade MDM novo como **Intune**.
-- Configure o certificado Apple APNs usando o mesmo certificado de APNs que você renovada.
-- No console de administração do Microsoft Intune, configurar e implantar novas configurações e aplicativos da autoridade de MDM novo (Intune).
-- Os dispositivos de tempo Avançar conectam ao serviço, ele sincronizar e receber as novas configurações da autoridade MDM de novo.
+### <a name="change-the-mdm-authority-to-intune-standalone"></a>Alterar a autoridade de MDM ao Intune autónomo
+O processo para alterar a autoridade de MDM ao Intune autónomo inclui os seguintes passos de alto nível:  
+- Na consola do Configuration Manager, utilize o **autoridade de MDM de alteração para o Microsoft Intune** opção para remover a subscrição existente do Microsoft Intune.
+- Na consola de administração do Microsoft Intune, defina a autoridade MDM novo para **Intune**.
+- Configure o certificado do APNs da Apple utilizando o mesmo certificado de APNs é renovado.
+- Na consola de administração do Microsoft Intune, configurar e implementar as novas definições e aplicações a partir da autoridade de MDM novo (Intune).
+- Os dispositivos de hora seguintes ligam ao serviço, irá sincronizar e receber as novas definições da autoridade MDM de novo.
 
-#### <a name="to-change-the-mdm-authority-to-intune-standalone"></a>Para alterar a autoridade MDM para o Intune autônomo
-1.  No console do Configuration Manager, vá para **administração** &gt; **visão geral** &gt; **serviços de nuvem** &gt; **assinatura do Microsoft Intune**e excluir sua assinatura do Intune existente.
-2.  Selecione **autoridade de MDM de alteração para o Microsoft Intune**e, em seguida, clique em **próximo**.
+#### <a name="to-change-the-mdm-authority-to-intune-standalone"></a>Para alterar a autoridade de MDM ao Intune autónomo
+1.  Na consola do Configuration Manager, vá para **administração** &gt; **descrição geral** &gt; **serviços em nuvem** &gt; **subscrição do Microsoft Intune**e eliminar a sua subscrição do Intune existente.
+2.  Selecione **autoridade de MDM de alteração para o Microsoft Intune**e, em seguida, clique em **seguinte**.
 
-    ![Baixar a solicitação de certificado APNs](/sccm/mdm/deploy-use/media/mdm-change-delete-subscription.png)
-3.  Entrar para o locatário do Intune que você usou originalmente quando você definir a autoridade MDM no Configuration Manager.
+    ![Transferir o pedido de certificado do APNs](/sccm/mdm/deploy-use/media/mdm-change-delete-subscription.png)
+3.  Início de sessão para o inquilino do Intune que utilizou originalmente quando definir a autoridade de MDM no Configuration Manager.
 4.  Clique em **Seguinte** e conclua o assistente.
-5.  A autoridade MDM agora é redefinida. A assinatura do Intune não devem ser exibida no nó assinaturas do Microsoft Intune do console do Configuration Manager.
-6.  Logon para o [console de administração do Microsoft Intune](http://manage.microsoft.com) usando o mesmo locatário do Intune utilizado antes.
-7.  Confirme se a autoridade MDM foi redefinida e, em seguida, defina a autoridade MDM como **Microsoft Intune**. Depois de alterar a autoridade MDM, você verá que ele esteja refletido no console do. Para obter mais informações, consulte [como definir a autoridade MDM](https://docs.microsoft.com/en-us/intune/deploy-use/prerequisites-for-enrollment#step-2-set-mdm-authority).
+5.  A autoridade de MDM é reposta. A subscrição do Intune já não deverá ser apresentada no nó de subscrições do Microsoft Intune da consola do Configuration Manager.
+6.  Início de sessão para o [consola de administração do Microsoft Intune](http://manage.microsoft.com) utilizar o mesmo inquilino do Intune que utilizou anteriormente.
+7.  Confirme que a autoridade de MDM foi reposta e, em seguida, definir a autoridade MDM como **Microsoft Intune**. Depois de alterar a autoridade de MDM, deverá ver que serão refletidas na consola do. Para obter mais informações, consulte [como definir a autoridade de MDM](https://docs.microsoft.com/en-us/intune/deploy-use/prerequisites-for-enrollment#step-2-set-mdm-authority).
 <!-- [Azure portal](https://docs.microsoft.com/en-us/intune-azure/enroll-devices/set-mdm-authority) -->
 
 
-### <a name="configure-the-apns-certificate"></a>Configurar o certificado APNs
-Quando você tiver dispositivos iOS, você deve configurar o certificado APNs no Intune.
+### <a name="configure-the-apns-certificate"></a>Configurar o certificado do APNs
+Quando tiver dispositivos iOS, tem de configurar o certificado do APNs no Intune.
 
-#### <a name="to-configure-the-apns-certificate"></a>Para configurar o certificado APNs
-1.  Baixe a solicitação de certificado de APNs.
+#### <a name="to-configure-the-apns-certificate"></a>Para configurar o certificado do APNs
+1.  Transferir o pedido de certificado do APNs.
     <!--The process is different depending on how you connect to Intune:
     **Azure portal**   
     In the [Azure portal](https://azure.portal.com), choose **More Services** &gt; **Monitoring + Management** &gt; **Intune**. On the **Intune** blade, choose **Device enrollment** &gt; **Apple Enrollment** &gt; **Apple MDM Push Certificate**, and then select **Download your CSR** to download and save the .csr file locally.   
     <br/>
     **Microsoft Intune administration console**   -->
-    No [console de administração do Microsoft Intune](http://manage.microsoft.com), vá para **administração** &gt; **gerenciamento de dispositivo móvel** &gt; **iOS e Mac OS X** &gt; **carregar um certificado APNs**e, em seguida, escolha **baixar a solicitação de certificado APNs**. Guarde o ficheiro de pedido de assinatura de certificado (.csr) localmente.
+    No [consola de administração do Microsoft Intune](http://manage.microsoft.com), aceda a **administração** &gt; **gestão de dispositivos móveis** &gt; **iOS e Mac OS X** &gt; **carregar um certificado do APNs**e, em seguida, escolha **transferir o pedido de certificado do APNs**. Guarde o ficheiro de pedido de assinatura de certificado (.csr) localmente.
     > [!IMPORTANT]    
-    > Você deve baixar um nova solicitação de assinatura de certificado. Não use um arquivo existente ou falhará.
+    > Tem de transferir um pedido de assinatura de certificado novo. Não utilize um ficheiro existente ou irá falhar.
 
-    ![Baixar a solicitação de certificado APNs](/sccm/mdm/deploy-use/media/mdm-change-download-apns-certificate.png)
+    ![Transferir o pedido de certificado do APNs](/sccm/mdm/deploy-use/media/mdm-change-download-apns-certificate.png)
 
-2.  Vá para o [Portal certificados por Push da Apple](http://go.microsoft.com/fwlink/?LinkId=269844)e entre com a **mesmo** ID da Apple que foi usada anteriormente, criar e renovar o certificado de APNs que você usou no Configuration Manager (híbrido).
+2.  Vá para o [Apple Push Certificates Portal](http://go.microsoft.com/fwlink/?LinkId=269844)e inicie sessão com a **mesmo** ID Apple que foi utilizado para criar e renovar o certificado do APNs que utilizou no Configuration Manager (híbrido) anteriormente.
 
-    ![Na página de entrada do Portal de certificados por Push da Apple](/sccm/mdm/deploy-use/media/mdm-change-apns-portal.png)
+    ![Página de início de sessão Apple Push Certificates Portal](/sccm/mdm/deploy-use/media/mdm-change-apns-portal.png)
 
-3.  Selecione o certificado de APNs que você usou no Configuration Manager (híbrido) e, em seguida, clique em **renovar**.   
+3.  Selecione o certificado do APNs que utilizou no Configuration Manager (híbrido) e, em seguida, clique em **renovar**.   
 
-    ![Renovar a caixa de diálogo de APNs](/sccm/mdm/deploy-use/media/mdm-change-renew-apns.png)
+    ![Renovar a caixa de diálogo do APNs](/sccm/mdm/deploy-use/media/mdm-change-renew-apns.png)
 
-4.  Selecione o certificado de APNs assinatura de arquivo (. CSR) da solicitação que você baixou localmente e, em seguida, clique em **carregar**.
+4.  Selecione o ficheiro de pedido (. CSR) que transferiu localmente de assinatura de certificado do APNs e, em seguida, clique em **carregar**.
 
-    ![Na página de entrada do Portal de certificados por Push da Apple](/sccm/mdm/deploy-use/media/mdm-change-renew-apns-upload.png)  
-5.  Selecione os APNs mesmo e, em seguida, clique em **baixar**. Baixe o certificado APNs (. PEM) e salve o arquivo localmente.  
+    ![Página de início de sessão Apple Push Certificates Portal](/sccm/mdm/deploy-use/media/mdm-change-renew-apns-upload.png)  
+5.  Selecione o APNs mesmo e, em seguida, clique em **transferir**. Transfira o certificado do APNs (. pem) e guarde o ficheiro localmente.  
 
-    ![Na página de entrada do Portal de certificados por Push da Apple](/sccm/mdm/deploy-use/media/mdm-change-renew-apns-download.png)
+    ![Página de início de sessão Apple Push Certificates Portal](/sccm/mdm/deploy-use/media/mdm-change-renew-apns-download.png)
 
-6.  Carregue o certificado APNs renovado para o locatário do Intune usando a mesma ID Apple que antes.
+6.  Carregar o certificado do APNs renovado para o inquilino do Intune com o mesmo ID Apple que antes.
 <!--The process is different depending on how to connect to Intune:  
     **Azure portal**   
     In the [Azure portal](https://azure.portal.com), choose **More Services** &gt; **Monitoring + Management** &gt; **Intune**. On the **Intune** blade, choose **Device enrollment** &gt; **Apple Enrollment**  &gt; **Apple MDM Push Certificate**, enter your Apple ID in step 3, select the certificate (.pem) file in step 4, and then click **Upload**.     
@@ -106,153 +104,152 @@ Quando você tiver dispositivos iOS, você deve configurar o certificado APNs no
     ![Upload the APNs certificate](/sccm/mdm/deploy-use/media/mdm-change-upload-apns-certificate.png)
 
 ### <a name="next-steps"></a>Passos seguintes
-Depois que a alteração na autoridade MDM for concluída, examine as seguintes etapas:
-- Quando o serviço Intune detecta que a autoridade MDM do locatário foi alterado, ele enviará uma mensagem de notificação a todos os dispositivos registrados para check-in e sincronizar com o serviço (isso está fora do check-in agendado regularmente). Portanto, depois que a autoridade MDM para o locatário foi alterada de híbrida ao Intune autônomo, todos os dispositivos que estejam ligados e online se conecta ao serviço, receber a nova autoridade MDM e ser gerenciado pelo Intune autônomo no futuro. Não haverá nenhuma interrupção para o gerenciamento e proteção desses dispositivos.
-- Dispositivos que estão desativadas ou offline durante a (ou logo após) a alteração na autoridade MDM se conectará ao e sincronizar com o serviço na nova autoridade MDM quando eles estejam ligados e online.  
+Depois de concluída a alteração na autoridade de MDM, reveja os seguintes passos:
+- Quando o serviço Intune Deteta que a autoridade de MDM de um inquilino foi alterado, enviará fora de uma mensagem de notificação para todos os dispositivos inscritos para dar entrada no e sincronizar com o serviço (trata-se fora da agendadas regularmente dar entrada no). Por conseguinte, depois da autoridade de MDM para o inquilino foi alterada híbrida ao Intune autónomo, todos os dispositivos que estão a alimentação ligados e online irão ligar-se com o serviço, receber a nova autoridade de MDM e de ser gerido pelo Intune autónomo passa. Será sem interrupções da gestão e a proteção destes dispositivos.
+- Dispositivos que estão ligados desativado ou offline durante a (ou pouco depois) a alteração na autoridade de MDM irá ligar e sincronizar com o serviço sob a autoridade de MDM novo quando estão ligados à corrente no e online.  
 
-  dispositivos iOS exigem mais tempo para renovar e configurar o certificado APNs. Portanto, os dispositivos iOS não receberá a solicitação de verificação inicial. Mesmo se os dispositivos iOS estão ligadas e online durante (ou logo após) a alteração na autoridade MDM, haverá um atraso de até 8 horas (dependendo do tempo do que o próximo regular check-in agendado) antes de dispositivos são registrados com o serviço sob a nova autoridade MDM do iOS.    
+  dispositivos iOS necessitam de mais tempo para renovar e configurar o certificado do APNs. Por conseguinte, os dispositivos iOS não receberão o pedido de verificação inicial. Mesmo que os dispositivos iOS são ligados no e online durante a (ou pouco depois) a alteração na autoridade de MDM, existirá um atraso de até 8 horas (consoante o período de tempo do seguinte agendado regular verificação-in) antes de iOS que os dispositivos são registados com o serviço sob a autoridade de MDM de novo.    
 
   > [!IMPORTANT]
-  > Entre o momento quando você altera o MDM autoridade e quando o certificado APNs renovado é carregado para o novo autoridade, novos registros de dispositivo e seleção de dispositivo para dispositivos iOS falharão. Portanto, é importante que você analise e carregue o certificado APNs para a novo autoridade assim que possível após a alteração na autoridade MDM.   
+  > Entre a hora quando altera o MDM autoridade e quando o certificado do APNs renovado é carregado para o novo autoridade, as novas inscrições de dispositivos e verificação-no dispositivo para dispositivos iOS irão falhar. Por conseguinte, é importante que analise e carregar o certificado do APNs para a novo autoridade logo que possível após a alteração na autoridade de MDM.   
 
-- Os usuários podem alterar rapidamente à autoridade de MDM novo iniciando manualmente um check-in do dispositivo para o serviço. Os usuários podem fazer isso facilmente usando o aplicativo de Portal da empresa e iniciar uma verificação de conformidade do dispositivo.
-- Para validar que as coisas estão funcionando corretamente depois dispositivos ter check-in e sincronizados com o serviço após a alteração na autoridade MDM, procure os dispositivos de [console de administração do Microsoft Intune](http://manage.microsoft.com). Os dispositivos que foram anteriormente gerenciados pelo Configuration Manager (híbrido) agora serão exibidos como dispositivos gerenciados.    
-- Há um período provisório quando um dispositivo estiver offline durante a alteração na autoridade MDM e quando o dispositivo verifica com o serviço. Para ajudar a garantir que o dispositivo permanece protegido e funcional durante esse período provisório, o seguinte permanecerão no dispositivo por até 7 dias (ou até que o dispositivo se conecta com a autoridade MDM novo e recebe novas configurações que substituirão os existentes):
-    - Perfil de email
-    - Perfil de VPN
+- Os utilizadores podem alterar rapidamente para a autoridade de MDM novo iniciando manualmente um verificação-in do dispositivo para o serviço. Os utilizadores podem facilmente efetuar este procedimento utilizando a aplicação Portal da empresa e iniciar uma verificação de conformidade do dispositivo.
+- Para validar que coisas estão a funcionar corretamente depois de dispositivos têm deu entrada em e sincronizados com o serviço após a alteração na autoridade de MDM, procure os dispositivos a [consola de administração do Microsoft Intune](http://manage.microsoft.com). Os dispositivos que foram anteriormente geridos pelo Configuration Manager (híbrido) serão agora apresentados como os dispositivos geridos.    
+- Não há um período provisória quando um dispositivo estiver offline durante a alteração na autoridade de MDM e quando verifica a que o dispositivo para o serviço. Para ajudar a garantir que o dispositivo permanece protegido e funcionais durante este período intermédio, o seguinte permanecem no dispositivo 7 dias (ou até que o dispositivo estabelece ligação com a autoridade de MDM novo e recebe novas definições de que irão substituir os existentes):
+    - Perfil de e-mail
+    - Perfil da VPN
     - Perfil de certificado
-    - Perfil de Wi-Fi
+    - Perfil Wi-Fi
     - Perfis de configuração
-- Verifique se as novas configurações que se destinam para substituir as configurações existentes têm o mesmo nome que os anteriores para garantir que as configurações antigas serão substituídas. Caso contrário, os dispositivos podem acabar com políticas e perfis de redundância.
+- Certifique-se de que as novas definições que foram concebidas para substituir as definições existentes têm o mesmo nome que as anteriores para se certificar de que as definições antigas são substituídas. Caso contrário, os dispositivos poderão acaba por ficar com as políticas e perfis redundantes.
     > [!TIP]   
-    > Como prática recomendada, você deve criar todas as configurações de gerenciamento e configurações, bem como implantações, logo após a alteração para a autoridade MDM foi concluída. Isso ajuda a garantir que os dispositivos estão protegidos e gerenciados ativamente durante o período de intermediários.   
--  Depois de alterar a autoridade MDM, execute as etapas a seguir para validar que novos dispositivos são registrados com êxito para a autoridade de novo:   
-    - Registrar um novo dispositivo
-    - Verifique se que o dispositivo registrado recentemente aparece no console de administração do Intune.
-    - Execute uma ação, como bloqueio remoto do console de administração para o dispositivo. Se for bem-sucedida, o dispositivo está sendo gerenciado pela autoridade MDM de novo.
-- Se você tiver problemas com dispositivos específicos, você pode cancelar o registro e registrar novamente os dispositivos para obtê-los conectado à autoridade de novo e gerenciadas mais rápido possível.
+    > Como melhor prática, deve criar todas as definições de gestão e configurações, bem como implementações, imediatamente após a alteração à autoridade de MDM foi concluída. Isto irá ajudar a garantir que os dispositivos estão protegidos e geridos ativamente durante o período de intermédio.   
+-  Depois de alterar a autoridade de MDM, execute os seguintes passos para validar que a novos dispositivos são inscritos com êxito para a autoridade de novo:   
+    - Inscrever um dispositivo novo
+    - Certifique-se de que os dispositivos inscritos recentemente aparecem na consola de administração do Intune.
+    - Efetue uma ação, tal como o bloqueio remoto, na consola de administração do dispositivo. Se for bem sucedida, o dispositivo está a ser gerido pela autoridade MDM de novo.
+- Se tiver problemas com dispositivos específicos, pode anular a inscrição e inscrever-se novamente os dispositivos para obtê-los à autoridade de novo e geridas como rapidamente quanto possível.
 
 <!-- After the change in MDM authority and devices check-in with the service, note the following:      - The updated compliance status of devices will only display in the Azure portal immediately.
 - There will be a delay for compliance status of devices to display in the Intune administrative console.-->
 
 
-## <a name="change-the-mdm-authority-to-configuration-manager-hybrid"></a>Alterar a autoridade MDM para o Configuration Manager (híbrido)
-Use esta seção para alterar um locatário existente do Microsoft Intune configurado do Intune e com a autoridade MDM definido como **Microsoft Intune** (autônomo) para **do Configuration Manager** (híbrido) sem precisar cancelar o registro e registrar novamente existente dispositivos gerenciados.
+## <a name="change-the-mdm-authority-to-configuration-manager-hybrid"></a>Alterar a autoridade de MDM para o Configuration Manager (híbrido)
+Utilize esta secção para alterar um inquilino existente do Microsoft Intune, configurado no Intune e com a autoridade de MDM definido como **Microsoft Intune** (autónomo) para **do Configuration Manager** (híbrido) sem ter de anular a inscrição e inscrever-se novamente existentes para dispositivos geridos.
 
-### <a name="key-considerations"></a>Considerações importantes
-Depois que você alternar para a nova autoridade MDM, provavelmente haverá tempo de transição (até 8 horas) antes do dispositivo verifica e sincroniza com o serviço. Será necessário configurar a autoridade MDM novo (híbrido) para garantir que os dispositivos continuarão a ser gerenciado e protegido após a alteração. Tenha em atenção o seguinte:
-- Dispositivos devem se conectar com o serviço após a alteração para que as configurações da autoridade de MDM novo (Intune autônomo) substituirá as configurações existentes no dispositivo.
-- Depois de alterar a autoridade MDM, algumas das configurações básicas (como perfis) da autoridade de MDM anterior (Intune autônomo) permanecerão no dispositivo por até 7 dias ou até que o dispositivo se conecta ao serviço pela primeira vez. É recomendável que você configure aplicativos e configurações (políticas, perfis, aplicativos, etc.) na autoridade de MDM novo (híbrido), assim que possível e implanta as configurações para os grupos de usuários que contém usuários que têm dispositivos registrados existentes. Assim que um dispositivo se conecta ao serviço após a alteração na autoridade MDM, ele receber as novas configurações da autoridade de MDM novo e evitar falhas na proteção e gerenciamento.
+### <a name="key-considerations"></a>Considerações-chave
+Depois de mudar para a autoridade de MDM novo, há será provavelmente ser hora de transição (até 8 horas) antes do dispositivo ser registado e sincroniza com o serviço. Será necessário configurar as definições no novo autoridade de MDM (híbrido) para se certificar de que os dispositivos inscritos continuarão a ser geridos e protegido após a alteração. Tenha em atenção o seguinte:
+- Dispositivos tem de ligar com o serviço após a alteração, para que as definições da autoridade de MDM novo (Intune autónomo) irão substituir as definições existentes no dispositivo.
+- Depois de alterar a autoridade de MDM, algumas das definições básicas (por exemplo, perfis) da autoridade de MDM anterior (Intune autónomo) permanecem no dispositivo 7 dias, ou até que o dispositivo estabelece ligação ao serviço pela primeira vez. Recomenda-se que configure aplicações e definições (políticas, perfis, aplicações, etc.) na autoridade MDM novo (híbrido) logo que possível e implementar as definições para os grupos de utilizadores que contém utilizadores que têm dispositivos já inscritos. Assim que um dispositivo se liga ao serviço após a alteração na autoridade de MDM, irá receber as novas definições da autoridade de MDM novo e impedir lacunas na gestão e da proteção.
 
-### <a name="prepare-to-change-the-mdm-authority-to-configuration-manager-hybrid"></a>Preparar para alterar a autoridade MDM para o Configuration Manager (híbrido)
-Examine as informações a seguir para preparar para a alteração para a autoridade MDM:
-- Você deve ter o Configuration Manager versão 1610 ou superior para a opção para alterar a autoridade MDM esteja disponível.
-- Pode levar até 8 horas para um dispositivo conectar-se ao serviço após você alterar para a nova autoridade MDM.
-- Crie uma coleção de usuário do Configuration Manager com todos os usuários atualmente gerenciados pelo Intune Standalone que será usada quando você configura a assinatura do Intune no console do Configuration Manager. Isso ajuda a garantir que seus dispositivos e o usuário terão uma licença do Configuration Manager atribuída e ser gerenciados no ambiente de híbrida após a alteração para a autoridade MDM.
-- Certifique-se de que o usuário do administrador de TI está nesta coleção de usuário muito.  
-- Antes da alteração, a autoridade MDM mostrará como **definida como Microsoft Intune** (autônomo) no console de administração do Intune.
-- A autoridade de MDM deve exibir **definida como Microsoft Intune** (independente de locatário) no console de administração do Microsoft Intune antes da alteração na autoridade MDM.
+### <a name="prepare-to-change-the-mdm-authority-to-configuration-manager-hybrid"></a>Preparar para alterar a autoridade de MDM para o Configuration Manager (híbrido)
+Reveja as informações seguintes para se preparar para a alteração à autoridade de MDM:
+- Tem de ter o Configuration Manager versão 1610 ou superior para a opção para alterar a autoridade de MDM para estar disponível.
+- Pode demorar até 8 horas para um dispositivo para ligar ao serviço depois de alterar para a autoridade de MDM de novo.
+- Crie uma coleção de utilizador do Configuration Manager com todos os utilizadores atualmente geridos pelo Intune autónomo que irá utilizar quando configurar a subscrição do Intune na consola do Configuration Manager. Isto irá ajudar a garantir que o utilizador e os respetivos dispositivos terão uma licença do Configuration Manager atribuída e geridos no ambiente híbrido, após a alteração à autoridade de MDM.
+- Certifique-se de que o utilizador de administrador de TI é nesta coleção de utilizador demasiado.  
+- Antes da alteração, a autoridade de MDM irá mostrar como **o Microsoft Intune** (autónomo) na consola de administração do Intune.
+- A autoridade de MDM deve apresentar **o Microsoft Intune** (inquilino autónomo) na consola de administração do Microsoft Intune antes da alteração na autoridade de MDM.
     > [!NOTE]    
-    > Se sua autoridade MDM exibe **gerenciado pelo Intune e Office 365**, em seguida, o Office 365 dispositivos gerenciados do MDM não serão gerenciados quando você alterar sua autoridade MDM como **do Configuration Manager** (híbrido). É recomendável que você licenças aos usuários para o Intune ou Enterprise Mobility Suite antes de alterar a autoridade MDM.   
+    > Se a autoridade de MDM apresenta **geridos pelo Intune e o Office 365**, em seguida, o Office 365 deixará de ser geridos dispositivos MDM geridos quando são alterados para a sua autoridade MDM **do Configuration Manager** (híbrido). Recomendamos que o serviço de licença aos utilizadores para o Intune ou do Enterprise Mobility Suite antes de alterar a autoridade de MDM.   
 
-- No [console de administração do Microsoft Intune](http://manage.microsoft.com), remova a função de Gerenciador de registro do dispositivo. Para obter detalhes, consulte [excluir um Gerenciador de registro de dispositivo do Intune](/intune-classic/deploy-use/enroll-corporate-owned-devices-with-the-device-enrollment-manager-in-microsoft-intune#delete-a-device-enrollment-manager-from-intune).
-- Desative a qualquer mapeamento de grupo de dispositivos que está configurado. Para obter detalhes, consulte [categorizar os dispositivos com o mapeamento do grupo de dispositivos no Microsoft Intune](/intune-classic/deploy-use/categorize-devices-with-device-group-mapping-in-microsoft-intune).
-- Não deve haver nenhum impacto perceptível para os usuários finais durante a alteração na autoridade MDM. No entanto, você talvez queira comunicar esta alteração aos usuários para certificar-se de que seus dispositivos estejam ligados e que eles se conectam com o serviço logo após a alteração. Isso garantirá que a tantos dispositivos possível se conectar e registrar com o serviço por meio da nova autoridade assim que possível.
-- Se você estiver usando o Intune autônomo para gerenciar dispositivos iOS antes da alteração na autoridade MDM, você deve garantir que o mesmo certificado de serviço (APNs) da Apple Push Notification que foi usado anteriormente no Intune é renovado e usado para configurar o locatário novamente no Configuration Manager (híbrido).    
+- No [consola de administração do Microsoft Intune](http://manage.microsoft.com), remover a função de Gestor de inscrição de dispositivos. Para obter mais informações, consulte [eliminar um Gestor de inscrição de dispositivos do Intune](/intune-classic/deploy-use/enroll-corporate-owned-devices-with-the-device-enrollment-manager-in-microsoft-intune#delete-a-device-enrollment-manager-from-intune).
+- Desative quaisquer mapeamentos de grupo de dispositivos que estão configurados. Para obter mais informações, consulte [categorizar os dispositivos com o mapeamento de grupo de dispositivos no Microsoft Intune](/intune-classic/deploy-use/categorize-devices-with-device-group-mapping-in-microsoft-intune).
+- Não deverá haver nenhum impacto considerável aos utilizadores finais durante a alteração na autoridade de MDM. No entanto, pode querer comunicar esta alteração aos utilizadores para se certificar de que os seus dispositivos estão a alimentação ligados e que se ligam com o serviço logo após a alteração. Isto irá garantir que os dispositivos tantas quanto possível se ligará e registar com o serviço através de autoridade de nova logo que possível.
+- Se estiver a utilizar o Intune autónomo para gerir dispositivos iOS antes da alteração na autoridade de MDM, tem de se certificar de que o mesmo certificado de serviço (APNs) da notificação Push da Apple que foi utilizado anteriormente no Intune for renovado e utilizado para configurar o inquilino novo no Configuration Manager (híbrido).    
 
     > [!IMPORTANT]  
-    > Se um certificado APNs diferente for usado para híbrido, já registrado anteriormente todos os dispositivos iOS ficará não registrados e você precisará passar pelo processo de registrar novamente-los. Antes de fazer com que a autoridade MDM alterar, certifique-se de que você saiba exatamente qual certificado APNs foi usado para gerenciar dispositivos iOS no Intune. Localizar o mesmo certificado listado no Portal certificados por Push da Apple (https://identity.apple.com) e verifique se o usuário cuja ID Apple usada para criar o certificado APNs original é identificado e disponível para renovar o certificado APNs mesmo como parte da mudança para a novo autoridade MDM.  
+    > Se outro certificado do APNs é utilizado para híbridos, em seguida, inscrito anteriormente todos os dispositivos iOS deixará de estar não inscritos e terá de percorrer o processo de se registá-los. Antes de efetuar a alteração de autoridade de MDM, certifique-se de que sabe exatamente o certificado do APNs foi utilizado para gerir dispositivos iOS no Intune. Localizar o mesmo certificado listado no Portal Apple Push Certificates (https://identity.apple.com) e certifique-se o utilizador cujo ID Apple utilizado para criar o certificado do APNs original foi identificado e está disponível para renovar o certificado do APNs mesmo como parte da alteração à autoridade MDM de novo.  
 
-### <a name="change-the-mdm-authority-to-configuration-manager"></a>Alterar a autoridade MDM para o Configuration Manager
-O processo para alterar a autoridade MDM para o Configuration Manager (híbrido) inclui as seguintes etapas de alto nível:  
-- No console do Configuration Manager, adicione a assinatura do Microsoft Intune.
-- Configure o certificado Apple APNs usando o mesmo certificado de APNs que você renovada.
-- No console do Configuration Manager, configurar e implantar novas configurações e aplicativos da autoridade de MDM novo (híbrido).
-- Os dispositivos de tempo Avançar conectam ao serviço, ele sincronizar e receber as novas configurações da autoridade MDM de novo.
+### <a name="change-the-mdm-authority-to-configuration-manager"></a>Alterar a autoridade de MDM para o Configuration Manager
+O processo para alterar a autoridade de MDM para o Configuration Manager (híbrido) inclui os seguintes passos de alto nível:  
+- Na consola do Configuration Manager, adicione a subscrição do Microsoft Intune.
+- Configure o certificado do APNs da Apple utilizando o mesmo certificado de APNs é renovado.
+- Na consola do Configuration Manager, configurar e implementar as novas definições e aplicações a partir da autoridade de MDM novo (híbrido).
+- Os dispositivos de hora seguintes ligam ao serviço, irá sincronizar e receber as novas definições da autoridade MDM de novo.
 
-#### <a name="to-change-the-mdm-authority-to-configuration-manager"></a>Para alterar a autoridade MDM para o Configuration Manager
-1.  No console do Configuration Manager, vá para **administração** &gt; **visão geral** &gt; **serviços de nuvem** &gt; **assinatura do Microsoft Intune**e selecione Adicionar uma assinatura do Intune.
-2.  Entrar para o locatário do Intune que você usou originalmente quando você definir a autoridade MDM do Intune e clique em **próximo**.
-3.  Selecione **alterar minha autoridade MDM para o Configuration Manager**e clique em **próximo**.
-4.  Selecione a coleção de usuário que irá conter todos os usuários que continuarão a ser gerenciado pelo novo híbridos autoridade MDM.
+#### <a name="to-change-the-mdm-authority-to-configuration-manager"></a>Para alterar a autoridade de MDM para o Configuration Manager
+1.  Na consola do Configuration Manager, vá para **administração** &gt; **descrição geral** &gt; **serviços em nuvem** &gt; **subscrição do Microsoft Intune**e selecione para adicionar uma subscrição do Intune.
+2.  Início de sessão para o inquilino do Intune que utilizou originalmente quando definir a autoridade de MDM no Intune e clique em **seguinte**.
+3.  Selecione **alterar os meus autoridade de MDM para o Configuration Manager**e clique em **seguinte**.
+4.  Selecione a coleção de utilizador que irá conter todos os utilizadores que continuarão a ser gerido pela híbrida nova autoridade de MDM.
 5.  Clique em **Seguinte** e conclua o assistente.  
-5.  A autoridade MDM foi alterada para **do Configuration Manager**.
-6.  Logon para o [console de administração do Microsoft Intune](http://manage.microsoft.com) usando o Intune mesmo locatário e confirme que a autoridade MDM foi alterada para **definida para o Configuration Manager**.
+5.  A autoridade de MDM agora é alterada para **do Configuration Manager**.
+6.  Início de sessão para o [consola de administração do Microsoft Intune](http://manage.microsoft.com) a utilização do Intune mesmo inquilino e confirme que a autoridade de MDM foi alterada para **definida para o Configuration Manager**.
 
 
-### <a name="enable-ios-enrollment"></a>Habilitar o registro do iOS
-Quando você tiver dispositivos iOS, você deve configurar o certificado APNs no Configuration Manager.
+### <a name="enable-ios-enrollment"></a>Ativar a inscrição do iOS
+Quando tiver dispositivos iOS, tem de configurar o certificado do APNs no Configuration Manager.
 
-#### <a name="to-enable-ios-enrollment-and-configure-the-apns-certificate"></a>Para habilitar o registro do iOS e configurar o certificado APNs
+#### <a name="to-enable-ios-enrollment-and-configure-the-apns-certificate"></a>Para ativar a inscrição iOS e configurar o certificado do APNs
 
-1. **Baixar uma solicitação de assinatura de certificado**
+1. **Transferir um pedido de assinatura de certificado**
 
-    1.  No console do Configuration Manager, vá para **administração** &gt; **serviços de nuvem** &gt; **assinaturas do Microsoft Intune**e selecione **solicitação de certificado APNs criar** para abrir o **solicitação Apple Push notificação certificado de assinatura de solicitação de serviço** caixa de diálogo.  
+    1.  Na consola do Configuration Manager, vá para **administração** &gt; **serviços em nuvem** &gt; **subscrições do Microsoft Intune**e selecione **pedido de certificado do APNs criar** para abrir o **pedido Apple Push Notification certificado de assinatura de pedido de serviço** caixa de diálogo.  
     2.  **Navegue** para o caminho onde pretende guardar o ficheiro de pedido de assinatura de certificado novo (.csr). Guarde o ficheiro de pedido de assinatura de certificado (.csr) localmente.  
     3.  Clique em **Transferir**. O novo ficheiro .csr do Microsoft Intune é transferido e guardado pelo Configuration Manager.   
 
     > [!IMPORTANT]
-    > Você deve baixar um nova solicitação de assinatura de certificado. Não use um arquivo existente ou falhará.  
+    > Tem de transferir um pedido de assinatura de certificado novo. Não utilize um ficheiro existente ou irá falhar.  
 
-2.  Vá para o [Portal certificados por Push da Apple](http://go.microsoft.com/fwlink/?LinkId=269844)e entre com a **mesmo** ID da Apple que foi usada anteriormente, criar e renovar o certificado de APNs que você usou no Intune autônomo.
+2.  Vá para o [Apple Push Certificates Portal](http://go.microsoft.com/fwlink/?LinkId=269844)e inicie sessão com a **mesmo** ID Apple que foi utilizado para criar e renovar o certificado do APNs que utilizou no Intune autónomo anteriormente.
 
-    ![Na página de entrada do Portal de certificados por Push da Apple](/sccm/mdm/deploy-use/media/mdm-change-apns-portal.png)
+    ![Página de início de sessão Apple Push Certificates Portal](/sccm/mdm/deploy-use/media/mdm-change-apns-portal.png)
 
-3.  Selecione o certificado de APNs que você usou no Intune autônomo e, em seguida, clique em **renovar**.   
+3.  Selecione o certificado do APNs que utilizou no Intune autónomo e, em seguida, clique em **renovar**.   
 
-    ![Renovar a caixa de diálogo de APNs](/sccm/mdm/deploy-use/media/mdm-change-renew-apns.png)
+    ![Renovar a caixa de diálogo do APNs](/sccm/mdm/deploy-use/media/mdm-change-renew-apns.png)
 
-4.  Selecione o certificado de APNs assinatura de arquivo (. CSR) da solicitação que você baixou localmente e, em seguida, clique em **carregar**.
+4.  Selecione o ficheiro de pedido (. CSR) que transferiu localmente de assinatura de certificado do APNs e, em seguida, clique em **carregar**.
 
-    ![Na página de entrada do Portal de certificados por Push da Apple](/sccm/mdm/deploy-use/media/mdm-change-renew-apns-upload.png)  
-5.  Selecione os APNs mesmo e, em seguida, clique em **baixar**. Baixe o certificado APNs (. PEM) e salve o arquivo localmente.  
+    ![Página de início de sessão Apple Push Certificates Portal](/sccm/mdm/deploy-use/media/mdm-change-renew-apns-upload.png)  
+5.  Selecione o APNs mesmo e, em seguida, clique em **transferir**. Transfira o certificado do APNs (. pem) e guarde o ficheiro localmente.  
 
-    ![Na página de entrada do Portal de certificados por Push da Apple](/sccm/mdm/deploy-use/media/mdm-change-renew-apns-download.png)
+    ![Página de início de sessão Apple Push Certificates Portal](/sccm/mdm/deploy-use/media/mdm-change-renew-apns-download.png)
 
-6.  Carregue o certificado APNs renovado para o locatário híbrida usando a mesma ID Apple que antes.
+6.  Carregar o certificado do APNs renovado para o inquilino híbrida com o mesmo ID Apple que antes.
 
-    1.  No console do Configuration Manager, vá para **administração** &gt; **serviços de nuvem** &gt; **assinatura do Microsoft Intune**e escolha **configurar plataformas** &gt; **iOS**.  
-    2.  No **propriedades de assinatura do Microsoft Intune** caixa de diálogo, selecione o **certificado APNs** guia e clique para selecionar o **habilitar registro em iOS e MAC OS X (MDM)** caixa de seleção.  
+    1.  Na consola do Configuration Manager, vá para **administração** &gt; **serviços em nuvem** &gt; **subscrição do Microsoft Intune**e escolha **configurar plataformas** &gt; **iOS**.  
+    2.  No **propriedades de subscrição do Microsoft Intune** caixa de diálogo, selecione o **certificado do APNs** separador e clique para selecionar o **ativar a inscrição de MAC OS X (MDM) e iOS** caixa de verificação.  
     3.  Clique em **Procurar**e aceda ao ficheiro do certificado APNs (.cer) transferido a partir da Apple. O Configuration Manager apresenta as informações do certificado APNs. Clique em **OK** para guardar o certificado APNs no Intune.  
 
-        ![Página de propriedades de assinatura do Intune - iOS](/sccm/mdm/deploy-use/media/mdm-change-subscription-properties-ios.png)
+        ![Página de propriedades de subscrição do Intune - iOS](/sccm/mdm/deploy-use/media/mdm-change-subscription-properties-ios.png)
 
-### <a name="enable-android-enrollment"></a>Habilitar o registro do Android
-1. No console do Configuration Manager, vá para **administração** &gt; **serviços de nuvem** &gt; **assinatura do Microsoft Intune**e escolha **configurar plataformas** &gt; **Android**.  
-2. Selecione **habilitar registro do Android** e clique em **Okey**.
+### <a name="enable-android-enrollment"></a>Ativar a inscrição de dispositivos Android
+1. Na consola do Configuration Manager, vá para **administração** &gt; **serviços em nuvem** &gt; **subscrição do Microsoft Intune**e escolha **configurar plataformas** &gt; **Android**.  
+2. Selecione **ativar inscrição Android** e clique em **OK**.
 
-### <a name="enable-windows-enrollment"></a>Habilitar o registro do Windows
-1. No console do Configuration Manager, vá para **administração** &gt; **serviços de nuvem** &gt; **assinatura do Microsoft Intune**e escolha **configurar plataformas** &gt; **Windows**.  
-2. Selecione **habilitar registro do Windows** e clique em **Okey**.
+### <a name="enable-windows-enrollment"></a>Ativar a inscrição do Windows
+1. Na consola do Configuration Manager, vá para **administração** &gt; **serviços em nuvem** &gt; **subscrição do Microsoft Intune**e escolha **configurar plataformas** &gt; **Windows**.  
+2. Selecione **ativar inscrição Windows** e clique em **OK**.
 
-### <a name="enable-windows-phone-enrollment"></a>Habilitar o registro do Windows Phone
-1. No console do Configuration Manager, vá para **administração** &gt; **serviços de nuvem** &gt; **assinatura do Microsoft Intune**e escolha **configurar plataformas** &gt; **do Windows Phone**.  
-2. Selecione a plataforma que você deseja habilitar e clique em **Okey**.
+### <a name="enable-windows-phone-enrollment"></a>Ativar a inscrição do Windows Phone
+1. Na consola do Configuration Manager, vá para **administração** &gt; **serviços em nuvem** &gt; **subscrição do Microsoft Intune**e escolha **configurar plataformas** &gt; **Windows Phone**.  
+2. Selecione a plataforma que pretende ativar e clique em **OK**.
 
 
 ### <a name="next-steps"></a>Passos seguintes
-Depois que a alteração na autoridade MDM for concluída, examine as seguintes etapas:
-- Quando o serviço Intune detecta que a autoridade MDM do locatário foi alterado, ele enviará uma mensagem de notificação a todos os dispositivos registrados para check-in e sincronizar com o serviço (isso está fora do check-in agendado regularmente). Portanto, depois que a autoridade MDM para o locatário foi alterada do Intune autônomo para híbrida, todos os dispositivos que estejam ligados e online se conecta ao serviço, receber a nova autoridade MDM e ser gerenciado pelo híbrido no futuro. Não haverá nenhuma interrupção para o gerenciamento e proteção desses dispositivos.
-- Mesmo para dispositivos que estão ativados e online durante (ou logo após) a alteração na autoridade MDM, haverá haverá um atraso de até 8 horas (dependendo do tempo do que o próximo regular check-in agendado) antes de dispositivos que estão registrados com o serviço sob a nova autoridade MDM.    
+Depois de concluída a alteração na autoridade de MDM, reveja os seguintes passos:
+- Quando o serviço Intune Deteta que a autoridade de MDM de um inquilino foi alterado, enviará fora de uma mensagem de notificação para todos os dispositivos inscritos para dar entrada no e sincronizar com o serviço (trata-se fora da agendadas regularmente dar entrada no). Por conseguinte, depois de foi alterada a autoridade de MDM para o inquilino do Intune autónomo para híbrida, todos os dispositivos que estão a alimentação ligados e online irão ligar-se com o serviço, receber a autoridade de MDM novo e ser gerida pelo híbrida passa. Será sem interrupções da gestão e a proteção destes dispositivos.
+- Mesmo para dispositivos ligados no e online durante a (ou pouco depois) a alteração na autoridade de MDM, há será haja um atraso de até 8 horas (consoante o período de tempo do seguinte agendado regular verificação-in) antes de dispositivos são registados com o serviço sob a autoridade de MDM novo.    
 
   > [!IMPORTANT]
-  > Entre o momento quando você altera o MDM autoridade e quando o certificado APNs renovado é carregado para o novo autoridade, novos registros de dispositivo e seleção de dispositivo para dispositivos iOS falharão. Portanto, é importante que você analise e carregue o certificado APNs para a novo autoridade assim que possível após a alteração na autoridade MDM.
+  > Entre a hora quando altera o MDM autoridade e quando o certificado do APNs renovado é carregado para o novo autoridade, as novas inscrições de dispositivos e verificação-no dispositivo para dispositivos iOS irão falhar. Por conseguinte, é importante que analise e carregar o certificado do APNs para a novo autoridade logo que possível após a alteração na autoridade de MDM.
 
-- Os usuários podem alterar rapidamente à autoridade de MDM novo iniciando manualmente um check-in do dispositivo para o serviço. Os usuários podem fazer isso facilmente usando o aplicativo de Portal da empresa e iniciar uma verificação de conformidade do dispositivo.
-- Para validar que as coisas estão funcionando corretamente depois dispositivos ter check-in e sincronizados com o serviço após a alteração na autoridade MDM, procure os dispositivos do console do Configuration Manager. Os dispositivos que foram anteriormente gerenciados pelo Intune agora serão exibidos como dispositivos gerenciados no console do Configuration Manager.    
-- Há um período provisório quando um dispositivo estiver offline durante a alteração na autoridade MDM e quando o dispositivo verifica com o serviço. Para ajudar a garantir que o dispositivo permanece protegido e funcional durante esse período provisório, o seguinte permanecerão no dispositivo por até 7 dias (ou até que o dispositivo se conecta com a autoridade MDM novo e recebe novas configurações que substituirão os existentes):
-    - Perfil de email
-    - Perfil de VPN
+- Os utilizadores podem alterar rapidamente para a autoridade de MDM novo iniciando manualmente um verificação-in do dispositivo para o serviço. Os utilizadores podem facilmente efetuar este procedimento utilizando a aplicação Portal da empresa e iniciar uma verificação de conformidade do dispositivo.
+- Para validar que coisas estão a funcionar corretamente depois de dispositivos têm deu entrada em e sincronizados com o serviço após a alteração na autoridade de MDM, procure os dispositivos a consola do Configuration Manager. Os dispositivos que foram anteriormente geridos pelo Intune serão agora apresentados como dispositivos geridos na consola do Configuration Manager.    
+- Não há um período provisória quando um dispositivo estiver offline durante a alteração na autoridade de MDM e quando verifica a que o dispositivo para o serviço. Para ajudar a garantir que o dispositivo permanece protegido e funcionais durante este período intermédio, o seguinte permanecem no dispositivo 7 dias (ou até que o dispositivo estabelece ligação com a autoridade de MDM novo e recebe novas definições de que irão substituir os existentes):
+    - Perfil de e-mail
+    - Perfil da VPN
     - Perfil de certificado
-    - Perfil de Wi-Fi
+    - Perfil Wi-Fi
     - Perfis de configuração
-- Após você alterar para a nova autoridade MDM, os dados de conformidade no console de administração do Microsoft Intune poderá levar até uma semana para relatar com precisão. No entanto, os estados de conformidade no Azure Active Directory e do dispositivo serão precisos para que o dispositivo ainda será protegido.
-- Verifique se as novas configurações que se destinam para substituir as configurações existentes têm o mesmo nome que os anteriores para garantir que as configurações antigas serão substituídas. Caso contrário, os dispositivos podem acabar com políticas e perfis de redundância.
+- Depois de alterar para a nova autoridade de MDM, os dados de conformidade na consola de administração do Microsoft Intune podem demorar até uma semana comuniquem com precisão. No entanto, os Estados de compatibilidade no Azure Active Directory e o dispositivo será precisos para que o dispositivo ainda será protegido.
+- Certifique-se de que as novas definições que foram concebidas para substituir as definições existentes têm o mesmo nome que as anteriores para se certificar de que as definições antigas são substituídas. Caso contrário, os dispositivos poderão acaba por ficar com as políticas e perfis redundantes.
     > [!TIP]   
-    > Como prática recomendada, você deve criar todas as configurações de gerenciamento e configurações, bem como implantações, logo após a alteração para a autoridade MDM foi concluída. Isso ajuda a garantir que os dispositivos estão protegidos e gerenciados ativamente durante o período de intermediários.   
--  Depois de alterar a autoridade MDM, execute as etapas a seguir para validar que novos dispositivos são registrados com êxito para a autoridade de novo:   
-    - Registrar um novo dispositivo
-    - Verifique se que o dispositivo registrado recentemente aparece no console do Configuration Manager.
-    - Execute uma ação, como bloqueio remoto do console de administração para o dispositivo. Se for bem-sucedida, o dispositivo está sendo gerenciado pela autoridade MDM de novo.
-- Se você tiver problemas com dispositivos específicos, você pode cancelar o registro e registrar novamente os dispositivos para obtê-los conectado à autoridade de novo e gerenciadas mais rápido possível.
-
+    > Como melhor prática, deve criar todas as definições de gestão e configurações, bem como implementações, imediatamente após a alteração à autoridade de MDM foi concluída. Isto irá ajudar a garantir que os dispositivos estão protegidos e geridos ativamente durante o período de intermédio.   
+-  Depois de alterar a autoridade de MDM, execute os seguintes passos para validar que a novos dispositivos são inscritos com êxito para a autoridade de novo:   
+    - Inscrever um dispositivo novo
+    - Certifique-se de que os dispositivos inscritos recentemente aparecem na consola do Configuration Manager.
+    - Efetue uma ação, tal como o bloqueio remoto, na consola de administração do dispositivo. Se for bem sucedida, o dispositivo está a ser gerido pela autoridade MDM de novo.
+- Se tiver problemas com dispositivos específicos, pode anular a inscrição e inscrever-se novamente os dispositivos para obtê-los à autoridade de novo e geridas como rapidamente quanto possível.

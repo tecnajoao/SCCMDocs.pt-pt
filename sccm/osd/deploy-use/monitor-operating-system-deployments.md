@@ -1,40 +1,37 @@
 ---
-title: "Monitorizar implementações do sistema operativo | Documentos do Microsoft"
-description: "Para ajudá-lo a monitorizar objetos de implementação do sistema operativo, a consola do Configuration Manager fornece alertas, relatórios e vários indicadores de estado."
+title: "Monitorizar implementações do sistema de operativo | Microsoft Docs"
+description: "Para ajudar a monitorizar objetos de implementação do sistema operativo, a consola do Configuration Manager fornece alertas, relatórios e vários indicadores de estado."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 08085d94-295c-432f-b5e3-9736bce0193b
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: 154c0a286e6b9ccedc7545eb010967ac00d35407
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-operating-system-deployments-in-system-center-configuration-manager"></a>Monitorizar implementações de sistemas operativos no System Center Configuration Manager
+# <a name="monitor-operating-system-deployments-in-system-center-configuration-manager"></a>Monitorizar implementações do sistema operativo no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Consola do Configuration Manager fornece formas seguintes para ajudar a monitorizar objetos de implementação do sistema operativo.  
+Consola do Configuration Manager fornece as seguintes opções para o ajudar a monitorizar objetos de implementação do sistema operativo.  
 
 
 ##  <a name="BKMK_OSDAlerts"></a> Alertas para implementações de sistema operativo  
  Pode configurar um alerta nas definições de implementação de sequência de tarefas para notificar os utilizadores administrativos quando os níveis de conformidade da implementação estiverem abaixo da percentagem configurada.  
 
- Depois de configurar as definições de alerta, caso se verifiquem as condições especificadas, o Configuration Manager gera um alerta. Pode rever os alertas de implementação da sequência de tarefas nas seguintes localizações:  
+ Depois de configurar as definições de alerta, se verifiquem as condições especificadas, o Configuration Manager gera um alerta. Pode rever os alertas de implementação da sequência de tarefas nas seguintes localizações:  
 
 1.  Reveja os alertas recentes no nó **Sistemas Operativos** da área de trabalho **Biblioteca de Software** .  
 
@@ -54,10 +51,10 @@ Consola do Configuration Manager fornece formas seguintes para ajudar a monitori
 4.  No separador **Home Page** , no grupo **Implementação** , clique em **Ver Estado**.  
 
 ##  <a name="BKMK_TSReports"></a> Relatórios de implementação do sistema operativo  
- Existem muitos relatórios de implementação do sistema operativo predefinidos disponíveis. Estes relatórios estão organizados em várias categorias e podem ser utilizados para reportar informações específicas sobre migração de estado e implementações de sequências de tarefas. Além de utilizar os relatórios pré-configurados, também pode criar relatórios de atualização de software personalizados, adequados às necessidades da sua empresa. Para obter mais informações, consulte o artigo [operações e manutenção de relatórios](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
+ Existem muitos relatórios de implementação do sistema operativo predefinidos disponíveis. Estes relatórios estão organizados em várias categorias e podem ser utilizados para reportar informações específicas sobre migração de estado e implementações de sequências de tarefas. Além de utilizar os relatórios pré-configurados, também pode criar relatórios de atualização de software personalizados, adequados às necessidades da sua empresa. Para obter mais informações, consulte [operações e manutenção de relatórios](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
 
 ##  <a name="BKMK_MonitorContent"></a> Monitorizar conteúdo  
- Pode monitorizar os conteúdos na consola do Configuration Manager para rever o estado para todos os tipos de pacotes relativamente aos pontos de distribuição associados. Estas informações podem incluir o estado de validação do conteúdo do pacote, o estado dos conteúdos atribuídos a um grupo específico de pontos de distribuição, o estado dos conteúdos atribuídos a um ponto de distribuição e o estado das funcionalidades opcionais de cada ponto de distribuição (validação de conteúdos, PXE e multicast).  
+ Pode monitorizar os conteúdos na consola do Configuration Manager para rever o estado de todos os tipos de pacotes relativamente aos pontos de distribuição associados. Estas informações podem incluir o estado de validação do conteúdo do pacote, o estado dos conteúdos atribuídos a um grupo específico de pontos de distribuição, o estado dos conteúdos atribuídos a um ponto de distribuição e o estado das funcionalidades opcionais de cada ponto de distribuição (validação de conteúdos, PXE e multicast).  
 
 ###  <a name="BKMK_ContentStatus"></a> Monitorização do estado do conteúdo  
  O nó **Estado do Conteúdo** da área de trabalho **Monitorização** disponibiliza informações sobre pacotes de conteúdos. Pode rever as informações gerais do pacote, o estado de distribuição do pacote e informações de estado detalhadas do pacote. Utilize o seguinte procedimento para ver o estado do conteúdo.  
@@ -97,4 +94,3 @@ Consola do Configuration Manager fornece formas seguintes para ajudar a monitori
 3.  Selecione o ponto de distribuição do qual pretende ver informações sobre o estado do ponto de distribuição.  
 
 4.  No painel de resultados, clique no separador **Detalhes** . São apresentadas informações de estado para o ponto de distribuição.  
-

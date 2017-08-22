@@ -6,26 +6,23 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7591e386-a9ab-4640-8643-332dce5aa006
-caps.latest.revision: 12
+caps.latest.revision: "12"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 1035dbbf944a3a467d637a4a948a75b0946eb711
 ms.openlocfilehash: 4a3c69edc85a4ea7501510b6b3f12c72ad3a24ff
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# Criar uma sequência de tarefas para atualizar um sistema operativo no System Center Configuration Manager
-<a id="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager" class="xliff"></a>
+# <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para atualizar um sistema operativo no System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Utilize sequências de tarefas no System Center Configuration Manager para atualizar automaticamente um sistema operativo do Windows 7 ou posterior para o Windows 10 ou Windows Server 2012 ou posterior para o Windows Server 2016, num computador de destino. Criar uma sequência de tarefas que faça referência à imagem de sistema operativo que pretende instalar no computador de destino e a eventuais conteúdos adicionais, tais como aplicações ou atualizações de software que pretende instalar. A sequência de tarefas para atualizar um sistema operativo faz parte o [atualizar o Windows para a versão mais recente](upgrade-windows-to-the-latest-version.md) cenário.  
 
@@ -43,8 +40,7 @@ Utilize sequências de tarefas no System Center Configuration Manager para atual
 
     -   [Aplicações](../../apps/deploy-use/create-applications.md) tem de ser adicionado à consola do Configuration Manager.  
 
-#### Para criar uma sequência de tarefas que Atualize um sistema operativo
-<a id="to-create-a-task-sequence-that-upgrades-an-operating-system" class="xliff"></a>  
+#### <a name="to-create-a-task-sequence-that-upgrades-an-operating-system"></a>Para criar uma sequência de tarefas que Atualize um sistema operativo  
 
 1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
@@ -78,18 +74,16 @@ Utilize sequências de tarefas no System Center Configuration Manager para atual
 
 
 
-## Configurar pré-armazenar conteúdo em cache
-<a id="configure-pre-cache-content" class="xliff"></a>
+## <a name="configure-pre-cache-content"></a>Configurar pré-armazenar conteúdo em cache
 A partir da versão 1702, para as implementações disponíveis de sequências de tarefas, pode optar por utilizar a funcionalidade de pré-cache para que os clientes transferir apenas o conteúdo relevante antes de um utilizador instala o conteúdo.
 > [!TIP]  
-> Introduzido com a versão 1702, a cache de pré-lançamento é uma funcionalidade de pré-lançamento. Para habilitá-lo, consulte [usar recursos de pré-lançamento de atualizações](/sccm/core/servers/manage/pre-release-features).
+> Introduzido com a versão 1702, a cache de pré-lançamento é uma funcionalidade de pré-lançamento. Para ativá-la, consulte o artigo [utilizar as funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/pre-release-features).
 
 Por exemplo, digamos que pretende implementar uma sequência de tarefas de atualização no local do Windows 10, apenas pretende uma única sequência de tarefas para todos os utilizadores e ter várias arquiteturas de e/ou idiomas. Antes de versão 1702, se criar uma implementação disponível e, em seguida, o utilizador clica em **instalar** no Centro de Software, as transferências de conteúdo nessa altura. Esta ação adiciona mais tempo antes da instalação estiver pronta para começar. Além disso, todo o conteúdo referenciado na sequência de tarefas é transferido. Isto inclui o pacote de atualização do sistema operativo para todos os idiomas e arquiteturas. Se cada aproximadamente três GB de tamanho, o pacote de transferência pode ser bastante grande.
 
 Pré-armazenar conteúdo em cache dá-lhe a opção para permitir que o cliente transferir apenas o conteúdo aplicável logo que recebe a implementação. Por conseguinte, quando o utilizador clica em **instalar** no Centro de Software, o conteúdo está pronto e a instalação inicia rapidamente porque o conteúdo no disco rígido local.
 
-### Configurar a funcionalidade de pré-cache
-<a id="to-configure-the-pre-cache-feature" class="xliff"></a>
+### <a name="to-configure-the-pre-cache-feature"></a>Configurar a funcionalidade de pré-cache
 
 1. Criação de pacotes de atualização para idiomas e arquiteturas específicas de sistema operativo. Especifique a arquitetura e idioma de **origem de dados** separador do pacote. Para o idioma, utilize a conversão decimal (por exemplo, 1033 é o valor decimal para inglês e 0x0409 é o equivalente hexadecimal). Para obter mais informações, consulte [criar uma sequência de tarefas para atualizar um sistema operativo](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
 
@@ -107,16 +101,14 @@ Pré-armazenar conteúdo em cache dá-lhe a opção para permitir que o cliente 
     - No **pontos de distribuição** separador, configure o **opções de implementação** definições. Se o conteúdo não é previamente em cache no cliente antes de um utilizador inicia a instalação, estas definições são utilizadas.
 
 
-### Experiência de utilizador
-<a id="user-experience" class="xliff"></a>
+### <a name="user-experience"></a>Experiência de utilizador
 - Quando o cliente recebe a política de implementação, será iniciada colocar em cache o conteúdo previamente. Isto inclui todos os conteúdos referenciados (quaisquer outros tipos de pacote) e apenas o sistema operativo pacote de atualização que corresponda ao cliente com base nas condições que definiu na sequência de tarefas.
 - Quando a implementação é disponibilizada para os utilizadores (definição de **agendamento** separador da implementação), apresenta uma notificação a informar os utilizadores sobre a nova implementação e a implementação fica visível no Centro de Software. O utilizador pode aceder ao centro de Software e clicar em **instalar** para iniciar a instalação.
 - Se o conteúdo não está totalmente previamente em cache, em seguida, irá utilizar as definições especificadas no **a opção de implementação** separador da implementação. Recomendamos que não há tempo suficiente entre quando a implementação é criada e a hora em que a implementação fica disponível para os utilizadores para permitir que os clientes tempo suficiente para colocar em cache o conteúdo previamente.
 
 
 
-## Transferir o conteúdo do pacote passo de sequência de tarefas
-<a id="download-package-content-task-sequence-step" class="xliff"></a>  
+## <a name="download-package-content-task-sequence-step"></a>Transferir o conteúdo do pacote passo de sequência de tarefas  
  O [transferir conteúdo do pacote](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent) passo pode ser utilizado antes do **atualizar sistema operativo** passo nos seguintes cenários:  
 
 -   Utilizar uma única sequência de tarefas atualização que funciona com plataformas x86 e x64. Para tal, inclua dois passos **Transferir Conteúdo do Pacote** no grupo **Preparar para Atualização** com condições para detetar a arquitetura do cliente e transferir apenas o pacote de atualização do sistema operativo adequado. Configure cada passo **Transferir Conteúdo do Pacote** para utilizar a mesma variável e utilize a variável para o caminho do suporte de dados no passo **Atualizar Sistema Operativo** .  
@@ -126,18 +118,14 @@ Pré-armazenar conteúdo em cache dá-lhe a opção para permitir que o cliente 
    > [!NOTE]
    > Quando existe mais do que um pacote, o Configuration Manager adiciona um sufixo numérico ao nome da variável. Por exemplo, se especificar uma variável de % omeuconteúdo % como uma variável personalizada, esta é a raiz para armazenar todos os conteúdos referenciados (que pode ser vários pacotes). Quando fizer referência à variável num passo subsequente, como, por exemplo, em Atualizar Sistema Operativo, esta é utilizada com um sufixo numérico. Neste exemplo, % osmeusconteúdos01% ou % osmeusconteúdos02% onde o número corresponde à ordem na qual o pacote está listado neste passo.
 
-## Passos de sequência de tarefas pós-processamento opcionais
-<a id="optional-post-processing-task-sequence-steps" class="xliff"></a>  
+## <a name="optional-post-processing-task-sequence-steps"></a>Passos de sequência de tarefas pós-processamento opcionais  
  Depois de criar a sequência de tarefas, pode adicionar mais passos para desinstalar aplicações com problemas de compatibilidade conhecidos ou adicionar ações de pós-processamento para que execute após o reinício do computador e a atualização para o Windows 10 é efetuada com êxito. Adicione estes passos adicionais no grupo de pós-processamento da sequência de tarefas.  
 
 > [!NOTE]  
 >  Como esta sequência de tarefas não é linear, existem condições nos passos que podem afetar os resultados da sequência de tarefas, dependendo se atualiza com êxito o computador cliente ou se tem de reverter o computador cliente para a versão do sistema operativo começar a utilizar.  
 
-## Passos de sequência de tarefas de reversão opcionais
-<a id="optional-rollback-task-sequence-steps" class="xliff"></a>  
+## <a name="optional-rollback-task-sequence-steps"></a>Passos de sequência de tarefas de reversão opcionais  
  Se houver algum problema com o processo de atualização depois do computador é reiniciado, a configuração irá reverter a atualização para o sistema operativo anterior e a sequência de tarefas continuará com os passos existentes no grupo reversão. Depois de criar a sequência de tarefas, pode adicionar passos opcionais ao grupo reversão.  
 
-## Pasta e os ficheiros foram removidos após o computador reiniciar
-<a id="folder-and-files-removed-after-computer-restart" class="xliff"></a>  
+## <a name="folder-and-files-removed-after-computer-restart"></a>Pasta e os ficheiros foram removidos após o computador reiniciar  
  Quando a sequência de tarefas para atualizar um sistema operativo para o Windows 10 e todos os outros passos da sequência de tarefas estiverem concluídas, os scripts de pós-processamento e a reversão não são removidos, enquanto o computador é reiniciado.  Estes ficheiros de script não contêm informações confidenciais.  
-

@@ -1,33 +1,30 @@
 ---
-title: "Introdução aos relatórios | Documentos do Microsoft"
-description: "Saiba mais sobre o conjunto de ferramentas e recursos disponíveis para gerir relatórios no Configuration Manager."
+title: "Introdução aos relatórios | Microsoft Docs"
+description: "Saiba mais sobre o conjunto de ferramentas e recursos disponíveis para que possa gerir relatórios no Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 230be984-d2cd-4d53-bd7a-bc24dd93fc22
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
 ms.openlocfilehash: 5846ca3c91626491b03b36dd17b454bb9382a8dc
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="introduction-to-reporting-in-system-center-configuration-manager"></a>Introdução aos relatórios no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Relatórios no System Center Configuration Manager fornecem um conjunto de ferramentas e recursos que ajudam a utilizam as capacidades avançadas de relatórios do SQL Server Reporting Services (SSRS) e a experiência de que o Reporting Services Report Builder proporciona de criação avançada. Relatórios ajudam a recolher, organizar e apresentar informações sobre utilizadores, hardware e inventário de software, atualizações de software, aplicações, estado do site e outras operações do Configuration Manager na sua organização. Os relatórios fornecem vários relatórios predefinidos que pode utilizar sem alterações ou modificar para corresponder aos seus requisitos, além de poder criar relatórios personalizados. Utilize as secções seguintes para ajudar a gerir relatórios no Configuration Manager.  
+Relatórios no System Center Configuration Manager fornecem um conjunto de ferramentas e recursos que ajudam a utilizam as capacidades avançadas de relatórios do SQL Server Reporting Services (SSRS) e a experiência de que o Reporting Services Report Builder fornece de criação avançada. Relatórios ajudam a recolher, organizar e apresentar informações sobre utilizadores, hardware e inventário de software, atualizações de software, aplicações, estado do site e outras operações do Configuration Manager na sua organização. Os relatórios fornecem vários relatórios predefinidos que pode utilizar sem alterações ou modificar para corresponder aos seus requisitos, além de poder criar relatórios personalizados. Utilize as secções seguintes para ajudar a gerir relatórios no Configuration Manager.  
 
 ##  <a name="BKMK_SQLServerReportingServices"></a> Serviços de Relatórios do SQL Server  
  O SQL Server Reporting Services fornece um conjunto completo de ferramentas e serviços prontos a utilizar para o ajudar a criar, implementar e gerir relatórios para a sua organização e funcionalidades de programação que lhe permitem expandir e personalizar a funcionalidade dos relatórios. O Reporting Services é uma plataforma de relatórios baseada em servidor que fornece funcionalidade de relatórios completa para diversas origens de dados.  
@@ -47,20 +44,20 @@ Relatórios no System Center Configuration Manager fornecem um conjunto de ferra
  Para obter mais informações sobre o Reporting Services, veja [SQL Server Reporting Services](http://go.microsoft.com/fwlink/p/?LinkID=212032) no SQL Server 2008 Books Online.  
 
 ##  <a name="BKMK_ReportingServicesPoint"></a> Ponto do Reporting Services  
- O ponto do Reporting Services é uma função de sistema de sites que é instalada num servidor com o Microsoft SQL Server Reporting Services. Do reporting services ponto cópias o Gestor de configuração do relatório definições para o Reporting Services, cria pastas de relatórios com base em categorias de relatórios e define a política de segurança em pastas de relatórios e relatórios com base nas permissões baseada em funções para os utilizadores administrativos do Configuration Manager. Num intervalo de 10 minutos, o ponto do Reporting Services liga ao Reporting Services para reaplicar a política de segurança caso tenha sido alterada, por exemplo, utilizando o Gestor de Relatórios. Para mais informações sobre como planear e instalar um ponto do Reporting Services, consulte a seguinte documentação:  
+ O ponto do Reporting Services é uma função de sistema de sites que é instalada num servidor com o Microsoft SQL Server Reporting Services. O Gestor de configuração de cópias de ponto de relatório definições para o Reporting Services, cria pastas de relatórios com base em categorias de relatórios e define a política de segurança em pastas de relatórios e relatórios com base nas permissões baseadas em funções para os utilizadores administrativos do Configuration Manager do Reporting Services. Num intervalo de 10 minutos, o ponto do Reporting Services liga ao Reporting Services para reaplicar a política de segurança caso tenha sido alterada, por exemplo, utilizando o Gestor de Relatórios. Para mais informações sobre como planear e instalar um ponto do Reporting Services, consulte a seguinte documentação:  
 
--   [Planear relatórios no System Center Configuration Manager](planning-for-reporting.md)  
+-   [Planeamento de relatórios no System Center Configuration Manager](planning-for-reporting.md)  
 
 -   [Configurar relatórios no System Center Configuration Manager](configuring-reporting.md)  
 
 ##  <a name="BKMK_ConfigurationManagerReports"></a> Relatórios do Configuration Manager  
- O Configuration Manager oferece definições de relatórios para mais de 400 relatórios em mais de 50 pastas de relatórios, que são copiados para a pasta de relatórios raiz no SQL Server Reporting Services durante o processo de instalação de ponto do reporting services. Os relatórios são apresentados na consola do Configuration Manager e organizados em subpastas com base na categoria do relatório. Os relatórios não são propagados para cima ou para baixo da hierarquia do Configuration Manager; são executam apenas relativamente a base de dados do site nos quais são criados. No entanto, dado o Configuration Manager replica dados globais em toda a hierarquia, terá acesso às informações de toda a hierarquia. Quando um relatório obtém dados de uma base de dados de site, tem acesso a dados do site atual e dos sites subordinados e aos dados globais de todos os sites da hierarquia. Tal como outros objetos do Configuration Manager, um utilizador administrativo tem de ter as permissões adequadas para executar ou modificar relatórios. Para executar um relatório, um utilizador administrativo tem de ter a permissão **Executar Relatório** para o objeto. Para criar ou modificar um relatório, um utilizador administrativo tem de ter a permissão **Modificar Relatório** para o objeto.  
+ Configuration Manager fornece definições de relatórios para mais de 400 relatórios em mais de 50 pastas de relatórios, que são copiados para a pasta de relatórios raiz no SQL Server Reporting Services durante o processo de instalação de ponto do Reporting Services. Os relatórios são apresentados na consola do Configuration Manager e organizados em subpastas com base na categoria do relatório. Os relatórios não são propagados para cima ou para baixo de hierarquia do Configuration Manager; são executados apenas relativamente a base de dados do site em que são criados. No entanto, porque o Configuration Manager replica dados globais em toda a hierarquia, tem acesso a informações de toda a hierarquia. Quando um relatório obtém dados de uma base de dados de site, tem acesso a dados do site atual e dos sites subordinados e aos dados globais de todos os sites da hierarquia. Como outros objetos do Configuration Manager, um utilizador administrativo tem de ter as permissões adequadas para executar ou modificar relatórios. Para executar um relatório, um utilizador administrativo tem de ter a permissão **Executar Relatório** para o objeto. Para criar ou modificar um relatório, um utilizador administrativo tem de ter a permissão **Modificar Relatório** para o objeto.  
 
 ###  <a name="BKMK_CreatingReports"></a> Criar e modificar relatórios  
- Configuration Manager utiliza o Microsoft SQL Server Report Builder como a exclusiva de criação e edição de ferramenta para relatórios baseados em modelos e baseados em SQL Server. Quando cria ou edita um relatório na consola do Configuration Manager, é aberto o Report Builder. Para obter mais informações sobre a gestão dos relatórios, veja [Operações e manutenção de relatórios no System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
+ O Configuration Manager utiliza o Microsoft SQL Server Report Builder como a exclusiva de criação e edição de ferramenta para relatórios baseados em modelos e baseados em SQL. Quando cria ou edita um relatório na consola do Configuration Manager, é aberto o Report Builder. Para obter mais informações sobre a gestão dos relatórios, veja [Operações e manutenção de relatórios no System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
 
 ###  <a name="BKMK_RunningReports"></a> Executar relatórios  
- Quando executa um relatório na consola do Configuration Manager, o Visualizador de relatórios é aberto e liga ao Reporting Services. Depois de especificar os parâmetros de relatório necessários, o Reporting Services obtém os dados e apresenta os resultados no visualizador. Também pode ligar ao SQL Services Reporting Services, ligar à origem de dados para o site e executar relatórios.  
+ Quando executar um relatório na consola do Configuration Manager, o Visualizador de relatórios é aberto e estabelece ligação ao Reporting Services. Depois de especificar os parâmetros de relatório necessários, o Reporting Services obtém os dados e apresenta os resultados no visualizador. Também pode ligar ao SQL Services Reporting Services, ligar à origem de dados para o site e executar relatórios.  
 
 ###  <a name="BKMK_ReportPrompts"></a> Pedidos de relatório  
  Um pedido de relatório ou parâmetro de relatório no Configuration Manager é uma propriedade de relatório que pode configurar quando um relatório é criado ou modificado. Os pedidos de relatório são criados para limitar ou direcionar os dados que um relatório obtém. Um relatório pode conter mais do que um pedido, desde que os respetivos nomes sejam exclusivos e contenham apenas carateres alfanuméricos em conformidade com as regras do SQL Server para identificadores.  
@@ -74,7 +71,7 @@ Relatórios no System Center Configuration Manager fornecem um conjunto de ferra
 >  Se mover um relatório de destino para uma pasta de relatórios diferente, altera a localização do relatório de destino. A ligação do relatório no relatório de origem não é atualizada automaticamente com a nova localização e a ligação do relatório não funcionará no relatório de origem.  
 
 ##  <a name="BKMK_ReportFolders"></a> Pastas de relatórios  
- Pastas de relatórios no System Center Configuration Manager fornecem um método para ordenar e filtrar relatórios armazenados no Reporting Services. As pastas de relatórios são particularmente úteis quando tem muitos relatórios para gerir. Quando é instalado um ponto do Reporting Services, os relatórios são copiados para o Reporting Services e organizados em mais de 50 pastas de relatórios. As pastas de relatórios são só de leitura. Não é possível modificá-los na consola do Configuration Manager.  
+ Pastas de relatórios no System Center Configuration Manager fornecem um método para ordenar e filtrar relatórios armazenados no Reporting Services. As pastas de relatórios são particularmente úteis quando tem muitos relatórios para gerir. Quando é instalado um ponto do Reporting Services, os relatórios são copiados para o Reporting Services e organizados em mais de 50 pastas de relatórios. As pastas de relatórios são só de leitura. Não é possível modificá-las na consola do Configuration Manager.  
 
 ##  <a name="BKMK_ReportSubscriptions"></a> Subscrições de relatórios  
  Uma subscrição de relatório no Reporting Services é um pedido recorrente de fornecimento de um relatório a uma hora específica ou em resposta a um evento, com um formato de ficheiro que é especificado na subscrição. As subscrições são uma alternativa à execução de um relatório a pedido. Os relatórios a pedido requerem que selecione ativamente o relatório de cada vez que pretender vê-lo. Em contraste, as subscrições podem ser utilizadas para agendar e automatizar a entrega de um relatório.  
@@ -82,7 +79,7 @@ Relatórios no System Center Configuration Manager fornecem um conjunto de ferra
  Pode gerir subscrições de relatórios na consola do Configuration Manager. As subscrições são processadas no servidor de relatórios. As subscrições são distribuídas utilizando extensões de entrega que são implementadas no servidor. Por predefinição, pode criar subscrições que enviem relatórios para uma pasta partilhada ou para um endereço de correio eletrónico. Para obter mais informações sobre a gestão das subscrições dos relatórios, veja [Operações e manutenção de relatórios no System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
 
 ##  <a name="BKMK_ReportBuilder"></a> Report Builder  
- Configuration Manager utiliza o Report Builder do Microsoft SQL Server Reporting Services como a exclusiva de criação e edição de ferramenta para ambos baseados em modelos e relatórios baseados em SQL Server. Quando inicia a ação para criar ou editar um relatório na consola do Configuration Manager, é aberto o Report Builder. Quando cria ou modifica um relatório pela primeira vez, o Report Builder é instalado automaticamente. A versão do Report Builder associada à versão instalada do SQL Server é aberta quando executa ou edita relatórios.  
+ O Configuration Manager utiliza o Microsoft SQL Server Reporting Services o Services Report Builder como a exclusiva de criação e edição de ferramenta baseados no modelo e relatórios baseados em SQL. Quando inicia a ação para criar ou editar um relatório na consola do Configuration Manager, é aberto o Report Builder. Quando cria ou modifica um relatório pela primeira vez, o Report Builder é instalado automaticamente. A versão do Report Builder associada à versão instalada do SQL Server é aberta quando executa ou edita relatórios.  
 
  A instalação do Report Builder adiciona suporte para mais de 20 idiomas. Quando o Report Builder é executado, apresenta os dados no idioma do sistema operativo em execução no computador local. Se o Report Builder não suportar o idioma, os dados serão apresentados em inglês. O Report Builder suporta todas as capacidades do SQL Server 2008 Reporting Services, incluindo as seguintes:  
 
@@ -109,8 +106,7 @@ Relatórios no System Center Configuration Manager fornecem um conjunto de ferra
 
 -   Pode proteger elementos do modelo para que os utilizadores administrativos vejam apenas os dados que tenham permissão para ver.  
 
- Apesar do Configuration Manager oferece exemplos de modelos de relatório, pode também definir modelos de relatórios que satisfaçam os seus requisitos empresariais. Para obter mais informações sobre como criar modelos de relatórios, veja [Criar modelos de relatórios personalizados para o System Center Configuration Manager no SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
+ Apesar do Configuration Manager fornece modelos de relatórios de exemplo, pode também definir modelos de relatórios que satisfaçam os seus requisitos de negócio. Para obter mais informações sobre como criar modelos de relatórios, veja [Criar modelos de relatórios personalizados para o System Center Configuration Manager no SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
 
 ## <a name="next-steps"></a>Passos seguintes
-[Planeamento para relatórios](planning-for-reporting.md)
-
+[Planeamento de relatórios](planning-for-reporting.md)

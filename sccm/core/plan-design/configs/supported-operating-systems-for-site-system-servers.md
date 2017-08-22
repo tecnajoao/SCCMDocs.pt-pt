@@ -1,45 +1,42 @@
 ---
-title: Suporte para servidores de sistema de site | Microsoft Docs
-description: "Saiba quais versões do Windows que você pode usar para hospedar um site do System Center Configuration Manager ou a função do sistema de site."
+title: Suportados servidores do sistema de sites | Microsoft Docs
+description: "Saiba quais as versões do Windows pode utilizar para alojar um site do System Center Configuration Manager ou a função do sistema de sites."
 ms.custom: na
 ms.date: 06/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 17905b4c-3895-4ad4-a69c-5e0d0fc5a8c3
-caps.latest.revision: 44
+caps.latest.revision: "44"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 0ec241d07f51b80b84d65676ef1207b31a9a9983
 ms.openlocfilehash: be635e4df79b57b6f650287fa3774d2c10613cee
-ms.contentlocale: pt-pt
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Sistemas operacionais com suporte para servidores de sistema de site do System Center Configuration Manager
+# <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Sistemas operativos suportados para servidores de sistema de sites do System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Este artigo fornece detalhes sobre as versões do Windows que você pode usar para hospedar um site do System Center Configuration Manager ou a função do sistema de site.
+Este artigo fornece detalhes sobre as versões do Windows que pode utilizar para alojar um site do System Center Configuration Manager ou a função do sistema de sites.
 
 
 Utilize as informações neste tópico juntamente com as informações dos seguintes artigos:
 -   [Hardware recomendado para o Configuration Manager](../../../core/plan-design/configs/recommended-hardware.md)
--   [Site e pré-requisitos do sistema de site do Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
--   [Números de tamanho e a escala para o Configuration Manager](../../../core/plan-design/configs/size-and-scale-numbers.md)
+-   [Site e os pré-requisitos do sistema de site do Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
+-   [Tamanho e números da escala do Configuration Manager](../../../core/plan-design/configs/size-and-scale-numbers.md)
 
 
 
 ## <a name="windows-server-2016-standard-and-datacenter"></a>Windows Server 2016: Standard e Datacenter
-Começando com a versão 1606 com o pacote cumulativo de hotfix do KB3186654 (ou a versão de linha de base do 1606, que foi lançada em outubro de 2016) neste sistema operacional é suporte para o seguinte:
+Este sistema operativo a partir da versão 1606 com o rollup de correção de KB3186654 (ou a versão de linha de base do 1606, que foi lançada em Outubro de 2016) é suportado para o seguinte:
 
 **Servidores do site:**  
 
@@ -61,7 +58,7 @@ Começando com a versão 1606 com o pacote cumulativo de hotfix do KB3186654 (ou
 
 -   Ponto de distribuição  
 
-     Pontos de distribuição dão suporte a várias configurações diferentes que possuem requisitos diferentes. Em alguns casos, essas configurações dão suporte à instalação não somente em servidores, mas em sistemas operacionais cliente. Para obter mais informações sobre as opções que estão disponíveis para pontos de distribuição, consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Ponto de Endpoint Protection  
 
@@ -108,7 +105,7 @@ Começando com a versão 1606 com o pacote cumulativo de hotfix do KB3186654 (ou
 
 -   Ponto de distribuição  
 
-     Pontos de distribuição dão suporte a várias configurações diferentes que possuem requisitos diferentes. Em alguns casos, essas configurações dão suporte à instalação não somente em servidores, mas em sistemas operacionais cliente. Para obter mais informações sobre as opções que estão disponíveis para pontos de distribuição, consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Ponto de Endpoint Protection  
 
@@ -155,7 +152,7 @@ Começando com a versão 1606 com o pacote cumulativo de hotfix do KB3186654 (ou
 
 -   Ponto de distribuição  
 
-     Pontos de distribuição dão suporte a várias configurações diferentes que possuem requisitos diferentes. Em alguns casos, essas configurações dão suporte à instalação não somente em servidores, mas em sistemas operacionais cliente. Para obter mais informações sobre as opções que estão disponíveis para pontos de distribuição, consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Ponto de Endpoint Protection  
 
@@ -182,11 +179,11 @@ Começando com a versão 1606 com o pacote cumulativo de hotfix do KB3186654 (ou
 -   Ponto de migração de estado  
 
 ## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 com SP1 (x64): Standard, Enterprise e Datacenter  
- Windows Server 2008 R2 agora está em suporte estendido e não têm suporte, conforme detalhado no [ciclo de vida do suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para esses sistemas operacionais como servidores do sistema de site com o Configuration Manager, consulte [recursos removidos e preteridos do System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Windows Server 2008 R2 tem agora suporte alargado e já não está no suporte base, conforme detalhado em [ciclo de vida de suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [removidas e funcionalidades preteridas para o System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
- Começando com o Configuration Manager versão 1702, este sistema operacional não tem suporte para servidores do site ou a maioria das funções de sistema de site, mas permanecem com suporte para a função de sistema de site do ponto de distribuição (incluindo pontos de distribuição de recepção e para PXE e multicast).
+ A partir do Configuration Manager versão 1702, este sistema operativo não é suportado para servidores do site ou a maioria das funções de sistema de sites, mas permanecem suportado para a função de sistema de sites de ponto de distribuição (incluindo pontos de distribuição de extração e para PXE e multicast).
 
- Versões anteriores 1702 continuam dar suporte ao seu uso para o seguinte.
+ As versões anteriores 1702 continuam a suportar a sua utilização para o seguinte.
 
 
 **Servidores do site:**  
@@ -209,7 +206,7 @@ Começando com a versão 1606 com o pacote cumulativo de hotfix do KB3186654 (ou
 
 -   Ponto de distribuição  
 
-     Pontos de distribuição dão suporte a várias configurações diferentes que possuem requisitos diferentes. Em alguns casos, essas configurações dão suporte à instalação não somente em servidores, mas em sistemas operacionais cliente. Para obter mais informações sobre as opções que estão disponíveis para pontos de distribuição, consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Ponto de Endpoint Protection  
 
@@ -236,9 +233,9 @@ Começando com a versão 1606 com o pacote cumulativo de hotfix do KB3186654 (ou
 -   Ponto de migração de estado  
 
 ## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 com SP2 (x86, x64): Standard, Enterprise e Datacenter  
- Windows Server 2008 agora está em suporte estendido e não têm suporte, conforme detalhado no [ciclo de vida do suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para esses sistemas operacionais como servidores do sistema de site com o Configuration Manager, consulte [recursos removidos e preteridos do System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Windows Server 2008 tem agora suporte alargado e já não está no suporte base, conforme detalhado em [ciclo de vida de suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre suporte futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte [removidas e funcionalidades preteridas para o System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
-Não há suporte para este sistema operacional para servidores do site ou funções de sistema de site com a exceção do ponto de distribuição e ponto de distribuição de recepção. Você pode continuar a usar este sistema operacional como um ponto de distribuição até que a desaprovação desse suporte seja anunciada ou o período de suporte estendido deste sistema operacional expire. Para obter mais informações, consulte [LTSB e instalação do System Center Configuration Manager CB falhar no Windows Server 2008](https://support.microsoft.com/help/4015095).
+Este sistema operativo não é suportado para servidores de site ou funções de sistema de sites com a exceção do ponto de distribuição e ponto de distribuição de solicitação. Pode continuar a utilizar este sistema operativo como um ponto de distribuição, até que a desaprovação deste suporte é anunciada ou o período de suporte expandido deste sistema operativo expira. Para obter mais informações, consulte [instalação do System Center Configuration Manager CB e LTSB falha no Windows Server 2008](https://support.microsoft.com/help/4015095).
 
 **Servidores do sistema de sites:**  
 -   Ponto de distribuição  
@@ -247,7 +244,7 @@ Não há suporte para este sistema operacional para servidores do site ou funç�
 
     -   Os pontos de distribuição neste sistema operativo têm suporte para PXE, mas não suportam o arranque de rede de computadores cliente no modo EFI. Os computadores cliente com arranque BIOS ou EFI em modo legado são suportados.  
 
-    -   Pontos de distribuição dão suporte a várias configurações diferentes que possuem requisitos diferentes. Em alguns casos, essas configurações dão suporte à instalação não somente em servidores, mas em sistemas operacionais cliente. Para obter mais informações sobre as opções que estão disponíveis para pontos de distribuição, consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 
 
@@ -260,7 +257,7 @@ Não há suporte para este sistema operacional para servidores do site ou funç�
 
     -   Os pontos de distribuição nesta versão do sistema operativo não suportam Multicast.  
 
-    -   Pontos de distribuição dão suporte a várias configurações diferentes que possuem requisitos diferentes. Em alguns casos, essas configurações dão suporte à instalação não somente em servidores, mas em sistemas operacionais cliente. Para obter mais informações sobre as opções que estão disponíveis para pontos de distribuição, consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 ## <a name="windows-81-x86-x64-professional-and-enterprise"></a>Windows 8.1 (x86, x64): Professional e Enterprise  
 **Servidores do sistema de sites:**  
@@ -271,7 +268,7 @@ Não há suporte para este sistema operacional para servidores do site ou funç�
 
     -   Os pontos de distribuição nesta versão do sistema operativo não suportam Multicast.  
 
-    -   Pontos de distribuição dão suporte a várias configurações diferentes que possuem requisitos diferentes. Em alguns casos, esses oferece suporte à instalação configuração não apenas em servidores, mas em sistemas operacionais cliente. Para obter mais informações sobre as opções que estão disponíveis para pontos de distribuição, consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configuração suporta a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 ## <a name="windows-8-x86-x64-professional-and-enterprise"></a>Windows 8 (x86, x64): Professional e Enterprise
 **Servidores do sistema de sites:**  
@@ -282,7 +279,7 @@ Não há suporte para este sistema operacional para servidores do site ou funç�
 
     -   Os pontos de distribuição nesta versão do sistema operativo não suportam Multicast.  
 
-    -   Pontos de distribuição dão suporte a várias configurações diferentes que possuem requisitos diferentes. Em alguns casos, essas configurações dão suporte à instalação não somente em servidores, mas em sistemas operacionais cliente. Para obter mais informações sobre as opções que estão disponíveis para pontos de distribuição, consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 ## <a name="windows-7-with-sp1-x86-x64-professional-enterprise-and-ultimate"></a>Windows 7 com SP1 (x86, x64): Professional, Enterprise e Ultimate  
 **Servidores do sistema de sites:**  
@@ -293,26 +290,25 @@ Não há suporte para este sistema operacional para servidores do site ou funç�
 
     -   Os pontos de distribuição nesta versão do sistema operativo não suportam Multicast.  
 
-    -   Pontos de distribuição dão suporte a várias configurações diferentes que possuem requisitos diferentes. Em alguns casos, essas configurações dão suporte à instalação não somente em servidores, mas em sistemas operacionais cliente. Para obter mais informações sobre as opções que estão disponíveis para pontos de distribuição, consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Os pontos de distribuição suportam várias configurações diferentes em que cada uma tem requisitos diferentes. Em alguns casos, estas configurações suportam a instalação não só em servidores, mas em sistemas operativos cliente. Para mais informações sobre as opções disponíveis para os pontos de distribuição, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 
 ## <a name="the-server-core-installation-of-windows-server-2016"></a>A instalação do server core do Windows Server 2016
-Começando com a versão 1606 com o pacote cumulativo de hotfix do KB3186654 (ou a versão de linha de base do 1606, que foi lançada em outubro de 2016) neste sistema operacional tem suporte para uso como uma distribuição ponto com as seguintes limitações:  
-  -   Somente a versão de x64 bits tem suporte.
-  -   Pontos de distribuição neste sistema operacional não dão suporte a PXE ou Multicast.  
+Este sistema operativo a partir da versão 1606 com o rollup de correção de KB3186654 (ou a versão de linha de base do 1606, que foi lançada em Outubro de 2016) é suportado para utilização como uma distribuição ponto com as seguintes limitações:  
+  -   Apenas a versão de x64 bits é suportada.
+  -   Pontos de distribuição neste sistema operativo não suportam PXE ou Multicast.  
 
 
 ## <a name="the-server-core-installation-of-windows-server-2012-r2"></a>A instalação Server Core do Windows Server 2012 R2  
- Além dos sistemas operacionais anteriores listadas, a instalação do server core do Windows Server 2012 R2 é suportada para uso como pontos de distribuição com as seguintes limitações:  
+ Para além de sistemas operativos anteriores listados, a instalação do server core do Windows Server 2012 R2 é suportada para utilização como pontos de distribuição com as seguintes limitações:  
 
--   Somente a versão de x64 bits tem suporte.
+-   Apenas a versão de x64 bits é suportada.
 
--   Pontos de distribuição neste sistema operacional não dão suporte a PXE ou Multicast.  
+-   Pontos de distribuição neste sistema operativo não suportam PXE ou Multicast.  
 
 ## <a name="the-server-core-installation-of-windows-server-2012"></a>A instalação Server Core do Windows Server 2012  
- Além dos sistemas operacionais anteriores listadas, a instalação do server core do Windows Server 2012 também é suportada para uso como uma distribuição ponto com as seguintes limitações:  
+ Para além de sistemas operativos anteriores listados, a instalação do server core do Windows Server 2012 também é suportada para utilização como uma distribuição ponto com as seguintes limitações:  
 
--   Somente a versão de 64 bits tem suporte.  
+-   É suportada apenas a versão de 64 bits.  
 
--   Pontos de distribuição neste sistema operacional não dão suporte a PXE ou Multicast.
-
+-   Pontos de distribuição neste sistema operativo não suportam PXE ou Multicast.

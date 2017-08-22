@@ -1,7 +1,6 @@
 ---
-
-title: "Sincronizar atualizações com nenhuma ligação de Internet - Configuration Manager | Documentos do Microsoft"
-description: "Execute a sincronização de atualizações de software no ponto de atualização de software de nível superior está desligado da Internet."
+title: "Sincronizar atualizações com nenhuma ligação à Internet - Configuration Manager | Microsoft Docs"
+description: "Execute a sincronização de atualizações de software no ponto de atualização de software de nível superior estiver desligado da Internet."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -10,24 +9,19 @@ ms.date: 01/23/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: 1a997c30-8e71-4be5-89ee-41efb2c8d199
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: fd9c1e9418ff1956c6ef98753e23a293440179be
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="synchronize-software-updates-from-a-disconnected-software-update-point"></a>Sincronizar atualizações de software a partir de um ponto de atualização de software desligado  
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Quando o ponto de atualização de software no site de nível superior está desligado da Internet, terá de utilizar as funções de exportação e importação da ferramenta WSUSUtil para sincronizar os metadados de atualizações de software. Pode escolher um servidor WSUS existente não na sua hierarquia do Configuration Manager como a origem de sincronização. Este tópico fornece informações sobre como utilizar a exportar e importar funções da ferramenta WSUSUtil.  
+ Quando o ponto de atualização de software no site de nível superior está desligado da Internet, terá de utilizar as funções de exportação e importação da ferramenta WSUSUtil para sincronizar os metadados de atualizações de software. Pode escolher um servidor WSUS existente não na hierarquia do Configuration Manager como origem de sincronização. Este tópico fornece informações sobre como utilizar a exportação e importação de funções da ferramenta WSUSUtil.  
 
  Para exportar e importar metadados de atualizações de software, terá de exportar metadados de atualizações de software a partir da base de dados do WSUS num servidor de exportação especificado e, em seguida, copiar os ficheiros de termos de licenciamento armazenados a nível local para o ponto de atualização de software desligado e, em seguida, importar os metadados de atualizações de software para a base de dados do WSUS no ponto de atualização de software desligado.  
 
@@ -35,8 +29,8 @@ ms.lasthandoff: 05/17/2017
 
 |Ponto de atualização de software|Origem das atualizações a montante para pontos de atualização de software ligados|Servidor de exportação para um ponto de atualização de software desligado|  
 |---------------------------|-----------------------------------------------------------------|------------------------------------------------------------|  
-|Site de administração central|Microsoft Update (Internet)<br /><br /> Servidor WSUS existente|Escolha um servidor WSUS que está sincronizado com o Microsoft Update utilizando as classificações de atualização de software, produtos e idiomas de que necessita no seu ambiente do Configuration Manager.|  
-|Site primário autónomo|Microsoft Update (Internet)<br /><br /> Servidor WSUS existente|Escolha um servidor WSUS que está sincronizado com o Microsoft Update utilizando as classificações de atualização de software, produtos e idiomas de que necessita no seu ambiente do Configuration Manager.|  
+|Site de administração central|Microsoft Update (Internet)<br /><br /> Servidor WSUS existente|Escolha um servidor WSUS que está sincronizado com o Microsoft Update utilizando as classificações de atualizações de software, produtos e idiomas de que necessita no seu ambiente do Configuration Manager.|  
+|Site primário autónomo|Microsoft Update (Internet)<br /><br /> Servidor WSUS existente|Escolha um servidor WSUS que está sincronizado com o Microsoft Update utilizando as classificações de atualizações de software, produtos e idiomas de que necessita no seu ambiente do Configuration Manager.|  
 
  Antes de iniciar o processo de exportação, verifique se a sincronização de atualizações de software está concluída no servidor de exportação selecionado para garantir a sincronização dos metadados de atualizações de software mais recentes. Para verificar que a sincronização de atualizações do software foi concluída com êxito, utilize o seguinte procedimento.  
 
@@ -76,7 +70,7 @@ ms.lasthandoff: 05/17/2017
 
      **wsusutil.exe export export.cab export.log**  
 
-     O formato pode ser resumido da seguinte forma: WSUSutil.exe é seguido pela opção de exportação, o nome do ficheiro exportação. cab que é criado durante a operação de exportação e o nome de um ficheiro de registo. WSUSutil.exe exporta os metadados do servidor de exportação e cria um ficheiro de registo da operação.  
+     O formato pode ser resumido da seguinte forma: WSUSutil.exe é seguido pela opção de exportação, o nome do ficheiro. cab de exportação criado durante a operação de exportação e o nome de um ficheiro de registo. WSUSutil.exe exporta os metadados do servidor de exportação e cria um ficheiro de registo da operação.  
 
     > [!NOTE]  
     >  O pacote (ficheiro. cab) e o nome do ficheiro de registo devem ser exclusivos na pasta atual.  
@@ -104,10 +98,9 @@ ms.lasthandoff: 05/17/2017
 
      **wsusutil.exe import export.cab import.log**  
 
-     O formato pode ser resumido da seguinte forma: WSUSutil.exe é seguido pelo comando de importação, o nome do ficheiro de pacote (. cab) que é criado durante a operação de exportação, o caminho para o ficheiro de pacote se estiver numa pasta diferente e o nome de um ficheiro de registo. WSUSutil.exe importa os metadados do servidor de exportação e cria um ficheiro de registo da operação.  
+     O formato pode ser resumido da seguinte forma: WSUSutil.exe é seguido pelo comando de importação, o nome do ficheiro de pacote (. cab) que é criado durante a operação de exportação, o caminho para o ficheiro de pacote se faz parte de uma pasta diferente e o nome de um ficheiro de registo. WSUSutil.exe importa os metadados do servidor de exportação e cria um ficheiro de registo da operação.  
 
 ## <a name="next-steps"></a>Passos seguintes
-Depois de sincronizar as atualizações de software pela primeira vez ou quando existem novas classificações ou produtos disponíveis, terá de [configurar novo classificações e produtos](configure-classifications-and-products.md) para sincronizar atualizações de software com os critérios de novo.
+Depois de sincronizar as atualizações de software pela primeira vez ou depois de existirem novas classificações ou produtos disponíveis, tem [configurar novas classificações e produtos](configure-classifications-and-products.md) para sincronizar atualizações de software com os critérios de novo.
 
-Após as atualizações de software syncrhonize com os critérios de que necessita, [gerir as definições das atualizações de software](manage-settings-for-software-updates.md).  
-
+Depois das atualizações de software syncrhonize com os critérios que precisa, [gerir as definições das atualizações de software](manage-settings-for-software-updates.md).  

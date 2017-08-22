@@ -1,33 +1,30 @@
 ---
-title: "Configurar a inscrição de dispositivos | Documentos do Microsoft"
+title: "Configurar a inscrição de dispositivos | Microsoft Docs"
 description: "Conceda aos utilizadores permissão para inscrever os respetivos dispositivos para gestão de dispositivos móveis no local no System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9ffaea91-1379-4b86-9953-b25e152f56a9
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
 ms.openlocfilehash: 16d4106d486d821b7ce92a1de65ebb04469d18de
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="set-up-device-enrollment-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurar a inscrição de dispositivos para Gestão de Dispositivos Móveis no Local do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Permitir que os utilizadores inscrevem os respetivos dispositivos para o System Center Configuration Manager no\-local gestão de dispositivos móveis requer que conceder-lhes permissão para fazê-lo. Para conceder aos utilizadores permissão para inscrever dispositivos, siga as tarefas abaixo.
+Permitir que os utilizadores inscrever os respetivos dispositivos para o System Center Configuration Manager no\-local necessita de gestão de dispositivos móveis que lhes conceder permissão para tal. Para conceder aos utilizadores permissão para inscrever dispositivos, siga as tarefas abaixo.
 
 -   [Criar um perfil de inscrição que permite aos utilizadores inscreverem dispositivos modernos](#bkmk_createProf)  
 
@@ -38,9 +35,9 @@ Permitir que os utilizadores inscrevem os respetivos dispositivos para o System 
 -   [Armazenar o certificado de raiz nos dispositivos a serem inscritos](#bkmk_storeCert)  
 
 ##  <a name="bkmk_createProf"></a> Criar um perfil de inscrição que permite aos utilizadores inscreverem dispositivos modernos  
- Para as definições necessárias para permitir que os utilizadores a inscrição de dispositivos modernos de emissão, pode adicionar um novo perfil de inscrição para as predefinições de cliente, que obtém aplicadas a todos os utilizadores detetados no site do Configuration Manager.  
+ Para enviar as definições necessárias para permitir que os utilizadores inscreverem dispositivos modernos, pode adicionar um novo perfil de inscrição para as predefinições de cliente, que é aplicado a todos os utilizadores detetados no site do Configuration Manager.  
 
-1.  Na consola do Configuration Manager, clique em **administração** > **descrição geral** > **definições de cliente**, abra **predefinições de cliente** e selecione **inscrição**.  
+1.  Na consola do Configuration Manager, clique em **administração** > **descrição geral** > **as definições de cliente**, abra **predefinições de cliente** e selecione **inscrição**.  
 
 2.  Em Definições do Dispositivo, especifique o intervalo de consulta para dispositivos modernos.  
 
@@ -56,7 +53,7 @@ Permitir que os utilizadores inscrevem os respetivos dispositivos para o System 
 ##  <a name="bkmk_addClient"></a> Configurar definições de cliente adicionais para dispositivos inscritos  
  Para além de configurar os dispositivos modernos do perfil de inscrição, pode configurar as definições de cliente adicionais para configurar dispositivos quando que estão a ser inscritos.  Para obter mais informações sobre como configurar definições de cliente, veja [Como configurar definições do cliente no System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
- Nem todas as definições de cliente estão disponíveis para no\-local gestão de dispositivos móveis. O ramo atual do Configuration Manager suporta as seguintes definições de cliente para\-local gestão de dispositivos móveis:  
+ Nem todas as definições de cliente estão disponíveis para no\-no local a gestão de dispositivos móveis. O ramo atual do Configuration Manager suporta as seguintes definições de cliente para\-no local a gestão de dispositivos móveis:  
 
 -   Inscrição - Estas definições especificam o perfil de inscrição de dispositivos geridos. Para obter mais informações sobre como configurar um perfil de inscrição, veja [Criar um perfil de inscrição que permite aos utilizadores inscreverem dispositivos modernos](#bkmk_createProf).  
 
@@ -65,10 +62,10 @@ Permitir que os utilizadores inscrevem os respetivos dispositivos para o System 
 -   Implementação de software - Esta definição define o intervalo para avaliar os dispositivos de cliente para implementações de software. Para obter mais informações sobre as definições de implementação do software, veja a secção Implementação de Software em [Acerca das definições de cliente no System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md)  
 
     > [!NOTE]  
-    >  No\-local gestão de dispositivos móveis, implementação de software, definições só podem ser utilizadas como predefinições de cliente. Definições de implementação de software não podem ser utilizadas com definições personalizadas de cliente do ramo atual do Configuration Manager.  
+    >  Nos\-local gestão de dispositivos móveis, implementação de software, definições só podem ser utilizadas como predefinições de cliente. Definições de implementação de software não podem ser utilizadas com definições personalizadas de cliente no ramo atual do Configuration Manager.  
 
 ##  <a name="bkmk_enableUsers"></a> Permitir aos utilizadores receber o perfil de inscrição de dispositivos modernos  
- Para que os utilizadores recebem as definições de cliente modificadas com o perfil de inscrição no\-local gestão de dispositivos móveis, tem de ser detetadas através do método de deteção do Active Directory. Para assegurar que todas as pessoas que necessitam do perfil de inscrição o obtêm, execute a deteção de utilizadores do Active Directory. Para informações sobre como detetar utilizadores, veja [Executar a deteção para o System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md).  
+ Para os utilizadores receberem as definições de cliente modificadas com o perfil de inscrição no\-no local a gestão de dispositivos móveis, tem de ser detetadas através do método de deteção do Active Directory. Para assegurar que todas as pessoas que necessitam do perfil de inscrição o obtêm, execute a deteção de utilizadores do Active Directory. Para informações sobre como detetar utilizadores, veja [Executar a deteção para o System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md).  
 
 ##  <a name="bkmk_storeCert"></a> Armazenar o certificado de raiz nos dispositivos a serem inscritos  
  Os utilizadores com dispositivos associados a um domínio, já terão, provavelmente, o certificado de raiz necessário para a comunicação fidedigna com os servidores que alojam as funções do sistema de sites, uma vez que a raiz foi emitida como parte do processo de associação ao domínio com o Active Directory. Será necessário instalar manualmente nos computadores e dispositivos móveis não associados a um domínio o certificado de raiz para permitir a inscrição. Estes dispositivos não terão o certificado de raiz necessário automaticamente.  
@@ -79,7 +76,7 @@ Permitir que os utilizadores inscrevem os respetivos dispositivos para o System 
 
 1.  No dispositivo a ser inscrito, localize o ficheiro de certificado de raiz e faça duplo clique no mesmo.  
 
-2.  Na janela de certificado, clique em **instalar certificado...**  
+2.  Na janela certificado, clique em **instalar certificado...**  
 
 3.  No Assistente para Importar Certificados, selecione **Computador Local**e clique em **Seguinte**.  
 
@@ -90,4 +87,3 @@ Permitir que os utilizadores inscrevem os respetivos dispositivos para o System 
 6.  Clique em **Autoridades de Certificação de Raiz Fidedigna**, clique em **OK**e, em seguida, clique em **Seguinte**.  
 
 7.  Clique em **Concluir**.  
-

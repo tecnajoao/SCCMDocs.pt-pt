@@ -1,7 +1,6 @@
 ---
-
-title: "Introdução às atualizações de software | Documentos do Microsoft"
-description: "Aprenda o básico das atualizações de software no System Center Configuration Manager."
+title: "Introdução às atualizações de software | Microsoft Docs"
+description: "Aprender as noções básicas de atualizações de software no System Center Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -10,17 +9,13 @@ ms.date: 10/06/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: e9778b13-c8a3-40eb-8655-34ac8ce9cdaa
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: d8cace9edd58e8fa438dbb43e54e57cd0dc55d2b
 ms.openlocfilehash: 2904b904bbaf155f016f55fbd36af80308a42d76
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Introdução às atualizações de software no System Center Configuration Manager
 
@@ -28,20 +23,20 @@ ms.lasthandoff: 05/17/2017
 
 As atualizações de software no System Center Configuration Manager fornece um conjunto de ferramentas e recursos que podem ajudar a gerir a complexa tarefa de controlar e aplicar atualizações de software em computadores cliente na empresa. É necessário um processo de gestão de atualizações de software eficaz para manter a eficiência operacional, ultrapassar problemas de segurança e manter a estabilidade da infraestrutura de rede. No entanto, devido à natureza evolutiva da tecnologia e ao aparecimento contínuo de novas ameaças de segurança, a gestão eficiente das atualizações de software exige uma atenção consistente e contínua.  
 
-Para um cenário de exemplo que mostra como poderá implementar atualizações de software no seu ambiente, consulte o artigo [cenário de exemplo para implementar atualizações de software de segurança](../deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md).  
+Para um cenário de exemplo que mostra como poderá implementar atualizações de software no seu ambiente, consulte [cenário de exemplo para implementar atualizações de software de segurança](../deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md).  
 
 ##  <a name="BKMK_Synchronization"></a> Sincronização de atualizações de software  
- Sincronização de atualizações de software no Configuration Manager liga-se ao Microsoft Update para obter os metadados de atualizações de software. Site de nível superior (site de administração central ou site primário autónomo) sincroniza com o Microsoft Update, com base numa agenda ou quando a sincronização é iniciada manualmente a partir da consola do Configuration Manager. Quando Configuration Manager for concluída a sincronização de atualizações de software no site de nível superior, sincronização de atualizações de software será iniciada nos sites subordinados, se existirem. Quando a sincronização estiver concluída em todos os sites primários ou secundários, será criada uma política ao nível do site que fornecerá aos computadores cliente a localização dos pontos de atualização de software.  
+ Sincronização de atualizações de software no Configuration Manager liga-se ao Microsoft Update para obter os metadados de atualizações de software. O site de nível superior (site de administração central ou site primário autónomo) sincroniza com o Microsoft Update, com base num agendamento ou quando é iniciada manualmente a sincronização da consola do Configuration Manager. Quando o Gestor de configuração é concluída a sincronização de atualizações de software no site de nível superior, sincronização de atualizações de software é iniciada nos sites subordinados, caso existam. Quando a sincronização estiver concluída em todos os sites primários ou secundários, será criada uma política ao nível do site que fornecerá aos computadores cliente a localização dos pontos de atualização de software.  
 
 > [!NOTE]  
->  As atualizações de software estão ativadas por predefinição nas definições de cliente. No entanto, se definir a definição de cliente **Ativar atualizações de software nos clientes** para **Não** para desativar as atualizações de software numa coleção ou nas predefinições, a localização dos pontos de atualização de software não é enviada aos clientes associados. Para obter mais detalhes, consulte o artigo [definições de cliente de atualizações de software](../../core/clients/deploy/about-client-settings.md#software-updates).  
+>  As atualizações de software estão ativadas por predefinição nas definições de cliente. No entanto, se definir a definição de cliente **Ativar atualizações de software nos clientes** para **Não** para desativar as atualizações de software numa coleção ou nas predefinições, a localização dos pontos de atualização de software não é enviada aos clientes associados. Para obter mais informações, consulte [as definições de cliente de atualizações de software](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
  Após o cliente receber a política, o cliente inicia uma verificação da compatibilidade das atualizações de software e escreve as informações no Windows Management Instrumentation (WMI). As informações de compatibilidade são depois enviadas para o ponto de gestão que, por sua vez, as envia para o servidor do site. Para mais informações sobre a avaliação de compatibilidade, consulte a secção [Software updates compliance assessment](#BKMK_SUMCompliance) deste tópico.  
 
- Pode instalar vários pontos de atualização de software num site primário. O primeiro ponto de atualização de software instalado é configurado como origem de sincronização. Isto sincroniza a partir do Microsoft Update ou de um servidor WSUS não na sua hierarquia do Configuration Manager. Os outros pontos de atualização de software do site utilizam o primeiro ponto de atualização de software como origem de sincronização.  
+ Pode instalar vários pontos de atualização de software num site primário. O primeiro ponto de atualização de software instalado é configurado como origem de sincronização. Isto sincroniza a partir do Microsoft Update ou de um servidor WSUS não na hierarquia do Configuration Manager. Os outros pontos de atualização de software do site utilizam o primeiro ponto de atualização de software como origem de sincronização.  
 
 > [!NOTE]  
->  Quando o processo de sincronização de atualizações de software estiver concluído no site de nível superior, os metadados de atualizações de software são replicados para os sites subordinados através de replicação de base de dados. Quando liga uma consola do Configuration Manager para o site subordinado, o Configuration Manager apresenta os metadados de atualizações de software. No entanto, até instalar e configurar um ponto de atualização de software no site, os clientes não analisarão a conformidade de atualizações de software, os clientes não comunicarão as informações de compatibilidade do Configuration Manager e não é possível implementar atualizações de software com êxito.  
+>  Quando o processo de sincronização de atualizações de software estiver concluído no site de nível superior, os metadados de atualizações de software são replicados para os sites subordinados através de replicação de base de dados. Quando ligar uma consola do Configuration Manager para o site subordinado, o Configuration Manager apresenta os metadados de atualizações de software. No entanto, até instalar e configurar um ponto de atualização de software no site, os clientes não analisarão a compatibilidade de atualizações de software, não comunicarão as informações de compatibilidade para o Configuration Manager e não é possível implementar com êxito as atualizações de software.  
 
 ### <a name="synchronization-on-the-top-level-site"></a>Sincronização no site de nível superior  
  O processo de sincronização de atualizações de software no site de nível superior obtém no Microsoft Update os metadados de atualizações de software que satisfazem os critérios especificados nas propriedades do Componente do Ponto de Atualização de Software. Os critérios são configurados apenas no site de nível superior.  
@@ -57,7 +52,7 @@ Para um cenário de exemplo que mostra como poderá implementar atualizações d
 
 3.  Os metadados de atualizações de software são sincronizados a partir do Microsoft Update e as alterações são inseridas ou atualizadas na base de dados do WSUS.  
 
-4.  Quando o WSUS concluir a sincronização, o Gestor de sincronização WSUS sincroniza os metadados de atualizações de software a partir da base de dados do WSUS para a base de dados do Configuration Manager e quaisquer alterações após a última sincronização são inseridas ou atualizadas na base de dados do site. Os metadados de atualizações de software são armazenados na base de dados do site como um item de configuração.  
+4.  Quando o WSUS concluir a sincronização, o Gestor de sincronização WSUS sincroniza os metadados de atualizações de software da base de dados do WSUS para a base de dados do Configuration Manager e as alterações após a última sincronização são inseridas ou atualizadas na base de dados do site. Os metadados de atualizações de software são armazenados na base de dados do site como um item de configuração.  
 
 5.  Os itens de configuração de atualizações de software são enviados aos sites subordinados através de replicação de base de dados.  
 
@@ -85,10 +80,10 @@ Para um cenário de exemplo que mostra como poderá implementar atualizações d
 7.  O Gestor de Sincronização WSUS envia um pedido de cada vez para o WSUS em execução noutros pontos de atualização de software no site. Os servidores WSUS nos outros pontos de atualização de software estão configurados para serem réplicas dos WSUS em execução no ponto de atualização de software predefinido do site.  
 
 ##  <a name="BKMK_SUMCompliance"></a> Software updates compliance assessment  
- Antes de implementar atualizações de software para computadores cliente no Configuration Manager, inicie uma análise de compatibilidade das atualizações de software em computadores cliente. Para cada atualização de software, é criada uma mensagem de estado que contém o estado de compatibilidade da atualização. As mensagens de estado são enviadas em massa para o ponto de gestão e depois para o servidor do site, onde o estado de compatibilidade é introduzido na base de dados do site. O estado de compatibilidade das atualizações de software é apresentado na consola do Configuration Manager. É possível implementar e instalar atualizações de software em computadores que necessitem das atualizações. As secções seguintes fornecem informações sobre os estados de compatibilidade e descrevem o processo de análise de compatibilidade das atualizações de software.  
+ Antes de implementar atualizações de software para computadores cliente no Configuration Manager, inicie uma análise de compatibilidade de atualizações de software nos computadores cliente. Para cada atualização de software, é criada uma mensagem de estado que contém o estado de compatibilidade da atualização. As mensagens de estado são enviadas em massa para o ponto de gestão e depois para o servidor do site, onde o estado de compatibilidade é introduzido na base de dados do site. O estado de conformidade para atualizações de software é apresentado na consola do Configuration Manager. É possível implementar e instalar atualizações de software em computadores que necessitem das atualizações. As secções seguintes fornecem informações sobre os estados de compatibilidade e descrevem o processo de análise de compatibilidade das atualizações de software.  
 
 ### <a name="software-updates-compliance-states"></a>Estados de conformidade das atualizações de software  
- O seguinte apresenta e descreve cada Estado de compatibilidade, que é apresentado na consola do Configuration Manager para atualizações de software.  
+ A seguinte lista e descreve cada Estado de compatibilidade, que é apresentado na consola do Configuration Manager para atualizações de software.  
 
 -   **Necessário**  
 
@@ -134,25 +129,25 @@ Para um cenário de exemplo que mostra como poderá implementar atualizações d
 
  Incluindo o agendamento da análise, a análise para a compatibilidade das atualizações de software pode ser iniciada das seguintes formas:  
 
--   **Agenda de análise de atualizações de software**: A análise de software da compatibilidade das atualizações no agendamento configurado da análise que está configurado nas definições do agente de cliente de atualizações de Software. Para obter mais informações sobre como configurar as definições de cliente de atualizações de Software, consulte o artigo [definições de cliente de atualizações de software](../../core/clients/deploy/about-client-settings.md#software-updates).  
+-   **Agenda de análise de atualizações de software**: A análise de software compatibilidade das atualizações agendamento configurado da análise configurado nas definições do agente de cliente de atualizações de Software. Para obter mais informações sobre como configurar as definições de cliente de atualizações de Software, consulte [as definições de cliente de atualizações de software](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
--   **Ação de propriedades do Configuration Manager**: O utilizador pode iniciar o **ciclo de análise de atualizações de Software** ou **ciclo de avaliação da implementação de atualizações de Software** ação o **ação** separador o **propriedades do Configuration Manager** caixa de diálogo no computador cliente.  
+-   **Ação de propriedades do Configuration Manager**: O utilizador pode iniciar o **ciclo de análise de atualizações de Software** ou **ciclo de avaliação da implementação de atualizações de Software** ação no **ação** separador o **propriedades do Configuration Manager** caixa de diálogo no computador cliente.  
 
--   **Agendamento de reavaliação da implementação**: A avaliação da implementação e a análise de software da compatibilidade das atualizações a agenda de reavaliação de implementação configurado, o que está configurado nas definições do agente de cliente de atualizações de Software. Para mais informações sobre as definições de cliente de atualizações de Software, consulte o artigo [definições de cliente de atualizações de software](../../core/clients/deploy/about-client-settings.md#software-updates).  
+-   **Agendamento de reavaliação da implementação**: A avaliação da implementação e a análise de software compatibilidade das atualizações a agenda de reavaliação de implementação configurado, o que está configurado nas definições do agente de cliente de atualizações de Software. Para obter mais informações sobre as definições de cliente de atualizações de Software, consulte [as definições de cliente de atualizações de software](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
--   **Antes da transferência de ficheiros de atualização**: Quando um computador cliente recebe uma atribuição de política para uma nova implementação necessária, o agente de cliente de atualizações de Software transfere os ficheiros de atualização de software para a cache do cliente local. Antes de transferir os ficheiros de atualização de software, o agente de cliente inicia uma análise para verificar se a atualização de software é ainda necessária.  
+-   **Antes da transferência de ficheiros de atualização**: Quando um computador cliente recebe uma política de atribuição para uma nova implementação necessária, o agente de cliente de atualizações de Software transfere os ficheiros de atualização de software para a cache do cliente local. Antes de transferir os ficheiros de atualização de software, o agente de cliente inicia uma análise para verificar se a atualização de software é ainda necessária.  
 
--   **Antes de software de instalação da atualização**: Imediatamente antes da instalação de atualização de software, o agente de cliente de atualizações de Software inicia uma análise para verificar se as atualizações de software são ainda necessárias.  
+-   **Antes de software da instalação da atualização**: Imediatamente antes da instalação da atualização de software, o agente de cliente de atualizações de Software inicia uma análise para verificar se as atualizações de software ainda são necessárias.  
 
--   **Depois de software de instalação da atualização**: Depois de uma instalação de atualização de software estiver concluída, o agente de cliente de atualizações de Software inicia uma análise para verificar se as atualizações de software já não são necessárias e cria uma nova mensagem de estado que indica que a atualização de software está instalada. Quando a instalação estiver terminada, mas se for necessário um reinício, a mensagem de estado indica um reinício pendente no computador cliente.  
+-   **Instalação da atualização depois de software**: Depois de uma instalação de atualização de software estiver concluída, o agente de cliente de atualizações de Software inicia uma análise para verificar se as atualizações de software já não são necessárias e cria uma nova mensagem de estado que indica que a atualização de software está instalada. Quando a instalação estiver terminada, mas se for necessário um reinício, a mensagem de estado indica um reinício pendente no computador cliente.  
 
--   **Depois de sistema reiniciar**: Quando um computador cliente está pendente um reinício do sistema para o software de instalação de conclusão da atualização, o agente de cliente de atualizações de Software inicia uma análise depois do reinício para verificar se a atualização de software já não é necessária e cria uma mensagem de estado que indica que a atualização de software está instalado.  
+-   **Depois de sistema reinicie**: Quando um computador cliente está pendente um reinício do sistema para o atualização de software concluir a instalação, o agente de cliente de atualizações de Software inicia uma análise após o reinício para verificar se a atualização de software já não é necessária e cria uma mensagem de estado que indica que a atualização de software está instalada.  
 
 #### <a name="time-to-live-value"></a>Valor de TTL  
  Os metadados de atualizações de software que são necessários para a análise da compatibilidade das atualizações de software são armazenados no computador cliente local e, por predefinição, são relevantes até um máximo de 24 horas. Este valor é conhecido como o tempo restante (TTL).  
 
 #### <a name="scan-for-software-updates-compliance-types"></a>Análise dos tipos de compatibilidade de atualizações de software  
- O cliente analisa a compatibilidade de atualizações de software utilizando uma análise online ou offline e uma análise forçada ou não forçada, dependendo do modo como a análise da compatibilidade das atualizações de software é iniciada. O seguinte procedimento descreve os métodos para iniciar a análise estão online ou offline e se a análise é forçada ou não forçada.  
+ O cliente analisa a compatibilidade de atualizações de software utilizando uma análise online ou offline e uma análise forçada ou não forçada, dependendo do modo como a análise da compatibilidade das atualizações de software é iniciada. O seguinte descreve os métodos para iniciar a análise estão online ou offline e se a análise é forçada ou não forçada.  
 
 -   **Agenda de análise de atualizações de software** (análise online não forçada)  
 
@@ -170,15 +165,15 @@ Para um cenário de exemplo que mostra como poderá implementar atualizações d
 
      Antes de o cliente poder transferir ficheiros de atualização nas implementações necessárias, o cliente liga-se ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software apenas quando a última análise se situou fora do valor TTL.  
 
--   **Antes de software de instalação da atualização** (análise online não forçada)  
+-   **Antes de software da instalação da atualização** (análise online não forçada)  
 
      Antes de o cliente instalar atualizações de software nas implementações necessárias, o cliente liga-se ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software apenas quando a última análise se situou fora do valor TTL.  
 
--   **Depois de software de instalação da atualização** (análise offline forçada)  
+-   **Instalação da atualização depois de software** (análise offline forçada)  
 
      Depois da instalação de uma atualização de software, o Agente de Cliente de Atualizações de Software inicia uma análise utilizando os metadados locais. O cliente nunca se liga ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software.  
 
--   **Depois de sistema reiniciar** (análise offline forçada)  
+-   **Depois de sistema reinicie** (análise offline forçada)  
 
      Depois da instalação de uma atualização de software e do reinício do computador, o Agente de Cliente de Atualizações de Software inicia uma análise utilizando os metadados locais. O cliente nunca se liga ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software.  
 
@@ -193,9 +188,9 @@ Para um cenário de exemplo que mostra como poderá implementar atualizações d
 > [!IMPORTANT]  
 >  A conta de computador do Fornecedor de SMS e o utilizador administrativo que transfere verdadeiramente as atualizações de software requerem ambos permissões de **Escrita** para a origem do pacote. Restrinja o acesso à origem do pacote para reduzir o risco de um intruso adulterar os ficheiros de origem das atualizações de software na origem do pacote.  
 
- Quando é criado um novo pacote de implementação, a versão do conteúdo é definida para 1 antes de serem transferidas quaisquer atualizações de software. Quando os ficheiros de atualização do software são transferidos utilizando o pacote, a versão do conteúdo é aumentada para 2. Portanto, todos os novos pacotes de implementação começam com a versão de conteúdo 2. Sempre que o conteúdo é alterado num pacote de implementação, a versão de conteúdo é aumentada em 1. Para obter mais informações, consulte o artigo [os conceitos fundamentais para gestão de conteúdo](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+ Quando é criado um novo pacote de implementação, a versão do conteúdo é definida para 1 antes de serem transferidas quaisquer atualizações de software. Quando os ficheiros de atualização do software são transferidos utilizando o pacote, a versão do conteúdo é aumentada para 2. Portanto, todos os novos pacotes de implementação começam com a versão de conteúdo 2. Sempre que o conteúdo é alterado num pacote de implementação, a versão de conteúdo é aumentada em 1. Para obter mais informações, consulte [conceitos fundamentais da gestão de conteúdos](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
- Os clientes instalam atualizações de software numa implementação através da utilização de qualquer ponto de distribuição que tenha as atualizações de software disponíveis, independentemente do pacote de implementação. Mesmo se um pacote de implementação for eliminado para uma implementação ativa, os clientes podem ainda instalar as atualizações de software na implementação desde que cada atualização tenha sido transferida para pelo menos um outro pacote de implementação e esteja disponível num ponto de distribuição ao qual se pode aceder a partir do cliente. Quando é eliminado o último pacote de implementação que contém uma atualização de software, os computadores cliente não conseguem obter a atualização de software até a atualização ser transferida novamente para um pacote de implementação. As atualizações de software aparecem com uma seta vermelha na consola do Configuration Manager quando os ficheiros de atualização não estão em quaisquer pacotes de implementação. As implementações aparecem com uma seta dupla vermelha se contiverem quaisquer atualizações nesta condição.  
+ Os clientes instalam atualizações de software numa implementação através da utilização de qualquer ponto de distribuição que tenha as atualizações de software disponíveis, independentemente do pacote de implementação. Mesmo se um pacote de implementação for eliminado para uma implementação ativa, os clientes podem ainda instalar as atualizações de software na implementação desde que cada atualização tenha sido transferida para pelo menos um outro pacote de implementação e esteja disponível num ponto de distribuição ao qual se pode aceder a partir do cliente. Quando é eliminado o último pacote de implementação que contém uma atualização de software, os computadores cliente não conseguem obter a atualização de software até a atualização ser transferida novamente para um pacote de implementação. As atualizações de software aparecem com uma seta vermelha na consola do Configuration Manager quando os ficheiros de atualização não se encontram em quaisquer pacotes de implementação. As implementações aparecem com uma seta dupla vermelha se contiverem quaisquer atualizações nesta condição.  
 
 ##  <a name="BKMK_DeploymentWorkflows"></a> Fluxos de trabalho de implementação de atualizações de software  
  Existem dois cenários principais para implementar atualizações de software no seu ambiente, implementação manual e implementação automática. Normalmente, implementa manualmente as atualizações de software para criar uma linha base para computadores cliente e, de seguida, gere as atualizações de software em clientes utilizando a implementação automática. As secções seguintes fornecem um resumo do fluxo de trabalho para a implementação manual e automática para atualizações de software.  
@@ -277,11 +272,10 @@ Para um cenário de exemplo que mostra como poderá implementar atualizações d
 
  A definição de experiência de utilizador que controla o comportamento do filtro de escrita consiste numa caixa de verificação designada **Confirmar alterações dentro do prazo ou durante a janela de manutenção (requer reinicialização)**.  
 
- Para mais informações sobre como o Gestor de configuração gere dispositivos incorporados que utilizem filtros de escrita, consulte o artigo [planeamento de implementação de cliente em dispositivos Windows Embedded](../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
+ Para obter mais informações sobre como o Gestor de configuração gere dispositivos incorporados que utilizem filtros de escrita, consulte [planear a implementação do cliente em dispositivos Windows Embedded](../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
 ##  <a name="BKMK_ExtendSoftwareUpdates"></a> Expandir atualizações de software no Configuration Manager  
- Utilize o System Center Updates Publisher para gerir atualizações de software que não estão disponíveis a partir do Microsoft Update. Depois de publicar as atualizações de software no servidor de atualização e sincronizar as atualizações de software no Configuration Manager, pode implementar as atualizações de software para clientes do Configuration Manager. Para obter mais informações sobre o Updates Publisher, consulte o artigo [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
+ Utilize o System Center Updates Publisher para gerir atualizações de software que não estão disponíveis no Microsoft Update. Depois de publicar as atualizações de software para o servidor de atualização e sincronizar as atualizações de software no Configuration Manager, pode implementar as atualizações de software em clientes do Configuration Manager. Para obter mais informações sobre o Updates Publisher, consulte [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
 
 ## <a name="next-steps"></a>Passos seguintes
-[Planear atualizações de software](../plan-design/plan-for-software-updates.md)
-
+[Planear as atualizações de software](../plan-design/plan-for-software-updates.md)

@@ -6,27 +6,24 @@ ms.date: 07/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4bb6afeb-d267-4f9b-ade2-26e5400c223b
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 344b55aecd72479b759b40e8252e64a06c5eaba0
 ms.openlocfilehash: 5bf4457af6bedf7bc9cd73c879f1857209c0725d
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# Tarefas comuns para criar e implementar linhas de base de configuração com o System Center Configuration Manager
-<a id="common-tasks-for-creating-and-deploying-configuration-baselines-with-system-center-configuration-manager" class="xliff"></a>
+# <a name="common-tasks-for-creating-and-deploying-configuration-baselines-with-system-center-configuration-manager"></a>Tarefas comuns para criar e implementar linhas de base de configuração com o System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Este tópico contém os cenários comuns para o ajudar a saber mais sobre como criar e implementar linhas de base de configuração de System Center Configuration Manager.  
 
@@ -34,8 +31,7 @@ Este tópico contém os cenários comuns para o ajudar a saber mais sobre como c
 
  Antes de começar, leia [introdução às definições de compatibilidade no System Center Configuration Manager](../../compliance/get-started/get-started-with-compliance-settings.md) para obter algumas noções básicas sobre as definições de compatibilidade e leia também [planear e configurar as definições de compatibilidade](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) para implementar os pré-requisitos necessários.  
 
-## Criar uma linha de base de configuração
-<a id="create-a-configuration-baseline" class="xliff"></a>  
+## <a name="create-a-configuration-baseline"></a>Criar uma linha de base de configuração  
  Neste exemplo, criou um item de configuração para apenas PCs Windows 10 que executam o cliente do Configuration Manager.  
 
  Este item de configuração impõe uma palavra-passe obrigatória de, pelo menos, 6 carateres em PCs Windows 10. O item de configuração tem o nome **Imposição de Palavras-passe do Windows 10**.  
@@ -60,8 +56,7 @@ Utilize o procedimento seguinte para saber como adicionar este item de configura
 
  Agora, pode ver a linha de base de configuração no **linhas de base de configuração** nós da consola do Configuration Manager.  
 
-## Implementar a linha de base de configuração
-<a id="deploy-the-configuration-baseline" class="xliff"></a>  
+## <a name="deploy-the-configuration-baseline"></a>Implementar a linha de base de configuração  
  Neste exemplo, implementar a linha de base de configuração que criou no procedimento anterior numa coleção de computadores.  
 
 1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **linhas de base de configuração**.  
@@ -87,8 +82,6 @@ Utilize o procedimento seguinte para saber como adicionar este item de configura
 
  Se pretender ver rapidamente as estatísticas de compatibilidade para esta implementação, na área de trabalho **Monitorização** , clique em **Implementações**. Na parte inferior do ecrã, verá um **as estatísticas de compatibilidade** gráfico.  
 
-## Passos seguintes
-<a id="next-steps" class="xliff"></a> 
+## <a name="next-steps"></a>Passos seguintes 
 
 Para obter mais informações sobre como monitorizar linhas de base de configuração, consulte [monitorizar as definições de compatibilidade](../../compliance/deploy-use/monitor-compliance-settings.md).  
-

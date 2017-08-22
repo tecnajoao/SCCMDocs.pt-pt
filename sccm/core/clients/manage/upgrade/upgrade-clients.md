@@ -1,39 +1,36 @@
 ---
-title: Atualizar os clientes | Documentos do Microsoft
+title: Atualizar clientes | Microsoft Docs
 description: "Obter informações sobre como atualizar clientes no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 446c83b5-c292-4e74-ba19-0792ac6b3472
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
 ms.openlocfilehash: 4b80e0e688dd6482bc9a7fe111607e258071f45a
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="upgrade-clients-in-system-center-configuration-manager"></a>Atualização dos clientes no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Pode utilizar diferentes métodos para atualizar o software de cliente do System Center Configuration Manager em computadores com o Windows, UNIX e Linux servidores e computadores Mac. Eis as vantagens e desvantagens de cada método.  
+Pode utilizar diferentes métodos para atualizar o software de cliente do System Center Configuration Manager em computadores Windows, servidores UNIX e Linux e computadores Mac. Seguem-se as vantagens e desvantagens de cada método.  
 
 > [!TIP]  
->  Se estiver a atualizar a infraestrutura do servidor a partir de uma versão anterior do \(como o Configuration Manager 2007 ou o System Center 2012 Configuration Manager\), recomendamos que conclua a atualização do servidor incluindo a instalação de todas as atualizações do current branch, antes de atualizar os clientes do Configuration Manager. Desta forma, também tem a versão mais recente do software de cliente.  
+>  Se estiver a atualizar a infraestrutura do servidor a partir de uma versão anterior do \(como o Configuration Manager 2007 ou o System Center 2012 Configuration Manager\), recomendamos que conclua a atualização do servidor incluindo a instalação de todas as atualizações do current branch, antes de atualizar os clientes do Configuration Manager. Desta forma, também terá da versão mais recente do software de cliente.  
 
 ## <a name="group-policy-installation"></a>Instalação de Política de Grupo  
- **Plataforma de cliente suportados:** Windows  
+ **Plataforma de cliente suportada:** Windows  
 
  **Vantagens**  
 
@@ -47,13 +44,13 @@ Pode utilizar diferentes métodos para atualizar o software de cliente do System
 
  **Desvantagens**  
 
--   Pode causar tráfego de rede elevado se estiver a atualizar uma grande quantidade de clientes.  
+-   Pode causar tráfego de rede elevado se estiver a atualizar muitos clientes.  
 
 -   Se o esquema do Active Directory não estiver expandido para o Configuration Manager, tem de utilizar [definições de política de grupo](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientGP) para adicionar propriedades de instalação de cliente aos computadores no seu site.  
 
 
 ## <a name="logon-script-installation"></a>Instalação do script de início de sessão  
- **Plataforma de cliente suportados:** Windows  
+ **Plataforma de cliente suportada:** Windows  
 
  **Vantagens**  
 
@@ -65,14 +62,14 @@ Pode utilizar diferentes métodos para atualizar o software de cliente do System
 
  **Desvantagens**  
 
--   Pode causar tráfego de rede elevado se estiver a atualizar uma grande quantidade de clientes num curto período de tempo.  
+-   Pode causar tráfego de rede elevado se estiver a atualizar muitos clientes num curto período de tempo.  
 
 -   Pode demorar muito tempo a atualizar todos os computadores cliente se os utilizadores não iniciarem sessão na rede.  
 
  Para mais informações, veja [Como Instalar Clientes do Configuration Manager Utilizando Scripts de Início de Sessão](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientLogonScript).  
 
 ## <a name="manual-installation"></a>Instalação manual  
- **Plataforma de cliente suportados:** Windows, UNIX/Linus, Mac OS X  
+ **Plataforma de cliente suportada:** Windows, UNIX/Linus, Mac OS X  
 
  **Vantagens**  
 
@@ -88,17 +85,17 @@ Pode utilizar diferentes métodos para atualizar o software de cliente do System
 
  Para obter mais informações, consulte os tópicos seguintes:  
 
--   [Como instalar manualmente clientes do Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Manual)  
+-   [Como instalar clientes do Configuration Manager manualmente](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Manual)  
 
 -   [Como atualizar clientes para servidores Linux e UNIX no System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-linux-and-unix-servers.md)  
 
 -   [Como atualizar clientes em computadores Mac no System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-on-mac-computers.md)  
 
 ## <a name="upgrade-installation-application-management"></a>Instalação de atualização (gestão de aplicações)  
- **Plataforma de cliente suportados:** Windows  
+ **Plataforma de cliente suportada:** Windows  
 
 > [!NOTE]  
->  Não é possível atualizar clientes do Configuration Manager 2007 com este método. Neste cenário, pode implementar o cliente do Configuration Manager como um pacote do site do Configuration Manager 2007 ou pode utilizar a atualização automática de cliente que cria e implementa automaticamente um pacote que contém a versão mais recente do cliente.  
+>  Não é possível atualizar clientes do Configuration Manager 2007 com este método. Neste cenário, pode implementar o cliente do Configuration Manager como um pacote a partir do site do Configuration Manager 2007 ou pode utilizar a atualização automática de cliente que cria e implementa automaticamente um pacote que contém a versão mais recente do cliente.  
 
  **Vantagens**  
 
@@ -117,7 +114,7 @@ Pode utilizar diferentes métodos para atualizar o software de cliente do System
 > [!NOTE]  
 >  Pode ser utilizado para atualizar clientes do Configuration Manager 2007 para clientes do System Center Configuration Manager. Um cliente do Configuration Manager 2007 pode atribuir a um site do Configuration Manager, mas não é possível efetuar nenhuma ação além da atualização automática de cliente.  
 
- **Plataforma de cliente suportados:** Windows  
+ **Plataforma de cliente suportada:** Windows  
 
  **Vantagens**  
 
@@ -138,17 +135,16 @@ Pode utilizar diferentes métodos para atualizar o software de cliente do System
  Para mais informações, veja [Como atualizar clientes para computadores Windows no System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
 
 ## <a name="client-testing"></a>Teste de clientes  
- **Plataforma de cliente suportados:** Windows  
+ **Plataforma de cliente suportada:** Windows  
 
  **Vantagens**  
 
 -   Pode ser utilizado para testar novas versões de cliente numa coleção de pré-produção mais pequena.  
 
--   Quando os testes são concluídos, os clientes na pré-produção são promovidos para produção e atualizados automaticamente entre o site do Configuration Manager.  
+-   Quando os testes são concluídos, os clientes em pré-produção são promovidos para produção e atualizados automaticamente em todo o site do Configuration Manager.  
 
  **Desvantagens**  
 
 -   Só pode ser utilizado para atualizar o software de cliente e não pode ser utilizado para instalar um novo cliente.  
 
  [Como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md)  
-

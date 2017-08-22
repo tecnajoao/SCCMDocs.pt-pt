@@ -1,33 +1,30 @@
 ---
-title: Gerir o acesso ao e-mail | Documentos do Microsoft
+title: Gerir o acesso ao e-mail | Microsoft Docs
 description: Saiba como utilizar o acesso condicional do System Center Configuration Manager para gerir o acesso ao e-mail do Exchange.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fa648e73-5fb8-4818-ab57-7466ffaf888e
-caps.latest.revision: 24
+caps.latest.revision: "24"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
 ms.openlocfilehash: a5c2a8912cd2ef95a778b81d0b7f1f98315b8413
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Gerir o acesso ao e-mail no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Utilização do System Center Configuration Manager o acesso condicional para gerir o acesso ao e-mail do Exchange com base em condições que especificar.  
+Utilize o System Center Configuration Manager o acesso condicional para gerir o acesso ao e-mail do Exchange com base nas condições que especificar.  
 
 Pode gerir o acesso ao:  
 
@@ -47,30 +44,30 @@ Pode controlar o acesso ao Exchange Online e ao Exchange No Local a partir do cl
 
 -   Aplicação de correio no Windows 8.1 e posterior
 
-Aplicações de ambiente de trabalho do Office podem aceder ao Exchange Online em PCs a executar:  
+Aplicações de ambiente de trabalho do Office podem aceder ao Exchange Online em computadores que executam:  
 
 -   Ambiente de trabalho do Office 2013 e versões posteriores com [autenticação moderna](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) ativada.  
 
 -   Windows 7.0 ou Windows 8.1  
 
 > [!NOTE]  
->  PCs devem ser domínio associado ou ser conformidade com as políticas definidas no Intune.  
+>  Os computadores devem estar associados a um domínio ou em conformidade com as políticas definidas no Intune.  
 
 
-## <a name="device-requirements"></a>Requisitos de dispositivo
+## <a name="device-requirements"></a>Requisitos de dispositivos
  Se configurar o acesso condicional, antes de um utilizador se poder ligar ao respetivo e-mail, o dispositivo que ele utiliza deve:  
 
--   Inscrito com o Intune ou PC associado a um domínio.  
+-   Estar inscrito no Intune ou PC associado a um domínio.  
 
--   Registar o dispositivo no Azure Active Directory (isto ocorre automaticamente quando o dispositivo é inscrito com o Intune (apenas para Exchange Online). Além disso, o ID do Exchange ActiveSync cliente tem de estar registado no Azure Active Directory (não se aplica a dispositivos Windows e Windows Phone que se liguem ao Exchange No Local).  
+-   Registar o dispositivo no Azure Active Directory (isto ocorre automaticamente quando o dispositivo é inscrito no Intune (apenas para o Exchange Online). Além disso, o ID do Exchange ActiveSync cliente tem de estar registado no Azure Active Directory (não se aplica a dispositivos Windows e Windows Phone que se liguem ao Exchange No Local).  
 
      Para um PC associado a um domínio, tem de defini-lo para ser registado automaticamente no Azure Active Directory.  A secção **Acesso Condicional para PCs** do tópico [Gerir o acesso a serviços no System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md) apresenta uma lista do conjunto completo de requisitos para ativar o acesso condicional em PCs.  
 
--   Ser compatível com as políticas de conformidade do Configuration Manager implementadas nesse dispositivo  
+-   Ser compatível com as políticas de conformidade do Gestor de configuração implementadas nesse dispositivo  
 
  Se não for cumprida uma condição de acesso condicional, é apresentada ao utilizador uma das duas mensagens seguintes quando iniciar sessão:  
 
--   Se o dispositivo não estiver inscrito com o Intune ou não está registado no Azure Active Directory, será apresentada uma mensagem com instruções sobre como instalar a aplicação do portal da empresa, inscrever o dispositivo e (para dispositivos Android e iOS), ativar o e-mail, o qual associa o ID do Exchange ActiveSync ao registo do dispositivo no Azure Active Directory.  
+-   Se o dispositivo não estiver inscrito no Intune ou não está registado no Azure Active Directory, será apresentada uma mensagem com instruções sobre como instalar a aplicação do portal da empresa, inscrever o dispositivo e (para dispositivos Android e iOS), ativar o e-mail, o que associa o ID do Exchange ActiveSync do dispositivo ao registo do dispositivo no Azure Active Directory.  
 
 -   Se o dispositivo não for conforme, será apresentada uma mensagem que direciona o utilizador para o portal web do Intune onde pode encontrar informações sobre o problema e como resolvê-lo.  
 
@@ -103,31 +100,31 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
  A aplicação Outlook para iOS e Android, e o Outlook Desktop 2013 e posterior é suportada apenas para o Exchange Online.  
 
- O **conector do Exchange no local** entre o Configuration Manager e o Exchange é necessário para o acesso condicional para o seu trabalho.  
+ O **conector do Exchange no local** entre o Configuration Manager e o Exchange é necessário para o acesso condicional funcionar.  
 
- Pode configurar uma política de acesso condicional para Exchange no local a partir da consola do Configuration Manager. Quando configura uma política de acesso condicional para o Exchange Online, pode começar o processo na consola do Configuration Manager, que inicia a consola do Intune onde pode concluir o processo.  
+ Pode configurar uma política de acesso condicional para o Exchange no local a partir da consola do Configuration Manager. Quando configura uma política de acesso condicional para o Exchange Online, pode iniciar o processo na consola do Configuration Manager, que inicia a consola do Intune onde pode concluir o processo.  
 
 ## <a name="configure-conditional-access"></a>Configurar o acesso condicional
 ### <a name="step-1-evaluate-the-effect-of-the-conditional-access-policy"></a>Passo 1: Avaliar o efeito da política de acesso condicional  
- Assim que tiver configurado o **conector do Exchange no local**, pode utilizar o Gestor de configuração**lista de dispositivos por Estado de acesso condicional** relatório para identificar os dispositivos que serão impedidos de aceder ao Exchange após configurar a política de acesso condicional. Este relatório também requer:  
+ Assim que tiver configurado o **conector do Exchange no local**, pode utilizar o Gestor de configuração**lista de dispositivos por Estado de acesso condicional** relatório para identificar dispositivos que serão impedidos de aceder ao Exchange após configurar a política de acesso condicional. Este relatório também requer:  
 
 -   Uma subscrição do Intune  
 
 -   O ponto de ligação de serviço deve ser configurado e implementado  
 
- Nos parâmetros do relatório, selecione o grupo do Intune que pretende avaliar e, se necessário, as plataformas de dispositivos às quais será aplicada a política.  
+ Nos parâmetros do relatório, selecione o grupo do Intune que pretende avaliar e, se necessário, as plataformas de dispositivos aos quais será aplicada a política.  
 
  Para obter mais informações sobre como executar relatórios, veja [Os relatórios do System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
  Depois de executar o relatório, examine estas quatro colunas para determinar se um utilizador será bloqueado:  
 
--   **Canal de gestão** -indica se o dispositivo é gerido pelo Intune, o Exchange ActiveSync ou ambos.  
+-   **Canal de gestão** -indica se o dispositivo é gerido pelo Intune, do Exchange ActiveSync ou ambos.  
 
--   **Registado no AAD** -indica se o dispositivo está registado no Azure Active Directory (conhecido como associação).  
+-   **Registado no AAD** -indica se o dispositivo é registado no Azure Active Directory (conhecido como associação à área de trabalho).  
 
--   **Conformidade** -indica se o dispositivo está em conformidade com as políticas de conformidade implementadas.  
+-   **Em conformidade** -indica se o dispositivo está em conformidade com as políticas de conformidade implementadas.  
 
--   **Ativado EAS** -dispositivos iOS e Android são necessários para que os respetivos ID do Exchange ActiveSync associado ao registo de registo do dispositivo no Azure Active Directory. Isto acontece quando o utilizador clica na ligação **Ativar E-mail** no e-mail de quarentena.  
+-   **EAS ativado** -dispositivos iOS e Android têm de ter os respetivos ID do Exchange ActiveSync associado ao registo do dispositivo no Azure Active Directory. Isto acontece quando o utilizador clica na ligação **Ativar E-mail** no e-mail de quarentena.  
 
     > [!NOTE]  
     >  Os dispositivos Windows Phone apresentam sempre um valor nesta coluna.  
@@ -146,19 +143,19 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
 -   **Para a política do Exchange Online** – para grupos de utilizadores de segurança do Azure Active Directory. Pode configurar estes grupos no **centro de administração do Office 365**ou no **portal de contas do Intune**.  
 
--   **Para a política do Exchange no local** - Configuration Manager em coleções de utilizadores. Pode configurá-los na área de trabalho **Ativos e Compatibilidade** .  
+-   **Para a política do Exchange no local** - para coleções de utilizadores do Configuration Manager. Pode configurá-los na área de trabalho **Ativos e Compatibilidade** .  
 
  Pode especificar dois tipos de grupos em cada política:  
 
--   **Grupos direcionados** -grupos de utilizadores ou coleções para os quais é aplicada a política  
+-   **Grupos direcionados** -grupos de utilizadores ou de coleções nos quais é aplicada a política  
 
--   **Grupos excluídos** -grupos de utilizadores ou as coleções que estão excluídas da política (opcional)  
+-   **Grupos excluídos** -grupos de utilizadores ou de coleções que estão excluídas da política (opcional)  
 
  Se um utilizador estiver em ambos, estará excluído da política.  
 
  Apenas os grupos ou coleções direcionados pela política de acesso condicional são avaliados para acesso ao Exchange.  
 
-### <a name="step-3-configure-and-deploy-a-compliance-policy"></a>Passo 3: Configure e implemente uma política de conformidade  
+### <a name="step-3-configure-and-deploy-a-compliance-policy"></a>Passo 3: Configurar e implementar uma política de conformidade  
  Certifique-se de que criou e implementou uma política de conformidade em todos os dispositivos para os quais será direcionada a política de acesso condicional do Exchange.  
 
  Para obter detalhes sobre como configurar a política de conformidade, veja [Gerir políticas de conformidade no System Center Configuration Manager](device-compliance-policies.md).  
@@ -173,7 +170,7 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 #### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Para o Exchange Online (e inquilinos no novo ambiente do Exchange Online Dedicado)
 
 >[!NOTE]
->Também pode criar a política de acesso condicional na consola de gestão do Azure AD. Consola de gestão do Azure AD permite-lhe criar políticas de acesso condicional (referidas como a política de acesso condicional baseada no dispositivo no Azure AD), além de outras políticas de acesso condicional, como a autenticação multifator de dispositivo do Intune. Também pode configurar políticas de acesso condicional para aplicações de empresa de terceiros como Salesforce e suporta a caixa que o Azure AD. Para obter mais detalhes, consulte o artigo [como definir a política de acesso condicional baseada no dispositivo do Azure Active Directory para controlo de acesso ao Azure Active Directory ligado aplicações](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
+>Também pode criar política de acesso condicional na consola de gestão do Azure AD. Consola de gestão do Azure AD permite-lhe criar políticas de acesso condicional (referidas como a política de acesso condicional baseado no dispositivo no Azure AD) para além de outras políticas de acesso condicional, como a autenticação multifator do dispositivo do Intune. Também pode definir políticas de acesso condicional para aplicações da empresa de terceiros, como o Salesforce e suporta a caixa de que o Azure AD. Para obter mais detalhes, consulte [como definir a política de acesso condicional baseado no dispositivo do Azure Active Directory para o controlo de acesso ao Azure Active Directory ligado aplicações](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
 
  As políticas de acesso condicional para o Exchange Online utilizam o fluxo seguinte para avaliar se os dispositivos devem ser permitidos ou bloqueados.  
 
@@ -181,15 +178,15 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
  Para aceder ao e-mail, o dispositivo tem de:  
 
--   Inscrever-se com o Intune  
+-   Estar inscrito no Intune  
 
--   PCs têm de estar associados a um domínio ou a ser inscritos e em conformidade com as políticas definidas no Intune.  
+-   PCs tem de ser domínio associado ou ser inscritos e em conformidade com as políticas definidas no Intune.  
 
--   Registar o dispositivo no Azure Active Directory (isto ocorre automaticamente quando o dispositivo é inscrito com o Intune.  
+-   Registar o dispositivo no Azure Active Directory (isto ocorre automaticamente quando o dispositivo é inscrito no Intune.  
 
      Para um PC associado a um domínio, tem de defini-lo para [registar automaticamente o dispositivo](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) no Azure Active Directory.  
 
--   Ter o e-mail ativado, que associa o ID do Exchange ActiveSync ao registo do dispositivo no Azure Active Directory (aplica-se a dispositivos iOS e Android apenas).  
+-   Ter o e-mail ativado, que associa o ID do Exchange ActiveSync do dispositivo ao registo do dispositivo no Azure Active Directory (aplica-se a dispositivos iOS e Android apenas).  
 
 -   Ser compatível com todas as políticas de conformidade implementadas  
 
@@ -199,7 +196,7 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
 -   Se o dispositivo não estiver inscrito ou registado no Azure Active Directory, será apresentada uma mensagem com instruções sobre como instalar a aplicação do portal da empresa e inscrevê-la  
 
--   Se o dispositivo não for conforme, será apresentada uma mensagem que direciona o utilizador para o site do Portal de empresa do Intune ou a aplicação de Portal da empresa onde é possível localizar informações sobre o problema e como resolvê-lo.  
+-   Se o dispositivo não for conforme, será apresentada uma mensagem que direciona o utilizador para o Web site do Portal da empresa do Intune ou para a aplicação Portal da empresa, onde é possível localizar informações sobre o problema e como resolvê-lo.  
 
 -   Num PC:  
 
@@ -210,7 +207,7 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
  A mensagem é apresentada no dispositivo para os utilizadores do Exchange Online e os inquilinos no novo ambiente do Exchange Online Dedicado e é enviada para a caixa de entrada de e-mail dos utilizadores do Exchange No Local e dos dispositivos legados do Exchange Online Dedicado.  
 
 > [!NOTE]  
->  Substituição de regras de acesso condicional, o Configuration Manager permitem, bloqueiam e colocam em quarentena regras que são definidas na consola de administração do Exchange Online.  
+>  Permitir a substituição de regras de acesso condicional, o Configuration Manager, bloqueio e quarentena regras que são definidas na consola de administração do Exchange Online.  
 
 > [!NOTE]  
 >  A política de acesso condicional deve ser configurada na consola do Intune. Os seguintes passos começam por aceder à consola do Intune através do Configuration Manager. Se lhe for solicitado, inicie sessão com as mesmas credenciais que foram utilizadas para configurar o ponto de ligação do serviço entre o Configuration Manager e o Intune.  
@@ -221,7 +218,7 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
 2.  Expanda **Definições de Compatibilidade**, expanda **Acesso Condicional**e, em seguida, clique em **Exchange Online**.  
 
-3.  No separador **Início** , no grupo **Ligações** , clique em **Configurar Política de Acesso Condicional na Consola do Intune**. Poderá ter de fornecer o nome de utilizador e palavra-passe da conta utilizada para ligar o Configuration Manager com qualquer administrador global para o serviço Intune.  
+3.  No separador **Início** , no grupo **Ligações** , clique em **Configurar Política de Acesso Condicional na Consola do Intune**. Poderá ter de fornecer o nome de utilizador e palavra-passe da conta utilizada para ligar o Configuration Manager com qualquer administrador global para o serviço do Intune.  
 
      Abre a consola de administração do Intune.  
 
@@ -234,7 +231,7 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
     > [!NOTE]  
     >  Se não tiver implementado uma política de conformidade e, em seguida, ativar a política do Exchange Online, todos os dispositivos direcionados serão comunicados como estando em conformidade.  
     >   
-    >  Independentemente do Estado de conformidade, será exigido a todos os utilizadores direcionados pela política de inscrever os respetivos dispositivos com o Intune.  
+    >  Independentemente do Estado de conformidade, todos os utilizadores visados pela política terão de inscrever os respetivos dispositivos com o Intune.  
 
 6.  Em **Acesso da aplicação**, para o Outlook e outras aplicações com autenticação moderna, pode optar por restringir o acesso apenas a dispositivos em conformidade com cada plataforma.  Os dispositivos Windows têm de estar associados a um domínio ou inscritos no Intune e em conformidade.  
 
@@ -248,17 +245,17 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
      Utilizar o Exchange Online com o Configuration Manager e o Intune não só pode gerir dispositivos móveis com acesso condicional, mas também com computadores de secretária. Os PCs têm de estar associados a um domínio ou inscritos no Intune e em conformidade. Pode definir os seguintes requisitos:  
 
-    -   **Os dispositivos têm de estar associados a um domínio ou em conformidade.** Os PC têm de estar associados a um domínio ou em conformidade com as políticas. Se o PC não cumprir nenhum destes requisitos, solicitadas ao utilizador para inscrever o dispositivo no Intune.  
+    -   **Os dispositivos têm de estar associados a um domínio ou em conformidade.** Os PC têm de estar associados a um domínio ou em conformidade com as políticas. Se um PC não cumprir nenhum destes requisitos, é pedido ao utilizador para inscrever o dispositivo no Intune.  
 
     -   **Os dispositivos têm de estar associados a um domínio.** Os PC têm de estar associados a um domínio para acederem ao Exchange Online. Se o PC não estiver associado a um domínio, o acesso ao e-mail é bloqueado e é pedido ao utilizador para contactar o administrador de TI.  
 
-    -   **Os dispositivos têm de estar em conformidade.** PCs têm de estar inscritos no Intune e em conformidade. Se um PC não estiver inscrito, será apresentada uma mensagem com instruções sobre como inscrevê-lo.  
+    -   **Os dispositivos têm de estar em conformidade.** Os PCs têm de estar inscritos no Intune e conformes. Se um PC não estiver inscrito, será apresentada uma mensagem com instruções sobre como inscrevê-lo.  
 
-7.  Em **acesso web do Outlook (OWA)**, pode optar por permitir acesso ao Exchange Online apenas através de browsers suportados: Safari (iOS) e no Chrome (Android). O acesso a partir de outros browsers será bloqueado. As mesmas restrições de plataforma que selecionou para Acesso da aplicação para o Outlook também se aplicam aqui.
+7.  Em **acesso web do Outlook (OWA)**, pode optar por permitir o acesso ao Exchange Online apenas através de browsers suportados: Safari (iOS) e o Chrome (Android). O acesso a partir de outros browsers será bloqueado. As mesmas restrições de plataforma que selecionou para Acesso da aplicação para o Outlook também se aplicam aqui.
 
-    Em dispositivos **Android** , os utilizadores têm de ativar o acesso ao browser.  Para efetuar esta ação do utilizador final tem de ativar a opção "Ativar o acesso ao Browser" nos dispositivos da seguinte forma:
+    Em dispositivos **Android** , os utilizadores têm de ativar o acesso ao browser.  Para tal, o utilizador final tem de ativar a opção "Ativar o acesso ao Browser" no dispositivo inscrito da seguinte forma:
      1. Inicie a **aplicação Portal da Empresa**.
-     2. Aceda ao **definições** página a partir de pontos triplo (…) ou o botão do menu de hardware.
+     2. Vá para o **definições** página a partir das reticências (…) ou no botão do menu de hardware.
       3.    Prima o botão **Ativar acesso ao browser** .
       4.    No browser Chrome, termine sessão no Office 365 e reinicie o Chrome.
 
@@ -292,7 +289,7 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
 -   Depois de um utilizador criar uma conta de e-mail, o dispositivo é bloqueado de imediato.  
 
--   Se um utilizador bloqueado inscreve o dispositivo no Intune (ou corrigir a não conformidade), acesso ao e-mail é desbloqueado em dois minutos.  
+-   Se um utilizador bloqueado inscreve o dispositivo no Intune (ou corrigir a não conformidade), o acesso ao e-mail é desbloqueado em dois minutos.  
 
 -   Se o utilizador anular a inscrição do respetivo dispositivo, o e-mail é bloqueado após aproximadamente 6 horas.  
 
@@ -320,13 +317,13 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
      Clique em **Seguinte**.  
 
-5.  Na página **Coleções Direcionadas** , adicione uma ou mais coleções de utilizadores. Para aceder ao Exchange, os utilizadores nestas coleções tem de inscrever os respetivos dispositivos com o Intune e também estar em conformidade com as políticas de conformidade implementadas.  
+5.  Na página **Coleções Direcionadas** , adicione uma ou mais coleções de utilizadores. Para aceder ao Exchange, os utilizadores nestas coleções têm de inscrever os respetivos dispositivos no Intune e de estar em conformidade com as políticas de conformidade implementadas.  
 
      ![HybridCondAccessWiz2](media/HybridCondAccessWiz2.PNG)  
 
      Clique em **Seguinte**.  
 
-6.  Na página **Coleções Isentas** , adicione as coleções de utilizadores que pretende isentar da política de acesso condicional. Utilizadores estes grupos, não precisa de inscrever os respetivos dispositivos com o Intune não precisam de estar em conformidade com as políticas de conformidade implementadas para aceder ao Exchange.  
+6.  Na página **Coleções Isentas** , adicione as coleções de utilizadores que pretende isentar da política de acesso condicional. Os utilizadores nestes grupos, não precisa de inscrever os respetivos dispositivos no Intune e não precisa de estar em conformidade com as políticas de conformidade implementadas para aceder ao Exchange.  
 
      ![HybridCondAccessWiz3](media/HybridCondAccessWiz3.png)  
 
@@ -334,14 +331,14 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
      Clique em **Seguinte**.  
 
-7.  No **notificação do utilizador editar** página, configure o e-mail que o Intune envia aos utilizadores com instruções sobre como desbloquear o dispositivo (além de mensagem de correio eletrónico enviada pelo Exchange).  
+7.  No **editar notificação do utilizador** página, configure o e-mail que o Intune envia com instruções sobre como desbloquear o dispositivo (para além do e-mail que o Exchange envia).  
 
      Pode editar a mensagem predefinida e utilizar tags de HTML para formatar a apresentação do texto. Também pode enviar uma mensagem de e-mail antecipadamente aos seus funcionários para notificá-los sobre alterações futuras e fornecer-lhes instruções sobre como inscrever os respetivos dispositivos.  
 
      ![HybridCondAccessWiz4](media/HybridCondAccessWiz4.PNG)  
 
     > [!NOTE]  
-    >  Como o e-mail de notificação do Intune com as instruções de correção é enviado para a caixa de correio do Exchange do utilizador, no caso do dispositivo do utilizador ficar bloqueado antes de receber a mensagem de correio eletrónico, estes podem utilizar um dispositivo desbloqueado ou outro método para aceder ao Exchange e ver a mensagem.  
+    >  Como o e-mail de notificação do Intune com as instruções de correção é enviado para a caixa de correio do Exchange do utilizador, no caso do dispositivo do utilizador ficar bloqueado antes de receber a mensagem de e-mail, este pode utilizar um dispositivo desbloqueado ou outro método para aceder ao Exchange e ver a mensagem.  
 
     > [!NOTE]  
     >  Para o Exchange poder enviar o e-mail de notificação, tem de configurar a conta que será utilizada para enviá-lo. Pode efetuar esta ação quando configurar as propriedades do conector do Exchange Server.  
@@ -354,12 +351,11 @@ Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e
 
 -   Não tem de implementar a política de acesso condicional, pois esta entra em vigor imediatamente.  
 
--   Depois de um utilizador configura um perfil do Exchange ActiveSync, pode demorar entre 1 a 3 horas até o dispositivo ser bloqueado (se não for gerido pelo Intune).  
+-   Depois de um utilizador configurar um perfil do Exchange ActiveSync, poderá demorar entre 1 a 3 horas até o dispositivo ser bloqueado (se não for gerido pelo Intune).  
 
--   Se um utilizador bloqueado, em seguida, inscreve o dispositivo no Intune (ou corrigir a não conformidade), acesso ao e-mail será desbloqueado em dois minutos.  
+-   Se um utilizador bloqueado, em seguida, inscreve o dispositivo no Intune (ou corrigir a não conformidade), o acesso ao e-mail será desbloqueado em dois minutos.  
 
--   Se o utilizador anular-inscrição do Intune, pode demorar entre 1 a 3 horas até o dispositivo ser bloqueado.  
+-   Se o utilizador anular-inscrição no Intune, poderá demorar entre 1 a 3 horas até o dispositivo ser bloqueado.  
 
 ### <a name="see-also"></a>Consulte também  
- [Gerir o acesso aos serviços no System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)
-
+ [Gerir o acesso a serviços no System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)

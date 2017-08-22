@@ -6,22 +6,20 @@ ms.date: 07/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3c9648c4-645e-4e47-ae10-2da817b8c83b
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: aecc4ccfec98932f3988f1ca1fcdc898cd417933
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-remotely-administer-a-windows-client-computer-by-using-system-center-configuration-manager"></a>Como administrar remotamente um computador cliente Windows utilizando o System Center Configuration Manager
 
@@ -97,4 +95,3 @@ CmRcViewer.exe suporta as seguintes opções da linha de comandos:
 - **/?** -Apresenta as opções da linha de comandos para o Visualizador de controlo remoto.  
      
 **Example:CmRcViewer.exe** *< endereço\>*   *< \\\Site o nome do servidor >*  
-

@@ -1,6 +1,5 @@
 ---
-
-title: "Remover um ponto de atualização de software | Documentos do Microsoft"
+title: "Remover um ponto de atualização de software | Microsoft Docs"
 description: "Siga este procedimento para remover a função de sistema de sites de ponto de atualização do software num site a partir da consola do Configuration Manager."
 keywords: 
 author: dougeby
@@ -10,16 +9,13 @@ ms.date: 10/06/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: 2486375c-d4a2-4cf2-9124-9bee02bbf173
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
 ms.openlocfilehash: 22de02c51be3a0cd66b1be0f04b2fbdeb897858c
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 #  <a name="BKMK_RemoveSUP"></a> Remover a função de sistema de sites do ponto de atualização de software  
 
@@ -41,4 +37,3 @@ Pode remover a função de sistema de sites de ponto de atualização do softwar
 3.  Selecione o servidor do sistema de sites com o ponto de atualização de software a remover e, em **Funções do Sistema de Sites**, selecione **Ponto de atualização de software**.  
 
 4.  No separador **Função do Site** , no grupo **Função do Site** , clique em **Remover Função**. Confirme que pretende remover o ponto de atualização de software ou selecione uma nova origem de sincronização para os outros pontos de atualização de software no site.  
-

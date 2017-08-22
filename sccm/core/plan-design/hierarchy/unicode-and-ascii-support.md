@@ -1,28 +1,25 @@
 ---
-title: Unicode e ASCII suporte | Documentos do Microsoft
-description: Saiba mais sobre o suporte para Unicode e ASCII carateres de objetos do System Center Configuration Manager.
+title: Unicode e ASCII suporte | Microsoft Docs
+description: Saiba mais sobre o suporte para carateres Unicode e ASCII no System Center Configuration Manager objetos.
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2bdec799-905f-48bc-aed5-2d92134739e8
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: b35e747c8c297d61bb549b9767c4318f51e5fdb4
 ms.openlocfilehash: 18f1c64c1f27001a0fdfbab4236d09a5bc279272
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Suporte de Unicode e ASCII no System Center Configuration Manager
 
@@ -30,7 +27,7 @@ ms.lasthandoff: 05/17/2017
 
 System Center Configuration Manager cria a maior parte dos objetos utilizando carateres Unicode. No entanto, vários objetos suportam apenas carateres ASCII ou têm outras limitações.  
 
- As secções seguintes listam os objetos que têm de utilizar carateres a partir do conjunto de carateres ASCII ou que têm outras limitações.  
+ As secções seguintes listam os objetos que podem utilizar carateres definida apenas de carateres ASCII ou que têm outras limitações.  
 
 -   [Objetos que utilizam carateres ASCII](#BKMK_ASCIIchar)  
 
@@ -43,12 +40,12 @@ System Center Configuration Manager cria a maior parte dos objetos utilizando ca
 
 -   Código do site  
 
--   Todos os nomes de computador do servidor de sistema do site  
+-   Todos os nomes de computador do servidor de sistema de sites  
 
 -   As seguintes contas do Configuration Manager:  
 
     > [!NOTE]  
-    >  Estas contas suportam carateres ASCII e dos carateres RUS num site que é executado em russo.  
+    >  Estas contas suportam carateres ASCII e dos carateres RUS num site que é executado no russo.  
 
     -   Conta de instalação de push de cliente  
 
@@ -75,13 +72,13 @@ System Center Configuration Manager cria a maior parte dos objetos utilizando ca
     >   
     >  Conta suporta Unicode, com exceção dos carateres RUS do ponto de Reporting Services.  
 
--   Nome de domínio completamente qualificado (FQDN) para servidores do site e sistemas de sites  
+-   Nome de domínio completamente qualificado (FQDN) para servidores de site e sistemas de sites  
 
 -   Caminho de instalação para o Configuration Manager  
 
--   Nomes de instância do SQL Server  
+-   Nomes de instâncias do SQL Server  
 
--   O caminho para as seguintes funções de sistema de sites:  
+-   O caminho para as seguintes funções do sistema de sites:  
 
     -   Ponto de serviço Web do Catálogo de Aplicações  
 
@@ -105,7 +102,7 @@ System Center Configuration Manager cria a maior parte dos objetos utilizando ca
 
     -   A pasta que armazena os ficheiros de origem de instalação para a configuração do site  
 
-    -   A pasta que armazena o pré-requisito transferências para utilização pelo programa de configuração  
+    -   A pasta que armazena o pré-requisito transfere para utilização pela configuração  
 
 -   O caminho para os seguintes objetos:  
 
@@ -115,7 +112,7 @@ System Center Configuration Manager cria a maior parte dos objetos utilizando ca
 
     -   Nome de aplicação virtual  
 
--   Os seguintes objetos para AMT e de gestão fora de banda:  
+-   Os seguintes objetos de AMT e de gestão fora de banda:  
 
     -   O FQDN do computador baseado em AMT  
 
@@ -133,17 +130,16 @@ System Center Configuration Manager cria a maior parte dos objetos utilizando ca
 
     -   O conteúdo do armazenamento de dados AMT  
 
--   Nomes de ficheiro ISO do suporte de dados do arranque  
+-   Nomes de ficheiro ISO do suporte de arranque  
 
 ##  <a name="BKMK_OtherCharLimitations"></a>Limitações adicionais  
- Seguem-se limitações adicionais para conjuntos de carateres suportados e versões de idiomas:  
+ Seguem-se as limitações adicionais para conjuntos de carateres suportados e versões de idiomas:  
 
 -   O Configuration Manager não suporta a alteração do idioma do computador do servidor do site.  
 
--   Uma autoridade de certificação (AC) empresarial não suporta nomes de computadores cliente que utilizem conjuntos de carateres de byte duplo (DBCS). Os nomes de computador do cliente que podem ser utilizados são restringidos pela limitação PKI do conjunto de carateres IA5. Além disso, o Configuration Manager não suporta nomes de AC ou valores de nome de requerente que utilizem DBCS.  
+-   Uma autoridade de certificação (AC) empresarial não suporta nomes de computadores cliente que utilizam conjuntos de carateres de byte duplo (DBCS). Os nomes de computador cliente que podem ser utilizados são restringidos pela limitação PKI de carateres IA5. Além disso, o Configuration Manager não suporta nomes de AC ou valores de nome de requerente que utilizem DBCS.  
 
 ##  <a name="BKMK_LangNonLocalize"></a>Objetos do Configuration Manager que não estão localizados  
- A base de dados do Configuration Manager suporta Unicode para a maior parte dos objetos que armazena e, sempre que possível, apresenta estas informações no idioma do sistema operativo que corresponde à região de um computador. A interface de cliente ou a consola do Configuration Manager para apresentar informações no idioma do sistema operativo do computador, a região do computador tem de corresponder a um idioma de cliente ou servidor que instalar num site.  
+ A base de dados do Configuration Manager suporta Unicode para a maior parte dos objetos que armazena e, sempre que possível, apresenta estas informações no idioma do sistema operativo que corresponde à região de um computador. Para a interface do cliente ou a consola do Configuration Manager para apresentar informações no idioma do sistema operativo do computador, a região do computador deve corresponder a um idioma de cliente ou servidor que instalar num site.  
 
  No entanto, vários objetos do Configuration Manager não suportam Unicode e são armazenados na base de dados utilizando ASCII ou têm outras limitações de idioma. Estas informações são sempre apresentadas utilizando o conjunto de carateres ASCII ou no idioma que estava a ser utilizado quando o objeto foi criado.  
-

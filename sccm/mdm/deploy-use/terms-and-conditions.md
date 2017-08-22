@@ -1,33 +1,30 @@
 ---
-title: "Termos e condições no System Center Configuration Manager | Documentos do Microsoft"
-description: "Implemente os termos e condições em grupos de utilizadores no System Center Configuration Manager."
+title: "Termos e condições no System Center Configuration Manager | Microsoft Docs"
+description: "Implemente termos e condições para grupos de utilizadores no System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4d3f9e6b-4d71-4fc4-9b91-47f1bfbd8c70
-caps.latest.revision: 9
+caps.latest.revision: "9"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 3b1451edaed69a972551bd060293839aa11ec8b2
 ms.openlocfilehash: 20be68496099a67ad2d475067f073da2cef16c86
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Adicionar termos e condições com o System Center Configuration Manager
+# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Adicionar os termos e condições com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Pode implementar o System Center Configuration Manager termos e condições em grupos de utilizadores para explicar como inscrição do dispositivo, o acesso a recursos de trabalho e utilizar o Portal da empresa afetam os dispositivos e utilizadores. Os utilizadores têm de aceitar os termos e condições antes de poderem utilizar o Portal da Empresa para inscrever e aceder ao seu trabalho.  
+Pode implementar o System Center Configuration Manager termos e condições para grupos de utilizadores para explicar como a inscrição, o acesso a recursos de trabalho e a utilização do Portal da empresa afetam os dispositivos e utilizadores. Os utilizadores têm de aceitar os termos e condições antes de poderem utilizar o Portal da Empresa para inscrever e aceder ao seu trabalho.  
 
  ## <a name="working-with-terms-and-conditions-policies-in-system-center-configuration-manager"></a>Trabalhar com políticas de termos e condições no System Center Configuration Manager  
  Pode criar e implementar vários conjuntos de termos e condições. Pode também produzir versões dos mesmos termos e condições em idiomas diferentes e, em seguida, implementá-los nos grupos adequados.  
@@ -42,7 +39,7 @@ Pode implementar o System Center Configuration Manager termos e condições em g
 
     -   **Nome** -um nome exclusivo apresentado na consola do Configuration Manager  
 
-    -   **Descrição** - detalhes de que o ajudam a identifica os termos e condições na consola do Configuration Manager  
+    -   **Descrição** - detalhes que o ajudam a identificar os termos e condições na consola do Configuration Manager  
 
      Em seguida, clique em **Seguinte**.  
 
@@ -52,7 +49,7 @@ Pode implementar o System Center Configuration Manager termos e condições em g
 
     -   **Texto para os termos** - os termos e condições apresentados aos utilizadores no Portal da Empresa  
 
-    -   **Texto a explicar o que significa se o utilizador aceita** - marca os utilizadores que veem a aceitação. **Exemplo**: "Concordo os termos e condições."  
+    -   **Texto a explicar o que significa se o utilizador aceita** - marca os utilizadores que veem a aceitação. **Exemplo**: "Concordo com os termos e condições."  
 
      Em seguida, clique em **Seguinte**.  
 
@@ -73,7 +70,7 @@ Pode implementar o System Center Configuration Manager termos e condições em g
 
 ## <a name="to-monitor-terms-and-conditions"></a>Monitorizar termos e condições  
 
-1.  É possível monitorizar implementações de termos e condições na consola do Configuration Manager. Na consola do Configuration Manager, vá para **Monitorização** > **Descrição Geral** > **Implementações**.  
+1.  Pode monitorizar implementações de termos e condições na consola do Configuration Manager. Na consola do Configuration Manager, vá para **Monitorização** > **Descrição Geral** > **Implementações**.  
 
 2.  Selecione a implementação de termos e condições na lista de implementações.  
 
@@ -123,5 +120,4 @@ Pode implementar o System Center Configuration Manager termos e condições em g
      Recomendamos que aumente o número da versão e solicite a aceitação sempre que efetuar alterações significativas aos termos e condições. Mantenha o número da versão atual se, por exemplo, estiver a corrigir erros de digitação ou a alterar a formatação.
 
 > [!div class="button"]
-[< Passo anterior](configure-intune-subscription.md)[junto passo >  ](create-service-connection-point.md)
-
+[< Anterior passo](configure-intune-subscription.md)[passo seguinte >  ](create-service-connection-point.md)

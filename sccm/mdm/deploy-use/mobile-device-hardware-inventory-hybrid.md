@@ -1,38 +1,35 @@
 ---
-title: "Configurar o inventário de hardware | Documentos do Microsoft | dispositivos móveis"
-description: "Configure o inventário de hardware para dispositivos móveis inscritos pelo Microsoft Intune e System Center Configuration Manager."
+title: "Configurar o inventário de hardware | Microsoft Docs | dispositivos móveis"
+description: "Configure o inventário de hardware para dispositivos móveis inscritos pelo Microsoft Intune e o System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 78a0aecc-f775-451e-aa05-56377ec91b1f
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 199096db7a23fb14db98b95e75246ed254848ab7
 ms.openlocfilehash: 7ab9042a525e07b8e3107479cedeec6b99f7bc86
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Como configurar inventário de hardware para dispositivos móveis inscritos pelo Microsoft Intune e System Center Configuration Manager
+# <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Como configurar inventário de hardware para dispositivos móveis inscritos pelo Microsoft Intune e o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-No Configuration Manager, é possível recolher o inventário de hardware em iOS, Android e Windows dispositivos utilizando o conector do Microsoft Intune. Para obter informações sobre como configurar inventário de hardware, consulte o artigo [como expandir o inventário de hardware no System Center Configuration Manager](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+No Configuration Manager, é possível recolher o inventário de hardware em dispositivos iOS, Android e Windows dispositivos utilizando o conector do Microsoft Intune. Para obter informações sobre como configurar inventário de hardware, consulte [como expandir o inventário de hardware no System Center Configuration Manager](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
- Para obter informações sobre como inscrever dispositivos no Microsoft Intune, consulte o artigo [gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
+ Para obter informações sobre como inscrever dispositivos no Microsoft Intune, consulte [gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
 
 ## <a name="hardware-inventory-for-mobile-devices"></a>Inventário de hardware para dispositivos móveis  
- As tabelas seguintes listam as classes de inventário disponíveis para o inventário de hardware através de plataformas móveis frequentemente utilizadas.  
+ As tabelas seguintes listam as classes de inventário disponíveis para o inventário de hardware entre plataformas móveis comummente utilizadas.  
 
  **iOS**  
 
@@ -62,7 +59,7 @@ No Configuration Manager, é possível recolher o inventário de hardware em iOS
  **Android**  
 
 > [!NOTE]  
->  **NOTA:** Classes de inventário Android estão disponíveis quando utilizar a aplicação de Portal da empresa Android.  
+>  **NOTA:** Classes de inventário Android estão disponíveis ao utilizar a aplicação Portal da empresa Android.  
 
 |Classe de Inventário de Hardware|Android|  
 |------------------------------|-------------|  
@@ -87,7 +84,7 @@ No Configuration Manager, é possível recolher o inventário de hardware em iOS
 |Tecnologia de Rede Móvel|Device_ComputerSystem.CellularTechnology|  
 |MAC Wi-Fi|Device_WLAN.WiFiMAC|  
 
- **No Windows Phone 8/8.1**  
+ **Windows Phone 8/8.1**  
 
 |Classe de Inventário de Hardware|Windows Phone 8 e Windows Phone 8.1|  
 |------------------------------|-------------------------------------------|  
@@ -140,4 +137,3 @@ No Configuration Manager, é possível recolher o inventário de hardware em iOS
  <sup>1</sup> O número de telefone está oculto com * exceto os últimos 4 dígitos.  
 
  Para o inventário recolher o número de telefone, o dispositivo tem de ter um cartão SIM inserido e um número de telefone aprovisionado pela operadora a esse SIM.  
-

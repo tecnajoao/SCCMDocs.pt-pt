@@ -1,53 +1,50 @@
 ---
-title: "Cenário de exemplo - implementar clientes Windows Embedded | Documentos do Microsoft"
-description: "Ver um cenário de exemplo para implementação e gestão de clientes do System Center Configuration Manager em dispositivos Windows Embedded."
+title: "Cenário de exemplo - implementar clientes Windows Embedded | Microsoft Docs"
+description: "Ver um cenário de exemplo para implementar e gerir clientes do System Center Configuration Manager em dispositivos Windows Embedded."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 10049c89-b37c-472b-b317-ce4f56cd4be7
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
 ms.openlocfilehash: c535bc62497b5ff0b60ca266c28630d890af3604
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="example-scenario-for-deploying-and-managing-system-center-configuration-manager-clients-on-windows-embedded-devices"></a>Cenário de exemplo para implementação e gestão de clientes do System Center Configuration Manager em dispositivos Windows Embedded
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Este cenário demonstra como pode gerir com filtro escrita ativado Windows Embedded dispositivos com configuração Manager.If os dispositivos embedded não suportarem filtros de escrita, comportam-se como clientes padrão do Configuration Manager e não se aplicarem estes procedimentos.  
+Este cenário demonstra como pode gerir com filtro escrita ativado Windows Embedded dispositivos com Manager.If de configuração, os dispositivos embedded não suportarem filtros de escrita, comportam-se como clientes padrão do Configuration Manager e não aplicam estes procedimentos.  
 
-A empresa Caves Coho está a abrir um centro de visitantes e necessita de quiosques com o Windows Embedded para executar apresentações interativas. O edifício para o novo Centro de visitantes não está próximo do departamento de TI, pelo que os quiosques têm de ser geridos remotamente. Além do software que executa as apresentações, estes dispositivos têm de executar software de proteção antimalware atualizado para cumprir as políticas de segurança da empresa. Os quiosques têm de funcionar 7 dias por semana, sem períodos de indisponibilidade enquanto o Centro de visitantes estiver aberto.  
+A empresa Caves Coho está a abrir um centro de visitantes e tem de quiosques com o Windows Embedded para executar apresentações interativas. O edifício para o novo Centro de visitantes não está perto do departamento de TI, para que os quiosques têm de ser geridos remotamente. Para além do software que executa as apresentações, estes dispositivos têm de executar o software de proteção antimalware atualizado para estar em conformidade com as políticas de segurança da empresa. Os quiosques têm de funcionar 7 dias por semana, sem período de indisponibilidade enquanto o Centro de visitantes estiver aberto.  
 
- Adega já é executado o Configuration Manager para gerir dispositivos na sua rede. O Configuration Manager está configurado para executar o Endpoint Protection e instalar as atualizações de software e aplicações. No entanto, uma vez que a equipa de TI nunca geriu dispositivos Windows Embedded, a Joana, o administrador do Configuration Manager, executa um piloto para gerir dois quiosques, a Administradora.   
+ A empresa já é executado o Configuration Manager para gerir dispositivos na sua rede. O Configuration Manager está configurado para executar o Endpoint Protection e instalar atualizações de software e aplicações. No entanto, porque a equipa de TI não geriu dispositivos Windows Embedded, a Joana, o administrador do Configuration Manager, executa um piloto para gerir dois quiosques na sala de espera de receção.   
 
- Para gerir estes dispositivos Windows Embedded que com filtro escrita ativado, a Joana efetua os passos seguintes para instalar o cliente do Configuration Manager, proteger o cliente utilizando o Endpoint Protection e instalar o software de apresentação interativa.  
+ Para gerir estes dispositivos Windows Embedded que com filtro escrita ativado, a Joana efetua os seguintes passos para instalar o cliente do Configuration Manager, proteger o cliente utilizando o Endpoint Protection e instalar o software de apresentação interativa.  
 
-1.  A Joana lê como os dispositivos Windows Embedded utiliza filtros de escrita e como do Configuration Manager pode facilitar o processo desativando e automaticamente, em seguida, voltar a ativar o escritor filtros, para manter uma instalação de software.  
+1.  Leituras de Joana como dispositivos Windows Embedded que utiliza filtros de escrita e como do Configuration Manager pode facilitar automaticamente desativando e voltando a reativar o escritor filtros, para manter uma instalação de software.  
 
-     Para obter mais informações, consulte o artigo [planeamento de implementação de cliente em dispositivos Windows Embedded no System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
+     Para obter mais informações, consulte [planear a implementação do cliente em dispositivos Windows Embedded no System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
-2.  Antes de instalar o cliente do Configuration Manager, a Joana cria uma nova coleção de dispositivos baseada em consulta para os dispositivos Windows Embedded. Uma vez que a empresa utiliza formatos de nomenclatura padrão para identificar os computadores, a Joana consegue identificar exclusivamente dispositivos Windows Embedded pelas primeiras seis letras do nome do computador: **WEMDVC**. Ela utiliza a seguinte consulta WQL para criar esta coleção: **select SMS_R_System.NetbiosName from SMS_R_System where SMS_R_System.NetbiosName like "WEMDVC%"**  
+2.  Antes de instalar o cliente do Configuration Manager, a Joana cria uma nova coleção de dispositivos baseada em consulta para os dispositivos Windows Embedded. Uma vez que a empresa utiliza formatos de nomenclatura padrão para identificar os computadores, Joana consegue identificar exclusivamente os dispositivos Windows Embedded pelas primeiras seis letras do nome do computador: **WEMDVC**. Ela utiliza a seguinte consulta WQL para criar esta coleção: **select SMS_R_System.NetbiosName from SMS_R_System where SMS_R_System.NetbiosName like "WEMDVC%"**  
 
      Esta coleção permite-lhe gerir os dispositivos Windows Embedded com opções de configuração diferentes de outros dispositivos. A Joana utilizará esta coleção para controlar reinícios, implementar o Endpoint Protection com definições de cliente e implementar a aplicação de apresentação interativa.  
 
-     Consulte o artigo [como criar coleções no System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
+     Consulte [como criar coleções no System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
 
 3.  A Joana configura a coleção para uma janela de manutenção para assegurar que os reinícios que possam ser necessários para instalar a aplicação de apresentação e quaisquer atualizações não ocorrem durante as horas de abertura do centro de visitantes. As horas de abertura serão das 9:00 às 18:00, de segunda a domingo. A Joana configura a janela de manutenção diariamente, das 18:30 às 6:00.  
 
-4.  Para obter mais informações, consulte o artigo [como utilizar as janelas de manutenção no System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
+4.  Para obter mais informações, consulte [como utilizar janelas de manutenção no System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
 
 5.  Em seguida, a Joana configura uma definição de cliente personalizada do dispositivo para instalar o cliente do Endpoint Protection selecionando **Sim** nas definições seguintes e, depois, implementa esta definição de cliente personalizada na coleção de dispositivos Windows Embedded:  
 
@@ -57,34 +54,34 @@ A empresa Caves Coho está a abrir um centro de visitantes e necessita de quiosq
 
     -   **Permitir a instalação de cliente Endpoint Protection e reiniciar fora das janelas de manutenção**  
 
-     Quando o cliente do Configuration Manager está instalado, estas definições instalam o cliente do Endpoint Protection e asseguram que se torna persistente no sistema operativo como parte da instalação, em vez ser escrita apenas na sobreposição. As políticas de segurança da empresa exigem que esteja sempre instalado software antimalware e a Joana não quer correr o risco de os quiosques estarem desprotegidos, mesmo que por um breve período de tempo caso reiniciem.  
+     Quando o cliente do Configuration Manager está instalado, estas definições instalam o cliente Endpoint Protection e certifique-se de que se torna persistente no sistema operativo como parte da instalação, vez escrita apenas na sobreposição. As políticas de segurança da empresa exigem que esteja sempre instalado software antimalware e a Joana não quer correr o risco de os quiosques estarem desprotegidos, mesmo que por um breve período de tempo caso reiniciem.  
 
     > [!NOTE]  
-    >  Os reinícios necessários para instalar o cliente do Endpoint Protection ocorrem apenas uma vez, durante o período de configuração dos dispositivos e antes de o centro de visitantes estar operacional. Ao contrário da implementação periódica de aplicações e atualizações de definições de software, o da próxima vez que o cliente do Endpoint Protection está instalado no mesmo dispositivo será provavelmente quando a empresa atualizar para a próxima versão do Configuration Manager.  
+    >  Os reinícios necessários para instalar o cliente do Endpoint Protection ocorrem apenas uma vez, durante o período de configuração dos dispositivos e antes de o centro de visitantes estar operacional. Ao contrário da implementação periódica de aplicações ou atualizações de definições de software, o da próxima vez que o cliente do Endpoint Protection está instalado no mesmo dispositivo será, provavelmente, quando a empresa atualizar para a próxima versão do Configuration Manager.  
 
-     Para obter mais informações, consulte o artigo [configurar o Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md).  
+     Para obter mais informações, consulte [configurar o Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md).  
 
-6.  Com as definições de configuração do cliente agora no local, a Joana prepara para instalar clientes do Configuration Manager. Para poder instalar os clientes, a Joana tem de desativar manualmente o filtro de escrita nos dispositivos Windows Embedded. Lê a documentação do OEM que acompanha os quiosques e segue as instruções para desativar os filtros de escrita.  
+6.  Com as definições de configuração para o cliente implementadas, a Joana prepara-se para instalar clientes do Configuration Manager. Para poder instalar os clientes, a Joana tem de desativar manualmente o filtro de escrita nos dispositivos Windows Embedded. Lê a documentação do OEM que acompanha os quiosques e segue as instruções para desativar os filtros de escrita.  
 
-     A Joana muda o nome do dispositivo para utilizar o formato de nomenclatura padrão da empresa e, em seguida, instala o cliente manualmente executando CCMSetup com o seguinte comando a partir de uma unidade mapeada onde se encontram os ficheiros de origem de cliente: **CCMSetup.exe /MP:mpserver.cohovineyardandwinery.com SMSSITECODE = CO1**  
+     A Joana muda o nome do dispositivo para utilizar o formato de nomenclatura padrão da empresa e, em seguida, instala o cliente manualmente executando CCMSetup com o seguinte comando a partir de uma unidade mapeada cliente os ficheiros de origem: **CCMSetup.exe /MP:mpserver.cohovineyardandwinery.com SMSSITECODE = CO1**  
 
      Este comando instala o cliente, atribui o cliente ao ponto de gestão que tem o FQDN da Intranet de **mpserver.cohovineyardandwinery.com**e atribui o cliente ao site primário denominado **CO1**.  
 
      A Joana sabe que a instalação dos clientes e o envio do respetivo estado para o site demora sempre algum tempo. Por isso, aguarda para confirmar a instalação com êxito dos clientes, a sua atribuição ao site e a apresentação como clientes na coleção que criou para dispositivos Windows Embedded.  
 
-     Como confirmação adicional, a Joana verifica as propriedades do Configuration Manager no painel de controlo nos dispositivos e compara-as com computadores com Windows padrão que é gerido pelo site. Por exemplo, no separador **Componentes** , **Agente de Inventário de Hardware** apresenta **Ativado**e, no separador **Ações** , existem 11 ações disponíveis, que incluem **Ciclo de Avaliação da Aplicação de Implementação** e **Ciclo de coleção de dados de deteção**.  
+     Como confirmação adicional, a Joana verifica as propriedades do Configuration Manager no painel de controlo nos dispositivos e compara-as com computadores com Windows padrão geridos pelo site. Por exemplo, no separador **Componentes** , **Agente de Inventário de Hardware** apresenta **Ativado**e, no separador **Ações** , existem 11 ações disponíveis, que incluem **Ciclo de Avaliação da Aplicação de Implementação** e **Ciclo de coleção de dados de deteção**.  
 
      Confiante de que os clientes foram instalados, atribuídos e recebem com êxito políticas de cliente a partir do ponto de gestão, a Joana ativa manualmente os filtros de escrita seguindo as instruções do OEM.  
 
      Para obter mais informações, consulte:  
 
-    -   [Como implementar clientes em computadores com Windows no System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
+    -   [Como implementar clientes em computadores Windows no System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
 
     -   [Como atribuir clientes a um site no System Center Configuration Manager](../../../core/clients/deploy/assign-clients-to-a-site.md)  
 
-7.  Agora que o cliente do Configuration Manager está instalado nos dispositivos Windows Embedded, a Joana confirma se consegue geri-los da mesma forma que gere os clientes Windows padrão. Por exemplo, a partir da consola do Configuration Manager, a Joana pode geri-los remotamente utilizando o controlo remoto, a política de cliente iniciar para e como visualizar de inventário de hardware e as propriedades de cliente.  
+7.  Agora que o cliente do Configuration Manager está instalado nos dispositivos Windows Embedded, a Joana confirma se consegue geri-los da mesma forma que gere os clientes Windows padrão. Por exemplo, da consola do Configuration Manager, ela pode geri-las remotamente utilizando o controlo remoto, a política de cliente de iniciação para e como inventário de hardware e as propriedades de cliente de vista.  
 
-     Uma vez que estes dispositivos estão associados a um domínio do Active Directory, a Joana não tem de aprová-los manualmente como clientes fidedignos e confirma a partir da consola do Configuration Manager que estão aprovados.  
+     Dado que estes dispositivos estão associados a um domínio do Active Directory, a Joana não tem de aprová-los manualmente como clientes fidedignos e confirma a partir da consola do Configuration Manager que estão aprovados.  
 
      Para obter mais informações, veja [Como gerir clientes no System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
 
@@ -100,14 +97,14 @@ A empresa Caves Coho está a abrir um centro de visitantes e necessita de quiosq
 
      Estas definições incluem as seguintes na página **Experiência do Utilizador** do assistente:  
 
-    -   **Comportamento do prazo**: O **instalação de Software** caixa de verificação não estiver selecionada.  
+    -   **Comportamento do prazo**: O **instalação de Software** não estiver selecionada a caixa de verificação.  
 
-    -   **Para dispositivos Windows Embedded de processamento do filtro de escrita**: O **Confirmar alterações dentro do prazo ou durante uma janela de manutenção (requer reinicialização)** caixa de verificação não estiver selecionada.  
+    -   **Para dispositivos Windows Embedded de processamento do filtro de escrita**: O **Confirmar alterações dentro do prazo ou durante uma janela de manutenção (requer reinicialização)** não estiver selecionada a caixa de verificação.  
 
      A Joana mantém estas predefinições. Em conjunto, estas duas opções com esta configuração permitem a instalação de quaisquer definições de atualização de software para o Endpoint Protection na sobreposição durante o dia, sem aguardar para serem instaladas e consolidadas durante a janela de manutenção. Esta configuração cumpre melhor a política de segurança da empresa relativa à execução de proteção antimalware atualizada nos computadores.  
 
     > [!NOTE]  
-    >  Ao contrário das instalações de software para aplicações, as definições de atualização de software para o Endpoint Protection podem ocorrer com muita frequência, inclusivamente várias vezes por dia. São frequentemente ficheiros pequenos. Para estes tipos de implementações relacionadas com segurança, geralmente é vantajoso instalar sempre na sobreposição em vez de aguardar até à janela de manutenção. O cliente do Configuration Manager irá rapidamente novamente instalar as atualizações de definições de software se o dispositivo for reiniciado, porque esta ação inicia uma verificação de avaliação e não têm de aguardar até a próxima agendada avaliação.  
+    >  Ao contrário das instalações de software para aplicações, as definições de atualização de software para o Endpoint Protection podem ocorrer com muita frequência, inclusivamente várias vezes por dia. São frequentemente ficheiros pequenos. Para estes tipos de implementações relacionadas com segurança, geralmente é vantajoso instalar sempre na sobreposição em vez de aguardar até à janela de manutenção. O cliente do Configuration Manager reinstalará rapidamente as atualizações de definições de software se o dispositivo reiniciar porque esta ação inicia uma verificação de avaliação e não aguarda até à avaliação agendada seguinte.  
 
      A Joana seleciona a coleção de dispositivos Windows Embedded para a regra de implementação automática.  
 
@@ -168,7 +165,7 @@ A empresa Caves Coho está a abrir um centro de visitantes e necessita de quiosq
 
 13. A Joana monitoriza os quiosques e reporta a gestão bem-sucedida dos mesmos ao seu diretor. Dado o êxito, são encomendados 20 quiosques para o centro de visitantes.  
 
-     Para evitar a instalação manual do cliente do Configuration Manager, que requer a desativação manualmente e, em seguida, ativar os filtros de escrita, a Joana certifica-se a encomenda inclui uma imagem personalizada que já integra a instalação e atribuição de site do cliente do Configuration Manager. Além disso, o nome dos dispositivos é atribuído de acordo com o formato de nomenclatura da empresa.  
+     Para evitar a instalação manual do cliente do Configuration Manager, o que necessita de desativando manualmente e, em seguida, reativar os filtros de escrita, a Joana garante que a encomenda inclui uma imagem personalizada que já inclua a instalação e atribuição de site do cliente do Configuration Manager. Além disso, o nome dos dispositivos é atribuído de acordo com o formato de nomenclatura da empresa.  
 
      Os quiosques são entregues para o centro de visitantes uma semana antes da respetiva abertura. Durante este período, os quiosques são ligados à rede, toda a gestão de dispositivos é automática e não é necessário um administrador local. A Joana confirma que os quiosques estão a funcionar conforme necessário:  
 
@@ -181,4 +178,3 @@ A empresa Caves Coho está a abrir um centro de visitantes e necessita de quiosq
     -   O software de apresentação interativa está instalado e é executado automaticamente (está preparado para os visitantes).  
 
 14. Após esta configuração inicial, quaisquer reinícios que possam ser necessários para atualizações só ocorrerão quando o centro de visitantes estiver fechado.  
-

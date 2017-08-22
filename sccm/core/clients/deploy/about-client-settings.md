@@ -6,22 +6,20 @@ ms.date: 08/01/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7560876-8084-4570-aeab-7fd44f4ba737
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
 ms.openlocfilehash: a8233c361e1a78b14a02f328da445814624e38d8
-ms.contentlocale: pt-pt
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Sobre as definições de cliente no System Center Configuration Manager
 
@@ -345,9 +343,9 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
 
      Para um ficheiro MIF possa ser recolhido pelo inventário de hardware, é necessário no local correto no computador cliente. Por predefinição, os ficheiros estão localizados da seguinte forma:  
 
-    -   Ficheiros IDMIF devem estar na pasta windows\system32\ccm\inventory\idmif..  
+    -   Ficheiros IDMIF devem estar na pasta windows\system32\ccm\inventory\idmif.  
 
-    -   Os ficheiros NOIDMIF devem estar na pasta windows\system32\ccm\inventory\noidmif..  
+    -   Os ficheiros NOIDMIF devem estar na pasta windows\system32\ccm\inventory\noidmif.  
 
     > [!NOTE]  
     >  Esta definição está disponível apenas nas predefinições do cliente.
@@ -669,4 +667,3 @@ Permite o elemento de cache para clientes do Configuration Manager. Em seguida, 
 -   **Permitir ao utilizador a definição dos seus dispositivos primários**  
 
      Especifique se os utilizadores estão autorizados a identificar os seus próprios dispositivos primários no **os meus dispositivos** separador do catálogo de aplicações.  
-

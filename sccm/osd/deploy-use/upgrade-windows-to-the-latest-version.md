@@ -6,26 +6,23 @@ ms.date: 02/06/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c21eec87-ad1c-4465-8e45-5feb60b92707
-caps.latest.revision: 13
+caps.latest.revision: "13"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 1035dbbf944a3a467d637a4a948a75b0946eb711
 ms.openlocfilehash: 026d61113a918e43ac4395ef092b1931f33f16d3
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# Atualizar o Windows para a versão mais recente com o System Center Configuration Manager
-<a id="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager" class="xliff"></a>
+# <a name="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager"></a>Atualizar o Windows para a versão mais recente com o System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Este tópico fornece os passos no System Center Configuration Manager, para atualizar um sistema operativo num computador do Windows 7 ou posterior para o Windows 10 ou do Windows Server 2012 para o Windows Server 2016, num computador de destino. Pode escolher de entre vários métodos de implementação diferentes, como um suporte de dados autónomo ou o Centro de Software. O cenário de atualização no local:  
 
@@ -87,10 +84,8 @@ Este tópico fornece os passos no System Center Configuration Manager, para atua
 
     -   [Utilizar um suporte de dados autónomo para implementar o Windows sem utilizar a rede](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
 
-## Monitor
-<a id="monitor" class="xliff"></a>  
+## <a name="monitor"></a>Monitor  
 
 -   **Monitorizar a implementação da sequência de tarefas**  
 
      Para monitorizar a implementação de sequência de tarefas para atualizar o sistema operativo, consulte [monitorizar implementações do sistema operativo](monitor-operating-system-deployments.md).  
-

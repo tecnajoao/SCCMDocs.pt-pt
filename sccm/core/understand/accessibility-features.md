@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1cb96666-98bf-49a9-85ca-dbb53f0655e9
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: ca518796477dda149a9f4c0ebd65f0a082eab806
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="accessibility-features-in-system-center-configuration-manager"></a>Funcionalidades de acessibilidade no System Center Configuration Manager
 
@@ -134,4 +132,3 @@ System Center Configuration Manager inclui funcionalidades para o ajudar a torn�
 
     > [!NOTE]  
     >  Se alterar o tipo de letra dos tópicos de ajuda na janela da ajuda, a alteração afetará também o tipo de letra das páginas Web no Windows Internet Explorer.  
-

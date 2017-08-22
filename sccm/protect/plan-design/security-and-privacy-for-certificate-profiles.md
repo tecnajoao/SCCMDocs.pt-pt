@@ -1,28 +1,25 @@
 ---
-title: "Certificado de segurança do perfil e privacidade | Documentos do Microsoft"
-description: "Saiba mais sobre a segurança melhores práticas para gerir perfis de certificado para utilizadores e dispositivos no System Center Configuration Manager."
+title: "Privacidade e segurança do perfil de certificado | Microsoft Docs"
+description: "Saiba mais sobre a segurança melhores práticas para gerir perfis de certificados para utilizadores e dispositivos no System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/28/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3393db41-900a-44c5-b950-2d46a35a198c
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 8a5dc7361da34f3e6b926acd35c72c0c0767ce70
 ms.openlocfilehash: c51787ad3fa0bdb285017cfab1ca6931afba9ea6
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="security-and-privacy-for-certificate-profiles-in-system-center-configuration-manager"></a>Segurança e privacidade para perfis de certificado no System Center Configuration Manager
 
@@ -42,7 +39,7 @@ ms.lasthandoff: 05/17/2017
 ## <a name="privacy-information-for-certificate-profiles"></a>Informações de Privacidade para Perfis de Certificado  
  Poderá utilizar perfis de certificado para implementar certificados de autoridade de certificação (AC) de raiz e de cliente, avaliando em seguida se esses dispositivos ficam em conformidade após a aplicação dos perfis. O ponto de gestão envia as informações de compatibilidade para o servidor de site e o System Center Configuration Manager armazena essas informações na base de dados do site. As informações de conformidade incluem propriedades de certificado, tais como o nome do requerente e o thumbprint. As informações são encriptadas quando os dispositivos as enviam para o ponto de gestão, mas não são armazenadas em formato encriptado na base de dados do site. A base de dados mantém as informações até que a tarefa de manutenção do site **Eliminar Dados de Gestão de Configuração Desatualizados** as elimine, após o intervalo predefinido de 90 dias. Pode configurar o intervalo de eliminação. As informações de conformidade não são enviadas à Microsoft.  
 
- Perfis de certificado utilizam informações que o Configuration Manager recolhe através da deteção. Para mais informações sobre as informações de privacidade para deteção, veja a secção **Informações de Privacidade para Deteção** em [Segurança e privacidade para o System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
+ Perfis de certificado utilizam as informações que o Configuration Manager recolhe através da deteção. Para mais informações sobre as informações de privacidade para deteção, veja a secção **Informações de Privacidade para Deteção** em [Segurança e privacidade para o System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
 
 > [!NOTE]  
 >  Os certificados emitidos para utilizadores ou dispositivos poderão permitir o acesso a informações confidenciais.  
@@ -50,4 +47,3 @@ ms.lasthandoff: 05/17/2017
  Por predefinição, os dispositivos não avaliam os perfis de certificado. Além disso, terá de configurar os perfis de certificado e implementá-los para os utilizadores ou dispositivos.  
 
  Antes de configurar os perfis de certificado, considere os requisitos de privacidade.  
-

@@ -6,22 +6,20 @@ ms.date: 03/26/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 02bc6bd4-ca53-4e22-8b80-d8ee5fe72567
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
 ms.openlocfilehash: 32b24b3637dfafe401ea1d9f51b3769aa749f544
-ms.contentlocale: pt-pt
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="task-sequence-built-in-variables-in-system-center-configuration-manager"></a>Variáveis incorporadas de sequência de tarefas no System Center Configuration Manager
 
@@ -102,4 +100,3 @@ ms.lasthandoff: 08/03/2017
 |SMSTSSoftwareUpdateScanTimeout| Dá-lhe a capacidade de controlar o tempo limite para a análise de atualizações de software durante o passo [Instalar Atualizações de Software](task-sequence-steps.md#BKMK_InstallSoftwareUpdates) da sequência de tarefas. Por exemplo, poderá aumentar o valor predefinido se tiver muitas atualizações de software para instalar. O valor predefinido é 30 minutos. |
 |SMSTSUDAUsers|Especifica o utilizador primário do computador de destino. Especifique os utilizadores, utilizando o seguinte formato. Separe múltiplos utilizadores com uma vírgula (,).<br /><br /> Exemplo:<br /><br /> **domínio\utilizador1, domínio\utilizador2, domínio\utilizador3**<br /><br /> Para obter mais informações sobre como associar utilizadores ao computador de destino, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).|  
 |SMSTSWaitForSecondReboot|A partir do Configuration Manager versão 1602, esta variável de sequência de tarefas opcionais está disponível para ajudar a controlar o comportamento do cliente, quando uma instalação de atualização de software necessita de dois reinicializações. Esta variável tem de ser definida antes do passo [Instalar Atualizações de Software](task-sequence-steps.md#BKMK_InstallSoftwareUpdates) para impedir que uma sequência de tarefas falhe devido a um segundo reinício da instalação da atualização de software.<br /><br /> Defina o valor de SMSTSWaitForSecondReboot em segundos para especificar durante quanto tempo a sequência de tarefas é interrompida durante o passo Instalar Atualizações de Software quando o computador é reiniciado para permitir tempo suficiente no caso de uma segunda reinicialização. <br />Por exemplo, se definir SMSTSWaitForSecondReboot para 600, a sequência de tarefas é interrompida durante 10 minutos após um reinício antes da execução dos passos da sequência de tarefa adicional. Isto é útil quando centenas de atualizações de software estão instaladas num único passo de sequência de tarefas Instalar Atualizações de Software.|  
-

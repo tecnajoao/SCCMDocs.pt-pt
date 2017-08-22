@@ -2,25 +2,23 @@
 title: "Pré-visualização técnica para o Configuration Manager | Microsoft Docs"
 description: "Saiba mais sobre a versão de pré-visualização técnica que permite-lhe test-drive novas funcionalidades e capacidades no System Center Configuration Manager."
 ms.custom: na
-ms.date: 07/31/2017
+ms.date: 08/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9ce0a8cb-f96c-4e41-834c-59ceb54ce44a
-caps.latest.revision: 157
+caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 6d7bac392cf5a4ba01b25758fd91f1003b153589
+ms.sourcegitcommit: 398e30ec703218c4b3680bbb055d686807ca7f1d
 ms.translationtype: MT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
-ms.openlocfilehash: 9f814fc2902cef116f6b1e476af5d4cbdfc4e217
-ms.contentlocale: pt-pt
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview do System Center Configuration Manager
 
@@ -139,7 +137,8 @@ Pode instalar uma versão de linha de até 1 ano após a respetiva versão. No e
  |Suporte de arranque de rede do PXE para IPv6 |[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|![Não foi adicionada](media/Red_X.gif)|
  |Gerir atualizações de controladores Microsoft Surface |[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#manage-microsoft-surface-driver-updates)|[Versão 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#manage-microsoft-surface-driver-updates)|
  |Configurar o Windows Update para as políticas de diferimento por de negócio |[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#configure-windows-update-for-business-deferral-policies)|[Versão 1706](/sccm/sum/deploy-use/integrate-windows-update-for-business-windows-10#configure-windows-update-for-business-deferral-policies)|
- |Restrições de inscrição do Android e iOS|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#android-and-ios-enrollment-restrictions)|![Não foi adicionada](media/Red_X.gif)|
+ |Restrições de inscrição de iOS|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#android-and-ios-enrollment-restrictions)|[Versão 1706](/sccm/mdm/deploy-use/enroll-hybrid-ios-mac#configure-enrollment-restrictions)|
+ |Restrições de inscrição de dispositivos Android|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#android-and-ios-enrollment-restrictions)|[Versão 1706](/sccm/mdm/deploy-use/enroll-hybrid-android#enable-android-enrollment)|
  |Android para a política de gestão de aplicações de trabalho para copiar-colar|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#android-for-work-application-management-policy-for-copy-paste)|[Versão 1706](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client#android-for-work-configuration-item-settings-reference)|
  |Novas definições de item de configuração do Windows|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#new-windows-configuration-item-settings)|[Versão 1706](/sccm/mdm/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client)|
  |Novas regras de política de conformidade de dispositivo|[Pré-visualização do técnico 1706](capabilities-in-technical-preview-1706.md#new-device-compliance-policy-rules)|![Não foi adicionada](media/Red_X.gif)|
@@ -181,7 +180,7 @@ Pode instalar uma versão de linha de até 1 ano após a respetiva versão. No e
  |Melhoramentos de grupos de limites para o software de pontos de atualização | [Pré-visualização do técnico 1701](capabilities-in-technical-preview-1701.md#boundary-groups-improvements-for-software-update-points)    |[Versão 1702](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points)  |
  |Inventário de hardware recolhe informações de UEFI | [Pré-visualização do técnico 1701](capabilities-in-technical-preview-1701.md#hardware-inventory-collects-uefi-information)|[Versão 1702](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#hardware-inventory-collects-uefi-information) |
  |Melhorias para implementação do sistema operativo| [Pré-visualização do técnico 1701](capabilities-in-technical-preview-1701.md#improvements-to-operating-system-deployment)|[Versão 1702](/sccm/core/plan-design/changes/whats-new-in-version-1702#operating-system-deployment) |
- |Atualizações de software de anfitrião em pontos de distribuição baseado na nuvem| [Pré-visualização do técnico 1701](capabilities-in-technical-preview-1701.md#host-software-updates-on-cloud-based-distribution-points)|![Não foi adicionada](media/Red_X.gif) |
+ |Atualizações de software de anfitrião em pontos de distribuição baseado na nuvem| [Pré-visualização do técnico 1701](capabilities-in-technical-preview-1701.md#host-software-updates-on-cloud-based-distribution-points)|[Versão 1702](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#plan-to-use-a-cloud-based-distribution-point) |
  |Validar os dados de atestado de estado de funcionamento de dispositivos através de pontos de gestão| [Pré-visualização do técnico 1701](capabilities-in-technical-preview-1701.md#validate-device-health-attestation-data-via-management-points)| [Versão 1702](/sccm/core/servers/manage/health-attestation) |
  |Conector do OMS para a nuvem do Microsoft Azure Government |[Pré-visualização do técnico 1701](capabilities-in-technical-preview-1701.md#use-the-oms-connector-for-microsoft-azure-government-cloud) |[Versão 1702](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#fairfaxconfig) |
  |Android e iOS versões deixam de ser targetable em assistentes de criação |[Pré-visualização do técnico 1701](capabilities-in-technical-preview-1701.md#android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm) |![Não foi adicionada](media/Red_X.gif) |
@@ -265,4 +264,3 @@ Pode instalar uma versão de linha de até 1 ano após a respetiva versão. No e
 ## <a name="see-also"></a>Consulte Também  
 [Quais são as novidades no System Center Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions)  
  [Introdução ao System Center Configuration Manager](../../core/understand/introduction.md)
-

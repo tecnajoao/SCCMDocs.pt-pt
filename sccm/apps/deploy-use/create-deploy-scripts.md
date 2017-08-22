@@ -2,28 +2,25 @@
 title: Criar e executar scripts com o Configuration Manager | Microsoft Docs
 description: Criar e executar scripts nos dispositivos cliente com o Configuration Manager.
 ms.custom: na
-ms.date: 08/01/2017
+ms.date: 08/09/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
-caps.latest.revision: 14
-caps.handback.revision: 0
+caps.latest.revision: "14"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
+ms.openlocfilehash: ed84f7900eee5c04728d0e4d1b46027c36327bec
+ms.sourcegitcommit: b41d3e5c7f0c87f9af29e02de3e6cc9301eeafc4
 ms.translationtype: MT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
-ms.openlocfilehash: 4dcda88d4e91347f6da97e8da04c38f9e65e07bc
-ms.contentlocale: pt-pt
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/11/2017
 ---
-
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell a partir da consola do Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -61,7 +58,6 @@ Por predefinição, os utilizadores não podem aprovar um script que tenham cria
 2. Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Sites**.
 3. Na lista de sites, selecione o site e, em seguida, no **home page** separador o **Sites** , clique em **definições de hierarquia**.
 4. No **geral** separador do **propriedades de definições de hierarquia** diálogo caixa, desmarque a caixa de verificação **não permitir autores de script aprovar os seus próprios scripts**.
-Sites
 
 ## <a name="import-and-edit-a-script"></a>Importar e editar um script
 
@@ -120,4 +116,3 @@ Depois de executar um script em dispositivos cliente, utilize este procedimento 
 1. Na consola do Configuration Manager, clique em **monitorização**.
 2. No **monitorização** área de trabalho, clique em **Script estado**.
 3. No **Script estado** lista, poderá ver os resultados para cada script executado nos dispositivos cliente. Um código de saída do script de **0** normalmente indica que o script é executado com êxito.
-

@@ -1,36 +1,33 @@
 ---
-title: Personalizar imagens de arranque - Configuration Manager | Documentos do Microsoft
-description: "Veja várias formas de utilizar a ferramenta da linha de comandos do Configuration Manager ou atualização de imagens de implementação e gestão (DISM) para personalizar uma imagem de arranque."
+title: Personalizar imagens de arranque - Configuration Manager | Microsoft Docs
+description: "Saiba várias formas de utilizar a ferramenta de linha de comandos do Configuration Manager ou Deployment Image Servicing and Management (DISM) para personalizar uma imagem de arranque."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9cbfc406-d009-446d-8fee-4938de48c919
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: ab2ecb64c9c80b4effed79ba08769c99473db0c4
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="customize-boot-images-with-system-center-configuration-manager"></a>Personalizar imagens de arranque com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Cada versão do Configuration Manager suporta uma versão específica do Windows Assessment and Deployment Kit (Windows ADK). Pode do serviço, ou personalizar, imagens de arranque a partir da consola do Configuration Manager quando são baseadas numa versão do Windows PE da versão suportada do Windows ADK. Outras imagens de arranque devem ser personalizadas através de outro método, como a ferramenta de linha de comandos Gestão e Atualização de Imagens de Implementação (DISM) que faz parte do Windows AIK e do Windows ADK.  
+Cada versão do Configuration Manager suporta uma versão específica do Windows Assessment and Deployment Kit (Windows ADK). Pode atualizar ou personalizar, imagens de arranque a partir da consola do Configuration Manager quando são baseadas numa versão do Windows PE da versão suportada do Windows ADK. Outras imagens de arranque devem ser personalizadas através de outro método, como a ferramenta de linha de comandos Gestão e Atualização de Imagens de Implementação (DISM) que faz parte do Windows AIK e do Windows ADK.  
 
- O seguinte procedimento fornece da versão suportada do Windows ADK, a versão do Windows PE nas quais se baseia a imagem de arranque que pode ser personalizada a partir da consola do Configuration Manager e as versões do Windows PE na qual se baseia a imagem de arranque que pode personalizar com o DISM e, em seguida, adicionar a imagem para o Configuration Manager.  
+ O seguinte fornece a versão suportada do Windows ADK, a versão do Windows PE nas quais se baseia a imagem de arranque que pode ser personalizada a partir da consola do Configuration Manager e as versões do Windows PE na qual se baseia a imagem de arranque que pode personalizar com o DISM e depois adicione a imagem para o Configuration Manager.  
 
 -   **Versão do Windows ADK**  
 
@@ -40,41 +37,41 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
      Windows PE 10  
 
--   **Versões do Windows PE para imagens de arranque não podem ser personalizadas a partir da consola do Configuration Manager**  
+-   **Versões do Windows PE para imagens de arranque não podem ser personalizadas na consola do Configuration Manager**  
 
      Windows PE 3.1<sup>1</sup> e Windows PE 5  
 
-     <sup>1</sup> só pode adicionar uma imagem de arranque no Configuration Manager quando se baseia no Windows PE 3.1. Instale o Suplemento do Windows AIK para o Windows 7 SP1 para atualizar o Windows AIK para o Windows 7 (baseado no Windows PE 3) com o Suplemento do Windows AIK para Windows 7 SP1 (baseado no Windows PE 3.1). Poderá transferir o Suplemento do Windows AIK para Windows 7 SP1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> só é possível adicionar uma imagem de arranque para o Configuration Manager quando se baseia no Windows PE 3.1. Instale o Suplemento do Windows AIK para o Windows 7 SP1 para atualizar o Windows AIK para o Windows 7 (baseado no Windows PE 3) com o Suplemento do Windows AIK para Windows 7 SP1 (baseado no Windows PE 3.1). Poderá transferir o Suplemento do Windows AIK para Windows 7 SP1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Por exemplo, quando tiver do Configuration Manager, pode personalizar imagens de arranque a partir do Windows ADK para Windows 10 (baseado no Windows PE 10) a partir da consola do Configuration Manager. No entanto, embora as imagens de arranque baseadas no Windows PE 5 sejam suportadas, tem de personalizá-las a partir de um computador diferente e utilizar a versão do DISM que é instalada com o Windows ADK para Windows 8. Em seguida, pode adicionar a imagem de arranque à consola do Configuration Manager.  
+     Por exemplo, quando tiver do Configuration Manager, pode personalizar imagens de arranque do Windows ADK para Windows 10 (baseado no Windows PE 10) na consola do Configuration Manager. No entanto, embora as imagens de arranque baseadas no Windows PE 5 sejam suportadas, tem de personalizá-las a partir de um computador diferente e utilizar a versão do DISM que é instalada com o Windows ADK para Windows 8. Em seguida, pode adicionar a imagem de arranque à consola do Configuration Manager.  
 
- Os procedimentos deste tópico demonstram como adicionar os componentes opcionais exigidos pelo Configuration Manager à imagem de arranque, utilizando os seguintes pacotes do Windows PE:  
+ Os procedimentos deste tópico demonstram como adicionar os componentes opcionais exigidos pelo Configuration Manager para a imagem de arranque, utilizando os seguintes pacotes do Windows PE:  
 
--   **WinPE WMI**: Adiciona suporte de Windows Management Instrumentation (WMI).  
+-   **WinPE-WMI**: Adiciona suporte de Windows Management Instrumentation (WMI).  
 
--   **Processamento de scripts de WinPE**: Adiciona suporte de Script anfitrião para WSH (Windows).  
+-   **WinPE-Scripting**: Adiciona suporte de Script anfitrião para WSH (Windows).  
 
--   **Ferramentas de WDS WinPE**: Instala as ferramentas dos serviços de implementação do Windows.  
+-   **WinPE-WDS-Tools**: Instala ferramentas dos serviços de implementação do Windows.  
 
  Existem outros pacotes do Windows PE disponíveis que pode adicionar. Os recursos seguintes fornecem mais informações sobre os componentes opcionais que pode adicionar à imagem de arranque.  
 
--   Para o Windows PE 5, consulte o artigo [WinPE: Adicionar pacotes (referência de componentes opcionais)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
+-   Para o Windows PE 5, consulte [WinPE: Adicionar pacotes (referência de componentes opcionais)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
 
 -   Para o Windows PE 3.1, veja o tópico [Adicionar um Pacote a uma Imagem do Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) na Biblioteca de Documentação do TechNet relativa ao Windows 7.  
 
 > [!NOTE]
->Quando executar o arranque do WinPE a partir de uma imagem de arranque personalizado que inclua ferramentas que adicionou, pode abrir uma linha de comandos a partir do WinPE e escrever o nome do ficheiro da ferramenta para executá-lo. A localização destas ferramentas são automaticamente adicionados à variável path. Só pode ser adicionada a linha de comandos, se o **ativar suporte de comando (apenas teste)** definição está selecionada no **personalização** separador nas propriedades de imagem de arranque.
+>Quando executar o arranque do WinPE a partir de uma imagem de arranque personalizado que inclua ferramentas que adicionou, pode abrir uma linha de comandos a partir do WinPE e escrever o nome do ficheiro da ferramenta para executá-lo. A localização destas ferramentas são automaticamente adicionados à variável de caminho. Só é possível adicionar a linha de comandos se o **ativar suporte de comando (apenas teste)** definição está selecionada no **personalização** separador nas propriedades da imagem de arranque.
 
 ## <a name="customize-a-boot-image-that-uses-windows-pe-5"></a>Personalizar uma imagem de arranque que utiliza o Windows PE 5  
  Para personalizar uma imagem de arranque que utiliza o Windows PE 5, é necessário instalar o Windows ADK e utilizar a ferramenta de linha de comandos DISM para montar a imagem de arranque, adicionar componentes e controladores adicionais e consolidar as alterações da imagem de arranque. Utilize o procedimento seguinte para personalizar a imagem de arranque.  
 
 #### <a name="to-customize-a-boot-image-that-uses-windows-pe-5"></a>Para personalizar uma imagem de arranque que utiliza o Windows PE 5  
 
-1.  Instale o Windows ADK num computador que não tenha outra versão do Windows AIK ou Windows ADK, e não tem quaisquer componentes do Configuration Manager instalado.  
+1.  Instalar o Windows ADK num computador que não tenha outra versão do Windows AIK ou Windows ADK, e não tem quaisquer componentes do Configuration Manager instalado.  
 
 2.  Transfira o Windows ADK para Windows 8.1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=39982).  
 
-3.  Copie a imagem de arranque (wimpe) da pasta de instalação Windows ADK (por exemplo, <*caminho de instalação*> \Windows Kits\\<*versão*> \Assessment e implementação Kit\Windows Preinstallation ambiente\\<*x86 ou amd64*>\\<*região*>) para uma pasta de destino no computador a partir do qual irá personalizar a imagem de arranque. Este procedimento utiliza C:\WinPEWAIK como o nome da pasta de destino.  
+3.  Copie a imagem de arranque (wimpe.wim) da pasta de instalação Windows ADK (por exemplo, <*caminho de instalação*> \Windows Kits\\<*versão*> \Assessment e implementação Kit\Windows Preinstallation ambiente\\<*x86 ou amd64*>\\<*região*>) para uma pasta de destino no computador a partir do qual irá personalizar a imagem de arranque. Este procedimento utiliza C:\WinPEWAIK como o nome da pasta de destino.  
 
 4.  Utilize o DISM para montar a imagem de arranque numa pasta local do Windows PE. Por exemplo, escreva a seguinte linha de comandos:  
 
@@ -88,17 +85,17 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 5.  Depois de montar a imagem de arranque, utilize o DISM para adicionar componentes opcionais à imagem de arranque. No Windows PE 5, os componentes opcionais de 64 bits estão localizados em <*Caminho de instalação*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs.  
 
     > [!NOTE]
-    >  Este procedimento utiliza a seguinte localização para os componentes opcionais: C:\Programas\Microsoft ficheiros (x86) \Windows Kits\8.1\Assessment and Deployment Kit\Windows pré-instalação environment\amd64\winpe_ocs. O caminho utilizado pode ser diferente, dependendo da versão e das opções de instalação que escolher para o Windows ADK.  
+    >  Este procedimento utiliza a seguinte localização para os componentes opcionais: C:\Programas\Microsoft ficheiros (x86) kits\8.1\assessment and Deployment Kit\Windows perguntas de environment\amd64\winpe_ocs. pré-instalação. O caminho utilizado pode ser diferente, dependendo da versão e das opções de instalação que escolher para o Windows ADK.  
 
      Escreva o seguinte para instalar os componentes opcionais:  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) \Windows Kits\8.1\Assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) \Windows Kits\8.1\Assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-scripting.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-scripting.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) \Windows Kits\8.1\Assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wds-tools.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wds-tools.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) \Windows Kits\8.1\Assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab"**  
 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-SecureStartup_** *<locale\>* **.cab"**  
 
@@ -110,13 +107,13 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
      Em que C:\WinPEMount é a pasta montada e região é a região dos componentes. Por exemplo, para a região **en-us**, teria de escrever:  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) \Windows Kits\8.1\Assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-SecureStartup_en-us.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-SecureStartup_en-us.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) \Windows Kits\8.1\Assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) \Windows Kits\8.1\Assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-Scripting_en-us.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-Scripting_en-us.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Program Files (x86) \Windows Kits\8.1\Assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WDS-Tools_en-us.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WDS-Tools_en-us.cab"**  
 
     > [!TIP]
     >  Para obter mais informações sobre os componentes opcionais que pode adicionar à imagem de arranque, veja o tópico [Referência dos Componentes Opcionais do Windows PE](http://technet.microsoft.com/library/hh824926.aspx) na Biblioteca de Documentação do TechNet relativa ao Windows 8.1 e ao Windows 8.  
@@ -133,7 +130,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
      Em que C:\WinPEMount é a pasta montada.  
 
-8.  Adicione a imagem de arranque atualizada para o Configuration Manager para o tornar disponível para utilizar nas suas sequências de tarefas. Utilize os passos seguintes para importar a imagem de arranque atualizada:  
+8.  Adicione a imagem de arranque atualizada para o Configuration Manager para poder ser utilizada nas sequências de tarefas. Utilize os passos seguintes para importar a imagem de arranque atualizada:  
 
     1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
@@ -143,7 +140,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Na página **Origem de Dados**, especifique as seguintes opções e clique em **Seguinte**.  
 
-        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. For example:  **\\\\<***servername***>\\<***WinPEWAIK share***>\winpe.wim**.  
+        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo:  **\\ \\ <**  *servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
 
         -   Selecione a imagem de arranque na lista pendente **Imagem de Arranque**. Se o ficheiro WIM contiver várias imagens de arranque, será listada cada imagem.  
 
@@ -167,7 +164,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Numa linha de comandos, escreva **wbemtest** para abrir o Recurso de Teste do Windows Management Instrumentation.  
 
-    5.  Type **\\\\<***SMS Provider Computer***>\root\sms\site_<***sitecode***>** in **Namespace**, and then click **Connect**.  
+    5.  Tipo  **\\ \\ <**  *computador do fornecedor de SMS***> \root\sms\site_ <***sitecode*  **>**  no **espaço de nomes**e, em seguida, clique em **Connect**.  
 
     6.  Clique em **Abrir Instância**, escreva **sms_bootimagepackage.packageID="<packageID\>"** e, em seguida, clique em **OK**. Para packageID, introduza o valor que identificou no passo 3.  
 
@@ -192,7 +189,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
 #### <a name="to-customize-a-boot-image-that-uses-windows-pe-31"></a>Para personalizar uma imagem de arranque que utiliza o Windows PE 3.1  
 
-1.  Instale o Windows AIK num computador que não tenha outra versão do Windows AIK ou Windows ADK, e não tem quaisquer componentes do Configuration Manager instalado. Transfira o Windows AIK a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5753).  
+1.  Instalar o Windows AIK num computador que não tenha outra versão do Windows AIK ou Windows ADK, e não tem quaisquer componentes do Configuration Manager instalado. Transfira o Windows AIK a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5753).  
 
 2.  Instale o Suplemento do Windows AIK para Windows 7 com SP1 no computador do passo 1. Transfira o Suplemento do Windows AIK para Windows 7 SP1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
@@ -214,11 +211,11 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
      Escreva o seguinte para instalar os componentes opcionais:  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wmi.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wmi.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-scripting.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-scripting.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wds-tools.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wds-tools.cab"**  
 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wmi_** *<locale\>* **.cab"**  
 
@@ -228,11 +225,11 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
      Em que C:\WinPEMount é a pasta montada e região é a região dos componentes. Por exemplo, para a região **en-us**, teria de escrever:  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wmi_en-us.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wmi_en-us.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-scripting_en-us.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-scripting_en-us.cab"**  
 
-     **DISM.exe c:\winpemount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
+     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
 
     > [!TIP]
     >  Para obter mais informações sobre os diferentes pacotes que pode adicionar à imagem de arranque, veja o tópico [Adicionar um Pacote a uma Imagem do Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) na Biblioteca de Documentação do TechNet relativa ao Windows 7.  
@@ -249,7 +246,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
      Em que C:\WinPEMount é a pasta montada.  
 
-8.  Adicione a imagem de arranque atualizada para o Configuration Manager para o tornar disponível para utilizar nas suas sequências de tarefas. Utilize os passos seguintes para importar a imagem de arranque atualizada:  
+8.  Adicione a imagem de arranque atualizada para o Configuration Manager para poder ser utilizada nas sequências de tarefas. Utilize os passos seguintes para importar a imagem de arranque atualizada:  
 
     1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
 
@@ -259,7 +256,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Na página **Origem de Dados**, especifique as seguintes opções e clique em **Seguinte**.  
 
-        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. For example:  **\\\\<***servername***>\\<***WinPEWAIK share***>\winpe.wim**.  
+        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo:  **\\ \\ <**  *servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
 
         -   Selecione a imagem de arranque na lista pendente **Imagem de Arranque**. Se o ficheiro WIM contiver várias imagens de arranque, será listada cada imagem.  
 
@@ -283,7 +280,7 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
 
     4.  Numa linha de comandos, escreva **wbemtest** para abrir o Recurso de Teste do Windows Management Instrumentation.  
 
-    5.  Type **\\\\<***SMS Provider Computer***>\root\sms\site_<***sitecode***>** in **Namespace**, and then click **Connect**.  
+    5.  Tipo  **\\ \\ <**  *computador do fornecedor de SMS***> \root\sms\site_ <***sitecode*  **>**  no **espaço de nomes**e, em seguida, clique em **Connect**.  
 
     6.  Clique em **Abrir Instância**, escreva **sms_bootimagepackage.packageID="<packageID\>"** e, em seguida, clique em **OK**. Para packageID, introduza o valor que identificou no passo 3.  
 
@@ -302,4 +299,3 @@ Cada versão do Configuration Manager suporta uma versão específica do Windows
     3.  Clique na imagem de arranque identificada no passo 3.  
 
     4.  No separador **Home Page**, no grupo **Implementação**, clique em **Atualizar Pontos de Distribuição**.  
-

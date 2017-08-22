@@ -2,10 +2,9 @@
 title: "Pré-visualização técnica 1707 | Microsoft Docs"
 description: "Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1707 para o System Center Configuration Manager."
 ms.custom: na
-ms.date: 07/28/2017
+ms.date: 08/14/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -14,12 +13,11 @@ ms.assetid: cb405ba0-8792-4ab7-988b-2f835f3a9550
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 7ee2fd78c6c502394016ba077d42714041ad01c6
+ms.sourcegitcommit: 10f17229c5a359f040cb7f8f5e7bd868a34ac086
 ms.translationtype: MT
-ms.sourcegitcommit: 6e890862fd02786b675e2b7abaca7ede7c0e977a
-ms.openlocfilehash: 91fd850f055a7e892a54487307109a291e336696
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="capabilities-in-technical-preview-1707-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1707 do System Center Configuration Manager
 
@@ -33,6 +31,17 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
 -   **Issue Name**. Details
     Workaround details.
 -->
+
+**Problemas conhecidos neste Technical Preview:**
+-   **Falha de atualização para pré-visualizar versão 1707 quando tiver um servidor de site no modo passivo**. Quando executar a versão de pré-visualização 1706 e ter um [servidor do site primário em modo passivo](/sccm/core/get-started/capabilities-in-technical-preview-1706#site-server-role-high-availability), tem de desinstalar o servidor do site de modo passivo antes de poder atualizar o site de pré-visualização com êxito para a versão 1707. Pode reinstalar o servidor do site de modo passivo depois do site executa a versão 1707.
+
+  Para desinstalar o site do site de modo passivo:
+  1. Na consola, aceda a **administração** > **descrição geral** > **configuração do Site** > **servidores e funções de sistema de sites**e, em seguida, selecione o servidor de site de modo passivo.
+  2. No **funções do sistema de sites** painel, clique direito no **servidor do Site** função e, em seguida, escolha **remover função**.
+  3. Faça duplo clique no servidor do site de modo passivo e, em seguida, escolha **eliminar**.
+  4. Depois de desinstala o servidor do site, no servidor do site primário Active Directory reinicie o serviço **CONFIGURATION_MANAGER_UPDATE**.
+
+
 
 **Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
@@ -89,13 +98,13 @@ Para ler mais informações sobre proteção de aplicações do Windows Defender
 
 No último Technical Preview, introduzimos uma nova capacidade que permite-lhe [criar e executadas scripts do PowerShell da consola do Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
 Nesta pré-visualização técnica, iremos tiver expandido sobre esta capacidade. Configuration Manager agora lê o script do PowerShell e apresenta quaisquer parâmetros no Assistente de criação de scripts. Pode fornecer um valor para o parâmetro no assistente que será utilizado quando o script é executado. Em alternativa, pode deixar o parâmetro em branco. Se o fizer, terá de fornecer um valor para o parâmetro ao executar o script.
+Nesta pré-visualização técnica, tem de fornecer os parâmetros que necessita de um script. Numa versão futura, iremos planeie efetuar a fornecer os parâmetros do script é opcionais.
 
 ### <a name="try-it-out"></a>Experimente!
 
-1. Siga as instruções para [criar e executadas scripts do PowerShell da consola do Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console). 
+1. Siga as instruções para [criar e executadas scripts do PowerShell da consola do Configuration Manager](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
 2. No novo **parâmetros do Script** página do **Assistente de criação de scripts**, escolha um parâmetro e, em seguida, clique em **editar**.
 3. Forneça um valor de parâmetro para o parâmetro selecionado e, em seguida, clique em **OK**.
 4. Conclua o assistente.
 
 Quando o script é executado, irá utilizar os valores de parâmetros que configurou.
-

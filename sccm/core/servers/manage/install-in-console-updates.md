@@ -6,21 +6,19 @@ ms.date: 06/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
-caps.latest.revision: 36
+caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 2bbc8935bee306ed0bc312cc43b8f5374a8df7ff
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Instalar atualizações na consola para o System Center Configuration Manager
 
@@ -386,4 +384,3 @@ Quando ambas as atualizações estão disponíveis na consola do seu, recomendam
 -   Se tiver instalado anteriormente a atualização anterior, não tem de instalar a atualização com a data mais recente. No entanto, se instalar a atualização depois de instalar a primeira atualização mais recente, irão atualizar os binários em questão. Não ocorre nenhuma alteração adicional e não existem ações adicionais da sua parte são necessárias.
 
 -   Se instalou anteriormente a atualização mais recente e, em seguida, instale a atualização com a data mais antiga, não é necessária nenhuma ação adicional. Isto acontece porque os binários da mais recentes já instalado não são substituídos por esses mesmos binários de atualização original.
-

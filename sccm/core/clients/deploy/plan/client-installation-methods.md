@@ -1,28 +1,25 @@
 ---
-title: "Métodos de instalação de cliente | Documentos do Microsoft"
-description: "Saiba métodos de instalação de cliente para o System Center Configuration Manager."
+title: "Métodos de instalação de cliente | Microsoft Docs"
+description: "Saiba mais métodos de instalação de cliente para o System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 51b5964b-374d-4abc-8619-414a9fffad2d
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: d94acac84f052a01de9d9c9f65f237c0006c45b8
 ms.openlocfilehash: edca31249cc2bb3e0c67265962815c82e3f4711e
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="client-installation-methods-in-system-center-configuration-manager"></a>Métodos de instalação de cliente no System Center Configuration Manager
 
@@ -32,7 +29,7 @@ Pode utilizar diferentes métodos para instalar o software de cliente do Configu
 
 ## <a name="client-push-installation"></a>Instalação push do cliente  
 
- **Plataforma de cliente suportados:** Windows  
+ **Plataforma de cliente suportada:** Windows  
 
  **Vantagens**  
 
@@ -54,12 +51,12 @@ Pode utilizar diferentes métodos para instalar o software de cliente do Configu
 
 -   A Firewall do Windows tem de ser configurada com exceções nos computadores cliente para que a instalação push do cliente seja concluída.  
 
--   Não é possível cancelar a instalação push do cliente. Quando utiliza este método de instalação de cliente para um site, o Configuration Manager tenta instalar o cliente em todos os recursos detetados e repete as tentativas falhadas até de 7 dias.  
+-   Não é possível cancelar a instalação push do cliente. Quando utiliza este método de instalação de cliente para um site, o Configuration Manager tenta instalar o cliente em todos os recursos detetados e repete as tentativas de eventuais falhas durante 7 dias.  
 
  Para obter mais informações sobre este método de instalação, veja [How to deploy clients to Windows computers in System Center Configuration Manager (Como implementar clientes em computadores Windows no System Center Configuration Manager)](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
 ## <a name="software-update-point-based-installation"></a>Instalação baseada em pontos de atualizações de software  
- **Plataforma de cliente suportados:** Windows  
+ **Plataforma de cliente suportada:** Windows  
 
  **Vantagens:**  
 
@@ -88,7 +85,7 @@ Pode utilizar diferentes métodos para instalar o software de cliente do Configu
  Para obter mais informações sobre este método de instalação, veja [How to deploy clients to Windows computers in System Center Configuration Manager (Como implementar clientes em computadores Windows no System Center Configuration Manager)](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
 ## <a name="group-policy-installation"></a>Instalação de Política de Grupo  
- **Plataforma de cliente suportados:** Windows  
+ **Plataforma de cliente suportada:** Windows  
 
  **Vantagens:**  
 
@@ -109,7 +106,7 @@ Pode utilizar diferentes métodos para instalar o software de cliente do Configu
  Para obter mais informações sobre este método de instalação, veja [How to deploy clients to Windows computers in System Center Configuration Manager (Como implementar clientes em computadores Windows no System Center Configuration Manager)](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
 ## <a name="logon-script-installation"></a>Instalação do script de início de sessão  
- **Plataforma de cliente suportados:** Windows  
+ **Plataforma de cliente suportada:** Windows  
 
  **Vantagens:**  
 
@@ -126,7 +123,7 @@ Pode utilizar diferentes métodos para instalar o software de cliente do Configu
  Para obter mais informações sobre este método de instalação, veja [How to deploy clients to Windows computers in System Center Configuration Manager (Como implementar clientes em computadores Windows no System Center Configuration Manager)](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
 ## <a name="manual-installation"></a>Instalação manual  
- **Plataforma de cliente suportados:** Windows, UNIX/Linux, Mac OS X  
+ **Plataforma de cliente suportada:** Windows, UNIX/Linux, Mac OS X  
 
  **Vantagens:**  
 
@@ -142,9 +139,8 @@ Pode utilizar diferentes métodos para instalar o software de cliente do Configu
 
  Para mais informações sobre como instalar manualmente o cliente em cada plataforma, consulte o seguinte:  
 
--   [Como implementar clientes em computadores com Windows no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
+-   [Como implementar clientes em computadores Windows no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
 
 -   [Como implementar clientes em servidores UNIX e Linux no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md)  
 
--   [Como implementar clientes Macs no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
-
+-   [Como implementar clientes em Mac no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  

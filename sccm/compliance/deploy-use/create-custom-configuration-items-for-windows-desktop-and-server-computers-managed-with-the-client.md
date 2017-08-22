@@ -1,39 +1,36 @@
 ---
-title: "Criar itens de configuração para computadores Windows geridos pelo cliente - Configuration Manager | Documentos do Microsoft"
-description: "Gerir as definições para computadores com o Windows e os servidores com um item de configuração de servidores e Windows Desktops personalizado."
+title: "Criar itens de configuração para computadores Windows geridos pelo cliente - Configuration Manager | Microsoft Docs"
+description: "Gerir as definições para servidores com um item de configuração personalizado do Windows computadores de secretária e servidores e computadores Windows."
 ms.custom: na
 ms.date: 11/18/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1eb2fcaf-acac-4388-9b31-6cccafacaabe
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 31819a1df4e63e1114682490a9b3c3b4e5c99cfa
 ms.openlocfilehash: e040c6b3a951d1bdf5a46dd82f1bd92b45c2e71d
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Como criar itens de configuração personalizados para computadores de secretária e de servidor do Windows geridos com o cliente do System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Utilizar o System Center Configuration Manager **personalizado servidores e Windows Desktops** item de configuração para gerir as definições para computadores com o Windows e servidores que são geridos pelo cliente do Configuration Manager.  
+Utilizar o System Center Configuration Manager **personalizado Windows Desktops and Servers** item de configuração para gerir as definições para computadores com o Windows e servidores que são geridos pelo cliente do Configuration Manager.  
 
-## <a name="start-the-create-configuration-item-wizard"></a>Iniciar o Assistente de item de configuração de criar
+## <a name="start-the-create-configuration-item-wizard"></a>Iniciar o Assistente de item de configuração criar
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **definições de compatibilidade** > **itens de configuração**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **itens de configuração**.  
 
 3.  No separador **Início** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
 
@@ -44,7 +41,7 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
     > [!TIP]  
     >  Se pretender fornecer as definições do método de deteção que verificam a existência de uma aplicação, selecione **Este ficheiro de configuração contém as definições da aplicação**.  
 
-6.  Clique em **categorias** se pode criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
+6.  Clique em **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
 
 ## <a name="provide-detection-method-information"></a>Fornecer informações do método de deteção  
  Utilize este procedimento para fornecer informações do método de deteção para o item de configuração.  
@@ -99,7 +96,7 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
 
     -   **Descrição:** Introduza uma descrição para a definição. Pode utilizar até 256 carateres.  
 
-    -   **Tipo de definição:** Na lista, selecione e configure um dos seguintes tipos de definição para utilizar para esta definição:  
+    -   **Tipo de definição:** Na lista, escolha e configure um dos seguintes tipos de definição a utilizar para esta definição:  
 
         -   **Consulta do Active Directory**  
 
@@ -117,7 +114,7 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
 
                 -   **Base** - Consulta apenas o objeto especificado.  
 
-                -   **Um nível** -esta opção não é utilizada nesta versão do Configuration Manager.  
+                -   **Um nível** -esta opção não está a ser utilizada nesta versão do Configuration Manager.  
 
                 -   **Subárvore** - Consulta o objeto especificado e a respetiva subárvore completa no diretório.  
 
@@ -151,7 +148,7 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
             -   **Nome do ficheiro ou da pasta** – Especifique o nome do objeto de ficheiro ou pasta a procurar. Pode especificar variáveis de ambiente do sistema e a variável de ambiente *%USERPROFILE%* no nome da pasta ou ficheiro. Também pode utilizar os carateres universais * e ? no nome de ficheiro.  
 
                 > [!NOTE]  
-                >  Se especificar um nome de ficheiro ou pasta e utilizar carateres universais, esta combinação poderá produzir um elevado número de resultados e pode resultar numa utilização intensiva de recursos do computador cliente e o tráfego de rede elevado ao reportar os resultados do Configuration Manager.  
+                >  Se especificar um nome de ficheiro ou pasta e utilizar carateres universais, esta combinação poderá produzir um elevado número de resultados e pode resultar numa utilização intensiva de recursos no computador cliente e tráfego de rede elevado ao reportar os resultados para o Configuration Manager.  
 
             -   **Incluir subpastas** – ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
 
@@ -237,7 +234,7 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
 
             -   **Incluir subpastas** - ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
 
-            -   **Este ficheiro está associado uma aplicação de 64 bits** -escolha se o sistema de 64 bits ficheiros de localização (*% windir %*\System32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\Syswow64) nos clientes do Configuration Manager que executem uma versão de 64 bits do Windows.  
+            -   **Este ficheiro está associado uma aplicação de 64 bits** -escolher se o sistema de 64 bits localização de ficheiros (*% windir %*\System32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\Syswow64) em clientes do Configuration Manager que executam uma versão de 64 bits do Windows.  
 
             -   **Consulta XPath** - Especifique uma consulta da linguagem XPath completa e válida utilizada para avaliar a compatibilidade em computadores cliente.  
 
@@ -247,7 +244,7 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
 
              Se a consulta XPath não for válida, a definição é avaliada como não compatível em computadores cliente.  
 
-    -   **Tipo de dados:** Na lista, escolha o formato em que a condição devolva os dados antes de ser utilizada para avaliar a definição. A lista **Tipo de dados** não é apresentada para todos os tipos de definição.  
+    -   **Tipo de dados:** Na lista, escolha o formato no qual a condição devolve os dados antes de ser utilizado para avaliar a definição. A lista **Tipo de dados** não é apresentada para todos os tipos de definição.  
 
         > [!NOTE]  
         >  O tipo de dados **Vírgula flutuante** suporta apenas três dígitos depois da casa decimal.  
@@ -274,7 +271,7 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
 
     -   **Descrição:** Introduza uma descrição para a regra de compatibilidade.  
 
-    -   **Definição selecionada:** Clique em **procurar** para abrir o **selecione definição** caixa de diálogo. Selecione a definição na qual pretende definir uma regra ou clique em **Nova Definição**. Quando terminar, clique em **Selecionar**.  
+    -   **Definição selecionada:** Clique em **procurar** para abrir o **selecionar definição** caixa de diálogo. Selecione a definição na qual pretende definir uma regra ou clique em **Nova Definição**. Quando terminar, clique em **Selecionar**.  
 
         > [!NOTE]  
         >  Também pode clicar em **Propriedades** para ver informações sobre a definição atualmente selecionada.  
@@ -301,7 +298,7 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
             |Um de|Na caixa de texto, especifique uma entrada em cada linha.|  
             |Nenhum de|Na caixa de texto, especifique uma entrada em cada linha.|  
 
-        -   **Remediar regras incompatíveis quando suportado** – selecione esta opção se pretender que o Configuration Manager retifique automaticamente as regras incompatíveis. O Configuration Manager podem remediar automaticamente os seguintes tipos de regra:  
+        -   **Remediar regras incompatíveis quando suportado** – selecione esta opção se pretender que o Configuration Manager retifique automaticamente as regras incompatíveis. O Configuration Manager pode remediar automaticamente os seguintes tipos de regra:  
 
             -   **Valor de registo** – O valor de registo é remediado se não for compatível e criado se não existir.  
 
@@ -314,17 +311,17 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
 
         -   **Reportar incompatibilidade se a instância desta definição não for encontrada** – O item de configuração reporta a incompatibilidade se esta definição não for encontrada em computadores cliente.  
 
-        -   **Gravidade de incompatibilidade para relatórios:** Especifica o nível de gravidade reportado (em relatórios do Configuration Manager) se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
+        -   **Gravidade de incompatibilidade para relatórios:** Especifique o nível de gravidade reportado (em relatórios do Configuration Manager) se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
 
-            -   **Nenhum** os computadores que não obedeçam a esta regra de compatibilidade não reportam uma gravidade de falha.  
+            -   **Nenhum** computadores que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha.  
 
-            -   **Informações** os computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **informações**.  
+            -   **Informações** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações**.  
 
-            -   **Aviso** os computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **aviso**.  
+            -   **Aviso** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso**.  
 
-            -   **Crítico** os computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **crítico**.  
+            -   **Crítico** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos**.  
 
-            -   **Crítico com evento** os computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **crítico**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
+            -   **Crítico com evento** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
 
         -   Para um tipo de regra **Existencial**, especifique as seguintes informações:  
 
@@ -337,17 +334,17 @@ Utilizar o System Center Configuration Manager **personalizado servidores e Wind
 
             -   **A definição ocorre o seguinte número de vezes:**  
 
-        -   **Gravidade de incompatibilidade para relatórios:** Especifica o nível de gravidade reportado (em relatórios do Configuration Manager) se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
+        -   **Gravidade de incompatibilidade para relatórios:** Especifique o nível de gravidade reportado (em relatórios do Configuration Manager) se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
 
-            -   **Nenhum** os computadores que não obedeçam a esta regra de compatibilidade não reportam uma gravidade de falha.  
+            -   **Nenhum** computadores que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha.  
 
-            -   **Informações** os computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **informações**.  
+            -   **Informações** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações**.  
 
-            -   **Aviso** os computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **aviso**.  
+            -   **Aviso** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso**.  
 
-            -   **Crítico** os computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **crítico**.  
+            -   **Crítico** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos**.  
 
-            -   **Crítico com evento** os computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **crítico**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
+            -   **Crítico com evento** os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos**. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
 
 3.  Clique em **OK** para fechar a caixa de diálogo **Criar Regra**.  
 
@@ -358,4 +355,3 @@ Na página **Plataformas Suportadas** do **Assistente de Criação de Item de co
 
 ## <a name="complete-the-wizard"></a>Concluir o assistente  
  Na página **Resumo** do assistente, reveja as ações que serão executadas e conclua o assistente. O novo item de configuração é apresentado no nó **Itens de Configuração** da área de trabalho **Ativos e Compatibilidade**.  
-

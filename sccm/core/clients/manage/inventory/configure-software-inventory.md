@@ -1,50 +1,47 @@
 ---
-title: "Configurar o inventário de software | Documentos do Microsoft"
-description: "Configurar o inventário de software e excluir pastas a partir do inventário de software no Configuration Manager."
+title: "Configurar o inventário de software | Microsoft Docs"
+description: "Configurar o inventário de software e excluir pastas do inventário de software no Configuration Manager."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: f86559de-092a-4ce8-9b43-5d7530e0b763
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 9c5d1e48b76392beaf54b5377c69b648537e86f8
 ms.openlocfilehash: e60cec71c425e5e42d450cbeee366528d4b42405
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-configure-software-inventory-in-system-center-configuration-manager"></a>Como configurar inventário de software no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
- Este procedimento configura as predefinições de cliente para inventário de software e aplica-se a todos os computadores na sua hierarquia. Se pretender aplicar estas definições para apenas alguns computadores, crie uma definição de cliente de dispositivo personalizada e atribua-a para uma coleção que contém os computadores que pretende utilizar o inventário de software. Para obter mais informações sobre como criar definições personalizadas do dispositivo, consulte o artigo [como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+ Este procedimento configura as predefinições de cliente para inventário de software e aplica-se a todos os computadores na sua hierarquia. Se pretender aplicar estas definições apenas a alguns computadores, crie uma definição de cliente de dispositivo personalizada e atribua-a uma coleção que contenha os computadores que pretende utilizar o inventário de software. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
 ## <a name="to-configure-software-inventory"></a>Para configurar o inventário de software  
 
-1.  Na consola do Configuration Manager, escolha **administração** > **definições de cliente****predefinições de cliente**.    
+1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente****predefinições de cliente**.    
 
-4.  No **base** separador o **propriedades** grupo, selecione **propriedades**.  
+4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
 
-5.  No **predefinições** diálogo caixa, selecione **inventário de Software**.  
+5.  No **predefinições** diálogo caixa, escolha **inventário de Software**.  
 
 6.  Na lista **Definições do Dispositivo** , configure os seguintes valores:  
 
-    -   **Ativar inventário de software nos clientes** – na lista pendente, selecione **verdadeiro**.  
+    -   **Ativar inventário de software nos clientes** - na lista pendente, selecione **verdadeiro**.  
 
-    -   **Agenda de coleção de agenda software ficheiros e inventário** - configura o intervalo no qual inventário de software recolher de clientes e ficheiros.   
+    -   **Agendar software ficheiros e inventário coleção agenda** - configura o intervalo no qual os clientes recolhem inventário de software e ficheiros.   
 
-7.  Configure as definições de cliente de que necessita. Para obter uma lista de definições de cliente de inventário de software que pode configurar, consulte o [inventário de Software](../../../../core/clients/deploy/about-client-settings.md#software-inventory) secção a [sobre definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) tópico.  
+7.  Configure as definições de cliente de que necessita. Para obter uma lista das definições de cliente de inventário de software que pode configurar, consulte o [inventário de Software](../../../../core/clients/deploy/about-client-settings.md#software-inventory) secção o [sobre definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) tópico.  
 
  Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, veja [Como gerir clientes no System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
 

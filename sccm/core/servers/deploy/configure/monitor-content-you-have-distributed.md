@@ -1,51 +1,49 @@
 ---
-title: "Monitorizar o conteúdo | Documentos do Microsoft"
+title: "Monitorizar conteúdo | Microsoft Docs"
 description: "Compreenda como monitorizar conteúdo distribuído ao utilizar a consola do Configuration Manager."
 ms.custom: na
 ms.date: 4/17/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 82e8a693-9adf-4ca3-8484-7e101c34c7c1
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dda2f4c01078fbbd174cbcb30357554c24f6abeb
 ms.openlocfilehash: 7659d5789b8ce4e9e0b585a331c8f68869c9492d
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Monitorizar o conteúdo que ter distribuídas com o System Center Configuration Manager
+# <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Monitorizar o conteúdo que distribuiu com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Utilizar a consola do System Center Configuration Manager para monitorizar o conteúdo distribuído, incluindo:  
+Utilize a consola do System Center Configuration Manager para monitorizar conteúdo distribuído, incluindo:  
 
 -   O estado de todos os tipos de pacotes relativamente aos pontos de distribuição associados.  
--   O estado de validação de conteúdos para o conteúdo de um pacote.  
+-   O estado de validação de conteúdo para o conteúdo num pacote.  
 -   O estado dos conteúdos atribuídos a um grupo de pontos de distribuição específico.  
 -   O estado dos conteúdos atribuídos a um ponto de distribuição.  
--   O estado das funcionalidades opcionais de cada ponto de distribuição (validação de conteúdos, PXE e multicast).  
+-   O estado das funcionalidades opcionais de cada ponto de distribuição (validação de conteúdo, PXE e multicast).  
 
 > [!NOTE]  
->  O Configuration Manager monitoriza apenas o conteúdo num ponto de distribuição que esteja na biblioteca de conteúdos. Não é monitorizado conteúdo armazenado no ponto de distribuição em partilhas personalizadas ou pacote.  
+>  O Configuration Manager monitoriza apenas o conteúdo no ponto de distribuição que está na biblioteca de conteúdos. Conteúdo armazenado no ponto de distribuição no pacote ou partilhas personalizadas não é monitorizado.  
 
 ##  <a name="BKMK_ContentStatus"></a> Monitorização do estado do conteúdo  
- O nó **Estado do Conteúdo** da área de trabalho **Monitorização** disponibiliza informações sobre pacotes de conteúdos. Na consola do Configuration Manager, pode rever as informações como:  
+ O nó **Estado do Conteúdo** da área de trabalho **Monitorização** disponibiliza informações sobre pacotes de conteúdos. Na consola do Configuration Manager, pode rever informações como:  
 
 -   O nome do pacote.  
 -   O tipo.  
--   Um pacote de pontos de distribuição quantos foi enviada para.  
+-   Pontos de distribuição quantos um pacote foi enviado para o.  
 -   A taxa de conformidade.  
 -   Quando o pacote foi criado.  
--   O ID do pacote.  
+-   ID de pacote.  
 -   A versão de origem.  
 
 Encontrará também informações de estado detalhadas para qualquer pacote, bem como o estado de distribuição para o pacote, incluindo:  
@@ -54,23 +52,23 @@ Encontrará também informações de estado detalhadas para qualquer pacote, bem
 -   Distribuições pendentes.  
 -   O número de instalações.
 
-Também pode gerir as distribuições que continuam em curso para um ponto de distribuição ou que falharam a distribuir com êxito os conteúdos para um ponto de distribuição:  
+Também pode gerir as distribuições que continuam em curso para um ponto de distribuição ou que falhou ao distribuir o conteúdo para um ponto de distribuição com êxito:  
 
 -   A opção para cancelar ou redistribuir conteúdos está disponível quando visualiza a mensagem de estado de implementação de uma tarefa de distribuição para um ponto de distribuição no **detalhes do ativo** painel. Neste painel, pode ser encontrado no **em curso** separador ou **erro** separador do **estado do conteúdo** nó.  
--   Além disso, os detalhes da tarefa apresentam a percentagem da tarefa que está concluída quando visualizar os detalhes de uma tarefa no **em curso** separador. Os detalhes da tarefa também apresentam o número de tentativas restantes para uma tarefa, bem como o tempo restante até à próxima tentativa quando visualizar os detalhes de uma tarefa que está disponível a partir de **erro** separador.  
+-   Além disso, os detalhes da tarefa apresentam a percentagem do trabalho que foi concluída quando visualiza detalhes de uma tarefa no **em curso** separador. Os detalhes da tarefa também apresentam o número de tentativas que restam para uma tarefa, bem como tempo antes da próxima nova tentativa ocorre quando visualiza detalhes de uma tarefa que está disponível a partir de **erro** separador.  
 
-Se cancelar uma implementação que ainda não está concluída, a tarefa de distribuição para transferência desse conteúdo é interrompida:  
+Se cancelar uma implementação que ainda não está concluída, interrompe a tarefa de distribuição para transferência desse conteúdo:  
 
--   O estado da implementação será então atualizado para indicar que a distribuição falhou e foi cancelada por uma ação do utilizador.  
+-   O estado da implementação será então atualizado para indicar que a distribuição falhou e que foi cancelada por uma ação do utilizador.  
 -   Este novo estado é apresentado no **erro** separador.  
 
 > [!TIP]  
->  Quando uma implementação estiver próxima da conclusão, é possível que a ação de cancelamento dessa distribuição não processará antes da distribuição ao ponto de distribuição estar concluída. Quando isto ocorre, a ação de cancelamento da implementação será ignorada e o estado da implementação indicará a conclusão com êxito.  
+>  Quando uma implementação estiver próxima da conclusão, é possível que a ação de cancelamento dessa distribuição não irá processar antes da conclusão da distribuição para o ponto de distribuição. Se isto ocorre, a ação de cancelamento da implementação é ignorada e o estado da implementação apresenta conclusão com êxito.  
 
 > [!NOTE]  
->  Embora possa selecionar a opção para cancelar uma distribuição a um ponto de distribuição que esteja localizado num servidor do site, isto não tem qualquer efeito. Isto acontece porque o servidor do site e a pontos de distribuição numa partilha de servidor do site o mesmo arquivo de conteúdos de instância única. Não existe uma tarefa de distribuição existente a cancelar.  
+>  Embora possa selecionar a opção para cancelar uma distribuição a um ponto de distribuição que está localizado num servidor do site, isto não tem qualquer efeito. Isto acontece porque o servidor do site e a pontos de distribuição numa partilha de servidor do site o mesmo arquivo de conteúdo de instância única. Não há nenhuma tarefa de distribuição existente para cancelar.  
 
-Se redistribuir conteúdos que tinha falhado para transferir para um ponto de distribuição, o Configuration Manager começa imediatamente é que o conteúdo ao ponto de distribuição. O estado da implementação para refletir o estado dessa redeployment de atualizações do Configuration Manager.  
+Quando redistribuir conteúdos cuja transferência para um ponto de distribuição falhado anteriormente, o Configuration Manager começa imediatamente a reimplementação desse conteúdo ao ponto de distribuição. O Configuration Manager atualiza o estado da implementação para refletir o estado dessa reimplementação.  
 
 Utilize os procedimentos seguintes para ver o estado do conteúdo e gerir as distribuições que continuam em curso ou que falharam.  
 
@@ -80,7 +78,7 @@ Utilize os procedimentos seguintes para ver o estado do conteúdo e gerir as dis
 
 2.  No **monitorização** área de trabalho, expanda **estado da distribuição**e, em seguida, clique em **estado do conteúdo**. Os pacotes são apresentados.  
 
-3.  Selecione o pacote para o qual pretende obter informações detalhadas de estado.  
+3.  Selecione o pacote que pretende obter informações detalhadas de estado.  
 
 4.  No separador **Home Page** , clique em **Ver Estado**. São apresentadas informações de estado detalhadas sobre o pacote.  
 
@@ -92,11 +90,11 @@ Utilize os procedimentos seguintes para ver o estado do conteúdo e gerir as dis
 
 3.  Selecione o pacote que pretende gerir e, em seguida, no painel de detalhes, clique em **Ver estado**.  
 
-4.  No **detalhes do ativo** painel do **em curso** separador, faça duplo clique na entrada correspondente à distribuição que pretende cancelar e selecione **Cancelar**.  
+4.  No **detalhes do ativo** painel do **em curso** separador, faça duplo clique na entrada de distribuição que pretende cancelar e selecione **Cancelar**.  
 
 5.  Clique em **Sim** para confirmar a ação e cancelar a tarefa de distribuição a esse ponto de distribuição.  
 
-### <a name="to-redistribute-content-that-failed-to-distribute"></a>Para redistribuir conteúdos que não foi possível distribuir  
+### <a name="to-redistribute-content-that-failed-to-distribute"></a>Para redistribuir conteúdos que falhou ao distribuir  
 
 1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
@@ -104,16 +102,16 @@ Utilize os procedimentos seguintes para ver o estado do conteúdo e gerir as dis
 
 3.  Selecione o pacote que pretende gerir e, em seguida, no painel de detalhes, clique em **Ver estado**.  
 
-4.  No **detalhes do ativo** painel do **erro** separador, faça duplo clique na entrada correspondente à distribuição que pretende redistribuir e selecione **redistribuir**.  
+4.  No **detalhes do ativo** painel do **erro** separador, faça duplo clique na entrada de distribuição que pretende redistribuir e selecione **redistribuir**.  
 
 5.  Clique em **Sim** para confirmar a ação e iniciar o processo de redistribuição a esse ponto de distribuição.  
 
 ## <a name="distribution-point-group-status"></a>Estado do grupo de pontos de distribuição  
-O nó **Estado do Grupo de Pontos de Distribuição** na área de trabalho **Monitorização** fornece informações acerca dos grupos de pontos de distribuição. Pode rever as informações como:  
+O nó **Estado do Grupo de Pontos de Distribuição** na área de trabalho **Monitorização** fornece informações acerca dos grupos de pontos de distribuição. Pode rever informações como:  
 
--   O nome de grupo de pontos de distribuição.  
+-   O nome de grupo de ponto de distribuição.  
 -   A descrição.  
--   Grupo de pontos de quantos pontos de distribuição sejam membros da distribuição.  
+-   Quantos pontos de distribuição sejam membros da distribuição de um grupo de pontos.  
 -   O número de pacotes que foram atribuído ao grupo.  
 -   O estado de grupo de pontos de distribuição.  
 -   A taxa de conformidade.  
@@ -122,7 +120,7 @@ Também ver informações detalhadas de estado para o seguinte:
 
 -   Erros para o grupo de pontos de distribuição.  
 -   Quantas distribuições estão em curso.
--   Quantos tenham sido distribuídos com êxito.  
+-   Quantos tiverem sido distribuídos com êxito.  
 
 ### <a name="to-monitor-distribution-point-group-status"></a>Para monitorizar o estado do grupo de pontos de distribuição  
 
@@ -130,15 +128,15 @@ Também ver informações detalhadas de estado para o seguinte:
 
 2.  No **monitorização** área de trabalho, expanda **estado da distribuição**e, em seguida, clique em **estado do grupo de pontos de distribuição**. Os grupos de pontos de distribuição são apresentados.  
 
-3.  Selecione o grupo de pontos de distribuição para o qual pretende obter informações detalhadas de estado.  
+3.  Selecione o grupo de pontos de distribuição que pretende obter informações detalhadas de estado.  
 
 4.  No separador **Home Page** , clique em **Ver Estado**. São apresentadas informações detalhadas de estado para o grupo de pontos de distribuição.  
 
-## <a name="distribution-point-configuration-status"></a>Estado da configuração do ponto de distribuição  
- O nó **Estado da Configuração do Ponto de Distribuição** na área de trabalho **Monitorização** fornece informações acerca do ponto de distribuição. Pode rever quais os atributos que estão ativados para o ponto de distribuição, como PXE, multicast conteúdo validação e o estado de distribuição para o ponto de distribuição. Também pode ver informações detalhadas de estado para o ponto de distribuição.  
+## <a name="distribution-point-configuration-status"></a>Estado da configuração de ponto de distribuição  
+ O nó **Estado da Configuração do Ponto de Distribuição** na área de trabalho **Monitorização** fornece informações acerca do ponto de distribuição. Pode rever quais os atributos que estão ativados para o ponto de distribuição, como PXE, multicast, conteúdo validação e o estado de distribuição para o ponto de distribuição. Também pode ver informações detalhadas de estado para o ponto de distribuição.  
 
 > [!WARNING]  
->  Estado de configuração do ponto de distribuição é relativo às últimas 24 horas. Se o ponto de distribuição tiver um erro e recuperar, o estado de erro poderá ser apresentado até 24 horas após o ponto de distribuição recuperar.  
+>  Estado de configuração de ponto de distribuição é relativo para as últimas 24 horas. Se o ponto de distribuição tem um erro e recuperar, o estado de erro pode ser apresentado até 24 horas depois do ponto de distribuição recuperar.  
 
 Utilize o seguinte procedimento para ver o estado da configuração do ponto de distribuição.  
 
@@ -146,28 +144,27 @@ Utilize o seguinte procedimento para ver o estado da configuração do ponto de 
 
 1.  Na consola do Configuration Manager, clique em **monitorização**.  
 
-2.  No **monitorização** área de trabalho, expanda **estado da distribuição**e, em seguida, clique em **estado de configuração do ponto de distribuição**. Os pontos de distribuição são apresentados.  
+2.  No **monitorização** área de trabalho, expanda **estado da distribuição**e, em seguida, clique em **estado de configuração de ponto de distribuição**. Os pontos de distribuição são apresentados.  
 
 3.  Selecione o ponto de distribuição para o qual pretende que as informações de estado do ponto de distribuição.  
 
 4.  No painel de resultados, clique no separador **Detalhes** . São apresentadas informações de estado para o ponto de distribuição.  
 
-## <a name="client-data-sources-dashboard"></a>Dashboard de origens de dados do cliente
-A partir da versão 1610, pode utilizar o **origens de dados de cliente** dashboard para ajudar a compreender a utilização de [cache de elementos da](/sccm/core/plan-design/hierarchy/client-peer-cache) no seu ambiente. O dashboard será iniciada a apresentar dados depois dos clientes transferem conteúdo e de relatório que informações novamente o site. Esta ação pode demorar até 24 horas.
+## <a name="client-data-sources-dashboard"></a>Dashboard de origens de dados de cliente
+A partir da versão 1610, pode utilizar o **origens de dados de cliente** dashboard para ajudar a compreender a utilização de [Cache ponto a ponto](/sccm/core/plan-design/hierarchy/client-peer-cache) no seu ambiente. O dashboard será iniciada a apresentar dados depois dos clientes transferem conteúdo e o relatório de informações de volta para o site. Esta operação pode demorar até 24 horas.
 
 > [!TIP]  
-> **Cache de elemento de rede do cliente** e **origens de dados de cliente** dashboard são funcionalidades de versão de pré-lançamento introduzidas na versão 1610. Tem de ativar a Cache do cliente ponto a ponto antes do dashboard de origens de dados de cliente torna-se visíveis na consola. Para ativar a Cache de elemento de rede do cliente, consulte o artigo [utilizar funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease). Pode demorar até 24 horas depois de ativá-la para começar a apresentar dados.
+> **A Cache do cliente** e **origens de dados de cliente** dashboard são funcionalidades de pré-lançamento introduzidas na versão 1610. Tem de ativar a Cache do cliente para que o dashboard de origens de dados de cliente fica visível na consola. Para ativar a Cache ponto a ponto do cliente, consulte [utilizar as funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease). Pode demorar até 24 horas depois de a ativar iniciar a apresentar dados.
 
-Na consola, vá para **monitorização** > **estado da distribuição** > **origens de dados de cliente**. Aqui pode selecionar um período de tempo para aplicar ao dashboard. Em seguida, no ecrã, pode selecionar o grupo de limites ou o pacote para o qual pretende visualizar as informações. Ao visualizar informações, pode passar o rato sobre a superfície de para ver mais detalhes sobre os conteúdos diferentes ou origens de política.
+Na consola, aceda a **monitorização** > **estado da distribuição** > **origens de dados de cliente**. Aqui, pode selecionar um período de tempo para aplicar ao dashboard. Em seguida, no ecrã, pode selecionar o grupo de limites ou o pacote para o qual pretende ver informações. Ao visualizar informações, pode pairar o rato sobre a superfície de para ver mais detalhes sobre o conteúdo diferente ou origens de política.
 
 Os detalhes incluem o seguinte:  
-- **Fontes de conteúdo de cliente**: Apresenta a origem a partir da qual os clientes tem conteúdos.
-- **Pontos de distribuição**: Apresenta o número de pontos de distribuição que fazem parte do grupo de limites selecionado.
-- **Os clientes que utilizado um ponto de distribuição**: O número de clientes que se encontram no grupo de limites selecionado, isto mostra quantos utilizado um ponto de distribuição para obter conteúdo.
-- **Origens de Cache de elemento**: Para o grupo de limites selecionada, é apresentada como várias origens de cache ponto a ponto reportaram histórico de transferência.
-- **Os clientes que utilizado um elemento**: O número de clientes que estão num grupo de limites selecionada, mostra quantos utilizada uma origem de cache ponto a ponto para obter conteúdo.
+- **Origens de conteúdo de cliente**: Apresenta a partir da qual os clientes recebeu conteúdos de origem.
+- **Pontos de distribuição**: Mostra o número de pontos de distribuição que fazem parte do grupo de limites selecionado.
+- **Clientes que utilizar um ponto de distribuição**: O número de clientes que estejam no grupo de limites selecionado, esta ação mostra quantos um ponto de distribuição utilizado para aceder a conteúdo.
+- **Elemento origens de Cache**: Para o grupo de limites selecionado, esta ação mostra quantos origens de cache ponto a ponto relataram histórico de transferências.
+- **Clientes que é utilizado um elemento**: O número de clientes que estejam no grupo de limites selecionado, mostra quantos utilizado uma origem de cache ponto a ponto para aceder a conteúdo.
 
 
 
 Também pode utilizar um novo relatório, **origens de dados de cliente - resumo**, para ver um resumo das origens de dados de cliente para cada grupo de limites.
-

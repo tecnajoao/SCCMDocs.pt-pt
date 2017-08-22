@@ -1,28 +1,25 @@
 ---
-title: "Criar condições globais | Documentos do Microsoft"
+title: "Criar condições globais | Microsoft Docs"
 description: "Crie condições globais para especificar como uma aplicação é fornecida e implementada em dispositivos cliente."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d5f871a-19dc-4bd3-a3ad-4230c7a69f1b
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 85e254f1074e02a52fea6a3cda21a37c332f249e
 ms.openlocfilehash: 8a59a1769eec4cd6d78d7686a1d8008e832dd924
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-create-global-conditions-in-system-center-configuration-manager"></a>Como criar condições globais no System Center Configuration Manager
 
@@ -31,26 +28,26 @@ ms.lasthandoff: 05/17/2017
 No System Center Configuration Manager, as condições globais são regras que representam condições comerciais ou técnicas que pode utilizar para especificar como uma aplicação é fornecida e implementada em dispositivos cliente. O acesso às condições globais é efetuado na página **Requisitos** do Assistente para Criar Tipo de Implementação.  
 
 > [!NOTE]  
->  É possível editar condições globais apenas do site onde foram criadas.  
+>  Pode editar condições globais apenas a partir do site onde foram criados.  
 
  Utilize os procedimentos seguintes para criar condições globais do Configuration Manager.  
 
 ## <a name="provide-basic-information-about-the-global-condition"></a>Fornecer informações básicas sobre a condição global  
- Existem vários tipos diferentes de condições globais. Aos diferentes tipos de condições globais estão associadas opções diferentes. Quando seleciona um tipo de condição global específico, o Configuration Manager apresenta as opções que se aplicam à seleção.  
+ Existem vários tipos diferentes de condições globais. Aos diferentes tipos de condições globais estão associadas opções diferentes. Quando seleciona um tipo de condição global específico, o Configuration Manager mostra as opções que se aplicam à seleção.  
 
 1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **condições globais**.  
 
-3.  No **base** separador o **criar** grupo, selecione **criar condição Global**.  
+3.  No **home page** separador o **criar** grupo, escolha **criar condição Global**.  
 
 4.  Na caixa de diálogo **Criar Condição Global** , forneça um nome e uma descrição opcional para a condição global.  
 
-5.  No **tipo de dispositivo** pendente lista, escolha se a condição global se destina um **Windows** computador ou um **Windows Mobile** dispositivo.  
+5.  No **tipo de dispositivo** pendente lista, escolha se a condição global é de um **Windows** computador ou um **Windows Mobile** dispositivo.  
 
 6.  Na lista pendente **Tipo de Condição** , escolha uma das seguintes opções:  
 
-    -   **Definição** – esta opção verifica a existência de um ou mais itens em dispositivos cliente. Por exemplo, pode verificar se um valor de chave do ficheiro, pasta ou registo existe num dispositivo cliente.  
+    -   **Definição** – esta opção verifica a existência de um ou mais itens em dispositivos cliente. Por exemplo, pode verificar se um valor de chave de ficheiro, pasta ou de registo existe num dispositivo cliente.  
 
-    -   **Expressão** – esta opção permite-lhe configurar regras mais complexas para verificar se a condição é satisfeita em dispositivos cliente. Por exemplo, pode verificar se a memória física num computador tem entre 2 GB e 4 GB ou se um dispositivo móvel utiliza introdução por ecrã tátil.  
+    -   **Expressão** – esta opção permite-lhe configurar regras mais complexas para verificar se a condição é satisfeita em dispositivos cliente. Por exemplo, pode verificar se a memória física de um computador é entre 2 GB e 4 GB ou se um dispositivo móvel utiliza introdução por ecrã tátil.  
 
 ## <a name="set-up-rules-for-the-global-condition"></a>Configurar regras para a condição global  
  O procedimento para definir as regras da condição global é diferente consoante esteja a configurar uma definição ou uma expressão. Utilize o procedimento aplicável aqui para configurar uma definição ou uma expressão para a condição global.  
@@ -65,7 +62,7 @@ No System Center Configuration Manager, as condições globais são regras que r
 
         -   **Prefixo LDAP** - especifique um prefixo LDAP válido para a consulta dos Serviços de Domínio do Active Directory para avaliar a compatibilidade em computadores cliente. Pode utilizar **LDAP://** ou **GC://**.  
 
-        -   **Nome único (DN)** -especifique o nome único do objeto de serviços de domínio do Active Directory que será avaliada relativamente à compatibilidade em computadores cliente.  
+        -   **Nome único (DN)** -especifique o nome único do objeto serviços de domínio do Active Directory que será avaliada relativamente à compatibilidade em computadores cliente.  
 
         -   **Filtro de procura** - especifique um filtro de LDAP opcional para refinar os resultados da consulta dos Serviços de Domínio do Active Directory para avaliar a compatibilidade em computadores cliente.  
 
@@ -73,24 +70,24 @@ No System Center Configuration Manager, as condições globais são regras que r
 
             -   **Base** -consulta apenas o objeto especificado.  
 
-            -   **Um nível** -esta opção não é utilizada nesta versão do Configuration Manager.  
+            -   **Um nível** -esta opção não está a ser utilizada nesta versão do Configuration Manager.  
 
             -   **Subárvore** -consulta o objeto especificado e a respetiva subárvore completa no diretório.  
 
         -   **Propriedade** - especifique a propriedade do objeto dos Serviços de Domínio do Active Directory que será utilizada para avaliar a compatibilidade em computadores cliente.  
 
-        -   **Consulta** -mostra a consulta LDAP construída a partir das entradas no **prefixo LDAP**, **nome único (DN)**, **filtro de procura** se especificado, e **propriedade**. Esta consulta será utilizada para avaliar a compatibilidade em computadores cliente.  
+        -   **Consulta** -mostra a consulta LDAP construída a partir das entradas em **prefixo LDAP**, **nome único (DN)**, **filtro de pesquisa** se for especificado, e **propriedade**. Esta consulta será utilizada para avaliar a compatibilidade em computadores cliente.  
 
     -   **Assemblagem**  
 
-        -   **Nome da assemblagem** - Especifica o nome do objeto de assemblagem a procurar. O nome não pode ser igual de outro objeto de assemblagem do mesmo tipo e o nome tem de estar registado na Global Assembly Cache. O nome da assemblagem pode ter um máximo de 256 carateres.  
+        -   **Nome da assemblagem** - Especifica o nome do objeto de assemblagem a procurar. O nome não pode ser o mesmo que qualquer outro objeto de assemblagem do mesmo tipo e o nome tem de estar registado na Global Assembly Cache. O nome da assemblagem pode ter um máximo de 256 carateres.  
 
         > [!NOTE]  
         >  Uma assemblagem é um fragmento de código que pode ser partilhado entre aplicações. As assemblagens podem ter a extensão de nome de ficheiro. dll ou .exe. A Global Assembly Cache é uma pasta denominada *%systemroot%\assembly* em computadores cliente em que todas as assemblagens partilhadas são armazenados.  
 
     -   **Sistema de ficheiros**  
 
-        -   **Tipo de** – na lista pendente, escolha se pretende procurar um **ficheiro** ou um **pasta**.  
+        -   **Tipo** – na lista pendente, escolha se pretende procurar um **ficheiro** ou um **pasta**.  
 
         -   **Caminho** – especifique o caminho da pasta ou do ficheiro especificado nos computadores cliente. Pode especificar variáveis de ambiente do sistema e a variável de ambiente *%USERPROFILE%* no caminho.  
 
@@ -100,11 +97,11 @@ No System Center Configuration Manager, as condições globais são regras que r
         -   **Nome da pasta ou ficheiro** – especifique o nome do objeto de ficheiro ou de pasta que será procurado. Pode especificar variáveis de ambiente do sistema e a variável de ambiente *%USERPROFILE%* no nome da pasta ou ficheiro. Também pode utilizar o * e? carateres universais no nome do ficheiro.  
 
             > [!NOTE]  
-            >  Se especificar um nome de ficheiro ou de pasta e utilizar carateres universais, isto poderá produzir um elevado número de resultados. Isto pode resultar numa utilização intensiva de recursos do computador cliente e o tráfego de rede elevado ao reportar os resultados do Configuration Manager.  
+            >  Se especificar um nome de ficheiro ou de pasta e utilizar carateres universais, isto poderá produzir um elevado número de resultados. Isto pode resultar numa utilização intensiva de recursos no computador cliente e tráfego de rede elevado ao reportar os resultados para o Configuration Manager.  
 
         -   **Incluir subpastas** – ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
 
-        -   **Este ficheiro ou pasta está associada a uma aplicação de 64 bits** -escolha se o sistema de 64 bits ficheiros de localização (*% windir %*\system32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\syswow64) nos clientes do Configuration Manager que executam uma versão de 64 bits do Windows.  
+        -   **Este ficheiro ou pasta está associada a uma aplicação de 64 bits** -escolher se o sistema de 64 bits localização de ficheiros (*% windir %*\system32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\syswow64) em clientes do Configuration Manager com uma versão de 64 bits do Windows.  
 
             > [!NOTE]  
             >  Se o mesmo ficheiro ou pasta existir em ambas as localizações no mesmo computador de 64 bits, serão detetados múltiplos ficheiros pela condição global.  
@@ -119,7 +116,7 @@ No System Center Configuration Manager, as condições globais são regras que r
 
     -   **Chave de registo**  
 
-        -   **Ramo** – na lista pendente, selecione o ramo do registo que pretende pesquisar.  
+        -   **Ramo de registo** – na lista pendente, selecione o ramo de registo que pretende procurar.  
 
         -   **Chave** – especifique o nome da chave de registo que pretende procurar. O formato utilizado deve ser *chave\subchave*.  
 
@@ -145,12 +142,12 @@ No System Center Configuration Manager, as condições globais são regras que r
 
         -   **Script de deteção** – escolha **adicionar** para introduzir ou navegue para o script a utilizar. Pode utilizar scripts do Windows PowerShell, VBScript ou JScript.  
 
-        -   **Executar scripts ao utilizar as credenciais do utilizador a com sessão iniciada** – se ativar esta opção, o script será executado em computadores cliente utilizando as credenciais do utilizador que tem sessão iniciada.  
+        -   **Executar scripts ao utilizar o iniciada em credenciais de utilizador** – se ativar esta opção, o script será executado nos computadores cliente utilizando as credenciais do utilizador que tenha sessão iniciada.  
 
             > [!NOTE]  
             >  O valor devolvido pelo script será utilizado para avaliar a compatibilidade da condição global. Por exemplo, quando utilizar VBScript, poderá utilizar o **WScript resultado** comando para devolver o valor da variável resultado à condição global.  
             >   
-            >  Se o script devolve vários valores, estes valores têm de ser numa única linha e separados com um ponto e vírgula. Se cada valor estiver numa linha separada, a avaliação irá falhar.  
+            >  Se o script devolver vários valores, estes valores devem estar numa única linha e separadas por ponto e vírgula. Se cada valor estiver numa linha separada, a avaliação irá falhar.  
 
     -   **Consulta SQL**  
 
@@ -163,7 +160,7 @@ No System Center Configuration Manager, as condições globais são regras que r
 
         -   **Coluna** – especifique o nome da coluna devolvido pela instrução Transact-SQL a utilizar para avaliar a compatibilidade da condição global.  
 
-        -   **Instrução Transact-SQL** – especifique a consulta SQL completa a utilizar para a condição global. Também pode escolher **abrir** para abrir uma consulta SQL existente.  
+        -   **Instrução Transact-SQL** – especifique a consulta SQL completa a utilizar para a condição global. Também pode optar por **abrir** para abrir uma consulta SQL existente.  
 
     -   **Consulta WQL**  
 
@@ -183,7 +180,7 @@ No System Center Configuration Manager, as condições globais são regras que r
 
         -   **Incluir subpastas** - ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
 
-        -   **Este ficheiro está associado uma aplicação de 64 bits** -escolha se o sistema de 64 bits ficheiros de localização (*% windir %*\system32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\syswow64) nos clientes do Configuration Manager que executam uma versão de 64 bits do Windows.  
+        -   **Este ficheiro está associado uma aplicação de 64 bits** -escolher se o sistema de 64 bits localização de ficheiros (*% windir %*\system32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\syswow64) em clientes do Configuration Manager com uma versão de 64 bits do Windows.  
 
         -   **Consulta XPath** - especifique uma consulta da linguagem XPath completa e válida a utilizar para avaliar a compatibilidade em computadores cliente.  
 
@@ -194,15 +191,15 @@ No System Center Configuration Manager, as condições globais são regras que r
     > [!NOTE]  
     >  O **tipo de dados** na lista pendente não é apresentada para todos os tipos de definição.  
 
-4.  Configure mais detalhes sobre esta definição abaixo o **tipo de definição** na lista pendente. Os itens que pode configurar irão variar consoante o tipo de definição selecionado.  
+4.  Configurar detalhes adicionais sobre esta definição abaixo o **tipo de definição** na lista pendente. Os itens que pode configurar irão variar consoante o tipo de definição selecionado.  
 
-5.  Escolher **OK** para guardar a regra e fechar o **criar condição Global** caixa de diálogo.  
+5.  Escolha **OK** para guardar a regra e fechar o **criar condição Global** caixa de diálogo.  
 
 ### <a name="set-up-an-expression-for-the-global-condition"></a>Configurar uma expressão para a condição global  
 
 1.  Na lista pendente **Tipo de Condição** , escolha **Expressão**.  
 
-2.  Escolher **Adicionar cláusula** para abrir o **Adicionar cláusula** caixa de diálogo.  
+2.  Escolha **Adicionar cláusula** para abrir o **Adicionar cláusula** caixa de diálogo.  
 
 3.  Na lista pendente **Selecionar categoria** , selecione se esta expressão se destina a um dispositivo ou um utilizador. Em alternativa, selecione **Personalizado** para utilizar uma condição global configurada anteriormente.  
 
@@ -212,7 +209,6 @@ No System Center Configuration Manager, as condições globais são regras que r
 
 6.  No campo **Valor** , especifique os valores que serão utilizados com a condição e o operador selecionados para avaliar se o utilizador ou o dispositivo satisfaz os requisitos da regra. Os valores disponíveis variam consoante a condição selecionada e o operador selecionado.  
 
-7.  Escolher **OK** para guardar a expressão e fechar o **Adicionar cláusula** caixa de diálogo.  
+7.  Escolha **OK** para guardar a expressão e fechar o **Adicionar cláusula** caixa de diálogo.  
 
-8.  Quando acabar de adicionar cláusulas à condição global, escolher **OK** para fechar o **criar condição Global** caixa de diálogo e guardar a condição global.  
-
+8.  Quando acabar de adicionar cláusulas à condição global, escolha **OK** para fechar o **criar condição Global** caixa de diálogo e guardar a condição global.  

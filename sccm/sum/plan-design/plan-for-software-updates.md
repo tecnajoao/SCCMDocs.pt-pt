@@ -9,17 +9,14 @@ ms.date: 06/27/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
+ms.openlocfilehash: 8b739a01a6bb5cacf0f7109e2e6fa3b31dd666d3
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
-ms.openlocfilehash: bc7e702a4277ac1dc358aa9a2795cddbf42e475f
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="plan-for-software-updates-in-system-center-configuration-manager"></a>Planear atualizações de software no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -297,7 +294,7 @@ As atualizações de software necessitam que esteja instalada uma versão suport
 -   Se não tiver sido aprovada uma atualização de software de substituição para implementação no ambiente de produção.  
 
     > [!NOTE]  
-    >  Quando o Configuration Manager define uma atualização de software substituídas, tal como **expirado**, defini-lo não a atualização **expirado** no WSUS. No entanto, quando a tarefa de limpeza do WSUS é executada, as atualizações como **expirado** no Configuration Manager estão definidos para um Estado de **recusada** no WSUS server e o Windows Update Agent nos computadores já não irão analisar estas atualizações. Isto significa que os clientes continuarão procurar uma atualização expirada até que executa a tarefa de limpeza. Para obter informações sobre a tarefa de limpeza do WSUS, consulte [manutenção de atualizações de Software](/sccm/sum/deploy-use/software-updates-maintenance).
+    > Quando o Configuration Manager define uma atualização de software substituídas, tal como **expirado**, defini-lo não a atualização **recusada** no WSUS. No entanto, quando a tarefa de limpeza do WSUS é executada, as atualizações como **expirado** no Configuration Manager estão definidos para um Estado de **recusada** no WSUS server e o Windows Update Agent nos computadores já não irão analisar estas atualizações. Isto significa que os clientes continuarão procurar uma atualização expirada até que executa a tarefa de limpeza. Para obter informações sobre a tarefa de limpeza do WSUS, consulte [manutenção de atualizações de Software](/sccm/sum/deploy-use/software-updates-maintenance).
 
 ###  <a name="BKMK_UpdateLanguages"></a> Idiomas  
  As definições de idioma do ponto de atualização de software permitem configurar os idiomas para os quais os detalhes de resumo (metadados de atualizações de software) estão sincronizados para atualizações de software, e os ficheiros de idioma de atualização de software que serão transferidos para as atualizações de software.  
@@ -327,4 +324,3 @@ Em versões anteriores do Configuration Manager, quando está pendente um reiní
 
 ## <a name="next-steps"></a>Passos seguintes
 Depois de planear atualizações de software, consulte [preparar para o software de gestão de atualizações](../get-started/prepare-for-software-updates-management.md).
-

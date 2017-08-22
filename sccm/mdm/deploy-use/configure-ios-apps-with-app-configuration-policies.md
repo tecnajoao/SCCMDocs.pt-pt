@@ -1,78 +1,76 @@
 ---
-title: "Configurar as aplicações iOS com as políticas de configuração de aplicação | Documentos do Microsoft"
-description: "Ajude a eliminar problemas de configuração nos dispositivos que executam o iOS 8 ou posterior ao implementar políticas de configuração de aplicação para os utilizadores antes de estes executados aplicações."
+title: "Configurar aplicações iOS com políticas de configuração de aplicação | Microsoft Docs"
+description: "Ajude a eliminar os problemas de configuração em dispositivos com iOS 8 ou posterior ao implementar políticas de configuração de aplicação para os utilizadores antes de poderem executam as aplicações."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f0a78038-ea22-4826-9c07-1771b7dd2e8d
-caps.latest.revision: 18
-caps.handback.revision: 0
+caps.latest.revision: "18"
+caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 23b1d24e908d04b64c3bbfa518793a44e696d468
 ms.openlocfilehash: 50aea2afaf34974ca92ac58b6569bff56403a9ab
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Aplicar definições a aplicações iOS com as políticas de configuração da aplicação no System Center Configuration Manager
+# <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Aplicar as definições para aplicações iOS com políticas de configuração de aplicações no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 
-Pode utilizar as políticas de configuração de aplicação no System Center Configuration Manager (Configuration Manager) para distribuir as definições que poderão ser necessárias quando um utilizador executa uma aplicação. Por exemplo, uma aplicação pode necessitar de um utilizador especificar esses detalhes:
+Pode utilizar políticas de configuração de aplicações no System Center Configuration Manager (Configuration Manager) para distribuir as definições que poderão ser necessárias quando um utilizador executa uma aplicação. Por exemplo, uma aplicação pode requerer que um utilizador especificar estes detalhes:
 - Um número de porta personalizado
 - Definições de idioma
 - Definições de segurança
 - Definições de imagem corporativa, como um logótipo de empresa
 
-Se o utilizador introduz as definições incorretamente, fica a carga para resolvê-los no seu suporte técnico e implementação de aplicações é lenta.
-Para o ajudar a evitar estes problemas, pode utilizar as políticas de configuração de aplicação para implementar definições necessárias para os utilizadores antes que executar a aplicação. As definições são automaticamente associadas a um utilizador. O utilizador não tem de efetuar qualquer ação.
-Para utilizar uma política de configuração de aplicações no Configuration Manager, em vez de implementar as políticas de configuração diretamente a utilizadores e dispositivos, associar uma política com um tipo de implementação quando implementar a aplicação. As definições de política são aplicadas sempre que a aplicação verifica a existência de-las (normalmente, a primeira vez a aplicação é executada).
+Se o utilizador introduzir as definições incorretamente, o fardo corrigir recai no suporte técnico e implementação de aplicação é lenta.
+Para ajudar a evitar estes problemas, pode utilizar políticas de configuração de aplicação para implementar as definições necessárias para os utilizadores antes do que executar a aplicação. As definições estão associadas um utilizador automaticamente. O utilizador não tem de efetuar qualquer ação.
+Para utilizar uma política de configuração de aplicações no Configuration Manager, em vez de implementar as políticas de configuração diretamente a utilizadores e dispositivos, associar uma política com um tipo de implementação ao implementar a aplicação. As definições de política são aplicadas sempre que a aplicação verifica a existência de-los (normalmente, a primeira vez a aplicação é executada).
 
-Atualmente, as políticas de configuração de aplicação estão disponíveis apenas em dispositivos que executam o iOS 8 e posterior e para estes tipos de aplicação:
+Atualmente, as políticas de configuração de aplicação estão disponíveis apenas em dispositivos com iOS 8 e posterior e para estes tipos de aplicação:
 
 - **pacote de aplicação para iOS (*ficheiro. IPA)**
 - **pacote de aplicação para iOS da App Store**
 
-Para obter mais informações sobre tipos de instalação da aplicação, consulte o [introdução à gestão de aplicações](/sccm/apps/understand/introduction-to-application-management).
+Para obter mais informações sobre os tipos de instalação de aplicações, consulte o [introdução à gestão de aplicações](/sccm/apps/understand/introduction-to-application-management).
 
 ## <a name="create-an-app-configuration-policy"></a>Criar uma política de configuração de aplicação
 
 1. Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **políticas de configuração de aplicação**.
-2. No **base** separador o **políticas de configuração de aplicação** grupo, selecione **criar nova política de configuração de aplicação**.
-3. No Assistente de criação App configuração política, no **geral** página, defina estas informações de política:
+2. No **home page** separador o **políticas de configuração de aplicação** grupo, escolha **criar nova política de configuração de aplicação**.
+3. No Assistente de criação de aplicação configuração política no **geral** página, defina estas informações de política:
   - **Nome**. Introduza um nome exclusivo para a política.
-  - **Descrição**. (Opcional) Para tornar mais fáceis de identificar a política, pode adicionar uma descrição.
-  - **Categorias para melhorar a procura e filtragem atribuídas**. (Opcional) Para criar e atribuir categorias para a política, selecione **categorias**. Categorias facilitam organizar e localizar itens na consola do Configuration Manager.
-4. No **política para iOS** página, selecione como definir as informações de política de configuração:
-  - **Especifique os pares de nome e valor**. Pode utilizar esta opção para a propriedade listam os ficheiros que não utilizem o aninhamento.
+  - **Descrição**. (Opcional) Para tornar mais fácil de identificar a política, pode adicionar uma descrição.
+  - **Atribuir categorias para melhorar a procura e filtragem**. (Opcional) Para criar e atribuir categorias para a política, escolha **categorias**. Categorias de tornam mais fácil para si ordenar e encontrar itens na consola do Configuration Manager.
+4. No **política iOS** página, selecione como definir as informações de política de configuração:
+  - **Especifique pares nome / valor**. Pode utilizar esta opção para ficheiros de lista de propriedades que não utilizem o aninhamento.
 
       *Para especificar um par nome e valor*
         1. Para adicionar um novo par, escolha **novo**.
-        2. No **adicionar par nome/valor** diálogo caixa, especifique o seguinte:
-            - **Tipo de**. Na lista, selecione o tipo de valor que pretende especificar.
-            - **Nome**. Introduza o nome da chave de lista de propriedades para o qual pretende especificar um valor.
+        2. No **adicionar par de nome/valor** diálogo caixa, especifique o seguinte:
+            - **Tipo**. Na lista, selecione o tipo de valor que pretende que especificar.
+            - **Nome**. Introduza o nome da chave de lista de propriedade para o qual pretende especificar um valor.
             - **Valor**. Introduza o valor que será aplicado para a chave que introduziu.
 
-  - **Procure um ficheiro de lista de propriedade**. Utilize esta opção se já tiver um ficheiro de XML de configuração de aplicação, ou ficheiros mais complexos que utilizam o aninhamento.
+  - **Procure um ficheiro de lista de propriedade**. Utilize esta opção se já tiver um ficheiro XML de configuração de aplicação ou para os ficheiros mais complexos que utilizam o aninhamento.
 
-    *Para procurar um ficheiro de lista de propriedade*
+    *Para procurar um ficheiro de lista de propriedades*
 
-      1.  No **política de configuração de aplicação** de campo, introduza as informações de lista de propriedade no formato XML correto.
+      1.  No **política de configuração de aplicação** campo, introduza as informações de lista de propriedades no formato XML correto.
 
-      Para saber mais sobre listas de propriedades XML, consulte o artigo [Noções básicas sobre XML propriedade apresenta uma lista de](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html) na biblioteca do programador do iOS.
+      Para saber mais sobre listas de propriedades XML, consulte o artigo [compreender listas de propriedades de XML](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html) na iOS Developer Library.
 
-O formato da lista de propriedade XML varia consoante a aplicação que estiver a configurar. Contacte o fornecedor da aplicação para obter detalhes sobre o formato a utilizar.
-Intune suporta os seguintes tipos de dados de uma lista de propriedade:
+O formato da lista de propriedades XML varia consoante a aplicação que estiver a configurar. Contacte o fornecedor da aplicação para obter detalhes sobre o formato a utilizar.
+O Intune suporta os seguintes tipos de dados numa lista de propriedades:
             
             ```
             <integer>
@@ -82,8 +80,8 @@ Intune suporta os seguintes tipos de dados de uma lista de propriedade:
             <dict>
             <true /> or <false />
             ```
-Para obter mais informações sobre tipos de dados, consulte o artigo [sobre propriedade apresenta uma lista de](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/AboutPropertyLists/AboutPropertyLists.html) na biblioteca do programador do iOS.
-Também o Intune suporta os seguintes tipos de token na lista de propriedade:
+Para mais informações sobre os tipos de dados, consulte [sobre listas de propriedades](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/AboutPropertyLists/AboutPropertyLists.html) na iOS Developer Library.
+O Intune também suporta os seguintes tipos de token na lista de propriedades:
             
             ```
             {{userprincipalname}} - (Example: John@contoso.com)
@@ -97,22 +95,22 @@ Também o Intune suporta os seguintes tipos de token na lista de propriedade:
             {{serialnumberlast4digits}} - (Example: G5V2) for iOS devices
             ```
 
-Os {{e}} carateres são utilizados por apenas tipos de token e não devem ser utilizados para outros fins.
+O {{e}} carateres são utilizados por tipos de token apenas e não podem ser utilizados para outros fins.
             
-5. Para importar um ficheiro XML que criou anteriormente, selecione **ficheiro selecione**.
-6. Escolher **seguinte**. Se existirem erros no código XML, terá de corrigi-los antes de continuar.
+5. Para importar um ficheiro XML que criou anteriormente, escolha **selecionar ficheiro**.
+6. Escolha **seguinte**. Se existem erros no código XML, terá de corrigir as entradas antes de continuar.
 7. Conclua os passos apresentados no assistente.
 
-A nova política de configuração de aplicação é apresentada no **biblioteca de Software** área de trabalho, no **políticas de configuração de aplicação** nó.
+A nova política de configuração de aplicação é apresentada no **biblioteca de Software** área de trabalho, no **políticas de configuração de aplicação** nós.
 
 ## <a name="associate-an-app-configuration-policy-with-a-configuration-manager-application"></a>Associar uma política de configuração de aplicação a uma aplicação do Configuration Manager
 
-Para associar uma política de configuração de aplicação com a implementação de uma aplicação iOS, a implementar a aplicação, como faria normalmente, utilizando o procedimento apresentado a [implementar aplicações](/sccm/apps/deploy-use/deploy-applications) tópico.
+Para associar uma política de configuração de aplicação com a implementação de uma aplicação iOS, implementar a aplicação como faria normalmente, utilizando o procedimento a [implementar aplicações](/sccm/apps/deploy-use/deploy-applications) tópico.
 
-No Assistente de implementação de Software, no **políticas de configuração de aplicação** página, selecione **novo**. No **selecionar política de configuração de aplicação** diálogo caixa, selecione um tipo de implementação de aplicação e a política de configuração de aplicação que pretende associar aos.
-Quando é instalado o tipo de implementação, as definições de política de configuração de aplicação é aplicada automaticamente.
+No Assistente para implementar Software, no **políticas de configuração de aplicação** página, escolha **novo**. No **selecionar política de configuração de aplicação** diálogo caixa, escolha um tipo de implementação de aplicação e a política de configuração de aplicação que pretende associá-lo.
+Quando o tipo de implementação é instalado, é aplicada automaticamente as definições de política de configuração de aplicação.
 
-## <a name="example-format-for-the-mobile-app-configuration-xml-file"></a>Formato de exemplo para o ficheiro de XML de configuração de aplicação móvel
+## <a name="example-format-for-the-mobile-app-configuration-xml-file"></a>Formato de exemplo para o ficheiro XML de configuração de aplicação móvel
 
 Quando cria um ficheiro de configuração de aplicação móvel, pode utilizar este formato para especificar um ou mais dos seguintes valores:
 
@@ -140,4 +138,3 @@ Quando cria um ficheiro de configuração de aplicação móvel, pode utilizar e
   <string>{{udidlast4digits}}</string>
 </dict>
 ```
-

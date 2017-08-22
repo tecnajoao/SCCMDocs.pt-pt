@@ -1,37 +1,34 @@
 ---
-title: "Configurar a gestão de energia | Documentos do Microsoft"
+title: "Configurar a gestão de energia | Microsoft Docs"
 description: "Configure a gestão de energia no System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 435c923c-ea30-4dce-8afd-48962ed85502
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
 ms.openlocfilehash: e111ac2545dd9e0b96a50c10246bb75d286a737a
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="configuring-power-management-in-system-center-configuration-manager"></a>Configurar a gestão de energia no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Antes de poder utilizar gestão de energia no System Center Configuration Manager, tem de efetuar os seguintes passos de configuração.  
+Antes de poder utilizar a gestão de energia no System Center Configuration Manager, tem de efetuar os seguintes passos de configuração.  
 
 ## <a name="enable-and-configure-power-management-client-settings"></a>Ativar e configurar as definições de cliente de gestão de energia  
- Este procedimento configura as predefinições de cliente para a gestão de energia e aplica-se a todos os computadores na sua hierarquia. Se pretender que estas definições se apliquem apenas a alguns computadores, crie uma definição personalizada do cliente do dispositivo e atribua-a a uma coleção que contenha os computadores que pretende que utilizem gestão de energia. Para obter mais informações sobre como criar definições personalizadas do dispositivo, consulte o artigo [como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+ Este procedimento configura as predefinições de cliente para a gestão de energia e aplica-se a todos os computadores na sua hierarquia. Se pretender que estas definições se apliquem apenas a alguns computadores, crie uma definição personalizada do cliente do dispositivo e atribua-a a uma coleção que contenha os computadores que pretende que utilizem gestão de energia. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
 #### <a name="to-enable-power-management-and-configure-client-settings"></a>Para ativar a gestão de energia e configurar as definições de cliente  
 
@@ -49,7 +46,7 @@ Antes de poder utilizar gestão de energia no System Center Configuration Manage
 
     -   **Permitir gestão de energia dos dispositivos** – Na lista pendente, selecione **Verdadeiro** para ativar a gestão de energia.  
 
-7.  Configure as definições de cliente de que necessita. Para obter uma lista de definições de cliente de gestão de energia que pode configurar, consulte o [gestão de energia](../../../../core/clients/deploy/about-client-settings.md#power-management) secção a [sobre definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) tópico.  
+7.  Configure as definições de cliente de que necessita. Para obter uma lista de definições de cliente de gestão de energia que pode configurar, consulte o [gestão de energia](../../../../core/clients/deploy/about-client-settings.md#power-management) secção o [sobre definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) tópico.  
 
 8.  Clique em **OK** para fechar a caixa de diálogo **Predefinições de Cliente** .  
 
@@ -71,7 +68,7 @@ Antes de poder utilizar gestão de energia no System Center Configuration Manage
 > [!NOTE]  
 >  Se a opção **Permitir que os utilizadores excluam o seu dispositivo da gestão de energia** estiver configurada nas definições de cliente, os utilizadores podem excluir os seus próprios computadores da gestão de energia através do Centro de Software.  
 
- Para saber quais os computadores que foram excluídos da gestão de energia, execute o relatório **Computadores Excluídos**. Para obter mais informações sobre este relatório consulte [computadores excluídos](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Excluded) no [como a monitorizar e planear a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
+ Para saber quais os computadores que foram excluídos da gestão de energia, execute o relatório **Computadores Excluídos**. Para obter mais informações sobre este relatório consulte [computadores excluídos](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Excluded) no [como monitorizar e planear a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
 
 > [!IMPORTANT]  
 >  As definições de energia aplicadas a computadores que executam o Windows XP ou o Windows Server 2003 não são revertidas para os valores originais, mesmo que exclua o computador da gestão de energia. Em versões posteriores do Windows, excluir um computador da gestão de energia faz com que todas as definições de energia sejam revertidas para os valores originais. Não é possível reverter as definições de energia individuais para os valores originais.  
@@ -86,5 +83,4 @@ Antes de poder utilizar gestão de energia no System Center Configuration Manage
 
 4.  No **gestão de energia** separador do *< nome da coleção\>***propriedades** caixa de diálogo, selecione **nunca aplicar as definições de gestão de energia aos computadores desta coleção**.  
 
-5.  Clique em **OK** para fechar o *< nome da coleção\>***propriedades** caixa de diálogo e para guardar as definições.  
-
+5.  Clique em **OK** para fechar o *< nome da coleção\>***propriedades** caixa de diálogo e guardar as definições.  

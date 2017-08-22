@@ -6,24 +6,21 @@ ms.date: 07/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 120442be-179e-450c-a0c4-284046895da3
-caps.latest.revision: 4
-caps.handback.revision: 0
+caps.latest.revision: "4"
+caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
 ms.openlocfilehash: 7434c98f2217cf63fdcd250b91e772de72daaea9
-ms.contentlocale: pt-pt
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Perfis de e-mail do Exchange ActiveSync no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -178,4 +175,3 @@ Na página **Configurar definições de sincronização** do Assistente para Cri
 2.  Conclua o assistente.
 
 Para obter informações sobre como implementar os perfis de e-mail do Exchange ActiveSync, consulte [como implementar perfis no System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).  
-

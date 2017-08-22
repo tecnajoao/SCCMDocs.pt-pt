@@ -6,23 +6,20 @@ ms.date: 7/31/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 86cd5382-8b41-45db-a4f0-16265ae22657
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 89fcd16887ae77299f9d18472ee6a1ba56794eca
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="peer-cache-for-configuration-manager-clients"></a>Cache ponto a ponto para clientes do Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -110,4 +107,3 @@ Utilize este relatório para compreender a rejeição os detalhes para um tipo d
   -  **Porta para transferência do conteúdo de elemento de rede (HTTP/HTTPS)**
 
 Em cada computador que está ativada para a Cache ponto a ponto, se a Firewall do Windows está a ser utilizado, o Configuration Manager configura-la para permitir a utilização das portas que configurar.
-

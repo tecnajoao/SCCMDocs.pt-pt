@@ -2,26 +2,24 @@
 title: As funcionalidades preteridas | Microsoft Docs
 description: "Saiba mais sobre as funcionalidades, produtos e sistemas operativos que já não suporta a System Center Configuration Manager."
 ms.custom: na
-ms.date: 06/27/2017
+ms.date: 08/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: d8c8b44c-1e8a-42b6-bab4-23c72a0a6169
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 8ac7009014a4652a36acf69ebfe9ccab3ba8ecbd
+ms.sourcegitcommit: 3ce56c7350411d8cc3d3cb9b4054f9ada9b0ed54
 ms.translationtype: MT
-ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
-ms.openlocfilehash: 98fa323cb94013d875e2cea41b80fff8cc75b6b2
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="removed-and-deprecated-features-for-system-center-configuration-manager"></a>Funcionalidades removidas e preteridas do System Center Configuration Manager
 
@@ -71,7 +69,7 @@ Para obter mais informações, consulte:
 |**Sistemas operativos**|**Preterição anunciada pela primeira vez**|**Suporte removido**|  
 |-|-|-|  
 |Windows XP|10 de Julho de 2015|Versão 1511|  
-|Windows XP Embedded|10 de Julho de 2015|Versão 1702|  
+|Windows XP Embedded <br><br> Isto inclui todos os [sistemas de operativos incorporados baseados no XP](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#windows-embedded-computers).|10 de Julho de 2015|Versão 1702|  
 |Windows Server 2003|10 de Julho de 2015|Versão 1511|  
 |Windows Server 2003 R2|10 de Julho de 2015|Versão 1511|  
 |Windows Vista|10 de Julho de 2015|Versão 1511|  
@@ -102,9 +100,10 @@ Se precisar de atualizar a sua versão do SQL Server, recomendamos os seguintes 
 |Gestão fora de banda - como encontrada no System Center 2012 Configuration Manager|16 de Outubro de 2015|Versão 1511|
 |As sequências de tarefas: <br /> -OSDPreserveDriveLetter  <br /><br /> Durante a implementação do sistema operativo, por predefinição, a configuração do Windows agora determina a letra de unidade melhor a utilizar (normalmente c). Se pretender especificar uma unidade diferente a utilizar, pode alterar a localização no passo de sequência de tarefas Aplicar sistema operativo. Vá para o **selecionar a localização onde pretende aplicar este sistema operativo** definição, selecione **letra de unidade lógica específica**e escolha a unidade que pretende utilizar. |20 de Junho de 2016 |Versão 1606 |
 |As sequências de tarefas: <br /> -Converter disco em dinâmico <br /> -Instalar ferramentas de implementação |18 de Novembro de 2016|Suporte para estas tarefas sequências extremidades com a primeira atualização lançada após 1 de Junho de 2017.|
-|O Centro de Software tem um aspeto novo e moderno. As aplicações que eram apenas no catálogo de aplicações dependente do Silverlight (aplicações disponíveis ao utilizador) agora apresentadas no Centro de Software no **aplicações** separador. O catálogo de aplicações ainda podem ser acedido utilizando a hiperligação no **estado da instalação** separador do Centro de Software.<br><br>Nos próximos meses, a versão anterior do Centro de Software já não estará disponível.<br><br>Pode configurar clientes para utilizar o novo Centro de Software, ativando o definição de cliente **agente do computador** > **utilizar o novo Centro de Software**.<br><br>Para obter mais informações acerca do Centro de Software, consulte [planear e configurar a gestão de aplicações no System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|13 de Dezembro de 2016|Suporte para a versão anterior do Centro de Software extremidades com a primeira atualização lançada após 1 de Janeiro de 2018.|
+|Centro de software tem um aspeto novo e moderno. Nos próximos meses, a versão anterior do Centro de Software já não estará disponível.<br><br>Pode configurar clientes para utilizar o novo Centro de Software, ativando o definição de cliente **agente do computador** > **utilizar o novo Centro de Software**.<br><br>Para obter mais informações acerca do Centro de Software, consulte [planear e configurar a gestão de aplicações no System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|13 de Dezembro de 2016|Suporte para a versão anterior do Centro de Software extremidades com a primeira atualização lançada após 1 de Janeiro de 2018.|
+|Com a chegada da nova experiência de centro de Software na versão 1511, as aplicações que eram apenas no catálogo de aplicações (aplicações disponíveis ao utilizador) agora apresentadas no Centro de Software. </br></br>Com esta funcionalidade principal do catálogo de aplicações agora incluída no Centro de Software, a experiência de catálogo de aplicações baseadas na web deixará de estar disponível nos próximos meses.|11 de Agosto de 2017| Suporte para as extremidades de experiência do utilizador do web site do catálogo de aplicações com a primeira atualização lançada após 1 de Junho de 2018|
 |Gestão de discos rígidos virtuais (VHDs) com o Configuration Manager. </br></br>Isto inclui a remoção das opções para criar um novo VHD ou gerir um VHD através de uma sequência de tarefas e a remoção do nó de discos rígidos virtuais a partir da consola do Configuration Manager. </br></br>Quando este suporte é removido, VHDs existentes não serão eliminados, mas deixará de estar acessíveis a partir da consola do Configuration Manager.  |6 de Janeiro de 2017 |Suporte para os VHDs extremidades com a primeira atualização lançada após 1 de Junho de 2017.|
-|Ferramenta de avaliação de atualização do Configuration Manager do System Center. </br></br>A ferramenta de avaliação de atualização depende do System Center Configuration Manager e do Application Compatibility Toolkit (ACT) 6. x. A versão final do ACT foi incluída no Windows 10 v1511 ADK. Como vai haver não existem atualizações adicionais para ACT, suporte para a ferramenta de avaliação da atualização serão descontinuadas. </br></br>A ferramenta de avaliação da atualização foi substituída pelo [atualizar preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics) funcionalidade. Aviso de preterição foi adicionado para o [página de transferência de UAT](https://www.microsoft.com/download/details.aspx?id=37145) no 9/12/2016. |9/12/2016  | 11 de Julho de 2017 |  
+|Ferramenta de avaliação de atualização do Configuration Manager do System Center. </br></br>A ferramenta de avaliação de atualização depende do System Center Configuration Manager e do Application Compatibility Toolkit (ACT) 6. x. A versão final do ACT foi incluída no Windows 10 v1511 ADK. Como vai haver não existem atualizações adicionais para ACT, suporte para a ferramenta de avaliação da atualização serão descontinuadas. </br></br>A ferramenta de avaliação da atualização foi substituída pelo [atualizar preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics) funcionalidade. Aviso de preterição foi adicionado para o [página de transferência de UAT](https://www.microsoft.com/download/details.aspx?id=37145) no 9/12/2016. |9/12/2016  | 11 de Julho de 2017 |
 
 
 <br></br>
@@ -121,4 +120,3 @@ Detalhes adicionais para funcionalidades removidas com a versão 1511 da versão
  System Center Configuration Manager removeu o suporte para proteção de acesso à rede. A funcionalidade foi preterida no Windows Server 2012 R2 e é removida do Windows 10.  
 
  Para alternativas de proteção de acesso da rede, veja a secção *Funcionalidade preterida* na [Política de Rede e Descrição Geral dos Serviços de Acesso](https://technet.microsoft.com/library/hh831683.aspx).
-

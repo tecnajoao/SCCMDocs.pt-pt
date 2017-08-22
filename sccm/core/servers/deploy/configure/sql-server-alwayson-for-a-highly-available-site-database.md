@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 58d52fdc-bd18-494d-9f3b-ccfc13ea3d35
-caps.latest.revision: 16
+caps.latest.revision: "16"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: c746365238e1255d73387a9496521bb03a56b21b
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Preparar para utilizar grupos de disponibilidade SQL Server Always On com o Configuration Manager
 
@@ -259,4 +257,3 @@ Para executar relatórios, na consola do aceda a **monitorização** > **descri�
 
 ## <a name="next-steps"></a>Passos seguintes
 Depois de compreender os pré-requisitos, limitações e as alterações para tarefas comuns que são necessárias quando utiliza grupos de disponibilidade, consulte o artigo [configurar grupos de disponibilidade do Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag), para obter os procedimentos definir e configurar o seu site para utilizar grupos de disponibilidade.
-

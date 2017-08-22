@@ -1,33 +1,30 @@
 ---
-title: "Políticas de Firewall do Windows para o Endpoint Protection | Documentos do Microsoft"
+title: "Políticas de Firewall do Windows para o Endpoint Protection | Microsoft Docs"
 description: "Saiba como criar e implementar políticas de firewall para o Endpoint Protection no System Center 2012 Configuration Manager."
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6ecdfad1-6305-45a8-ae75-3f33b967cb8f
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 8f4ec982a54cf3cefef310268a54850e70e2e63a
 ms.openlocfilehash: acd75a8b22d050970b8c1176f725ddb4445633aa
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-and-deploy-windows-firewall-policies-for-endpoint-protection-in-system-center-configuration-manager"></a>Criar e implementar políticas de Firewall do Windows para o Endpoint Protection no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-As políticas de firewall para o Endpoint Protection no System Center 2012 Configuration Manager permitem-lhe efetuar tarefas de manutenção e configuração básica de Firewall do Windows em computadores cliente na sua hierarquia. Pode utilizar as políticas de Firewall do Windows para efetuar as seguintes tarefas:  
+As políticas de firewall para o Endpoint Protection no System Center 2012 Configuration Manager permitem-lhe efetuar tarefas de manutenção e configuração básica do Firewall do Windows nos computadores cliente na sua hierarquia. Pode utilizar as políticas de Firewall do Windows para efetuar as seguintes tarefas:  
 
 -   Controlar se a Firewall do Windows está ativada ou desativada.  
 
@@ -80,4 +77,3 @@ As políticas de firewall para o Endpoint Protection no System Center 2012 Confi
 
     > [!IMPORTANT]  
     >  Ao implementar uma política de Firewall do Windows numa coleção, esta política é aplicada a computadores numa ordem aleatória durante um período de 2 horas, para evitar sobrecarregar a rede.
-

@@ -1,34 +1,31 @@
 ---
-title: "Transições de estado de validação de exemplo para o Asset Intelligence | Documentos do Microsoft"
-description: "Veja exemplos de transições de estado de validação para o Asset Intelligence no System Center Configuration Manager."
+title: "Transições de Estados de validação de exemplo para o Asset Intelligence | Microsoft Docs"
+description: "Veja exemplos de transições de estado de validação do Asset Intelligence no System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6230a6e5-a1f6-459b-84f1-07fbde0e70f0
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 9c5d1e48b76392beaf54b5377c69b648537e86f8
 ms.openlocfilehash: f280e06f34c0ed355b7c2652c571e36eb6684c59
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-validation-state-transitions-for-asset-intelligence-in-system-center-configuration-manager"></a>Transições de estado de validação de exemplo para o Asset Intelligence no System Center Configuration Manager
+# <a name="example-validation-state-transitions-for-asset-intelligence-in-system-center-configuration-manager"></a>Transições de Estados de validação de exemplo para o Asset Intelligence no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Estados de validação do Asset Intelligence no System Center Configuration Manager não são estáticos e podem alterar de ações administrativas que efetuar para afeta os dados que estão armazenados no catálogo do Asset Intelligence. Este tópico fornece exemplos para validação possíveis transições de estado.
+Estados de validação do Asset Intelligence no System Center Configuration Manager não são estáticos e podem ser alterado de ações administrativas para afetar os dados que são armazenados no catálogo do Asset Intelligence. Este tópico fornece exemplos de validação possíveis transições de estado.
 
 ##  <a name="BKMK_UncategorizedIsCategorized"></a> O item de catálogo não categorizado foi categorizado pelo utilizador administrativo  
 
@@ -76,11 +73,10 @@ Estados de validação do Asset Intelligence no System Center Configuration Mana
 |**Não categorizado**|Um título de software inventariado introduzido na base de dados do Asset Intelligence que não foi categorizado por um utilizador administrativo ou pelo System Center Online.|  
 |**Definido pelo Utilizador**|Categorizou o item não categorizado.|  
 |**Definido pelo Utilizador** para **Pendente**|Submete o item definido pelo utilizador para o System Center Online para categorização.|  
-|**Pendente** para **Atualizável**|Um item de catálogo definido pelo utilizador foi categorizado de forma diferente pelo System Center Online durante a sincronização do catálogo subsequente. Pode utilizar a ação **Resolver Conflito** para decidir se deve utilizar as novas informações de categorização ou o valor definido pelo utilizador anterior. Para obter mais informações sobre a resolução de conflitos, consulte o artigo [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
-|**Atualizável** para **Validado**|Utilize a ação **Resolver Conflito** e selecione as novas informações de categorização recebidas a partir do System Center Online durante a atualização do catálogo anterior. Para obter mais informações sobre a resolução de conflitos, consulte o artigo [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Pendente** para **Atualizável**|Um item de catálogo definido pelo utilizador foi categorizado de forma diferente pelo System Center Online durante a sincronização do catálogo subsequente. Pode utilizar a ação **Resolver Conflito** para decidir se deve utilizar as novas informações de categorização ou o valor definido pelo utilizador anterior. Para obter mais informações sobre como resolver conflitos, consulte [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Atualizável** para **Validado**|Utilize a ação **Resolver Conflito** e selecione as novas informações de categorização recebidas a partir do System Center Online durante a atualização do catálogo anterior. Para obter mais informações sobre como resolver conflitos, consulte [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
 |ou||  
-|**Atualizável** para **Definido pelo Utilizador**|Utilize a ação **Resolver Conflito** e selecione para utilizar o valor definido pelo utilizador anterior. Para obter mais informações sobre a resolução de conflitos, consulte o artigo [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
+|**Atualizável** para **Definido pelo Utilizador**|Utilize a ação **Resolver Conflito** e selecione para utilizar o valor definido pelo utilizador anterior. Para obter mais informações sobre como resolver conflitos, consulte [resolver conflitos de detalhes de software](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ResolveSoftwareDetails).|  
 
 > [!NOTE]  
 >  Uma vez que as informações de categorização obtidas a partir do System Center Online estão armazenadas na base de dados e não podem ser eliminadas, pode reverter mais tarde para a categorização do System Center Online.  
-

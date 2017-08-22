@@ -1,31 +1,28 @@
 ---
-title: "Criar itens de configuração para o Configuration Manager do cliente gerido Macs - | Documentos do Microsoft"
-description: "Utilize o item de configuração do System Center Configuration Manager Mac OS X para gerir as definições dos dispositivos de Mac OS X."
+title: "Criar itens de configuração para o Configuration Manager do cliente gerido Macs - | Microsoft Docs"
+description: "Utilize o item de configuração do Mac OS X do System Center Configuration Manager para gerir as definições para dispositivos Mac OS X."
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 722d5bf5-bedc-4dfc-b324-6eeb773874e9
-caps.latest.revision: 8
-caps.handback.revision: 0
+caps.latest.revision: "8"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: 541e5ad629a9e2ed9c353dff150f9b86b9d12b7d
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Como criar itens de configuração para dispositivos Mac OS X geridos com o cliente System Center Configuration Manager
-Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item de configuração para gerir as definições dos dispositivos de Mac OS X que são geridos pelo cliente do Configuration Manager.  
+Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item de configuração para gerir as definições para dispositivos Mac OS X que são geridos pelo cliente do Configuration Manager.  
   
  O sistema operativo Mac OS X utiliza ficheiros de lista de propriedades (ou plist) para armazenar as definições das aplicações. Utilize as definições de compatibilidade para avaliar e corrigir as definições num ficheiro de lista de propriedades. Também pode gerir as definições de Mac OS X ao escrever um Script de Shell que devolva um valor que pode avaliar e corrigir para fins de compatibilidade.  
   
@@ -41,7 +38,7 @@ Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item 
   
 5.  Em **Especifique o tipo de item de configuração que pretende criar**, selecione **Mac OS X (personalizado)**.  
   
-6.  Clique em **categorias** se pode criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
+6.  Clique em **categorias** se criar e atribuir categorias para o ajudar a procurar e filtrar itens de configuração na consola do Configuration Manager.  
   
 7.  Na página **Plataformas Suportadas** do assistente, selecione as versões do Mac OS X específicas que irão avaliar o item de configuração.  
   
@@ -64,7 +61,7 @@ Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item 
   
     -   **Script** -  
   
-        -   **Script de Deteção** – clique em **Adicionar Script** e, em seguida, introduza um script de shell para avaliar a compatibilidade das definições no computador Mac. Utilize o **eco** comando o script de shell para devolver valores para o Configuration Manager para compatibilidade. O Configuration Manager utiliza os resultados devolvidos na **STDOUT** para avaliar a compatibilidade.  
+        -   **Script de Deteção** – clique em **Adicionar Script** e, em seguida, introduza um script de shell para avaliar a compatibilidade das definições no computador Mac. Utilize o **eco** comando no script de shell para devolver valores para o Configuration Manager para compatibilidade. O Configuration Manager utiliza os resultados devolvidos no **STDOUT** para avaliar a compatibilidade.  
   
             > [!IMPORTANT]  
             >  Não inclua o comando **reiniciar** no script de deteção. Uma vez que o script de deteção é executado sempre que o cliente é reiniciado, isto fará com que o computador Mac reinicie continuamente.  
@@ -91,7 +88,7 @@ Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item 
   
     -   **Descrição:** Introduza uma descrição para a regra de compatibilidade.  
   
-    -   **Definição selecionada:** Clique em **procurar** para abrir o **selecione definição** caixa de diálogo. Selecione a definição na qual pretende definir uma regra ou clique em **Nova Definição**. Quando terminar, clique em **Selecionar**.  
+    -   **Definição selecionada:** Clique em **procurar** para abrir o **selecionar definição** caixa de diálogo. Selecione a definição na qual pretende definir uma regra ou clique em **Nova Definição**. Quando terminar, clique em **Selecionar**.  
   
         > [!TIP]  
         >  Também pode clicar em **Propriedades** para ver informações sobre a definição atualmente selecionada.  
@@ -106,13 +103,13 @@ Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item 
   
         -   A definição deve estar em conformidade com a seguinte regra – Selecione um operador e um valor que é avaliado quanto à compatibilidade com a definição selecionada. Pode utilizar os seguintes operadores:  
   
-            -   **É igual a**  
+            -   **Igual a**  
   
             -   **Não é igual a**  
   
             -   **Maior que**  
   
-            -   **Menor que**  
+            -   **Inferior a**  
   
             -   **Entre**  
   
@@ -133,15 +130,15 @@ Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item 
   
     -   **Gravidade de incompatibilidade para relatórios** - especifica o nível de gravidade reportado se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
   
-        -   **Nenhum** -os computadores que não obedeçam a esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
+        -   **Nenhum** -computadores que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
   
-        -   **Informações** -computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
+        -   **Informações** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
   
-        -   **Aviso** -computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
+        -   **Aviso** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
   
-        -   **Crítico** -computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **crítico** para relatórios do Configuration Manager.  
+        -   **Crítico** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
   
-        -   **Crítico com evento** -computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **crítico** para relatórios do Configuration Manager. Este nível de gravidade também é registado pelo computador cliente Mac.  
+        -   **Crítico com evento** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade também é registado pelo computador cliente Mac.  
   
     -   Para um tipo de regra **Existencial**, especifique as seguintes informações:  
   
@@ -151,17 +148,17 @@ Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item 
   
             -   **A definição não deve existir nos dispositivos cliente**  
   
-        -   **Gravidade de incompatibilidade para relatórios:** Especifica o nível de gravidade reportado se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
+        -   **Gravidade de incompatibilidade para relatórios:** Especifique o nível de gravidade reportado se esta regra de compatibilidade falhar. Os níveis de gravidade disponíveis são os seguintes:  
   
-            -   **Nenhum** -os computadores que não obedeçam a esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
+            -   **Nenhum** -computadores que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
   
-            -   **Informações** -computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
+            -   **Informações** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
   
-            -   **Aviso** -computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
+            -   **Aviso** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
   
-            -   **Crítico** -computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **crítico** para relatórios do Configuration Manager.  
+            -   **Crítico** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager.  
   
-            -   **Crítico com evento** -computadores que não obedeçam a esta regra de compatibilidade reportam uma gravidade de falha de **crítico** para relatórios do Configuration Manager. Este nível de gravidade também é registado pelo computador cliente Mac.  
+            -   **Crítico com evento** -os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **críticos** para relatórios do Configuration Manager. Este nível de gravidade também é registado pelo computador cliente Mac.  
   
         > [!NOTE]  
         >  As opções apresentadas podem variar consoante o tipo de definição para o qual está a configurar uma regra.  
@@ -176,4 +173,3 @@ Utilizar o System Center Configuration Manager**Mac OS X (personalizado)** item 
   
 ## <a name="see-also"></a>Consulte Também  
  [Itens de configuração para dispositivos geridos com o cliente do System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)
-

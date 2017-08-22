@@ -1,30 +1,27 @@
 ---
-title: "Resolução de problemas de cliente do Windows Defender ou o Endpoint Protection | Documentos do Microsoft"
-description: Saiba como resolver problemas relacionados com o Windows Defender e do Endpoint Protection.
+title: "Resolução de problemas de cliente Windows Defender ou o Endpoint Protection | Microsoft Docs"
+description: Saiba como resolver problemas relacionados com o Windows Defender e Endpoint Protection.
 ms.custom: na
 ms.date: 01/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d837253e-fcc2-422a-9e2c-c78b938dfd8c
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6accec2d356861b273b25ba2b6338d9684a46ff6
 ms.openlocfilehash: 1b096e71f5131214fb4e235e84d0b7f63e566831
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Resolução de problemas do cliente do Windows Defender ou o Endpoint Protection
+# <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Resolução de problemas de cliente do Windows Defender ou Endpoint Protection
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
@@ -32,13 +29,13 @@ ms.lasthandoff: 05/17/2017
 Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o administrador de segurança para obter suporte. Também pode tentar resolver os problemas seguintes:  
 
 -   [Atualizar o Windows Defender ou o Endpoint Protection](#update-windows-defender-or-endpoint-protection)  
--   [Iniciar o serviço do Windows Defender ou o Endpoint Protection](#starting-windows-defender-or-endpoint-protection-service)  
+-   [A iniciar o serviço Windows Defender ou o Endpoint Protection](#starting-windows-defender-or-endpoint-protection-service)  
 -   [Problemas de ligação de Internet](#internet-connection-issues)  
--   [Não poderão ser retificada ameaça detetada](#detected-threat-cant-be-remediated)  
+-   [Não é possível remediar a ameaça detetada](#detected-threat-cant-be-remediated)  
 -   [Instalar o cliente do Endpoint Protection](#install-the-endpoint-protection-client)  
 
 ##  <a name="update-windows-defender-or-endpoint-protection"></a>Atualizar o Windows Defender ou o Endpoint Protection  
- O Windows Defender ou o Endpoint Protection automaticamente funciona com o Microsoft Update para garantir que as definições de antivírus e anti-spyware estão atualizadas.  
+ O Windows Defender ou o Endpoint Protection funciona automaticamente com o Microsoft Update para garantir que as definições de vírus e spyware se mantêm atualizadas.  
 
  **Sintomas**  
 
@@ -80,7 +77,7 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
 8.  Se o problema persistir, siga para o passo seguinte.  
 
-### <a name="step-2-set-internet-explorer-as-the-default-browser"></a>Passo 2: Defina o Internet Explorer o browser predefinido  
+### <a name="step-2-set-internet-explorer-as-the-default-browser"></a>Passo 2: Definir o Internet Explorer como browser predefinido  
 
 1.  Saia de todos os programas abertos, incluindo o Internet Explorer.  
 
@@ -92,19 +89,19 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
 5.  Clique em **OK**.  
 
-6.  Abra o Windows Defender ou o Endpoint Protection. Clique no separador **Atualizar** e, em seguida, clique em **Atualizar**.  
+6.  Abra o Windows Defender ou Endpoint Protection. Clique no separador **Atualizar** e, em seguida, clique em **Atualizar**.  
 
 7.  Se o problema persistir, siga para o passo seguinte.  
 
-### <a name="step-3-ensure-that-the-date-and-time-are-set-correctly-on-your-computer"></a>Passo 3: Certifique-se de que a data e hora estão definidos corretamente no seu computador  
+### <a name="step-3-ensure-that-the-date-and-time-are-set-correctly-on-your-computer"></a>Passo 3: Certifique-se de que a data e hora estão definidas corretamente no seu computador  
 
-1.  Abra o Windows Defender ou o Endpoint Protection.  
+1.  Abra o Windows Defender ou Endpoint Protection.  
 
 2.  Se a mensagem de erro que recebeu tiver o código 0x80072f8f, o problema será provavelmente causado por uma data ou hora incorretamente definida no seu computador.  
 
 3.  Para repor a definição de data ou hora do seu computador, siga os passos [Corrigir atalhos incorretos do ambiente de trabalho e tarefas comuns de manutenção do sistema](http://go.microsoft.com/fwlink/?LinkId=155579) (http://go.microsoft.com/fwlink/?LinkId=155579).  
 
-### <a name="step-4-rename-the-software-distribution-folder-on-your-computer"></a>Passo 4: Mudar o nome da distribuição de Software no seu computador  
+### <a name="step-4-rename-the-software-distribution-folder-on-your-computer"></a>Passo 4: Mudar o nome da pasta de distribuição de Software no seu computador  
 
 1. Parar o serviço de Atualizações Automáticas  
 
@@ -132,7 +129,7 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
     3.  Feche a janela do snap-in Serviços.  
 
-### <a name="step-5-reset-the-microsoft-antivirus-update-engine-on-your-computer"></a>Passo 5: Repor o motor de atualização do antivírus da Microsoft no seu computador  
+### <a name="step-5-reset-the-microsoft-antivirus-update-engine-on-your-computer"></a>Passo 5: Repor o motor de atualização de antivírus da Microsoft no seu computador  
 
 1.  Clique em **Iniciar** , procure por  **cmd**, clique em **OK**, clique com o botão direito do rato em **Linha de comandos**e, em seguida, selecione **Executar como administrador**.  
 
@@ -149,7 +146,7 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 3.  Reinicie o computador.  
 
 4.  Abra o Windows Defender ou  
-          Endpoint Protection, clique na **atualização** separador e, em seguida, clique em **atualização**.  
+          Endpoint Protection, clique em de **atualização** separador e, em seguida, clique em **atualização**.  
 
 5.  Se o problema persistir, siga para o passo seguinte.  
 
@@ -166,10 +163,10 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
 -   Caso os passos não tenham resolvido o problema, contacte o suporte. Para obter mais informações, consulte [Suporte ao Cliente](http://go.microsoft.com/fwlink/?LinkID=196174) (http://go.microsoft.com/fwlink/?LinkID=196174).  
 
-##  <a name="starting-windows-defender-or-endpoint-protection-service"></a>Iniciar o serviço do Windows Defender ou o Endpoint Protection  
+##  <a name="starting-windows-defender-or-endpoint-protection-service"></a>A iniciar o serviço Windows Defender ou o Endpoint Protection  
  **Sintoma**  
 
- Receber uma mensagem que seja notificado que **Windows Defender ou o Endpoint Protection não está monitorização o computador porque o serviço do programa parado. Deve reiniciá-lo agora.** 
+ Receberá uma mensagem notificando-que **Windows Defender ou o Endpoint Protection não está a monitorizar o computador porque o serviço do programa parou. Deve reiniciá-lo agora.** 
 
  **Solução**  
 
@@ -177,7 +174,7 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
 -   Feche todas as aplicações e reinicie o seu computador.  
 
-### <a name="step-2-make-sure-the-windows-defender-or-endpoint-protection-service-is-set-to-automatic-and-is-started"></a>Passo 2: Certifique-se "Windows Defender" ou "Serviço de proteção de ponto final" está definido como automático e foi iniciado  
+### <a name="step-2-make-sure-the-windows-defender-or-endpoint-protection-service-is-set-to-automatic-and-is-started"></a>Passo 2: Certifique-se "Windows Defender" ou "Serviço de Endpoint Protection" está definido como automático e é iniciado  
 
 1.  Clique em **Iniciar** , procure por **services.msc**e, em seguida, prima **Enter**.  
 
@@ -189,22 +186,22 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
 5.  Certifique-se de que anota quaisquer erros que possam aparecer durante este processo, submete um incidente online e inclui as informações de erro.  
 
-### <a name="step-3-remove-any-existing-internet-security-programs"></a>Passo 3: Remover os programas de segurança de Internet existentes  
+### <a name="step-3-remove-any-existing-internet-security-programs"></a>Passo 3: Remover quaisquer programas de segurança da Internet existentes  
 
 1.  Clique em **Iniciar** , procure por **appwiz.cpl**e, em seguida, prima **Enter**.  
 
 2.  Na lista de programas instalados, desinstale quaisquer programas de segurança da Internet de terceiros.*  
 
-3.  Reiniciar o computador e, em seguida, tente instalar o Windows Defender ou  
+3.  Reinicie o computador e, em seguida, tente instalar o Windows Defender ou  
           Novamente a proteção de ponto final.  
 
 > [!NOTE]  
 >  Algumas aplicações de segurança da Internet não são desinstaladas completamente. Poderá ter de transferir e executar um utilitário de limpeza para a aplicação de segurança anterior de modo a removê-la completamente.  
 
 > [!CAUTION]  
->  Quando remove programas de segurança da Internet, o seu computador fica desprotegido. Se tiver problemas ao instalar o   
->       Proteção de ponto final após a remoção de programas de segurança do Internet existentes, contacte o Windows Defender ou  
->       Suporte para proteção de ponto final ao submeter um caso online (para obter mais informações, consulte o artigo [como pretende submeter um caso Online](http://www.microsoft.com/en-ph/security_essentials/Support/8c9074b6-1558-4d14-bc39-d294ced11096.aspx)).  
+>  Quando remove programas de segurança da Internet, o seu computador fica desprotegido. Se tiver problemas a instalar   
+>       Proteção de ponto final após a remoção de programas de segurança da Internet existentes, contacte o Windows Defender ou  
+>       Suporte de proteção de ponto final, submetendo um incidente online (para obter mais informações, consulte [como submeter um incidente Online](http://www.microsoft.com/en-ph/security_essentials/Support/8c9074b6-1558-4d14-bc39-d294ced11096.aspx)).  
 
 ### <a name="step-4-uninstallreinstall-endpoint-protection"></a>Passo 4: Desinstalar/reinstalar o Endpoint Protection  
 
@@ -227,7 +224,7 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
 4.  Se o computador não parecer estar ligado, clique com o botão direito do rato no nome da ligação e, em seguida, clique em **Ligar**, **Ativar**, **Autenticar**ou **Reparar**.  
 
-### <a name="step-3-restart-your-computer"></a>Passo 3: Reinicie o seu computador  
+### <a name="step-3-restart-your-computer"></a>Passo 3: Reinicie o computador  
 
 -   Feche quaisquer programas abertos e reinicie o seu computador.  
 
@@ -239,9 +236,9 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
 3.  Se utilizar um modem de cabo ou um router DSL, certifique-se de que as ligações ao router e ao computador estão corretas. Experimente desligar e desativar o router e o modem. Aguarde alguns minutos, ligue o modem em primeiro lugar, espere um minuto e, em seguida, ligue o router e reinicie o computador.  
 
-##  <a name="detected-threat-cant-be-remediated"></a>Não poderão ser retificada ameaça detetada  
+##  <a name="detected-threat-cant-be-remediated"></a>Não é possível remediar a ameaça detetada  
  Quando o Windows Defender ou  
-      Endpoint Protection detetar uma ameaça de potencial é ocultar dentro de um ficheiro comprimido com uma extensão de nome de ficheiro. zip ou uma partilha de rede, volta a tentar lidar com a ameaça colocação em quarentena ou removendo a ameaça.  
+      Endpoint Protection Deteta uma potencial ameaça que esteja oculta dentro de um ficheiro comprimido com uma extensão de nome de ficheiro. zip ou numa partilha de rede, este tenta lidar com a ameaça por em quarentena ou removendo a ameaça.  
 
 ### <a name="remove-or-scan-the-file"></a>Remover ou analisar o ficheiro  
 
@@ -275,8 +272,8 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 > [!IMPORTANT]  
 >  Terá de reiniciar o computador ao resolver este problema. Marque esta página (marque-a como um Favorito) para que seja mais fácil encontrar este tópico novamente ou imprima-o para fácil referência.  
 
-### <a name="step-1-remove-any-existing-security-programs"></a>Passo 1: Remover os programas de segurança existente  
-**Apenas o Endpoint Protection**
+### <a name="step-1-remove-any-existing-security-programs"></a>Passo 1: Remover quaisquer programas de segurança existentes  
+**Apenas a proteção de ponto final**
 
 1.  Desinstale completamente quaisquer programas de segurança da Internet existentes.  
 
@@ -292,7 +289,7 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
 3.  Na página **Serviços** , no menu **Ficheiro** , clique em **Sair**.  
 
-4.  Clique em **iniciar** e procure **comandos**. Clique com o botão direito do rato em **Linha de Comandos**e, em seguida, clique em **Executar como administrador**.  
+4.  Clique em **iniciar** e procure **linha de comandos**. Clique com o botão direito do rato em **Linha de Comandos**e, em seguida, clique em **Executar como administrador**.  
 
 5.  Escreva **MSIEXEC /REGSERVER**e, em seguida, prima **Enter**.  
 
@@ -316,7 +313,6 @@ Se tiver problemas com o Windows Defender ou o Endpoint Protection, contacte o a
 
 
 ### <a name="see-also"></a>Consulte também  
- [Perguntas mais frequentes do cliente do Endpoint Protection](../../protect/deploy-use/endpoint-protection-client-faq.md)   
+ [Perguntas mais frequentes de cliente do Endpoint Protection](../../protect/deploy-use/endpoint-protection-client-faq.md)   
 
  [Ajuda do cliente do Endpoint Protection](../../protect/deploy-use/endpoint-protection-client-help.md)
-

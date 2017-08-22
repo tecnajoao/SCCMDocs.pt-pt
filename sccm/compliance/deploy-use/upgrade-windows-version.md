@@ -6,24 +6,21 @@ ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b0c9db74-841e-46eb-8924-957cde968bf7
-caps.latest.revision: 8
-caps.handback.revision: 0
+caps.latest.revision: "8"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: cd8c644d07dab0010dc211df8ce4f2dc6e1fa7ae
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="upgrade-windows-devices-with-the-edition-upgrade-policy-in-system-center-configuration-manager"></a>Atualizar dispositivos Windows com a política de atualização de edição no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -101,4 +98,3 @@ Ao monitorizar a implementação que acabou de criar o **implementações** o n�
 Estes erros não significam que falhou a implementação. Certifique-se no PC de destino que a atualização efetuada com êxito.
 
 Depois da política atinge um PC Windows de destino e é avaliada, este será reiniciado dentro de duas horas para aplicar a atualização. Certifique-se de informar os utilizadores nos quais implementou a política ou agendar a política a executar os utilizadores fora do horário de trabalho.
-

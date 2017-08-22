@@ -1,39 +1,36 @@
 ---
-title: Personalizar imagens de sistema operativo - Configuration Manager | Documentos do Microsoft
-description: "Utilize sequências de tarefas de captura e compilação, a configuração manual ou uma combinação de ambas para personalizar uma imagem do sistema operativo."
+title: Personalizar imagens de sistema operativo - Configuration Manager | Microsoft Docs
+description: "Utilize sequências de tarefas de captura e compilação, a configuração manual ou uma combinação de ambos para personalizar uma imagem do sistema operativo."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95033a9b-ff13-4b70-b1de-bcb25bcb6024
-caps.latest.revision: 12
-caps.handback.revision: 0
+caps.latest.revision: "12"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: 485cb3ca4988f983c1ec71b6c8daf136571bf0ea
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Personalizar imagens de sistema operativo com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Imagens de sistemas operativos no System Center Configuration Manager são ficheiros WIM e representam uma coleção comprimida de ficheiros de referência e pastas que são necessárias para instalar e configurar um sistema operativo num computador com êxito. Uma imagem de sistema operativo personalizada é criada e capturada num computador de referência que é configurado com todos os ficheiros do sistema operativo, ficheiros de suporte, atualizações de software, ferramentas e outras aplicações de software necessários. Poderá decidir até que ponto configurar manualmente o computador de referência. Poderá automatizar completamente a configuração do computador de referência utilizando uma sequência de tarefas de criação e captura, configurar manualmente determinados aspetos do computador de referência e automatizar o resto utilizando sequências de tarefas ou configurar manualmente o computador de referência sem utilizar sequências de tarefas. Utilize as secções seguintes para personalizar um sistema operativo.
+Imagens de sistema operativo no System Center Configuration Manager são ficheiros WIM e representam uma coleção comprimida de ficheiros de referência e pastas que são necessários para instalar e configurar um sistema operativo num computador com êxito. Uma imagem de sistema operativo personalizada é criada e capturada num computador de referência que é configurado com todos os ficheiros do sistema operativo, ficheiros de suporte, atualizações de software, ferramentas e outras aplicações de software necessários. Poderá decidir até que ponto configurar manualmente o computador de referência. Poderá automatizar completamente a configuração do computador de referência utilizando uma sequência de tarefas de criação e captura, configurar manualmente determinados aspetos do computador de referência e automatizar o resto utilizando sequências de tarefas ou configurar manualmente o computador de referência sem utilizar sequências de tarefas. Utilize as secções seguintes para personalizar um sistema operativo.
 
 ##  <a name="BKMK_PrepareReferenceComputer"></a>Preparar para o computador de referência  
  Existem vários aspetos a ter em conta antes de utilizar a captura de uma imagem de sistema operativo a partir de um computador de referência.  
 
-###  <a name="BKMK_RefComputerDecide"></a>Decidir entre uma configuração automática ou manual  
+###  <a name="BKMK_RefComputerDecide"></a>Decidir entre uma configuração automatizada ou manual  
  Os seguintes destaques descrevem as vantagens e desvantagens de configurações automatizadas e manuais do computador de referência.  
 
 #### <a name="automated-configuration"></a>Configuração automatizada  
@@ -56,7 +53,7 @@ Imagens de sistemas operativos no System Center Configuration Manager são fiche
 
 -   Não é necessário criar uma sequência de tarefas ou perder tempo a testar e resolver problemas relacionados com a mesma.  
 
--   Poderá instalar diretamente a partir de CDs sem incluir todos os pacotes de software (incluindo o próprio Windows) num pacote do Configuration Manager.  
+-   Poderá instalar diretamente a partir de CDs sem incluir todos os pacotes de software (incluindo o próprio Windows) para um pacote de Configuration Manager.  
 
  **Desvantagens**  
 
@@ -71,9 +68,9 @@ Imagens de sistemas operativos no System Center Configuration Manager são fiche
 ###  <a name="BKMK_RefComputerConsiderations"></a>Considerações para o computador de referência  
  Segue-se uma listagem dos itens básicos a considerar ao configurar um computador de referência.  
 
--   **Sistema operativo a implementar**  
+-   **Implementar o sistema operativo**  
 
-     O sistema operativo que pretende implementar nos computadores de destino tem de estar instalado no computador de referência. Para obter mais informações sobre os sistemas operativos que poderá implementar, consulte o artigo [requisitos de infraestrutura de implementação do sistema operativo](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+     O sistema operativo que pretende implementar nos computadores de destino tem de estar instalado no computador de referência. Para obter mais informações sobre os sistemas operativos que poderá implementar, consulte [requisitos de infraestrutura de implementação do sistema operativo](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
 -   **Service pack adequado**  
 
@@ -104,11 +101,11 @@ Imagens de sistemas operativos no System Center Configuration Manager são fiche
 
      Para mais informações sobre o Sysprep, veja [Referência Técnica sobre Preparação do Sistema (Sysprep)](http://go.microsoft.com/fwlink/?LinkId=280286).  
 
--   **Ferramentas e adequados necessários para atenuar os cenários de instalação de scripts**  
+-   **As ferramentas apropriadas e os scripts necessários para atenuar os cenários de instalação**  
 
      Ferramentas e scripts adequados necessários para atenuar os cenários de instalação  
 
--   **Personalização de ambiente de trabalho adequada, tal como padrão de fundo, imagem corporativa e perfil de utilizador predefinido**  
+-   **Personalização de ambiente de trabalho adequada, tais como o padrão de fundo, imagem corporativa e perfil de utilizador predefinido**  
 
      Poderá configurar o computador de referência com as propriedades de personalização do ambiente de trabalho que pretender incluir ao capturar a imagem do sistema operativo do computador de referência. As propriedades de ambiente de trabalho incluem o padrão de fundo, imagem corporativa e um perfil de utilizador predefinido padrão.  
 
@@ -116,7 +113,7 @@ Imagens de sistemas operativos no System Center Configuration Manager são fiche
  Utilize o procedimento seguinte para criar manualmente um computador de referência.  
 
 > [!NOTE]  
->  Ao criar manualmente o computador de referência, poderá capturar a imagem do sistema operativo utilizando um suporte de dados de captura. Para obter mais informações, consulte o artigo [criar suporte de dados de captura](../deploy-use/create-capture-media.md).  
+>  Ao criar manualmente o computador de referência, poderá capturar a imagem do sistema operativo utilizando um suporte de dados de captura. Para obter mais informações, consulte [criar suportes de dados de captura](../deploy-use/create-capture-media.md).  
 
 #### <a name="to-manually-build-the-reference-computer"></a>Para criar manualmente o computador de referência  
 
@@ -139,4 +136,3 @@ Imagens de sistemas operativos no System Center Configuration Manager são fiche
  Pode automatizar o processo de criação de um computador de referência utilizando uma sequência de tarefas para implementar o sistema operativo, controladores, aplicações, etc.  Utilize os passos seguintes para criar o computador de referência e, em seguida, capturar a imagem do sistema operativo a partir do computador de referência.  
 
 -   Utilize uma sequência de tarefas para criar e capturar a imagem do sistema operativo a partir do computador de referência.  Para obter passos detalhados, veja [Utilizar uma sequência de tarefas para compilar e capturar um computador de referência](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_BuildCaptureTS).  
-

@@ -6,25 +6,23 @@ ms.date: 07/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 73ff9bb9-e605-4b68-92a1-487684fed42d
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
+ms.openlocfilehash: 26c36df77c21254c7ad2b8a45906bd3706f9ec65
+ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
 ms.translationtype: MT
-ms.sourcegitcommit: 648bc6b96aa5ccc834442a962e6d5b5125f88bb5
-ms.openlocfilehash: ddb6d47e5dba4fddd6fa811d83b1bf0c91ad26f9
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/21/2017
 ---
 # <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Escolher entre o Microsoft Intune de autónomo e híbrida de gestão de dispositivos móveis com o System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
 Uma das mais frequentemente mais frequentes perguntas sobre a gestão de dispositivos móveis (MDM) com o Microsoft Intune é "Deve posso integrar o Intune com o Configuration Manager (MDM híbrido) ou execute o Intune autónomo na configuração apenas na nuvem?" Para responder a essa questão, deve comparar cuidadosamente as duas opções.
 
@@ -51,8 +49,7 @@ MDM híbrido é uma solução que se integra capacidades de gestão de dispositi
 
 
 ## <a name="changing-the-mdm-authority-setting"></a>Alterar a definição de autoridade MDM
-Se precisar de alterar a definição de autoridade MDM, pode alterá-lo por si sem ser necessário contactar Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Para obter mais informações, consulte [alterar a autoridade de MDM](/sccm/mdm/deploy-use/change-mdm-authority.md).
+Se precisar de alterar a definição de autoridade MDM, pode alterá-lo por si sem ser necessário contactar Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Para obter mais informações, consulte [alterar a autoridade de MDM](../deploy-use/change-mdm-authority.md).
 
 > [!NOTE]    
 > Tem de ter o Configuration Manager versão 1610 ou posterior para alterar a autoridade de MDM ao Intune autónomo. Quando tiver uma versão anterior do Configuration Manager, pode alterar a autoridade de MDM, mas necessita de ajuda do suporte da Microsoft e de operações. Também requer anular a inscrição e inscrever-se novamente todos os seus dispositivos após a autoridade de MDM é alterada.  
-

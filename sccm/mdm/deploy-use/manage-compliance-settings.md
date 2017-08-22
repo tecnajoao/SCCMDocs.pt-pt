@@ -1,42 +1,39 @@
 ---
-title: Gerir a compatibilidade em dispositivos geridos com o Intune | Documentos do Microsoft
-description: "Saiba mais sobre as definições de compatibilidade do System Center Configuration Manager ao trabalhar através de alguns cenários comuns."
+title: Gerir a compatibilidade em dispositivos geridos com o Intune | Microsoft Docs
+description: "Saiba mais sobre as definições de compatibilidade do System Center Configuration Manager ao trabalhar com alguns cenários comuns."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9e83007f-e81c-4b7e-b47e-b01d7b19cfbc
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
 ms.openlocfilehash: b3a63f6c55c317c9c84d4394dfdcb9f1cbbbc90b
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="managing-compliance-on-devices-managed-with-intune"></a>Gerir a compatibilidade em dispositivos geridos com o Intune
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Estes cenários dão-lhe uma introdução à utilização de definições de compatibilidade do System Center Configuration Manager ao trabalhar através de alguns cenários comuns que poderá encontrar.  
+Estes cenários dão-lhe uma introdução à utilização de definições de compatibilidade do System Center Configuration Manager ao trabalhar com alguns cenários comuns que poderá encontrar.  
 
- Se já estiver familiarizado com as definições de compatibilidade, documentação detalhada sobre todas as funcionalidades que utiliza pode ser encontrada no [itens de configuração para dispositivos geridos com o Intune](#configuration-items-for-devices-managed-with-intune) secção.  
+ Se já estiver familiarizado com as definições de compatibilidade, pode encontrar documentação detalhada sobre todas as funcionalidades que utiliza no [itens de configuração para dispositivos geridos com o Intune](#configuration-items-for-devices-managed-with-intune) secção.  
 
- [Começar com as definições de compatibilidade](../../compliance/get-started/get-started-with-compliance-settings.md) fornece as noções básicas sobre as definições de compatibilidade e [planear e configurar as definições de compatibilidade](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) irão ajudar a implementar quaisquer pré-requisitos necessários.  
+ [Introdução às definições de compatibilidade](../../compliance/get-started/get-started-with-compliance-settings.md) fornece as noções básicas sobre as definições de compatibilidade e [planear e configurar as definições de compatibilidade](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) ajuda-o a implementar os pré-requisitos necessários.  
 
 ## <a name="general-information-for-each-scenario"></a>Informações gerais para cada cenário  
  Em cada cenário, irá criar um item de configuração que realiza uma tarefa específica. Para abrir o Assistente de Criação de Item de Configuração, utilize os seguintes passos:  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **definições de compatibilidade** > **itens de configuração**.  
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **itens de configuração**.  
 
 3.  No separador **Início** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
 
@@ -61,7 +58,7 @@ Estes cenários dão-lhe uma introdução à utilização de definições de com
 
 6.  Conclua o assistente para criar o item de configuração.  
 
- Agora pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para ajudar a implementar a configuração que criou para dispositivos.  
+ Agora, pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para o ajudar a implementar a configuração que criou em dispositivos.  
 
 ## <a name="scenarios-for-windows-phone-devices-managed-with-intune"></a>Cenários para dispositivos Windows Phone geridos com o Intune  
 
@@ -80,16 +77,16 @@ Estes cenários dão-lhe uma introdução à utilização de definições de com
 
 6.  Conclua o assistente para criar o item de configuração.  
 
- Agora pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração com o System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para ajudar a implementar a configuração que criou para dispositivos.  
+ Agora, pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração com o System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para o ajudar a implementar a configuração que criou em dispositivos.  
 
-## <a name="scenarios-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Cenários do iOS e Mac OS X dos dispositivos geridos com o Intune  
+## <a name="scenarios-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Cenários para dispositivos iOS e Mac OS X geridos com o Intune  
 
 ### <a name="scenario-disable-the-camera-on-ios-devices"></a>Cenário: Desativar a câmara em dispositivos iOS  
  Neste cenário, a sua empresa produz esquemas para novos designs de produto. Estes contêm informações confidenciais que não podem ser divulgadas. Como a empresa lança iPhones ou iPads para todos os funcionários, pretende desativar a utilização da câmara nestes dispositivos para impedi-los de serem utilizados para fotografar os esquemas.  
 
 1.  Na página **Geral** do Assistente de Criação de Item de Configuração, selecione o tipo de item de configuração **iOS e Mac OS X** e clique em **Seguinte**.  
 
-2.  No **plataformas suportadas** página, selecione todos os iPhone e todas as plataformas de dispositivo do iPad.  
+2.  No **plataformas suportadas** página, selecione todos os iPhone e todas as plataformas de dispositivos iPad.  
 
 3.  Na página **Definições do Dispositivo** , selecione **Segurança**e clique em **Seguinte**.  
 
@@ -99,7 +96,7 @@ Estes cenários dão-lhe uma introdução à utilização de definições de com
 
 6.  Conclua o assistente para criar o item de configuração.  
 
- Agora pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração com o System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para ajudar a implementar a configuração que criou para dispositivos.  
+ Agora, pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração com o System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para o ajudar a implementar a configuração que criou em dispositivos.  
 
 ## <a name="scenarios-for-android-and-samsung-knox-standard-devices-managed-with-intune"></a>Cenários para dispositivos Android e Samsung KNOX Standard geridos com o Intune  
 
@@ -108,7 +105,7 @@ Estes cenários dão-lhe uma introdução à utilização de definições de com
 
 1.  Na página **Geral** do Assistente de Criação de Item de Configuração, selecione o tipo de item de configuração **Android e Samsung KNOX** e clique em **Seguinte**.  
 
-2.  No **plataformas suportadas** página, selecione apenas **Android 5** (para garantir que as definições apenas obterem aplicadas para essa plataforma).  
+2.  No **plataformas suportadas** página, selecione apenas **Android 5** (para garantir que as definições são aplicadas apenas nessa plataforma).  
 
 3.  Na página **Definições do Dispositivo** , selecione **Palavra-passe**e clique em **Seguinte**.  
 
@@ -122,17 +119,16 @@ Estes cenários dão-lhe uma introdução à utilização de definições de com
 
 5.  Conclua o assistente para criar o item de configuração.  
 
- Agora pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para ajudar a implementar a configuração que criou para dispositivos.  
+ Agora, pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para o ajudar a implementar a configuração que criou em dispositivos.  
 
 ## <a name="configuration-items-for-devices-managed-with-intune"></a>Itens de configuração para dispositivos geridos com o Intune
 
 Os seguintes tipos de item de configuração do System Center Configuration Manager estão disponíveis para dispositivos que não são geridos pelo cliente do Configuration Manager, por exemplo, os dispositivos inscritos com o Microsoft Intune.  
 
- -   [Como criar itens de configuração para Windows 8.1 e Windows 10 dispositivos geridos com o Intune](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)  
+ -   [Como criar itens de configuração para dispositivos Windows 8.1 e Windows 10 geridos com o Intune](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)  
 
  -   [Como criar itens de configuração para dispositivos Windows Phone geridos com o Intune](create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)  
 
- -   [Como criar itens de configuração para iOS e dispositivos de Mac OS X geridos com o Intune](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)  
+ -   [Como criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)  
 
- -   [Como criar itens de configuração para Android e Samsung KNOX Standard dispositivos geridos com o Intune](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)  
-
+ -   [Como criar itens de configuração para dispositivos Android e Samsung KNOX Standard geridos com o Intune](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)  

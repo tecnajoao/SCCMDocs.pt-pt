@@ -1,90 +1,88 @@
 ---
 title: "Criar atualizações | Microsoft Docs"
-description: "Criar e incluir atualizações de software com o System Center Updates Publisher"
+description: "Criar e agrupar as atualizações de software com o System Center Updates Publisher"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 46a1a8ac-126c-4ee6-ae09-32dfbdb83368
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c8717925dba42451b1e241a7c2f59e43896d7d99
 ms.openlocfilehash: 98e490d7f5ca17dcf2a0aaa848f14e789f214123
-ms.contentlocale: pt-pt
-ms.lasthandoff: 06/19/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Criar as atualizações de software e pacotes de atualização com o Updates Publisher
+# <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Criar as atualizações de software e atualizar os pacotes com o Updates Publisher
 
-*Aplica-se a: System Center Updates Publisher*
+*Aplica-se a: O System Center Updates Publisher*
 
-Com o Updates Publisher, você pode usar o **criar atualizar** Assistente para criar suas próprias atualizações e o **criar pacote** Assistente para criar pacotes de atualizações.
+Com o Updates Publisher pode utilizar o **criar atualizar** Assistente para criar as suas próprias atualizações e a **criar pacote** Assistente para criar pacotes de atualizações.
 
-Como esses dois assistentes têm um fluxo de trabalho semelhante, o procedimento para criar um pacote de atualização refere-se o procedimento para criar atualizações, com apenas as diferenças relevantes detalhadas.
+Como estes dois assistentes têm um fluxo de trabalho semelhante, o procedimento para criar um pacote de atualização refere-se para o procedimento para criar atualizações, com apenas as diferenças relevantes detalhadas.
 
-## <a name="use-the-create-update-wizard"></a>Use o Assistente para criar atualizações
-1.  No console, vá para **espaço de trabalho atualizações**e, em seguida, no **Introdução** painel, escolha **atualização** do **início** guia da faixa de opções. Isso abre o **criar atualizar** assistente.
+## <a name="use-the-create-update-wizard"></a>Utilize o Assistente de atualização de criar
+1.  Na consola, aceda a **área de trabalho atualizações**e, em seguida, no **introdução** painel, escolha **atualização** do **home page** separador do Friso. Esta ação abre o **criar atualizar** assistente.
 
-2.  Sobre o **pacote** página, use as informações a seguir para ajudá-lo a configurar a atualização:
+2.  No **pacote** página, utilize as seguintes informações para ajudar a configurar a atualização:
 
-    -   Escolha **procurar** para localizar o pacote de atualização de software que você usará como uma origem de pacote. Incluem fontes válidos. MSI. MSP, ou. Arquivos EXE. O Updates Publisher requer acesso ao arquivo para criar um hash de arquivo. O nome de arquivo e de hash são usados nos metadados da atualização para a atualização que você está criando.
+    -   Escolha **procurar** para localizar o pacote de atualização de software que irá utilizar como uma origem de pacote. Incluem origens válidas. MSI. \\&Lt;ServerName>\SMS_<SITECODE>\HOTFIX\<KB, ou. Ficheiros. EXE. Publicador de atualizações requer acesso ao ficheiro para criar um hash de ficheiro. O nome de ficheiro e hash, em seguida, são utilizados nos metadados da atualização para a atualização que está a criar.
 
-    -   Especifique o local de origem do conteúdo desta atualização. Normalmente, esse é o local onde os binários de atualização serão baixados do durante a publicação de um servidor do WSUS.  Se o **usar um local de origem para publicar o conteúdo de atualização de software** opção é selecionada, o caminho não é necessário.
+    -   Especifique a localização de origem do conteúdo para esta atualização. Normalmente, esta é a localização onde o binário de atualização será transferido da durante a publicação para um servidor WSUS.  Se o **utilizar uma origem local para publicar conteúdo de atualização de software** opção está selecionada, em seguida, o caminho não é necessário.
 
-        Posteriormente, quando a atualização for publicada em um servidor WSUS, o Updates Publisher baixa os binários da atualização no local de origem indicado.  Se nenhum caminho for fornecido, então atualizar Publisher pesquisará o [caminho do local de origem de publicação](/sccm/sum/tools/updates-publisher-options#advanced) para os binários de atualização.
+        Mais tarde, quando a atualização é publicada para um servidor WSUS, o Updates Publisher transfere os binários da atualização na localização de origem indicado.  Se nenhum caminho for fornecido, em seguida, irá procurar Update Publisher o [caminho de publicação de origem local](/sccm/sum/tools/updates-publisher-options#advanced) para o binário de atualização.
 
     -   Especifique o **idioma binário** da atualização de software.
 
-    -   Especifique **códigos de retorno de êxito**, e **êxito pendentes reinicializar códigos** para a atualização. Separe vários códigos de retorno usando uma vírgula. Você pode usar códigos de retorno para determinar quando a instalação da atualização foi bem-sucedida e quando reinicialização foi necessária.
+    -   Especifique **códigos de retorno de êxito**, e **êxito pendente de reinício códigos** para a atualização. Separe os vários códigos de retorno com uma vírgula. Pode utilizar códigos de retorno para determinar quando a instalação da atualização foi concluída com êxito e, quando reinícios eram necessários.
 
-        -   Patches e arquivos do Windows installer (. MSI e. Arquivos MSP) automaticamente definir esses valores, e eles não podem ser modificados.
+        -   Ficheiros do Windows installer e patches (. MSI e. Ficheiros de \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB) definido automaticamente estes valores e que não podem ser modificados.
 
-        -   Para. EXE atualizações, os códigos padrão definidos pelo. Arquivo EXE são usados se nenhum código de retorno for especificado.
+        -   Para. EXE de atualizações, os códigos de predefinição definidos pelo. O ficheiro EXE são utilizados se forem especificados códigos de retorno.
 
-    -   Especifique quaisquer argumentos de linha de comando que são necessárias para instalar a atualização de software.
+    -   Especifique os argumentos da linha de comandos que são necessários para instalar a atualização de software.
 
-        -   Patches e arquivos do Windows installer (. MSI e. Arquivos MSP) automaticamente definir esses valores. Para esses tipos de arquivos os argumentos devem ser especificados como  **\[nome\]=\[valor\]**. Além disso, todas as opções que iniciam com uma  **/**  (como **/qn**) não são suportadas. MSI ou. Atualizações de software do MSP.
+        -   Ficheiros do Windows installer e patches (. MSI e. Ficheiros de \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB) são definidas automaticamente estes valores. Para estes tipos de ficheiros de argumentos tem de ser especificados como  **\[nome\]=\[valor\]**. Além disso, todas as opções que começar a utilizar um  **/**  (como **/qn**) não são suportadas. MSI ou. Atualizações de software \\<ServerName>\SMS_<SITECODE>\HOTFIX\<KB.
 
         -   Para. Atualizações EXE, todos os argumentos são válidos.
 
-3.  Sobre o **informações** página, especifique os detalhes sobre a atualização que são incluídos quando a atualização é publicada ou exportada. Os detalhes incluem propriedades localizadas, como o nome de atualizações (título) e a descrição. Em seguida, você especifica detalhes mais gerais, como a classificação, fornecedor, produto e onde aprender mais sobre a atualização.
+3.  No **informações** página, especifique os detalhes sobre a atualização, que estão incluídos quando a atualização é publicada ou exportada. Detalhes incluem propriedades localizadas, como o nome de atualizações (título) e a descrição. Em seguida, especifique os detalhes mais gerais, tais como a classificação, fabricante, produto e onde saber mais sobre a atualização.
 
      __Propriedades localizadas:__
 
-    -   **Idioma**: Selecione um idioma e, em seguida, especifique um título e uma descrição. Você pode selecionar idiomas adicionais, uma vez, com cada idioma com suporte a seu próprio título e descrição.
+    -   **Idioma**: Selecione um idioma e, em seguida, especifique um título e descrição. Em seguida, pode selecionar idiomas adicionais, um de cada vez, com cada idioma que suporta a sua própria título e descrição.
 
-    -   **Título**: Digite o nome da atualização. Esse nome é exibido no espaço de trabalho atualizações do console do Updates Publisher.
+    -   **Título**: Introduza o nome da atualização. Este nome apresenta na área de trabalho de atualizações da consola do Updates Publisher.
 
-    -   **Descrição**: Uma descrição amigável da atualização. Você pode incluir a atualização instala e motivo ou quando ele deve ser usado.
+    -   **Descrição**: Uma descrição amigável da atualização. Pode incluir o que a instalação da atualização e por que motivo ou quando deve ser utilizada.
 
-     **Classificação:** A seguir estão as descrições comuns para as classificações diferentes.
+     **Classificação:** Seguem-se descrições comuns para as classificações diferentes.
 
-    -   **Atualização**: Uma atualização para um aplicativo ou arquivo que está atualmente instalado.
+    -   **Atualização**: Uma atualização para uma aplicação ou o ficheiro que está atualmente instalado.
 
-    -   **Crítico**: Uma atualização lançada em larga escala para um problema específico que aborda um bug crítico não relacionado à segurança.
+    -   **Crítico**: Uma atualização amplamente lançada para um problema específico que corrige um crítico não relacionado com segurança.
 
-    -   **Pacote de recursos**: Novos recursos do produto que são distribuídos fora de uma versão do produto e normalmente são incluídos na próxima versão completa do produto.
+    -   **Pacote de funcionalidades**: Novas funcionalidades do produto que são distribuídas fora de uma versão de produto e que normalmente estão incluídas na próxima versão completa do produto.
 
-    -   **Segurança**: Uma atualização lançada em larga escala para um problema de produto específico que está relacionado à segurança.
+    -   **Segurança**: Uma atualização amplamente lançada para um problema específico do produto que está relacionado com segurança.
 
-    -   **Pacote cumulativo de**: Um conjunto cumulativo de hotfixes que são reunidos para facilitar a implantação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações e assim sucessivamente. Um pacote cumulativo de atualizações geralmente aborda uma área específica, como segurança ou um recurso do produto.
+    -   **Update Rollup**: Um conjunto cumulativo de correções que são agrupadas para facilitar a implementação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações e assim sucessivamente. Um update rollup resolve geralmente uma área específica, tal como segurança ou uma funcionalidade do produto.
 
-    -   **Service Pack**: Um conjunto cumulativo de hotfixes que são aplicados a um aplicativo. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações de software e assim sucessivamente.
+    -   **Pacote de serviço**: Um conjunto cumulativo de correções que são aplicadas a uma aplicação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações de software e assim sucessivamente.
 
-    -   **Ferramenta**: Especifica uma ferramenta ou um recurso que ajuda a concluir uma ou mais tarefas.
+    -   **Ferramenta**: Especifica uma ferramenta ou funcionalidade que ajuda a concluir as tarefas de um ou mais.
 
-     -   **Driver**: Uma atualização de software de driver.
+     -   **Controlador**: Uma atualização de software do controlador.
 
-    **Fornecedor:** Especifica um fornecedor para a atualização. Você pode usar a lista suspensa para usar valores de atualizações que estão no repositório. Quando você especificar um fornecedor, o assistente cria uma pasta com esse nome de fornecedor em **todas as atualizações de Software** no **espaço de trabalho atualizações** se essa pasta ainda não existir. Estes são os nomes do Windows Server Update Services (WSUS) reservados que não podem ser inseridos para atualizações que você criar:
+    **Fornecedor:** Especifique um fornecedor para a atualização. Pode utilizar na lista pendente para utilizar valores de atualizações que estão no repositório. Quando especificar um fornecedor, o assistente cria uma pasta com esse nome de fornecedor em **todas as atualizações de Software** no **área de trabalho atualizações** se nessa pasta não existe. Seguem-se os nomes do Windows Server Update Services (WSUS) reservado que não podem ser introduzidos para atualizações de que criar:
  >*   Microsoft Corporation
  >*   Microsoft
  >*   Atualização
@@ -95,102 +93,101 @@ Como esses dois assistentes têm um fluxo de trabalho semelhante, o procedimento
  >*   Atualizações críticas
  >*   Segurança
  >*   Atualizações de segurança
- >*   Feature Pack
- >*   Pacote cumulativo de atualização
+ >*   Pacote de funcionalidades
+ >*   Rollup de atualização
  >*   Service Pack
  >*   Controlador
- >*   Atualização do driver
+ >*   Atualização do controlador
  >*   Pacote
  >*   Atualização do pacote
 
-**Produto**: Especifique o tipo de produto para a atualização. Você pode usar a lista suspensa para usar valores de atualizações que estão no repositório. A mesma lista de WSUS reservado nomes que não podem ser usados para **fornecedor**, não pode ser usado para **produto**.
+**Produto**: Especifique o tipo de produto que se aplica a atualização. Pode utilizar na lista pendente para utilizar valores de atualizações que estão no repositório. A mesma lista de WSUS reservado nomes que não podem ser utilizados para **fornecedor**, não pode ser utilizado para **produto**.
 
- **URL para informações mais**: Especifique a URL onde você pode encontrar mais informações sobre essa atualização. Você deve usar letras minúsculas para **https** ou **http** quando você insere esta URL.
+ **Mais informações URL**: Especifique o URL onde pode encontrar mais informações sobre esta atualização. Tem de utilizar letras minúsculas para **https** ou **http** quando introduzir este URL.
 
-4.  Sobre o **informações opcionais** página, você pode configurar detalhes que fornecem informações adicionais sobre a atualização.
+4.  No **informações opcionais** página, pode configurar detalhes que fornecem informações adicionais sobre a atualização.
 
-    -   **ID do boletim**: Boletim IDs são geralmente, mas não sempre, fornecidos pelos fornecedores de atualização.
+    -   **ID do boletim**: ID do boletim é, normalmente, mas nem sempre, fornecidos pelos fornecedores de atualização.
 
-    -   **ID do artigo**: Se um artigo de atualização de software está disponível, a ID do artigo pode ser útil para os indivíduos que buscam informações adicionais sobre a atualização.
+    -   **ID de artigo**: Se estiver disponível um artigo de atualização de software, o ID do artigo podem ser úteis para indivíduos para procurar informações adicionais sobre a atualização.
 
-    -   **IDs CVE:** Lista um ou mais comuns de vulnerabilidades e identificadores de exposições CVE () que fornecem informações sobre a atualização de segurança ou atualizar o pacote. Ao listar mais de uma, use um ponto e vírgula para separar os CVEs como neste exemplo: *CVE1; CVE2.*
+    -   **IDs de Exposures:** Liste um ou mais comuns de vulnerabilidades e identificadores de CVE (Exposures) que fornecem informações de segurança sobre a atualização ou atualizar o pacote. Quando a listagem mais do que um, utilize um ponto e vírgula para separar CVEs tal como neste exemplo: *CVE1; CVE2.*
 
-    -   **URL de suporte:** Lista a URL que contém informações de suporte para esta atualização, se disponível. Você deve usar letras minúsculas para **https** ou **http** quando você insere esta URL.
+    -   **URL de suporte:** Liste o URL que contém as informações de suporte para esta atualização, se disponível. Tem de utilizar letras minúsculas para **https** ou **http** quando introduzir este URL.
 
-    -   **Severidade:** Defina o nível de severidade para esta atualização.
+    -   **Gravidade:** Defina o nível de gravidade para esta atualização.
 
-    -   **Impacto:** As opções a seguir podem ser usadas para especificar o impacto:
-        -   **Normal –** Use isso para indicar que a atualização requer que os procedimentos de instalação típica.
-        -   **Pequenas –** Use isso para indicar que a atualização requer que os procedimentos de instalação mínima.
-        -   **Requer manipulação exclusiva –** Use isso para indicar que a atualização deve ser instalada por si só, exclusivos de outras atualizações.   <br /><br />
+    -   **Impacto:** As seguintes opções podem ser utilizadas para especificar o impacto:
+        -   **Normal –** utilizá-lo para indicar a atualização requer procedimentos de instalação típicas.
+        -   **Secundárias –** utilizá-lo para indicar a atualização requer procedimentos de instalação mínima.
+        -   **Requer processamento exclusivo –** utilizá-lo para indicar a atualização tem de ser instalada por si só, exclusivo de quaisquer outras atualizações.   <br /><br />
 
-    -   **Comportamento de reinicialização:** Use isso para fornecer informações sobre o comportamento de reinicialização de atualizações. Essa configuração não afeta o comportamento real de instalação da atualização.
+    -   **Comportamento de reinício:** Utilize esta opção para fornecer informações sobre o comportamento de reinício de atualizações. Esta definição não afeta o comportamento da instalação da atualização real.
 
-        -   **Nunca reinicia**: O computador nunca realiza uma reinicialização do sistema após a instalação da atualização de software.
-        -   **Sempre exige reinicialização**: O computador sempre executa uma reinicialização do sistema após a instalação da atualização de software.
-        -   **Pode solicitar reinicialização**: Depois de instalar a atualização de software, o computador solicita uma reinicialização do sistema somente se uma reinicialização é necessária. O usuário tem a opção de adiar a reinicialização. Este é o valor predefinido. <br /><br />
+        -   **Nunca reinicia**: O computador nunca efetua um reinício do sistema depois de instalar a atualização de software.
+        -   **Requer sempre reinício**: O computador efetua sempre um reinício do sistema depois de instalar a atualização de software.
+        -   **Pode pedir reinício**: Depois de instalar a atualização de software, o computador pede um reinício do sistema apenas se for necessário um reinício. O utilizador tem a opção para adiar o reinício. Este é o valor predefinido. <br /><br />
 
-5.  No **pré-requisito** , especifique os pré-requisitos que devem ser instalados em um computador para que possa instalar esta atualização. Pré-requisitos podem ser **detectoids** ou outras atualizações. Detectoids são regras de alto nível como o que exige que os computadores da CPU para ser um processador de 64 bits. Detectoids também pode especificar atualizações específicas que devem ser instaladas antes que possa instalar esta atualização.
+5.  No **pré-requisitos** página, especifique os pré-requisitos que devem ser instalados num computador antes de instalar esta atualização. Pré-requisitos podem ser **detectoids** ou outras atualizações. Detectoids são regras de alto nível, como um que requer que os computadores da CPU para um processador de 64 bits. Detectoids também pode especificar atualizações específicas que tem de estar instaladas antes de instalar esta atualização.
 
-    -   Para obter melhor desempenho, use detectoids em vez de criar *instalável* e *instalado regras* que executam a mesma verificação ou a ação.
+    -   Para um melhor desempenho, utilize detectoids em vez de criar *instalável* e *instalado regras* que executam a mesma verificação ou a ação.
 
-    Use a opção de pesquisa para **atualizações de software disponíveis e detectoids** para ajudá-lo a localizar atualizações específicas ou detectoids. Por exemplo, pesquise em **CPU** para localizar o detectoids que permitem que você limite a instalação com base na arquitetura de CPU específica.
+    Utilize a opção de pesquisa para **atualizações de software disponíveis e detectoids** para ajudar a encontrar atualizações específicas ou detectoids. Por exemplo, uma procura **CPU** para localizar o detectoids que lhe permitem limitar a instalação com base na arquitetura de CPU específica.
 
-    Você pode selecionar um ou mais itens em um tempo para adicionar como um pré-requisito. Ao adicionar os pré-requisitos, os detectoids selecionados são adicionados como um ou mais grupos. Para se qualificar para a instalação, um computador deve atender ao requisito de pelo menos um membro de cada grupo que você configurar:
+    Pode selecionar um ou mais itens em simultâneo para adicionar como um pré-requisito. Ao adicionar pré-requisitos, os detectoids selecionados são adicionados como um ou mais grupos. Para se qualificar para a instalação, um computador tem de cumprir o requisito de pelo menos um membro de cada grupo que configurou:
 
- -   Quando você clica em **adicionar pré-requisito** todos os itens que você selecionou são adicionados aos grupos de individuais, separada. Para se qualificar para essa atualização, um computador deve atender aos pré-requisitos neste grupo e passar nos requisitos de todos os grupos adicionais que são configurados.
+ -   Ao clicar em **adicionar pré-requisitos** todos os itens que selecionou são adicionados a grupos individuais, separados,. Para se qualificar para esta atualização, um computador tem de cumprir os pré-requisitos neste grupo e passar os requisitos de todos os grupos adicionais que estão configurados.
 
- -   Quando você clica em **adicionar grupo** todos os itens que você selecionou são adicionados a um único grupo. Para se qualificar para essa atualização, um computador deve atender a pelo menos um dos pré-requisitos neste grupo e passar nos requisitos de todos os grupos adicionais que são configurados.
+ -   Ao clicar em **adicionar grupo,** todos os itens que selecionou são adicionados a um único grupo. Para se qualificar para esta atualização, um computador tem de cumprir, pelo menos, um dos pré-requisitos neste grupo e passar os requisitos de todos os grupos adicionais que estão configurados.
 
-6.  Sobre o **substituição** página, especifique as atualizações substituídas (substituídas) por essa atualização. Quando essa atualização é publicada, o Configuration Manager irá marcar cada atualização que é substituída como **expirado**. Os clientes, em seguida, instalar essa atualização em vez de atualizações substituídas.
+6.  No **substituição** página, especifique as atualizações que são substituídas (substituídas) por esta atualização. Quando esta atualização for publicada, o Configuration Manager irá marcar cada atualização que é substituída como **expirado**. Os clientes, em seguida, irão instalar esta atualização em vez das atualizações substituídas.
 
-7.  No **aplicabilidade** página use o **Editor de regras** para definir um conjunto de regras que determinam se um dispositivo precisa desta atualização. (Essa página é semelhante do **instalado** página, que o segue.)
+7.  No **aplicabilidade** página utilize o **Editor de regras** para definir um conjunto de regras que determinam se um dispositivo tem desta atualização. (Esta página é semelhante a **instalada** página, o seguinte.)
 
-    Para adicionar uma nova regra, clique em ![Nova regra](media/newrule.png). Isso abre a página de regra de aplicabilidade onde você pode configurar regras.
+    Para adicionar uma nova regra, clique em ![Nova regra](media/newrule.png). Esta ação abre a página de regra de aplicabilidade onde pode configurar as regras.
 
-    Tipos de regras que você pode criar:
+    Os tipos de regras, que pode criar incluem:
 
-    -   **Arquivo** – Use essa regra para exigir que um dispositivo tem um arquivo com propriedades que atendam a um ou mais critérios que você especificar antes desta atualização podem ser aplicados.
+    -   **Ficheiro** – utilizar esta regra para exigir que um dispositivo tem um ficheiro com propriedades que cumprem um ou mais critérios que especificar antes desta atualização podem ser aplicados.
 
-    -   **Registro –** usar este tipo para especificar detalhes do registro que devem estar presentes antes de um dispositivo se qualifica instalar essa atualização.
+    -   **Registo –** utilizar este tipo para especificar detalhes de registo que tem de existir antes de um dispositivo se qualificam instalar esta atualização.
 
-    -   **Sistema –** esta regra usa o detalhes do sistema para determinar a aplicabilidade. Você pode escolher entre a definição de uma versão do Windows, uma linguagem do Windows, a arquitetura do processador, ou especificar uma consulta WMI para identificar o sistema operacional de dispositivos.
+    -   **Sistema –** esta regra utiliza detalhes de sistema para determinar a aplicabilidade. Pode escolher entre definir uma versão do Windows, um idioma do Windows, a arquitetura de processador ou especificar uma consulta WMI para identificar o sistema operativo de dispositivos.
 
-    -   **Windows Installer –** Use esse tipo de regra para determinar a aplicabilidade com base em um instalado. MSI ou o Windows Installer patch (. MSP). Você também pode determinar se os componentes específicos ou recursos são instalados como parte do requisito.
+    -   **Windows Installer –** utilizar este tipo de regra para determinar a aplicabilidade com base num instalado. MSI ou do Windows Installer patch (. \\&LT;SERVERNAME&GT;\SMS_&LT;SITECODE&GT;\HOTFIX\&LT;KB). Também pode determinar se os componentes específicos ou funcionalidades são instaladas como parte do requisito.
 
         > [!IMPORTANT]  
-        > Gerenciado por deices, o Windows Update Agent não pode detectar o Windows instale os pacotes que são instalados por usuário. Quando você usa esse tipo de regra, configure regras de aplicabilidade adicionais, como versões de arquivos ou valores de chave do registro, para que o pacote do Windows Installer pode ser detectado corretamente, independentemente de uma base por usuário ou por sistema.
+        > No geridos deices, o Windows Update Agent não conseguiu detetar o Windows instalar pacotes que são instaladas por utilizador. Quando utilizar este tipo de regra, configure as regras de aplicabilidade adicionais, como as versões de ficheiro ou valores de chave de registo, para que o pacote Windows Installer pode ser detetado corretamente independentemente numa base por utilizador ou por sistema.
 
-    -   **Salvar regra –** essa opção permite que você localizar e usa regras você *criado no espaço de trabalho regras*.
+    -   **Guardar a regra –** esta permite opção Localizar e utilizar as regras *criada na área de trabalho de regras*.
 
-        Depois de criar uma regra, você pode usar os outros ícones para modificar a regra, e se há várias regras para definir relações entre essas regras.
+        Depois de criar uma regra, pode utilizar os ícones de outros para modificar a regra, e se existem várias regras, para definir relações entre essas regras.
 
-    Quando você estiver criando concluído e adição de regras, clique em **Okey** no **criar conjunto de regras** caixa de diálogo para salvar esse conjunto. Você pode criar um **novo** regra e o adicione ao conjunto também.
+    Quando já está a criar e adicionar regras, clique em **OK** no **criar conjunto de regras de** caixa de diálogo para guardar o conjunto. Em seguida, pode criar um **novo** regra e adicione que, bem como ao conjunto.
 
-    Quando você tiver várias regras ou conjuntos de regras para adicionar a uma atualização, você pode usar os operadores lógicos no **Editor de regras** para determinar as condições entre as regras e a ordem na qual eles processem.
+    Quando tiver várias regras ou define a regra para adicionar a uma atualização, pode utilizar os operadores lógicos no **Editor de regras** para determinar as condições entre as regras e a ordem pela qual processam.
 
-8.  No **instalado** página use o **Editor de regra para** definir um conjunto de regras que determinam se um dispositivo já tiver instalado a atualização que você está configurando. (Essa página é semelhante do **aplicabilidade** página, que continua a esta página.)
+8.  No **instalada** página utilize o **Editor de regras para** definir um conjunto de regras que determinam se um dispositivo já tem instalada a atualização está a configurar. (Esta página é semelhante a **aplicabilidade** página, que as prossegue nesta página.)
 
-    Esta página do assistente oferece suporte a regras de configuração com as mesmas opções e critérios como o **aplicabilidade** página.
+    Esta página do assistente suporta configurar regras com as mesmas opções e critérios de como o **aplicabilidade** página.
 
-    Quando o assistente for concluído, a nova atualização é adicionada a um nó no **atualiza o espaço de trabalho** que é identificado pelo **fornecedor** e **produto** nome usado para essa atualização.
+    Quando concluir o assistente, a nova atualização é adicionada a um nó no **atualiza a área de trabalho** que é identificado pelo **fornecedor** e **produto** nome utilizado para essa atualização.
 
-## <a name="use-the-create-bundle-wizard"></a>Use o assistente Criar pacote
-Porque o assistente usa o mesmo fluxo de trabalho como o [assistente criar atualizar](#use-the-create-update-wizard), use o fluxo de trabalho, mas observe a diferença de seguir para pacotes:
+## <a name="use-the-create-bundle-wizard"></a>Utilize o assistente criar pacote
+Uma vez que este assistente utiliza o mesmo fluxo de trabalho como o [assistente criar atualizar](#use-the-create-update-wizard), utilizar esse fluxo de trabalho, mas tenha em atenção a seguinte diferença para pacotes:
 
-1.  Para iniciar o assistente, no console, vá para **espaço de trabalho atualizações**e, em seguida, selecione **pacote** do **início** guia da faixa de opções.
+1.  Para iniciar o assistente, na consola do aceda a **área de trabalho atualizações**e, em seguida, selecione **pacote** do **home page** separador do Friso.
 
-2.  Diferentemente do Assistente de atualização de criar, não há nenhuma página de pacote ao criar um pacote.
+2.  Ao contrário do assistente criar atualizar, não há nenhuma página de pacote ao criar um pacote.
 
-3.  Sobre o **informações** página, especifique os detalhes sobre o pacote de atualização que são incluídos quando a atualização é publicada ou exportada.
+3.  No **informações** página, especifique os detalhes sobre o pacote de atualização que estão incluídos quando a atualização é publicada ou exportada.
 
-4.  Sobre o **informações opcionais** página, você pode configurar detalhes que fornecem informações adicionais sobre o pacote de atualização. As opções disponíveis são as mesmas que para a criação de uma atualização. No entanto, opções de impacto e o comportamento de reinicialização não estão disponíveis como eles não são aplicadas aos pacotes.
+4.  No **informações opcionais** página, pode configurar detalhes que fornecem informações adicionais sobre o pacote de atualização. As opções disponíveis são iguais para criação de uma atualização. No entanto, as opções de impacto e o comportamento de reinício não estão disponíveis como estas não são aplicadas a pacotes.
 
-5.  No **pré-requisito** , especifique os pré-requisitos que devem ser instalados em um computador para que possa instalar este pacote. Essas regras são o mesmo visto para as atualizações individuais.
+5.  No **pré-requisitos** página, especifique os pré-requisitos que devem ser instalados num computador antes de pode instalar este pacote. Estas regras são os mesmos visto para as atualizações individuais.
 
-6.  Sobre o **substituição** página, especifique as atualizações substituídas (substituídas) por este pacote de atualização. Essas regras são o mesmo visto para as atualizações individuais.
+6.  No **substituição** página, especifique as atualizações que são substituídas (substituídas) por este pacote de atualização. Estas regras são os mesmos visto para as atualizações individuais.
 
-7.  Sobre o **membros** página, você seleciona as atualizações para adicionar ao pacote de atualização. Somente as atualizações que você criou ou importados para o Updates Publisher estão disponíveis.
+7.  No **membros** página, selecione atualizações para adicionar o pacote de atualização. Estão disponíveis apenas as atualizações de ter criado ou importado para o Updates Publisher.
 
-Quando o assistente for concluído, o novo pacote de atualização é adicionado a um nó no **atualiza o espaço de trabalho** que é identificado pelo **fornecedor** nome usado para o pacote de atualização.
-
+Quando concluir o assistente, o novo pacote de atualização é adicionado a um nó a **atualiza a área de trabalho** que é identificado pelo **fornecedor** nome utilizado para o pacote de atualização.

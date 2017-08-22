@@ -1,38 +1,35 @@
 ---
-title: "Ferramenta de ligação do serviço | Documentos do Microsoft"
+title: "Ferramenta de ligação de serviço | Microsoft Docs"
 description: "Saiba mais sobre esta ferramenta que permite-lhe ligar ao serviço de nuvem do Configuration Manager para carregar manualmente as informações de utilização."
 ms.custom: na
 ms.date: 4/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6e4964c5-43cb-4372-9a89-b62ae6a4775c
-caps.latest.revision: 11
+caps.latest.revision: "11"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 32f7fc4ef9c8e8d3c2ec8eeaf9a3174bad992ffb
 ms.openlocfilehash: 0da80521bf223a765c3731f8ad59623d85a4c9fa
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Utilize a Ferramenta de Ligação de Serviço no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Utilize o **ferramenta de ligação de serviço** quando o ponto de ligação de serviço está no modo offline, ou quando os servidores de sistema de sites do Configuration Manager não estiverem ligados à Internet. A ferramenta pode ajudar a manter o seu site atualizado com as atualizações mais recentes do Configuration Manager.  
+Utilize o **ferramenta de ligação de serviço** quando o ponto de ligação de serviço está no modo offline, ou quando os servidores de sistema de sites do Configuration Manager não estiverem ligados à Internet. A ferramenta pode ajudar a manter o site atualizados com as atualizações mais recentes do Configuration Manager.  
 
-Quando for executada, a ferramenta manualmente estabelece ligação ao serviço de nuvem do Configuration Manager para carregar as informações de utilização para a hierarquia e para transferir atualizações. O carregamento dos dados de utilização é necessário para permitir ao serviço em nuvem fornecer as atualizações corretas para a sua implementação.  
+Quando executada, a ferramenta manualmente estabelece ligação ao serviço de nuvem do Configuration Manager para carregar as informações de utilização para a sua hierarquia e para transferir as atualizações. O carregamento dos dados de utilização é necessário para permitir ao serviço em nuvem fornecer as atualizações corretas para a sua implementação.  
 
 ## <a name="prerequisites-for-using-the-service-connection-tool"></a>Pré-requisitos para utilizar a ferramenta de ligação de serviço
-Seguem-se os pré-requisitos e os problemas conhecidos.
+Seguem-se os pré-requisitos e problemas conhecidos.
 
 **Pré-requisitos:**
 
@@ -65,11 +62,11 @@ Seguem-se os pré-requisitos e os problemas conhecidos.
 
  Neste procedimento, os exemplos da linha de comandos utilizam os seguintes nomes de ficheiros e localizações de pastas (não é necessário utilizar estes caminhos e nomes de ficheiros e, em vez disso, pode utilizar alternativas que correspondam ao seu ambiente e preferências):  
 
--   O caminho para um Stick USB onde os dados são armazenados para transferência entre servidores:  **D:\USB\\**  
+-   O caminho para uma pen USB onde os dados são armazenados para transferência entre servidores:  **D:\USB\\**  
 
 -   O nome do ficheiro. cab que contém dados exportados a partir do seu site: **UsageData.cab**  
 
--   O nome da pasta vazia onde serão armazenadas transferidas atualizações para o Configuration Manager para transferência entre servidores: **UpdatePacks**  
+-   O nome da pasta vazia onde serão armazenadas as atualizações para o Configuration Manager para transferência entre servidores: **UpdatePacks**  
 
 No computador que aloja o ponto de ligação de serviço:  
 
@@ -86,11 +83,11 @@ Também terá da copiar a pasta ServiceConnectionTool com todo o conteúdo para 
 ### <a name="overview"></a>Descrição Geral
 **Existem três passos principais para utilizar a ferramenta de ligação de serviço:**  
 
-1.  **Preparar**:  Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando é executada a ferramenta de que coloca os dados de utilização de um ficheiro. cab e armazena-a numa unidade USB (ou localização de transferência alternativo especificar).  
+1.  **Preparar**:  Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando a ferramenta é executada coloca os dados de utilização num ficheiro. cab e armazena-a numa unidade USB (ou localização de transferência alternativa que especificar).  
 
-2.  **Ligar**: Para este passo de executar a ferramenta num computador remoto que liga à Internet para que possa carregar os dados de utilização e, em seguida, transferir atualizações.  
+2.  **Ligar**: Para este passo, execute a ferramenta num computador remoto que liga à Internet para que possa carregar os dados de utilização e, em seguida, transferir as atualizações.  
 
-3.  **Importar**: Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando for executada, a ferramenta importa que transferiu e adiciona-os para o seu site para que possa, em seguida, ver e instalar as atualizações a partir da consola do Configuration Manager.  
+3.  **Importar**: Este passo é executado no computador que aloja o ponto de ligação de serviço. Quando executada, a ferramenta importa que transferiu e adiciona-os para o seu site para que possa ver e instalar essas atualizações a partir da consola do Configuration Manager.  
 
 A partir da versão 1606, quando ligar à Microsoft, pode carregar vários ficheiros .cab ao mesmo tempo (cada um deles a partir de uma hierarquia diferente) e especificar um servidor proxy e um utilizador para o servidor proxy.   
 
@@ -128,14 +125,14 @@ Pode utilizar os seguintes parâmetros opcionais para especificar um servidor pr
 
 5.  Execute o seguinte comando para iniciar o carregamento de informações de utilização e a transferência de atualizações para o Configuration Manager:  
 
-    -   **serviceconnectiontool.exe-ligar - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
+    -   **serviceconnectiontool.exe-connect - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
 
     Para obter mais exemplos desta linha de comandos, veja a secção [Opções de linha de comandos](../../../core/servers/manage/use-the-service-connection-tool.md#bkmk_cmd) mais à frente neste tópico.
 
     > [!NOTE]  
     >  Quando executa a linha de comandos para ligar ao serviço em nuvem do Configuration Manager, poderá ocorrer um erro semelhante ao seguinte:  
     >   
-    >  -   Exceção não processada: System.UnauthorizedAccessException:  
+    >  -   Exceção não processada: System. unauthorizedaccessexception:  
     >   
     >      O acesso ao caminho "C:\  
     >     Users\br\AppData\Local\Temp\extractmanifestcab\95F8A562.sql" foi negado.  
@@ -150,7 +147,7 @@ Pode utilizar os seguintes parâmetros opcionais para especificar um servidor pr
 
 8.  Quando a importação estiver concluída, pode fechar a linha de comandos. (Apenas são importadas atualizações para a hierarquia aplicável).  
 
-9. Abra a consola do Configuration Manager e navegue para **administração** > **atualizações e a manutenção**. As atualizações que foram importadas estão agora disponíveis para instalação. (Antes da versão 1702, atualizações e a manutenção foi em **administração** > **serviços em nuvem**.)
+9. Abra a consola do Configuration Manager e navegue para **administração** > **atualizações e manutenção**. As atualizações que foram importadas estão agora disponíveis para instalação. (Antes da versão 1702, atualizações e manutenção estava **administração** > **serviços em nuvem**.)
 
  Para obter informações sobre como instalar atualizações, veja [Instalar atualizações na consola para o System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
 
@@ -163,4 +160,3 @@ Pode utilizar os seguintes parâmetros opcionais para especificar um servidor pr
 |**-connect -usagedatasrc [unidade:][caminho] -updatepackdest [unidade:][caminho] -proxyserveruri [FQDN do servidor proxy] -proxyusername [nome de utilizador]** <br /> <br /> Se utilizar uma versão do Configuration Manager anterior à versão 1606, tem de especificar o nome do ficheiro .cab e não pode utilizar as opções para um servidor proxy.  Os parâmetros de comando suportados são: <br /> **-connect -usagedatasrc [unidade:][caminho][nome do ficheiro] -updatepackdest [unidade:][caminho]** |Este comando liga ao serviço em nuvem do Configuration Manager para carregar os ficheiros .cab de dados de utilização a partir da localização especificada e para transferir os pacotes de atualização disponíveis e conteúdo da consola. As opções para servidores proxy são opcionais.<br /><br /> Execute este comando como **administrador local** num computador que possa ser ligado à Internet.<br /><br /> Exemplo de ligação sem um servidor proxy: **-connect -usagedatasrc D:\USB\ -updatepackdest D:\USB\UpdatePacks** <br /><br /> Exemplo de ligação ao utilizar um servidor proxy: **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks -proxyserveruri itgproxy.redmond.corp.microsoft.com -proxyusername Meg** <br /><br /> Se utilizar uma versão anterior à versão 1606, tem de especificar um nome de ficheiro para o ficheiro .cab e não pode especificar um servidor proxy. Utilize a seguinte linha de comandos de exemplo: **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks**|      
 |**-import -updatepacksrc [drive:][path]**|Este comando importa os pacotes de atualizações e o conteúdo da consola que transferiu anteriormente para a consola do Configuration Manager.<br /><br /> Execute este comando como **Administrador local** no servidor que aloja o ponto de ligação de serviço.<br /><br /> Exemplo:  **-import -updatepacksrc D:\USB\UpdatePacks**|  
 |**-export -dest [drive:][path][filename.csv]**|Este comando exporta dados de utilização para um ficheiro .csv, que poderá ver em seguida.<br /><br /> Execute este comando como **Administrador local** no servidor que aloja o ponto de ligação de serviço.<br /><br /> Exemplo: **-export -dest D:\USB\usagedata.csv**|  
-

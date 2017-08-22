@@ -6,22 +6,20 @@ ms.date: 03/26/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
-caps.latest.revision: 26
-caps.handback.revision: 0
+caps.latest.revision: "26"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
 ms.openlocfilehash: e0726febc4c36a26c5e067914734838bf2681e6c
-ms.contentlocale: pt-pt
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Variáveis de passos de tarefas no System Center Configuration Manager
 
@@ -1707,4 +1705,3 @@ No editor de sequência de tarefas, utilize o [definir variável da sequência d
  Especifica se a Configuração irá efetuar operações de Atualização Dinâmica, como atualizações de pesquisa, de transferência e de instalação (corresponde à opção da linha de comandos /DynamicUpdate). Esta definição não é compatível com atualizações de software do Configuration Manager, mas pode ser ativada quando para processar as atualizações com WSUS (autónomo) ou o Windows Update.  
 
  **Ignorar política e utilizar o Microsoft Update por predefinição**: Selecione esta definição para substituir temporariamente a política local em tempo real para executar operações de atualização dinâmica e o computador obter as atualizações do Windows Update.  
-

@@ -4,8 +4,7 @@ description: "Saiba mais sobre as funcionalidades disponíveis na versão de pr�
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -14,12 +13,11 @@ ms.assetid: 00684289-d21a-45f8-b1e3-c5c787d73096
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
 ms.openlocfilehash: b977a79baec73999caa21648adcb6fcfec4a4935
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1705 do System Center Configuration Manager
 
@@ -301,4 +299,3 @@ Pré-requisitos para configurar uma ligação ao OMS são iguais às [documentad
 7.  Verifique as definições de ligação no **resumo** ecrã, em seguida, selecione **seguinte**. O **progresso** ecrã mostra o estado da ligação, em seguida, deve **concluída**.
 
 8.  Depois de concluir o assistente, a consola do Configuration Manager mostra que configurou **operação Management Suite** como um **o tipo de serviço de nuvem**.
-

@@ -1,7 +1,6 @@
 ---
-
-title: "Gerir definições das atualizações de software | Documentos do Microsoft"
-description: "Saiba mais sobre as definições de cliente que são adequadas para atualizações de software no site depois de instalar o ponto de atualização de software."
+title: "Gerir as definições das atualizações de software | Microsoft Docs"
+description: "Saiba mais sobre as definições de cliente são adequadas para atualizações de software no seu site depois de instalar o ponto de atualização de software."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -10,33 +9,29 @@ ms.date: 03/26/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: 0d484c1a-e903-4bff-9e9b-e452c62e38a8
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: fe4a8f56e0b554e206bcc4503a0268dc761ded81
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-
-#  <a name="BKMK_ManageSUSettings"></a>Gerir definições das atualizações de software  
+#  <a name="BKMK_ManageSUSettings"></a>Gerir as definições das atualizações de software  
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Depois de sincronizar as atualizações de software no Configuration Manager, configure e verifique as definições nas secções seguintes.
+Depois de sincronizar as atualizações de software no Configuration Manager, configurar e verificar as definições nas secções seguintes.
 
 ##  <a name="BKMK_ClientSettings"></a> Definições de cliente para atualizações de software  
-Depois de instalar o ponto de atualização de software, as atualizações de software são ativadas nos clientes por predefinição e as definições da página **Atualizações de Software** nas definições do cliente têm valores predefinidos. As definições de cliente são utilizadas ao nível do site e afetam o momento são analisadas a compatibilidade de atualizações de software e como e quando as atualizações de software são instaladas nos computadores cliente. Antes de implementar atualizações de software, certifique-se de que as definições de cliente são adequadas para atualizações de software no site.  
+Depois de instalar o ponto de atualização de software, as atualizações de software são ativadas nos clientes por predefinição e as definições da página **Atualizações de Software** nas definições do cliente têm valores predefinidos. As definições de cliente são utilizadas ao nível do site e afetam quando as atualizações de software são analisadas a compatibilidade e como e quando as atualizações de software são instaladas nos computadores cliente. Antes de implementar atualizações de software, certifique-se de que as definições de cliente são adequadas para atualizações de software no seu site.  
 
 > [!IMPORTANT]  
 >  A definição **Ativar atualizações de software nos clientes** está ativada por predefinição. Se desmarcar esta definição, o Configuration Manager removerá as políticas de implementação existentes do cliente.  
 
-Para obter informações sobre como configurar as definições de cliente, consulte o artigo [como configurar as definições de cliente](../../core/clients/deploy/configure-client-settings.md).  
+Para obter informações sobre como configurar as definições de cliente, consulte [como configurar as definições de cliente](../../core/clients/deploy/configure-client-settings.md).  
 
-Para mais informações sobre as definições de cliente, consulte o artigo [sobre definições de cliente](../../core/clients/deploy/about-client-settings.md).  
+Para obter mais informações sobre as definições de cliente, consulte [sobre definições de cliente](../../core/clients/deploy/about-client-settings.md).  
 
 ##  <a name="BKMK_GroupPolicy"></a> Definições de política de grupo para atualizações de software  
 Existem definições de política de grupo específicas que são utilizadas pelo Windows Update Agent (WUA) em computadores cliente para estabelecer ligação ao WSUS que é executado no ponto de atualizações de software. Estas definições de política de grupo também são utilizadas para analisar com sucesso a compatibilidade da atualização de software e para atualizar automaticamente as atualizações de software e o WUA.
@@ -85,7 +80,7 @@ O separador **Detalhes da Atualização** contém as seguintes informações de 
 
 - **Idiomas aplicáveis**: Lista os idiomas para os quais a atualização de software é aplicável.  
 
-- **Produtos afetados**: Apresenta uma lista de produtos para os quais a atualização de software é aplicável.  
+- **Produtos afetados**: Apresenta uma lista dos produtos aos quais se aplica a atualização de software.  
 
 ####  <a name="BKMK_ContentInformation"></a> Informações de conteúdo  
 No separador **Informações de Conteúdo** , reveja as seguintes informações sobre o conteúdo associado à atualização de software selecionada:  
@@ -106,7 +101,7 @@ No separador **Informações do Grupo Personalizadas** , reveja as informações
 ####  <a name="BKMK_SupersedenceInformation"></a> Informações de substituição  
 No separador **Informações de Substituição** , pode ver as seguintes informações relativas à substituição da atualização de software:  
 
-- **Esta atualização foi substituída pelas seguintes atualizações**: Especifica as atualizações de software que substituem esta atualização, o que significa que as atualizações apresentadas na lista são mais recentes. Na maioria dos casos, irá implementar uma das atualizações de software que substitui a atualização de software. As atualizações de software apresentadas na lista incluem hiperligações para páginas Web que contêm mais informações sobre as atualizações de software. Se esta atualização não tiver sido substituída, será apresentado **Nenhuma** .  
+- **Esta atualização foi substituída pelas seguintes atualizações**: Especifica as atualizações de software que substituem esta atualização, o que significa que as atualizações apresentadas são mais recentes. Na maioria dos casos, irá implementar uma das atualizações de software que substitui a atualização de software. As atualizações de software apresentadas na lista incluem hiperligações para páginas Web que contêm mais informações sobre as atualizações de software. Se esta atualização não tiver sido substituída, será apresentado **Nenhuma** .  
 
 - **Esta atualização substitui as seguintes atualizações**: Especifica as atualizações de software que são substituídas por esta atualização de software, o que significa que esta atualização de software é mais recente. Na maioria dos casos, irá implementar esta atualização de software para substituir as atualizações de software substituídas. As atualizações de software apresentadas na lista incluem hiperligações para páginas Web que contêm mais informações sobre as atualizações de software. Se esta atualização não substituir qualquer outra atualização, será apresentado **Nenhuma** .  
 
@@ -114,13 +109,13 @@ No separador **Informações de Substituição** , pode ver as seguintes informa
 As propriedades permitem-lhe configurar definições de atualização de software para uma ou mais atualizações de software. Apenas poderá configurar a maioria das definições de atualização de software através do site de administração central ou do site primário autónomo. As seguintes secções irão ajudá-lo a configurar as definições de atualizações de software.  
 
 ####  <a name="BKMK_SetMaxRunTime"></a> Definir o tempo máximo de execução  
-No separador **Tempo Máximo de Execução** , defina o período de tempo máximo que uma atualização de software poderá demorar a ser instalada em computadores cliente. Se a atualização demora mais do que o valor de tempo de execução máximo, o Configuration Manager cria uma mensagem de estado e interrompe a monitorização de implementação para a instalação de atualizações de software. Apenas poderá configurar esta definição através do site de administração central ou de um site primário autónomo.  
+No separador **Tempo Máximo de Execução** , defina o período de tempo máximo que uma atualização de software poderá demorar a ser instalada em computadores cliente. Se a atualização demora mais que o valor de tempo de execução máximo, o Configuration Manager cria uma mensagem de estado e interrompe a monitorização de implementação para a instalação de atualizações de software. Apenas poderá configurar esta definição através do site de administração central ou de um site primário autónomo.  
 
 O Configuration Manager também utiliza esta definição para determinar se deve iniciar a instalação de atualização de software numa janela de manutenção configurada. Se o valor máximo de tempo de execução exceder o período de tempo restante na janela de manutenção, a instalação das atualizações de software será adiada até ao início da próxima janela de manutenção. Se existirem várias atualizações de software para serem instaladas num computador cliente que tenha uma janela de manutenção (prazo) configurada, será instalada em primeiro lugar a atualização de software que tenha o menor tempo de execução máximo, seguida da instalação da atualização que tiver o seguinte menor tempo de execução máximo e assim sucessivamente. Antes de instalar cada atualização de software, o cliente verifica se a janela de manutenção disponível disponibiliza tempo suficiente para a instalação da atualização de software. Após o início da instalação de uma atualização de software, esta continuará a ser instalada mesmo que ultrapasse o limite da janela de manutenção. Para obter mais informações sobre janelas de manutenção, veja [Como utilizar janelas de manutenção no System Center Configuration Manager](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
 No separador **Tempo Máximo de Execução** , pode ver e configurar as seguintes definições:  
 
-- **Tempo de execução máximo**: Especifica o número máximo de minutos que poderá para uma instalação de atualização de software seja concluída antes da instalação já não é monitorizada pelo Configuration Manager. Esta definição também permite determinar se existe tempo suficiente para instalar uma atualização até ao prazo limite de uma janela de manutenção. A predefinição é 60 minutos para pacotes de serviços. Para outros tipos de atualização de software, a predefinição é 10 minutos, se tiver uma instalação nova do Configuration Manager versão 1511 ou superior e 5 minutos quando tiver atualizado de uma versão anterior. Os valores variam entre 5 e 9999 minutos.  
+- **Tempo de execução máximo**: Especifica o número máximo de minutos atribuído para uma instalação de atualização de software seja concluída antes da instalação já não é monitorizada pelo Configuration Manager. Esta definição também permite determinar se existe tempo suficiente para instalar uma atualização até ao prazo limite de uma janela de manutenção. A predefinição é 60 minutos para pacotes de serviços. Para outros tipos de atualização de software, a predefinição é 10 minutos se realizou uma nova instalação do Configuration Manager versão 1511 ou superior e 5 minutos quando tiver efetuado a atualização de uma versão anterior. Os valores variam entre 5 e 9999 minutos.  
 
 > [!IMPORTANT]  
 >  Certifique-se de que definiu o tempo máximo de execução para um valor inferior ao período da janela de manutenção configurada. Caso contrário, a instalação da atualização de software nunca será iniciada.  
@@ -135,10 +130,9 @@ Pode configurar as seguintes definições no separador **Gravidade Personalizada
 ## <a name="crl-checking-for-software-updates"></a>Verificação CRL para atualizações de software
 Por predefinição, a lista de revogação de certificados (CRL) não é verificada ao verificar a assinatura nas atualizações de software do System Center Configuration Manager. A verificação da CRL sempre que é utilizado um certificado oferece mais segurança contra a utilização de um certificado revogado, mas provoca um atraso de ligação e implica um processamento adicional no computador que a está a efetuar.  
 
-Se for utilizado, a verificação CRL deve estar ativada nas consolas do Configuration Manager que processam atualizações de software.  
+Se utilizado, a verificação CRL deve estar ativada nas consolas do Configuration Manager que processam atualizações de software.  
 
 #### <a name="to-enable-crl-checking"></a>Para ativar a verificação CRL  
-No computador que executa a verificação CRL, a partir do DVD do produto, execute o seguinte a partir de uma linha de comandos: **\smssetup\bin\x64.\\**<*idioma*>**\UpdDwnldCfg.exe /checkrevocation**.  
+No computador que executa a verificação CRL, a partir do DVD do produto, execute o seguinte numa linha de comandos: **\SMSSETUP\BIN\X64\\**<*idioma*>**\UpdDwnldCfg.exe /checkrevocation**.  
 
-Por exemplo, para inglês (e.u.a.) execute **\SMSSETUP\BIN\X64\00000409\UpdDwnldCfg.exe /checkrevocation**  
-
+Por exemplo, para inglês (EUA) execute **\SMSSETUP\BIN\X64\00000409\UpdDwnldCfg.exe /checkrevocation**  

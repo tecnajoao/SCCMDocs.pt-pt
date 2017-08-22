@@ -1,27 +1,24 @@
 ---
-title: Gerir o Skype para um acesso Online de empresas | Documentos do Microsoft
+title: Gerir o Skype para empresas Online acesso | Microsoft Docs
 description: "Saiba como utilizar a política de acesso condicional para gerir o acesso ao Skype para empresas Online."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 71c44250-626e-482c-8794-434c6aeb2fb1
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
 ms.openlocfilehash: cacb22a85e74a7d9cae75ad907d0206487cd4dc7
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-skype-for-business-online-access"></a>Gerir o acesso ao Skype para Empresas Online
 
@@ -37,7 +34,7 @@ Utilize a política de acesso condicional do  **Skype para Empresas Online** par
 
 -   Ative autenticação moderna do Skype para Empresas Online. Preencha este [formulário de ligação](https://connect.microsoft.com/office/Survey/NominationSurvey.aspx?SurveyID=17299&ProgramID=8715) para ser inscrito no programa de autenticação moderna.  
 
--   Os utilizadores finais devem utilizar o Skype para empresas Online. Se tiver uma implementação com o Skype para empresas Online e o Skype para empresas no local, política de acesso condicional não será aplicada aos utilizadores finais.  
+-   Todos os utilizadores finais devem utilizar o Skype para empresas Online. Se tiver uma implementação com o Skype para empresas Online e Skype para empresas no local, política de acesso condicional não será aplicada aos utilizadores finais.  
 
 -   O dispositivo que necessita de acesso ao Skype para Empresas Online deve:  
 
@@ -61,12 +58,12 @@ Se não for cumprida uma condição, é apresentada ao utilizador uma das duas m
 
  Pode especificar dois tipos de grupo a utilizar para o Skype para a política de negócio:  
 
--   Visada grupos â €"contém grupos de utilizadores aos quais será aplicada a política  
+-   Direcionados grupos â €"contém os grupos de utilizadores aos quais será aplicada a política  
 
--   Excluídos grupos â €"contém os grupos de utilizadores que são excluídos da política (opcional)  
+-   Excluídos grupos â €"contém os grupos de utilizadores excluídos da política (opcional)  
     Se um utilizador estiver em ambos os grupos, estará excluído da política.  
 
-### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Passo 2: Configure e implemente uma política de conformidade  
+### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Passo 2: Configurar e implementar uma política de conformidade  
  Certifique-se de que cria e implementa uma política de conformidade em todos os dispositivos para os quais será direcionada a política do Skype para Empresas Online.  
 
  Para obter detalhes sobre como configurar a política de conformidade, veja [Gerir políticas de conformidade no System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md).  
@@ -76,7 +73,7 @@ Se não for cumprida uma condição, é apresentada ao utilizador uma das duas m
 
  Quando estiver pronto, avance para o Passo 3.  
 
-### <a name="step-3-configure-the-skype-for-business-online-policy"></a>Passo 3: Configurar o Skype para política Online de empresas  
+### <a name="step-3-configure-the-skype-for-business-online-policy"></a>Passo 3: Configurar a política do Skype para empresas Online  
  Em seguida, configure a política para exigir que apenas os dispositivos geridos e em conformidade podem aceder ao Skype para Empresas Online. Esta política será armazenada no Azure Active Directory.  
 
 1.  Na [consola de administração do Microsoft Intune](https://manage.microsoft.com), clique em **Política** > **Acesso Condicional** > **Skype for Business Online Política**.  
@@ -104,13 +101,12 @@ Se não for cumprida uma condição, é apresentada ao utilizador uma das duas m
 
  Selecione qualquer grupo de dispositivos móveis e, em seguida, no separador **Dispositivos** , selecione um dos seguintes **Filtros**:  
 
--   **Dispositivos não registados no AAD** â €"estes dispositivos estão bloqueados no Skype para empresas Online.  
+-   **Dispositivos que não são registados no AAD** â €"estes dispositivos estão bloqueados no Skype para empresas Online.  
 
--   **Dispositivos que não são compatíveis** â €"estes dispositivos estão bloqueados no Skype para empresas Online.  
+-   **Dispositivos não conformes** â €"estes dispositivos estão bloqueados no Skype para empresas Online.  
 
 -   **Dispositivos que são registados no AAD e conformes** â €"estes dispositivos podem aceder ao Skype para empresas Online.  
 
 ### <a name="see-also"></a>Consulte também  
 
- [Gerir políticas de conformidade do dispositivo no System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md)
-
+ [Gerir políticas de conformidade de dispositivos no System Center Configuration Manager](../../protect/deploy-use/device-compliance-policies.md)

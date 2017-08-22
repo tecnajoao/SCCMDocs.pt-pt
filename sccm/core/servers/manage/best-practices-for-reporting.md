@@ -1,28 +1,25 @@
 ---
-title: "Melhores práticas de relatórios | Documentos do Microsoft"
-description: "Leia algumas sugestões úteis sobre como utilizar a capacidade de criação de relatórios do System Center Configuration Manager."
+title: "Melhores práticas de relatórios | Microsoft Docs"
+description: "Ler algumas dicas úteis sobre como utilizar a capacidade de relatórios do System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 64f9d931-33f1-456f-a4e4-0ec077465bd0
-caps.latest.revision: 4
-caps.handback.revision: 0
+caps.latest.revision: "4"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
 ms.openlocfilehash: 759258999f3eaa810803a6a7f856f00fe7771a9e
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="best-practices-for-reporting-in-system-center-configuration-manager"></a>Melhores práticas para relatórios no System Center Configuration Manager
 
@@ -37,8 +34,7 @@ Utilize as seguintes melhores práticas para criar relatórios no System Center 
  Normalmente, os atrasos na criação de relatórios devem-se ao tempo necessário para executar as consultas e obter os resultados. Se estiver a utilizar o Microsoft SQL Server, ferramentas como o Analisador de Consultas e o Gerador de Perfis podem ajudar a otimizar as consultas.  
 
 ## <a name="schedule-report-subscription-processing-to-run-outside-standard-office-hours"></a>Agendar o processamento de subscrição de relatório para ser executado fora do horário de expediente normal  
- Sempre que possível, agende o processamento de subscrição de relatório para execução fora de expediente normal para minimizar o processamento de CPU no Gestor de configuração do servidor de base de dados do site. Esta prática melhora também a disponibilidade para pedidos imprevistos de relatórios.  
+ Sempre que possível, agende o processamento de subscrição de relatório para execução fora de expediente normal para minimizar o processamento da CPU no Gestor de configuração do servidor de base de dados do site. Esta prática melhora também a disponibilidade para pedidos imprevistos de relatórios.  
 
 ## <a name="next-steps"></a>Passos seguintes
-[Configurar os relatórios](configuring-reporting.md)
-
+[Configurar relatórios](configuring-reporting.md)

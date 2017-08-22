@@ -9,15 +9,13 @@ ms.date: 10/06/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
+ms.openlocfilehash: 2da61e6e06850b36543b9fd41bd9a7d2368006fb
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
-ms.openlocfilehash: bdf0cbe82113a3aec2677a3628ccc253363eb24e
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configurar classificações e produtos a sincronizar  
 
@@ -51,8 +49,12 @@ ms.lasthandoff: 07/29/2017
     > - **Update Rollups**: Especifica um conjunto cumulativo de correções que são agrupadas para facilitar a implementação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações e assim sucessivamente. Um rollup de atualizações resolve geralmente uma área específica, tal como segurança ou um componente de produto.  
     > - **Atualizações**: Especifica uma atualização para uma aplicação ou um ficheiro que está atualmente instalado.  
     > - **Atualizar**: Especifica uma atualização para Windows 10 e funcionalidades. Os pontos de atualização de software e os sites têm de executar um mínimo de WSUS 4.0 com a [correção 3095113](https://support.microsoft.com/kb/3095113) para obter o **atualizar** classificação.    
-    >     
-    > A partir do Configuration Manager versão 1706, também pode selecionar o **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação para sincronizar controladores Microsoft Surface. Todos os pontos de atualização de software tem de executar para sincronizar com êxito a superfície controladores do Windows Server 2016.
+    >       
+
+    > [!NOTE]    
+    > A partir do Configuration Manager versão 1706, também pode selecionar o **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação para sincronizar controladores Microsoft Surface. Todos os pontos de atualização de software tem de executar para sincronizar com êxito a superfície controladores do Windows Server 2016.     
+    >    
+    > Esta é uma funcionalidade de pré-lançamento. As funcionalidades de pré-lançamento estão incluídas no produto para um teste antecipado num ambiente de produção, mas devem não ser consideradas prontas para produção. Tem de ativar esta funcionalidade para que fique disponível. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
 5.  No separador **Produtos** , especifique os produtos para os quais quer sincronizar atualizações de software e, em seguida, clique em **Fechar**.  
 
@@ -66,4 +68,3 @@ ms.lasthandoff: 07/29/2017
 
 ## <a name="next-steps"></a>Passos seguintes
 Inicie a sincronização de atualizações de software para obter atualizações de software com base nos critérios de novo. Para obter mais informações, consulte [sincronizar atualizações de software](synchronize-software-updates.md).
-

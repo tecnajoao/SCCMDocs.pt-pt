@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 92b339ef-2723-4322-bec6-077b3e8846b0
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 5945abb49fe06c59355805aa94b04d0d445ecbc3
 ms.openlocfilehash: d46a8b66ace45d25da9d86f2e91b19ae1d6875ab
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Pré-requisitos de instalação de sites do System Center Configuration Manager
 
@@ -129,4 +127,3 @@ Seguem-se os pré-requisitos para instalar sites secundários:
         >  Quando a conclusão da configuração, ambas as contas têm de reter os direitos de administrador do sistema no SQL Server. Não remova os direitos de administrador do sistema destas contas.  
 
 -   O computador do servidor do site secundário tem de cumprir todas as configurações de pré-requisitos, que inclui o SQL Server e as funções do sistema de sites predefinido do ponto de gestão e ponto de distribuição.  
-

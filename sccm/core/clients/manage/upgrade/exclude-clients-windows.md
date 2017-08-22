@@ -1,58 +1,54 @@
 ---
 title: "Excluir as atualizações de cliente | Windows | O System Center Configuration Manager"
-description: "Aprenda a excluir clientes Windows da introdução atualizado no System Center Configuration Manager."
+description: "Saiba como excluir os clientes do Windows da introdução atualizado no System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4cd6031f-8844-4d0b-8166-b24d6528a94e
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
 ms.openlocfilehash: de5602179f3ac55b51133b8280a0143f1b0ff30e
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-exclude-upgrading-clients-for-windows-computers-in-system-center-configuration-manager"></a>Como excluir atualizar clientes para computadores com Windows no System Center Configuration Manager
+# <a name="how-to-exclude-upgrading-clients-for-windows-computers-in-system-center-configuration-manager"></a>Como excluir atualizar clientes em computadores Windows no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-A partir na versão 1610, pode excluir uma coleção de clientes de instalar automaticamente o cliente atualizado de versões. Isto aplica-se a atualização automática, bem como outros métodos, tais como a atualização baseada em atualização de software, scripts de início de sessão e política de grupo. Pode utilizar este para uma coleção de computadores que necessitam de maior cuidado quando atualizar o cliente. Um cliente que está a ser uma coleção de excluídos ignora os pedidos para instalar o software de cliente atualizado.
+A partir da versão 1610, pode excluir uma coleção de clientes de instalar automaticamente as versões de cliente atualizado. Isto aplica-se a atualização automática, bem como outros métodos, tais como a atualização baseada em atualização de software, scripts de início de sessão e política de grupo. Pode utilizar esta opção para uma coleção de computadores que têm maior cuidado ao atualizar o cliente. Um cliente que está a ser uma coleção excluída ignora os pedidos para instalar o software de cliente atualizado.
 
-## <a name="configure-exclusion-for-automatic-upgrades"></a>Configurar a exclusão para atualizações automáticas
+## <a name="configure-exclusion-for-automatic-upgrades"></a>Configurar exclusões de atualizações automáticas
 
-1. Na consola do Configuration Manager, aceda a **administração** > **configuração do Site** > **Sites**e, em seguida, clique em **definições de hierarquia**.
+1. Na consola do Configuration Manager, vá para **administração** > **configuração do Site** > **Sites**e, em seguida, clique em **definições de hierarquia**.
 
-2. Clique na **atualização de cliente** separador.
+2. Clique em de **atualização de cliente** separador.
 
-3. Clique na caixa de verificação para **excluir especificada de clientes a partir da atualização**e, em seguida, para a coleção de exclusão, selecione a coleção que pretende excluir. Só pode selecionar uma única coleção para exclusão.
+3. Clique na caixa de verificação para **excluir especificado de clientes de atualização**e, em seguida, para a coleção de exclusão, selecione a coleção que pretende excluir. Só pode selecionar uma única coleção para exclusão.
 
-4.  Clique em **OK** fechar e guardar a configuração. Em seguida, após política de atualização de clientes, clientes da coleção de excluídos instalará não ajustarão automaticamente atualizações de software de cliente. Para obter mais informações, consulte o artigo [como atualizar clientes para computadores Windows](upgrade-clients-for-windows-computers.md).
+4.  Clique em **OK** para fechar e guardar a configuração. Em seguida, depois de política de atualização de clientes, os clientes na coleção excluída automaticamente já não irão instalar atualizações para o software de cliente. Para obter mais informações, consulte [como atualizar clientes em computadores Windows](upgrade-clients-for-windows-computers.md).
 
 ![Definições de exclusão de atualização automática](media/automatic_upgrade_exclusion.png)
 
 
 
 >[!NOTE]
->Embora a interface de utilizador indica que os clientes não serão atualizados através de qualquer método, existem dois métodos que pode utilizar para substituir estas definições. Instalação de push de cliente e uma instalação manual de cliente podem ser utilizados para esta configuração de substituição. Para obter mais detalhes, consulte a secção seguinte.
+>Embora a interface de utilizador de Estados de que os clientes não serão atualizados através de qualquer método, existem dois métodos que pode utilizar para substituir estas definições. Instalação push do cliente e uma instalação de cliente manual podem ser utilizadas para substituir esta configuração. Para obter mais detalhes, consulte a secção seguinte.
 
-## <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>Como atualizar um cliente que está a ser uma coleção de excluídos
+## <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>Como atualizar um cliente que está a ser uma coleção excluída
 
-Uma coleção é configurada para ser excluídos, desde que os membros da coleção de que só podem ter o software de cliente atualizado por um de dois métodos, que substituem a exclusão:
- - **Instalação Push do cliente** – pode utilizar a instalação push do cliente para atualizar um cliente que está a ser uma coleção de excluídos. Isto é permitido como é considerada a intenção do administrador e permite que a atualização dos clientes sem remover o conjunto completo de exclusão.       
+Uma coleção é configurada a serem excluídos, desde que os membros dessa coleção só podem ter atualizado por um dos dois métodos que substituem a exclusão do respetivo software de cliente:
+ - **Instalação Push do cliente** – pode utilizar a instalação push do cliente para atualizar um cliente que está a ser uma coleção excluída. Isto é permitido como é considerada a intenção do administrador e permite-lhe atualizar os clientes sem remover o conjunto completo de exclusão.       
 
- - **Instalação manual de cliente** – pode atualizar manualmente os clientes que estejam numa coleção de excluídos, ao utilizar o seguinte parâmetro de linha de comandos com o ccmsetup: ***/ignoreskipupgrade***
+ - **Instalação de cliente manual** – pode atualizar manualmente os clientes que estejam numa coleção excluída quando utilizar o seguinte parâmetro de linha de comandos com ccmsetup: ***/ignoreskipupgrade***
 
-  Se tentar atualizar manualmente um cliente que seja um membro da coleção de excluídos e não utilize este parâmetro, o cliente não irá instalar o novo software de cliente. Para mais informações consulte [como instalar clientes do Configuration Manager manualmente](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_Manual).
+  Se tentar atualizar manualmente um cliente que é um membro da coleção excluída e não utilize este parâmetro, o cliente não irá instalar o software de cliente novo. Para obter mais informações consulte [como instalar o Configuration Manager clientes manualmente](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_Manual).
 
-Para obter mais informações sobre os métodos de instalação de cliente, consulte o artigo [como implementar clientes em computadores com Windows no System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
-
+Para obter mais informações sobre métodos de instalação de cliente, consulte [como implementar clientes em computadores Windows no System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).

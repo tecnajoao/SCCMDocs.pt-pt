@@ -1,27 +1,24 @@
 ---
-title: Criar suportes de dados com o System Center Configuration Manager | Documentos do Microsoft
-description: "Crie suportes de dados no System Center Configuration Manager, para simplificar a implementação do Windows no vários cenários."
+title: Criar suportes de dados com o System Center Configuration Manager | Microsoft Docs
+description: "Crie suportes de dados no System Center Configuration Manager, para simplificar a implementação do Windows em vários cenários."
 ms.custom: na
 ms.date: 04/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ff6e7267-302a-4563-815e-cdc0d1a4b60f
-caps.latest.revision: 12
+caps.latest.revision: "12"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: ae9488a34c6b1e04397c4875de4b3bc607f7116c
 ms.openlocfilehash: 33abf3853d912d423e427db4d35fb4a16167164e
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-prestaged-media-with-system-center-configuration-manager"></a>Criar suportes de dados com o System Center Configuration Manager
 
@@ -30,7 +27,7 @@ ms.lasthandoff: 05/17/2017
 Suporte de dados pré-configurado no System Center Configuration Manager é um ficheiro de formato WIM (Windows Imaging) que pode ser instalado num computador bare-metal pelo fabricante ou num centro de transição empresarial que não está ligado ao ambiente do Configuration Manager.  
 O suporte de dados pré-configurado contém a imagem de arranque utilizada para iniciar o computador de destino e a imagem de sistema operativo aplicada no computador de destino. Também pode especificar aplicações, pacotes e pacotes de controladores para incluir como parte do suporte de dados pré-configurado. A sequência de tarefas que implementa o sistema operativo não está incluída no suporte de dados. O suporte de dados pré-configurado é aplicado no disco rígido do computador novo antes do seu envio para o utilizador final. Utilize suportes de dados pré-configurados para os seguintes cenários de implementação do sistema operativo:  
 
--   [Criar uma imagem para um OEM as definições de fábrica ou um depósito local](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+-   [Criar uma imagem para um OEM de fábrica ou um depósito local](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
 -   [Instalar uma nova versão do Windows num novo computador (bare-metal)](install-new-windows-version-new-computer-bare-metal.md)  
 
@@ -43,13 +40,13 @@ O suporte de dados pré-configurado contém a imagem de arranque utilizada para 
 
 |Tarefa|Descrição|  
 |----------|-----------------|  
-|Imagem de arranque|Considere o seguinte sobre a imagem de arranque que irá utilizar na sequência de tarefas para implementar o sistema operativo:<br /><br /> -A arquitetura da imagem de arranque tem de ser adequada à arquitetura do computador de destino. Por exemplo, um computador de destino x64 pode efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. No entanto, um computador de destino x86 só pode efetuar o arranque e a execução de uma imagem de arranque x86.<br />-Certifique-se de que a imagem de arranque contém os controladores de armazenamento em massa e de rede que são necessários para aprovisionar o computador de destino.|  
-|Criar uma sequência de tarefas para implementar um sistema operativo|Como parte do suporte de dados pré-configurado, tem de especificar a sequência de tarefas para implementar o sistema operativo.<br /><br /> -Para os passos para criar uma nova sequência de tarefas, consulte o artigo [criar uma sequência de tarefas para instalar um sistema operativo](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />-Para obter mais informações sobre sequências de tarefas, consulte o artigo [gerir sequências de tarefas para automatizar tarefas](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
-|Distribuir todo o conteúdo associado à sequência de tarefas|Tem de distribuir todo o conteúdo exigido pela sequência de tarefas por, pelo menos, um ponto de distribuição. Isto inclui a imagem de arranque, a imagem do sistema operativo e outros ficheiros associados. O assistente recolhe as informações a partir do ponto de distribuição, ao criar o suporte de dados autónomo. Tem de ter direitos de acesso de **Leitura** à biblioteca de conteúdos desse ponto de distribuição.  Para obter mais detalhes, consulte o artigo [sobre a biblioteca de conteúdos](../../core/plan-design/hierarchy/the-content-library.md).|  
+|Imagem de arranque|Considere o seguinte sobre a imagem de arranque que irá utilizar na sequência de tarefas para implementar o sistema operativo:<br /><br /> -A arquitetura da imagem de arranque tem de ser adequada à arquitetura do computador de destino. Por exemplo, um computador de destino x64 pode efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. No entanto, um computador de destino x86 só pode efetuar o arranque e a execução de uma imagem de arranque x86.<br />-Certifique-se de que a imagem de arranque contém os controladores de armazenamento em massa e de rede que são necessárias para aprovisionar o computador de destino.|  
+|Criar uma sequência de tarefas para implementar um sistema operativo|Como parte do suporte de dados pré-configurado, tem de especificar a sequência de tarefas para implementar o sistema operativo.<br /><br /> -Para obter os passos criar uma nova sequência de tarefas, consulte [criar uma sequência de tarefas para instalar um sistema operativo](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />-Para mais informações sobre sequências de tarefas, consulte [gerir sequências de tarefas para automatizar tarefas](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
+|Distribuir todo o conteúdo associado à sequência de tarefas|Tem de distribuir todo o conteúdo exigido pela sequência de tarefas por, pelo menos, um ponto de distribuição. Isto inclui a imagem de arranque, a imagem do sistema operativo e outros ficheiros associados. O assistente recolhe as informações a partir do ponto de distribuição, ao criar o suporte de dados autónomo. Tem de ter direitos de acesso de **Leitura** à biblioteca de conteúdos desse ponto de distribuição.  Para obter mais informações, consulte [sobre a biblioteca de conteúdos](../../core/plan-design/hierarchy/the-content-library.md).|  
 |Disco rígido no computador de destino|O disco rígido do computador de destino terá de ser formatado antes de o suporte de dados pré-configurado ser preparado no disco rígido do computador. Se o disco rígido não estiver formatado quando o suporte de dados for aplicado, a sequência de tarefas que implementa o sistema operativo falhará ao tentar iniciar o computador de destino.|  
 
 > [!NOTE]  
->  O assistente suportes de dados da sequência de tarefas criar define a seguinte condição variável de sequência de tarefas no suporte de dados: **_SMSTSMediaType = OEMMedia**. Pode utilizar esta condição na sua sequência de tarefas.  
+>  O assistente suporte de dados de criação de sequência de tarefas define a seguinte condição variável de sequência de tarefas no suporte de dados: **smstsmediatype = OEMMedia**. Pode utilizar esta condição na sua sequência de tarefas.  
 
  Utilize o procedimento seguinte para criar suportes de dados pré-configurados.  
 
@@ -75,17 +72,17 @@ O suporte de dados pré-configurado contém a imagem de arranque utilizada para 
 
 6.  Na página **Propriedades do Suporte de Dados**  , especifique as informações seguintes e, em seguida, clique em **Seguinte**.  
 
-    -   **Criado por**: Especifique quem criou o suporte de dados.  
+    -   **Criado pelo**: Especifique quem criou o suporte de dados.  
 
     -   **Versão**: Especifique o número de versão do suporte de dados.  
 
-    -   **Comentário**: Especifique uma descrição exclusiva do que é utilizado o suporte de dados para.  
+    -   **Comentário**: Especifique uma descrição exclusiva da que é utilizado o suporte de dados.  
 
     -   **Ficheiro de multimédia**: Especifique o nome e caminho dos ficheiros de saída. O assistente escreve os ficheiros de saída nesta localização. Por exemplo:  **\\\servername\folder\outputfile.wim**  
 
 7.  Na página **Segurança** , especifique as seguintes informações e clique em **Seguinte**.  
 
-    -   Selecione o **ativar suporte para computadores desconhecidos** caixa de verificação para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não existe nenhum registo desses computadores na base de dados do Configuration Manager.  Para obter mais informações, consulte o artigo [preparar para implementações de computadores desconhecidos](../get-started/prepare-for-unknown-computer-deployments.md).  
+    -   Selecione o **ativar suporte para computadores desconhecidos** caixa de verificação para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não há nenhum registo destes computadores na base de dados do Configuration Manager.  Para obter mais informações, consulte [preparar implementações de computadores desconhecidos](../get-started/prepare-for-unknown-computer-deployments.md).  
 
     -   Selecione a caixa de verificação **Proteger suporte de dados com uma palavra-passe** e introduza uma palavra-passe segura para ajudar a proteger o suporte de dados contra acesso não autorizado. Quando especificar uma palavra-passe, o utilizador terá de fornecer essa palavra-passe para utilizar o suporte de dados pré-configurado.  
 
@@ -96,9 +93,9 @@ O suporte de dados pré-configurado contém a imagem de arranque utilizada para 
 
     -   Para comunicações HTTPS, selecione **Importar certificado PKI**e especifique o certificado a importar e a respetiva palavra-passe.  
 
-         Para mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte o artigo [requisitos dos certificados PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
+         Para mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte [requisitos dos certificados PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como a implementação do sistema operativo suporta afinidade dispositivo / utilizador, consulte o artigo [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como implementação de sistemas operativos suporta a afinidade dispositivo / utilizador, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
 
         -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação automática** se pretender que o suporte de dados associe automaticamente utilizadores ao computador de destino. Esta funcionalidade baseia-se nas ações da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino quando implementa o sistema operativo no computador de destino.  
 
@@ -113,12 +110,12 @@ O suporte de dados pré-configurado contém a imagem de arranque utilizada para 
     > [!IMPORTANT]  
     >  A arquitetura da imagem de arranque que é distribuída deve ser adaptada à arquitetura do computador de destino. Por exemplo, um computador de destino x64 pode efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. No entanto, um computador de destino x86 só pode efetuar o arranque e a execução de uma imagem de arranque x86.  
 
-    -   Na caixa **Imagem de arranque** , especifique a imagem de arranque que inicia o computador de destino. Para obter mais informações, consulte o artigo [gerir imagens de arranque](../get-started/manage-boot-images.md).  
+    -   Na caixa **Imagem de arranque** , especifique a imagem de arranque que inicia o computador de destino. Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
 
     -   Na caixa **Ponto de distribuição** , especifique o ponto de distribuição onde reside a imagem de arranque. O assistente obtém a imagem de arranque do ponto de distribuição e escreve-a no suporte de dados.  
 
         > [!NOTE]  
-        >  Tem de ter direitos de acesso de **Leitura** para a biblioteca de conteúdos do ponto de distribuição. Para obter mais informações, consulte o artigo [sobre a biblioteca de conteúdos](../../core/plan-design/hierarchy/the-content-library.md).  
+        >  Tem de ter direitos de acesso de **Leitura** para a biblioteca de conteúdos do ponto de distribuição. Para obter mais informações, consulte [sobre a biblioteca de conteúdos](../../core/plan-design/hierarchy/the-content-library.md).  
 
     -   Se tiver selecionado **Suporte de dados baseado no site** na página **Gestão de Suporte de Dados** do assistente, na caixa **Ponto de gestão** , especifique um ponto de gestão de um site primário.  
 
@@ -126,7 +123,7 @@ O suporte de dados pré-configurado contém a imagem de arranque utilizada para 
 
 10. Na página **Imagens** , especifique as seguintes informações e clique em **Seguinte**.  
 
-    -   Na caixa **Pacote de imagem** , especifique a imagem do sistema operativo. Para obter mais informações, consulte o artigo [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
+    -   Na caixa **Pacote de imagem** , especifique a imagem do sistema operativo. Para obter mais informações, consulte [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
 
     -   Se o pacote contiver várias imagens de sistema operativo, na caixa **Índice de imagens** especifique a imagem a implementar.  
 
@@ -136,13 +133,12 @@ O suporte de dados pré-configurado contém a imagem de arranque utilizada para 
 
     -   Especifique as variáveis utilizadas pela sequência de tarefas para implementar o sistema operativo.  
 
-    -   Especifique os comandos de pré-início que pretende executar antes da execução da sequência de tarefas. Os comandos de pré-início são um script ou um ficheiro executável que pode interagir com o utilizador no Windows PE antes da execução da sequência de tarefas para instalar o sistema operativo. Para mais informações sobre os comandos de Pré-início para suportes de dados, consulte o [comandos para suporte de dados de sequência de tarefas de Pré-início](../understand/prestart-commands-for-task-sequence-media.md).  
+    -   Especifique os comandos de pré-início que pretende executar antes da execução da sequência de tarefas. Os comandos de pré-início são um script ou um ficheiro executável que pode interagir com o utilizador no Windows PE antes da execução da sequência de tarefas para instalar o sistema operativo. Para obter mais informações sobre os comandos de Pré-início para suportes de dados, consulte o [comandos para suporte de dados de sequência de tarefas de Pré-início](../understand/prestart-commands-for-task-sequence-media.md).  
 
         > [!TIP]  
-        >  Durante a criação de suportes de dados da sequência de tarefas, a sequência de tarefas escreve o ID de pacote e um comando de Pré-início da linha de comandos, incluindo o valor das eventuais variáveis de sequência de tarefas, para o ficheiro de registo Createtsmedia no computador que executa a consola do Configuration Manager. Poderá consultar este ficheiro de registo para verificar o valor das variáveis da sequência de tarefas.  
+        >  Durante a criação de suportes de dados de sequência de tarefas, a sequência de tarefas escreve o ID de pacote e da linha de comandos, incluindo o valor das eventuais variáveis de sequência de tarefas, para o ficheiro de registo CreateTSMedia.log no computador que executa a consola do Configuration Manager de Pré-início. Poderá consultar este ficheiro de registo para verificar o valor das variáveis da sequência de tarefas.  
 
 12. Conclua o assistente.  
 
 ## <a name="next-steps"></a>Passos seguintes
-[Cenários para implementar sistemas operativos enterprise](scenarios-to-deploy-enterprise-operating-systems.md)
-
+[Cenários para implementar sistemas operativos empresariais](scenarios-to-deploy-enterprise-operating-systems.md)

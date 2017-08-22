@@ -9,17 +9,14 @@ ms.date: 7/31/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: b1f4cd4a6f19a02d2b2dc3f9a841aeeb2a1403dd
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Integrar a preparação de atualização com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -143,4 +140,3 @@ Antes do 1706 ramo do Configuration Manager, para criar uma ligação para atual
 
     > [!NOTE]
     > Preparação de atualização tem de ligar para o site de nível superior na sua hierarquia. Se ligar a preparação de atualização para um site primário autónomo e, em seguida, adicionar um site de administração central ao seu ambiente, tem de eliminar e recriar a ligação do OMS dentro da nova hierarquia.
-

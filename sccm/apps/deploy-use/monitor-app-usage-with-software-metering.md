@@ -1,29 +1,25 @@
 ---
-title: "Monitorizar a utilização de aplicação com a medição de software | Documentos do Microsoft"
+title: "Monitorizar a utilização de aplicação com a medição de software | Microsoft Docs"
 description: 
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1fdaee2-2816-4447-94cd-609f6948f215
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: a85a5cece803e5c16da71f897d5780049fbb82cd
 ms.openlocfilehash: eddf20bebd80028336503957dfc4c3d1dbbb23f2
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="software-metering-in-system-center-configuration-manager"></a>Medição de software no System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
@@ -33,18 +29,18 @@ Este tópico contém uma referência para todas as operações que pode executar
 > [!IMPORTANT]
 >  A medição de software é utilizada para monitorizar aplicações de ambiente de trabalho de PCs Windows com um nome de ficheiro que termine em **.exe**. A medição de software não monitoriza aplicações modernas do Windows (por exemplo, as que são utilizadas pelo Windows 8).
 
-##  <a name="prerequisites-for-software-metering"></a>Pré-requisitos para a medição de software
+##  <a name="prerequisites-for-software-metering"></a>Pré-requisitos para medição de software
 A medição de software não tem dependências externas, apenas dependências no produto.
 
 |Dependência|Mais informações|
 |----------------|----------------------|
-|Definições de cliente para medição de software.|Para utilizar a medição de software, a definição de cliente **Ativar a medição de software nos clientes** tem de estar ativada e implementada nos computadores. Pode implementar as definições de medição de software em todos os computadores na hierarquia ou implementar definições personalizadas em grupos de computadores. Consulte o artigo **configurar a medição de software** neste tópico.|
+|Definições de cliente para medição de software.|Para utilizar a medição de software, a definição de cliente **Ativar a medição de software nos clientes** tem de estar ativada e implementada nos computadores. Pode implementar as definições de medição de software em todos os computadores na hierarquia ou implementar definições personalizadas em grupos de computadores. Consulte **configurar a medição de software** neste tópico.|
 |O ponto do reporting services.|Deve configurar um ponto do reporting services antes de poder visualizar relatórios de medição de software. Para obter mais informações, veja [Relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).|
 
 ##  <a name="configure-software-metering"></a>Configurar a medição de software
- Este procedimento configura as predefinições de cliente para medição de software e aplica-se a todos os computadores na sua hierarquia. Se pretender que estas definições se apliquem apenas a alguns computadores, crie uma definição personalizada do cliente do dispositivo e implemente-a numa coleção que contenha os computadores que pretende que utilizem medição de software. Para obter mais informações sobre como criar definições personalizadas do dispositivo, consulte o artigo [configurar definições de cliente](../../core/clients/deploy/configure-client-settings.md).
+ Este procedimento configura as predefinições de cliente para medição de software e aplica-se a todos os computadores na sua hierarquia. Se pretender que estas definições se apliquem apenas a alguns computadores, crie uma definição personalizada do cliente do dispositivo e implemente-a numa coleção que contenha os computadores que pretende que utilizem medição de software. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [configurar definições de cliente](../../core/clients/deploy/configure-client-settings.md).
 
-1.  Na consola do Configuration Manager, clique em **administração** > **definições de cliente** > **predefinições de cliente**.
+1.  Na consola do Configuration Manager, clique em **administração** > **as definições de cliente** > **predefinições de cliente**.
 
 2.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.
 
@@ -52,13 +48,13 @@ A medição de software não tem dependências externas, apenas dependências no
 
 4.  Na lista **Definições do Dispositivo** , configure as seguintes definições:
 
-    -   **Ativar a medição de software nos clientes**: Selecione **verdadeiro** para ativar a medição de software.
+    -   **Ativar medição de software nos clientes**: Selecione **verdadeiro** para ativar a medição de software.
 
-    -   **Agendar a recolha de dados**: Configurar o número de ocorrências dados de medição de software é recolhido de computadores cliente. Utilize o valor predefinido de a cada **sete dias** ou clique em **Agenda** para especificar uma agenda personalizada.
+    -   **Agendar a recolha de dados**: Configurar a frequência dados de medição de software é recolhido de computadores cliente. Utilize o valor predefinido de a cada **sete dias** ou clique em **Agenda** para especificar uma agenda personalizada.
 
 5.  Clique em **OK** para fechar a caixa de diálogo **Predefinições** .
 
- Os computadores cliente são configurados com estas definições da próxima vez que transferirem a política de cliente. Para iniciar a obtenção de política para um único cliente, consulte o artigo [gerir clientes](../../core/clients/manage/manage-clients.md).
+ Os computadores cliente são configurados com estas definições da próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [gerir clientes](../../core/clients/manage/manage-clients.md).
 
 ##  <a name="create-software-metering-rules"></a>Criar regras de medição de software
  Utilize o Assistente Criar regra de medição de Software para criar uma nova regra de medição de software para o seu site do Configuration Manager.
@@ -90,7 +86,7 @@ A medição de software não tem dependências externas, apenas dependências no
         >
         >  Esta caixa é opcional, se for especificado um valor para **Nome do Ficheiro** .
 
-    -   **Versão** - a versão do ficheiro executável que pretende medir. Poderá utilizar o caráter universal (*) para representar qualquer cadeia de caracteres ou o caráter universal (?) para representar um único caráter. Se pretender medição para todas as versões de um ficheiro executável, utilize o valor predefinido (\*).
+    -   **Versão** - a versão do ficheiro executável que pretende medir. Poderá utilizar o caráter universal (*) para representar qualquer cadeia de caracteres ou o caráter universal (?) para representar um único caráter. Se pretender medir todas as versões de um ficheiro executável, utilize o valor predefinido (\*).
 
     -   **Idioma** - o idioma do ficheiro executável a medir. O valor predefinido é a região atual do sistema operativo que está a utilizar. Se selecionar um ficheiro executável para ser medido ao clicar no botão **Procurar** , esta caixa é preenchida automaticamente se a informação do idioma estiver presente no cabeçalho do ficheiro. Para medir todas as versões de idiomas de um ficheiro, selecione **Qualquer** na lista pendente.
 
@@ -103,12 +99,12 @@ A medição de software não tem dependências externas, apenas dependências no
 6.  Reveja e confirme as definições e conclua o assistente para criar a regra de medição de software. A nova regra de medição de software é apresentada no nó **Medição de Software** na área de trabalho **Recursos e Compatibilidade** .
 
 ##  <a name="configure-automatic-software-metering-rules"></a>Configurar regras de medição de software automáticas
- Pode configurar a medição de software no Configuration Manager para gerar automaticamente regras de dados de inventário de utilização recente retidos na base de dados de medição de software desativado. Pode configurar estes dados de inventário para que sejam criadas regras de medição apenas para aplicações que são utilizadas numa percentagem de computadores especificada. Também pode especificar o número máximo de regras de medição de software geradas automaticamente permitidas no site.
+ Pode configurar a medição de software no Configuration Manager para gerar automaticamente regras a partir dos dados de inventário de utilização recentes retidos na base de dados do site de medição de software desativado. Pode configurar estes dados de inventário para que sejam criadas regras de medição apenas para aplicações que são utilizadas numa percentagem de computadores especificada. Também pode especificar o número máximo de regras de medição de software geradas automaticamente permitidas no site.
 
 > [!NOTE]
 >  Por predefinição, as regras de medição de software que são criadas automaticamente estão desativadas. Antes de poder começar a recolher dados de utilização a partir destas regras, deve ativá-las.
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **medição de Software**e, em seguida, no **base** separador o **definições** grupo, clique em **propriedades de medição de Software**.
+1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **medição de Software**e, em seguida, no **home page** separador o **definições** , clique em **propriedades de medição de Software**.
 
 3.  Na caixa de diálogo **Propriedades de Medição de Software** , configure as seguintes opções:
 
@@ -129,29 +125,29 @@ A medição de software não tem dependências externas, apenas dependências no
 
 |Tarefa de Gestão|Detalhes|
 |---------------------|-------------|
-|**Ativar**<br /><br /> **Desativar**|Ativa ou desativa um regra de medição de software. Esta definição é transferida para computadores cliente de acordo com o **Intervalo de consulta da política de cliente** , na secção **Política de Cliente** das definições de cliente (por predefinição, a cada 60 minutos).<br /><br /> Consulte o artigo [configurar definições de cliente](../../core/clients/deploy/configure-client-settings.md) .|
+|**Ativar**<br /><br /> **Desativar**|Ativa ou desativa um regra de medição de software. Esta definição é transferida para computadores cliente de acordo com o **Intervalo de consulta da política de cliente** , na secção **Política de Cliente** das definições de cliente (por predefinição, a cada 60 minutos).<br /><br /> Consulte [configurar definições de cliente](../../core/clients/deploy/configure-client-settings.md) .|
 
 ##  <a name="monitor-software-metering"></a>Monitorizar a medição de software
- Medição de software no Configuration Manager inclui um conjunto de relatórios incorporados que permitem monitorizar informações sobre as operações de medição de software. Estes relatórios têm a categoria de relatórios de **Medição de Software**.
+ Medição de software no Configuration Manager inclui um conjunto de relatórios incorporados que lhe permitem monitorizar informações sobre as operações de medição de software. Estes relatórios têm a categoria de relatórios de **Medição de Software**.
 
- Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte o artigo [Reporting no System Center Configuration Manager](../../core/servers/manage/reporting.md).
+ Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).
 
- Além disso, pode criar consultas e coleções baseadas em dados armazenados na base de dados do Configuration Manager medição de software.
+ Além disso, pode criar consultas e coleções baseadas em dados armazenados na base de dados do Configuration Manager através da medição de software.
 
- Para obter mais informações sobre coleções no Configuration Manager, consulte o artigo [introdução às coleções](/sccm/core/clients/manage/collections/introduction-to-collections).
+ Para mais informações sobre coleções no Configuration Manager, consulte [introdução às coleções](/sccm/core/clients/manage/collections/introduction-to-collections).
 
- Para obter mais informações sobre consultas no Configuration Manager, consulte o artigo [introdução às consultas](/sccm/core/servers/manage/introduction-to-queries).
+ Para obter mais informações sobre consultas no Configuration Manager, consulte [introdução às consultas](/sccm/core/servers/manage/introduction-to-queries).
 
-##  <a name="security-and-privacy-for-software-metering"></a>Segurança e privacidade para a medição de software
+##  <a name="security-and-privacy-for-software-metering"></a>Segurança e privacidade para medição de software
 
 ### <a name="security-issues-for-software-metering"></a>Problemas de Segurança para Medição de Software
- Um intruso poderia enviar informações para o Configuration Manager, que será aceite pelo ponto de gestão, mesmo quando a definição de cliente de medição de software estiver desativado de medição de software inválida. Isto pode resultar num grande número de regras de medição são replicados em toda a hierarquia, provocando um denial of service na rede e para servidores de site do Configuration Manager.
+ Um intruso poderia enviar informações para o Configuration Manager, que serão aceites pelo ponto de gestão, mesmo quando a definição de cliente de medição de software está desativada de medição de software inválido. Isto pode resultar num grande número de regras de medição que são replicados em toda a hierarquia, provocando um denial of service na rede e servidores de site do Configuration Manager.
 
  Uma vez que um atacante pode criar dados de medição de software inválidos, não considere as informações de medição de software como autoritativas.
 
  A medição de software está ativada por predefinição como uma definição de cliente.
 
-###  <a name="privacy-information-for-software-metering"></a>Informações de privacidade de medição de Software
+###  <a name="privacy-information-for-software-metering"></a>Informações de privacidade para medição de Software
  A medição de software monitoriza a utilização de aplicações em computadores cliente. A medição de software está ativada por predefinição. Tem de configurar as aplicações que vai medir. Informações de medição são armazenadas na base de dados do Configuration Manager. As informações são encriptadas durante a transferência para um ponto de gestão, mas não são armazenadas em formato encriptado na base de dados do Configuration Manager.
 
  Estas informações são conservadas na base de dados até serem eliminadas pelas tarefas de manutenção do site **Eliminar Dados de Medição de Software Desatualizados** (a cada cinco dias) e **Eliminar Dados de Resumo de Medição de Software Desatualizados** (a cada 270 dias). Pode configurar o intervalo de eliminação. As informações de medição não são enviadas à Microsoft.
@@ -169,15 +165,14 @@ A medição de software não tem dependências externas, apenas dependências no
 
  O Banco Woodgrove implementou p Microsoft Office 2010 como o conjunto padrão de aplicações de produtividade no escritório. No entanto, para suportar uma aplicação legada, alguns computadores têm de continuar a executar o Microsoft Office Word 2003. O departamento de TI pretende reduzir os custos de suporte e licenciamento, removendo estas cópias do Word 2003, se a aplicação legada já não estiver em utilização. O suporte técnico também pretende identificar os utilizadores que utilizam a aplicação legada.
 
- João é o Gestor de sistemas de TI do Woodgrove Bank que utilizam a medição de software no Configuration Manager para alcançar estes objetivos de negócio. Ele efetua as seguintes ações:
+ O João é o Gestor de sistemas de TI do Woodgrove Bank que utiliza a medição de software no Configuration Manager para alcançar estes objetivos comerciais. Ele efetua as seguintes ações:
 
 - O João verifica os pré-requisitos da medição de software e confirma que o ponto do Reporting Services está instalado e operacional.
 - O João configura as predefinições de cliente da medição de software:<br>Ativa a medição de software e utiliza o agendamento de recolha de dados predefinida a cada sete dias.<br>Configura o inventário de software para ficheiros de inventário que tenham a extensão .exe, ao configurar a definição de cliente **Inventariar estes tipos de ficheiro**do inventário de software.<br>Adiciona um nova regra de medição de software, com o nome **woodgrove.exe**, para monitorizar a aplicação legada.
 - O João tem de aguardar durante sete dias, após os quais os computadores cliente começam a reportar dados de utilização para o executável **woodgrove.exe** .
-- João utiliza o relatório do Configuration Manager **base de instalação para todos os programas de software medido** para ver quais os computadores que tenham a aplicação **woodgrove.exe** carregado.
+- O João utiliza o relatório do Configuration Manager **base de instalação para todos os programas de software medido** para ver quais os computadores que tenham a aplicação **woodgrove.exe** carregado.
 - Depois de seis meses, o João executa o relatório **Computadores que têm um programa medido instalado mas que não o executaram desde uma data especificada**, especificando a regra de medição de software e uma data seis meses no passado. Este relatório identifica 120 computadores que não executaram o programa nos últimos seis meses.
 - O João efetua algumas verificações adicionais para confirmar que a aplicação legada não é necessária nos computadores identificados. Em seguida, desinstala a aplicação legada e a cópia do Word 2003 desses computadores.<br>O João executa o relatório **Utilizadores que executaram um programa de software medido específico** para fornecer ao suporte técnico uma lista de utilizadores que continuam a utilizar a aplicação legada.
 - O João continua a verificar semanalmente os relatórios de medição de software e toma ações corretivas, se necessário.
 
  Como resultado deste método de ação, os custos do suporte de TI e de licenciamento são reduzidos, através da remoção das aplicações que já não são necessárias. Além disso, o suporte técnico tem agora a lista pretendida dos utilizadores que executam a aplicação legada.
-

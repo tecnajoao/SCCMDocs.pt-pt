@@ -1,38 +1,36 @@
 ---
-title: "Gerenciar o acesso aos serviços O365 para PCs gerenciados | Microsoft Docs"
-description: Saiba como configurar o acesso condicional para PCs gerenciados pelo System Center Configuration Manager.
+title: "Gerir o acesso aos serviços do O365 para PCs geridos | Microsoft Docs"
+description: Saiba como configurar o acesso condicional para PCs geridos pelo System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 34024741-edfa-4088-8599-d6bafc331e62
-caps.latest.revision: 15
+caps.latest.revision: "15"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 5ebdd12672fecc633321a66738a0978f94ba0aa4
 ms.openlocfilehash: aede531a0406c3d30c9cca957896e002ed22ae51
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gerir o acesso aos serviços do O365 para computadores geridos pelo System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-A partir da versão 1602 do Configuration Manager, você pode configurar o acesso condicional para PCs gerenciados pelo System Center Configuration Manager.  
+A partir da versão 1602 do Configuration Manager, pode configurar o acesso condicional para PCs geridos pelo System Center Configuration Manager.  
 
 > [!IMPORTANT]  
-> Este é um recurso de pré-lançamento disponível na atualização 1602, a atualização 1606 e atualizar 1610. As funcionalidades de pré-lançamento estão incluídas no produto para um teste antecipado num ambiente de produção, mas devem não ser consideradas prontas para produção. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
-> - Depois de instalar a atualização 1602, o tipo de recurso exibe como liberada apesar de pré-lançamento.
-> - Se você atualizar do 1602 para a 1606, as exibições de tipo de recurso como liberada até mesmo após ele permanece pré-lançamento.
-> - Se você atualizar da versão 1511 diretamente para a 1606, o tipo de recurso exibe como versão de pré-lançamento.
+> Esta é uma funcionalidade de pré-lançamento está disponível na atualização 1602, atualizar 1606 e atualizar 1610. As funcionalidades de pré-lançamento estão incluídas no produto para um teste antecipado num ambiente de produção, mas devem não ser consideradas prontas para produção. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
+> - Depois de instalar a atualização 1602, apresenta o tipo de funcionalidade conforme libertada, apesar de é versão de pré-lançamento.
+> - Se, em seguida, atualizar da versão 1602 para 1606, apresenta de tipo de funcionalidade à lançadas mesmo através do mesmo permanece pré-lançamento.
+> - Se atualizar da versão 1511 diretamente ao 1606, apresenta o tipo de funcionalidade como versão de pré-lançamento.
 
 Se estiver à procura de informações sobre como configurar o acesso condicional para dispositivos inscritos e geridos pelo Intune ou PCs que estão associados a um domínio e não foram avaliados em termos de conformidade, veja [Gerir o acesso aos serviços no System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md).
 
@@ -64,7 +62,7 @@ Se estiver à procura de informações sobre como configurar o acesso condiciona
 
 -   Sincronização de ADFS e uma subscrição do O365. A subscrição do O365 serve para configurar o Exchange Online e o SharePoint Online.  
 
--   Uma Subscrição do Microsoft Intune. A Subscrição do Microsoft Intune deve ser configurada na Consola do Gestor de Configuração. A assinatura do Intune é usada para transmitir o estado de conformidade do dispositivo para Active Directory do Azure e para o licenciamento do usuário.  
+-   Uma Subscrição do Microsoft Intune. A Subscrição do Microsoft Intune deve ser configurada na Consola do Gestor de Configuração. A subscrição do Intune é utilizada para Estado de conformidade do dispositivo ao Azure Active Directory e para licenciamento de utilizador de reencaminhamento.  
 
  Os PC devem satisfazer os seguintes requisitos:  
 
@@ -74,7 +72,7 @@ Se estiver à procura de informações sobre como configurar o acesso condiciona
 
     -   Para PCs Windows 8.1 e Windows 10, pode utilizar uma Política de Grupo do Active Directory para configurar os dispositivos para serem registados automaticamente no Azure AD.  
 
-    -   o   Para PCs Windows 7, tem de implementar o pacote de software de registo de dispositivos no seu PC Windows 7 através do System Center Configuration Manager. O [registro de dispositivo automático com dispositivos de ingressados](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) tópico tem mais detalhes.  
+    -   o   Para PCs Windows 7, tem de implementar o pacote de software de registo de dispositivos no seu PC Windows 7 através do System Center Configuration Manager. O [registo automático de dispositivos com dispositivos associados a domínio](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) tópico inclui mais detalhes.  
 
 -   Tem de utilizar o Office 2013 ou o Office 2016 com a autenticação moderna [ativada](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a).  
 
@@ -83,16 +81,16 @@ Se estiver à procura de informações sobre como configurar o acesso condiciona
 ### <a name="step-1-configure-compliance-policy"></a>Passo 1. Configurar a política de compatibilidade  
  Na consola do Configuration Manager, crie uma política de conformidade com as seguintes regras:  
 
--   Requer registro no Active Directory do Azure: Esta regra verifica se o dispositivo do usuário é o local de trabalho associado ao AD do Azure, e se não, o dispositivo é registrado automaticamente no AD do Azure. O registo automático é suportado apenas no Windows 8.1. Para PCs Windows 7, implemente um MSI para efetuar o registo automático. Para obter mais detalhes, veja [Registo automático do dispositivo com o Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1)  
+-   Exigir registo no Azure Active Directory: Esta regra verifica se o dispositivo do utilizador local de trabalho associado para o Azure AD, e se não, o dispositivo é automaticamente registado no Azure AD. O registo automático é suportado apenas no Windows 8.1. Para PCs Windows 7, implemente um MSI para efetuar o registo automático. Para obter mais detalhes, veja [Registo automático do dispositivo com o Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1)  
 
--   **Todas as atualizações necessárias instaladas com um prazo superior a determinado número de dias:** Esta regra verifica para ver se o dispositivo do usuário tem todas as atualizações necessárias (especificadas na regra atualizações automáticas necessárias) dentro do prazo e período de carência especificado por você e instala automaticamente quaisquer atualizações necessárias.  
+-   **Todas as atualizações necessárias instaladas com um prazo mais antigo do que um determinado número de dias:** Esta regra verifica se o dispositivo do utilizador tem todas as atualizações necessárias (especificadas na regra atualizações automáticas necessárias) dentro do prazo e o período de tolerância especificados por si e instala automaticamente quaisquer atualizações necessárias pendentes.  
 
--   **Exigir criptografia de unidade de disco BitLocker:** Essa é uma verificação para ver se a unidade principal (por exemplo, c:\\) no dispositivo é criptografada pelo BitLocker. Se a encriptação Bitlocker não estiver ativada no dispositivo primário, o acesso ao e-mail e aos SharePoint Services é bloqueado.  
+-   **Exigir encriptação de unidade BitLocker:** Esta é uma verificação para ver se a unidade principal (por exemplo, c:\\) no dispositivo é BitLocker encriptado. Se a encriptação Bitlocker não estiver ativada no dispositivo primário, o acesso ao e-mail e aos SharePoint Services é bloqueado.  
 
--   **Exigir Antimalware:** Essa é uma verificação para ver se o software antimalware (System Center Endpoint Protection ou somente para o Windows Defender) está habilitado e em execução. Se não estiver ativado, o acesso ao e-mail e aos SharePoint Services é bloqueado.  
+-   **Exigir Antimalware:** Esta é uma verificação para ver se o software antimalware (System Center Endpoint Protection ou apenas o Windows Defender) está ativado e em execução. Se não estiver ativado, o acesso ao e-mail e aos SharePoint Services é bloqueado.  
 
 ### <a name="step-2-evaluate-the-effect-of-conditional-access"></a>Passo 2. Avaliar o efeito do acesso condicional  
- Execute o Relatório de Compatibilidade de Acesso. Ele pode ser encontrado na seção monitoramento em relatórios > Gerenciamento de conformidade e configurações. Isto apresenta o estado de conformidade de todos os dispositivos.  Os dispositivos comunicados como não compatíveis serão impedidos de aceder ao Exchange Online e ao SharePoint Online.  
+ Execute o Relatório de Compatibilidade de Acesso. Podem ser encontrados na secção monitorização em relatórios > Gestão de definições de compatibilidade e. Isto apresenta o estado de conformidade de todos os dispositivos.  Os dispositivos comunicados como não compatíveis serão impedidos de aceder ao Exchange Online e ao SharePoint Online.  
 
  ![CA&#95;relatório de&#95;compatibilidade](media/CA_compliance_report.png)  
 
@@ -101,11 +99,11 @@ Se estiver à procura de informações sobre como configurar o acesso condiciona
 
  Grupos de utilizadores de segurança do Active Directory. Estes grupos de utilizadores devem ser sincronizados com o Azure Active Directory. Pode também configurar estes grupos no centro de administração do Office 365 ou no portal de contas do Intune.  
 
- Você pode especificar dois tipos de grupo em cada política. :  
+ Pode especificar dois tipos de grupos em cada política. :  
 
--   **Grupos de destino** -grupos de usuários aos quais a política é aplicada. O mesmo grupo deve ser usado para obter conformidade e política de acesso condicional.  
+-   **Grupos direcionados** -grupos de utilizadores aos quais é aplicada a política. O mesmo grupo deve ser utilizado para a política de acesso condicional e de conformidade.  
 
--   **Grupos isentos** -grupos de usuários isentos da política (opcional)  
+-   **Grupos excluídos** -grupos de utilizadores excluídos da política (opcional)  
     Se um utilizador estiver em ambos, estará excluído da política.  
 
      Apenas os grupos visados pela política de acesso condicional são avaliados.  
@@ -122,22 +120,22 @@ Se estiver à procura de informações sobre como configurar o acesso condiciona
 
      A consola de administração do Intune irá abrir.  
 
-4.  Para o Exchange Online, no console de administração do Microsoft Intune, clique em **política > acesso condicional > política do Exchange Online**.  
+4.  Para o Exchange Online, na consola de administração do Microsoft Intune, clique em **política > acesso condicional > política do Exchange Online**.  
 
-     Para o SharePoint Online, no console de administração do Microsoft Intune, clique em **política > acesso condicional > política do SharePoint Online**.  
+     Para o SharePoint Online, na consola de administração do Microsoft Intune, clique em **política > acesso condicional > política do SharePoint Online**.  
 
 5.  Defina o requisito do PC Windows como **Os dispositivos têm de estar em conformidade**.  
 
 6.  Em **Grupos Direcionados**, clique em **Modificar** para selecionar os grupos de segurança do Azure Active Directory aos quais será aplicada a política.  
 
     > [!NOTE]  
-    >  O mesmo grupo de usuários de segurança deve ser usado para implantar a política de conformidade e o grupo de destino para a política de acesso condicional.  
+    >  O mesmo grupo de utilizadores de segurança deve ser utilizado para implementar a política de conformidade era e o grupo de destino para a política de acesso condicional.  
 
      Como opção, em **Grupos Excluídos**, clique em **Modificar** para selecionar os grupos de segurança do Azure Active Directory que estão excluídos desta política.  
 
 7.  Clique em **Guardar** para criar e guardar a política  
 
- Usuários finais bloqueados por falta de conformidade verão informações de conformidade no Centro de Software do System Center Configuration Manager e iniciarão uma nova avaliação de política quando problemas de conformidade forem corrigidos.  
+ Os utilizadores finais que estão bloqueados devido a não conformidade Verão informações de conformidade no Centro de Software do System Center Configuration Manager e iniciará uma nova avaliação de políticas quando os problemas de conformidade estiverem resolvidos.  
 
 <!---
 ##  <a name="bkmk_KnownIssues"></a> Known issues  
@@ -152,5 +150,4 @@ Se estiver à procura de informações sobre como configurar o acesso condiciona
 ## <a name="see-also"></a>Consulte também
 
 - [Proteger a infraestrutura de dados e do site com o System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
-- [Solução de problemas de acesso condicional flow-chart para o Configuration Manager](https://gallery.technet.microsoft.com/Conditional-access-fd747c1a?redir=0)
-
+- [Resolução de problemas de acesso condicional flow-chart para o Configuration Manager](https://gallery.technet.microsoft.com/Conditional-access-fd747c1a?redir=0)

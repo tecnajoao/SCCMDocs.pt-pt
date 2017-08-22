@@ -1,38 +1,35 @@
 ---
-title: Criar suportes de dados - Configuration Manager | Documentos do Microsoft
-description: "Suportes de dados no Configuration Manager é mais fácil de instalar uma nova versão do Windows nem de substituir definições de um computador e transferência."
+title: Criar suportes de dados - Configuration Manager | Microsoft Docs
+description: "Suportes de dados no Configuration Manager tornam mais fácil instalar uma nova versão do Windows ou substituir um computador e transferir definições."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ead79e64-1b63-4d0d-8bd5-addff8919820
-caps.latest.revision: 11
-caps.handback.revision: 0
+caps.latest.revision: "11"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: 9032698fa12bf453041ea06bf330d3b4687c2a97
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-bootable-media-with-system-center-configuration-manager"></a>Criar suportes de dados com o System Center Configuration Manager
 
 *Aplica-se a: O System Center Configuration Manager (ramo atual)*
 
-Suportes de dados no Configuration Manager contém a imagem de arranque, os comandos de Pré-início opcionais e ficheiros associados e ficheiros do Configuration Manager. Utilize suportes de dados pré-configurados para os seguintes cenários de implementação do sistema operativo:  
+Suportes de dados no Configuration Manager contém a imagem de arranque, comandos de Pré-início opcionais e os ficheiros associados e ficheiros do Configuration Manager. Utilize suportes de dados pré-configurados para os seguintes cenários de implementação do sistema operativo:  
 
 -   [Instalar uma nova versão do Windows num novo computador (bare-metal)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Substituir um computador existente e definições de transferência](replace-an-existing-computer-and-transfer-settings.md)  
+-   [Substituir um computador existente e transferir definições](replace-an-existing-computer-and-transfer-settings.md)  
 
 ##  <a name="BKMK_CreateBootableMedia"></a> Criar suportes de dados de arranque  
  Quando inicia o sistema com o suporte de dados de arranque, o computador de destino é iniciado, estabelece ligação à rede e obtém a sequência de tarefas, a imagem do sistema operativo e qualquer outro conteúdo necessário a partir dessa rede. Dado que a sequência de tarefas não está no suporte de dados, pode alterar a sequência de tarefas ou o conteúdo sem ter de recriar o suporte de dados. Os pacotes dos suportes de dados de arranque não estão encriptados. É necessário tomar as medidas de segurança apropriadas, como adicionar uma palavra-passe ao suporte de dados, para garantir que o conteúdo do pacote está protegido contra utilizadores não autorizados.  
@@ -41,9 +38,9 @@ Suportes de dados no Configuration Manager contém a imagem de arranque, os coma
 
 |Tarefa|Descrição|  
 |----------|-----------------|  
-|Imagem de arranque|Considere o seguinte sobre a imagem de arranque que irá utilizar na sequência de tarefas para implementar o sistema operativo:<br /><br /> -A arquitetura da imagem de arranque tem de ser adequada à arquitetura do computador de destino. Por exemplo, um computador de destino x64 pode efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. No entanto, um computador de destino x86 só pode efetuar o arranque e a execução de uma imagem de arranque x86.<br />-Certifique-se de que a imagem de arranque contém os controladores de armazenamento em massa e de rede que são necessários para aprovisionar o computador de destino.|  
-|Criar uma sequência de tarefas para implementar um sistema operativo|Como parte do suporte de dados de arranque, tem de especificar a sequência de tarefas para implementar o sistema operativo. Para obter os passos criar uma nova sequência de tarefas, consulte o artigo [criar uma sequência de tarefas para instalar um sistema operativo](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).|  
-|Distribuir todo o conteúdo associado à sequência de tarefas|Tem de distribuir todo o conteúdo exigido pela sequência de tarefas por, pelo menos, um ponto de distribuição. Isto inclui a imagem de arranque e outros ficheiros de pré-início associados. O assistente recolhe as informações a partir do ponto de distribuição ao criar o suporte de dados de arranque. Tem de ter direitos de acesso de **Leitura** à biblioteca de conteúdos desse ponto de distribuição.  Para obter mais detalhes, consulte o artigo [sobre a biblioteca de conteúdos](../../core/plan-design/hierarchy/the-content-library.md).|  
+|Imagem de arranque|Considere o seguinte sobre a imagem de arranque que irá utilizar na sequência de tarefas para implementar o sistema operativo:<br /><br /> -A arquitetura da imagem de arranque tem de ser adequada à arquitetura do computador de destino. Por exemplo, um computador de destino x64 pode efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. No entanto, um computador de destino x86 só pode efetuar o arranque e a execução de uma imagem de arranque x86.<br />-Certifique-se de que a imagem de arranque contém os controladores de armazenamento em massa e de rede que são necessárias para aprovisionar o computador de destino.|  
+|Criar uma sequência de tarefas para implementar um sistema operativo|Como parte do suporte de dados de arranque, tem de especificar a sequência de tarefas para implementar o sistema operativo. Para obter os passos criar uma nova sequência de tarefas, consulte [criar uma sequência de tarefas para instalar um sistema operativo](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).|  
+|Distribuir todo o conteúdo associado à sequência de tarefas|Tem de distribuir todo o conteúdo exigido pela sequência de tarefas por, pelo menos, um ponto de distribuição. Isto inclui a imagem de arranque e outros ficheiros de pré-início associados. O assistente recolhe as informações a partir do ponto de distribuição ao criar o suporte de dados de arranque. Tem de ter direitos de acesso de **Leitura** à biblioteca de conteúdos desse ponto de distribuição.  Para obter mais informações, consulte [sobre a biblioteca de conteúdos](../../core/plan-design/hierarchy/the-content-library.md).|  
 |Preparar a pen USB amovível|Para uma pen USB amovível:<br /><br /> Se planear utilizar uma pen USB amovível, a pen USB tem de estar ligada ao computador em que o assistente é executado e ser detetável pelo Windows como um dispositivo amovível. Quando cria o suporte de dados, o assistente escreve diretamente na pen USB. O suporte de dados autónomo utiliza um sistema de ficheiros FAT32. Não é possível criar um suporte de dados autónomo numa pen USB cujo conteúdo inclua um ficheiro com tamanho superior a 4 GB.|  
 |Criar uma pasta de saída|Para um conjunto de CD/DVD:<br /><br /> Antes de executar o Assistente de Criação de Suporte de Dados da Sequência de Tarefas para criar suportes de dados para um conjunto de CDs ou DVDs, tem de criar uma pasta para os ficheiros de saída criados pelo assistente. O suporte de dados criado para um conjunto de CDs ou DVDs é escrito em formato de ficheiros .iso diretamente na pasta.|  
 
@@ -81,7 +78,7 @@ Suportes de dados no Configuration Manager contém a imagem de arranque, os coma
 
     -   Se selecionar **Conjunto CD/DVD**, especifique a capacidade do suporte de dados e o nome e caminho dos ficheiros de saída. O assistente escreve os ficheiros de saída nesta localização. Por exemplo:  **\\\servername\folder\outputfile.iso**  
 
-         Se a capacidade do suporte de dados for demasiado pequena para armazenar todo o conteúdo, serão criados vários ficheiros e tem de armazenar o conteúdo em vários CDs ou DVDs. Se forem necessários vários suportes de dados, o Configuration Manager adiciona um número sequencial ao nome de cada ficheiro de saída criado. Além disso, se implementar uma aplicação juntamente com o sistema operativo e a aplicação não couber num único suporte de dados, o Configuration Manager armazenará a aplicação em vários suportes de dados. Quando o suporte de dados autónomo for executado, o Configuration Manager solicita ao utilizador o suporte de dados seguinte em que a aplicação está armazenada.  
+         Se a capacidade do suporte de dados for demasiado pequena para armazenar todo o conteúdo, serão criados vários ficheiros e tem de armazenar o conteúdo em vários CDs ou DVDs. Quando vários suportes de dados é necessária, o Configuration Manager adiciona um número sequencial ao nome de cada ficheiro de saída criado. Além disso, se implementar uma aplicação juntamente com o sistema operativo e a aplicação não couber num único suporte de dados, o Configuration Manager armazenará a aplicação em vários suportes de dados. Quando o suporte de dados autónomo for executado, o Configuration Manager pede ao utilizador o suporte de dados seguinte em que a aplicação se encontra armazenada.  
 
         > [!IMPORTANT]  
         >  Se selecionar uma imagem .iso existente, o Assistente de Criação de Suporte de Dados da Sequência de Tarefas elimina essa imagem da unidade ou partilha logo que avança para a página seguinte do assistente. A imagem existente será eliminada, mesmo que em seguida cancele o assistente.  
@@ -90,11 +87,11 @@ Suportes de dados no Configuration Manager contém a imagem de arranque, os coma
 
 7.  Na página **Segurança** , especifique as seguintes opções e clique em **Seguinte**.  
 
-    -   Selecione o **ativar suporte para computadores desconhecidos** caixa de verificação para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não existe nenhum registo desses computadores na base de dados do Configuration Manager.  
+    -   Selecione o **ativar suporte para computadores desconhecidos** caixa de verificação para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não há nenhum registo destes computadores na base de dados do Configuration Manager.  
 
          Os computadores desconhecidos incluem o seguinte:  
 
-        -   Um computador onde não está instalado o cliente do Configuration Manager  
+        -   Um computador em que o cliente do Configuration Manager não está instalado  
 
         -   Um computador que não é importado para o Configuration Manager  
 
@@ -109,9 +106,9 @@ Suportes de dados no Configuration Manager contém a imagem de arranque, os coma
 
     -   Para comunicações HTTPS, selecione **Importar certificado PKI**e especifique o certificado a importar e a respetiva palavra-passe.  
 
-         Para mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte o artigo [requisitos dos certificados PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
+         Para mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte [requisitos dos certificados PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como a implementação do sistema operativo suporta afinidade dispositivo / utilizador, consulte o artigo [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como implementação de sistemas operativos suporta a afinidade dispositivo / utilizador, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
 
         -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação automática** se pretender que o suporte de dados associe automaticamente utilizadores ao computador de destino. Esta funcionalidade baseia-se nas ações da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino quando implementa o sistema operativo no computador de destino.  
 
@@ -139,22 +136,21 @@ Suportes de dados no Configuration Manager contém a imagem de arranque, os coma
 
     -   Especifique as variáveis utilizadas pela sequência de tarefas para implementar o sistema operativo.  
 
-    -   Especifique os comandos de pré-início que pretende executar antes da execução da sequência de tarefas. Os comandos de pré-início são um script ou um ficheiro executável que pode interagir com o utilizador no Windows PE antes da execução da sequência de tarefas para instalar o sistema operativo. Para obter mais informações, consulte o artigo [comandos para suporte de dados de sequência de tarefas de Pré-início](../understand/prestart-commands-for-task-sequence-media.md).  
+    -   Especifique os comandos de pré-início que pretende executar antes da execução da sequência de tarefas. Os comandos de pré-início são um script ou um ficheiro executável que pode interagir com o utilizador no Windows PE antes da execução da sequência de tarefas para instalar o sistema operativo. Para obter mais informações, consulte [comandos para suporte de dados de sequência de tarefas de Pré-início](../understand/prestart-commands-for-task-sequence-media.md).  
 
         > [!TIP]  
-        >  Durante a criação de suportes de dados da sequência de tarefas, a sequência de tarefas escreve o ID de pacote e um comando de Pré-início da linha de comandos, incluindo o valor das eventuais variáveis de sequência de tarefas, para o ficheiro de registo Createtsmedia no computador que executa a consola do Configuration Manager. Poderá consultar este ficheiro de registo para verificar o valor das variáveis da sequência de tarefas.  
+        >  Durante a criação de suportes de dados de sequência de tarefas, a sequência de tarefas escreve o ID de pacote e da linha de comandos, incluindo o valor das eventuais variáveis de sequência de tarefas, para o ficheiro de registo CreateTSMedia.log no computador que executa a consola do Configuration Manager de Pré-início. Poderá consultar este ficheiro de registo para verificar o valor das variáveis da sequência de tarefas.  
 
          Opcionalmente, selecione a caixa de verificação **Incluir ficheiros para o comando de pré-início** para incluir os ficheiros eventualmente necessários para o comando de pré-início.  
 
 10. Conclua o assistente.  
 
 ## <a name="create-bootable-media-on-a-usb-drive-from-a-network-share"></a>Criar suportes de dados numa unidade USB a partir de uma partilha de rede
-As informações nesta secção ajudam-o a criar suportes de dados de uma unidade flash USB quando a unidade flash não está ligada ao computador que executa a consola do Configuration Manager. Para criar suportes de dados na unidade USB, pode criar suportes de dados de arranque de sequência de tarefas, montar o ISO e transferir os ficheiros a partir do ISO para a unidade USB.
+As informações nesta secção ajudam-o a criar suportes de dados numa unidade flash USB, quando a unidade flash não está ligada ao computador que executa a consola do Configuration Manager. Para criar suportes de dados na unidade USB, pode criar suportes de dados de arranque de sequência de tarefas, montar o ficheiro ISO e transferir os ficheiros do ficheiro ISO na unidade USB.
 
-1. [Criar o suporte de dados de arranque da sequência de tarefas](#to-create-task-boobable-media). No **tipo de suporte** página, selecione **conjunto CD/DVD**. O assistente escreve os ficheiros de saída para a localização que especificou. Por exemplo:  **\\\servername\folder\outputfile.iso**.  
-2. Prepare a pen USB amovível. A unidade tem de ser formatado, vazia e arranque.
-3. Monte o ISO a partir da localização da partilha e transferir os ficheiros a partir do ISO para a unidade USB.
+1. [Criar o suporte de dados de arranque da sequência de tarefas](#to-create-task-boobable-media). No **tipo de suporte** página, selecione **conjunto CD/DVD**. O assistente escreve os ficheiros de saída para a localização que especificar. Por exemplo:  **\\\servername\folder\outputfile.iso**.  
+2. Prepare a pen USB amovível. A unidade tem de ser formatado, vazio e arranque.
+3. Montar o ficheiro ISO a partir da localização de partilha e transferir os ficheiros do ficheiro ISO na unidade USB.
 
 ## <a name="next-steps"></a>Passos seguintes  
-[Utilize suportes de dados para implementar o Windows através da rede](use-bootable-media-to-deploy-windows-over-the-network.md)  
-
+[Utilizar suportes de dados de arranque para implementar o Windows na rede](use-bootable-media-to-deploy-windows-over-the-network.md)  

@@ -1,27 +1,24 @@
 ---
-title: "Gerir o iOS bloqueio de ativação | Documentos do Microsoft"
-description: "Gerir o iOS bloqueio de ativação com o System Center Configuration Manager."
+title: "Gerir o bloqueio de ativação de iOS | Microsoft Docs"
+description: "Gerir o bloqueio de ativação com o System Center Configuration Manager iOS."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e2745bac-e1b4-4dac-8ac7-32f1c820bc9c
-caps.latest.revision: 9
+caps.latest.revision: "9"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
 ms.openlocfilehash: 88bef04a52f716ae13afc21c25d33dea06a3fc9c
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>Gerir o Bloqueio de Ativação do iOS com o System Center Configuration Manager
 
@@ -86,7 +83,7 @@ Só pode ignorar o Bloqueio de Ativação ou obter o código para ignorar o Bloq
 
 
 
-## <a name="view-the-activation-lock-bypass-code"></a>Ver o bloqueio de ativação ignorar código
+## <a name="view-the-activation-lock-bypass-code"></a>Vista de código de ignorabilidade do bloqueio de ativação
 
 1. Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
 2. Na área de trabalho **Ativos e Compatibilidade** , clique em **Dispositivos**.
@@ -94,7 +91,7 @@ Só pode ignorar o Bloqueio de Ativação ou obter o código para ignorar o Bloq
 4. No separador **Base** , no grupo **Dispositivo** , clique em **Ações do Dispositivo Remoto** > **Ver o Código para Ignorar o Bloqueio da Ativação**.
 5. A caixa de diálogo **Código para Ignorar o Bloqueio da Ativação** apresenta o código para ignorar para o dispositivo selecionado.
 
-## <a name="bypass-activation-lock"></a>Ignorar o bloqueio de ativação
+## <a name="bypass-activation-lock"></a>Ignorar bloqueio de ativação
 
 1. Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
 2. Na área de trabalho **Ativos e Compatibilidade** , clique em **Dispositivos**.
@@ -106,4 +103,3 @@ Só pode ignorar o Bloqueio de Ativação ou obter o código para ignorar o Bloq
     - Dos dados de deteção para o dispositivo na caixa de diálogo de propriedades do dispositivo.
     - Da coluna **Estado da Ação Ignorar o Bloqueio da Ativação** na vista **Dispositivos** (esta coluna está oculta por predefinição).
     - Da secção **Informações sobre Ações do Dispositivo Remoto** no separador **Resumo** do painel de detalhes (quando um dispositivo está selecionado).
-

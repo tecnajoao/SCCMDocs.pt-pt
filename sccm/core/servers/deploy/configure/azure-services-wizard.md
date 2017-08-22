@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a26a653e-17aa-43eb-ab36-0e36c7d29f49
-caps.latest.revision: 0
+caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 0663ba84762c44a5c303562548499f195bae9e1c
 ms.openlocfilehash: 22203b358830903cf2e531c0532ae3111b8265fc
-ms.contentlocale: pt-pt
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="configure-azure-services-for-use-with-configuration-manager"></a>Configurar os serviços do Azure para utilização com o Configuration Manager
 
@@ -96,4 +94,3 @@ Neste momento, ligou-se o site do Configuration Manager para o Azure AD.
 Pode ver as propriedades de um serviço do Azure que configurou para utilização.
 
 Na consola, aceda a **administração** > **descrição geral** > **serviços em nuvem** > **serviços do Azure**. Em seguida, escolha o serviço que pretende ver ou editar e, em seguida, clique em **propriedades**.
-
