@@ -1,6 +1,6 @@
 ---
-title: "Configurar a gestão de dispositivos Windows híbrida com o System Center Configuration Manager e o Microsoft Intune | Microsoft Docs"
-description: "Configure a gestão de dispositivos Windows com o System Center Configuration Manager e o Microsoft Intune."
+title: "Настройка гибридного управления устройствами Windows с помощью System Center Configuration Manager и Microsoft Intune | Документы Майкрософт"
+description: "Настройте управление устройствами Windows с помощью System Center Configuration Manager и Microsoft Intune."
 ms.custom: na
 ms.date: 03/17/2017
 ms.prod: configuration-manager
@@ -16,115 +16,115 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 47348baeac26bfa2ad5016622fe4dbcb9f572483
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-windows-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a gestão de dispositivos híbridos do Windows com o System Center Configuration Manager e o Microsoft Intune
+# <a name="set-up-windows-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Настройка гибридного управления устройствами Windows с помощью System Center Configuration Manager и Microsoft Intune
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico indica aos administradores de TI como podem permitir que os seus utilizadores integrar o Windows PCs e dispositivos móveis na gestão através do Configuration Manager e o Microsoft Intune.
+В этом разделе ИТ-администраторы узнают, как позволить пользователям управлять компьютерами c Windows и мобильными устройствами с помощью Configuration Manager и Windows Intune.
 
-## <a name="enable-windows-device-management"></a>Ativar a gestão de dispositivos do Windows
-Para ativar a gestão de dispositivos do Windows para PCs ou dispositivos móveis, utilize os seguintes passos:
+## <a name="enable-windows-device-management"></a>Включение управления устройствами с Windows
+Чтобы включить управление устройствами с Windows для компьютеров и мобильных устройств, сделайте следующее:
 
-1.  Antes de configurar a inscrição para qualquer plataforma, conclua os pré-requisitos e procedimentos [mm híbrida do programa de configuração](setup-hybrid-mdm.md).  
-2.  Na consola do Configuration Manager no **administração** área de trabalho, aceda a **descrição geral** > **serviços em nuvem** > **subscrições do Microsoft Intune**.  
-3.  No Friso, clique em **configurar plataformas**e, em seguida, selecione a plataforma do Windows:
-    - **Windows** para Windows PCs e computadores portáteis, em seguida, execute os seguintes passos:
-      1. No **geral** separador, clique em de **ativar inscrição Windows** caixa de verificação.
-      2. Se utilizar um certificado para assinar com código e implementar a aplicação Portal da empresa, navegue para o **certificado de assinatura de código**. Os utilizadores de dispositivos também podem instalar a aplicação Portal da empresa da loja Windows ou pode implementar a aplicação da loja Windows para empresas sem assinatura de código.
-      3. Também pode configurar [Windows Hello para definições da empresa](windows-hello-for-business-settings.md).
-    - **Windows Phone** para dispositivos Windows Phone e tablets, em seguida, execute os seguintes passos:
-      1. No **geral** separador, clique em de **Windows Phone 8.1 e Windows 10 Mobile** caixa de verificação. Windows Phone 8.0 já não é suportada.
-      2. Se a sua organização tem de instalar aplicações em sideload da empresa, pode carregar o ficheiro ou do token necessária. Para obter mais informações sobre as aplicações de sideload, consulte [aplicações do Windows criar](https://docs.microsoft.com/sccm/apps/get-started/creating-windows-applications).
-        - **Token de inscrição de aplicações**
-        - **ficheiro. pfx**
-        - **Nenhum** se utilizar um certificado da Symantec, pode especificar **mostrar um alerta antes de certificados da Symantec expirarem**.
-4. Clique em **OK** para fechar a caixa de diálogo.  Para simplificar o processo de inscrição através do Portal da empresa, deve criar um alias DNS para inscrição de dispositivos. Em seguida, pode informar os utilizadores como inscrever os respetivos dispositivos.
+1.  Перед настройкой регистрации для любой платформы выполните предварительные требования и процедуры в статье [Настройка гибридного управления мобильными устройствами (MDM) с помощью System Center Configuration Manager и Microsoft Intune](setup-hybrid-mdm.md).  
+2.  В консоли Configuration Manager в рабочей области **Администрирование** перейдите к разделу **Обзор** > **Облачные службы** > **Подписки Microsoft Intune**.  
+3.  На ленте щелкните **Настройка платформ** и выберите платформу Windows.
+    - Для платформы **Windows** для компьютеров и ноутбуков с Windows сделайте следующее:
+      1. На вкладке **Общие** щелкните **Включить регистрацию в ОС Windows**.
+      2. Если вы используете сертификат для подписывания кода и развертывания приложения корпоративного портала, перейдите к пункту меню **Code-signing certificate** (Сертификат подписывания кода). Кроме того, пользователи устройств могут установить приложение корпоративного портала из Магазина Windows или же развернуть приложение из Магазина Windows для бизнеса без подписывания кода.
+      3. Вы можете также настроить [параметры Windows Hello для бизнеса](windows-hello-for-business-settings.md).
+    - Для платформы **Windows Phone** для телефонов и планшетов с Windows сделайте следующее:
+      1. На вкладке **Общие** установите флажок **Windows Phone 8.1 и Windows 10 Mobile**. Windows Phone 8.0 больше не поддерживается.
+      2. Если организации требуется загрузить неопубликованные корпоративные приложения, можно передать необходимый токен или файл. Дополнительные сведения о загрузке неопубликованных приложений см. в статье [Создание приложений для Windows](https://docs.microsoft.com/sccm/apps/get-started/creating-windows-applications).
+        - **Токен регистрации приложений**
+        - **PFX-файл**
+        - **Нет.** При использовании сертификата Symantec можно указать, что нужно **отображать оповещение перед истечением срока действия сертификатов Symantec**.
+4. Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно.  Чтобы упростить процесс регистрации с помощью корпоративного портала, необходимо создать DNS-псевдоним для регистрации устройств. Затем необходимо проинструктировать пользователей о том, как регистрировать свои устройства.
 
-## <a name="choose-how-to-enroll-windows-devices"></a>Escolher como inscrever dispositivos Windows
+## <a name="choose-how-to-enroll-windows-devices"></a>Выбор способа регистрации на устройствах с Windows
 
-Assim que atribuiu licenças do Intune aos utilizadores, podem ser inscritos dispositivos Windows sem quaisquer passos adicionais, mas pode facilitar a inscrição para utilizadores.
+После назначения лицензий Intune для пользователей устройства Windows можно будет зарегистрировать без дополнительных действий, но вы можете также упростить регистрацию для пользователей.
 
-Dois fatores determinam a forma como pode simplificar a inscrição de dispositivos do Windows:
-- **Utilizar Azure Active Directory Premium?** <br>[O Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-get-started-premium) está incluído com o Enterprise Mobility + de segurança e de outros planos de licenciamento.
-- **Quais as versões de clientes do Windows irão inscrever?** <br>Dispositivos Windows 10 podem inscrever automaticamente ao adicionar uma conta escolar ou profissional. Versões anteriores têm de estar inscritos utilizando a aplicação Portal da empresa.
+Ниже приведены два фактора, которые определяют способ упрощения регистрации устройств Windows.
+- **Вы используете Azure Active Directory Premium?** <br>[Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-get-started-premium) входит в состав Enterprise Mobility + Security и других планов лицензирования.
+- **Какие версии клиентов Windows будут регистрироваться?** <br>Устройства с Windows 10 можно зарегистрировать автоматически, добавив рабочую или учебную учетную запись. Более ранние версии необходимо регистрировать с помощью приложения корпоративного портала.
 
-||**O Azure AD Premium**|**Outro AD**|
+||**Azure AD Premium**|**AD других версий**|
 |----------|---------------|---------------|  
-|**Windows 10**|[Inscrição automática](#enable-windows-10-automatic-enrollment) |[Inscrição do utilizador](#enable-windows-enrollment-without-azure-ad-premium)|
-|**Versões anteriores do Windows**|[Inscrição do utilizador](#enable-windows-enrollment-without-azure-ad-premium)|[Inscrição do utilizador](#enable-windows-enrollment-without-azure-ad-premium)|
+|**Windows 10**|[Автоматическая регистрация](#enable-windows-10-automatic-enrollment) |[Регистрация пользователей](#enable-windows-enrollment-without-azure-ad-premium)|
+|**Более ранние версии Windows**|[Регистрация пользователей](#enable-windows-enrollment-without-azure-ad-premium)|[Регистрация пользователей](#enable-windows-enrollment-without-azure-ad-premium)|
 
-## <a name="enable-windows-10-automatic-enrollment"></a>Ativar a inscrição automática do Windows 10
+## <a name="enable-windows-10-automatic-enrollment"></a>Включение автоматической регистрации Windows 10
 
-Inscrição automática permite que os utilizadores inscrevam pertencentes à empresa ou pessoais Windows 10 PCs e Windows 10 dispositivos móveis no Intune ao adicionar uma conta escolar ou profissional e aceita para serem geridos. Simples que. Em segundo plano, o dispositivo do utilizador regista e associa o Azure Active Directory. Depois de registado, o dispositivo é gerido com o Intune.
+Автоматическая регистрация позволяет пользователям регистрировать корпоративные или личные компьютеры Windows 10 и устройства Windows 10 Mobile в Intune, добавляя рабочую или учебную учетную запись и соглашаясь на управление. Просто и удобно. Устройство пользователя регистрируется и присоединяется к Azure Active Directory в фоновом режиме. После регистрации управление устройством выполняется с помощью Intune.
 
-**Pré-requisitos**
-- Subscrição do Azure Active Directory Premium ([subscrição de avaliação](http://go.microsoft.com/fwlink/?LinkID=816845))
-- Subscrição do Microsoft Intune
-
-
-### <a name="configure-automatic-mdm-enrollment"></a>Configurar a inscrição MDM automática
-
-1. Iniciar sessão para o [portal de gestão do Azure](https://portal.azure.com) (https://manage.windowsazure.com) e selecione **do Azure Active Directory**.
-
-  ![Captura de ecrã do portal do Azure](../media/auto-enroll-azure-main.png)
-
-2. Selecione **Mobility (MDM e MAM)**.
-
-  ![Captura de ecrã do portal do Azure](../media/auto-enroll-mdm.png)
-
-3. Selecione **do Microsoft Intune**.
-
-  ![Captura de ecrã do portal do Azure](../media/auto-enroll-intune.png)
-
-4. Configurar **âmbito do utilizador de MDM**. Especifique os dispositivos dos utilizadores que deverão ser geridos pelo Microsoft Intune. Dispositivos do Windows 10 dos utilizadores, estes serão automaticamente inscrito para gestão com o Microsoft Intune.
-
-    - **Nenhum**
-    - **Alguns**
-    - **Todos os**
-
-   ![Captura de ecrã do portal do Azure](../media/auto-enroll-scope.png)
-
-5. Utilize os valores predefinidos para os seguintes URLs:
-    - **Termos de MDM do URL de utilização**
-    - **URL de deteção MDM**
-    - **URL de conformidade de MDM**
-
-6. Selecione **guardar**.
+**Предварительные требования**
+- Подписка Azure Active Directory Premium ([пробная подписка](http://go.microsoft.com/fwlink/?LinkID=816845))
+- Подписка на Microsoft Intune
 
 
-Por predefinição, a autenticação de dois fatores não está ativada para o serviço. No entanto, a autenticação de dois fatores recomenda ao registar um dispositivo. Antes de exigir autenticação de dois fatores para este serviço, tem de configurar um fornecedor de autenticação de dois fatores no Azure Active Directory e configurar as contas de utilizador para autenticação multifator. Consulte [introdução com o servidor do Azure multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+### <a name="configure-automatic-mdm-enrollment"></a>Настройка автоматической регистрации для управления мобильными устройствами
 
-## <a name="enable-windows-enrollment-without-azure-ad-premium"></a>Ativar a inscrição do Windows do Azure AD Premium
-Pode permitir que os utilizadores inscrevam os respetivos dispositivos sem inscrição automática do Azure AD Premium. Depois de atribuir licenças, os utilizadores podem inscrever-se depois de adicionar a respetiva conta profissional para os respetivos dispositivos pessoais ou associar os dispositivos pertencentes à empresa ao seu Azure AD. Criar um DNS alias (tipo de registo CNAME) torna mais fácil para os utilizadores inscrever os respetivos dispositivos. Se criar DNS CNAME registos de recursos, os utilizadores ligar e inscritos no Intune sem ter de introduzir o nome de servidor do Intune.
+1. Войдите на [портал управления Azure](https://portal.azure.com) (https://manage.windowsazure.com) и выберите **Active Directory**.
 
-### <a name="create-cnames-to-simplify-enrollment"></a>Criar CNAMEs para simplificar a inscrição
-Crie CNAME DNS de registos de recursos para o domínio da sua empresa. Por exemplo, se o site da sua empresa fosse contoso.com, criaria um CNAME em DNS que redireciona EnterpriseEnrollment.contoso.com para enterpriseenrollment-s.manage.microsoft.com.
+  ![Снимок экрана портала Azure](../media/auto-enroll-azure-main.png)
 
-Embora a criar entradas de CNAME DNS seja opcional, registos CNAME facilitar a inscrição para utilizadores. Não se for encontrada nenhum registo CNAME de inscrição, os utilizadores recebem introduzir manualmente o nome do servidor MDM, enrollment.manage.microsoft.com.
+2. Выберите **Мобильность (MDM и MAM)**.
 
-|Tipo|Nome do anfitrião|Aponta para|VALOR DE TTL|  
+  ![Снимок экрана портала Azure](../media/auto-enroll-mdm.png)
+
+3. Выберите **Microsoft Intune**.
+
+  ![Снимок экрана портала Azure](../media/auto-enroll-intune.png)
+
+4. Настройте **область пользователя MDM**. Укажите, каким устройствами пользователей следует управлять с помощью Microsoft Intune. Устройства Windows 10 этих пользователей будут автоматически регистрироваться для управления в Microsoft Intune.
+
+    - **Нет**
+    - **Некоторые**
+    - **Все**
+
+   ![Снимок экрана портала Azure](../media/auto-enroll-scope.png)
+
+5. Используйте значения по умолчанию для следующих URL-адресов:
+    - **URL-адрес условий использования MDM**;
+    - **URL-адрес обнаружения MDM**;
+    - **URL-адрес соответствия MDM**.
+
+6. Нажмите кнопку **Сохранить**.
+
+
+По умолчанию двухфакторная проверка подлинности для службы отключена. Тем не менее мы рекомендуем использовать ее при регистрации устройства. Прежде чем запрашивать двухфакторную проверку подлинности для этой службы, необходимо настроить ее поставщика в Azure Active Directory и настроить учетные записи пользователей для использования Многофакторной идентификации. Ознакомьтесь со статьей [Приступая к работе с Многофакторной аутентификацией Azure в облаке](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+
+## <a name="enable-windows-enrollment-without-azure-ad-premium"></a>Разрешение регистрации Windows без Azure AD Premium
+Можно разрешить пользователям регистрировать свои устройства без автоматической регистрации в Azure AD Premium. После назначения лицензий пользователи могут регистрироваться после добавления их рабочей учетной записи на личные устройства или после присоединения их корпоративных устройств к Azure AD. Создание DNS-псевдонима (типа записи CNAME) упрощает регистрацию устройств пользователями. Если вы создаете записи ресурсов CNAME DNS, пользователи подключаются к Intune и выполняют регистрацию без необходимости ввода имени сервера Intune.
+
+### <a name="create-cnames-to-simplify-enrollment"></a>Создание записей CNAME для упрощения регистрации
+Создайте запись ресурсов CNAME DNS для домена вашей организации. Например, если компания имеет веб-сайт contoso.com, необходимо создать запись CNAME в DNS, перенаправляющую EnterpriseEnrollment.contoso.com на enterpriseenrollment-s.manage.microsoft.com.
+
+Несмотря на то, что создавать записи CNAME в DNS не обязательно, записи CNAME позволяют упростить регистрацию для пользователей. Если запись CNAME для регистрации не обнаружена, пользователям предлагается вручную ввести имя сервера MDM — enrollment.manage.microsoft.com.
+
+|Тип|Имя узла|Указывает на|СРОК ЖИЗНИ|  
 |----------|---------------|---------------|---|
-|CNAME|EnterpriseEnrollment.dominio_da_empresa.com|EnterpriseEnrollment-s.manage.microsoft.com| 1 hora|
+|CNAME|EnterpriseEnrollment.company_domain.com|EnterpriseEnrollment-s.manage.microsoft.com| 1 час|
 
-Se tiver mais do que um sufixo UPN, terá de criar um CNAME para cada nome de domínio e do ponto de cada um para EnterpriseEnrollment-s.manage.microsoft.com. Por exemplo, se os utilizadores contoso utilizar name@contoso.com, mas também utilizar name@us.contoso.com, e name@eu.constoso.com como o e-mail/UPN, o administrador da Contoso DNS é necessário criar o seguimento de CNAMEs.
+При наличии нескольких UPN-суффиксов необходимо создать по одной записи CNAME для каждого имени домена и указать для них EnterpriseEnrollment-s.manage.microsoft.com. Например, если в качестве электронной почты или UPN пользователи используют name@contoso.com, а также name@us.contoso.com и name@eu.constoso.com, администратору Contoso DNS необходимо создать следующие записи CNAME.
 
-|Tipo|Nome do anfitrião|Aponta para|VALOR DE TTL|  
+|Тип|Имя узла|Указывает на|СРОК ЖИЗНИ|  
 |----------|---------------|---------------|---|
-|CNAME|EnterpriseEnrollment.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com|1 hora|
-|CNAME|EnterpriseEnrollment.us.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com|1 hora|
-|CNAME|EnterpriseEnrollment.eu.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com| 1 hora|
+|CNAME|EnterpriseEnrollment.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com|1 час|
+|CNAME|EnterpriseEnrollment.us.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com|1 час|
+|CNAME|EnterpriseEnrollment.eu.contoso.com|EnterpriseEnrollment-s.manage.microsoft.com| 1 час|
 
-`EnterpriseEnrollment-s.manage.microsoft.com`– Suporta o redirecionamento para o serviço Intune com reconhecimento de domínio do nome de domínio do e-mail
+`EnterpriseEnrollment-s.manage.microsoft.com` — поддерживает перенаправление в службу Intune с распознаванием домена по имени домена электронной почты.
 
-As alterações para registos DNS poderão demorar até 72 horas a serem propagadas. Não é possível verificar a alteração DNS no Intune até o registo DNS ser propagado.
+Распространение изменений записей DNS может занимать до 72 часов. Вы не можете проверить смену DNS в Intune, пока запись DNS не будет распространена.
 
-## <a name="tell-users-how-to-enroll-devices"></a>Informar os utilizadores como inscrever dispositivos  
+## <a name="tell-users-how-to-enroll-devices"></a>Предоставление пользователям указаний по регистрации их устройств  
 
- Assim que estiver configurado, terá de informar os utilizadores como inscrever os respetivos dispositivos. Consulte [o que dizer aos utilizadores sobre como inscrever os respetivos dispositivos](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) para obter orientações. Pode direcionar os utilizadores [inscrever o seu dispositivo Windows no Intune](https://docs.microsoft.com/intune/enduser/enroll-your-device-in-intune-windows). Estas informações aplicam-se ao Microsoft Intune e aos dispositivos móveis geridos pelo Configuration Manager.
+ После выполнения настроек необходимо проинформировать пользователей о том, как регистрировать свои устройства. Рекомендации см. в статье [What to tell users about enrolling their devices](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) (Что сообщать пользователям о регистрации устройств). Вы можете направить пользователей ознакомиться со статьей [Регистрация устройства Windows в Intune](https://docs.microsoft.com/intune/enduser/enroll-your-device-in-intune-windows). Эти сведения относятся к мобильным устройствам под управлением Microsoft Intune и Configuration Manager.
 
 > [!div class="button"]
-[< Anterior passo](create-service-connection-point.md)[passo seguinte >  ](set-up-additional-management.md)
+[< Назад](create-service-connection-point.md) [Вперед >](set-up-additional-management.md)

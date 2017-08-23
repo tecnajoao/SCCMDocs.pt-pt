@@ -1,823 +1,819 @@
 ---
-title: Arquivos de log para o Configuration Manager | Microsoft Docs
-description: Use arquivos de log para solucionar problemas em uma hierarquia do System Center Configuration Manager.
+title: "Файлы журналов Configuration Manager | Документы Майкрософт"
+description: "Используйте файлы журналов для устранения неполадок в иерархии System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 5e1bc0063ab3d34410f7dbc773a5eacdd5eb6d2f
 ms.openlocfilehash: 28597cf1cb269fff0872c7f79ef961496aea32ab
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/05/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="log-files-in-system-center-configuration-manager"></a>Ficheiros de registo no System Center Configuration Manager
+# <a name="log-files-in-system-center-configuration-manager"></a>Файлы журналов в System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-No System Center Configuration Manager, os componentes de servidor cliente e o site registram as informações de processo nos arquivos de log individuais. Você pode usar as informações nos arquivos de log para ajudá-lo a solucionar problemas que podem ocorrer em sua hierarquia do Configuration Manager. Por padrão, o log de componente de cliente e servidor está habilitado no Configuration Manager.   
+Клиентские компоненты и компоненты сервера сайта в System Center Configuration Manager записывают сведения о процессах в отдельные файлы журналов. Информацию в этих файлах журналов можно использовать для устранения неполадок в иерархии Configuration Manager. По умолчанию в Configuration Manager включено ведение журналов клиентских и серверных компонентов.   
 
- As seções a seguir fornecem detalhes sobre os arquivos de log diferentes disponíveis para você. Você pode usar essas informações para exibir e monitorar o cliente do Configuration Manager e os logs do servidor para obter detalhes de operação e para identificar o erro informações que podem ajudá-lo a solucionar quaisquer problemas.  
+ В следующих разделах содержатся подробные сведения о различных доступных файлах журналов. Эти сведения можно использовать для просмотра и мониторинга журналов клиентов и серверов в Configuration Manager с целью получения подробных данных по функционированию и ошибкам для устранения неполадок.  
 
--   [Sobre arquivos de log do Configuration Manager](#BKMK_AboutLogs)  
+-   [Файлы журналов Configuration Manager](#BKMK_AboutLogs)  
 
-    -   [Configurar opções de log usando o Configuration Manager Service Manager](#BKMK_LogOptions)  
+    -   [Настройка параметров ведения журналов с помощью Configuration Manager Service Manager](#BKMK_LogOptions)  
 
-    -   [Localizando logs do Configuration Manager](#BKMK_LogLocation)  
+    -   [Расположение журналов Configuration Manager](#BKMK_LogLocation)  
 
--   [Logs de cliente do Configuration Manager](#BKMK_ClientLogs)  
+-   [Журналы клиента Configuration Manager](#BKMK_ClientLogs)  
 
-    -   [Operações do cliente](#BKMK_ClientOpLogs)  
+    -   [Операции клиента](#BKMK_ClientOpLogs)  
 
-    -   [Arquivos de log de instalação do cliente](#BKMK_ClientInstallLog)  
+    -   [Файлы журналов установки клиента](#BKMK_ClientInstallLog)  
 
-    -   [Cliente para Linux e UNIX](#BKMK_LogFilesforLnU)  
+    -   [Клиент для Linux и UNIX](#BKMK_LogFilesforLnU)  
 
-    -   [Cliente para computadores Mac](#BKMK_LogfilesforMac)  
+    -   [Клиент для компьютеров Mac](#BKMK_LogfilesforMac)  
 
--   [Arquivos de log de servidor de site do Configuration Manager](#BKMK_ServerLogs)  
+-   [Файлы журналов сервера сайта Configuration Manager](#BKMK_ServerLogs)  
 
-    -   [Logs de servidor de sistema de site e servidor de site](#BKMK_SiteSiteServerLog)  
+    -   [Журналы сервера сайта и сервера системы сайта](#BKMK_SiteSiteServerLog)  
 
-    -   [Arquivos de log de instalação de servidor do site](#BKMK_SiteInstallLog)  
+    -   [Файлы журналов установки сервера сайта](#BKMK_SiteInstallLog)  
 
-    -   [Arquivos de log do ponto de status de fallback](#BKMK_FSPLog)  
+    -   [Файлы журналов резервной точки состояния](#BKMK_FSPLog)  
 
-    -   [Arquivos de log do ponto de gerenciamento](#BKMK_MPLog)  
+    -   [Файлы журналов точки управления](#BKMK_MPLog)  
 
-    -   [Arquivos de log do ponto de atualização de software](#BKMK_SUPLog)  
+    -   [Файлы журналов точки обновления программного обеспечения](#BKMK_SUPLog)  
 
--   [Arquivos de log para a funcionalidade do Configuration Manager](#BKMK_FunctionLogs)  
+-   [Файлы журналов функций Configuration Manager](#BKMK_FunctionLogs)  
 
-    -   [Gerenciamento de aplicativos](#BKMK_AppManageLog)  
+    -   [Управление приложениями](#BKMK_AppManageLog)  
 
-    -   [Inteligência de ativos](#BKMK_AILog)  
+    -   [Аналитика активов](#BKMK_AILog)  
 
-    -   [Cópia de segurança e recuperação](#BKMK_BnRLog)  
+    -   [Резервное копирование и восстановление](#BKMK_BnRLog)  
 
-    -   [Registro de certificado](#BKMK_CertificateEnrollment)
+    -   [Регистрация сертификата](#BKMK_CertificateEnrollment)
 
-    -   [Notificação do cliente](#BKMK_BGB)
+    -   [Уведомление клиента](#BKMK_BGB)
 
-    -   [Gateway de gerenciamento de nuvem](#cloud-management-gateway)
+    -   [Шлюз управления облаком](#cloud-management-gateway)
 
-    -   [Configurações de conformidade e acesso a recursos da empresa](#BKMK_CompSettingsLog)  
+    -   [Параметры соответствия и доступ к ресурсам организации](#BKMK_CompSettingsLog)  
 
-    -   [Console do Configuration Manager](#BKMK_ConsoleLog)  
+    -   [Консоль Configuration Manager](#BKMK_ConsoleLog)  
 
-    -   [Gerenciamento de conteúdo](#BKMK_ContentLog)  
+    -   [Управление содержимым](#BKMK_ContentLog)  
 
-    -   [Deteção](#BKMK_DiscoveryLog)  
+    -   [Обнаружение](#BKMK_DiscoveryLog)  
 
     -   [Endpoint Protection](#BKMK_EPLog)  
 
-    -   [Extensões](#BKMK_Extensions)  
+    -   [Расширения](#BKMK_Extensions)  
 
-    -   [Inventário](#BKMK_InventoryLog)  
+    -   [Инвентаризация](#BKMK_InventoryLog)  
 
-    -   [Medição](#BKMK_MeteringLog)  
+    -   [Контроль использования](#BKMK_MeteringLog)  
 
-    -   [Migração](#BKMK_MigrationLog)  
+    -   [Миграция](#BKMK_MigrationLog)  
 
-    -   [Dispositivos móveis](#BKMK_MDMLog)  
+    -   [Мобильные устройства](#BKMK_MDMLog)  
 
-    -   [Implantação de sistema operacional](#BKMK_OSDLog)  
+    -   [Развертывание операционной системы](#BKMK_OSDLog)  
 
-    -   [Gerenciamento de energia](#BKMK_PowerMgmtLog)  
+    -   [Управление питанием](#BKMK_PowerMgmtLog)  
 
-    -   [Controle remoto](#BKMK_RCLog)  
+    -   [Удаленное управление](#BKMK_RCLog)  
 
-    -   [Relatórios](#BKMK_ReportLog)  
+    -   [Отчеты](#BKMK_ReportLog)  
 
-    -   [Administração baseada em função](#BKMK_RBALog)  
+    -   [Администрирование на основе ролей](#BKMK_RBALog)  
 
-    -   [Ponto de conexão de serviço](#BKMK_WITLog)  
+    -   [Точка подключения службы](#BKMK_WITLog)  
 
-    -   [Atualizações de software](#BKMK_SU_NAPLog)  
+    -   [Обновления программного обеспечения](#BKMK_SU_NAPLog)  
 
-    -   [Wake On LAN](#BKMK_WOLLog)  
+    -   [Пробуждение по локальной сети](#BKMK_WOLLog)  
 
-    -   [Serviço do Windows 10](#BKMK_WindowsServicingLog)
+    -   [Обслуживание Windows 10](#BKMK_WindowsServicingLog)
 
-    -   [O Windows Update Agent](#BKMK_WULog)  
+    -   [Агент обновления Windows](#BKMK_WULog)  
 
-    -   [Servidor do WSUS](#BKMK_WSUSLog)  
+    -   [Сервер WSUS](#BKMK_WSUSLog)  
 
-##  <a name="BKMK_AboutLogs"></a>Sobre arquivos de log do Configuration Manager  
- A maioria dos processos no Configuration Manager grava as informações operacionais em um arquivo de log que é dedicado a esse processo. Os arquivos de log são identificados por **. log** ou **. lo _** extensões de arquivo. Configuration Manager grava um arquivo. log até que o log atinja seu tamanho máximo. Quando o log está cheio, o arquivo. log é copiado para um arquivo com o mesmo nome mas com a extensão. lo _ e o processo ou componente continua a gravar o arquivo. log. Quando o arquivo. log atinge novamente seu tamanho máximo, o arquivo. lo _ é substituído e o processo se repete. Alguns componentes criam um histórico de arquivos de log acrescentando um carimbo de data e hora para o nome do arquivo de log e mantendo a extensão. log. Uma exceção ao tamanho máximo e uso do arquivo. lo _ é o cliente para Linux e UNIX. Para obter informações sobre como o cliente para Linux e UNIX usa arquivos de log, consulte [gerenciar arquivos de log no cliente para Linux e UNIX](#BKMK_ManageLinuxLogs) neste tópico.  
+##  <a name="BKMK_AboutLogs"></a> Файлы журналов Configuration Manager  
+ Большая часть процессов в Configuration Manager записывает сведения о функционировании в файл журнала, связанный только с определенным процессом. Эти файлы журнала определяются по расширениям **LOG** или **LO_** . Configuration Manager ведет запись в файл с расширением LOG до тех пор, пока этот журнал не достигает максимального размера. По достижении максимального размера LOG-файл журнала копируется в файл с таким же именем, но с расширением LO_, и процесс или компонент продолжает запись данных в LOG-файл. Когда LOG-файл снова достигает максимального размера, LO_-файл перезаписывается, и процесс повторяется. Некоторые компоненты ведут историю файлов журнала, присоединяя штамп даты и времени к имени файла журнала; при этом расширение LOG сохраняется. Исключением с точки зрения максимального размера и использования файла LO_ является клиент для Linux и UNIX. Дополнительные сведения об использовании файлов журнала клиентом для Linux и UNIX см. в подразделе [Управление файлами журнала](#BKMK_ManageLinuxLogs) раздела "Клиент для Linux и UNIX" данной статьи.  
 
- Para exibir os logs, use a ferramenta de Visualizador de log do Configuration Manager CMTrace, localizada no \\SMSSetup\\pasta de ferramentas da mídia de origem do Configuration Manager. A ferramenta CMTrace é adicionada a todas as imagens de inicialização que são adicionadas à biblioteca de Software.  
+ Для просмотра журналов воспользуйтесь средством просмотра журналов Configuration Manager, CMTrace, расположенным в папке \\SMSSetup\\Tools установочного носителя Configuration Manager. Средство CMTrace добавляется во все загрузочные образы, размещаемые в библиотеке программного обеспечения.  
 
-###  <a name="BKMK_LogOptions"></a>Configurar opções de log usando o Configuration Manager Service Manager  
- No Configuration Manager, você pode alterar onde os arquivos de log são armazenados, e você pode alterar o tamanho do arquivo de log.  
+###  <a name="BKMK_LogOptions"></a> Настройка параметров ведения журналов с помощью Configuration Manager Service Manager  
+ В Configuration Manager можно изменять расположение файлов журналов и настраивать их размер.  
 
- Para modificar o tamanho dos arquivos de log, altere o nome e o local do arquivo de log, ou para forçar os vários componentes a gravar em um único arquivo de log, siga as etapas a seguir.  
+ Чтобы изменить размер файлов журнала, имя и расположение файла журнала, а также настроить для нескольких компонентов запись данных в один и тот же файл журнала, выполните приведенные далее действия.  
 
-#### <a name="to-modify-logging-for-a-component"></a>Para modificar o log para um componente  
+#### <a name="to-modify-logging-for-a-component"></a>Настройка ведения журнала для компонента  
 
-1.  No console do Configuration Manager, selecione **monitoramento**, selecione **Status do sistema**e, em seguida, selecione **Status do Site** ou **Status do componente**.  
-2.  No **início** guia o **componente** grupo, selecione **iniciar**e, em seguida, selecione **Configuration Manager Service Manager**.  
-3.  Quando o Configuration Manager Service Manager abrir, conecte-se ao site que você deseja gerenciar. Se o site que você deseja gerenciar não for exibido, selecione **Site**, selecione **conectar**e, em seguida, insira o nome do servidor do site para o site correto.  
-4.  Expanda o site e vá para **componentes** ou **servidores**, dependendo de onde estejam localizados os componentes que você deseja gerenciar.  
-5.  No painel direito, selecione um ou mais componentes.  
-6.  Sobre o **componente** menu, selecione **log**.  
-7.  Na caixa de diálogo **Registo de Componente do Configuration Manager**, preencha as opções de configuração disponíveis para a sua seleção.  
-8.  Selecione **Okey** para salvar a configuração.  
+1.  В консоли Configuration Manager щелкните элемент **Наблюдение**, разверните узел **Состояние системы** и выберите **Состояние сайта** или **Состояние компонента**.  
+2.  На вкладке **Главная** в группе **Компонент** щелкните **Запуск**, а затем выберите **Configuration Manager Service Manager**.  
+3.  После открытия Configuration Manager Service Manager подключитесь к сайту, который требует управления. Если нужный сайт не отображается, щелкните **Сайт**, выберите команду **Подключить**, а затем введите имя сервера сайта требуемого сайта.  
+4.  Разверните сайт и в зависимости от расположения компонентов для управления перейдите к элементу **Компоненты** или **Серверы** .  
+5.  В правой области выберите один или несколько компонентов.  
+6.  В меню **Компонент** выберите **Ведение журнала**.  
+7.  В диалоговом окне **Ведение журналов компонентов Configuration Manager** настройте доступные параметры конфигурации для выбранного элемента.  
+8.  Нажмите кнопку **ОК** , чтобы сохранить настройки.  
 
-###  <a name="BKMK_LogLocation"></a>Localizar os logs do Configuration Manager  
-Arquivos de log do Configuration Manager são armazenados em vários locais que dependem do processo que cria o arquivo de log e a configuração de seus sistemas de site. Como o local do log em um computador pode variar, use a função de pesquisa para localizar os arquivos de log relevantes nos computadores do Configuration Manager, se você precisar solucionar um cenário específico.  
+###  <a name="BKMK_LogLocation"></a> Расположение журналов Configuration Manager  
+Файлы журналов Configuration Manager находятся в различных местах в зависимости от того, каким процессом создан файл журнала, а также от настроек систем сайта. Так как расположение журнала для компьютера может быть различным, следует использовать функцию поиска для нахождения требуемых файлов журнала на компьютерах Configuration Manager, если необходимо устранить неполадки в определенной ситуации.  
 
-##  <a name="BKMK_ClientLogs"></a>Logs de cliente do Configuration Manager  
-As seções a seguir listam os arquivos de log relacionados a operações do cliente e instalação de cliente.  
+##  <a name="BKMK_ClientLogs"></a> Журналы клиента Configuration Manager  
+В следующих разделах описываются файлы журналов, связанные с операциями клиентов, а также установкой клиентов.  
 
-###  <a name="BKMK_ClientOpLogs"></a>Operações do cliente  
-A tabela a seguir lista os arquivos de log localizados no cliente do Configuration Manager.  
+###  <a name="BKMK_ClientOpLogs"></a> Операции клиентов  
+В таблице ниже перечислены файлы журналов, расположенные в клиенте Configuration Manager.  
 
-|Nome do registo|Descrição|  
+|Имя журнала|Описание:|  
 |--------------|-----------------|  
-|CAS.log|O serviço de acesso ao conteúdo. Mantém a cache do pacote local no cliente.|  
-|Ccm32BitLauncher.log|Registra as ações para iniciar aplicativos no cliente marcado como "Executar como 32 bits".|  
-|CcmEval.log|Registra atividades de avaliação do Configuration Manager cliente status e detalhes para os componentes que são exigidos pelo cliente do Configuration Manager.|  
-|CcmEvalTask.log|Registra as atividades de avaliação de status de cliente do Configuration Manager que são iniciadas pela tarefa agendada de avaliação.|  
-|CcmExec.log|Regista atividades do cliente e do serviço Anfitrião de Agente do SMS. Este ficheiro de registo também inclui informações sobre como ativar e desativar o proxy de reativação.|  
-|CcmMessaging.log|Registra as atividades relacionadas a comunicação entre o cliente e o gerenciamento de pontos.|  
-|CCMNotificationAgent.log|Regista atividades relacionadas com as operações de notificação de cliente.|  
-|Ccmperf.log|Regista atividades relacionadas com a manutenção e a captura de dados relacionados com os contadores de desempenho do cliente.|  
-|CcmRestart.log|Regista a atividade de reinício do serviço de cliente.|  
-|CCMSDKProvider.log|Regista atividades das interfaces SDK do cliente.|  
-|CertificateMaintenance.log|Mantém certificados para os Serviços de Domínio do Active Directory e os pontos de gestão.|  
-|CIDownloader.log|Regista detalhes sobre transferências de definições de itens de configuração.|  
-|CITaskMgr.log|Registra as tarefas que são iniciadas para cada aplicativo e o tipo de implantação, como conteúdo baixarem e instalar ou desinstalar ações.|  
-|ClientAuth.log|Registros de assinatura e a atividade de autenticação para o cliente.|  
-|ClientIDManagerStartup.log|Cria e mantém o GUID do cliente e identifica as tarefas executadas durante o registo e atribuição do cliente.|  
-|ClientLocation.log|Regista tarefas relacionadas com a atribuição do site do cliente.|  
-|CMHttpsReadiness.log|Registra os resultados de executar a ferramenta de avaliação de prontidão do Configuration Manager HTTPS. Essa ferramenta verifica se os computadores têm um certificado de autenticação de cliente da infraestrutura de chave pública (PKI) que pode ser usado com o Configuration Manager.|  
-|CmRcService.log|Regista informações para o serviço de controlo remoto.|  
-|ContentTransferManager.log|Agenda o serviço de transferência inteligente em segundo plano (BITS) ou o bloco de SMB (Server Message) para baixar ou acessar os pacotes.|  
-|DataTransferService.log|Regista todas as comunicações BITS para acesso a políticas ou pacotes.|  
-|EndpointProtectionAgent|Registra as informações sobre a instalação do cliente do System Center Endpoint Protection e a aplicação de política de antimalware para esse cliente.|  
-|execmgr.log|Regista detalhes dos pacotes e sequências de tarefas que são executados no cliente.|  
-|ExpressionSolver.log|Registra os detalhes sobre os métodos de detecção aprimorados que são usados quando detalhado ou o log de depuração está ativado.|  
-|ExternalEventAgent.log|Regista o histórico de deteção de malware do Endpoint Protection e eventos relacionados com o estado do cliente.|  
-|FileBITS.log|Regista todas as tarefas de acesso do pacote SMB.|  
-|FileSystemFile.log|Regista a atividade do fornecedor do Windows Management Instrumentation (WMI) para recolha de ficheiros e inventário de software.|  
-|FSPStateMessage.log|Regista a atividade de mensagens de estado que são enviadas pelo cliente para o ponto de estado de contingência.|  
-|InternetProxy.log|Registra a atividade configuração e o uso do proxy de rede para o cliente.|  
-|InventoryAgent.log|Regista atividades de inventário de hardware, inventário de software e ações de deteção de heartbeat no cliente.|  
-|LocationCache.log|Registra a atividade de uso do cache local e manutenção para o cliente.|  
-|LocationServices.log|Regista a atividade do cliente para localizar pontos de gestão, pontos de atualização de software e pontos de distribuição.|  
-|MaintenanceCoordinator.log|Registra a atividade das tarefas de manutenção geral do cliente.|  
-|Mifprovider.log|Registra a atividade do provedor WMI para arquivos de formato MIF (Management Information).|  
-|mtrmgr.log|Monitoriza todos os processos de medição de software.|  
-|PolicyAgent.log|Registra as solicitações de políticas feitas usando o serviço de transferência de dados.|  
-|PolicyAgentProvider.log|Regista alterações de política.|  
-|PolicyEvaluator.log|Regista detalhes sobre a avaliação das políticas em computadores cliente, incluindo políticas de atualizações de software.|  
-|PolicyPlatformClient.log|Registra o processo de correção e conformidade para todos os provedores localizados em \Program Files\Microsoft Policy Platform, exceto o provedor de arquivo.|  
-|PolicySdk.log|Regista atividades das interfaces SDK do sistema de políticas.|  
-|Pwrmgmt.log|Regista informações sobre a ativação ou desativação e a configuração de definições de cliente do proxy de reativação.|  
-|PwrProvider.log|Registra as atividades do provedor de gerenciamento de energia (PWRInvProvider) hospedado no serviço do WMI. Em todas as versões suportadas do Windows, o fornecedor enumera as definições atuais nos computadores durante o inventário de hardware e aplica as definições do plano de energia.|  
-|SCClient_&lt;*domain*\>@&lt;*username*\>_1.log|Regista a atividade no Centro de Software para o utilizador especificado no computador cliente.|  
-|SCClient_&lt;*domain*\>@&lt;*username*\>_2.log|Regista a atividade do histórico no Centro de Software para o utilizador especificado no computador cliente.|  
-|Scheduler.log|Regista atividades de tarefas agendadas para todas as operações de cliente.|  
-|SCNotify_&lt;*domain*\>@&lt;*username*\>_1.log|Regista a atividade para notificar os utilizadores sobre software para o utilizador especificado.|  
-|SCNotify_&lt;*domain*\>@&lt;*username*\>_1-&lt;*date_time*>.log|Regista a informação do histórico para notificar os utilizadores sobre software para o utilizador especificado.|  
-|setuppolicyevaluator.log|Regista a configuração e a criação da política de inventário no WMI.|  
-|SleepAgent_&lt;*domínio*\>@SYSTEM_0.log|O arquivo de log principal para o proxy de ativação.|  
-|smscliui.log|Registra o uso do cliente do Configuration Manager no painel de controle.|  
-|SrcUpdateMgr.log|Regista a atividade das aplicações do Windows Installer instaladas que são atualizadas com as localizações de origem do ponto de distribuição atual.|  
-|StatusAgent.log|Regista mensagens de estado que são criadas pelos componentes de cliente.|  
-|SWMTRReportGen.log|Gera um relatório de dados de uso é coletado pelo agente de medição. Estes dados são registados no ficheiro Mtrmgr.log.|  
-|UserAffinity.log|Regista detalhes sobre a afinidade de dispositivo do utilizador.|  
-|VirtualApp.log|Registra as informações específicas para a avaliação dos tipos de implantação do Application Virtualization (App-V).|  
-|Wedmtrace.log|Regista operações relacionadas com filtros de escrita nos clientes do Windows Embedded.|  
-|wakeprxy-install.log|Registra informações de instalação quando os clientes recebem a opção de configuração do cliente para ativar o proxy de ativação.|  
-|wakeprxy-uninstall.log|Registra as informações sobre a desinstalação do proxy de ativação quando os clientes recebem a configuração de opção para desativar o proxy de ativação, se o proxy de ativação foi ativado anteriormente do cliente.|  
+|CAS.log|Служба доступа к содержимому. Обслуживает кэш локального пакета на клиентском компьютере.|  
+|Ccm32BitLauncher.log|Записывает действия запуска приложений на клиенте, помеченных как "Запускать как 32-разрядное".|  
+|CcmEval.log|Записывает действия оценки состояния клиента Configuration Manager и сведения о компонентах, требуемых клиенту Configuration Manager.|  
+|CcmEvalTask.log|Записывает действия оценки состояния клиента Configuration Manager, инициированные запланированной задачей оценки.|  
+|CcmExec.log|В этот файл журнала записываются действия клиента и хост-службы агента SMS. Также в файле журнала содержатся сведения о включении и отключении прокси пробуждения.|  
+|CcmMessaging.log|Содержит сведения о деятельности, связанной с взаимодействием между клиентом и точками управления.|  
+|CCMNotificationAgent.log|Содержит сведения о деятельности, связанной с операциями уведомления клиента.|  
+|Ccmperf.log|Записывает действия, связанные с обслуживанием и захватом данных счетчиков производительности клиентов.|  
+|CcmRestart.log|Записывает действие перезапуска службы клиента.|  
+|CCMSDKProvider.log|Записывает действия интерфейсов SDK клиента.|  
+|CertificateMaintenance.log|Обслуживает сертификаты для доменных служб Active Directory и точек управления.|  
+|CIDownloader.log|Записывает сведения о загрузке определений элементов конфигурации.|  
+|CITaskMgr.log|Записывает задачи, инициируемые для каждого приложения и типа развертывания, такие как скачивание содержимого, установка и удаление.|  
+|ClientAuth.log|Записывает действия подписывания и проверки подлинности для клиента.|  
+|ClientIDManagerStartup.log|Создает и обслуживает GUID клиента, а также определяет задачи, выполняемые во время регистрации и назначения клиента.|  
+|ClientLocation.log|Записывает задачи, относящиеся к назначению сайта клиента.|  
+|CMHttpsReadiness.log|Записывает результаты выполнения средства оценки готовности к HTTPS в Configuration Manager. Это средство проверяет, есть ли у компьютеров сертификат проверки подлинности PKI клиента, который можно использовать для Configuration Manager.|  
+|CmRcService.log|Записывает сведения о службе удаленного управления.|  
+|ContentTransferManager.log|В этот файл журнала записываются расписания скачивания или доступа к пакетам по протоколу BITS или SMB.|  
+|DataTransferService.log|В этот файл журнала записывается вся информация о доступе к политикам или пакетам по протоколу BITS.|  
+|EndpointProtectionAgent|Записывает сведения об установке клиента System Center Endpoint Protection и применении политики защиты от вредоносных программ к этому клиенту.|  
+|execmgr.log|Записывает сведения о пакетах и последовательностях задач, выполняемых на клиенте.|  
+|ExpressionSolver.log|Записывает сведения о расширенных методах обнаружения, используемых при включенной записи подробных сведений или отладочных данных в журнал.|  
+|ExternalEventAgent.log|Ведет журнал обнаружения вредоносного ПО в Endpoint Protection и событий, связанных с состоянием клиента.|  
+|FileBITS.log|В этот файл журнала записываются все задачи доступа к пакетам по протоколу SMB.|  
+|FileSystemFile.log|В этот файл журнала записываются сведения об действиях поставщика WMI, связанных с инвентаризацией программного обеспечения и сбором файлов.|  
+|FSPStateMessage.log|Записывает действия сообщений о состоянии, отправляемых резервной точке состояния клиентом.|  
+|InternetProxy.log|Записывает сведения о конфигурации сетевого прокси-сервера и активности использования клиента.|  
+|InventoryAgent.log|Записывает действия, связанные с инвентаризацией оборудования, программного обеспечения и heartbeat-обнаружением на клиенте.|  
+|LocationCache.log|Записывает действия, связанные с использованием и обслуживанием кэша расположения для клиента.|  
+|LocationServices.log|Записывает действия клиента, связанные с обнаружением точек управления, точек обновления программного обеспечения и точек распространения.|  
+|MaintenanceCoordinator.log|Записывает действия, связанные с задачей общего обслуживания клиента.|  
+|Mifprovider.log|Записывает действия поставщика WMI для MIF-файлов.|  
+|mtrmgr.log|Этот файл журнала служит для мониторинга всех процессов контроля использования программных продуктов.|  
+|PolicyAgent.log|Записывает запросы политик, выполняемые посредством службы передачи данных.|  
+|PolicyAgentProvider.log|В этот файл журнала записываются изменения политики.|  
+|PolicyEvaluator.log|Записывает сведения об оценке политик на клиентских компьютерах, включая политики из обновлений программного обеспечения.|  
+|PolicyPlatformClient.log|Записывает процесс исправления и обеспечения соответствия для всех поставщиков, расположенных в папке \Program Files\Microsoft Policy Platform, за исключением поставщика файлов.|  
+|PolicySdk.log|Записывает действия интерфейсов SDK системы политики.|  
+|Pwrmgmt.log|Содержит сведения о включении или отключении, а также настройке параметров прокси-клиента пробуждения.|  
+|PwrProvider.log|Записывает действия поставщика управления питанием (PWRInvProvider), размещенного в службе WMI. Во всех поддерживаемых версиях Windows поставщик перечисляет текущие параметры на компьютерах в ходе инвентаризации оборудования и применяет параметры схемы управления питанием.|  
+|SCClient_&lt;*домен*\>@&lt;*имя_пользователя*\>_1.log|Записывает действия, выполняемые в Центре программного обеспечения определенным пользователем на клиентском компьютере.|  
+|SCClient_&lt;*домен*\>@&lt;*имя_пользователя*\>_2.log|Записывает историю действий, выполненных в Центре программного обеспечения определенным пользователем на клиентском компьютере.|  
+|Scheduler.log|Записывает действия запланированных задач для всех операций клиента.|  
+|SCNotify_&lt;*домен*\>@&lt;*имя_пользователя*\>_1.log|Записывает действия, связанные с уведомлением пользователей о программном обеспечении, для определенного пользователя.|  
+|SCNotify_&lt;*домен*\>@&lt;*имя_пользователя*\>_1-&lt;*дата_и_время*>.log|Записывает историю действий, связанных с уведомлением пользователей о программном обеспечении, для определенного пользователя.|  
+|setuppolicyevaluator.log|Записывает данные о конфигурации и создании политики инвентаризации в WMI.|  
+|SleepAgent_&lt;*домен*\>@SYSTEM_0.log|Основной файл журнала для прокси-сервера пробуждения.|  
+|smscliui.log|Записывает сведения об использовании клиента Configuration Manager на панели управления.|  
+|SrcUpdateMgr.log|Записывает действия для установленных приложений установщика Windows, обновляемых с использованием текущих расположений источника точки распространения.|  
+|StatusAgent.log|В этот файл журнала записываются сообщения о состоянии, созданные клиентскими компьютерами.|  
+|SWMTRReportGen.log|Создает отчет об использовании данных, собранных с помощью агента контроля использования программных продуктов. Эти данные заносятся в файл журнала Mtrmgr.log.|  
+|UserAffinity.log|Записывает сведения о сопоставлении пользователей и устройств.|  
+|VirtualApp.log|Записывает сведения, связанные с оценкой типов развертывания Application Virtualization (App-V).|  
+|Wedmtrace.log|Записывает операции, относящиеся к фильтрам записи на клиентах Windows Embedded.|  
+|wakeprxy-install.log|Записывает сведения об установке, когда клиентам передается параметр для включения прокси-сервера пробуждения.|  
+|wakeprxy-uninstall.log|Записывает сведения об удалении прокси пробуждения, когда на клиентам передается параметр отключения прокси пробуждения, если прокси-сервер пробуждения уже был включен.|  
 
-###  <a name="BKMK_ClientInstallLog"></a>Arquivos de log de instalação do cliente  
- A tabela a seguir lista os arquivos de log que contêm informações relacionadas à instalação do cliente do Configuration Manager.  
+###  <a name="BKMK_ClientInstallLog"></a> Файлы журналов установки клиента  
+ В таблице ниже перечислены файлы журналов, содержащие сведения об установке клиента Configuration Manager.  
 
-|Nome do registo|Descrição|  
+|Имя журнала|Описание|  
 |--------------|-----------------|  
-|ccmsetup.log|Ccmsetup.exe registra as tarefas de configuração do cliente, atualização e remoção do cliente. Pode ser utilizado para resolver problemas de instalação de cliente.|  
-|ccmsetup-ccmeval.log|Registra as tarefas de ccmsetup.exe status e correção do cliente.|  
-|CcmRepair.log|Regista as atividades de reparação do agente de cliente.|  
-|Client.msi.log|Os registos configuram tarefas executadas por client.msi. Pode ser utilizado para resolver problemas de instalação ou remoção de clientes.|  
+|ccmsetup.log|Записывает задачи ccmsetup.exe по установке, обновлению и удалению клиента. Может использоваться для устранения неполадок при установке клиента.|  
+|ccmsetup-ccmeval.log|Записывает задачи ccmsetup.exe для состояния клиента и исправления.|  
+|CcmRepair.log|Записывает сведения о действиях по восстановлению агента клиента.|  
+|client.msi.log|Записывает задачи по установке, выполняемые client.msi. Может использоваться для устранения неполадок при установке и удалении клиента.|  
 
-###  <a name="BKMK_LogFilesforLnU"></a>Cliente para Linux e UNIX  
- O cliente do Configuration Manager para Linux e UNIX registra as informações nos seguintes arquivos de log.  
+###  <a name="BKMK_LogFilesforLnU"></a> Клиент для Linux и UNIX  
+ В клиенте Configuration Manager для Linux и UNIX информация записывается в следующих файлах журнала.  
 
 > [!TIP]  
->  Começando com os clientes do Linux e UNIX da atualização cumulativa 1, você pode usar o CMTrace para exibir os arquivos de log para o cliente para Linux e UNIX.  
+>  Начиная с клиента для Linux и UNIX из накопительного обновления 1, можно использовать CMTrace при просмотре файлов журнала клиента для Linux и UNIX.  
 
 > [!NOTE]  
->  Quando utilizar a edição inicial do cliente para Linux e UNIX e consultar a documentação desta secção, substitua as seguintes referências para cada ficheiro ou processo:  
+>  Используя первый выпуск клиента для Linux и UNIX и ссылаясь на документацию в этом разделе, замените следующие ссылки для каждого файла или процесса:  
 >   
->  -   Substitua **omiserver.bin** por **nwserver.bin**  
-> -   Substitua **omi** por **nanowbem**  
+>  -   замените **omiserver.bin** на **nwserver.bin**.  
+> -   замените **omi** на **nanowbem**.  
 
-|Nome do registo|Detalhes|  
+|Имя журнала|Подробные сведения|  
 |--------------|-------------|  
-|Scxcm.log|O arquivo de log do serviço principal do cliente do Configuration Manager para Linux e UNIX (ccmexec.bin). Este ficheiro de registo contém informações sobre a instalação e as operações do ccmexec.bin. em curso<br /><br /> Por padrão, esse arquivo de log está localizado em **/var/opt/microsoft/scxcm.log**<br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/configmgr/etc/scxcm.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Você pode definir o nível de log para uma das quatro diferentes configurações.|  
-|Scxcmprovider.log|O arquivo de log do serviço CIM de cliente do Configuration Manager para Linux e UNIX (omiserver.bin). Este ficheiro de registo contém informações sobre as operações do nwserver.bin em curso.<br /><br /> Esse log está localizado em**/var/opt/microsoft/configmgr/scxcmprovider.log**<br /><br /> Para alterar a localização do ficheiro de registo, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere o campo **PATH**. Não é necessário reiniciar o serviço ou o computador cliente para que a alteração produza efeito.<br /><br /> Você pode definir o nível de log para uma das três configurações.|  
+|Scxcm.log|Файл журнала для службы ядра клиента Configuration Manager для Linux и UNIX (ccmexec.bin). Этот файл журнала содержит сведения об установке и последующей работе ccmexec.bin.<br /><br /> По умолчанию этот файл журнала находится здесь: **/var/opt/microsoft/scxcm.log**.<br /><br /> Чтобы изменить расположение файла журнала, измените в файле **/opt/microsoft/configmgr/etc/scxcm.conf** поле **PATH** . Нет необходимости перезагружать клиентский компьютер или службу, чтобы изменения вступили в силу.<br /><br /> Можно задать четыре уровня ведения журнала.|  
+|Scxcmprovider.log|Файл журнала для службы CIM клиента Configuration Manager для Linux и UNIX (omiserver.bin). Этот файл журнала содержит сведения о работе nwserver.bin.<br /><br /> Этот файл журнала находится здесь: **/var/opt/microsoft/configmgr/scxcmprovider.log**.<br /><br /> Чтобы изменить расположение файла журнала, в файле **/opt/microsoft/omi/etc/scxcmprovider.conf** измените поле **PATH** . Нет необходимости перезагружать клиентский компьютер или службу, чтобы изменения вступили в силу.<br /><br /> Можно задать три уровня ведения журнала.|  
 
- Ambos os ficheiros de registo suportam vários níveis de registo:  
+ Оба файла журнала поддерживают несколько уровней ведения журнала.  
 
--   **scxcm.log**. Para alterar o nível de log, edite **/opt/microsoft/configmgr/etc/scxcm.conf** e altere cada instância do **módulo** marca para o nível de log desejado:  
+-   **scxcm.log**. Чтобы изменить уровень ведения журнала, измените файл **/opt/microsoft/configmgr/etc/scxcm.conf** и измените каждый экземпляр тега **MODULE** на нужный уровень ведения журнала.  
 
-    -   ERRO: Indica problemas que exigem atenção  
+    -   "Ошибка": свидетельствует о проблемах, требующих внимания.  
 
-    -   AVISO: Indica possíveis problemas de operações do cliente  
+    -   "Предупреждение": указывает на возможные проблемы в работе клиента.  
 
-    -   INFO: Log mais detalhado que indica o status de vários eventos no cliente  
+    -   "Информация": более подробное ведение журнала, указывающее состояние различных событий на стороне клиента.  
 
-    -   RASTREAMENTO: Log detalhado que normalmente é usado para diagnosticar problemas  
+    -   "Трассировка": подробный журнал, который обычно используется для диагностики проблем.  
 
--   **scxcmprovider.log**. Para alterar o nível de log, edite **/opt/microsoft/omi/etc/scxcmprovider.conf** e altere cada instância do **módulo** marca para o nível de log desejado:  
+-   **scxcmprovider.log**. Чтобы изменить уровень ведения журнала, измените файл **/opt/microsoft/omi/etc/scxcmprovider.conf** и измените каждый экземпляр тега **MODULE** на нужный уровень ведения журнала.  
 
-    -   ERRO: Indica problemas que exigem atenção  
+    -   "Ошибка": свидетельствует о проблемах, требующих внимания.  
 
-    -   AVISO: Indica possíveis problemas de operações do cliente
+    -   "Предупреждение": указывает на возможные проблемы в работе клиента.
 
-    -   INFO: Log mais detalhado que indica o status de vários eventos no cliente  
+    -   "Информация": более подробное ведение журнала, указывающее состояние различных событий на стороне клиента.  
 
-Em condições normais de operação, use o nível de log de erro. Esse nível de log cria o menor arquivo de log. Como o nível de log vai aumentando de erro, aviso, informações e, em seguida, para rastreamento, um arquivo de log maior será criado conforme mais dados são gravados no arquivo.  
+При нормальных рабочих условиях следует использовать ведение журнала уровня "Ошибка". Этот уровень ведения журнала дает наименьший по размеру файл журнала. При изменении уровня с "Ошибка" на "Предупреждение", "Информация" или "Трассировка" каждый последующий шаг с уровня на уровень приводит к увеличению размера файла журнала, так как возрастает количество данных, записываемых в файл журнала.  
 
-####  <a name="BKMK_ManageLinuxLogs"></a>Gerenciar arquivos de log para o cliente Linux e UNIX  
-O cliente para Linux e UNIX não limita o tamanho máximo dos arquivos de log do cliente nem copia automaticamente o conteúdo de seus arquivos. log para outro arquivo, como em um arquivo. lo _. Se você quiser controlar o tamanho máximo de arquivos de log, implemente um processo para gerenciar os arquivos de log independente do cliente do Configuration Manager para Linux e UNIX.  
+####  <a name="BKMK_ManageLinuxLogs"></a> Управление файлами журнала клиента для Linux и UNIX  
+Клиент для Linux и UNIX не ограничивает максимальный размер файлов журнала клиента и не выполняет автоматическое копирование содержимого LOG-файлов в другой файл, например LO_. Чтобы контролировать максимальный размер файлов журнала, реализуйте процесс по управлению файлами журнала независимо от клиента Configuration Manager для Linux и UNIX.  
 
-Por exemplo, você pode usar o comando do Linux e UNIX **logrotate** para gerenciar o tamanho e a rotação dos arquivos de log do cliente. O cliente do Configuration Manager para Linux e UNIX tem uma interface que permite **logrotate** para avisar o cliente quando a rotação de log estiver concluída, então o cliente pode retomar o log para o arquivo de log.  
+Например, можно использовать стандартную команду Linux и UNIX **logrotate** , предназначенную для управления размером и чередованием файлов журналов клиентов. Интерфейс клиента Configuration Manager для Linux и UNIX позволяет **logrotate** информировать клиент о завершении чередования журналов, после чего клиент может возобновить ведение журнала в файлах.  
 
-Para obter informações sobre o comando **logrotate**, veja a documentação das distribuições de Linux e UNIX que utiliza.  
+Дополнительные сведения о **logrotate**см.в документации к используемым дистрибутивам для Linux и UNIX.  
 
-###  <a name="BKMK_LogfilesforMac"></a>Cliente para computadores Mac  
-O cliente do Configuration Manager para computadores Mac registra as informações nos seguintes arquivos de log.  
+###  <a name="BKMK_LogfilesforMac"></a> Клиент для компьютеров Mac  
+В клиенте Configuration Manager для компьютеров Mac информация записывается в перечисленных ниже файлах журнала.  
 
-|Nome do registo|Detalhes|  
+|Имя журнала|Подробные сведения|  
 |--------------|-------------|  
-|CCMClient -&lt;*data_hora*>. log|Registra as atividades relacionadas a operações de cliente Mac, incluindo o gerenciamento de aplicativos, inventário e log de erros.<br /><br /> Esse arquivo de log está localizado na pasta /Library/Application Support/Microsoft/CCM/Logs no computador Mac.|  
-|CCMAgent -&lt;*data_hora*>. log|Registra as informações relacionadas a operações do cliente, incluindo a atividade do computador Mac e operações de logoff e logon do usuário.<br /><br /> Esse arquivo de log está na pasta ~/Library/Logs no computador Mac.|  
-|CCMNotifications -&lt;*data_hora*>. log|Registra as atividades relacionadas a notificações do Gerenciador de configuração exibidas no computador Mac.<br /><br /> Esse arquivo de log está localizado na pasta ~/Library/Logs no computador Mac.|  
-|CCMPrefPane -&lt;*data_hora*>. log|Registra as atividades relacionadas à caixa de diálogo de preferências do Configuration Manager no computador Mac, que inclui status geral e log de erros.<br /><br /> Esse arquivo de log está localizado na pasta ~/Library/Logs no computador Mac.|  
+|CCMClient-&lt;*дата_и_время*>.log|Записывает действия, относящиеся к операциям клиента Mac, среди которых — управление приложениями, инвентаризация и регистрация ошибок.<br /><br /> Этот файл журнала находится в папке /Library/Application Support/Microsoft/CCM/Logs на компьютере Mac.|  
+|CCMAgent-&lt;*дата_и_время*>.log|Записывает сведения, относящиеся к операциям клиента, куда входят операции входа и выхода пользователя из системы и работа компьютера Mac.<br /><br /> Этот файл журнала находится в папке ~/Library/Logs на компьютере Mac.|  
+|CCMNotifications-&lt;*дата_и_время*>.log|Содержит сведения о действиях, которые связаны с уведомлениями Configuration Manager на компьютере Mac.<br /><br /> Этот файл журнала находится в папке ~/Library/Logs на компьютере Mac.|  
+|CCMPrefPane-&lt;*дата_и_время*>.log|Содержит сведения о действиях, связанных с диалоговым окном настроек Configuration Manager компьютера Mac, куда входят общие сведения о состоянии и ошибки.<br /><br /> Этот файл журнала находится в папке ~/Library/Logs на компьютере Mac.|  
 
-O arquivo de log SMS_DM.log no servidor do sistema de site também registra a comunicação entre computadores Mac e o ponto de gerenciamento que está configurado para dispositivos móveis e computadores Mac.  
+Файл журнала SMS_DM.log на сервере системы сайта содержит сведения о взаимодействии между компьютерами Mac и точкой управления, настроенной для мобильных устройств и компьютеров Mac.  
 
-##  <a name="BKMK_ServerLogs"></a>Arquivos de log de servidor de site do Configuration Manager  
- As seções a seguir listam os arquivos de log que estão no servidor do site ou que estão relacionados às funções de sistema de site específico.  
+##  <a name="BKMK_ServerLogs"></a> Файлы журналов сервера сайта Configuration Manager  
+ В следующих разделах описываются файлы журналов, расположенные на сервере сайта или связанные с определенными ролями систем сайта.  
 
-###  <a name="BKMK_SiteSiteServerLog"></a>Logs de servidor de sistema de site e servidor de site  
- A tabela a seguir lista os arquivos de log que estão no servidor de site do Configuration Manager e servidores do sistema de site.  
+###  <a name="BKMK_SiteSiteServerLog"></a> Журналы сервера сайта и сервера системы сайта  
+ В таблице ниже перечислены файлы журналов, расположенные на серверах сайта и серверах системы сайта Configuration Manager.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|adctrl.log|Regista a atividade de processamento de registo.|Servidor do site|  
-|ADForestDisc.log|Regista ações da Deteção de Florestas do Active Directory.|Servidor do site|  
-|ADService.log|Regista detalhes sobre grupos de segurança e a criação de contas no Active Directory.|Servidor do site|  
-|adsgdis.log|Regista ações da Deteção de Grupos do Active Directory.|Servidor do site|  
-|adsysdis.log|Regista ações da Deteção de Sistemas do Active Directory.|Servidor do site|  
-|adusrdis.log|Regista ações da Deteção de Utilizadores do Active Directory.|Servidor do site|  
-|ccm.log|Regista atividades de instalação push de cliente.|Servidor do site|  
-|CertMgr.log|Registros de atividades para a comunicação do certificado.|Servidor do sistema de sites|  
-|chmgr.log|Regista atividades do gestor de estado de funcionamento de cliente.|Servidor do site|  
-|Cidm.log|Regista alterações das definições de cliente efetuadas pelo CIDM (Client Install Data Manager).|Servidor do site|  
-|colleval.log|Regista detalhes sobre o momento de criação, alteração e eliminação das coleções pelo Avaliador de Coleção.|Servidor do site|  
-|compmon.log|Regista o estado de threads de componentes monitorizados para o servidor do site.|Servidor do sistema de sites|  
-|compsumm.log|Regista tarefas do Summarizer de Estado do Componente.|Servidor do site|  
-|ComRegSetup.log|Regista a instalação inicial de resultados de registo COM para um servidor do site.|Servidor do sistema de sites|  
-|dataldr.log|Registra as informações sobre o processamento de arquivos MIF e inventário de hardware no banco de dados do Configuration Manager.|Servidor do site|  
-|ddm.log|Regista atividades do gestor de dados de deteção.|Servidor do site|  
-|despool.log|Regista transferências de comunicação site a site recebidas.|Servidor do site|  
-|distmgr.log|Regista detalhes sobre a criação de pacotes, compressão, replicação de diferenças e atualizações de informações.|Servidor do site|  
-|EPCtrlMgr.log|Registra informações sobre a sincronização de informações de ameaça de malware do servidor de função de sistema do Endpoint Protection site com o banco de dados do Configuration Manager.|Servidor do site|  
-|EPMgr.log|Regista o estado da função de sistema de sites do Endpoint Protection.|Servidor do sistema de sites|  
-|EPSetup.log|Fornece informações sobre a instalação da função de sistema de sites do Endpoint Protection.|Servidor do sistema de sites|  
-|EnrollSrv.log|Regista atividades do processo do serviço de registo.|Servidor do sistema de sites|  
-|EnrollWeb.log|Regista atividades do processo do Web site de registo.|Servidor do sistema de sites|  
-|fspmgr.log|Regista atividades da função de sistema de sites do ponto de estado de contingência.|Servidor do sistema de sites|  
-|hman.log|Registra as informações sobre as alterações de configuração do site e a publicação de informações do site nos serviços de domínio do Active Directory.|Servidor do site|  
-|Inboxast.log|Regista os ficheiros que são movidos do ponto de gestão para a pasta A RECEBER correspondente no servidor do site.|Servidor do site|  
-|inboxmgr.log|Regista atividades de transferência de ficheiros entre pastas A Receber.|Servidor do site|  
-|inboxmon.log|Regista o processamento de ficheiros a receber e atualizações de contadores de desempenho.|Servidor do site|  
-|invproc.log|Regista o reencaminhamento de ficheiros MIF de um site secundário para o seu site principal.|Servidor do site|  
-|migmctrl.log|Registra as informações para ações de migração que envolvem trabalhos de migração, pontos de distribuição compartilhados e atualizações do ponto de distribuição.|Site de nível superior na hierarquia do Configuration Manager e cada site primário filho.<br /><br /> Em uma hierarquia de vários sites primários, use o arquivo de log é criado no site de administração central.|  
-|mpcontrol.log|Grava o registro do ponto de gerenciamento com o nome do serviço WINS (Windows Internet). Regista a disponibilidade do ponto de gestão a cada 10 minutos.|Servidor do sistema de sites|  
-|mpfdm.log|Regista as ações do componente do ponto de gestão que move ficheiros de cliente para a pasta A RECEBER correspondente no servidor do site.|Servidor do sistema de sites|  
-|mpMSI.log|Registra os detalhes sobre o gerenciamento de instalação do ponto.|Servidor do site|  
-|MPSetup.log|Regista o processo do wrapper de instalação do ponto de gestão.|Servidor do site|  
-|netdisc.log|Regista ações da Deteção de Rede.|Servidor do site|  
-|ntsvrdis.log|Regista a atividade de deteção de servidores de sistema de sites.|Servidor do site|  
-|Objreplmgr|Regista o processamento de notificações de alteração de objetos para replicação.|Servidor do site|  
-|offermgr.log|Regista atualizações de anúncios.|Servidor do site|  
-|offersum.log|Regista o resumo das mensagens de estado de implementação.|Servidor do site|  
-|OfflineServicingMgr.log|Regista as atividades de aplicação de atualizações a ficheiros de imagem de sistema operativo.|Servidor do site|  
-|outboxmon.log|Regista o processamento de ficheiros a enviar e atualizações de contadores de desempenho.|Servidor do site|  
-|PerfSetup.log|Regista os resultados da instalação de contadores de desempenho.|Servidor do sistema de sites|  
-|PkgXferMgr.log|Registra as ações do componente SMS_Executive que é responsável por enviar conteúdo de um site primário para um ponto de distribuição remoto.|Servidor do site|  
-|policypv.log|Regista as atualizações das políticas de cliente para refletir as alterações das implementações ou definições de cliente.|Servidor do site principal|  
-|rcmctrl.log|Regista as atividades de replicação de base de dados entre sites na hierarquia.|Servidor do site|  
-|replmgr.log|Regista a replicação de ficheiros entre os componentes do servidor do site e o componente do Programador.|Servidor do site|  
-|ResourceExplorer.log|Registra erros, avisos e informações sobre como executar o Gerenciador de recursos.|Computador que executa o console do Configuration Manager|  
-|ruleengine.log|Regista detalhes sobre regras de implementação automática para a identificação, transferência de conteúdo e criação de implementação e de grupos de atualização de software.|Servidor do site|  
-|Schedule.log|Regista detalhes sobre replicação de ficheiros e tarefas site a site.|Servidor do site|  
-|Sender.log|Regista os ficheiros que são transferidos entre sites através de replicação baseada em ficheiros.|Servidor do site|  
-|sinvproc.log|Regista informações sobre o processamento de dados de inventário de software para a base de dados do site.|Servidor do site|  
-|sitecomp.log|Regista detalhes sobre a manutenção dos componentes instalados do site em todos os servidores de sistema de sites do site.|Servidor do site|  
-|sitectrl.log|Regista as alterações de definições do site efetuadas nos objetos de controlo do site na base de dados.|Servidor do site|  
-|sitestat.log|Regista a disponibilidade e o processo de monitorização do espaço em disco de todos os sistemas.|Servidor do site|  
-|SmsAdminUI.log|Registra a atividade de console do Configuration Manager.|Computador que executa o console do Configuration Manager|  
-|SMSAWEBSVCSetup.log|Regista as atividades de instalação do serviço Web do Catálogo de Aplicações.|Servidor do sistema de sites|  
-|smsbkup.log|Regista a saída do processo de cópia de segurança do site.|Servidor do site|  
-|smsdbmon.log|Regista alterações de bases de dados.|Servidor do site|  
-|SMSENROLLSRVSetup.log|Regista as atividades de instalação do serviço Web de registo.|Servidor do sistema de sites|  
-|SMSENROLLWEBSetup.log|Regista as atividades de instalação do Web site de registo.|Servidor do sistema de sites|  
-|smsexec.log|Regista o processamento de todos os threads de componentes de servidor do site.|Servidor do site ou servidor de sistema de sites|  
-|SMSFSPSetup.log|Regista mensagens geradas pela instalação de um ponto de estado de contingência.|Servidor do sistema de sites|  
-|SMSPORTALWEBSetup.log|Regista as atividades de instalação do Web site do Catálogo de Aplicações.|Servidor do sistema de sites|  
-|SMSProv.log|Regista o acesso do fornecedor WMI à base de dados do site.|Computador com o Fornecedor de SMS|  
-|srsrpMSI.log|Regista resultados detalhados do processo de instalação do ponto de relatório a partir da saída MSI.|Servidor do sistema de sites|  
-|srsrpsetup.log|Regista resultados do processo de instalação do ponto de relatório.|Servidor do sistema de sites|  
-|statesys.log|Regista o processamento de mensagens de sistema de estado.|Servidor do site|  
-|statmgr.log|Regista a escrita de todas as mensagens de estado na base de dados.|Servidor do site|  
-|swmproc.log|Regista o processamento de ficheiros e definições de medição.|Servidor do site|  
+|adctrl.log|Записывает действия, связанные с обработкой регистрации.|Сервер сайтов|  
+|ADForestDisc.log|Журнал действий обнаружения леса Active Directory.|Сервер сайтов|  
+|ADService.log|Записывает действия, связанные с созданием учетных записей, и сведения о группах безопасности в Active Directory.|Сервер сайтов|  
+|adsgdis.log|Журнал действий обнаружения групп Active Directory.|Сервер сайтов|  
+|adsysdis.log|Журнал действий метода обнаружения системы Active Directory.|Сервер сайтов|  
+|adusrdis.log|Журнал действий метода обнаружения пользователя Active Directory.|Сервер сайтов|  
+|ccm.log|Записывает действия, связанные с принудительной установкой клиентов.|Сервер сайтов|  
+|CertMgr.log|Записывает действия сертификатов, связанных с соединениями внутри сайта.|Сервер системы сайта|  
+|chmgr.log|Записывает действия диспетчера работоспособности клиента.|Сервер сайтов|  
+|Cidm.log|В этот файл журнала записываются изменения параметров клиента, внесенные при помощи диспетчера данных установки клиента (CIDM).|Сервер сайтов|  
+|colleval.log|Записывает сведения о создании, изменении и удалении коллекций при помощи средства оценки коллекции.|Сервер сайтов|  
+|compmon.log|Записывает состояние отслеживаемых на сервере сайта потоков компонентов.|Сервер системы сайта|  
+|compsumm.log|В этот файл журнала записываются задачи средства формирования сводных данных состояния компонента.|Сервер сайтов|  
+|ComRegSetup.log|Записывает результаты первоначальной установки регистрации COM на сервере сайта.|Сервер системы сайта|  
+|dataldr.log|Записывает сведения об обработке MIF-файлов и данных инвентаризации оборудования в базе данных Configuration Manager.|Сервер сайтов|  
+|ddm.log|Записывает действия диспетчера данных обнаружения.|Сервер сайтов|  
+|despool.log|В этот файл журнала записывается информация о всех входящих соединениях для передачи данных между сайтами.|Сервер сайтов|  
+|distmgr.log|Записывает сведения о создании, сжатии и разностной репликации пакетов, а также об обновлении сведений о пакетах.|Сервер сайтов|  
+|EPCtrlMgr.log|Записывает сведения о синхронизации данных по угрозам вредоносных программ с сервера роли системы сайта Endpoint Protection с базой данных Configuration Manager.|Сервер сайтов|  
+|EPMgr.log|Записывает сведения о состоянии роли системы сайта "Endpoint Protection".|Сервер системы сайта|  
+|EPSetup.log|Содержит сведения об установке роли системы сайта Endpoint Protection.|Сервер системы сайта|  
+|EnrollSrv.log|Записывает действия, связанные с процессом службы регистрации.|Сервер системы сайта|  
+|EnrollWeb.log|Записывает действия, связанные с процессом веб-сайта регистрации.|Сервер системы сайта|  
+|fspmgr.log|В этот файл журнала записывается информация о действиях роли системы сайта резервной точки состояния.|Сервер системы сайта|  
+|hman.log|Записывает сведения об изменениях в конфигурации сайта и о публикации сведений о сайте в доменных службах Active Directory.|Сервер сайтов|  
+|Inboxast.log|Записывает сведения о файлах, перемещенных из точки управления в соответствующую папку INBOXES на сервере сайта.|Сервер сайтов|  
+|inboxmgr.log|Записывает действия, связанные с передачей файлов между папками входящей почты.|Сервер сайтов|  
+|inboxmon.log|Записывает сведения об обработке файлов в папке входящей почты и обновлениях счетчиков производительности.|Сервер сайтов|  
+|invproc.log|Записывает сведения о пересылке MIF-файлов со вторичного сайта его родительскому сайту.|Сервер сайтов|  
+|migmctrl.log|Записывает сведения о действиях, связанных с миграцией, включая задания миграции, общие точки распространения и обновления точек распространения.|Сайт верхнего уровня в иерархии Configuration Manager и каждый дочерний первичный сайт.<br /><br /> В иерархии с несколькими первичными сайтами следует использовать файл журнала, созданный на сайте центра администрирования.|  
+|mpcontrol.log|В этот файл журнала записывается информация о регистрации точки управления в службе имен Windows Internet (WINS); кроме того, каждые 10 минут в него записываются сведения о доступности точки управления.|Сервер системы сайта|  
+|mpfdm.log|Записывает действия компонента точки управления, перемещающего файлы клиента в соответствующую папку INBOXES на сервере сайта.|Сервер системы сайта|  
+|mpMSI.log|Записывает сведения об установке точки управления.|Сервер сайтов|  
+|MPSetup.log|В этот файл журнала записывается информация о процессе установки точки управления.|Сервер сайтов|  
+|netdisc.log|Журнал действий метода обнаружения сети.|Сервер сайтов|  
+|ntsvrdis.log|Записывает операции обнаружения серверов систем сайта.|Сервер сайтов|  
+|Objreplmgr|Записывает сведения об обработке уведомлений об изменении объектов при репликации.|Сервер сайтов|  
+|offermgr.log|В этот файл журнала записывается информация об обновлениях объявлений.|Сервер сайтов|  
+|offersum.log|Записывает сводку сообщений о состоянии развертывания.|Сервер сайтов|  
+|OfflineServicingMgr.log|Записывает действия, связанные с применением обновлений к файлам образа операционной системы.|Сервер сайтов|  
+|outboxmon.log|Записывает сведения об обработке файлов в папке исходящей почты и обновлениях счетчиков производительности.|Сервер сайтов|  
+|PerfSetup.log|Записывает результаты установки счетчиков производительности.|Сервер системы сайта|  
+|PkgXferMgr.log|Записывает действия компонента SMS_Executive, отвечающего за отправку содержимого с первичного сайта в удаленную точку распространения.|Сервер сайтов|  
+|policypv.log|В этот файл журнала записывается информация об обновлениях политик клиента, отражающая изменения параметров клиента или развертываний.|Сервер основного сайта|  
+|rcmctrl.log|Записывает действия репликации базы данных между сайтами в иерархии.|Сервер сайтов|  
+|replmgr.log|В этот файл журнала записывается информация о репликации файлов между компонентами сервера сайта и компонентом "Планировщик".|Сервер сайтов|  
+|ResourceExplorer.log|В этот файл журнала записываются сведения об ошибках и предупреждениях, а также информация о ходе работы обозревателя ресурсов.|Компьютер, где запущена консоль Configuration Manager|  
+|ruleengine.log|Записывает сведения о правилах автоматического развертывания, связанных с идентификацией, загрузкой содержимого, а также созданием групп обновления и развертываний.|Сервер сайтов|  
+|schedule.log|В этот файл журнала записываются сведения о репликации заданий и файлов между сайтами.|Сервер сайтов|  
+|sender.log|Записывает файлы, передаваемые между сайтами посредством репликации на основе файлов.|Сервер сайтов|  
+|sinvproc.log|Записывает сведения об обработке данных инвентаризации программного обеспечения, заносимых в базу данных сайта.|Сервер сайтов|  
+|sitecomp.log|Записывает сведения об обслуживании установленных компонентов сайта на всех серверах систем сайта.|Сервер сайтов|  
+|sitectrl.log|Записывает изменения параметров сайта, внесенные в объекты управления сайтом в базе данных.|Сервер сайтов|  
+|sitestat.log|Записывает сведения о процессе мониторинга доступности и дискового пространства для всех систем сайта.|Сервер сайтов|  
+|SmsAdminUI.log|Содержит действия консоли Configuration Manager.|Компьютер, где запущена консоль Configuration Manager|  
+|SMSAWEBSVCSetup.log|Записывает действия установки веб-службы каталога приложений.|Сервер системы сайта|  
+|smsbkup.log|Записывает выходные данные процесса резервного копирования сайта.|Сервер сайтов|  
+|smsdbmon.log|В этот файл журнала записываются все изменения базы данных.|Сервер сайтов|  
+|SMSENROLLSRVSetup.log|Записывает действия, связанные с установкой веб-службы регистрации.|Сервер системы сайта|  
+|SMSENROLLWEBSetup.log|Записывает действия, связанные с установкой веб-сайта регистрации.|Сервер системы сайта|  
+|smsexec.log|Записывает сведения об обработке всех потоков компонентов сервера сайта.|Сервер сайта или сервер системы сайта|  
+|SMSFSPSetup.log|В этот файл журнала записываются сообщения, сформированные при установке резервной точки состояния.|Сервер системы сайта|  
+|SMSPORTALWEBSetup.log|Записывает действия веб-сайта каталога приложения.|Сервер системы сайта|  
+|SMSProv.log|В этот файл журнала записывается информация о доступе поставщика WMI к базе данных сайта.|Компьютер поставщика SMS|  
+|srsrpMSI.log|Записывает подробные результаты процесса установки точки формирования отчетов на основе выходных данных MSI.|Сервер системы сайта|  
+|srsrpsetup.log|Записывает результаты установки точки формирования отчетов.|Сервер системы сайта|  
+|statesys.log|Записывает сведения об обработке системных сообщений о состоянии.|Сервер сайтов|  
+|statmgr.log|Записывает сведения о занесении в базу данных всех сообщений о состоянии.|Сервер сайтов|  
+|swmproc.log|Записывает сведения об обработке файлов и параметров контроля использования.|Сервер сайтов|  
 
-###  <a name="BKMK_SiteInstallLog"></a>Arquivos de log de instalação de servidor do site  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a instalação do site.  
+###  <a name="BKMK_SiteInstallLog"></a> Файлы журналов установки для сервера сайта  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об установке сайта.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|ConfigMgrPrereq.log|Registros componente de pré-requisito avaliação e atividades de instalação.|Servidor do site|  
-|ConfigMgrSetup.log|Saída detalhada de registros da instalação do servidor do site.|Servidor do Site|  
-|ConfigMgrSetupWizard.log|Registra as informações relacionadas à atividade no Assistente de instalação.|Servidor do Site|  
-|SMS_BOOTSTRAP.log|Regista informações sobre o progresso do início do processo de instalação do site secundário. Os detalhes do processo de configuração estão contidos no ficheiro ConfigMgrSetup.log.|Servidor do Site|  
-|smstsvc.log|Registra informações sobre a instalação, o uso e a remoção de um serviço do Windows que é usado para testar a conectividade de rede e permissões entre servidores, usando a conta de computador do servidor que inicia a conexão.|Servidor do site e o servidor do sistema de site|  
+|ConfigMgrPrereq.log|Записывает действия, связанные с оценкой и установкой необходимых компонентов.|Сервер сайтов|  
+|ConfigMgrSetup.log|Записывает подробные выходные данные при установке сервера сайта.|Сервер сайта|  
+|ConfigMgrSetupWizard.log|Записывает сведения, связанные с действиями в мастере установки.|Сервер сайта|  
+|SMS_BOOTSTRAP.log|Записывает сведения о ходе запуска процесса установки вторичного сайта. Сведения о самом процессе установки находятся в файле ConfigMgrSetup.log.|Сервер сайта|  
+|smstsvc.log|Записывает сведения об установке, использовании и удалении службы Windows, используемой для тестирования сетевого соединения и разрешений между серверами с помощью учетной записи компьютера того сервера, который инициировал соединение.|Сервер сайта и сервер системы сайта|  
 
-###  <a name="BKMK_FSPLog"></a>Arquivos de log do ponto de status de fallback  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o ponto de estado de contingência.  
+###  <a name="BKMK_FSPLog"></a> Файлы журналов резервной точки состояния  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об установке резервной точки состояния.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|FspIsapi|Regista detalhes sobre comunicações com o ponto de estado de contingência a partir de clientes legados de dispositivos móveis e de computadores cliente.|Servidor do sistema de sites|  
-|fspMSI.log|Regista mensagens geradas pela instalação de um ponto de estado de contingência.|Servidor do sistema de sites|  
-|fspmgr.log|Regista atividades da função de sistema de sites do ponto de estado de contingência.|Servidor do sistema de sites|  
+|FspIsapi|Записывает сведения о подключениях к резервной точке состояния устаревших клиентов мобильных устройств и клиентских компьютеров.|Сервер системы сайта|  
+|fspMSI.log|В этот файл журнала записываются сообщения, сформированные при установке резервной точки состояния.|Сервер системы сайта|  
+|fspmgr.log|В этот файл журнала записывается информация о действиях роли системы сайта резервной точки состояния.|Сервер системы сайта|  
 
-###  <a name="BKMK_MPLog"></a>Arquivos de log do ponto de gerenciamento  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o ponto de gestão.  
+###  <a name="BKMK_MPLog"></a> Файлы журналов точки управления  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об установке точки управления.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|CcmIsapi.log|Regista atividades de mensagens de cliente no ponto final.|Servidor do sistema de sites|  
-|MP_CliReg.log|Regista a atividade de registo de cliente processada pelo ponto de gestão.|Servidor do sistema de sites|  
-|MP_Ddr.log|Registra a conversão de XML.ddr registros de clientes e, em seguida, copia para o servidor do site.|Servidor do sistema de sites|  
-|MP_Framework.log|Regista as atividades do ponto de gestão central e dos componentes da estrutura de cliente.|Servidor do sistema de sites|  
-|MP_GetAuth.log|Regista a atividade de autorização de cliente.|Servidor do sistema de sites|  
-|MP_GetPolicy.log|Regista a atividade de pedidos de política de computadores cliente.|Servidor do sistema de sites|  
-|MP_Hinv.log|Regista detalhes sobre a conversão de registos de inventário de hardware XML a partir de clientes e a cópia desses ficheiros para o servidor do site.|Servidor do sistema de sites|  
-|MP_Location.log|Regista a atividade de pedido e resposta de localização a partir de clientes.|Servidor do sistema de sites|  
-|MP_OOBMgr.log|Registra as atividades do ponto de gerenciamento relacionadas ao recebimento de uma OTP de um cliente.|Servidor do sistema de sites|  
-|MP_Policy.log|Regista a comunicação de políticas.|Servidor do sistema de sites|  
-|MP_Relay.log|Regista a transferência de ficheiros que são recolhidos do cliente.|Servidor do sistema de sites|  
-|MP_Retry.log|Processos de repetição de inventário de hardware de registros.|Servidor do sistema de sites|  
-|MP_Sinv.log|Regista detalhes sobre a conversão de registos de inventário de software XML a partir de clientes e a cópia desses ficheiros para o servidor do site.|Servidor do sistema de sites|  
-|MP_SinvCollFile.log|Regista detalhes sobre a recolha de ficheiros.|Servidor do sistema de sites|  
-|MP_Status.log|Regista detalhes sobre a conversão de ficheiros de mensagens de estado XML.svf a partir de clientes e a cópia desses ficheiros para o servidor do site.|Servidor do sistema de sites|  
-|mpcontrol.log|Regista o registo do ponto de gestão com o WINS. Regista a disponibilidade do ponto de gestão a cada 10 minutos.|Servidor do site|  
-|mpfdm.log|Regista as ações do componente do ponto de gestão que move ficheiros de cliente para a pasta A RECEBER correspondente no servidor do site.|Servidor do sistema de sites|  
-|mpMSI.log|Registra os detalhes sobre o gerenciamento de instalação do ponto.|Servidor do site|  
-|MPSetup.log|Regista o processo do wrapper de instalação do ponto de gestão.|Servidor do site|  
+|CcmIsapi.log|Записывает сведения об обмене клиентов сообщениями на конечной точке.|Сервер системы сайта|  
+|MP_CliReg.log|Записывает действия регистрации клиентов, обрабатываемые точкой управления.|Сервер системы сайта|  
+|MP_Ddr.log|Записывает преобразование полученных от клиентов XML-записей данных обнаружения и затем копирует их на сервер сайта.|Сервер системы сайта|  
+|MP_Framework.log|Записывает действия главной точки управления и компонентов структуры клиентов.|Сервер системы сайта|  
+|MP_GetAuth.log|Записывает действия, связанные с авторизацией клиентов.|Сервер системы сайта|  
+|MP_GetPolicy.log|Записывает действия, связанные с запросами политики от клиентских компьютеров.|Сервер системы сайта|  
+|MP_Hinv.log|Записывает сведения о преобразовании записей инвентаризации оборудования в формате XML, получаемых от клиентов, и копировании этих файлов на сервер сайта.|Сервер системы сайта|  
+|MP_Location.log|Записывает сведения о запросах расположения и соответствующих откликах от клиентов.|Сервер системы сайта|  
+|MP_OOBMgr.log|Записывает действия точки управления, связанные с получением OTP от клиента.|Сервер системы сайта|  
+|MP_Policy.log|В этот файл журнала записывается информация о согласовании политик.|Сервер системы сайта|  
+|MP_Relay.log|Записывает сведения о передаче файлов, собранных на клиенте.|Сервер системы сайта|  
+|MP_Retry.log|В этот файл журнала записывается информация о повторных попытках инвентаризации оборудования.|Сервер системы сайта|  
+|MP_Sinv.log|Записывает сведения о преобразовании записей инвентаризации программного обеспечения в формате XML, получаемых от клиентов, и копировании этих файлов на сервер сайта.|Сервер системы сайта|  
+|MP_SinvCollFile.log|Записывает сведения о сборе файлов.|Сервер системы сайта|  
+|MP_Status.log|Записывает сведения о преобразовании файлов сообщений о состоянии XML.svf от клиентов и копировании этих файлов на сервер сайта.|Сервер системы сайта|  
+|mpcontrol.log|В этот файл журнала записывается информация о регистрации точки управления в службе WINS; кроме того, каждые 10 минут в него записываются сведения о доступности точки управления.|Сервер сайтов|  
+|mpfdm.log|Записывает действия компонента точки управления, перемещающего файлы клиента в соответствующую папку INBOXES на сервере сайта.|Сервер системы сайта|  
+|mpMSI.log|Записывает сведения об установке точки управления.|Сервер сайтов|  
+|MPSetup.log|В этот файл журнала записывается информация о процессе установки точки управления.|Сервер сайтов|  
 
-###  <a name="BKMK_SUPLog"></a>Arquivos de log do ponto de atualização de software  
- A tabela a seguir lista os arquivos de log que contêm informações relacionadas ao ponto de atualização de software.  
+###  <a name="BKMK_SUPLog"></a> Файлы журналов точки обновления программного обеспечения  
+ В таблице ниже перечислены файлы журналов, содержащие сведения о точке обновления программного обеспечения.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|objreplmgr.log|Registra os detalhes sobre a replicação de software atualiza os arquivos de notificação de um site pai para sites filho.|Servidor do site|  
-|PatchDownloader.log|Regista detalhes sobre o processo de transferência de atualizações de software da origem da atualização para o destino da transferência no servidor do site.|Computador que hospeda o console do Configuration Manager a partir do qual os downloads são iniciados|  
-|ruleengine.log|Regista detalhes sobre regras de implementação automática para a identificação, transferência de conteúdo e criação de implementação e de grupos de atualização de software.|Servidor do site|  
-|SUPSetup.log|Regista detalhes sobre a instalação do ponto de atualização de software. Quando a instalação de ponto de atualização de software estiver concluída, é escrito **Instalação bem-sucedida** neste ficheiro de registo.|Servidor do sistema de sites|  
-|WCM.log|Registra os detalhes sobre a atualização de software do ponto de configuração e as conexões ao servidor do WSUS para categorias de atualização assinadas, classificações e idiomas.|Servidor do site que se conecta ao servidor do WSUS|  
-|WSUSCtrl.log|Regista detalhes sobre a configuração, a conectividade de base de dados e o estado de funcionamento do servidor WSUS do site.|Servidor do sistema de sites|  
-|wsyncmgr.log|Registra os detalhes sobre o processo de sincronização de atualizações de software.|Servidor do sistema de sites|  
-|WUSSyncXML.log|Registra os detalhes sobre a Inventory Tool for Microsoft Updates o processo de sincronização.|Computador cliente configurado como o host de sincronização para a ferramenta de inventário para o Microsoft Updates|  
+|objreplmgr.log|Записывает сведения о репликации файлов уведомлений об обновлении программного обеспечения с родительского сайта на дочерние сайты.|Сервер сайтов|  
+|PatchDownloader.log|Записывает сведения о процессе загрузки обновлений программного обеспечения из источника обновлений в конечную папку загрузки на сервере сайта.|Компьютер с консолью Configuration Manager, из которой инициируется скачивание|  
+|ruleengine.log|Записывает сведения о правилах автоматического развертывания, связанных с идентификацией, загрузкой содержимого, а также созданием групп обновления и развертываний.|Сервер сайтов|  
+|SUPSetup.log|В этот файл журнала записывается информация об установке точки обновления программного обеспечения. После завершения установки точки обновления программного обеспечения в данный файл журнала записывается строка **Installation was successful** .|Сервер системы сайта|  
+|WCM.log|В этот файл журнала записываются сведения о конфигурации точки обновления программного обеспечения и подключении к серверу WSUS для подписанных категорий, классификаций и языков обновления.|Сервер сайта, подключающийся к серверу WSUS|  
+|WSUSCtrl.log|В этот файл журнала записываются сведения о конфигурации, подключении к базе данных и работоспособности сервера WSUS для сайта.|Сервер системы сайта|  
+|wsyncmgr.log|Записывает сведения о процессе синхронизации при обновлении программного обеспечения.|Сервер системы сайта|  
+|WUSSyncXML.log|Записывает сведения о средстве инвентаризации, связанные с процессом синхронизации обновлений Майкрософт.|Клиентский компьютер настроен в качестве узла синхронизации для средства инвентаризации обновлений Майкрософт.|  
 
-##  <a name="BKMK_FunctionLogs"></a>Arquivos de log para a funcionalidade do Configuration Manager  
- A lista de seções a seguir arquivos relacionados às funções do Gerenciador de configuração de log.  
+##  <a name="BKMK_FunctionLogs"></a> Файлы журналов функций Configuration Manager  
+ В следующих разделах описываются файлы журналов, связанные с функциями в Configuration Manager.  
 
-###  <a name="BKMK_AppManageLog"></a>Gerenciamento de aplicativos  
- A tabela a seguir lista os arquivos de log que contêm informações relacionadas ao gerenciamento de aplicativos.  
+###  <a name="BKMK_AppManageLog"></a> Управление приложениями  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об управлении приложениями.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|AppIntentEval.log|Regista os detalhes sobre o estado atual e previsto das aplicações, a sua aplicabilidade, se os requisitos foram satisfeitos, os tipos de implementação e as dependências.|Cliente|  
-|AppDiscovery.log|Regista os detalhes sobre a descoberta ou deteção de aplicações em computadores cliente.|Cliente|  
-|AppEnforce.log|Regista os detalhes sobre medidas de imposição (instalar e desinstalar) tomadas para aplicações do cliente.|Cliente|  
-|awebsctl.log|Função de sistema de site do ponto de registros de monitoramento de atividades para o serviço web de catálogo de aplicativos.|Servidor do sistema de sites|  
-|awebsvcMSI.log|Regista informações detalhadas de instalação da função do sistema de sites do ponto de serviço Web do Catálogo de Aplicações.|Servidor do sistema de sites|  
-|Ccmsdkprovider.log|Regista as atividades do SDK de gestão de aplicações.|Cliente|  
-|colleval.log|Regista detalhes sobre o momento de criação, alteração e eliminação das coleções pelo Avaliador de Coleção.|Servidor do sistema de sites|  
-|ConfigMgrSoftwareCatalog.log|Regista a atividade do Catálogo de Aplicações, que inclui a sua utilização do Silverlight.|Cliente|  
-|portlctl.log|Regista as atividades de monitorização da função do sistema de sites do ponto do Web site do Catálogo de Aplicações.|Servidor do sistema de sites|  
-|portlwebMSI.log|Regista a atividade de instalação do MSI para a função de Web site do Catálogo de Aplicações.|Servidor do sistema de sites|  
-|PrestageContent.log|Registra os detalhes sobre o uso da ferramenta ExtractContent.exe em um ponto de distribuição remoto e pré-configurado. Esta ferramenta extrai o conteúdo exportado para um ficheiro.|Servidor do sistema de sites|  
-|ServicePortalWebService.log|Regista a atividade do serviço Web do Catálogo de Aplicações.|Servidor do sistema de sites|  
-|ServicePortalWebSite.log|Regista a atividade do Web site do Catálogo de Aplicações.|Servidor do sistema de sites|  
-|SMSdpmon.log|Regista os detalhes sobre a tarefa agendada de monitorização do estado de funcionamento do ponto de distribuição configurada num ponto de distribuição.|Servidor do site|  
-|SoftwareCatalogUpdateEndpoint.log|Registra as atividades de gerenciamento de URL para o catálogo de aplicativos mostrado no Centro de Software.|Cliente|  
-|SoftwareCenterSystemTasks.log|Registra as atividades relacionadas à validação de componente de pré-requisito do Centro de Software.|Cliente|  
+|AppIntentEval.log|Записывает сведения о текущем и намеченном состоянии приложений, их применимости, соответствии требованиям, типах развертывания и зависимостях.|"Клиент";|  
+|AppDiscovery.log|Записывает сведения о обнаружении приложений на клиентских компьютерах.|"Клиент";|  
+|AppEnforce.log|Записывает сведения о принудительных действиях (установка и удаление) для приложений на клиенте.|"Клиент";|  
+|awebsctl.log|Записывает действия мониторинга для роли системы сайта "точка веб-службы каталога приложений".|Сервер системы сайта|  
+|awebsvcMSI.log|Записывает подробные сведения об установке для роли системы сайта "точка веб-службы каталога приложений".|Сервер системы сайта|  
+|CCMSDKProvider.log|Записывает действия пакета SDK управления приложениями.|"Клиент";|  
+|colleval.log|Записывает сведения о создании, изменении и удалении коллекций при помощи средства оценки коллекции.|Сервер системы сайта|  
+|ConfigMgrSoftwareCatalog.log|Записывает действия каталога приложений, включая использование Silverlight.|"Клиент";|  
+|portlctl.log|Записывает действия мониторинга для роли системы сайта "точка веб-сайта каталога приложений".|Сервер системы сайта|  
+|portlwebMSI.log|Записывает действия установки MSI для роли веб-сайта каталога приложений.|Сервер системы сайта|  
+|PrestageContent.log|Записывает сведения об использовании средства ExtractContent.exe на удаленной точке распространения подготовленного содержимого. Это средство извлекает содержимое, которое было экспортировано в файл.|Сервер системы сайта|  
+|ServicePortalWebService.log|Записывает действия веб-службы каталога приложения.|Сервер системы сайта|  
+|ServicePortalWebSite.log|Записывает действия веб-сайта каталога приложения.|Сервер системы сайта|  
+|SMSdpmon.log|Записывает сведения о назначенном задании мониторинга работоспособности точки распространения, настроенном на точке распространения.|Сервер сайтов|  
+|SoftwareCatalogUpdateEndpoint.log|Записывает действия управления URL-адресом каталога приложений, отображаемым в центре программного обеспечения.|"Клиент";|  
+|SoftwareCenterSystemTasks.log|Записывает действия, связанные с проверкой необходимых компонентов центра программного обеспечения.|"Клиент";|  
 
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a implementação de pacotes e programas.  
+ В следующей таблице перечислены файлы журналов, содержащие сведения о развертывании пакетов и программ.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|colleval.log|Regista detalhes sobre o momento de criação, alteração e eliminação das coleções pelo Avaliador de Coleção.|Servidor do site|  
-|execmgr.log|Regista os detalhes sobre pacotes e sequências de tarefas que são executados.|Cliente|  
+|colleval.log|Записывает сведения о создании, изменении и удалении коллекций при помощи средства оценки коллекции.|Сервер сайтов|  
+|execmgr.log|Записывает сведения о выполняемых пакетах и последовательностях задач.|"Клиент";|  
 
-###  <a name="BKMK_AILog"></a>Inteligência de ativos  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o Asset Intelligence.  
+###  <a name="BKMK_AILog"></a> Аналитика активов  
+ В следующей таблице перечислены файлы журналов, содержащие сведения, связанные с аналитикой активов.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|AssetAdvisor.log|Regista as atividades das ações de inventário do Asset Intelligence.|Cliente|  
-|aikbmgr.log|Regista os detalhes sobre o processamento de ficheiros XML a partir da caixa de entrada para atualização do catálogo do Asset Intelligence.|Servidor do site|  
-|AIUpdateSvc.log|Registra a interação da sincronização do Asset Intelligence ponto com o System Center Online (SCO), o serviço da web online.|Servidor do sistema de sites|  
-|AIUSMSI.log|Registra os detalhes sobre a instalação da sincronização do Asset Intelligence ponto de função do sistema de site.|Servidor do sistema de sites|  
-|AIUSSetup.log|Registra os detalhes sobre a instalação da sincronização do Asset Intelligence ponto de função do sistema de site.|Servidor do sistema de sites|  
-|ManagedProvider.log|Regista os detalhes sobre a deteção de software com uma etiqueta de identificação de software associada. Também registra as atividades relacionadas ao inventário de hardware.|Servidor do sistema de sites|  
-|MVLSImport.log|Regista os detalhes sobre o processamento de ficheiros de licenciamento importados.|Servidor do sistema de sites|  
+|AssetAdvisor.log|Записывает действия инвентаризации аналитики активов.|"Клиент";|  
+|aikbmgr.log|Записывает сведения об обработке файлов XML из папки входящих сообщений для обновления каталога аналитики активов.|Сервер сайтов|  
+|AIUpdateSvc.log|Записывает сведения о взаимодействии точки синхронизации аналитики активов с System Center Online (SCO), веб-службой в Интернете.|Сервер системы сайта|  
+|AIUSMSI.log|Записывает сведения об установке роли системы сайта "Точка синхронизации аналитики активов".|Сервер системы сайта|  
+|AIUSSetup.log|Записывает сведения об установке роли системы сайта "Точка синхронизации аналитики активов".|Сервер системы сайта|  
+|ManagedProvider.log|Записывает сведения об обнаружении программного обеспечения с соответствующим тегом идентификации программного обеспечения. Также записывает сведения о действиях, касающихся инвентаризации оборудования.|Сервер системы сайта|  
+|MVLSImport.log|Записывает сведения об обработке импортированных файлов лицензирования.|Сервер системы сайта|  
 
-###  <a name="BKMK_BnRLog"></a>Backup e recuperação  
- A tabela a seguir lista os arquivos de log que contêm informações relacionadas às ações de backup e recuperação, inclusive redefinições de site e alterações no provedor de SMS.  
+###  <a name="BKMK_BnRLog"></a> Резервное копирование и восстановление  
+ В следующей таблице перечислены файлы журналов со сведениями о действиях, связанных с резервным копированием и восстановлением, в том числе сброс сайта и изменение поставщика SMS.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|ConfigMgrSetup.log|Registra informações sobre tarefas de configuração e recuperação quando o Configuration Manager recupera um site de backup.|Servidor do site|  
-|Smsbkup.log|Regista os detalhes sobre a atividade de cópia de segurança do site.|Servidor do site|  
-|smssqlbkup.log|Registra a saída do processo de backup de banco de dados do site quando o SQL Server está instalado em um servidor que não seja o servidor do site.|Servidor da base de dados do site|  
-|Smswriter.log|Registra informações sobre o estado do gravador VSS do Configuration Manager que é usado pelo processo de backup.|Servidor do site|  
+|ConfigMgrSetup.log|Записывает сведения о задачах установки и восстановления, выполняемых при восстановлении Configuration Manager сайта из резервной копии.|Сервер сайтов|  
+|Smsbkup.log|Записывает сведения о действиях резервного копирования сайта.|Сервер сайтов|  
+|smssqlbkup.log|Записывает выходные данные процесса резервного копирования для базы данных сайта при установке SQL Server на сервере, не являющемся сервером сайта.|Сервер базы данных сайтов|  
+|Smswriter.log|Записывает сведения о состоянии модуля записи VSS Configuration Manager, используемого процессом резервного копирования.|Сервер сайтов|  
 
-###  <a name="BKMK_CertificateEnrollment"></a>Registro de certificado  
- A tabela a seguir lista os arquivos de log do Configuration Manager que contêm informações relacionadas ao registro de certificado. Registro de certificado usa o ponto de registro de certificado e o módulo de política do Configuration Manager no servidor que está executando o serviço de registro de dispositivo de rede.  
+###  <a name="BKMK_CertificateEnrollment"></a> Регистрация сертификата  
+ В таблице ниже перечислены файлы журналов Configuration Manager, содержащие сведения, связанные с регистрацией сертификатов. В процессе регистрации сертификатов используется точка регистрации сертификатов и модуль политики Configuration Manager на сервере, где запущена служба регистрации сетевых устройств.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|Crp.log|Registra as atividades de registro.|Ponto de registo de certificados|  
-|Crpctrl.log|Regista o estado de funcionamento operacional do ponto de registo de certificados.|Ponto de registo de certificados|  
-|Crpsetup.log|Regista os detalhes sobre a instalação e a configuração do ponto de registo de certificados.|Ponto de registo de certificados|  
-|Crpmsi.log|Regista os detalhes sobre a instalação e a configuração do ponto de registo de certificados.|Ponto de registo de certificados|  
-|NDESPlugin.log|Registros de desafiam de verificação e as atividades de registro de certificado.|Módulo de política do Configuration Manager e o serviço de registro de dispositivo de rede|  
+|Crp.log|Записывает действия по регистрации.|Точка регистрации сертификатов|  
+|Crpctrl.log|Записывает рабочее состояние точки регистрации сертификатов.|Точка регистрации сертификатов|  
+|Crpsetup.log|Записывает сведения об установке и настройке точки регистрации сертификатов.|Точка регистрации сертификатов|  
+|Crpmsi.log|Записывает сведения об установке и настройке точки регистрации сертификатов.|Точка регистрации сертификатов|  
+|NDESPlugin.log|Записывает действия по проверке на наличие проблем и действия по регистрации сертификатов.|Модуль политики Configuration Manager и служба регистрации сетевых устройств|  
 
- Além dos arquivos de log do Configuration Manager, examine os logs de aplicativo do Windows no Visualizador de eventos no servidor que executa o serviço de registro de dispositivo de rede e o servidor que hospeda o ponto de registro de certificado. Por exemplo, procure mensagens da origem **NetworkDeviceEnrollmentService**. Também pode utilizar os seguintes ficheiros de registo:  
+ Наряду с файлами журнала Configuration Manager просмотрите журналы приложений Windows в средстве просмотра событий на сервере с запущенной службой регистрации сетевых устройств и сервере, где размещена точка регистрации сертификатов. Например, просмотрите сообщения из источника **NetworkDeviceEnrollmentService** . Можно также использовать следующие файлы журнала:  
 
--   Arquivos de log do IIS para o serviço de registro do dispositivo de rede:  **&lt;caminho\>\inetpub\logs\LogFiles\W3SVC1**  
+-   Файлы журнала IIS, относящиеся к службе регистрации сертификатов для сетевых устройств: **&lt;путь\>\inetpub\logs\LogFiles\W3SVC1**  
 
--   IIS arquivos de log para o ponto de registro de certificado:  **&lt;caminho\>\inetpub\logs\LogFiles\W3SVC1**  
+-   Файлы журнала служб IIS для точки регистрации сертификатов: **&lt;путь\>\inetpub\logs\LogFiles\W3SVC1**  
 
--   Ficheiro de registo da Política de Inscrição de Dispositivos de Rede: **mscep.log**  
+-   Файл журнала политики регистрации сетевых устройств: **mscep.log**  
 
     > [!NOTE]  
-    >  Este ficheiro está localizado na pasta do perfil da conta do Serviço de Inscrição de Dispositivos de Rede, por exemplo, em C:\Users\SCEPSvc. Para obter mais informações sobre como ativar o registo do Serviço de Inscrição de Dispositivos de Rede, veja a secção [Ativar Registo](http://go.microsoft.com/fwlink/?LinkId=320576) no Serviço de Inscrição de Dispositivos de Rede (NDES) do artigo dos Serviços de Certificados do Active Directory (AD CS) da Wiki da TechNet.  
+    >  Этот файл находится в папке для профиля учетной записи службы регистрации сетевых устройств, например в папке C:\Users\SCEPSvc. Дополнительные сведения о включении функции ведения журнала для службы регистрации сетевых устройств см. в разделе [Включение ведения журнала](http://go.microsoft.com/fwlink/?LinkId=320576) статьи, посвященной службе регистрации сетевых устройств (NDES) в службе сертификатов Active Directory (AD CS) на вики-странице TechNet.  
 
-###  <a name="BKMK_BGB"></a>Notificação do cliente  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a notificação do cliente.  
+###  <a name="BKMK_BGB"></a> Уведомление клиентов  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об отслеживании уведомлений клиентов.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|bgbmgr.log|Registra os detalhes sobre as atividades de servidor de site relacionadas a tarefas de notificação do cliente e de processamento on-line e arquivos de status da tarefa.|Servidor do site|  
-|BGBServer.log|Registra as atividades do servidor de notificação, como a comunicação cliente-servidor e enviar tarefas aos clientes. Também registra informações sobre a geração do on-line e os arquivos de status de tarefa a ser enviado ao servidor do site.|Ponto de gestão|  
-|BgbSetup.log|Registra as atividades do processo de wrapper de instalação de servidor de notificação durante a instalação e desinstalação.|Ponto de gestão|  
-|bgbisapiMSI.log|Registra os detalhes sobre a instalação do servidor de notificação e a desinstalação.|Ponto de gestão|  
-|BgbHttpProxy.log|Regista as atividades do proxy de HTTP de notificação enquanto reencaminha as mensagens de clientes utilizando o HTTP de e para o servidor de notificação.|Cliente|  
-|CcmNotificationAgent.log|Registra as atividades do agente de notificação, como a comunicação cliente-servidor e informações sobre tarefas recebidas e enviadas para outros agentes cliente.|Cliente|  
+|bgbmgr.log|Записывает сведения о действиях сервера сайта, касающихся задач уведомления клиентов, обработки и состояния файлов.|Сервер сайтов|  
+|BGBServer.log|Записывает сведения о действиях сервера уведомлений, таких как взаимодействие клиента и сервера и передача задач клиентам. Также записывает сведения о создании файлов состояния сети и задач, которые должны отправляться на сервер сайта.|Точка управления.|  
+|BgbSetup.log|Записывает сведения о деятельности процесса-оболочки для установки сервера уведомлений во время установки и удаления.|Точка управления.|  
+|bgbisapiMSI.log|Записывает сведения об установке и удалении сервера уведомлений.|Точка управления.|  
+|BgbHttpProxy.log|Записывает сведения о действиях HTTP-прокси уведомления при ретрансляции сообщений клиентов с помощью HTTP на сервер уведомления и с него.|"Клиент";|  
+|CCMNotificationAgent.log|Записывает сведения о действиях агента уведомлений, например взаимодействия между клиентом и сервером, и информацию о задачах, полученных и переданных другим агентам клиентов.|"Клиент";|  
 
-### <a name="cloud-management-gateway"></a>Gateway de gerenciamento de nuvem
+### <a name="cloud-management-gateway"></a>Шлюз управления облаком
 
-A tabela a seguir lista os arquivos de log que contêm informações relacionadas para o gateway de gerenciamento de nuvem.
+В приведенной ниже таблице перечислены файлы журналов, содержащие сведения о шлюзе управления облаком.
 
 ||||
 |-|-|-|
-|Nome do registo|Descrição|Computador com o ficheiro de registo|
-|CloudMgr.log|Registra os detalhes sobre como implantar o serviço de gateway de gerenciamento de nuvem, o status do serviço em andamento e o uso de dados associado ao serviço.<br>Você pode configurar o nível de log ser a edição do registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging nível**|O *installdir* pasta no servidor do site primário ou autoridades de certificação.|
-|CMGSetup.log ou CMG -*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Registra os detalhes sobre a fase 2 da implantação de gateway de gerenciamento de nuvem (implantação local no Azure)<br>Você pode configurar o nível de log usando a configuração **o nível de rastreamento** (**informações** (padrão), **detalhado**, **erro**) sobre o **configuração de serviços do Azure portal\Cloud** guia.|O **%approot%\logs** no seu servidor do Azure, ou a pasta de Logs do SMS no servidor do sistema de site|
-|CMGHttpHandler.log ou CMG -*RoleInstanceID*-CMGHttpHandler.log<sup>1</sup>|Registra os detalhes sobre a associação de manipulador http do nuvem management gateway com serviços de informações da Internet no Azure<br>Você pode configurar o nível de log usando a configuração **o nível de rastreamento** (**informações** (padrão), **detalhado**, **erro**) sobre o **configuração de serviços do Azure portal\Cloud** guia.|O **%approot%\logs** no seu servidor do Azure, ou a pasta de Logs do SMS no servidor do sistema de site|
-|CMGService.log ou CMG -*RoleInstanceID*-CMGService.log<sup>1</sup>|Registra os detalhes sobre o componente nuvem gerenciamento gateway service principal no Azure<br>Você pode configurar o nível de log usando a configuração **o nível de rastreamento** (**informações** (padrão), **detalhado**, **erro**) sobre o **configuração de serviços do Azure portal\Cloud** guia.|O **%approot%\logs** no seu servidor do Azure, ou a pasta de Logs do SMS no servidor do sistema de site|
-|SMS_Cloud_ProxyConnector.log|Registra detalhes sobre como configurar conexões entre o serviço de gateway de gerenciamento da nuvem e a conexão de gateway de gerenciamento de nuvem ponto.|Servidor do sistema de sites|
+|Имя журнала|Описание|Компьютер с файлом журнала|
+|CloudMgr.log|Записывает сведения о развертывании службы шлюза управления облаком, текущем состоянии службы, а также данные об использовании службы.<br>Вы можете настроить уровень ведения журнала, изменяя значение раздела реестра **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\COMPONENTS\SMS_CLOUD_SERVICES_MANAGER\Logging level**.|Папка *installdir* на сервере первичного сайта или сайта центра администрирования.|
+|CMGSetup.log или CMG-*RoleInstanceID*-CMGSetup.log<sup>1</sup>|Записывает сведения о втором этапе развертывания шлюза управления облаком (локальное развертывание в Azure)<br>Уровень ведения журнала можно настроить с помощью параметра **Уровень трассировки** (варианты значений: **Сведения** (по умолчанию), **Подробный**, **Ошибки**) на вкладке **Azure portal\Cloud services configuration** (Конфигурация портала Azure и облачных служб).|Папка **%approot%\logs** на сервере Azure или папка SMS/Logs на сервере системы сайта|
+|CMGHttpHandler.log или CMG-*RoleInstanceID*- CMGHttpHandler.log<sup>1</sup>|Фиксирует сведения о привязке обработчика HTTP-данных в шлюзе управления облаком к службам IIS в Azure<br>Уровень ведения журнала можно настроить с помощью параметра **Уровень трассировки** (варианты значений: **Сведения** (по умолчанию), **Подробный**, **Ошибки**) на вкладке **Azure portal\Cloud services configuration** (Конфигурация портала Azure и облачных служб).|Папка **%approot%\logs** на сервере Azure или папка SMS/Logs на сервере системы сайта|
+|CMGService.log или CMG-*RoleInstanceID*- CMGService.log<sup>1</sup>|Фиксирует сведения об основных компонентах служб в шлюзе управления облаком в Azure<br>Уровень ведения журнала можно настроить с помощью параметра **Уровень трассировки** (варианты значений: **Сведения** (по умолчанию), **Подробный**, **Ошибки**) на вкладке **Azure portal\Cloud services configuration** (Конфигурация портала Azure и облачных служб).|Папка **%approot%\logs** на сервере Azure или папка SMS/Logs на сервере системы сайта|
+|SMS_Cloud_ProxyConnector.log|Содержит сведения об установлении соединений между службой шлюза управления облаком и точкой соединения шлюза управления облаком.|Сервер системы сайта|
 
-<sup>1</sup> esses são arquivos de log do Configuration Manager local que a sincronização do Gerenciador de serviço do armazenamento do Azure em nuvem a cada 5 minutos. O gateway de gerenciamento de nuvem enviará por push logs no armazenamento do Azure a cada 5 minutos. Portanto, o atraso máximo será de 10 minutos. Comutadores detalhados afetará os logs de locais e remotos.
+<sup>1</sup> Это локальные файлы журналов Configuration Manager, которые синхронизируются диспетчером облачных служб из службы хранилища Azure каждые 5 минут. Шлюз управления облаком передает журналы в хранилище Azure каждые 5 минут. Таким образом, задержка составляет не более 10 минут. Параметр подробного ведения журнала (verbose) влияет как на локальные, так и на удаленные журналы.
 
-- Para implantações de solução de problemas, use **CloudMgr.log** e **CMGSetup.log**
-- Para solucionar problemas de integridade do serviço, use **CMGService.log** e **SMS_Cloud_ProxyConnector.log**.
-- Para solucionar problemas de tráfego do cliente, use **CMGHttpHandler.log**, **CMGService.log**, e **SMS_Cloud_ProxyConnector.log**.
+- Для устранения неполадок при развертывании используйте журналы **CloudMgr.log** и **CMGSetup.log**
+- Для устранения неполадок службы работоспособности используйте журналы **CMGService.log** и **SMS_Cloud_ProxyConnector.log**.
+- Для устранения неполадок с клиентским трафиком используйте журналы **CMGHttpHandler.log**, **CMGService.log** и **SMS_Cloud_ProxyConnector.log**.
 
-###  <a name="BKMK_CompSettingsLog"></a>Configurações de conformidade e acesso a recursos da empresa  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com as definições de compatibilidade e o acesso a recursos da empresa.  
+###  <a name="BKMK_CompSettingsLog"></a> Параметры соответствия и доступ к ресурсам организации  
+ В следующей таблице перечислены файлы журналов, содержащие сведения о параметрах соответствия и доступе к ресурсам компании.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|CIAgent.log|Regista os detalhes sobre o processo de remediação e compatibilidade das definições de compatibilidade, atualizações de software e gestão de aplicações.|Cliente|  
-|CITaskManager.log|Regista informações sobre o agendamento da tarefa de itens de configuração.|Cliente|  
-|DCMAgent.log|Regista informações de alto nível sobre a avaliação, a comunicação de conflitos e a remediação de itens de configuração e aplicações.|Cliente|  
-|DCMReporting.log|Regista informações sobre os relatórios de resultados da plataforma de política em mensagens de estado para itens de configuração.|Cliente|  
-|DcmWmiProvider.log|Registra as informações sobre a leitura de synclets de item de configuração por meio do WMI.|Cliente|  
+|CIAgent.log|Записывает сведения о процессе исправления и обеспечения соответствия, связанные с параметрами соответствия, обновлениями программного обеспечения и управлением приложениями.|"Клиент";|  
+|CITaskManager.log|Записывает сведения о планировании задач элементов конфигурации.|"Клиент";|  
+|DCMAgent.log|Записывает высокоуровневые сведения об оценке, отчетах о конфликтах и исправлении, связанные с элементами конфигурации и приложениями.|"Клиент";|  
+|DCMReporting.log|Записывает сведения о результатах платформы политики отчетов в сообщениях о состоянии элементов конфигурации.|"Клиент";|  
+|DcmWmiProvider.log|Записывает сведения о считывании модулей элементов конфигурации из WMI.|"Клиент";|  
 
-###  <a name="BKMK_ConsoleLog"></a>Console do Configuration Manager  
- A tabela a seguir lista os arquivos de log que contêm informações relacionadas ao console do Configuration Manager.  
+###  <a name="BKMK_ConsoleLog"></a> Консоль Configuration Manager  
+ В таблице ниже перечислены файлы журналов, содержащие сведения о консоли Configuration Manager.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|ConfigMgrAdminUISetup.log|Registra a instalação do console do Configuration Manager.|Computador que executa o console do Configuration Manager|  
-|SmsAdminUI.log|Registra as informações sobre a operação do console do Configuration Manager.|Computador que executa o console do Configuration Manager|  
-|Smsprov.log|Regista atividades executadas pelo fornecedor de SMS. As atividades do console do Configuration Manager usam o provedor de SMS.|Servidor do site ou servidor de sistema de sites|  
+|ConfigMgrAdminUISetup.log|Содержит сведения об установке консоли Configuration Manager.|Компьютер, где запущена консоль Configuration Manager|  
+|SmsAdminUI.log|Содержит сведения о работе консоли Configuration Manager.|Компьютер, где запущена консоль Configuration Manager|  
+|Smsprov.log|Записывает сведения о действиях, выполняемых поставщиком SMS. Для действий консоли Configuration Manager используется поставщик SMS.|Сервер сайта или сервер системы сайта|  
 
-###  <a name="BKMK_ContentLog"></a>Gerenciamento de conteúdo  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a gestão de conteúdos.  
+###  <a name="BKMK_ContentLog"></a> Управление содержимым  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об управлении содержимым.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|Clouddp-<ServiceName>.log&lt;guid\>. log|Regista os detalhes de um ponto de distribuição baseado na nuvem específico, incluindo informações sobre armazenamento e acesso ao conteúdo.|Servidor do sistema de sites|  
-|CloudMgr.log|Registra os detalhes sobre o provisionamento de conteúdo, coletando armazenamento e estatísticas de largura de banda e as ações iniciadas pelo administrador para interromper ou iniciar o serviço de nuvem que executa um ponto de distribuição baseado em nuvem.|Servidor do sistema de sites|  
-|DataTransferService.log|Regista todas as comunicações BITS para acesso a políticas ou pacotes. Esse log também é usado para gerenciamento de conteúdo por pontos de distribuição de recepção.|Computador que está configurado como um ponto de distribuição de recepção|  
-|PullDP.log|Regista os detalhes sobre o conteúdo que o ponto de distribuição de extração transfere dos pontos de distribuição de origem.|Computador que está configurado como um ponto de distribuição de recepção|  
-|PrestageContent.log|Registra os detalhes sobre o uso de ExtractContent.exe ferramenta em um ponto de distribuição remoto e pré-configurado. Esta ferramenta extrai o conteúdo exportado para um ficheiro.|Função do sistema de sites|  
-|SMSdpmon.log|Registra os detalhes sobre as tarefas agendadas que estão configuradas em um ponto de distribuição de monitoramento de integridade de ponto de distribuição.|Função do sistema de sites|  
-|smsdpprov.log|Regista os detalhes sobre a extração de ficheiros comprimidos recebidos de um site primário. Esse log é gerado pelo provedor WMI do ponto de distribuição remoto.|Computador do ponto de distribuição que não seja colocada com o servidor do site|  
+|CloudDP-&lt;guid\>.log|Записывает сведения для конкретной облачной точки распространения, включая данные о доступе к хранилищу и содержимому.|Сервер системы сайта|  
+|CloudMgr.log|Записывает сведения о подготовке содержимого, сборе статистики по пропускной способности и хранилищу и инициированных администратором действиях по остановке или запуску облачной службы, где работает облачная точка распространения.|Сервер системы сайта|  
+|DataTransferService.log|В этот файл журнала записывается вся информация о доступе к политикам или пакетам по протоколу BITS. Этот журнал также используется для управления содержимым в точках распространения по запросу.|Компьютер, используемый в качестве точки распространения по запросу|  
+|PullDP.log|Подробности о содержимом, передаваемом точкой распространения по запросу из исходных точек распространения.|Компьютер, используемый в качестве точки распространения по запросу|  
+|PrestageContent.log|Записывает сведения об использовании средства ExtractContent.exe в удаленной точке распространения подготовленного содержимого. Это средство извлекает содержимое, которое было экспортировано в файл.|Роль системы сайта|  
+|SMSdpmon.log|Записывает сведения о запланированных задачах мониторинга работоспособности точки распространения, настроенных в точке распространения.|Роль системы сайта|  
+|smsdpprov.log|Записывает сведения об извлечении сжатых файлов, полученных от первичного сайта. Этот журнал создается поставщиком WMI удаленной точки распространения.|Компьютер точки распространения, не являющийся сервером сайта.|  
 
 
-###  <a name="BKMK_DiscoveryLog"></a>Descoberta  
-A tabela a seguir lista os arquivos de log que contêm informações relacionadas à descoberta.  
+###  <a name="BKMK_DiscoveryLog"></a> Обнаружение  
+В таблице ниже перечислены файлы журналов, содержащие сведения об обнаружении.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|adsgdis.log|Regista ações da Deteção de Grupos de Segurança do Active Directory.|Servidor do site|  
-|adsysdis.log|Regista ações da Deteção de Sistemas do Active Directory.|Servidor do site|  
-|adusrdis.log|Regista ações da Deteção de Utilizadores do Active Directory.|Servidor do site|  
-|ADForestDisc.Log|Regista ações da Deteção de Florestas do Active Directory.|Servidor do site|  
-|ddm.log|Regista atividades do gestor de dados de deteção.|Servidor do site|  
-|InventoryAgent.log|Regista atividades de inventário de hardware, inventário de software e ações de deteção de heartbeat no cliente.|Cliente|  
-|netdisc.log|Regista ações da Deteção de Rede.|Servidor do site|  
+|adsgdis.log|Журнал действий метода обнаружения группы безопасности Active Directory.|Сервер сайтов|  
+|adsysdis.log|Журнал действий метода обнаружения системы Active Directory.|Сервер сайтов|  
+|adusrdis.log|Журнал действий метода обнаружения пользователя Active Directory.|Сервер сайтов|  
+|ADForestDisc.log|Журнал действий обнаружения леса Active Directory.|Сервер сайтов|  
+|ddm.log|Записывает действия диспетчера данных обнаружения.|Сервер сайтов|  
+|InventoryAgent.log|Записывает действия, связанные с инвентаризацией оборудования, программного обеспечения и heartbeat-обнаружением на клиенте.|"Клиент";|  
+|netdisc.log|Журнал действий метода обнаружения сети.|Сервер сайтов|  
 
-###  <a name="BKMK_EPLog"></a>Proteção de ponto de extremidade  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o Endpoint Protection.  
+###  <a name="BKMK_EPLog"></a> Endpoint Protection  
+ В следующей таблице перечислены файлы журналов, содержащие сведения, связанные с Endpoint Protection.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|EndpointProtectionAgent.log|Regista os detalhes sobre a instalação do cliente do Endpoint Protection e a aplicação da política antimalware a esse cliente.|Cliente|  
-|EPCtrlMgr.log|Registra os detalhes sobre a sincronização de informações de ameaça de malware do servidor de função de proteção de ponto de extremidade com o banco de dados do Configuration Manager.|Servidor do sistema de sites|  
-|EPMgr.log|Monitoriza o estado da função do sistema de sites do Endpoint Protection.|Servidor do sistema de sites|  
-|EPSetup.log|Fornece informações sobre a instalação da função de sistema de sites do Endpoint Protection.|Servidor do sistema de sites|  
+|EndpointProtectionAgent.log|Записывает сведения об установке клиента Endpoint Protection и применении политики защиты от вредоносных программ к этому клиенту.|"Клиент";|  
+|EPCtrlMgr.log|Записывает сведения о синхронизации данных по угрозам вредоносных программ с сервера роли Endpoint Protection с базой данных Configuration Manager.|Сервер системы сайта|  
+|EPMgr.log|Отслеживает состояние роли системы сайта "Endpoint Protection".|Сервер системы сайта|  
+|EPSetup.log|Содержит сведения об установке роли системы сайта Endpoint Protection.|Сервер системы сайта|  
 
-###  <a name="BKMK_Extensions"></a>Extensões  
- A tabela a seguir lista os arquivos de log que contêm informações relacionadas às extensões.  
+###  <a name="BKMK_Extensions"></a> Расширения  
+ В следующей таблице перечислены файлы журналов, содержащие сведения о расширениях.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|AdminUI.ExtensionInstaller.log|Regista informações sobre a transferência de extensões da Microsoft e sobre a instalação e desinstalação de todas as extensões.|Computador que executa o console do Configuration Manager|  
-|FeatureExtensionInstaller.log|Registra informações sobre a instalação e remoção das extensões individuais quando elas são habilitadas ou desabilitadas no console do Configuration Manager.|Computador que executa o console do Configuration Manager|  
-|SmsAdminUI.log|Registra a atividade de console do Configuration Manager.|Computador que executa o console do Configuration Manager|  
+|AdminUI.ExtensionInstaller.log|Записывает сведения о загрузке расширений от корпорации Майкрософт, а также об установке и удалении всех расширений.|Компьютер, где запущена консоль Configuration Manager|  
+|FeatureExtensionInstaller.log|Записывает сведения об установке и удалении отдельных расширений, когда они включены или отключены в консоли Configuration Manager.|Компьютер, где запущена консоль Configuration Manager|  
+|SmsAdminUI.log|Содержит действия консоли Configuration Manager.|Компьютер, где запущена консоль Configuration Manager|  
 
-###  <a name="BKMK_InventoryLog"></a>Inventário  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o processamento de dados de inventário.  
+###  <a name="BKMK_InventoryLog"></a> Инвентаризация  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об обработке данных инвентаризации.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|dataldr.log|Registra as informações sobre o processamento de arquivos MIF e inventário de hardware no banco de dados do Configuration Manager.|Servidor do site|  
-|invproc.log|Regista o reencaminhamento de ficheiros MIF de um site secundário para o seu site principal.|Servidor do Site Secundário|  
-|sinvproc.log|Regista informações sobre o processamento de dados de inventário de software para a base de dados do site.|Servidor do site|  
+|dataldr.log|Записывает сведения об обработке MIF-файлов и данных инвентаризации оборудования в базе данных Configuration Manager.|Сервер сайтов|  
+|invproc.log|Записывает сведения о пересылке MIF-файлов со вторичного сайта его родительскому сайту.|Сервер вторичного сайта|  
+|sinvproc.log|Записывает сведения об обработке данных инвентаризации программного обеспечения, заносимых в базу данных сайта.|Сервер сайтов|  
 
-###  <a name="BKMK_MeteringLog"></a>Medição  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a medição.  
+###  <a name="BKMK_MeteringLog"></a> Контроль использования  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об отслеживании использования.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|mtrmgr.log|Monitoriza todos os processos de medição de software.|Servidor do site|  
+|mtrmgr.log|Этот файл журнала служит для мониторинга всех процессов контроля использования программных продуктов.|Сервер сайтов|  
 
-###  <a name="BKMK_MigrationLog"></a>Migração  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a migração.  
+###  <a name="BKMK_MigrationLog"></a> Миграция  
+ В следующей таблице перечислены файлы журналов, содержащие сведения о миграции.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|migmctrl.log|Regista informações sobre ações de migração que envolvam tarefas de migração, pontos de distribuição partilhados e atualizações de pontos de distribuição.|Site de nível superior na hierarquia do Configuration Manager e cada site primário filho.<br /><br /> Numa hierarquia com vários sites primários, utilize o ficheiro de registo criado no site de administração central.|  
+|migmctrl.log|Записывает сведения о действиях, связанных с миграцией, включая задания миграции, общие точки распространения и обновления точек распространения.|Сайт верхнего уровня в иерархии Configuration Manager и каждый дочерний первичный сайт.<br /><br /> В иерархии с несколькими первичными сайтами следует использовать файл журнала, созданный на сайте центра администрирования.|  
 
-###  <a name="BKMK_MDMLog"></a>Dispositivos móveis  
- As seções a seguir listam os arquivos de log que contêm informações relacionadas ao gerenciamento de dispositivos móveis.  
+###  <a name="BKMK_MDMLog"></a> Мобильные устройства  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об управлении мобильными устройствами.  
 
-####  <a name="BKMK_EnrollmentLog"></a>Registro  
- A tabela seguinte lista registos que contêm informações relacionadas com a inscrição de dispositivos móveis.  
+####  <a name="BKMK_EnrollmentLog"></a> Регистрация  
+ В следующей таблице перечислены журналы, содержащие сведения, связанные с регистрацией мобильных устройств.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|DMPRP.log|Regista a comunicação entre os pontos de gestão ativados para dispositivos móveis e os pontos finais do ponto de gestão.|Servidor do sistema de sites|  
-|dmpmsi.log|Regista os dados do Windows Installer para a configuração de um ponto de gestão ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|DMPSetup.log|Regista a configuração do ponto de gestão quando este está ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|enrollsrvMSI.log|Regista os dados do Windows Installer para a configuração de um ponto de registo.|Servidor do sistema de sites|  
-|enrollmentweb.log|Regista a comunicação entre dispositivos móveis e o ponto proxy de registo.|Servidor do sistema de sites|  
-|enrollwebMSI.log|Regista os dados do Windows Installer para a configuração de um ponto proxy de registo.|Servidor do sistema de sites|  
-|enrollmentservice.log|Regista a comunicação entre um ponto proxy de registo e um ponto de registo.|Servidor do sistema de sites|  
-|SMS_DM.log|Registra a comunicação entre o ponto de gerenciamento habilitado para dispositivos móveis e computadores Mac, dispositivos móveis e computadores Mac.|Servidor do sistema de sites|  
+|DMPRP.log|Записывает сведения о соединениях между точками управления, включенными для мобильных устройств, и конечными точками точек управления.|Сервер системы сайта|  
+|dmpmsi.log|Записывает данные установщика Windows, связанные с настройкой точки управления, включенной для мобильных устройств.|Сервер системы сайта|  
+|DMPSetup.log|Записывает данные конфигурации точки управления, если она включена для мобильных устройств.|Сервер системы сайта|  
+|enrollsrvMSI.log|Записывает данные установщика Windows, связанные с настройкой точки регистрации.|Сервер системы сайта|  
+|enrollmentweb.log|Записывает сведения о соединениях между мобильными устройствами и прокси-точкой регистрации.|Сервер системы сайта|  
+|enrollwebMSI.log|Записывает данные установщика Windows, связанные с настройкой прокси-точки регистрации.|Сервер системы сайта|  
+|enrollmentservice.log|Записывает сведения о соединениях между прокси-точкой регистрации и точкой регистрации.|Сервер системы сайта|  
+|SMS_DM.log|Записывает сведения о взаимодействии между мобильными устройствами, компьютерами Mac и точкой управления, включенной для мобильных устройств и компьютеров Mac.|Сервер системы сайта|  
 
-####  <a name="BKMK_ExchSrvLog"></a>Conector do Exchange Server  
- Os logs a seguir contêm informações relacionadas ao conector do Exchange Server.  
+####  <a name="BKMK_ExchSrvLog"></a> Коннектор Exchange Server  
+ В следующих журналах содержатся сведения, связанные с коннектором Exchange Server.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|easdisc.log|Regista as atividades e o estado do conector do Exchange Server.|Servidor do site|  
+|easdisc.log|Записывает действия и состояние коннекторы Exchange Server.|Сервер сайтов|  
 
-####  <a name="BKMK_MDLegLog"></a>Herdado de dispositivo móvel  
- A tabela seguinte lista registos que contêm informações relacionadas com o cliente legado do dispositivo móvel.  
+####  <a name="BKMK_MDLegLog"></a> Устаревшие мобильные устройства  
+ В следующей таблице перечислены журналы, содержащие сведения, связанные с устаревшими клиентами мобильных устройств.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|DmCertEnroll.log|Regista os detalhes sobre os dados de inscrição do certificado em clientes legados de dispositivos móveis.|Cliente|  
-|DMCertResp.htm|Regista a resposta HTML a partir do servidor de certificado quando o programa de inscrição do cliente legado do dispositivo móvel solicita um certificado PKI.|Cliente|  
-|DmClientHealth.log|Registra os GUIDs dos clientes herdados de todos os dispositivos móveis que se comunicam com o ponto de gerenciamento habilitado para dispositivos móveis.|Servidor do sistema de sites|  
-|DmClientRegistration.log|Regista os pedidos e respostas de registo de e para clientes legados de dispositivos móveis.|Servidor do sistema de sites|  
-|DmClientSetup.log|Regista os dados da configuração do cliente para clientes legados de dispositivos móveis.|Cliente|  
-|DmClientXfer.log|Regista os dados de transferência do cliente para clientes legados de dispositivos móveis e para implementações do ActiveSync.|Cliente|  
-|DmCommonInstaller.log|Regista a instalação do ficheiro de transferência do cliente para a configuração de ficheiros de transferência de clientes legados de dispositivos móveis.|Cliente|  
-|DmInstaller.log|Regista se o DMInstaller chama corretamente o DmClientSetup e se o DmClientSetup sai com sucesso ou falha em clientes legados de dispositivos móveis.|Cliente|  
-|DmpDatastore.log|Regista todas as ligações de base de dados do site e consultas efetuadas pelo ponto de gestão ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|DmpDiscovery.log|Regista todos os dados de deteção dos clientes legados de dispositivos móveis no ponto de gestão ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|DmpHardware.log|Regista dados de inventário de hardware dos clientes legados de dispositivos móveis no ponto de gestão ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|DmpIsapi.log|Regista a comunicação do cliente legado de dispositivos móveis com um ponto de gestão ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|dmpmsi.log|Regista os dados do Windows Installer para a configuração de um ponto de gestão ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|DMPSetup.log|Regista a configuração do ponto de gestão quando este está ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|DmpSoftware.log|Regista dados de distribuição de software dos clientes legados de dispositivos móveis no ponto de gestão ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|DmpStatus.log|Regista dados de mensagens de estado de clientes de dispositivos móveis no ponto de gestão ativado para dispositivos móveis.|Servidor do sistema de sites|  
-|DmSvc.log|Regista a comunicação de cliente dos clientes legados de dispositivos móveis com um ponto de gestão ativado para dispositivos móveis.|Cliente|  
-|FspIsapi.log|Regista detalhes sobre comunicações com o ponto de estado de contingência a partir de clientes legados de dispositivos móveis e de computadores cliente.|Servidor do sistema de sites|  
+|DmCertEnroll.log|Записывает сведения о данных регистрации сертификатов на устаревших клиентах мобильных устройств.|"Клиент";|  
+|DMCertResp.htm|Записывает ответ в виде HTML от сервера сертификата, когда программа-регистратор устаревшего клиента мобильного устройства запрашивает PKI-сертификат.|"Клиент";|  
+|DmClientHealth.log|Записывает идентификаторы GUID всех устаревших клиентов мобильных устройств, соединяющихся с точкой управления, включенной для мобильных устройств.|Сервер системы сайта|  
+|DmClientRegistration.log|Записывает запросы регистрации, направляемые устаревшими клиентами мобильных устройств, а также ответы, отправляемые и принимаемые такими клиентами.|Сервер системы сайта|  
+|DmClientSetup.log|Записывает данные установки клиентов для устаревших клиентов мобильных устройств.|"Клиент";|  
+|DmClientXfer.log|Записывает данные о передаче клиента для устаревших клиентов мобильных устройств и развертываний ActiveSync.|"Клиент";|  
+|DmCommonInstaller.log|Записывает сведения об установке файлов передачи клиента, связанные с настройкой файлов передачи устаревших клиентов мобильных устройств.|"Клиент";|  
+|DmInstaller.log|В этот файл журнала записывается информация о том, правильно ли DMInstaller вызывает DmClientSetup, а также сведения об успешном или аварийном завершении работы программы DmClientSetup на устаревших клиентах мобильных устройств.|"Клиент";|  
+|DmpDatastore.log|Записывает сведения обо всех подключениях к базе данных сайта и запросах, сформированных точкой управления, включенной для мобильных устройств.|Сервер системы сайта|  
+|DmpDiscovery.log|Записывает все данные обнаружения, полученные от устаревших клиентов мобильных устройств на точке управления, включенной для мобильных устройств.|Сервер системы сайта|  
+|DmpHardware.log|Записывает данные инвентаризации оборудования, полученные от устаревших клиентов мобильных устройств на точке управления, включенной для мобильных устройств.|Сервер системы сайта|  
+|DmpIsapi.log|Записывает сведения о подключениях устаревших клиентов мобильных устройств к точке управления, включенной для мобильных устройств.|Сервер системы сайта|  
+|dmpmsi.log|Записывает данные установщика Windows, связанные с настройкой точки управления, включенной для мобильных устройств.|Сервер системы сайта|  
+|DMPSetup.log|Записывает данные конфигурации точки управления, если она включена для мобильных устройств.|Сервер системы сайта|  
+|DmpSoftware.log|Записывает данные о распространении программного обеспечения, полученные от устаревших клиентов мобильных устройств на точке управления, включенной для мобильных устройств.|Сервер системы сайта|  
+|DmpStatus.log|Записывает данные сообщений о состоянии, полученные от клиентов мобильных устройств на точке управления, включенной для мобильных устройств.|Сервер системы сайта|  
+|DmSvc.log|Записывает сведения о подключениях устаревших клиентов мобильных устройств к точке управления, включенной для мобильных устройств.|"Клиент";|  
+|FspIsapi.log|Записывает сведения о подключениях к резервной точке состояния устаревших клиентов мобильных устройств и клиентских компьютеров.|Сервер системы сайта|  
 
-###  <a name="BKMK_OSDLog"></a>Implantação de sistema operacional  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a implementação do sistema operativo.  
+###  <a name="BKMK_OSDLog"></a> Развертывание операционной системы  
+ В следующей таблице перечислены файлы журналов, содержащие сведения о развертывании операционной системы.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|CAS.log|Regista detalhes quando são encontrados pontos de distribuição para conteúdo referenciado.|Cliente|  
-|ccmsetup.log|Registra tarefas do ccmsetup para a instalação do cliente, atualização e remoção do cliente. Pode ser utilizado para resolver problemas de instalação de cliente.|Cliente|  
-|CreateTSMedia.log|Regista detalhes para a criação de suportes de dados de sequências de tarefas.|Computador que executa o console do Configuration Manager|  
-|DeployToVhd.log|Registra os detalhes sobre o processo de criação e modificação de disco rígido Virtual (VHD).|Computador que executa o console do Configuration Manager|  
-|Dism.log|Registra ações de instalação do driver ou ações de atualização do aplicativo para a instalação offline.|Servidor do sistema de sites|  
-|Distmgr.log|Registra os detalhes sobre a configuração de habilitação de um ponto de distribuição para o Preboot Execution Environment (PXE).|Servidor do sistema de sites|  
-|DriverCatalog.log|Regista detalhes sobre controladores de dispositivo importados para o catálogo de controladores.|Servidor do sistema de sites|  
-|mcsisapi.log|Regista informações de transferência de pacotes multicast e respostas de pedidos de cliente.|Servidor do sistema de sites|  
-|mcsexec.log|Verificação de integridade de registros, namespace, criação de sessão e certificado verificar ações.|Servidor do sistema de sites|  
-|mcsmgr.log|Registra as alterações na configuração, o modo de segurança e disponibilidade.|Servidor do sistema de sites|  
-|mcsprv.log|Regista a interação do fornecedor de multicast com os Serviços de Implementação do Windows (WDS).|Servidor do sistema de sites|  
-|MCSSetup.log|Regista detalhes sobre a instalação da função de servidor multicast.|Servidor do sistema de sites|  
-|MCSMSI.log|Regista detalhes sobre a instalação da função de servidor multicast.|Servidor do sistema de sites|  
-|Mcsperf.log|Regista detalhes sobre as atualizações do contador de desempenho multicast.|Servidor do sistema de sites|  
-|MP_ClientIDManager.log|Regista as respostas do ponto de gestão a sequências de tarefas de pedidos de ID de cliente iniciadas a partir de PXE ou de suportes de dados de arranque.|Servidor do sistema de sites|  
-|MP_DriverManager.log|Regista as respostas do ponto de gestão a pedidos de ação da sequência de tarefas Aplicar Controlador Automaticamente.|Servidor do sistema de sites|  
-|OfflineServicingMgr.log|Registra os detalhes da atualização e agendas de manutenção offline aplicam ações em arquivos de formato WIM (Windows Imaging) do sistema operacional.|Servidor do sistema de sites|  
-|Setupact.log|Regista detalhes sobre os registos do Windows Sysprep e do programa de configuração.|Cliente|  
-|Setupapi.log|Regista detalhes sobre os registos do Windows Sysprep e do programa de configuração.|Cliente|  
-|Setuperr.log|Regista detalhes sobre os registos do Windows Sysprep e do programa de configuração.|Cliente|  
-|smpisapi.log|Regista detalhes sobre as ações de captura e restauro do estado de cliente e informações de limiares.|Cliente|  
-|Smpmgr.log|Regista detalhes sobre os resultados de verificações do estado de funcionamento do ponto de migração de estado e de alterações de configuração.|Servidor do sistema de sites|  
-|smpmsi.log|Regista detalhes da instalação e configuração do ponto de migração de estado.|Servidor do sistema de sites|  
-|smpperf.log|Regista as atualizações do contador de desempenho do ponto de migração de estado.|Servidor do sistema de sites|  
-|smspxe.log|Registra os detalhes sobre as respostas a clientes que usam o PXE inicializa e detalhes sobre a expansão de imagens de inicialização e arquivos de inicialização.|Servidor do sistema de sites|  
-|smssmpsetup.log|Regista detalhes da instalação e configuração do ponto de migração de estado.|Servidor do sistema de sites|  
-|Smsts.log|Regista atividades de sequência de tarefas.|Cliente|  
-|TSAgent.log|Regista o resultado de dependências de sequência de tarefas antes de iniciar uma sequência de tarefas.|Cliente|  
-|TaskSequenceProvider.log|Regista detalhes sobre sequências de tarefas quando estas são importadas, exportadas ou editadas.|Servidor do sistema de sites|  
-|loadstate.log|Regista detalhes sobre a Ferramenta de Migração de Estado de Utilizador (USMT) e o restauro de dados de estado do utilizador.|Cliente|  
-|scanstate.log|Regista detalhes sobre a Ferramenta de Migração de Estado de Utilizador (USMT) e a captura de dados de estado do utilizador.|Cliente|  
+|CAS.log|Содержит подробности обнаружения точек распространения для содержимого, на которое указывает ссылка.|"Клиент";|  
+|ccmsetup.log|Записывает задачи ccmsetup по установке, обновлению и удалению клиента. Может использоваться для устранения неполадок при установке клиента.|"Клиент";|  
+|CreateTSMedia.log|Записывает сведения о создании носителя последовательности задач.|Компьютер, где запущена консоль Configuration Manager|  
+|DeployToVhd.log|Записывает сведения о процессе создания и изменения виртуальных жестких дисков.|Компьютер, где запущена консоль Configuration Manager|  
+|Dism.log|Записывает действия установки драйверов или действия применения обновлений для автономных служб.|Сервер системы сайта|  
+|distmgr.log|Записывает сведения о конфигурации, связанной с включением точки распространения для PXE.|Сервер системы сайта|  
+|DriverCatalog.log|Записывает сведения о драйверах устройств, импортированных в каталог драйверов.|Сервер системы сайта|  
+|mcsisapi.log|Записывает сведения о передаче пакетов с и ответов на запросы клиентов.|Сервер системы сайта|  
+|mcsexec.log|Записывает действия, связанные с проверкой работоспособности, пространством имен, созданием сеанса и проверкой сертификатов.|Сервер системы сайта|  
+|mcsmgr.log|Записывает изменения конфигурации, режима безопасности и доступности.|Сервер системы сайта|  
+|mcsprv.log|Записывает сведения о взаимодействии поставщика многоадресных рассылок со службами развертывания Windows (WDS).|Сервер системы сайта|  
+|MCSSetup.log|Записывает сведения об установке роли сервера многоадресной рассылки.|Сервер системы сайта|  
+|MCSMSI.log|Записывает сведения об установке роли сервера многоадресной рассылки.|Сервер системы сайта|  
+|Mcsperf.log|Записывает сведения об обновлении счетчика производительности многоадресной рассылки.|Сервер системы сайта|  
+|MP_ClientIDManager.log|Записывает ответы точки управления, связанные с последовательностями задач запроса идентификатора клиента, инициированными из PXE или с загрузочного носителя.|Сервер системы сайта|  
+|MP_DriverManager.log|Записывает ответы точки управления на запросы действий, связанные с последовательностью задач автоматического применения драйверов.|Сервер системы сайта|  
+|OfflineServicingMgr.log|Записывает сведения о расписаниях автономного обслуживания и действиях применения обновлений для файлов операционной системы с расширением WIM.|Сервер системы сайта|  
+|Setupact.log|Записывает сведения о журнале Windows Sysprep и журнале установки.|"Клиент";|  
+|Setupapi.log|Записывает сведения о журнале Windows Sysprep и журнале установки.|"Клиент";|  
+|Setuperr.log|Записывает сведения о журнале Windows Sysprep и журнале установки.|"Клиент";|  
+|smpisapi.log|Записывает сведения о действиях захвата состояния и восстановления клиента, а также пороговые данные.|"Клиент";|  
+|Smpmgr.log|Записывает результаты проверки работоспособности точки миграции состояния и изменения конфигурации.|Сервер системы сайта|  
+|smpmsi.log|Записывает сведения об установке и настройке, связанные с точкой миграции состояния.|Сервер системы сайта|  
+|smpperf.log|Записывает сведения об обновлениях счетчика производительности точки миграции состояния.|Сервер системы сайта|  
+|smspxe.log|Записывает сведения об ответах клиентам с загрузкой PXE, а также сведения о расширении загрузочных образов и загрузочных файлов.|Сервер системы сайта|  
+|smssmpsetup.log|Записывает сведения об установке и настройке, связанные с точкой миграции состояния.|Сервер системы сайта|  
+|Smsts.log|Записывает действия последовательности задач.|"Клиент";|  
+|TSAgent.log|Записывает результирующие сведения о зависимостях последовательности задач перед ее запуском.|"Клиент";|  
+|TaskSequenceProvider.log|Записывает сведения о последовательностях задач при их импорте, экспорте или изменении.|Сервер системы сайта|  
+|loadstate.log|Записывает сведения о средстве миграции пользовательской среды (USMT) и восстановлении данных о состоянии пользователя.|"Клиент";|  
+|scanstate.log|Записывает сведения о средстве миграции пользовательской среды (USMT) и захвате данных о состоянии пользователя.|"Клиент";|  
 
-###  <a name="BKMK_PowerMgmtLog"></a>Gerenciamento de energia  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a gestão de energia.  
+###  <a name="BKMK_PowerMgmtLog"></a> Управление питанием  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об управлении питанием.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|pwrmgmt.log|Registra os detalhes sobre as atividades de gerenciamento de energia no computador cliente, incluindo o monitoramento e a imposição de configurações pelo agente de cliente de gerenciamento de energia.|Cliente|  
+|Pwrmgmt.log|Записывает сведения о действиях управления питанием на клиентском компьютере, включая мониторинг и применение параметров агентом клиента управления питанием.|"Клиент";|  
 
-###  <a name="BKMK_RCLog"></a>Controle remoto  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com controlo remoto.  
+###  <a name="BKMK_RCLog"></a> Удаленное управление  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об удаленном управлении.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|CMRcViewer.log|Regista detalhes sobre a atividade do visualizador de controlo remoto.|Na pasta % temp % no computador que executa o Visualizador de controle remoto|  
+|CMRcViewer.log|Содержит сведения об активности средства просмотра удаленного управления.|Расположен в папке %temp% на компьютере со средством просмотра удаленного управления.|  
 
-###  <a name="BKMK_ReportLog"></a>Emissão de relatórios  
- A tabela a seguir lista os arquivos de log do Configuration Manager que contêm informações relacionadas a relatórios.  
+###  <a name="BKMK_ReportLog"></a> Отчеты  
+ В таблице ниже перечислены файлы журналов Configuration Manager, содержащие сведения, связанные с отчетами.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|srsrp.log|Regista informações sobre a atividade e o estado do ponto do Reporting Services.|Servidor do sistema de sites|  
-|srsrpMSI.log|Regista resultados detalhados do processo de instalação do ponto do Reporting Services a partir da saída MSI.|Servidor do sistema de sites|  
-|srsrpsetup.log|Regista resultados do processo de instalação do ponto do Reporting Services.|Servidor do sistema de sites|  
+|srsrp.log|Записывает сведения о действиях и состоянии точки служб отчетов.|Сервер системы сайта|  
+|srsrpMSI.log|Записывает подробные результаты процесса установки точки служб отчетов на основе выходных данных MSI.|Сервер системы сайта|  
+|srsrpsetup.log|Записывает результаты процесса установки точки служб отчетов.|Сервер системы сайта|  
 
-###  <a name="BKMK_RBALog"></a>Administração baseada em função  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com a gestão da administração baseada em funções.  
+###  <a name="BKMK_RBALog"></a> Администрирование на основе ролей  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об администрировании на основе ролей.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|hman.log|Registra informações sobre as alterações de configuração do site e a publicação de informações do site nos serviços de domínio do Active Directory.|Servidor do site|  
-|SMSProv.log|Regista o acesso do fornecedor WMI à base de dados do site.|Computador com o Fornecedor de SMS|  
+|hman.log|Записывает сведения об изменениях в конфигурации сайта, при этом сведения о сайте публикуются в доменных службах Active Directory.|Сервер сайтов|  
+|SMSProv.log|В этот файл журнала записывается информация о доступе поставщика WMI к базе данных сайта.|Компьютер поставщика SMS|  
 
-###  <a name="BKMK_WITLog"></a>Ponto de conexão de serviço  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o ponto de ligação de serviço.  
+###  <a name="BKMK_WITLog"></a> Точка подключения службы  
+ В следующей таблице перечислены файлы журналов, содержащие сведения о точке подключения службы.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|CertMgr.log|Regista informações de certificados e de contas proxy.|Servidor do site|  
-|CollEval.log|Regista detalhes sobre o momento de criação, alteração e eliminação das coleções pelo Avaliador de Coleção.|Site primário e site de administração central|  
-|Cloudusersync.log|Regista a ativação de licenças para os utilizadores.|Computador com o ponto de ligação de serviço|  
-|Dataldr.log|Regista informações sobre o processamento de ficheiros MIF.|Servidor do site|  
-|ddm.log|Regista atividades do gestor de dados de deteção.|Servidor do site|  
-|Distmgr.log|Regista detalhes sobre pedidos de distribuição de conteúdo.|Servidor de site de nível superior|  
-|Dmpdownloader.log|Registra os detalhes sobre downloads do Microsoft Intune.|Computador com o ponto de ligação de serviço|  
-|Dmpuploader.log|Registra os detalhes relacionados ao carregar alterações do banco de dados para o Microsoft Intune.|Computador com o ponto de ligação de serviço|  
-|hman.log|Regista informações sobre o reencaminhamento de mensagens.|Servidor do site|  
-|objreplmgr.log|Regista o processamento de política e de atribuição.|Servidor do site principal|  
-|PolicyPV.log|Regista a criação de política de todas as políticas.|Servidor do site|  
-|outgoingcontentmanager.log|Registra o conteúdo carregado para o Microsoft Intune.|Computador com o ponto de ligação de serviço|  
-|Sitecomp.log|Regista os detalhes da instalação do ponto de ligação de serviço.|Servidor do site|  
-|SmsAdminUI.log|Registra a atividade de console do Configuration Manager.|Computador que executa o console do Configuration Manager|  
-|Smsprov.log|Regista atividades executadas pelo fornecedor de SMS. As atividades do console do Configuration Manager usam o provedor de SMS.|Computador com o Fornecedor de SMS|  
-|SrvBoot.log|Regista os detalhes sobre o serviço do instalador do ponto de ligação de serviço.|Computador com o ponto de ligação de serviço|  
-|Statesys.log|Regista o processamento de mensagens de gestão de dispositivos móveis.|Site primário e site de administração central|  
+|CertMgr.log|Записывает сведения о сертификатах и учетной записи прокси.|Сервер сайтов|  
+|CollEval.log|Записывает сведения о создании, изменении и удалении коллекций при помощи средства оценки коллекции.|Первичный сайт и сайт центра администрирования|  
+|Cloudusersync.log|Содержит записи о включении лицензий для пользователей.|Компьютер с точкой подключения службы|  
+|Dataldr.log|Записывает сведения об обработке MIF-файлов.|Сервер сайтов|  
+|ddm.log|Записывает действия диспетчера данных обнаружения.|Сервер сайтов|  
+|distmgr.log|Записывает сведения о запросах распределения содержимого.|Сервер сайта верхнего уровня|  
+|Dmpdownloader.log|Записывает сведения о скачивании из Microsoft Intune.|Компьютер с точкой подключения службы|  
+|Dmpuploader.log|Записывает сведения, касающиеся отправки изменений базы данных в Microsoft Intune.|Компьютер с точкой подключения службы|  
+|hman.log|Записывает сведения о переадресации сообщений.|Сервер сайтов|  
+|objreplmgr.log|Записывает сведения об обработке политики и назначения.|Сервер основного сайта|  
+|policypv.log|Записывает сведения о создании всех политик.|Сервер сайтов|  
+|outgoingcontentmanager.log|Записывает сведения о содержимом, отправляемом в Microsoft Intune.|Компьютер с точкой подключения службы|  
+|Sitecomp.log|Содержит сведения об установке точки подключения службы.|Сервер сайтов|  
+|SmsAdminUI.log|Содержит действия консоли Configuration Manager.|Компьютер, где запущена консоль Configuration Manager|  
+|Smsprov.log|Записывает сведения о действиях, выполняемых поставщиком SMS. Для действий консоли Configuration Manager используется поставщик SMS.|Компьютер поставщика SMS|  
+|SrvBoot.log|Содержит сведения о службе установщика точки подключения службы.|Компьютер с точкой подключения службы|  
+|Statesys.log|Записывает сведения об обработке сообщений управления мобильными устройствами.|Первичный сайт и сайт центра администрирования|  
 
-###  <a name="BKMK_SU_NAPLog"></a>Atualizações de software  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com as atualizações de software.  
+###  <a name="BKMK_SU_NAPLog"></a> Обновления программного обеспечения  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об обновлениях программного обеспечения.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|ccmperf.log|Regista atividades relacionadas com a manutenção e a captura de dados relacionados com os contadores de desempenho do cliente.|Cliente|  
-|PatchDownloader.log|Regista detalhes sobre o processo de transferência de atualizações de software da origem da atualização para o destino da transferência no servidor do site.|Computador que hospeda o console do Configuration Manager a partir do qual os downloads são iniciados|  
-|PolicyEvaluator.log|Regista detalhes sobre a avaliação das políticas em computadores cliente, incluindo políticas de atualizações de software.|Cliente|  
-|RebootCoordinator.log|Regista detalhes sobre a coordenação de reinícios do sistema em computadores cliente após instalações de atualizações de software.|Cliente|  
-|ScanAgent.log|Regista detalhes sobre pedidos de análise de atualizações de software, a localização do WSUS e ações relacionadas.|Cliente|  
-|SdmAgent.log|Registra os detalhes sobre o controle de correção e conformidade. No entanto, o arquivo de log de atualizações de software, o Updateshandler.log, fornece detalhes mais informativos sobre como instalar as atualizações de software que são necessárias para conformidade.<br /><br /> Este ficheiro de registo é partilhado com definições de compatibilidade.|Cliente|  
-|ServiceWindowManager.log|Regista detalhes sobre a avaliação de janelas de manutenção.|Cliente|  
-|SmsWusHandler.log|Regista detalhes sobre o processo de análise da Ferramenta de Inventário das Atualizações da Microsoft.|Cliente|  
-|StateMessage.log|Registra os detalhes sobre o software atualizar mensagens de estado que são criadas e enviadas ao ponto de gerenciamento.|Cliente|  
-|SUPSetup.log|Regista detalhes sobre a instalação do ponto de atualização de software. Quando a instalação de ponto de atualização de software estiver concluída, é escrito **Instalação bem-sucedida** neste ficheiro de registo.|Servidor do sistema de sites|  
-|UpdatesDeployment.log|Regista detalhes sobre implementações no cliente, incluindo a ativação, avaliação e imposição de atualizações de software. O registo verboso mostra informações adicionais sobre a interação com a interface de utilizador do cliente.|Cliente|  
-|UpdatesHandler.log|Regista detalhes sobre a análise de compatibilidade de atualizações de software e sobre a transferência e instalação de atualizações de software no cliente.|Cliente|  
-|UpdatesStore.log|Regista detalhes sobre o estado de compatibilidade das atualizações de software que foram analisadas durante o ciclo de análise de compatibilidade.|Cliente|  
-|WCM.log|Registra os detalhes sobre o software atualizar configurações de ponto e conexões ao servidor do WSUS para categorias de atualização assinadas, classificações e idiomas.|Servidor do site|  
-|WSUSCtrl.log|Regista detalhes sobre a configuração, a conectividade de base de dados e o estado de funcionamento do servidor WSUS do site.|Servidor do sistema de sites|  
-|wsyncmgr.log|Registra os detalhes sobre o software atualizar o processo de sincronização.|Servidor do site|  
-|WUAHandler.log|Regista detalhes sobre o Windows Update Agent no cliente quando este procura atualizações de software.|Cliente|  
+|ccmperf.log|Записывает действия, связанные с обслуживанием и захватом данных счетчиков производительности клиентов.|"Клиент";|  
+|PatchDownloader.log|Записывает сведения о процессе загрузки обновлений программного обеспечения из источника обновлений в конечную папку загрузки на сервере сайта.|Компьютер с консолью Configuration Manager, из которой запускается скачивание|  
+|PolicyEvaluator.log|Записывает сведения об оценке политик на клиентских компьютерах, включая политики из обновлений программного обеспечения.|"Клиент";|  
+|RebootCoordinator.log|Записывает сведения о процессе координации перезапусков системы на клиентских компьютерах после установки обновления программного обеспечения.|"Клиент";|  
+|ScanAgent.log|Записывает сведения о запросах сканирования для обновлений программного обеспечения, нахождении WSUS и связанных действиях.|"Клиент";|  
+|SdmAgent.log|Записывает сведения об отслеживании исправлений и соответствия. При этом в файле журнала обновлений программного обеспечения Updateshandler.log содержатся более подробные сведения об установке обновлений ПО, необходимых для обеспечения соответствия.<br /><br /> Этот файл журнала используется совместно с параметрами совместимости.|"Клиент";|  
+|ServiceWindowManager.log|Записывает сведения об оценке интервалов технического обслуживания.|"Клиент";|  
+|SmsWusHandler.log|Записывает сведения о процессе сканирования средства Inventory Tool для обновлений Microsoft.|"Клиент";|  
+|StateMessage.log|В этот файл журнала записываются сведения о сообщениях о состоянии обновлений программного обеспечения, создаваемых и отправляемых в точку управления.|"Клиент";|  
+|SUPSetup.log|В этот файл журнала записывается информация об установке точки обновления программного обеспечения. После завершения установки точки обновления программного обеспечения в данный файл журнала записывается строка **Installation was successful** .|Сервер системы сайта|  
+|UpdatesDeployment.log|Записывает сведения о развертываниях на клиенте, включая активацию, оценку и принудительную установку обновлений программного обеспечения. Подробное ведение журнала позволяет записать дополнительную информацию о взаимодействии с пользовательским интерфейсом клиента.|"Клиент";|  
+|UpdatesHandler.log|Записывает сведения о сканировании обновлений программного обеспечения на соответствие, а также о загрузке и установке обновлений программного обеспечения на клиенте.|"Клиент";|  
+|UpdatesStore.log|Записывает сведения о состоянии соответствия обновлений программного обеспечения, оценка которых была выполнена во время цикла сканирования на соответствие.|"Клиент";|  
+|WCM.log|В этот файл журнала записываются сведения о конфигурации точки обновления программного обеспечения и подключении к серверу WSUS для подписанных категорий, классификаций и языков обновления.|Сервер сайтов|  
+|WSUSCtrl.log|В этот файл журнала записываются сведения о конфигурации, подключении к базе данных и работоспособности сервера WSUS для сайта.|Сервер системы сайта|  
+|wsyncmgr.log|Записывает сведения о процессе синхронизации обновления программного обеспечения.|Сервер сайтов|  
+|WUAHandler.log|Записывает сведения об агенте обновления Windows на клиенте при выполнении им поиска обновлений программного обеспечения.|"Клиент";|  
 
-###  <a name="BKMK_WOLLog"></a>Wake On LAN  
- A tabela a seguir lista os arquivos de log que contêm informações relacionadas ao uso de Wake On LAN.  
+###  <a name="BKMK_WOLLog"></a> Пробуждение по локальной сети  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об использовании функции пробуждения по локальной сети.  
 
 > [!NOTE]  
->  Quando você suplementa o Wake On LAN usando proxy de ativação, essa atividade será registrada no cliente. Por exemplo, consulte CcmExec.log e SleepAgent_ <*domínio* \> @SYSTEM_0.log no [operações do cliente](#BKMK_ClientOpLogs) seção deste tópico.  
+>  Если дополнить пробуждение по локальной сети с помощью прокси пробуждения, эта деятельность регистрируется на клиенте. Например, см. описание файлов CcmExec.log и SleepAgent_<*домен*\>@SYSTEM_0.log в подразделе [Операции клиента](#BKMK_ClientOpLogs) этого раздела.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|wolcmgr.log|Regista detalhes sobre quais os clientes que devem receber pacotes de reativação, o número de pacotes de reativação enviados e o número de pacotes de reativação repetidos.|Servidor do site|  
-|wolmgr.log|Regista detalhes sobre procedimentos de reativação automática, tais como a reativação de implementações que estão configuradas para Reativação por LAN.|Servidor do site|  
+|wolcmgr.log|Записывает сведения о клиентах, которым необходимо передать пакеты пробуждения, число переданных пакетов пробуждения и число повторно переданных пакетов пробуждения.|Сервер сайтов|  
+|wolmgr.log|Записывает сведения о процедурах пробуждения, таких как пробуждение по локальной сети.|Сервер сайтов|  
 
-###  <a name="BKMK_WindowsServicingLog"></a>Serviço do Windows 10  
- A tabela a seguir lista os arquivos de log que contêm informações relacionadas ao serviço do Windows 10.  
+###  <a name="BKMK_WindowsServicingLog"></a>Обслуживание Windows 10  
+ В приведенной ниже таблице перечислены файлы журналов, содержащие сведения об обслуживании Windows 10.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|ccmperf.log|Regista atividades relacionadas com a manutenção e a captura de dados relacionados com os contadores de desempenho do cliente.|Cliente|  
-|CcmRepair.log|Regista as atividades de reparação do agente de cliente.|Cliente|
-|PatchDownloader.log|Regista detalhes sobre o processo de transferência de atualizações de software da origem da atualização para o destino da transferência no servidor do site.|Computador que hospeda o console do Configuration Manager a partir do qual os downloads são iniciados|  
-|PolicyEvaluator.log|Regista detalhes sobre a avaliação das políticas em computadores cliente, incluindo políticas de atualizações de software.|Cliente|  
-|RebootCoordinator.log|Regista detalhes sobre a coordenação de reinícios do sistema em computadores cliente após instalações de atualizações de software.|Cliente|  
-|ScanAgent.log|Regista detalhes sobre pedidos de análise de atualizações de software, a localização do WSUS e ações relacionadas.|Cliente|  
-|SdmAgent.log|Registra os detalhes sobre o controle de correção e conformidade. No entanto, o arquivo de log de atualizações de software, o UpdatesHandler.log, fornece detalhes mais informativos sobre como instalar as atualizações de software que são necessárias para conformidade.<br /><br /> Este ficheiro de registo é partilhado com definições de compatibilidade.|Cliente|  
-|ServiceWindowManager.log|Regista detalhes sobre a avaliação de janelas de manutenção.|Cliente|  
-|Setupact.log|Arquivo de log primário para a maioria dos erros que ocorrem durante o processo de instalação do Windows. O arquivo de log está localizado na pasta % windir %\$Windows.~BT\sources\panther pasta.|Cliente|
-|SmsWusHandler.log|Regista detalhes sobre o processo de análise da Ferramenta de Inventário das Atualizações da Microsoft.|Cliente|  
-|StateMessage.log|Regista detalhes sobre as mensagens de estado de atualizações de software que são criadas e enviadas para o ponto de gestão.|Cliente|  
-|SUPSetup.log|Regista detalhes sobre a instalação do ponto de atualização de software. Quando a instalação de ponto de atualização de software estiver concluída, é escrito **Instalação bem-sucedida** neste ficheiro de registo.|Servidor do sistema de sites|  
-|UpdatesDeployment.log|Regista detalhes sobre implementações no cliente, incluindo a ativação, avaliação e imposição de atualizações de software. O registo verboso mostra informações adicionais sobre a interação com a interface de utilizador do cliente.|Cliente|  
-|Updateshandler.log|Regista detalhes sobre a análise de compatibilidade de atualizações de software e sobre a transferência e instalação de atualizações de software no cliente.|Cliente|  
-|UpdatesStore.log|Regista detalhes sobre o estado de compatibilidade das atualizações de software que foram analisadas durante o ciclo de análise de compatibilidade.|Cliente|  
-|WCM.log|Registra os detalhes sobre o software atualizar configurações de ponto e conexões ao servidor do WSUS para categorias de atualização assinadas, classificações e idiomas.|Servidor do site|  
-|WSUSCtrl.log|Regista detalhes sobre a configuração, a conectividade de base de dados e o estado de funcionamento do servidor WSUS do site.|Servidor do sistema de sites|  
-|wsyncmgr.log|Registra os detalhes sobre o software atualizar o processo de sincronização.|Servidor do site|  
-|WUAHandler.log|Regista detalhes sobre o Windows Update Agent no cliente quando este procura atualizações de software.|Cliente|  
+|ccmperf.log|Записывает действия, связанные с обслуживанием и захватом данных счетчиков производительности клиентов.|"Клиент";|  
+|CcmRepair.log|Записывает сведения о действиях по восстановлению агента клиента.|"Клиент";|
+|PatchDownloader.log|Записывает сведения о процессе загрузки обновлений программного обеспечения из источника обновлений в конечную папку загрузки на сервере сайта.|Компьютер с консолью Configuration Manager, из которой запускается скачивание|  
+|PolicyEvaluator.log|Записывает сведения об оценке политик на клиентских компьютерах, включая политики из обновлений программного обеспечения.|"Клиент";|  
+|RebootCoordinator.log|Записывает сведения о процессе координации перезапусков системы на клиентских компьютерах после установки обновления программного обеспечения.|"Клиент";|  
+|ScanAgent.log|Записывает сведения о запросах сканирования для обновлений программного обеспечения, нахождении WSUS и связанных действиях.|"Клиент";|  
+|SdmAgent.log|Записывает сведения об отслеживании исправлений и соответствия. При этом в файле журнала обновлений программного обеспечения UpdatesHandler.log содержатся более информативные сведения об установке обновлений ПО, необходимых для обеспечения соответствия.<br /><br /> Этот файл журнала используется совместно с параметрами совместимости.|"Клиент";|  
+|ServiceWindowManager.log|Записывает сведения об оценке интервалов технического обслуживания.|"Клиент";|  
+|setupact.log|Основной файл журнала для большинства ошибок, которые происходят в процессе установки Windows. Файл журнала находится в папке %windir%\$Windows.~BT\sources\panther.|"Клиент";|
+|SmsWusHandler.log|Записывает сведения о процессе сканирования средства Inventory Tool для обновлений Microsoft.|"Клиент";|  
+|StateMessage.log|В этот файл журнала записываются сведения о сообщениях о состоянии обновлений программного обеспечения, создаваемых и отправляемых в точку управления.|"Клиент";|  
+|SUPSetup.log|В этот файл журнала записывается информация об установке точки обновления программного обеспечения. После завершения установки точки обновления программного обеспечения в данный файл журнала записывается строка **Installation was successful** .|Сервер системы сайта|  
+|UpdatesDeployment.log|Записывает сведения о развертываниях на клиенте, включая активацию, оценку и принудительную установку обновлений программного обеспечения. Подробное ведение журнала позволяет записать дополнительную информацию о взаимодействии с пользовательским интерфейсом клиента.|"Клиент";|  
+|Updateshandler.log|Записывает сведения о сканировании обновлений программного обеспечения на соответствие, а также о загрузке и установке обновлений программного обеспечения на клиенте.|"Клиент";|  
+|UpdatesStore.log|Записывает сведения о состоянии соответствия обновлений программного обеспечения, оценка которых была выполнена во время цикла сканирования на соответствие.|"Клиент";|  
+|WCM.log|В этот файл журнала записываются сведения о конфигурации точки обновления программного обеспечения и подключении к серверу WSUS для подписанных категорий, классификаций и языков обновления.|Сервер сайтов|  
+|WSUSCtrl.log|В этот файл журнала записываются сведения о конфигурации, подключении к базе данных и работоспособности сервера WSUS для сайта.|Сервер системы сайта|  
+|wsyncmgr.log|Записывает сведения о процессе синхронизации обновления программного обеспечения.|Сервер сайтов|  
+|WUAHandler.log|Записывает сведения об агенте обновления Windows на клиенте при выполнении им поиска обновлений программного обеспечения.|"Клиент";|  
 
-###  <a name="BKMK_WULog"></a>O Windows Update Agent  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o Windows Update Agent.  
+###  <a name="BKMK_WULog"></a> Агент обновления Windows  
+ В следующей таблице перечислены файлы журналов, содержащие сведения об агенте обновления Windows.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|WindowsUpdate.log|Registra os detalhes sobre quando o Windows Update Agent se conecta ao servidor do WSUS e recupera as atualizações de software para avaliação de conformidade, e se há atualizações para os componentes do agente.|Cliente|  
+|WindowsUpdate.log|Записывает сведения о подключении агента обновления Windows к серверу WSUS и извлечении обновлений программного обеспечения для оценки соответствия, а также информацию о наличии обновлений для компонентов агента.|"Клиент";|  
 
-###  <a name="BKMK_WSUSLog"></a>Servidor do WSUS  
- A tabela seguinte lista os ficheiros de registo que contêm informações relacionadas com o servidor WSUS.  
+###  <a name="BKMK_WSUSLog"></a> Сервер WSUS  
+ В следующей таблице перечислены файлы журналов, содержащие сведения, связанные с сервером WSUS.  
 
-|Nome do registo|Descrição|Computador com o ficheiro de registo|  
+|Имя журнала|Описание|Компьютер с файлом журнала|  
 |--------------|-----------------|----------------------------|  
-|Change.log|Registra os detalhes sobre informações de banco de dados do servidor do WSUS foi alterada.|Servidor WSUS|  
-|SoftwareDistribution.log|Registra os detalhes sobre as atualizações de software que foram sincronizados de origem de atualização configurada para o banco de dados do servidor do WSUS.|Servidor WSUS|  
-
+|Change.log|Записывает сведения об изменениях в базе данных сервера WSUS.|Сервер WSUS|  
+|SoftwareDistribution.log|Записывает сведения об обновлениях программного обеспечения, которые синхронизируются из настроенного источника обновлений с базой данных сервера WSUS.|Сервер WSUS|  

@@ -1,341 +1,337 @@
 ---
-title: Utilize o Asset Intelligence | Documentos do Microsoft
-description: Realizar tarefas comuns de Asset Intelligence no System Center Configuration Manager.
+title: "Использование аналитики активов | Документы Майкрософт"
+description: "Сведения о выполнении стандартных задач аналитики активов в System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e8159bd9-5c2b-4d25-82f9-78fcfd732ba9
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 9c5d1e48b76392beaf54b5377c69b648537e86f8
 ms.openlocfilehash: 17168e26f13340847928f6e3623115cd4b55997b
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-asset-intelligence-in-system-center-configuration-manager"></a>Como utilizar o Asset Intelligence no System Center Configuration Manager
+# <a name="how-to-use-asset-intelligence-in-system-center-configuration-manager"></a>Использование аналитики активов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico contém informações para ajudar a gerir tarefas de Asset Intelligence típicas na sua hierarquia do System Center Configuration Manager:  
+В этом разделе содержится информация, которая поможет вам в управлении стандартными задачами аналитики активов в иерархии System Center Configuration Manager.  
 
-##  <a name="BKMK_ViewInformation"></a> Ver informações do Asset Intelligence  
- Pode ver informações do Asset Intelligence na home page do **Asset Intelligence** e nos relatórios do Asset Intelligence.  
+##  <a name="BKMK_ViewInformation"></a> Просмотр данных аналитики активов  
+ Просмотреть данные аналитики активов можно на домашней странице **Аналитика активов** и в отчетах по аналитике активов.  
 
-###  <a name="BKMK_AssetIntelligenceHomePage"></a> Home page do Asset Intelligence  
- A home page do **Asset Intelligence** apresenta um dashboard de resumo de informações do catálogo do Asset Intelligence. Na home page, pode ver informações sobre a sincronização do catálogo e o estado do software inventariado. A home page do **Asset Intelligence** está dividida nas secções seguintes:  
+###  <a name="BKMK_AssetIntelligenceHomePage"></a> Домашняя страница аналитики активов  
+ На домашней странице **Аналитика активов** отображается сводная панель мониторинга для сведений каталога аналитики активов. На домашней странице можно просмотреть сведения о синхронизации каталога и состоянии инвентаризованного программного обеспечения. Домашняя страница **Аналитика активов** содержит следующие разделы.  
 
--   **Sincronização do catálogo**: Fornece informações sobre se o Asset Intelligence está ativado, o estado atual do ponto de sincronização do Asset Intelligence, a agenda de sincronização, se a declaração de licença de cliente é importada, quando o estado da última foi atualizado e a hora para a próxima atualização agendada e o número de alterações que ocorreram após ter sido instalado o sistema de sites do ponto de sincronização do Asset Intelligence.  
+-   **Синхронизация каталога**: предоставляет сведения о включении аналитики активов, текущем состоянии точки синхронизации аналитики активов, расписании синхронизации, импорте списка лицензий заказчика, времени последнего обновления состояния и следующего запланированного обновления, а также о количестве изменений, произошедших после установки системы сайта для точки синхронизации аналитики активов.  
 
     > [!NOTE]  
-    >  A secção de sincronização do catálogo do Asset Intelligence da home page do **Asset Intelligence** só é apresentada se tiver sido instalada uma função de sistema de sites do ponto de sincronização do Asset Intelligence.  
+    >  Раздел синхронизации каталога аналитики активов на домашней странице **Аналитика активов** отображается только в случае, если установлена роль системы сайта "Точка синхронизации аналитики активов".  
 
--   **Estado do Software inventariado, localizado**: Fornece a contagem e a percentagem de software inventariado, categorias de software e famílias de software que são identificadas pela Microsoft, identificado por um utilizador administrativo, pendentes identificação online, ou não identificado e não pendente. As informações apresentadas em formato de tabela mostram a contagem de cada uma, enquanto as informações apresentadas no gráfico mostram a percentagem de cada uma.  
+-   **Состояние инвентаризованного программного обеспечения**: содержит количество и долю (в процентах) инвентаризованного программного обеспечения, а также категорий и семейств программного обеспечения, которые идентифицированы корпорацией Майкрософт или пользователем, ожидают выполнения веб-идентификации или не были идентифицированы и не находятся в режиме ожидания. Информация, отображаемая в табличном формате, показывает количество каждого наименования, а в виде диаграмм — процентное соотношение.  
 
- Utilize o procedimento seguinte para ver informações do Asset Intelligence na home page do **Asset Intelligence** .  
+ Выполните следующую процедуру, чтобы просмотреть данные аналитики активов на домашней странице **Аналитика активов** .  
 
-##### <a name="to-view-asset-intelligence-information-on-the-asset-intelligence-home-page"></a>Para ver informações do Asset Intelligence na home page do Asset Intelligence  
+##### <a name="to-view-asset-intelligence-information-on-the-asset-intelligence-home-page"></a>Просмотр данных аналитики активов на домашней странице "Аналитика активов"  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**. Os relatórios do Asset Intelligence são apresentados.  
+2.  В рабочей области **Активы и соответствие** выберите пункт **Аналитика активов**. Будут отображены отчеты по аналитики активов.  
 
-###  <a name="BKMK_AssetIntelligenceReports"></a> Relatórios do Asset Intelligence  
- Existem mais de 60 relatórios do Asset Intelligence que apresentam as informações recolhidas pelo Asset Intelligence. Muitos destes relatórios incluem uma ligação para relatórios mais específicos nos quais pode consultar informações gerais e desagregar para obter informações mais detalhadas. Os relatórios de Asset Intelligence estão localizados na consola do Configuration Manager, no **monitorização** área de trabalho, no **relatórios** nó. Os relatórios fornecem informações sobre hardware, gestão de licenças e software. Para obter mais informações sobre os relatórios no Configuration Manager, consulte o artigo [Reporting no System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
+###  <a name="BKMK_AssetIntelligenceReports"></a> Отчеты по аналитике активов  
+ Доступно более 60 отчетов по аналитике активов, содержащих сведения, собранные соответствующей функцией. Многие из указанных отчетов связаны с более конкретными отчетами, в рамках которых можно запросить общие сведения и при необходимости получить более подробную информацию. Отчеты по аналитике активов расположены в консоли Configuration Manager в рабочей области **Наблюдение** в узле **Отчеты**. Отчеты содержат сведения об оборудовании, управлении лицензиями и программном обеспечении. Дополнительные сведения об отчетах в Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
 > [!NOTE]  
->  A precisão das quantidades de títulos de software instalado e das informações de licença apresentadas nos relatórios do Asset Intelligence podem variar em relação ao número real de títulos de software instalados ou de licenças em utilização no ambiente devido às complexas dependências e limitações envolvidas no inventário de informações de licença de software para títulos de software instalado em ambientes empresariais. Os relatórios do Asset Intelligence não devem ser utilizados como única fonte para determinar o cumprimento das licenças de software adquiridas.  
+>  Точность количественных данных по наименованиям установленного программного обеспечения и сведений о лицензиях, отображаемых в отчетах по аналитике активов, может не соответствовать фактическому количеству наименований установленного программного обеспечения или лицензий, используемых в среде, вследствие сложных зависимостей и ограничений, влияющих на сведения об инвентаризации лицензий на программное обеспечение, которое устанавливается в корпоративных средах. Не следует использовать отчеты по аналитике активов в качестве единственного источника определения соответствия требованиям приобретенных лицензий на программное обеспечение.  
 
- Utilize o procedimento seguinte para ver informações do Asset Intelligence, utilizando relatórios do Asset Intelligence.  
+ Выполните следующую процедуру, чтобы просмотреть данные аналитики активов с помощью соответствующих отчетов.  
 
-##### <a name="to-view-collected-asset-intelligence-information-by-using-asset-intelligence-reports"></a>Para ver informações do Asset Intelligence recolhidas através de relatórios do Asset Intelligence  
+##### <a name="to-view-collected-asset-intelligence-information-by-using-asset-intelligence-reports"></a>Просмотр собранных данных аналитики активов с помощью соответствующих отчетов  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  Na área de trabalho **Monitorização** , expanda **A relatar**, expanda **Relatórios**e clique em **Asset Intelligence**. Os relatórios do Asset Intelligence são apresentados.  
+2.  В рабочей области **Мониторинг** разверните узел **Отчеты**, выберите **Отчеты**и **Аналитика активов**. Будут отображены отчеты по аналитики активов.  
 
     > [!WARNING]  
-    >  Se não existirem pastas de relatórios no nó **Relatórios** , verifique se configurou os relatórios. Para obter mais informações, consulte o artigo [configurar relatórios no System Center Configuration Manager](../../../../core/servers/manage/configuring-reporting.md).  
+    >  Если узел **Отчеты** не содержит папок отчетов, убедитесь, что функция подготовки отчетов настроена. Дополнительные сведения см. в разделе [Настройка отчетов в System Center Configuration Manager](../../../../core/servers/manage/configuring-reporting.md).  
 
-3.  Selecione o relatório do Asset Intelligence que pretende executar e, em seguida, no separador **Home Page** , no grupo **Grupo de Relatórios** , clique em **Executar**.  
+3.  Выберите отчет по аналитике активов, который требуется подготовить, а затем на вкладке **Главная** в группе **Группа отчетов** выберите **Запустить**.  
 
-##  <a name="BKMK_SynchronizeTheCatalog"></a> Sincronizar o catálogo do Asset Intelligence  
- Pode sincronizar o catálogo do Asset Intelligence local com o System Center Online para obter a categorização mais recente de títulos de software. Quando solicitar manualmente a sincronização do catálogo com o System Center Online, pode demorar 15 minutos ou mais a concluir o processo de sincronização com o System Center Online. Atualizações do Configuration Manager a **última atualização com êxito** a definição de **Asset Intelligence** home page com a hora atual para quando sincronização terminar com êxito.  
+##  <a name="BKMK_SynchronizeTheCatalog"></a> Синхронизация каталога аналитики активов  
+ Локальный каталог аналитики активов можно синхронизировать со службой System Center Online для получения самой последней версии классификации наименований программного обеспечения. При отправке вручную запроса на синхронизацию каталога со службой System Center Online может потребоваться не менее 15 минут для выполнения процесса синхронизации. Когда синхронизация успешно завершается, Configuration Manager обновляет параметр **Последнее успешное обновление** на домашней странице **Аналитика активов**, устанавливая текущее время.  
 
 > [!NOTE]  
->  Uma função de sistema de sites do ponto de sincronização do Asset Intelligence tem de ser instalada primeiro através dos procedimentos. Para obter informações sobre como instalar um ponto de sincronização do Asset Intelligence, consulte o artigo [configuração de Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+>  Сначала потребуется установить роль системы сайта "Точка синхронизации аналитики активов", выполнив приведенные процедуры. Сведения об установке точки синхронизации аналитики активов см. в разделе [Настройка аналитики активов в System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
- Utilize o procedimento seguinte para criar um agendamento de sincronização para o catálogo do Asset Intelligence.  
+ Выполните следующую процедуру, чтобы создать расписание синхронизации каталога аналитики активов  
 
-#### <a name="to-create-a-synchronization-schedule-for-the-asset-intelligence-catalog"></a>Para criar um agendamento de sincronização para o catálogo do Asset Intelligence  
+#### <a name="to-create-a-synchronization-schedule-for-the-asset-intelligence-catalog"></a>Создание расписания синхронизации для каталога аналитики активов  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**.  
+2.  В рабочей области **Активы и соответствие** выберите пункт **Аналитика активов**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Sincronizar**e, em seguida, clique em **Agendar Sincronização**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Синхронизировать**, а затем выберите **Планирование синхронизации**.  
 
-4.  Na caixa de diálogo **Agendamento do Ponto de Sincronização do Asset Intelligence** , selecione **Ativar sincronização num agendamento**e configure um agendamento simples ou personalizado.  
+4.  В диалоговом окне **Расписание точки синхронизации аналитики активов** выберите **Включить синхронизацию по расписанию**, а затем настройте простое или особое расписание.  
 
-5.  Clique em **OK** para guardar as alterações.  
+5.  Нажмите кнопку **ОК** , чтобы сохранить изменения.  
 
     > [!NOTE]  
-    >  Para obter informações sobre o agendamento da sincronização, incluindo a próxima sincronização agendada, consulte o nó **Asset Intelligence** na área de trabalho **Ativos e Compatibilidade** , no site de nível superior da hierarquia.  
+    >  Сведения о расписании синхронизации, в том числе о следующей запланированной синхронизации, см. в узле **Аналитика активов** рабочей области **Активы и соответствие** на сайте верхнего уровня в иерархии.  
 
- Utilize o procedimento seguinte para sincronizar manualmente o catálogo do Asset Intelligence.  
+ Выполните следующую процедуру, чтобы вручную синхронизировать каталог аналитики активов.  
 
 > [!WARNING]  
->  O System Center Online só aceita um pedido de sincronização manual num período de 12 horas.  
+>  Служба System Center Online принимает только один ручной запрос о синхронизации в течение 12-часового периода.  
 
-###  <a name="BKMK_ManuallySynchronizeCatalog"></a> Para sincronizar manualmente o catálogo do Asset Intelligence  
+###  <a name="BKMK_ManuallySynchronizeCatalog"></a> Синхронизация каталога аналитики активов вручную  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**.  
+2.  В рабочей области **Активы и соответствие** выберите пункт **Аналитика активов**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Sincronizar**, clique em **Sincronizar Catálogo do Asset Intelligence**e, em seguida, clique em **OK**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Синхронизировать**, а затем выберите пункт **Синхронизация каталога аналитики активов**и нажмите кнопку **ОК**.  
 
-##  <a name="BKMK_CustomizeCatalog"></a> Personalizar o catálogo do Asset Intelligence  
- As informações de categorização do catálogo do Asset Intelligence recebidas do System Center Online são armazenadas na base de dados do site com permissões só de leitura e não podem ser modificadas nem eliminadas. No entanto, pode criar, modificar e eliminar categorias de software personalizadas, famílias de software, etiquetas de software e informações do catálogo de requisitos de hardware. Em seguida, pode utilizar os dados de categorização personalizada em vez das informações fornecidas pelo System Center Online para informações sobre títulos de software existentes ou definidas pelo utilizador. Quando alterar ou adicionar informações de categorização, as informações do catálogo são consideradas definidas pelo utilizador. As informações de categorização definidas pelo utilizador são armazenadas em tabelas de base de dados diferentes do que as informações do catálogo validadas.  
+##  <a name="BKMK_CustomizeCatalog"></a> Настройка каталога аналитики активов  
+ Сведения о классификации каталога аналитики активов, полученные из службы System Center Online, сохраняются в базе данных сайта с разрешениями только для чтения и не могут быть изменены или удалены. Тем не менее можно создавать, изменять и удалять сведения каталога о настраиваемых категориях, семействах и метках программного обеспечения, а также о требованиях к оборудованию. Затем можно использовать настраиваемые данные классификации вместо сведений, предоставленных службой System Center Online для существующих или пользовательских сведений о наименованиях программного обеспечения. При изменении или добавлении данных классификации сведения каталога рассматриваются в качестве определенных пользователем. Пользовательские данные классификации и проверенные данные каталога сохраняются в разных таблицах базы данных.  
 
-###  <a name="BKMK_SoftwareCategories"></a> Categorias de software  
- As categorias de software do Asset Intelligence são utilizadas para categorizar amplamente títulos de software inventariado e são também utilizadas como agrupamentos de alto nível de famílias de software mais específicas. Por exemplo, uma categoria de software poderá ser empresas de energia e uma família de software dentro dessa categoria de software poderá ser petróleo e gás ou hidroelétrica. Muitas categorias de software estão predefinidas no catálogo do Asset Intelligence e outras categorias definidas pelo utilizador podem ser criadas para definir mais pormenorizadamente o software inventariado. O estado de validação para todas as categorias predefinidas de software é sempre **Validado**, enquanto as informações de categorias personalizadas de software adicionadas ao catálogo do Asset Intelligence são **Definidas pelo Utilizador**.  
+###  <a name="BKMK_SoftwareCategories"></a> Категории программного обеспечения  
+ Категории программного обеспечения аналитики активов используются для расширенной классификации инвентаризованных наименований программного обеспечения, а также в качестве группировок более конкретных семейств программного обеспечения на высоком уровне. Например, категорией программного обеспечения могут являться энергетические компании, а семейством программного обеспечения в этой категории — нефтегазовые или гидроэлектрические продукты. Многие категории программного обеспечения предопределены в каталоге аналитики активов, и для расширенного определения инвентаризованного программного обеспечения можно создавать дополнительные пользовательские категории. Состояние проверки для всех предопределенных категорий программного обеспечения всегда соответствует значению **Проверено**, в то время как сведения о настраиваемых категориях программного обеспечения, добавленных в каталог аналитики активов, имеют значение **Задано пользователем**.  
 
- Utilize o procedimento seguinte para criar uma categoria de software definida pelo utilizador.  
+ Выполните следующую процедуру для создания пользовательской категории программного обеспечения.  
 
-##### <a name="to-create-a-user-defined-software-category"></a>Para criar uma categoria de software definida pelo utilizador  
+##### <a name="to-create-a-user-defined-software-category"></a>Создание пользовательской категории программного обеспечения  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**e, em seguida, clique em **Catálogo**.  
+2.  В рабочей области **Активы и соответствие** выберите пункт **Аналитика активов**, а затем щелкните **Каталог**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Categoria de Software**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать категорию программного обеспечения**.  
 
-4.  Na página **Geral** , introduza um nome para a nova categoria de software e, opcionalmente, uma descrição.  
-
-    > [!NOTE]  
-    >  O estado de validação para todas as novas categorias personalizadas de software está sempre definido como **Definido pelo Utilizador**.  
-
-     Clique em **Seguinte**.  
-
-5.  Na página **Resumo** , reveja as definições e clique em **Seguinte**.  
-
-6.  Na página **Conclusão** , clique em **Fechar** para sair do assistente.  
-
-###  <a name="BKMK_SoftwareFamilies"></a> Famílias de software  
- As famílias de software do Asset Intelligence são utilizadas para definir mais pormenorizadamente os títulos de software inventariado dentro de categorias de software. Por exemplo, uma categoria de software poderá ser empresas de energia e uma família de software dentro dessa categoria de software poderá ser petróleo e gás ou hidroelétrica. Muitas famílias de software estão predefinidas no catálogo do Asset Intelligence e outras famílias definidas pelo utilizador podem ser criadas para definir mais pormenorizadamente o software inventariado. O estado de validação para todas as famílias predefinidas de software é sempre **Validado**, enquanto o estado das informações de famílias personalizadas de software adicionadas ao catálogo do Asset Intelligence é **Definido pelo Utilizador**.  
-
- Utilize o procedimento seguinte para criar uma família de software definida pelo utilizador.  
-
-##### <a name="to-create-a-user-defined-software-family"></a>Para criar uma família de software definida pelo utilizador  
-
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
-
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**e, em seguida, clique em **Catálogo**.  
-
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Família de Software**.  
-
-4.  Na página **Geral** , introduza um nome para a nova família de software e, opcionalmente, uma descrição.  
+4.  На странице **Общие** введите имя новой категории программного обеспечения и дополнительно ее описание.  
 
     > [!NOTE]  
-    >  O estado de validação para todas as novas famílias personalizadas de software está sempre definido como **Definido pelo Utilizador**.  
+    >  Состояние проверки для всех новых настраиваемых категорий программного обеспечения всегда имеет значение **Задано пользователем**.  
 
-5.  Na página **Resumo** , reveja as definições e clique em **Seguinte**.  
+     Нажмите кнопку **Далее**.  
 
-6.  Na página **Conclusão** , clique em **Fechar** para sair do assistente.  
+5.  На странице **Сводка** просмотрите параметры и нажмите кнопку **Далее**.  
 
-###  <a name="BKMK_SoftwareLabels"></a> Etiquetas de software  
- As etiquetas personalizadas de software do Asset Intelligence permitem criar filtros que poderá utilizar para agrupar títulos de software e visualizá-los através de relatórios do Asset Intelligence. Por exemplo, pode criar uma etiqueta de software denominada shareware, associá-la a um número de aplicações e, em seguida, executar um relatório que mostre todos os títulos com a etiqueta de software «shareware». O estado de validação é **Definido pelo Utilizador** para todas as etiquetas personalizadas de software que adiciona ao catálogo do Asset Intelligence.  
+6.  На странице **Завершение** нажмите кнопку **Закрыть** , чтобы закрыть окно мастера.  
 
- Utilize o procedimento seguinte para criar uma etiqueta personalizada definida pelo utilizador.  
+###  <a name="BKMK_SoftwareFamilies"></a> Семейства программного обеспечения  
+ Семейства программного обеспечения аналитики активов используются для расширенного определения инвентаризованных наименований программного обеспечения в пределах их категорий. Например, категорией программного обеспечения могут являться энергетические компании, а семейством программного обеспечения в этой категории — нефтегазовые или гидроэлектрические продукты. Многие семейства программного обеспечения предопределены в каталоге аналитики активов, и для определения инвентаризованного программного обеспечения можно создавать дополнительные пользовательские семейства. Состояние проверки для всех предопределенных семейств программного обеспечения всегда соответствует значению **Проверено**, в то время как сведения о настраиваемых семействах программного обеспечения, добавленных в каталог аналитики активов, имеют значение **Задано пользователем**.  
 
-##### <a name="to-create-a-user-defined-software-label"></a>Para criar uma etiqueta de software definida pelo utilizador  
+ Выполните следующую процедуру для создания пользовательского семейства программного обеспечения.  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+##### <a name="to-create-a-user-defined-software-family"></a>Создание пользовательского семейства программного обеспечения  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**e, em seguida, clique em **Catálogo**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Etiqueta de Software**.  
+2.  В рабочей области **Активы и соответствие** выберите пункт **Аналитика активов**, а затем щелкните **Каталог**.  
 
-4.  Na página **Geral** , introduza um nome para a nova família de software e, opcionalmente, uma descrição.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать семейство программного обеспечения**.  
+
+4.  На странице **Общие** введите имя нового семейства программного обеспечения и дополнительно его описание.  
 
     > [!NOTE]  
-    >  O estado de validação para todas as novas etiquetas personalizadas de software está sempre definido como **Definido pelo Utilizador**.  
+    >  Состояние проверки для всех новых настраиваемых семейств программного обеспечения всегда имеет значение **Задано пользователем**.  
 
-5.  Na página **Resumo** , reveja as definições e clique em **Seguinte**.  
+5.  На странице **Сводка** просмотрите параметры и нажмите кнопку **Далее**.  
 
-6.  Na página **Conclusão** , clique em **Fechar** para sair do assistente.  
+6.  На странице **Завершение** нажмите кнопку **Закрыть** , чтобы закрыть окно мастера.  
 
-###  <a name="BKMK_HardwareRequirements"></a> Requisitos de hardware  
- As informações de requisitos de hardware podem ajudar a verificar se os computadores cumprem os requisitos de hardware para títulos de software antes de terem como destino implementações de software. Muitos requisitos de hardware estão predefinidos no catálogo do Asset Intelligence e poderá criar novas informações de requisitos de hardware definidos pelo utilizador para satisfazer requisitos personalizados. O estado de validação para todos os requisitos de hardware predefinidos é sempre **Validado**, enquanto o estado das informações de requisitos de hardware definidos pelo utilizador adicionados ao catálogo do Asset Intelligence é **Definido pelo Utilizador**.  
+###  <a name="BKMK_SoftwareLabels"></a> Метки программного обеспечения  
+ Настраиваемые метки программного обеспечения аналитики активов позволяют создавать фильтры, которые можно использовать для распределения наименований программного обеспечения по группам и их просмотра с помощью отчетов по аналитике активов. Например, можно создать метку программного обеспечения с именем "Условно бесплатные программы", связать эту метку с рядом приложений, а затем подготовить отчет для отображения всех наименований программного обеспечения с меткой "Условно бесплатные программы". Состояние проверки имеет значение **Задано пользователем** для всех настраиваемых меток программного обеспечения, добавленных в каталог аналитики активов.  
+
+ Выполните следующую процедуру для создания настраиваемой метки, определяемой пользователем.  
+
+##### <a name="to-create-a-user-defined-software-label"></a>Создание пользовательской метки программного обеспечения  
+
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+
+2.  В рабочей области **Активы и соответствие** выберите пункт **Аналитика активов**, а затем щелкните **Каталог**.  
+
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать метку программного обеспечения**.  
+
+4.  На странице **Общие** введите имя нового семейства программного обеспечения и дополнительно его описание.  
+
+    > [!NOTE]  
+    >  Состояние проверки для всех новых настраиваемых меток программного обеспечения всегда имеет значение **Задано пользователем**.  
+
+5.  На странице **Сводка** просмотрите параметры и нажмите кнопку **Далее**.  
+
+6.  На странице **Завершение** нажмите кнопку **Закрыть** , чтобы закрыть окно мастера.  
+
+###  <a name="BKMK_HardwareRequirements"></a> Требования к оборудованию  
+ Сведения о требованиях к оборудованию помогают проверить соответствие компьютеров указанным требованиям для наименований программного обеспечения до того, как им будут назначены развертывания программного обеспечения. Многие требования к оборудованию предопределены в каталоге аналитики активов, и для соответствия настраиваемым требованиям можно подготовить новые сведения о требованиях к оборудованию, определяемых пользователем. Состояние проверки для всех предопределенных требований к оборудованию всегда соответствует значению **Проверено**, в то время как сведения о пользовательских требованиях к оборудованию, добавленных в каталог аналитики активов, имеют значение **Задано пользователем**.  
 
 > [!IMPORTANT]  
->  Os requisitos de hardware apresentados na consola do Configuration Manager são obtidos a partir do catálogo do Asset Intelligence no computador local e não são baseados nas informações de título de software inventariado dos clientes do System Center 2012 Configuration Manager. As informações de requisitos de hardware não são atualizadas como parte do processo de sincronização com o System Center Online. Pode criar requisitos de hardware definidos pelo utilizador para software inventariado, que não tenham requisitos de hardware associados.  
+>  Требования к оборудованию, отображаемые в консоли Configuration Manager, поступают из каталога аналитики активов на локальном компьютере и не зависят от сведений об инвентаризованных наименованиях программного обеспечения, источником которых являются клиенты System Center 2012 Configuration Manager. Сведения о требованиях к оборудованию не обновляются в процессе синхронизации с System Center Online. При этом можно создать пользовательские требования к оборудованию для инвентаризованного программного обеспечения, не имеющего таких требований.  
 
- Utilize o procedimento seguinte para criar um requisito de hardware definido pelo utilizador.  
+ Выполните следующую процедуру для создания пользовательского требования к оборудованию.  
 
-##### <a name="to-create-a-user-defined-hardware-requirements"></a>Para criar um requisito de hardware definido pelo utilizador  
+##### <a name="to-create-a-user-defined-hardware-requirements"></a>Создание пользовательских требований к оборудованию  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**e, em seguida, clique em **Requisitos de Hardware**.  
+2.  В рабочей области **Активы и соответствие** выберите пункт **Аналитика активов**, а затем щелкните **Требования к оборудованию**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Requisitos de Hardware**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать требования к оборудованию**.  
 
-4.  Na página **Geral** , introduza as seguintes informações:  
+4.  На странице **Общие** укажите перечисленные ниже сведения.  
 
-    1.  **Título de software**: Especifica o título de software para o qual os requisitos de hardware estão associados. O título de software não pode existir já no catálogo do Asset Intelligence.  
+    1.  **Наименование программного обеспечения**: указывает наименование программного обеспечения, с которым связаны требования к оборудованию. Наименование программного обеспечения не может присутствовать в каталоге аналитики активов.  
 
-    2.  **Estado de validação**: Apresenta o estado de validação como **definidas pelo utilizador** para os requisitos de hardware. Não é possível modificar esta definição.  
+    2.  **Состояние проверки**: указывает состояние проверки со значением **Задано пользователем** для требований к оборудованию. Этот параметр изменить невозможно.  
 
-    3.  **Mínimo CPU (MHz)**: Especifica a velocidade mínima do processador, em megahertz (MHz), necessária para o título de software.  
+    3.  **Минимальная частота ЦП (МГц)**: указывает минимальную скорость процессора в мегагерцах (МГц), необходимую для наименования программного обеспечения.  
 
-    4.  **RAM mínima (KB)**: Especifica a RAM mínima, em quilobytes (KB) necessários para o título de software.  
+    4.  **Минимальный объем ОЗУ (КБ)**: указывает минимальный объем ОЗУ в килобайтах (КБ), необходимый для наименования программного обеспечения.  
 
-    5.  **Espaço mínimo em disco (KB)**: Especifica o espaço mínimo livre em disco, em KB, necessária para o título de software.  
+    5.  **Минимальный объем дискового пространства (КБ)**: указывает минимальный объем свободного пространства на диске в КБ, необходимый для наименования программного обеспечения.  
 
-    6.  **Tamanho de disco mínimo (KB)**: Especifica o tamanho mínimo do disco rígido, no artigo BDC, necessária para o título de software.  
+    6.  **Минимальный размер диска (КБ)**: указывает минимальный размер жесткого диска в КБ, необходимый для наименования программного обеспечения.  
 
-     Clique em **Seguinte**.  
+     Нажмите кнопку **Далее**.  
 
-5.  Na página **Resumo** , reveja as definições e clique em **Seguinte**.  
+5.  На странице **Сводка** просмотрите параметры и нажмите кнопку **Далее**.  
 
-6.  Na página **Conclusão** , clique em **Fechar** para sair do assistente.  
+6.  На странице **Завершение** нажмите кнопку **Закрыть** , чтобы закрыть окно мастера.  
 
-###  <a name="BKMK_ModifyCategorization"></a> Modificar informações de categorização para software inventariado  
- O software predefinido no catálogo do Asset Intelligence está configurado com informações de categorização específicas, tais como o nome do produto, fornecedor, categoria de software e família de software. Quando as informações de categorização predefinidas não cumprem os requisitos, pode modificar as informações nas propriedades para o título de software. Quando modificar as informações de categorização para software predefinido, o estado de validação do software é alterado de **Validado** para **Definido pelo Utilizador**.  
+###  <a name="BKMK_ModifyCategorization"></a> Изменение сведений о классификации для инвентаризованного программного обеспечения  
+ Предопределенное программное обеспечение в каталоге аналитики активов настраивается с использованием определенных сведений о классификации, таких как имя продукта, поставщик, категория и семейство программного обеспечения. Когда предопределенные сведения о классификации не соответствуют вашим требованиям, можно изменить данные свойств для наименования программного обеспечения. При изменении сведений о классификации предопределенного программного обеспечения состояние его проверки изменяется со значения **Проверено** на **Задано пользователем**.  
 
 > [!IMPORTANT]  
->  As informações de categorização só podem ser modificadas no site de nível superior.  
+>  Сведения о классификации можно изменить только на сайте верхнего уровня.  
 
- Utilize o procedimento seguinte para modificar informações de categorização para software inventariado.  
+ Выполните следующую процедуру, чтобы изменить сведения о классификации для инвентаризованного программного обеспечения.  
 
-##### <a name="to-modify-the-categorizations-for-software-titles"></a>Para modificar as categorizações para títulos de software  
+##### <a name="to-modify-the-categorizations-for-software-titles"></a>Изменение классификаций наименований программного обеспечения  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**e, em seguida, clique em **Software inventariado**.  
+2.  В рабочей области **Активы и соответствие** разверните узел **Аналитика активов**и щелкните **Инвентаризованное программное обеспечение**.  
 
-3.  Selecione um título de software ou vários títulos de software para os quais pretenda modificar as categorizações.  
+3.  Выберите одно или несколько наименований программного обеспечения, для которых требуется изменить классификацию.  
 
-4.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
 
-5.  No separador **Geral** , pode modificar as seguintes informações de categorização:  
+5.  На вкладке **Общие** можно изменить следующие сведения классификации.  
 
-    -   **Nome do produto**: Especifica o nome do título de software inventariado.  
+    -   **Имя продукта**: указывает наименование инвентаризованного программного обеспечения.  
 
-    -   **Fornecedor**: Especifica o nome do fornecedor que desenvolvidos no título de software inventariado.  
+    -   **Поставщик**: указывает имя поставщика, разработавшего инвентаризованное программное обеспечение.  
 
-    -   **Categoria**: Especifica a categoria de software que está atualmente atribuída para o título de software inventariado.  
+    -   **Категория**: указывает категорию программного обеспечения, которая назначена в настоящий момент для инвентаризованного наименования программного обеспечения.  
 
-    -   **Família**: Especifica a família de software que está atualmente atribuída para o título de software inventariado.  
+    -   **Семейство**: указывает семейство программного обеспечения, которое назначено в настоящий момент для инвентаризованного наименования программного обеспечения.  
 
-6.  Clique em **OK** para guardar as alterações.  
+6.  Нажмите кнопку **ОК** , чтобы сохранить изменения.  
 
- Utilize o procedimento seguinte para reverter o software para as informações de categorização originais.  
+ Ниже приведена процедура восстановления исходных сведений классификации программного обеспечения.  
 
-### <a name="revert-categorization-information-to-original-settings-for-software"></a>Reverter informações de categorização para as definições originais do software  
- Gestor de configuração armazena informações de categorização obtidas a partir do System Center Online na base de dados. Não é possível eliminar as informações. Depois de as informações terem sido modificadas, pode reverter as informações de categorização novamente para a categorização do System Center Online. Também é possível reverter o software inventariado que não se encontra no catálogo do Asset Intelligence para as definições originais.  
+### <a name="revert-categorization-information-to-original-settings-for-software"></a>Возврат сведений классификации программного обеспечения к исходным параметрам  
+ Configuration Manager хранит сведения, полученные с сайта System Center Online, в базе данных. Эти сведения нельзя удалить. После того как данные будут изменены, можно восстановить сведения классификации из данных классификации System Center Online. Инвентаризованное программное обеспечение, не входящее в каталог аналитики активов, также можно вернуть к исходным параметрам.  
 
- Utilize o procedimento seguinte para reverter informações de categorização para as definições originais.  
+ Ниже приведена процедура возврата сведений классификации к исходным параметрам.  
 
-##### <a name="to-revert-categorization-information-to-original-settings"></a>Para reverter informações de categorização para as definições originais  
+##### <a name="to-revert-categorization-information-to-original-settings"></a>Возврат сведений классификации к исходным параметрам  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**e, em seguida, clique em **Software inventariado**.  
+2.  В рабочей области **Активы и соответствие** разверните узел **Аналитика активов**и щелкните **Инвентаризованное программное обеспечение**.  
 
-3.  Selecione um título de software ou vários títulos de software que pretenda reverter para as definições originais. Só é possível reverter software com o estado **Definido pelo Utilizador** .  
+3.  Выберите одно или несколько наименований программного обеспечения, для которых требуется восстановить исходные значения. Возврат настроек поддерживается только для программ с состоянием **Задано пользователем** .  
 
     > [!TIP]  
-    >  Clique na coluna **Estado** para ordenar pelo estado de validação. A ordenação permite-lhe ver todo o software por estado de validação e selecionar rapidamente vários itens para reverter para as definições originais.  
+    >  Выберите столбец **Состояние** , чтобы выполнить сортировку по состоянию проверки. Сортировка позволяет просматривать все программное обеспечение с соответствующим состоянием проверки и быстро выбирать несколько элементов для возврата к исходным параметрам.  
 
-4.  No separador **Home Page** , no grupo **Produto** , clique em **Reverter**.  
+4.  На вкладке **Главная** в группе **Продукт** нажмите кнопку **Восстановить**.  
 
-5.  Clique em **Sim** para reverter o software para as informações de categorização originais.  
+5.  Нажмите кнопку **Да** , чтобы восстановить исходные данные классификации программного обеспечения.  
 
-6.  Ao reverter as informações de categorização de software que se encontra no catálogo do Asset Intelligence, o estado de validação é alterado de **Definido pelo Utilizador** para **Validado**. Ao reverter software que não se encontra no catálogo, o estado de validação é alterado de **Definido pelo Utilizador** para **Não Categorizado**.  
+6.  При восстановлении данных классификации для программного обеспечения, входящего в каталог аналитики активов, состояние проверки меняется с **Задано пользователем** на **Проверено**. При восстановлении данных классификации для программного обеспечения, которое отсутствует в каталоге аналитики активов, состояние проверки меняется с **Задано пользователем** на **Без категорий**.  
 
-##  <a name="BKMK_RequestCatalogUpdate"></a> Pedir uma atualização de catálogo para títulos de software não categorizados  
- As informações de títulos de software não categorizados podem ser submetidas para o System Center Online para investigação e categorização. Depois de um título de software não categorizado ser submetido, e caso existam, pelo menos, 4 pedidos de categorização de clientes para o mesmo título de software, os investigadores identificam, categorizam e disponibilizam as informações de categorização do título de software para todos os clientes que estejam a utilizar o serviço System Center Online. A Microsoft dá máxima prioridade aos títulos de software que tenham o maior número de pedidos de categorização. É improvável que as aplicações personalizadas de linha de negócio e de software recebam uma categoria e, como melhor prática, o utilizador não deve enviar estes títulos de software à Microsoft para categorização.  
+##  <a name="BKMK_RequestCatalogUpdate"></a> Запрос обновления каталога для программ без категории  
+ Сведения о программах без категории можно передать в System Center Online для исследования и классификации. После передачи программы без категории в каталог и получении не менее четырех запросов на классификацию этой программы от клиентов специалисты центра идентифицируют и классифицируют ее и предоставят доступ к данным классификации программы всем клиентам, использующим службу System Center Online. Очередность классификации программ определяется количеством запросов клиентов. Маловероятно, что настраиваемому программному обеспечению и бизнес-приложениям будет присвоена категория, поэтому отправлять подобные наименования программного обеспечения в корпорацию Майкрософт для классификации не рекомендуется.  
 
- Quando as informações de título de software são submetidas ao System Center Online para categorização, aplicam-se as seguintes condições:  
+ При передаче данных о программе в System Center Online для классификации применяются следующие условия.  
 
--   Apenas as informações básicas de títulos de software são transmitidas ao System Center Online e as informações de títulos de software a categorizar podem ser revistas antes do envio.  
+-   В System Center Online передаются только основные сведения о программном обеспечении; эти данные можно просмотреть перед отправкой.  
 
--   As informações de licença de software nunca são transmitidas.  
+-   Сведения о лицензиях на программное обеспечение не передаются.  
 
--   Qualquer título de software que seja carregado fica publicamente disponível como parte do catálogo do System Center Online e pode ser transferido por outros clientes.  
+-   Все загруженные на сайт программы становятся общедоступными, передаются в каталог System Center Online и могут быть загружены другими клиентами.  
 
--   A origem do título de software não é armazenada no catálogo do System Center Online. No entanto, os títulos de aplicações que contenham informações confidenciais ou de propriedade não devem ser submetidos para categorização pelo System Center Online.  
+-   Сведения об источнике программы не сохраняются в каталоге System Center Online. Тем не менее, приложения, содержащие конфиденциальную или защищаемую информацию, не следует передавать в System Center Online для классификации.  
 
 > [!NOTE]  
->  Para obter mais informações sobre informações de privacidade do Asset Intelligence, consulte o artigo [segurança e privacidade para o Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/security-and-privacy-for-asset-intelligence.md).  
+>  Дополнительные сведения о конфиденциальности функции аналитики активов см. в разделе [Безопасность и конфиденциальность аналитики активов в System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/security-and-privacy-for-asset-intelligence.md).  
 
- Utilize o procedimento seguinte para pedir a categorização de títulos de software do catálogo do Asset Intelligence a partir do System Center Online.  
+ Ниже приведена процедура запроса классификации программы в каталоге аналитики активов в System Center Online.  
 
-#### <a name="to-request-a-catalog-update-for-uncategorized-software-titles"></a>Para pedir uma atualização de catálogo para títulos de software não categorizados  
+#### <a name="to-request-a-catalog-update-for-uncategorized-software-titles"></a>Запрос обновления каталога для программ без категории  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**e, em seguida, clique em **Software inventariado**.  
+2.  В рабочей области **Активы и соответствие** разверните узел **Аналитика активов**и щелкните **Инвентаризованное программное обеспечение**.  
 
-3.  Selecione o nome de um produto ou vários nomes de produtos para submeter para o System Center Online para categorização. Apenas os títulos de software inventariado não categorizados podem ser submetidos para o System Center Online for categorização. Se um título de software inventariado tiver sido categorizado por um administrador, resultando num estado definido pelo utilizador, terá de clicar com o botão direito do rato no título de software inventariado e, em seguida, clicar em **Reverter** para reverter o título de software para o estado **Não Categorizado** , para que possa ser submetido para o System Center Online para categorização.  
+3.  Выберите одно или несколько названий продуктов, которые требуется отправить в System Center Online для классификации. На сайт System Center Online для классификации можно передать только инвентаризованные программы без категории. Если администратор присвоил категорию инвентаризованной программе (в результате чего ее состояние меняется на "задано пользователем"), можно щелкнуть данную программу и нажать кнопку **Восстановить** , чтобы вернуть программу в состояние **Без категорий** . Только после этого ее можно будет передать на сайт System Center Online для назначения категории.  
 
     > [!NOTE]  
-    >  O Configuration Manager pode processar até 100 títulos de software para categorização de cada vez. Se selecionar mais do que 100 títulos de software, apenas são processados os primeiros 100 títulos de software. Tem de selecionar os restantes títulos de software para categorização em lotes de menos de 100.  
+    >  Configuration Manager одновременно может обрабатывать до 100 наименований программного обеспечения, предназначенных для классификации. Если выбрать больше 100 наименований, будут обработаны только первые 100. Остальные программы необходимо выбирать группами, которые включают менее 100 наименований.  
 
     > [!TIP]  
-    >  Clique na coluna **Estado** para ordenar pelo estado de validação. Isto permite-lhe ver todos os nomes de produto não categorizados e selecionar rapidamente vários itens para submeter para categorização.  
+    >  Выберите столбец **Состояние** , чтобы выполнить сортировку по состоянию проверки. Это позволит увидеть все названия продуктов без категории и быстро выбрать несколько элементов для отправки.  
 
-4.  No separador **Home Page** , no grupo **Produto** , clique em **Pedir Atualização de Catálogo**.  
+4.  На вкладке **Главная** в группе **Продукт** нажмите кнопку **Запрос обновления каталога**.  
 
-5.  Reveja a mensagem de privacidade de submissão de categorização do System Center Online. Clique em **Detalhes** para ver as informações que serão enviadas para o System Center Online.  
+5.  Ознакомьтесь с сообщением о конфиденциальности отправки данных для классификации веб-сайта System Center Online. Нажмите кнопку **Подробности** , чтобы просмотреть данные, которые будут переданы в System Center Online.  
 
-6.  Selecione **Li e compreendi esta mensagem**e, em seguida, clique em **OK** para permitir que os títulos de software selecionados sejam submetidos para categorização.  
+6.  Установите флажок **Сообщение прочитано и понято**, затем нажмите кнопку **ОК** , чтобы разрешить отправку выбранных наименований программного обеспечения для классификации.  
 
-7.  Verifique se o estado dos nomes de produtos de software inventariado submetidos para o System Center Online para categorização mudou de **Não Categorizado** para **Pendente**.  
+7.  Убедитесь, что состояние выбранных для отправки в System Center Online инвентаризованных названий продуктов изменилось с **Без категорий** на **Ожидание**.  
 
     > [!NOTE]  
-    >  O software submetido para o System Center Online para categorização com o estado de validação **Pendente** num site de administração central ainda é apresentado com o estado de validação **Não Categorizado** em sites primários subordinados.  
+    >  Для программного обеспечения, переданного в System Center Online для классификации, на сайте центра администрирования отображается значение **Ожидание** , тогда как в дочерних первичных сайтах по-прежнему отображается состояние **Без категорий** .  
 
-##  <a name="BKMK_ResolveSoftwareDetails"></a> Resolver conflitos de detalhes de software  
- Depois de os detalhes de categorização de software recentemente atualizados serem recebidos do System Center Online, que estão em conflito com os detalhes de software existentes, pode escolher como resolver o conflito. O software que tem um conflito atual tem o estado de validação **Atualizável**. Depois de um conflito de detalhes de software ser resolvido, as informações de categorização de software são mantidas no catálogo do Asset Intelligence, de acordo com a definição que especificar. Um conflito de detalhes de software não ocorrerá novamente para o mesmo valor de categorização de software, a menos que o valor do System Center Online seja alterado após a resolução do conflito.  
+##  <a name="BKMK_ResolveSoftwareDetails"></a> Устранение противоречий в сведениях о программном обеспечении  
+ После получения с сайта System Center Online обновленных сведений классификации для программного обеспечения, конфликтующих с имеющимися сведениями о программном обеспечении, можно выбрать один из способов устранения противоречия. Программное обеспечение с конфликтующими сведениями имеет состояние проверки **Возможно обновление**. После устранения противоречий в сведениях о программе, соответствующие данные классификации сохраняются в каталоге аналитики активов в соответствии с заданными параметрами. Конфликт сведений о программном обеспечении не возникает для одного и того же значения категории программы повторно, если после устранения противоречий значение, полученное с сайта System Center Online, не изменяется.  
 
- Utilize o procedimento seguinte para resolver um conflito de detalhes de software.  
+ Ниже приведена процедура устранения противоречия в сведениях о программном обеспечении.  
 
-#### <a name="to-resolve-a-software-details-conflict"></a>Para resolver um conflito de detalhes de software  
+#### <a name="to-resolve-a-software-details-conflict"></a>Устранение противоречия в сведениях о программном обеспечении  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Asset Intelligence**e, em seguida, clique em **Software inventariado**.  
+2.  В рабочей области **Активы и соответствие** разверните узел **Аналитика активов**и щелкните **Инвентаризованное программное обеспечение**.  
 
-3.  Reveja a coluna **Estado** para ver os títulos de software no estado **Atualizável** .  
+3.  Найдите в списке программы, для которых в столбце **Состояние** указано значение **Возможно обновление** .  
 
-4.  Selecione o título de software para o qual tenha de resolver um conflito e, em seguida, no separador **Home Page** , no grupo **Produto** , clique em **Resolver Conflito**.  
+4.  Выберите программу, для которой требуется устранить конфликт, затем на вкладке **Главная** в группе **Продукт** щелкните **Устранить конфликт**  
 
-5.  Reveja as seguintes informações:  
+5.  Просмотрите следующие сведения.  
 
-    -   **Valor local**: Especifica as informações de categorização de software existentes no catálogo do Asset Intelligence que entra em conflito com detalhes de categorização software System Center Online mais recentes.  
+    -   **Локальное значение**: поле содержит текущие сведения классификации программного обеспечения в каталоге аналитики активов, которые конфликтуют со сведениями классификации, полученными с сайта System Center Online.  
 
-    -   **Transferido valor**: Especifica as novas informações de categorização de software System Center Online para em conflito informações de categorização do software de catálogo do Asset Intelligence.  
+    -   **Загруженное значение**: поле содержит новые сведения классификации программного обеспечения System Center Online, конфликтующие со сведениями классификации программного обеспечения в каталоге аналитики активов.  
 
-6.  Selecione uma das seguintes definições para resolver o conflito de detalhes de software:  
+6.  Установите один из следующих флажков, чтобы устранить противоречия в сведениях о программе.  
 
-    -   **Não altere o valor de informações de catálogo localmente editado**: Resolve o conflito de detalhes de software mantendo as informações de categorização do software de catálogo de Asset Intelligence existentes. Quando seleciona esta definição, o estado do título de software é alterado de **Atualizável** para **Definido pelo Utilizador**.  
+    -   **Сохранить информацию локально измененного каталога**: устраняет противоречия сведений о программе, сохраняя текущие сведения классификации программного обеспечения из каталога аналитики активов. При выборе этого варианта состояние программы меняется с **Возможно обновление** на **Задано пользователем**.  
 
-    -   **Substitua o valor de informações de catálogo localmente editado com o valor transferido do System Center Online**: Resolve o conflito de detalhes de software, substituindo as informações de categorização do software de catálogo de Asset Intelligence existentes com novas informações obtidas a partir do System Center Online. Quando seleciona esta definição, o estado do título de software é alterado de **Atualizável** para **Validado**.  
+    -   **Перезаписать информацию в локально измененном каталоге информацией, загруженной из каталога System Center Online**: устраняет противоречия сведений о программе, заменяя текущие сведения классификации программного обеспечения из каталога аналитики новыми сведениями, полученными с сайта System Center Online. При выборе этого варианта состояние программы меняется с **Возможно обновление** на **Проверено**.  
 
-     Clique em **OK** para guardar a resolução de conflito.  
-
+     Нажмите кнопку **ОК** , чтобы подтвердить разрешение конфликта.  

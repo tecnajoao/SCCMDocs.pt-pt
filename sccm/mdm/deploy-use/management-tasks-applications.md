@@ -1,6 +1,6 @@
 ---
-title: "Gerir aplicações no System Center Configuration Manager | Microsoft Docs"
-description: "Gerir aplicações no System Center Configuration Manager."
+title: "Управление приложениями в System Center Configuration Manager | Документация Майкрософт"
+description: "Управление приложениями в System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,40 +17,40 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: bc7bb99bc526ed0bbaaad15fc9af39fa8b7c3893
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-applications-in-system-center-configuration-manager"></a>Gerir aplicações no System Center Configuration Manager
+# <a name="manage-applications-in-system-center-configuration-manager"></a>Управление приложениями в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Quando gerir dispositivos através do Microsoft Intune do Configuration Manager local ou na gestão de dispositivos, pode gerir estes tipos de aplicação adicional:
-- Pacote de aplicação do Windows Phone (ficheiro *.xap)
-- Pacote de Aplicações para iOS (ficheiro *.ipa)
-- Pacote de Aplicações para Android (ficheiro *.apk)
-- Pacote de aplicação para Android no Google Play
-- Pacote de aplicação do Windows Phone (na Loja Windows Phone)
-- Windows Installer através de MDM
-- Aplicação Web
+При управлении устройствами с помощью Microsoft Intune или локального управления устройствами Configuration Manager вы можете управлять следующими типами приложений:
+- Пакет приложения Windows Phone (XAP-файл)
+- Пакет приложения для iOS (IPA-файл)
+- Пакет приложения для Android (APK-файл)
+- Пакет приложения для ОС Android в Google Play
+- Пакет приложения для ОС Windows Phone (в Магазине Windows)
+- Установщик Windows через MDM (MSI)
+- Веб-приложение
 
-Esta secção fornece informações detalhadas sobre como criar e gerir aplicações através de MDM híbrida MDM ou no local
+В этом разделе приведены подробные сведения о создании приложений и управлении ими с помощью гибридного или локального управления мобильными устройствами.
 
-[Tarefas de gestão do System Center Configuration Manager aplicações](../../apps/deploy-use/management-tasks-applications.md) fornece informações mais gerais sobre a gestão de aplicações do System Center Configuration Manager e tipos de implementação.
+Общие сведения об управлении приложениями и типами развертывания System Center Configuration Manager см. в статье [Задачи управления для приложений System Center Configuration Manager](../../apps/deploy-use/management-tasks-applications.md).
 
-## <a name="deploying-and-monitoring-apps"></a>Implementação e monitorização de aplicações
+## <a name="deploying-and-monitoring-apps"></a>Развертывание и мониторинг приложений
 
-Implementar e monitorizar aplicações no System Center Configuration Manager são os processos para dispositivos móveis de dispositivos no local, como computadores portáteis e ambientes de trabalho. Pode leia os tópicos seguintes para obter informações gerais sobre a implementação e monitorização de aplicações:
+Процедуры развертывания и мониторинга приложений в System Center Configuration Manager на мобильных устройствах и на таких устройствах, как ноутбуки и настольные компьютеры, ничем не отличаются. Общие сведения о развертывании и мониторинге приложений см. в следующих статьях:
 
-- [Implementar aplicações no System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md)
-- [Monitorizar aplicações no System Center Configuration Manager](../../apps/deploy-use/monitor-applications-from-the-console.md)
+- [Развертывание приложений в System Center Configuration Manager](../../apps/deploy-use/deploy-applications.md)
+- [Мониторинг приложений из консоли System Center Configuration Manager](../../apps/deploy-use/monitor-applications-from-the-console.md)
 
-Seguem-se algumas considerações a lembrar quando implementar e monitorizar aplicações, específico para gestão de dispositivos móveis.
+Ниже приведены некоторые рекомендации, касающиеся управления мобильными устройствами, которые следует учитывать при развертывании и мониторинге приложений.
 
-- Dispositivos inscritos de MDM não suportam implementações simuladas, experiência de utilizador ou as definições de agendamento.
+- Устройства, зарегистрированные в системе управления мобильными устройствами, не поддерживают имитацию развертывания, взаимодействие с пользователем и параметры планирования.
 
-- Pode associar a implementação com uma política de configuração de aplicação iOS, se já tiver congured um. Consulte [configurar aplicações iOS com políticas de configuração de aplicação](configure-ios-apps-with-app-configuration-policies.md).
+- Развертывание можно связать с политикой конфигурации приложения iOS, если таковая настроена. Дополнительные сведения см. в статье [Применение параметров к приложениям iOS с помощью политик конфигурации приложений в System Center Configuration Manager](configure-ios-apps-with-app-configuration-policies.md).
 
-### <a name="next-steps"></a>Passos Seguintes
+### <a name="next-steps"></a>Дальнейшие шаги
 
-Que poderão, eventualmente, pretende efetuar alterações a uma aplicação, desinstalar uma aplicação ou substituir uma aplicação já implementada por uma nova aplicação. Leia [atualizar e extinguir aplicações com o System Center Configuration Manager](../../apps/deploy-use/update-and-retire-applications.md) para compreender estas capacidades.
+Со временем вам может потребоваться изменить приложение, удалить его или заменить уже развернутое приложение новым. Как это сделать см. в статье [Обновление и прекращение использования приложений с помощью System Center Configuration Manager](../../apps/deploy-use/update-and-retire-applications.md).

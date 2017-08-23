@@ -1,6 +1,6 @@
 ---
-title: "Configurações suportadas | Microsoft Docs"
-description: "Identifica requisitos e configurações de chaves para que possa planear, implementar e manter uma implementação funcional do System Center Configuration Manager."
+title: "Поддерживаемые конфигурации | Документы Майкрософт"
+description: "Ознакомьтесь с основными конфигурациями и требованиями для планирования, развертывания и обслуживания правильно работающей среды System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,57 +17,57 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: aad46e9ab893b9bb3e32d35c17b9678b3a265c99
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-configurations-for-system-center-configuration-manager"></a>Configurações suportadas do System Center Configuration Manager
+# <a name="supported-configurations-for-system-center-configuration-manager"></a>Поддерживаемые конфигурации для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Como uma solução no local, o System Center Configuration Manager permite utilizar os servidores, clientes, configurações de rede e produtos adicionais, como o Microsoft Intune, o SQL Server e o Azure.
+Локальное решение System Center Configuration Manager использует ваши серверы, клиенты, сетевые конфигурации и дополнительные продукты, такие как Microsoft Intune, SQL Server и Azure.
 
-As informações neste e os tópicos seguintes são essenciais para ajudar a identificar configurações chave, os requisitos e limitações, para que pode planear, implementar e manter uma implementação funcional do Configuration Manager.  Esta informação é específica para a infraestrutura de sites do Configuration Manager, hierarquias e dispositivos geridos.
+Информация в этом и последующих разделах необходима для понимания основных конфигураций, требований и ограничений с целью планирования, развертывания и обслуживания правильно работающей среды Configuration Manager.  Эта информация относится к инфраструктуре сайтов, иерархий и управляемых устройств Configuration Manager.
 
-Quando uma funcionalidade do Configuration Manager ou a capacidade necessita de configurações mais específicas, essa informação está incluída com a documentação específica à funcionalidade, não sendo suplementar os detalhes de configuração mais geral.  
+Если функция или возможность Configuration Manager требует более конкретной настройки, соответствующую информацию можно найти в документации по этой функции. Эта информация дополняет общие сведения о конфигурации.  
 
- Os produtos e tecnologias que são descritas nos tópicos seguintes são suportadas pelo Configuration Manager. No entanto, a sua inclusão neste conteúdo não implica uma extensão de suporte para qualquer produto além individuais desse produto vida de suporte. Os produtos que estejam fora do respetivo ciclo de vida de suporte não são suportados para utilização com o Configuration Manager. Para mais informações sobre os Ciclos de Vida do Suporte da Microsoft, aceda ao site [Ciclo de Vida do Suporte da Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=208270) .  
+ Продукты и технологии, описываемые в следующих разделах, поддерживаются в Configuration Manager. Однако их указание здесь не подразумевает расширения поддержки этих продуктов за пределы их индивидуальных жизненных циклов поддержки. Продукты, жизненный цикл поддержки которых уже истек, не поддерживаются в Configuration Manager. Дополнительные сведения о жизненных циклах поддержки Майкрософт см. на веб-сайте [Правила по срокам поддержки продуктов Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=208270).  
 
 > [!NOTE]  
->  Para obter informações sobre a política de ciclo de vida do suporte da Microsoft, aceda ao site Microsoft suporta ciclo de vida suporta política FAQ em [FAQ de política de ciclo de vida de suporte Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=31976).  
+>  Сведения о политике сроков поддержки продуктов корпорации Майкрософт см. на веб-сайте [Вопросы и ответы о правилах по срокам поддержки продуктов корпорации Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=31976).  
 
- Além disso, os produtos e versões de produto que não estão listadas nos tópicos seguintes não são suportadas com o System Center Configuration Manager, a menos que tenham sido anunciados no [blogue Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/).  Por vezes, o conteúdo neste blogue precedida de uma atualização para esta corpo de documentação.
+ Кроме того, продукты и версии продуктов, которые не указаны в следующих разделах, не поддерживаются в System Center Configuration Manager, если только иное не указано в [блоге рабочей группы по корпоративной мобильности и безопасности](https://blogs.technet.microsoft.com/enterprisemobility/).  Иногда содержимое в этом блоге может обновляться раньше, чем текст данного документа.
 
 
--  [Dimensionamento e números da escala](../../../core/plan-design/configs/size-and-scale-numbers.md)  
-Saiba mais sobre quantos sites, funções de sistema de sites por site e os clientes ou dispositivos são suportadas em estruturas de outra hierarquia do Configuration Manager.
+-  [Данные по размерам и масштабированию](../../../core/plan-design/configs/size-and-scale-numbers.md)  
+Сведения о количестве сайтов, ролей системы сайта на каждый сайт, а также клиентов или устройств, поддерживаемом в различных типах иерархии Configuration Manager.
 
--  [Pré-requisitos do site e sistema de sites](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)  
-Saiba mais sobre as configurações que são necessárias no Windows Server para suportar os diferentes tipos de site e funções de sistema de sites.
+-  [Предварительные требования к сайтам и системе сайта](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)  
+Сведения о конфигурациях, необходимых для поддержки различных типов сайтов и ролей системы сайта на сервере Windows Server.
 
--  [Sistemas operativos suportados para servidores do sistema de sites](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
-Saiba mais sobre os sistemas operativos pode utilizar como um servidor do site ou servidor de sistema de sites.
+-  [Поддерживаемые операционные системы для серверов системы сайта](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
+Узнайте, какие операционные системы можно использовать в качестве сервера сайта или сервера системы сайта.
 
--  [Sistemas operativos suportados por clientes e dispositivos](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)  
-Saiba mais sobre os sistemas operativos que pode gerir com o Configuration Manager, incluindo Windows, Windows Embedded, Linux e UNIX, Mac e dispositivos móveis.
+-  [Поддерживаемые операционные системы для клиентов и устройств](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)  
+Узнайте, какими операционными системами можно управлять с помощью Configuration Manager, включая Windows, Windows Embedded, Linux и UNIX, Mac и операционные системы мобильных устройств.
 
--  [Sistemas operativos suportados para a consola do](../../../core/plan-design/configs/supported-operating-systems-consoles.md)  
-Saiba mais sobre os quais os sistemas operativos pode alojar a consola do Configuration Manager para fornecer um ponto de acesso para gerir a sua implementação.  
+-  [Поддерживаемые операционные системы для консоли](../../../core/plan-design/configs/supported-operating-systems-consoles.md)  
+Узнайте, в каких операционных системах может размещаться консоль Configuration Manager, которая служит точкой доступа для управления развертыванием.  
 
--  [Suporte para versões do SQL Server](../../../core/plan-design/configs/support-for-sql-server-versions.md)  
-Saiba mais sobre as versões do SQL Server podem alojar a base de dados do site e base de dados de relatórios, bem como sobre as configurações necessárias e configurações opcionais que pode utilizar.
+-  [Поддержка версий SQL Server](../../../core/plan-design/configs/support-for-sql-server-versions.md)  
+Сведения о версиях SQL Server, в которых могут размещаться база данных сайта и база данных отчетов, а также об обязательных и необязательных конфигурациях, которые можно использовать.
 
--  [Opções de elevada disponibilidade](../../../protect/understand/high-availability-options.md)  
-Saiba mais sobre as opções que pode implementar ao conceber o seu ambiente para ajudar a manter um elevado nível de serviço disponível para implementação do Configuration Manager.
+-  [Параметры высокой доступности](../../../protect/understand/high-availability-options.md)  
+Сведения о вариантах, которые можно реализовать при разработке среды, чтобы обеспечить высокий уровень доступности служб для развертывания Configuration Manager.
 
--  [Hardware recomendado](../../../core/plan-design/configs/recommended-hardware.md)  
-Saiba mais sobre as diretrizes que podem ajudar a que identificar o hardware adequado e configurações para alojar os serviços de chaves e sites do Configuration Manager.
+-  [Рекомендуемое оборудование](../../../core/plan-design/configs/recommended-hardware.md)  
+Рекомендации, которые помогут вам определить соответствующее оборудование и конфигурации для размещения сайтов Configuration Manager и основных служб.
 
--  [Suporte para domínios do Active Directory](../../../core/plan-design/configs/support-for-active-directory-domains.md)  
-Saiba mais sobre as configurações suportadas de domínio do Active Directory que o Configuration Manager requer e suporta.
+-  [Поддержка доменов Active Directory](../../../core/plan-design/configs/support-for-active-directory-domains.md)  
+Сведения о поддерживаемых конфигурациях домена Active Directory, которые необходимы для Configuration Manager.
 
--  [Suporte para funcionalidades e redes do Windows](../../../core/plan-design/configs/support-for-windows-features-and-networks.md)  
-Saiba mais sobre tecnologias do Windows (por exemplo, a eliminação de duplicados de dados e do BranchCache) e limitações para utilização com o Gestor de configuração suportados.
+-  [Поддержка функций и сетей Windows](../../../core/plan-design/configs/support-for-windows-features-and-networks.md)  
+Сведения о поддерживаемых технологиях Windows (например, BranchCache и дедупликации данных) и ограничениях на их использование с Configuration Manager.
 
--  [Suporte para ambientes de Virtualização](../../../core/plan-design/configs/support-for-virtualization-environments.md)  
-Saiba mais sobre como utilizar tecnologias de máquina virtual suportadas.
+-  [Поддержка сред виртуализации](../../../core/plan-design/configs/support-for-virtualization-environments.md)  
+Дополнительные сведения о поддерживаемых технологиях виртуальных машин.

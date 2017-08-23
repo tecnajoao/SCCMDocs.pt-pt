@@ -1,361 +1,358 @@
 ---
-title: "Capacidades na pré-visualização técnica 1702 do Configuration Manager"
-description: "Saiba mais sobre as funcionalidades disponíveis na pré-visualização técnica do System Center Configuration Manager, versão 1702."
+title: "Возможности в Technical Preview 1702 для Configuration Manager"
+description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1702."
 ms.custom: na
 ms.date: 02/24/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: aedd608d-6db3-4ea5-851d-70f2dcda6bb5
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 8f4ec982a54cf3cefef310268a54850e70e2e63a
 ms.openlocfilehash: 3bdbcd1a3c64a1d50f2f6219b2a5e17d60979864
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1702-for-system-center-configuration-manager"></a>Funcionalidades de pré-visualização técnica 1702 para o System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1702-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1702 для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (pré-visualização técnica)*
+*Применимо к: System Center Configuration Manager (Technical Preview)*
 
-Este artigo apresenta as funcionalidades que estão disponíveis na pré-visualização técnica do System Center Configuration Manager, versão 1702. Pode instalar esta versão para atualizar e adicionar novas capacidades para o seu site de pré-visualização técnica do Configuration Manager. Antes de instalar esta versão da pré-visualização técnica, consulte o tópico de introdução, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com geral requisitos e limitações à utilização de uma pré-visualização técnica, como atualizar entre as versões e como fornecer comentários sobre as funcionalidades numa pré-visualização técnica.    
-
-
-**Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
-
-##  <a name="send-feedback-from-the-configuration-manager-console"></a>Enviar comentários a partir da consola do Configuration Manager
-
-Esta pré-visualização apresenta novas opções de comentários na consola do Configuration Manager. As opções de comentários permite-lhe enviar comentários diretamente para a equipa de desenvolvimento, a título de Web site do Configuration Manager UserVoice comentários.  
-
->Pode encontrar o **comentários** opção:
--  No Friso, na extremidade esquerda do separador de cada nó.  
-   ![Friso](./media/feedback-home.png)
-
--  Quando lhe com o botão direito em qualquer objeto na consola.   
-    ![Opção de clique Righ](./media/feedback-option.png)   
-
-Escolher **comentários** abre-se o browser para o Configuration Manager UserVoice comentários Web site, em https://configurationmanager.uservoice.com/forums/300492-ideas.
-##  <a name="changes-for-updates-and-servicing"></a>Alterações à atualizações e manutenção
-O seguinte é introduzido com esta pré-visualização.
-
-**Opções de atualização mais simples**  
-Da próxima vez que a infraestrutura são considerados para duas ou mais atualizações, apenas a atualização mais recente é transferida. Por exemplo, se a versão atual do site é dois ou mais mais antiga do que a versão mais recente está disponível, apenas essa versão de atualização mais recente é transferido automaticamente.  
-
-Tem a opção para transferir e instalar outras atualizações disponíveis, mesmo quando não estiverem a versão mais atual. No entanto, irá receber um aviso de que a atualização foi substituída por uma mais recente. Para transferir uma atualização que seja *disponível para transferência*, selecione a atualização na consola e, em seguida, clique em **transferir**.
-
-**Limpeza melhorada de atualizações anteriores**   
-Adicionámos uma função de limpeza automática que elimina as transferências desnecessários da pasta 'EasySetupPayload' no servidor do site.  
+В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1702. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager. Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.    
 
 
-## <a name="peer-cache-improvements"></a>Melhoramentos de Cache ponto a ponto
-Começando com esta versão, um computador de origem de cache ponto a ponto irão rejeitar um pedido de conteúdo quando o computador de origem de cache ponto a ponto cumpra qualquer um dos seguintes condições:  
- -     Está no modo de bateria baixo.
- -  Carga de CPU excede 80% o momento que o conteúdo de exemplos é solicitado.
- -  E/s de disco tem um *AvgDiskQueueLength* que excede 10.
- -  Não existem ligações não mais disponíveis para o computador.   
+**Ниже перечислены новые возможности, доступные в этой версии.**  
 
-Pode configurar estas definições utilizando a classe de configuração do agente de cliente para a funcionalidade de origem do elemento de rede (*SMS_WinPEPeerCacheConfig*) ao utilizar o SDK do System Center Configuration Manager.
+##  <a name="send-feedback-from-the-configuration-manager-console"></a>Отправка отзывов из консоли Configuration Manager
 
-Quando o computador rejeita um pedido para o conteúdo, o computador que efetuou irão continuar a atingir origens alternativas do formulário de conteúdo no seu agrupamento das localizações de origem de conteúdo disponível.   
+В этой предварительной версии представлены новые возможности отправки отзывов из консоли Configuration Manager. С их помощью можно отправлять отзывы напрямую группе разработчиков посредством веб-сайта обратной связи UserVoice Configuration Manager.  
 
-## <a name="azurediscovery"></a>Utilizar o Azure Active Directory Domain Services para gerir dispositivos, utilizadores e grupos
+>Параметр **Отзывы** доступен
+-  на ленте в левой части вкладки "Главная" каждого узла.  
+   ![Лента](./media/feedback-home.png)
 
-Com esta pré-visualização técnica versão que pode gerir dispositivos que estão associados a um serviços de domínio do Azure Active Directory (AD) geridos domínio. Também pode detetar dispositivos, utilizadores e grupos nesse domínio com vários métodos de deteção do Configuration Manager.
+-  при щелчке правой кнопкой мыши любого объекта в консоли.   
+    ![Щелчок правой кнопкой мыши](./media/feedback-option.png)   
 
-A infraestrutura de site de pré-visualização técnica, clientes e o domínio de serviços de domínio do Azure AD tem de executar todos no Azure.
+При выборе пункта **Отзывы** в браузере откроется веб-страница обратной связи UserVoice Configuration Manager по адресу: https://configurationmanager.uservoice.com/forums/300492-ideas.
+##  <a name="changes-for-updates-and-servicing"></a>Изменения в области обновлений и обслуживания
+В этой предварительной версии доступны следующие изменения.
 
+**Упрощенные варианты обновления**  
+Если для вашей инфраструктуры доступно два или более очередных обновлений, скачивается только новейшее из них. Например, если текущая версия сайта была выпущена раньше последней доступной версии на две версии или более, автоматически скачивается самая последняя версия обновления.  
 
-### <a name="set-up-configuration-manager-to-use-azure-ad"></a>Configurar o Gestor de configuração para utilizar o Azure AD
-Para utilizar o Azure AD com o Configuration Manager, terá o seguinte:
--    Subscrição do Azure.
--    Azure AD com serviços de domínio (DS).
--    Um site do Configuration Manager que é executado com uma VM do Azure que esteja associado ao seu Azure AD.
--    Clientes do Configuration Manager que são executadas no mesmo ambiente do Azure AD.
+Вы можете скачать и установить другие доступные обновления, даже если они имеют не самую последнюю версию. Но будет выведено предупреждение, что обновление было заменено более новым. Чтобы скачать обновление, которое *доступно для скачивания*, выберите его в консоли и нажмите кнопку **Скачать**.
 
-Para configurar o serviço de domínio do Azure AD, consulte o artigo [começar com os serviços de domínio do Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
-
-### <a name="discover-resources"></a>Detetar recursos
-Depois de configurar o Gestor de configuração para ser executado no Azure AD, pode utilizar os seguintes métodos de deteção do Active Directory para procurar o Azure AD para recursos:  
-- Deteção de Sistemas do Active Directory
-- Deteção de Utilizadores do Active Directory
-- Deteção de Grupos do Active Directory  
-
-Para cada método utilizado, edite a consulta LDAP para pesquisar as estruturas do Azure AD UO em vez dos contentores são característicos ao Active Directory no local. Isto requer direcionar a consulta para pesquisar o Active Directory na sua subscrição do Azure.  
-
-Os exemplos seguintes utilizam um Azure AD de *contoso.onmicrosoft.com*:
- - **Deteção de sistemas**   
-Azure AD armazena dispositivos sob o **AADDC computadores** UO.  Configure o seguinte:  
-  -    *LDAP://ou=AADDC computadores, DC = contoso, DC = onmicrosoft, DC = com*  
+**Улучшенная очистка старых обновлений**   
+Мы добавили функцию автоматической очистки, которая удаляет ненужные скачанные файлы из папки "EasySetupPayload" на сервере сайта.  
 
 
-- **Deteção de utilizadores** AAD armazena utilizadores sob o **AADDC utilizadores** UO.  Configure o seguinte:
-  - *Os utilizadores LDAP://ou=AADDC, DC = contoso, DC = onmicrosoft, DC = com*
+## <a name="peer-cache-improvements"></a>Усовершенствования однорангового кэша
+Начиная с этого выпуска, исходный компьютер однорангового кэша будет отклонять запрос на содержимое, если этот компьютер соответствует любому из указанных далее условий.  
+ -  Находится в режиме низкого заряда батареи.
+ -  Загрузка ЦП превышает 80 % во время запроса на содержимое.
+ -  Значение параметра *AvgDiskQueueLength* дисковых операций ввода-вывода превышает 10.
+ -  Отсутствуют доступные подключения к компьютеру.   
+
+Эти параметры можно настроить с помощью класса конфигурации агента клиента для исходной функции однорангового кэша (*SMS_WinPEPeerCacheConfig*) при использовании пакета SDK для System Center Configuration Manager.
+
+Когда компьютер отклоняет запрос на содержимое, запрашивающий компьютер будет продолжать поиск содержимого из альтернативных источников в пуле доступных расположений источников содержимого.   
+
+## <a name="azurediscovery"></a> Использование доменных служб Active Directory Azure для управления устройствами, пользователями и группами
+
+В этой технической предварительной версии можно управлять устройствами, присоединенными к управляемому домену доменных служб Active Directory Azure (AD). Можно также использовать различные методы обнаружения Configuration Manager для определения устройств, пользователей и групп в домене.
+
+Инфраструктура сайта, клиенты и домен доменных служб AD должны работать в Azure.
 
 
-- **Deteção de grupos**  
-Azure AD não tem um UO que armazena grupos. Em vez disso, utilize a mesma estrutura geral como as consultas de sistema ou o utilizador e configurar a consulta LDAP para apontar para a UO que contém os grupos que pretende detetar.
+### <a name="set-up-configuration-manager-to-use-azure-ad"></a>Настройка Configuration Manager для использования Azure AD
+Чтобы использовать Azure AD с Configuration Manager, потребуются указанные далее компоненты.
+-   Подписка Azure.
+-   Azure AD с доменными службами (DS).
+-   Сайт Configuration Manager, запущенный на виртуальной машине Azure, которая входит в состав Azure AD.
+-   Клиенты Configuration Manager, которые выполняются в той же среде Azure AD.
 
-Consulte o seguinte para obter mais informações sobre o Azure AD:  
- - [Serviços de domínio do Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory-ds) no azure.microsoft.com.
- - [Documentação dos serviços de domínio do Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services) no docs.microsoft.com.
+Сведения о настройке доменной службы Azure AD см. в разделе [Приступая к работе с Azure доменными службами AD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
-## <a name="conditional-access-device-compliance-policy-improvements"></a>Melhoramentos de política de conformidade de dispositivos de acesso condicional
+### <a name="discover-resources"></a>Обнаружение ресурсов
+После настройки Configuration Manager для выполнения в Azure AD можно использовать следующие методы обнаружения Active Directory для поиска ресурсов в Azure AD.  
+- Обнаружение систем Active Directory
+- обнаружение пользователей Active Directory
+- Обнаружение групп Active Directory  
 
-Uma nova regra de política de conformidade do dispositivo está disponível para ajudar a bloquear o acesso aos recursos empresariais que suportam o acesso condicional, quando os utilizadores estão a utilizar as aplicações que fazem parte de uma lista de aplicações não conformes. A lista de aplicações não conformes pode ser definida pelo administrador quando adicionar a nova regra compatível **aplicações que não não possível instalar**. Esta regra requer que o administrador para introduzir o **nome da aplicação**, a **ID da aplicação**e o **App Publisher** (opcional) quando adicionar uma aplicação à lista de não conformidade. Esta definição só se aplica a dispositivos iOS e Android.
+Для каждого используемого метода измените запрос LDAP для поиска в структурах подразделений AD Azure, а не в контейнерах, что характерно для локальной среды Active Directory. Для этого нужно указать запросу на необходимость поиска в Active Directory в подписке Azure.  
 
-Além disso, esta ajuda as organizações a mitigar fuga de dados através de aplicações não segura e a prevenir consumo excessivo de dados através de determinadas aplicações.
+В следующих примерах используется Azure AD *contoso.onmicrosoft.com*:
+ - **Обнаружение системы сайта**   
+Azure AD сохраняет устройства в подразделении **Компьютеры AADDC**.  Настройте следующие параметры.  
+  - *LDAP://OU=AADDC Computers,DC=contoso,DC=onmicrosoft,DC=com*  
 
-- Saiba mais [como funcionam as políticas de conformidade do dispositivo](https://docs.microsoft.com/sccm/protect/deploy-use/device-compliance-policies).
-- Saiba mais [como criar políticas de conformidade de dispositivos](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy).
 
-### <a name="try-it-out"></a>Experimente
+- **Обнаружение пользователей** AAD сохраняет пользователей в подразделении **Пользователи AADDC**.  Настройте следующие параметры.
+  - *LDAP://OU=AADDC Users,DC= contoso,DC=onmicrosoft,DC=com*
 
-**Cenário:** Identificar aplicações que estão a causar fuga de dados através do envio de dados da empresa fora da sua empresa ou que estão a causar consumo excessivo de dados, em seguida, [criar uma política de conformidade do dispositivo de acesso condicional](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy) estas aplicações que adiciona a lista de aplicações não conformes. Isto irá bloquear o acesso aos recursos empresariais que suportam o acesso condicional até que o utilizador pode remover a aplicação bloqueada.
 
-## <a name="antimalware-client-version-alert"></a>Alerta de versão do cliente de proteção contra software maligno
-Iniciar com esta versão de pré-visualização, Configuration Manager Endpoint Protection oferece um alerta se mais de 20% (predefinição) dos clientes geridos estiver a utilizar uma versão do cliente de proteção contra software maligno (ou seja, o cliente do Windows Defender ou o Endpoint Protection) expirada.
+- **Обнаружение группы**  
+Azure AD не поддерживает подразделение для хранения групп. Вместо этого следует использовать ту же общую систему, что и для запросов к системе или пользователям, и настроить запрос для указания на подразделение, содержащее группы, которые необходимо обнаружить.
 
-### <a name="try-it-out"></a>Experimente
-Certifique-se de que o Endpoint Protection está ativado em todos os clientes de ambiente de trabalho e o servidor através da política de definições de cliente. Agora pode ver **versão de cliente de proteção contra software maligno** e **estado de implementação do Endpoint Protection** acedendo **ativos e compatibilidade** > **descrição geral** > **dispositivos** > **todos os computadores de secretária e servir os clientes**. Para verificar a existência de um alerta, ver **alertas** no **monitorização** área de trabalho. Se mais de 20% dos clientes geridos estiver a executar uma versão expirada do software de proteção contra software maligno, a versão de cliente de proteção contra software maligno é desatualizada é apresentado o alerta. Este alerta não aparece no **monitorização** > **descrição geral** separador. Para atualizar clientes antimalware expirada, ative atualizações de software para clientes de proteção contra software maligno.
+Дополнительные сведения об Azure AD см. в следующих статьях.  
+ - [Доменные службы Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory-ds) на сайте azure.microsoft.com.
+ - [Документация по доменным службам домена Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services) на сайте docs.microsoft.com.
 
-Para configurar a percentagem com que é gerado o alerta, expanda **monitorização** > **alertas** > **todos os alertas**, faça duplo clique **clientes de proteção contra software maligno desatualizados** e modificar o **emitir um alerta se a percentagem de clientes geridos com uma versão desatualizada do cliente de proteção contra software maligno é mais do que** opção.
+## <a name="conditional-access-device-compliance-policy-improvements"></a>Улучшения политики соответствия устройств требованиям условного доступа
 
-## <a name="compliance-assessment-for-windows-update-for-business-updates"></a>Avaliação de compatibilidade para o Windows Update para atualizações de negócio
-Agora pode configurar uma regra de atualização de política de conformidade para incluir uma atualização do Windows para o resultado da avaliação de negócio como parte da avaliação de acesso condicional.
+Доступно новое правило политики соответствия устройств требованиям, которое позволяет блокировать доступ к корпоративным ресурсам, поддерживающим условный доступ, когда пользователи используют приложения, входящие в список несовместимых. Администратор может определить список несовместимых приложений во время добавления нового правила соответствия **Приложения, которые не могут быть установлены**. При добавлении приложения в список несовместимых администратор должен ввести **имя приложения**, **идентификатор приложения** и **издателя приложения** (необязательно). Этот параметр применяется только к устройствам iOS и Android.
+
+Кроме того, это помогает организациям предотвратить утечки данных через незащищенные приложения и исключить потребление лишних данных в определенных приложениях.
+
+- Узнайте больше о [принципах действия политик соответствия устройств требованиям](https://docs.microsoft.com/sccm/protect/deploy-use/device-compliance-policies).
+- Узнайте больше о [создании политик соответствия устройств требованиям](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy).
+
+### <a name="try-it-out"></a>Попробуйте!
+
+**Сценарий.** Определение приложений, которые могут вызывать утечку данных, путем отправки корпоративных данных за пределами организации, или которые могут привести к чрезмерному потреблению данных, затем [создание политики соответствия устройств требованиям условного доступа](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy), которая добавляет эти приложений в список несовместимых приложений. В этом случает доступ к корпоративным ресурсам, которые поддерживают условный доступ, будет заблокирован, пока пользователь не удалит заблокированное приложение.
+
+## <a name="antimalware-client-version-alert"></a>Оповещение о версии клиента защиты от вредоносных программ
+Начиная с этой предварительной версии, в Configuration Manager Endpoint Protection выводится предупреждение, если более чем 20 % (по умолчанию) управляемых клиентов используют версию клиента защиты от вредоносных программ с истекшим сроком действия (т. е. клиента Защитника Windows и Endpoint Protection).
+
+### <a name="try-it-out"></a>Попробуйте!
+Убедитесь, что служба Endpoint Protection включена на всех клиентах — настольных компьютерах и серверах с помощью политики параметров клиента. Теперь можно просмотреть **версию клиента защиты от вредоносных программ** и **состояние развертывания Endpoint Protection**, последовательно выбрав **Активы и соответствие** > **Обзор** > **Устройства** > **Все клиенты — настольные компьютеры и серверы**. Чтобы проверить наличие оповещения, откройте узел **Оповещения** в рабочей области **Мониторинг**. Если версия антивирусного ПО с истекшим сроком действия работает на более 20 % управляемых клиентах, выводится оповещение об устаревшей версии этого ПО. Это оповещение не отображается на вкладке **Мониторинг** > **Обзор**. Чтобы обновить клиенты защиты от вредоносных программ с истекшим сроком действия, включите для этих клиентов обновления программного обеспечения.
+
+Чтобы настроить значение процента, по достижении которого формируется оповещение, разверните узлы **Мониторинг** > **Оповещения** > **Все оповещения**, дважды щелкните **Устаревшие клиенты защиты от вредоносных программ** и измените значение параметра **Создавать оповещение, если процент управляемых клиентов с устаревшей версией клиента защиты от вредоносных программ превышает**.
+
+## <a name="compliance-assessment-for-windows-update-for-business-updates"></a>Оценка соответствия требованиям обновлений Центра обновления Windows для бизнеса
+Теперь можно настроить правило обновления политики соответствия для включения результата оценки Центра обновления Windows для бизнеса в оценку условного доступа.
 > [!IMPORTANT]
-> Tem de ter o Windows 10 Insider pré-visualização compilação 15019 ou posterior para utilizar a avaliação de compatibilidade para o Windows Update para atualizações de negócio.
+> Чтобы использовать оценку соответствия обновлений требованиям Центра обновления Windows для бизнеса требуется сборка Windows 10 Insider Preview, версия 15 019 или более поздняя.
 
-### <a name="allow-windows-update-for-business-to-manage-windows-10-updates"></a>Permitir que o Windows Update para empresas gerir atualizações do Windows 10
-Para recolher informações de avaliação de compatibilidade para Windows Update para atualizações de negócio, utilize o procedimento seguinte para configurar o agente de cliente para permitir explicitamente o Windows Update para empresas gerir atualizações do Windows 10.
-1. Na consola do Configuration Manager, aceda a **Administração** > **Definições do Cliente**.
-2. Nas propriedades para as definições de cliente, aceda a **atualizações de Software**e selecione **Sim** para o **gerir o Windows 10 atualizações com o Windows Update para empresas** definição.
+### <a name="allow-windows-update-for-business-to-manage-windows-10-updates"></a>Предоставление Центру обновления Windows для бизнеса разрешений для управления обновлениями Windows 10
+Для сбора сведений об оценке соответствия требованиям обновлений Центра обновления Windows для бизнеса используйте следующую процедуру по настройке параметра агента клиента для явного предоставления Центру обновления Windows для бизнеса разрешений на управление обновлениями Windows 10.
+1. В консоли Configuration Manager выберите **Администрирование** > **Параметры клиента**.
+2. В окне свойств параметров клиента выберите **Обновления программного обеспечения** и для параметра **Управлять обновлениями Windows 10 с помощью Центра обновления Windows для бизнеса** задайте **Да**.
 
-### <a name="create-a-compliance-policy-for-windows-update-for-business-assessment"></a>Criar uma política de conformidade para o Windows Update para avaliação de negócio
-1. Na consola do Configuration Manager, aceda a **ativos e compatibilidade** > **definições de compatibilidade** > **políticas de conformidade**.
-2. Clique em **criar política de conformidade** ou selecione uma política de conformidade existente para modificar.
-3. Na página geral, forneça um nome e uma descrição, selecione **regras de compatibilidade para dispositivos geridos com o cliente do Configuration Manager**, defina a gravidade de incompatibilidade para relatórios e clique em **seguinte**.
-4. Na página de plataformas suportadas, selecione **Windows 10**e, em seguida, clique em **seguinte**.
-5. Na página de regras, clique em **novo...** e, em seguida, para **condição** escolher **requerem o Windows Update para compatibilidade de empresas**. O **valor** definição é automaticamente definida para **verdadeiro**.
+### <a name="create-a-compliance-policy-for-windows-update-for-business-assessment"></a>Создание политики соответствия для оценки Центра обновления Windows для бизнеса
+1. В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Политики соответствия**.
+2. Щелкните **Создать политику соответствия** или выберите существующую политику соответствия, которую нужно изменить.
+3. На странице "Общие" укажите имя и описание, выберите **Правила соответствия для устройств, управляемых с помощью клиента Configuration Manager**, задайте важность несоответствия для отчетов и нажмите кнопку **Далее**.
+4. На странице "Поддерживаемые платформы" выберите **Windows 10**, а затем нажмите кнопку **Далее**.
+5. На странице "Правила" выберите **Создать...** , а затем для параметра **Условие** выберите значение **Требовать соответствие Центра обновления Windows для бизнеса**. Для параметра **Значение** автоматически установлено значение **True**.
 
-A nova política é apresentada no nó **Políticas de Conformidade** da área de trabalho **Ativos e Compatibilidade** .
+Новая политика будет отображаться в узле **Политики соответствия** рабочей области **Активы и соответствие** .
 
-### <a name="deploy-a-compliance-policy"></a>Implementar uma política de conformidade
-1. Na consola do Configuration Manager, aceda a **ativos e compatibilidade** > **definições de compatibilidade**e, em seguida, clique em **políticas de conformidade**.
-2. No separador **Home Page** , no grupo **Implementação** , clique em **Implementar**.
-3. Na caixa de diálogo **Implemente a Política de Conformidade** , clique em **Procurar** para selecionar a coleção de utilizadores na qual a política será implementada.
-   Além disso, pode selecionar opções de geração de alertas quando a política não está em conformidade, bem como configurar a agenda com base na qual a política será avaliada em termos de conformidade.
-4. Quando tiver terminado, clique em **OK**.
+### <a name="deploy-a-compliance-policy"></a>Развертывание политики соответствия
+1. В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия**, а затем выберите **Политики соответствия**.
+2. На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Развернуть**.
+3. В диалоговом окне **Развернуть политику соответствия** нажмите кнопку **Обзор** , чтобы выбрать коллекцию пользователей, для которой необходимо развернуть политику.
+   Кроме того, можно определить выдачу предупреждений в случаях несоответствия политике, а также составить расписание, согласно которому будет проверяться соответствие этой политике.
+4. По завершении нажмите кнопку **ОК**.
 
-### <a name="monitor-the-compliance-policy"></a>Monitorizar a política de conformidade
-Depois de criar a política de conformidade, pode monitorizar os resultados de compatibilidade na consola do Configuration Manager. Para obter mais detalhes, consulte o artigo [monitorizar a política de conformidade](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
+### <a name="monitor-the-compliance-policy"></a>Мониторинг политики соответствия
+После создания политики соответствия можно отслеживать результаты соответствия в консоли Configuration Manager. Подробные сведения см. в разделе [Мониторинг политики соответствия](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
 
 
-## <a name="improvements-to-software-center-settings-and-notification-messages-for-high-impact-task-sequences"></a>Foram introduzidos melhoramentos nas definições do Centro de Software e mensagens de notificação para sequências de tarefas de impacto elevado
-Esta versão inclui as seguintes melhorias de mensagens de notificação para sequências de tarefas de implementação de impacto elevado e definições do Centro de Software:
+## <a name="improvements-to-software-center-settings-and-notification-messages-for-high-impact-task-sequences"></a>Усовершенствования параметров центра программного обеспечения и уведомлений для последовательностей задач, имеющих высокий уровень значимости.
+В этом выпуске представлены следующие улучшения параметров центра программного обеспечения и уведомлений для последовательностей задач, имеющих высокий уровень значимости.
 
-- Nas propriedades para a sequência de tarefas, agora pode configurar qualquer sequência de tarefas, incluindo sequências de tarefas não pertencente ao sistema operativo, como uma implementação de alto risco. Qualquer sequência de tarefas que cumpre determinadas condições é automaticamente definida como impacto elevado. Para obter mais detalhes, consulte o artigo [gerir implementações de alto risco](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
-- Nas propriedades para a sequência de tarefas, pode optar por utilizar a mensagem de notificação predefinidas ou crie a sua própria mensagem de notificação personalizada para implementações de impacto elevado.
-- Nas propriedades para a sequência de tarefas, pode configurar o Centro de Software propriedades, que incluem tornar um reinício obrigatório, o tamanho de transferência da sequência de tarefas, e o estimado tempo de execução.
-- A mensagem de implementação de impacto elevado predefinida para direta atualiza agora os Estados que suas definições, aplicações e dados são migradas automaticamente. Anteriormente, a mensagem predefinida para qualquer instalação do sistema operativo indicado que todas as aplicações, dados e definições, seria perdidas, que não era aplica-se uma atualização no local.
+- В свойствах последовательности задач теперь можно настраивать любую последовательность задач, включая последовательности задач, не касающихся операционных систем, как развертывание с высоким риском. Любая последовательность задач, которая соответствуют определенным условиям, автоматически определяется как имеющая значительный уровень влияния. Дополнительные сведения см. в разделе [Управление развертываниями с высоким риском](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+- В свойствах последовательности задач можно выбрать использование уведомления по умолчанию или создать собственное настраиваемое уведомление для развертываний, имеющих значительный уровень влияния.
+- В свойствах последовательности задач можно настроить свойства центра программного обеспечения, включающие требование выполнения перезагрузки, указание размера загружаемого файла последовательности задач и предполагаемое время выполнения.
+- Заданное по умолчанию сообщение о развертывании с высокой значимостью для выполняемых на месте обновлений теперь информирует об автоматическом переносе приложений, данных и параметров. Ранее в сообщении по умолчанию для любой установки операционной системы указывалось, что все приложения, данные и параметры будут потеряны, что не было неверно для обновлений на месте.
 
-### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Definir uma sequência de tarefas como uma sequência de tarefas de impacto elevado
-Utilize o procedimento seguinte para definir uma sequência de tarefas como de impacto elevado.
+### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Задание последовательности задач как имеющую значительное влияние
+Чтобы задать последовательность задач как имеющую значительное влияние, воспользуйтесь описанной ниже процедурой.
 > [!NOTE]
-> Qualquer sequência de tarefas que cumpre determinadas condições é automaticamente definida como impacto elevado. Para obter mais detalhes, consulte o artigo [gerir implementações de alto risco](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+> Любая последовательность задач, которая соответствуют определенным условиям, автоматически определяется как имеющая значительный уровень влияния. Дополнительные сведения см. в разделе [Управление развертываниями с высоким риском](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
 
-1. Na consola do Configuration Manager, aceda a **biblioteca de Software** > **sistemas operativos** > **sequências de tarefas**.
-2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
-3. No **notificação do utilizador** separador, selecione **esta é uma sequência de tarefas de impacto elevado**.
+1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Операционные системы** > **Последовательность задач**.
+2. Выберите последовательность задач, которую нужно изменить, и нажмите кнопку **Свойства**.
+3. На вкладке **Уведомление для пользователей** выберите **Это последовательность задач со значительным уровнем влияния**.
 
-### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Criar uma notificação personalizada para implementações de alto risco
-1. Na consola do Configuration Manager, aceda a **biblioteca de Software** > **sistemas operativos** > **sequências de tarefas**.
-2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
-3. No **notificação do utilizador** separador, selecione **utilizar texto personalizado**.
+### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Создание настраиваемого уведомления для развертываний с высоким уровнем риска
+1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Операционные системы** > **Последовательность задач**.
+2. Выберите последовательность задач, которую нужно изменить, и нажмите кнопку **Свойства**.
+3. На вкладке **Уведомление пользователя** выберите **Использовать пользовательский текст**.
 >  [!NOTE]
->  Só é possível definir o texto de notificação do utilizador quando o **esta é uma sequência de tarefas de impacto elevado** está selecionada.
+>  Текст уведомления для пользователей можно задать, только если выбран параметр **Это последовательность задач со значительным уровнем влияния**.
 
-4. Configure as seguintes definições (máximo de 255 carateres para cada caixa de texto):
+4. Настройте следующие параметры (максимум 255 символов в каждом текстовом поле).
 
-   **Texto do título de notificação de utilizador**: Especifica o texto azul que apresenta a notificação de utilizador do Centro de Software. Por exemplo, a notificação do utilizador predefinição, esta secção contém algo como "A confirmar que pretende atualizar o sistema operativo neste computador".
+   **Текст заголовка уведомления для пользователей**. Задает выделенный синим цветом текст, отображаемый в уведомлении для пользователей Центра программного обеспечения. Например, в уведомлении для пользователей по умолчанию в этом разделе содержится нечто вроде "Подтвердите необходимость обновления операционной системы на этом компьютере".
 
-   **Texto de mensagem de notificação do utilizador**: Existem três caixas de texto que fornece o corpo da notificação personalizada.
-   - caixa de texto 1º: Especifica o corpo principal do texto, normalmente, que contém instruções para o utilizador. Por exemplo, na notificação de utilizador predefinidas, esta secção contém algo como "atualizar o sistema operativo demorará e o computador poderá reiniciar várias vezes."
-   - caixa de texto 2º: Especifica o texto a negrito sob o corpo principal do texto. Por exemplo, na notificação de utilizador predefinidas, esta secção contém algo como "esta atualização no local instala o novo sistema operativo e automaticamente migrada suas definições, aplicações e dados."
-   - caixa de texto do 3º: Especifica a última linha do texto sob o texto a negrito. Por exemplo, na notificação de utilizador predefinidas, esta secção contém algo como "clique em instalar para iniciar. Caso contrário, clique em Cancelar."   
+   **Текст сообщения уведомления для пользователей**. Существует три текстовых поля, в которых содержится текст настраиваемого уведомления.
+   - Первое текстовое поле: основной текст, обычно содержащий инструкции для пользователя. Например, в уведомлении для пользователей по умолчанию в этом разделе содержится примерно следующее сообщение — "Обновление операционной системы может занять некоторое время; также несколько раз может перезагрузиться компьютер".
+   - Второе текстовое поле: полужирный текст под основным текстом. Например, в уведомлении для пользователей по умолчанию в этом разделе содержится примерно следующее сообщение — "Это выполняемое на месте обновление установит новую операционную систему и автоматически перенесет приложения, данные и параметры".
+   - Третье текстовое поле: последняя строка текста под полужирным текстом. Например, в уведомлении для пользователей в этом разделе содержится примерно следующее сообщение — "Чтобы начать, нажмите кнопку «Установить». В противном случае нажмите кнопку «Отмена»".   
 
-   Imaginemos que configura a seguinte notificação personalizada nas propriedades.
+   Предположим, что вы настраиваете следующее уведомление в окне свойств.
 
-   ![Notificação personalizada para uma sequência de tarefas](.\media\user-notification.png)
+   ![Настраиваемое уведомление для последовательности задач](.\media\user-notification.png)
 
-   Será apresentada a seguinte mensagem de notificação quando o utilizador final é aberta a instalação a partir do Centro de Software.
+   Следующее уведомление отображается, когда конечный пользователь открывает установку из центра программного обеспечения.
 
-   ![Notificação personalizada para uma sequência de tarefas](.\media\user-notification-enduser.png)
+   ![Настраиваемое уведомление для последовательности задач](.\media\user-notification-enduser.png)
 
-### <a name="configure-software-center-properties"></a>Configurar propriedades de centro de Software
-Utilize o procedimento seguinte para configurar os detalhes da sequência de tarefas apresentada no Centro de Software. Estes detalhes são apenas para informação.  
-1. Na consola do Configuration Manager, aceda a **biblioteca de Software** > **sistemas operativos** > **sequências de tarefas**.
-2. Selecione a sequência de tarefas para editar e clique em **propriedades**.
-3. No **geral** separador, as seguintes definições para o Centro de Software estão disponíveis:
-  - **Reinício necessário**: Permite ao utilizador saber se é necessário um reinício durante a instalação.
-  - **Transferir o tamanho (MB)**: Especifica quantos megabytes é apresentada no Centro de Software para a sequência de tarefas.  
-  - **Estimado (minutos) o tempo de execução**: Especifica que o estimado tempo de execução em minutos que é apresentada no Centro de Software para a sequência de tarefas.
-
-
-## <a name="check-for-running-executable-files-before-installing-an-application"></a>Verifique a existência de ficheiros executáveis a ser executado antes de instalar uma aplicação
-
-No  *<deployment type name>*  **propriedades** caixa de diálogo de um tipo de implementação, no separador Instalar comportamento, pode agora especificar um dos ficheiros executáveis mais que, se a ser executado, irão bloquear a instalação do tipo de implementação. O utilizador tem de fechar o ficheiro executável está em execução (ou pode ser fechado automaticamente para implementações com um objetivo necessário) antes da implementação tipo pode ser instalado.
-
-### <a name="try-it-out"></a>Experimente-o.
-
-1.    Nas propriedades de um tipo de implementação do Configuration Manager, escolha o **instalar comportamento** separador.
-2.    Escolher **adicionar** para adicionar um ou mais nomes de ficheiro executável que pretende procurar. Também pode adicionar um nome de apresentação para torná-la mais fácil para os utilizadores a identificar as aplicações na lista.
-3.    Se a implementação tiver um objetivo necessário, no Assistente para implementar software, opcionalmente, pode optar por **fechar automaticamente qualquer executáveis em execução que especificou no separador de comportamento da instalação da caixa de diálogo Propriedades do tipo de implementação**.
-
-Se a aplicação foi implementada como **disponível**e um utilizador final tenta instalar uma aplicação, será pedido para fechar qualquer executáveis em execução que especificou antes que podem prosseguir com a instalação.
-
-Se a aplicação foi implementada como **necessário**e a opção **fechar automaticamente qualquer executáveis em execução que especificou no separador de comportamento da instalação da caixa de diálogo Propriedades do tipo de implementação** é selecionada, irá ver uma caixa de diálogo que informa que executáveis especificou são fechados automaticamente quando for atingido o prazo de instalação da aplicação. Pode agendar estas caixas de diálogo no **definições de cliente** > **agente do computador**. Se não pretender que o utilizador final para ver estas mensagens, selecione **ocultar no Centro de Software e em todas as notificações** no **experiência de utilizador** separador da folha de propriedades da implementação.
-
-Se a aplicação foi implementada como **necessário** e a opção **fechar automaticamente qualquer executáveis em execução que especificou no separador de comportamento da instalação da caixa de diálogo Propriedades do tipo de implementação** não estiver selecionada, em seguida, a instalação da aplicação irá falhar se existir uma ou mais das aplicações especificadas estão em execução.
-
-## <a name="create-pfx-certificates-with-s-mime-support"></a>Criar os certificados PFX com suporte de S MIME
-
-Agora pode criar um perfil de certificado PFX que suporte S/MIME e implementá-la aos utilizadores.  Este certificado pode ser utilizado para encriptação S/MIME e a desencriptação em vários dispositivos que o utilizador tem inscritos.
-
-Além disso, pode agora especificar várias autoridades de certificação (AC) em várias funções de sistema de sites de ponto de registo de certificados e, em seguida, atribuir os pedidos de processo CAs como parte do perfil de certificado.
-
-Para dispositivos iOS, pode associar um perfil de certificado PFX para um perfil de e-mail e ativar a encriptação S/MIME.  Em seguida, isto permite S/MIME no cliente de e-mail nativa do iOS e associa o certificado de encriptação S/MIME correto para a mesma.
-
-Para obter mais informações sobre os certificados no Configuration Manager, consulte o artigo [introdução aos perfis de certificado no System Center Configuration Manager]( https://docs.microsoft.com/sccm/protect/deploy-use/introduction-to-certificate-profiles).
+### <a name="configure-software-center-properties"></a>Настройка свойств центра программного обеспечения
+Следующая процедура предназначена для настройки сведений о последовательности задач, отображаемой в центре программного обеспечения. Эти сведения приведены исключительно в информационных целях.  
+1. В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Операционные системы** > **Последовательность задач**.
+2. Выберите последовательность задач, которую нужно изменить, и нажмите кнопку **Свойства**.
+3. На вкладке **Общее** вкладки доступны следующие параметры для центра программного обеспечения.
+  - **Требуется перезагрузка**: позволяет пользователям узнать, требуется ли перезагрузка во время установки.
+  - **Размер скачиваемого файла (МБ)**: указывает, сколько мегабайтов отображается в Центре программного обеспечения для последовательности задач.  
+  - **Предполагаемое время выполнения (в минутах)**: указывает предполагаемое время выполнения в минутах, которое отображается в Центре программного обеспечения для последовательности задач.
 
 
-## <a name="new-compliance-settings-for-ios-devices"></a>Novas definições de compatibilidade para dispositivos iOS
+## <a name="check-for-running-executable-files-before-installing-an-application"></a>Проверка на наличие запущенных исполняемых файлов перед установкой приложения
 
-Foram adicionadas novas definições que pode utilizar nos seus itens de configuração para dispositivos iOS. Estas são as definições que anteriormente existiam no Microsoft Intune numa configuração isolada e estão agora disponíveis ao utilizar o Intune com o Configuration Manager. Se precisar de ajuda com qualquer uma destas definições, consulte o artigo [definições de política de iOS no Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/ios-policy-settings-in-microsoft-intune).
+В диалоговом окне *<deployment type name>* **Свойства** для типа развертывания на вкладке "Способ установки" теперь можно указать один из нескольких исполняемых файлов, выполнение которого заблокирует возможность установки типа развертывания. Перед установкой типа развертывания пользователь должен закрыть запущенный исполняемый файл (или он может быть автоматически закрыт для развертываний как обязательное условие).
 
-- **Sincronizar os dados de aplicações geridas para iCloud**
-- **Concordam para continuar a atividades no outro dispositivo**
-- **iCloud partilha de fotografias**
-- **iCloud biblioteca de fotografia**
-- **Confiar novo autores de aplicação empresarial**
-- **Permitir que o utilizador transfiram conteúdos a partir do arquivo de iBook sinalizado como 'Erotica'** (apenas no modo supervisionado)
-- **Forçar emparelhado Apple observa, para utilizar a deteção wrist**
-- **Palavra-passe para AirPlay pedidos de envio**
-- **Modificar as definições da conta** (apenas no modo supervisionado)
-- **Alterações das definições de utilização de dados móveis app** (apenas no modo supervisionado)
-- **Apagar todas as definições e conteúdo** (apenas no modo supervisionado)
-- **Para configurar as restrições no dispositivo** (apenas no modo supervisionado)
-- **Anfitrião de utilização emparelhamento para controlar os dispositivos de um dispositivo iOS pode associá-** (apenas no modo supervisionado)
-- **Instalar perfis de configuração e certificados** (apenas no modo supervisionado)
-- **Modificação de nome de dispositivo** (apenas no modo supervisionado)
-- **Modificação do código de acesso** (apenas no modo supervisionado)
-- **O emparelhamento do Apple Watch** (apenas no modo supervisionado)
-- **Modificação das definições de notificação** (apenas no modo supervisionado)
-- **Imagem de fundo modificação** (apenas no modo supervisionado)
-- **Modificação de definições de submissão de diagnóstico** (apenas no modo supervisionado)
-- **Modificação Bluetooth** (apenas no modo supervisionado)
-- **AirDrop** (apenas no modo supervisionado)
-- **Utilizar a Siri ao conteúdo de gerados pelo utilizador de consulta a partir da Internet** (apenas no modo supervisionado)
-- **Filtro de blasfémias a Siri** (apenas no modo supervisionado)
-- **Devolver resultados a partir da Internet na pesquisa de destaque** (apenas no modo supervisionado)
-- **Pesquisa de definição do Word** (apenas no modo supervisionado)
-- **Teclados preditiva** (apenas no modo supervisionado)
-- **Correção automática** (apenas no modo supervisionado)
-- **Verificação ortográfica de teclado** (apenas no modo supervisionado)
-- **Atalhos de teclado** (apenas no modo supervisionado)
+### <a name="try-it-out"></a>Попробуйте!
+
+1.  В свойствах типа развертывания Configuration Manager откройте вкладку **Способ установки**.
+2.  Нажмите кнопку **Добавить**, чтобы добавить один или несколько имен исполняемых файлов, которые требуется проверить. Можно также добавить отображаемое имя для упрощения определения приложений в списке.
+3.  Если развертывание будет являться обязательным, в мастере развертывания программного обеспечения при необходимости можно выбрать параметр **Автоматически закрывать все запущенные исполняемые файлы, указанные на вкладке "Способ установки" диалогового окна "Свойства типа развертывания"**.
+
+Если приложение было развернуто как **доступное** и пользователь пытается установить приложение, перед продолжением установки ему будет предложено закрыть все указанные запущенные исполняемые файлы.
+
+Если приложение было развернуто как **обязательное** и выбран параметр **Автоматически закрывать все запущенные исполняемые файлы, указанные на вкладке "Способ установки" диалогового окна "Свойства типа развертывания"**, пользователь увидит диалоговое окно с сообщением от том, что указанные исполняемые файлы будут автоматически закрыты по достижении крайнего срока установки приложения. Отображение этих диалоговых окон можно запланировать, выбрав **Параметры клиента** > **Агент компьютера**. Если пользователь не должен видеть эти сообщения, выберите параметр **Скрыть в центре программного обеспечения и во всех уведомлениях** на вкладке **Взаимодействие с пользователем** в окне свойств развертывания.
+
+Если приложение было развернуто как **обязательное** и параметр **Автоматически закрывать все запущенные исполняемые файлы, указанные на вкладке "Способ установки" диалогового окна "Свойства типа развертывания"** не выбран, установка приложения завершится ошибкой, если запущено одно или несколько указанных приложений.
+
+## <a name="create-pfx-certificates-with-s-mime-support"></a>Создание PFX-сертификатов с поддержкой S/MIME
+
+Теперь можно создать профиль PFX-сертификата, поддерживающий S/MIME, и развернуть его для пользователей.  Затем этот сертификат можно использовать для шифрования S/MIME и расшифровки на устройствах, зарегистрированные пользователем.
+
+Кроме того, теперь можно указать несколько центров сертификации (ЦС) в нескольких ролях системы сайта точки регистрации сертификатов и назначить, какие ЦС будут обрабатывать запросы как часть профиля сертификата.
+
+Для устройств iOS можно связать профиль PFX-сертификата с профилем электронной почты и включить шифрование S/MIME.  Это позволит включить S/MIME в собственном почтовом клиенте на устройстве iOS и связать с ним правильный сертификат шифрования S/MIME.
+
+Дополнительные сведения о сертификатах в Configuration Manager см. в разделе [Общие сведения о профилях сертификатов в System Center Configuration Manager]( https://docs.microsoft.com/sccm/protect/deploy-use/introduction-to-certificate-profiles).
+
+
+## <a name="new-compliance-settings-for-ios-devices"></a>Новые параметры соответствия для устройств iOS
+
+Добавлены новые параметры, которые можно использовать в элементах конфигурации для устройств iOS. Это параметры, ранее существовавшие в Microsoft Intune в изолированной конфигурации. Теперь они доступны при использовании Intune с Configuration Manager. Справочные сведения об этих параметрах см. в разделе [Параметры политики iOS в Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/ios-policy-settings-in-microsoft-intune).
+
+- **Синхронизация данных из управляемых приложений с iCloud**
+- **Перемещение вручную для продолжения действий на другом устройстве**
+- **Общий доступ к фото в iCloud**
+- **Медиатека iCloud**
+- **Доверие авторам новых приложений предприятия**
+- **Разрешение пользователю скачивать содержимое из магазина iBook, помеченное как " Эротика"** (только в защищенном режиме)
+- **Принудительное использование функции "Wrist Detection" для связанных часов Apple Watches**
+- **Пароль для исходящих запросов AirPlay**
+- **Изменение параметров учетной записи** (только в защищенном режиме)
+- **Изменения параметров использования данных сотовой связи в приложении** (только в защищенном режиме)
+- **Удаление всего содержимого и настроек** (только в защищенном режиме)
+- **Настройка ограничений на устройстве** (только в защищенном режиме)
+- **Использование связывания узлов для управления устройствами, с которыми может связываться устройство с iOS** (только в защищенном режиме)
+- **Установка профилей и сертификатов конфигураций** (только в защищенном режиме)
+- **Изменение имени устройства** (только в защищенном режиме)
+- **Изменение секретного кода** (только в защищенном режиме)
+- **Связывание с Apple Watch** (только в защищенном режиме)
+- **Изменение настроек уведомлений** (только в защищенном режиме)
+- **Изменение обоев** (только в защищенном режиме)
+- **Изменение настроек отправки диагностических данных** (только в защищенном режиме)
+- **Изменение Bluetooth** (только в защищенном режиме)
+- **AirDrop** (только в защищенном режиме)
+- **Использование Siri для запроса созданного пользователями контента из Интернета** (только в защищенном режиме)
+- **Фильтр ненормативной лексики Siri** (только в защищенном режиме)
+- **Возвращение результатов из Интернета в поиске Spotlight** (только в защищенном режиме)
+- **Поиск определения слова** (только в защищенном режиме)
+- **Клавиатуры с прогнозируемым вводом** (только в защищенном режиме)
+- **Автозамена** (только в защищенном режиме)
+- **Проверка орфографии** (только в защищенном режиме)
+- **Сочетания клавиш** (только в защищенном режиме)
 <!--- - **Enterprise app trust settings modification** --->
-- **Instalar aplicações a utilizar o Apple Configurator e iTunes apenas** (apenas no modo supervisionado)
-- **Aplicação automática transferências** (apenas no modo supervisionado)
-- **Efetuar alterações às definições de aplicação localizar as minhas amigos** (apenas no modo supervisionado)
-- **Acesso ao arquivo de iBooks** (apenas no modo supervisionado)
-- **Aplicação de mensagens** (apenas no modo supervisionado)
-- **Podcasts** (apenas no modo supervisionado)
-- **Apple música** (apenas no modo supervisionado)
-- **iTunes opção** (apenas no modo supervisionado)
-- **Apple notícias** (apenas no modo supervisionado)
-- **Centro de jogos** (apenas no modo supervisionado)
-- **Tratar AirDrop como um destino de não gerido**
+- **Установка приложений с помощью только Apple Configurator и iTunes** (только в защищенном режиме)
+- **Автоматическое скачивание приложений** (только в защищенном режиме)
+- **Изменение настроек в приложении Find My Friends** (только в защищенном режиме)
+- **Доступ к магазину iBooks** (только в защищенном режиме)
+- **Приложение " Сообщения"** (только в защищенном режиме)
+- **Подкасты** (только в защищенном режиме)
+- **Apple Music** (только в защищенном режиме)
+- **Служба iTunes Radio** (только в защищенном режиме)
+- **Apple News** (только в защищенном режиме)
+- **Игровой центр** (только в защищенном режиме)
+- **Указание AirDrop как неуправляемого назначения**
 
-## <a name="android-for-work-support"></a>Android para o suporte de trabalho
+## <a name="android-for-work-support"></a>Поддержка Android for Work
 
-A partir da versão de pré-visualização técnica 1702, pode associar uma conta do Google ao seu inquilino do MDM híbrida. Isto permite-lhe fazer o seguinte:
+Начиная с версии Technical Preview 1702, учетную запись Google можно привязывать к гибридному клиенту MDM. Это позволяет выполнять следующие задачи.
 
-- Inscrever [suportada em dispositivos Android](https://support.google.com/work/android/answer/6174145?hl=en&ref_topic=6151012) como Android para trabalhar, criação de perfis de trabalho nos dispositivos inscritos
-- Aprovar aplicações na Play para o arquivo de trabalho, sincronizá-los com a consola do Configuration Manager e, em seguida, implementá-las aos perfis de trabalho dos dispositivos
-- Criar e implementar itens de configuração para configurar definições de perfil e palavra-passe de trabalho para os dispositivos
-- Criar e implementar itens de política de conformidade e perfis de acesso a recursos para Android para dispositivos de trabalho como o utilizador já para dispositivos Android
-- Executar limpeza seletiva no Android para dispositivos de trabalho
+- Регистрировать [поддерживаемые устройства Android](https://support.google.com/work/android/answer/6174145?hl=en&ref_topic=6151012) как Android for Work путем создания в этих устройствах рабочих профилей.
+- Утверждать приложения в магазине Play for Work, синхронизировать их с консолью Configuration Manager и затем развертывать их в рабочих профилях устройств.
+- Создавать и развертывать элементы конфигурации для настройки параметров рабочего профиля и пароля для этих устройств.
+- Создавать и развертывать элементы политики соответствия и профили доступа к ресурсам для устройств Android for Work так же, как для устройств Android.
+- Выполнять выборочную очистку на устройствах Android for Work.
 
-Quando inscreve um dispositivo tal como Android para trabalhar cria um perfil de trabalho no dispositivo que Intune pode gerir. Este perfil de trabalho existe lado a lado com o perfil pessoal no dispositivo Android. Os utilizadores podem facilmente alternar entre aplicações do perfil de trabalho e aplicações de perfis pessoais. Não é possível gerir itens no perfil de pessoal. Aplicações pessoais e os dados permanecem não geridos. O Configuration Manager tem controlo total sobre o perfil de trabalho e o respetivo conteúdo e pode removê-la a partir do dispositivo.
+При регистрации устройства как Android for Work создается рабочий профиль, которым может управлять Intune. Этот рабочий профиль существует одновременно с личным профилем на устройстве Android. Пользователи могут легко переключаться между приложениями с рабочим профилем и приложениями с личным профилем. Управлять элементами в личном профиле невозможно. Персональные приложения и данные остаются неуправляемыми. Configuration Manager полностью контролирует рабочий профиль и его содержимое и может удалить его с устройства.
 
-Android para o trabalho é uma plataforma separada a partir do Android e terá de decidir qual a forma de gestão a utilizar para dispositivos Android que suportam perfis de trabalho.
+Android for Work является отдельной платформой Android, поэтому необходимо решить, какую форму управления следует использовать на устройствах Android, поддерживающих рабочие профили.
 
-### <a name="try-it-out"></a>Experimente!
-As secções seguintes descrevem Android para gestão de trabalho.
+### <a name="try-it-out"></a>Попробуйте!
+В следующих разделах описывается управление Android for Work.
 
-#### <a name="enable-android-for-work-management"></a>Ativar Android para gestão de trabalho
-1. Crie uma conta do Google https://accounts.google.com/SignUp a utilizar como seu Android para a conta de administrador de trabalho que serão associada a todos os Android trabalho em tarefas de gestão para este inquilino do Intune. Isto pode ser uma conta do Google partilhada entre os administradores que gerem dispositivos Android. Esta é a conta do Google que a organização utiliza para gerir e publicar aplicações no Play para a consola de trabalho. Irá utilizar esta conta para aprovar aplicações na Play para o arquivo de trabalho, por isso, manter um registo de nome de conta e palavra-passe.
-2. Ative a inscrição do Android por enlace a conta do Google para o inquilino do Intune gerido no Configuration Manager:
-  1. Aceda a **administração** > **descrição geral** > **serviços em nuvem** > **subscrições do Microsoft Intune** e selecione a sua subscrição do Intune.
-  2. No Friso, clique em **configurar platformas** > **Android** e certifique-se **inscrição do Android ativar** está selecionada.
-  3. No Friso, clique em **configurar platformas** > **Android para trabalhar**.
-  4. Na caixa de diálogo, clique em **configurar Android para trabalhar na consola do Intune**. Abre a consola do Intune no seu browser.
-  5. Utilize as credenciais de administrador do Intune para iniciar sessão no portal do Intune.
-  6. Clique em **configurar** para abrir o Google Play Android para o Web site de trabalho.
-  7. No página de sessão da Google, introduza as credenciais da conta Google do passo 1 e, em seguida, forneça as informações da empresa.
-3. Quando regressar ao portal do Intune, Android para o trabalho está ativado e tem três opções de inscrição para Android para dispositivos de trabalho:
-  - **Gerir todos os dispositivos como Android** - (desativado) Android todos os dispositivos, incluindo dispositivos que suportem Android para trabalhar, irão ser inscritos como dispositivos Android convencionais
-  - **Gerir os dispositivos suportados como Android para trabalhar** - (ativado) todos os dispositivos que suportem Android para trabalhar inscritos como Android para dispositivos de trabalho. Todos os dispositivos Android que não suporta Android para o trabalho está inscrito como um dispositivo Android convencional.
-  - **Gerir os dispositivos suportados para os utilizadores apenas destes grupos como Android para trabalhar** -(Testing) permite destino Android para gestão de trabalho para um conjunto limitado de utilizadores. Apenas os membros de grupos selecionados que inscreverem um dispositivo que suporte Android para trabalhar são inscritos como Android, para dispositivos de trabalho. Todos os outros são inscritos como dispositivos Android.
+#### <a name="enable-android-for-work-management"></a>Включение управления Android for Work
+1. Создайте учетную запись Google на сайте https://accounts.google.com/SignUp в качестве своей учетной записи администратора Android for Work, которая будет связана со всеми задачами управления Android for Work для этого клиента Intune. Эта учетная запись Google может быть общей для администраторов, управляющих устройствами Android. Организация использует эту учетную запись Google для управления приложениями и их публикации в консоли Play for Work. Эта учетная запись будет использоваться для утверждения приложений в магазине Play for Work, чтобы отслеживать имя пользователя и пароль.
+2. Включите регистрацию Android путем связывания учетной записи Google с клиентом Intune, управляемым в Configuration Manager.
+  1. Последовательно выберите **Администрирование** > **Обзор** > **Облачные службы** > **Подписки Microsoft Intune** и выберите подписку Intune.
+  2. На ленте щелкните **Настройка платформ** > **Android** и установите флажок **Включить регистрацию в ОС Android**.
+  3. На ленте щелкните **Настройка платформ** > **Android for Work**.
+  4. В диалоговом окне щелкните **Настройка Android for Work в консоли Intune**. В веб-браузере откроется консоль Intune.
+  5. Используя учетные данные администратора Intune, войдите на портал Intune.
+  6. Щелкните **Настроить**, чтобы открыть веб-сайт Android for Work в Google Play.
+  7. На странице входа Google введите учетные данные Google из шага 1 и укажите сведения о вашей организации.
+3. После возвращения на портал Intune будет включен Android for Work и вам будут доступны три варианта регистрации устройств Android for Work.
+  - **Управлять всеми устройствами в качестве Android** (отключен). Все устройства Android, включая устройства, поддерживающие Android for Work, будут зарегистрированы как обычные устройства Android.
+  - **Управлять поддерживаемыми устройствами в качестве Android for Work** (включен). Все устройства, поддерживающие Android for Work, регистрируются в качестве устройств Android for Work. Любое устройство Android, которое не поддерживает Android for Work, регистрируется как обычное устройство Android.
+  - **Управлять поддерживаемыми устройствами лишь для пользователей в указанных группах в качестве Android for Work** (тестирование). Позволяет применять управление Android for Work только к ограниченному кругу пользователей. Только члены выбранных групп, регистрирующих устройства, которые поддерживают Android for Work, регистрируются как устройства Android for Work. Все остальные регистрируются в качестве устройств Android.
   
 > [!NOTE]
-> Um problema conhecido impede o **gerir dispositivos suportados para os utilizadores apenas destes grupos como Android para trabalhar** opção trabalhem conforme esperado. Os dispositivos dos utilizadores no Azure AD especificado grupos irão inscrever como Android, em vez de Android para trabalhar. Para testar Android para trabalhar, tem de utilizar o **gerir todos os dispositivos suportados como Android para trabalhar**.
+> Известная проблема препятствует ожидаемой работе параметра **Управлять поддерживаемыми устройствами лишь для пользователей в указанных группах в качестве Android for Work**. Устройства пользователей в указанных группах Azure AD будут зарегистрированы как Android, а не Android for Work. Чтобы проверить Android for Work, нужно использовать параметр **Управлять всеми поддерживаемыми устройствами в качестве Android for Work**.
 
 
-  Para poder ativar o Android para a inscrição de trabalho, tem de escolher uma das opções inferior dois. O **gerir dispositivos suportados para os utilizadores apenas destes grupos como Android para trabalhar** opção requer tiver grupos de segurança do Azure Active Directory configure primeiro.
+  Чтобы включить регистрацию Android for Work, необходимо выбрать один из двух приведенных параметров. Для параметра **Управлять поддерживаемыми устройствами лишь для пользователей в указанных группах в качестве Android for Work** необходимо сначала настроить группы безопасности Azure Active Directory.
 
-Verá o nome de conta e o nome da organização no portal do Intune quando o enlace está concluído; nesse momento, pode fechar ambos os browsers.
+По завершении привязки вы увидите имя учетной записи и название организации на портале Intune. На этом этапе можно закрыть оба браузера.
 
-#### <a name="approve-and-deploy-android-for-work-apps"></a>Aprovar e implementar Android para aplicações de trabalho
-Siga estes passos para aprovar aplicações na Play para o arquivo de trabalho, sincronizá-los para a consola do Configuration Manager e implementá-las Android gerido para dispositivos de trabalho. Para implementar aplicações para perfis de utilizador de trabalho, terá de aprovar aplicações da Play para o trabalho e, em seguida, sincronizar as aplicações com a consola do Configuration Manager.
+#### <a name="approve-and-deploy-android-for-work-apps"></a>Утверждение и развертывание приложений Android for Work
+Приведенные ниже действия предназначены для утверждения приложений в магазине Play for Work, их синхронизации с консолью Configuration Manager и последующего развертывания управляемых устройствах Android for Work. Для развертывания приложений для рабочих профилей пользователей необходимо утвердить приложения в Play for Work и синхронизировать их в консоли Configuration Manager.
 
-1. Abra um browser e aceda a: https://play.google.com/work.
-2. Inicie sessão com a conta de administrador do Google vinculada ao seu inquilino do Intune.
-3. Procure as aplicações que pretende implementar no seu ambiente e clique em **aprovar** para cada um deles.
-4. Na consola do Configuration Manager, aceda a **administrador** > **descrição geral** > **serviços em nuvem** > **Android para trabalhar** e clique em **sincronização**.
-5. Aguarde até 10 minutos para as aplicações sincronizar e, em seguida, aceda **biblioteca de Software** > **descrição geral** > **gestão de aplicações** > **informações de licença de aplicações da loja**.
-6. Clique numa aplicação sincronizada a partir da Play para o trabalho e, em seguida, clique em **Criar aplicação**.
-7. Conclua o assistente e clique em **fechar**.
-8. Aceda a **biblioteca de Software** > **descrição geral** > **gestão de aplicações** > **aplicações**, selecione um Android para aplicações de trabalho e implementar como habitualmente.
+1. Откройте браузер и перейдите по адресу https://play.google.com/work.
+2. Выполните вход с помощью учетной записи администратора Google, привязанной к клиенту Intune.
+3. Найдите приложения, которые вы хотите развернуть в своей среде, нажимайте кнопку **Утвердить** для каждого из них.
+4. В консоли Configuration Manager последовательно выберите **Администрирование** > **Обзор** > **Облачные службы** > **Android for Work** и щелкните **Синхронизировать**.
+5. Подождите 10 минут до завершения синхронизации, а затем последовательно выберите **Библиотека программного обеспечения** > **Обзор** > **Управление приложениями** > **Информация о лицензиях для приложений из Магазина**.
+6. Щелкните приложение, синхронизированное из Play for Work, а затем нажмите кнопку **Создать приложение**.
+7. Завершите работу мастера и нажмите кнопку **Закрыть**.
+8. Последовательно выберите пункты **Библиотека программного обеспечения** > **Обзор** > **Управление приложениями** > **Приложения**, выберите приложения Android for Work и разверните их как обычно.
 
-Para sincronizar Play para aplicações de trabalho com o Configuration Manager, terá de aprovar, pelo menos, uma aplicação no Play para o Web site de trabalho.
+Для синхронизации приложений Play for Work с Configuration Manager необходимо утвердить хотя бы одно приложение на веб-сайте Play for Work.
 
-#### <a name="enroll-an-android-for-work-device"></a>Inscrever Android para o dispositivo de trabalho
-Como inscrever Android para dispositivos de trabalho é semelhante a inscrição para Android. Transfira e execute a aplicação de Portal da empresa para Android no seu dispositivo móvel. Será pedido para criar um perfil de trabalho como parte do processo de inscrição.  Depois do perfil de trabalho é criado, tem de mudar para a versão do Portal da empresa gerida. O Portal da empresa gerido está etiquetado com um briefcase laranja pequena no canto inferior direito.
+#### <a name="enroll-an-android-for-work-device"></a>Регистрация устройства Android for Work
+Процедура регистрации устройств Android for Work аналогична регистрации в ОС Android. Скачайте и запустите приложение корпоративного портала компании для Android на мобильном устройстве. В процессе регистрации будет предложено создать рабочий профиль.  После создания профиля необходимо переключиться на управляемую версию корпоративного портала. Управляемый корпоративный портал можно определить по значку с изображением небольшого оранжевого портфеля в нижнем правом углу.
 
-#### <a name="create-and-deploy-a-configuration-item"></a>Criar e implementar um item de configuração
-Android para trabalhar tem dois grupos de definição para itens de configuração:
-- Palavra-passe
-- Perfil de trabalho
+#### <a name="create-and-deploy-a-configuration-item"></a>Создание и развертывание элемента конфигурации
+В Android for Work доступно две группы параметров для элементов конфигурации.
+- Пароль
+- Рабочий профиль
 
-Pode configurar o conteúdo partilha entre perfis de trabalho, bem como os seguintes itens de configuração em dispositivos com Android 6 ou superior:
-- O comportamento para pedir permissões específicas de aplicações
-- Se as notificações para aplicações no perfil de trabalho estão visíveis no ecrã de bloqueio
+На устройствах с ОС Android 6 или более поздней версией можно настроить общий доступ к содержимому между рабочими профилями, а также следующие элементы конфигурации.
+- Поведение для приложений, запрашивающих конкретные разрешения
+- Отображение на экране блокировки уведомлений для приложений в рабочем профиле
 
-Para efetuar esta operação, crie um item de configuração através do fluxo de trabalho padrão, selecione **Android para trabalhar** no **geral** página e configure as definições para cada um dos grupos de, adicionar o item de configuração para um plano base e implementar como habitualmente. Estas definições serão aplicadas apenas para dispositivos inscritos como Android de trabalho e não as inscritos como Android.
+Для этого создайте элемент конфигурации в ходе стандартного рабочего процесса, выберите **Android for Work** на странице **Общие** и настройте параметры для каждой группы параметров путем добавления элемента конфигурации в базовый план и стандартного развертывания. Эти параметры применяются только к устройствам, зарегистрированным в качестве Android for Work, а не к зарегистрированным в качестве устройств Android.
 
-#### <a name="perform-selective-wipe"></a>Executar limpeza seletiva
-Os dispositivos inscritos como Android para trabalhar pode apenas ser apagado seletivamente porque só gerir o perfil de trabalho. Isto impede que o perfil pessoal dados serem apagados. Efetuar uma eliminação seletiva num Android para o dispositivo de trabalho remove o perfil de trabalho, incluindo todas as aplicações e dados e unenrolls o dispositivo.
+#### <a name="perform-selective-wipe"></a>Выполнение выборочной очистки
+Выборочная очистка применяется только к устройствам, зарегистрированным в качестве Android for Work, так как под управлением находится только рабочий профиль. Это обеспечивает защиту от очистки личного профиля. Выборочная очистка на устройствах Android for Work приводит к удалению рабочего профиля, включая все приложения и данные, и отмене регистрации устройства.
 
-Para apagar seletivamente Android para o dispositivo de trabalho, utilize o normal [processo de eliminação seletiva](https://docs.microsoft.com/sccm/mdm/deploy-use/wipe-lock-reset-devices#selective-wipe) na consola do Configuration Manager.
+Для выборочной очистки устройства Android for Work используется обычный [процесс выборочной очистки](https://docs.microsoft.com/sccm/mdm/deploy-use/wipe-lock-reset-devices#selective-wipe) в консоли Configuration Manager.
 
-#### <a name="known-issues-for-android-for-work"></a>Problemas conhecidos para Android para trabalhar
-**Configurar a sincronização agendada no Android as causas de perfis de correio eletrónico de trabalho-los para a implementação falhar** uma das opções na IU do ConfigMgr para Android para perfis de e-mail de trabalho é "Agenda". Noutras plataformas, isto permite que o administrador configurar uma agenda para sincronizar o e-mail e outros dados de conta de correio eletrónico para baixo para os dispositivos móveis que for implementado. No entanto, não funciona para Android para perfis de e-mail do trabalho e escolher qualquer opção diferente de "Não configurada" fará com que o perfil não ser implementada para todos os dispositivos.
-
+#### <a name="known-issues-for-android-for-work"></a>Известные проблемы Android for Work
+**Настройка расписания синхронизации в профилях электронной почты Android for Work вызывает сбой при развертывании**. Один из параметров в пользовательском интерфейсе Configuration Manager для профилей электронной почты Android for Work — "Расписание". На других платформах он позволяет администратору настроить расписание для синхронизации электронной почты и других данных учетных записей электронной почты на мобильных устройствах, где оно развернуто. Тем не менее этот параметр не работает для профилей электронной почты Android for Work. При выборе любого параметра, кроме "Не настроено", профиль не будет развернут ни на одном устройстве.

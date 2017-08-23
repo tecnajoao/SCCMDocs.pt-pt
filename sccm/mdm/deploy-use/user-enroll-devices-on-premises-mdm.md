@@ -1,6 +1,6 @@
 ---
-title: Como os utilizadores inscrevem dispositivos com MDM no local - Configuration Manager | Microsoft Docs
-description: "Compreenda a forma como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager."
+title: "Регистрация устройств пользователями с помощью локального управления мобильными устройствами в Configuration Manager | Документы Майкрософт"
+description: "Сведения о регистрации устройств пользователями с помощью локального управления мобильными устройствами в System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,63 +17,63 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 8c7438c2cc0bc66654eb3e74de10553df53181d9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-users-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager
+# <a name="how-users-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Регистрация устройств пользователями с помощью локального управления мобильными устройствами в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Gestão de dispositivos móveis no local do System Center Configuration Manager, os utilizadores podem inscrever dispositivos se que tenham sido concedidas permissão de inscrição (através de definições de cliente atualizadas) e os respetivos dispositivos tiverem o certificado de raiz necessário instalado para ter comunicações fidedignas com os servidores que alojam as funções do sistema de sites necessárias. Para obter mais informações sobre como configurar a inscrição, consulte [configurar a inscrição de dispositivos para gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md).  
+С помощью локального управления мобильными устройствами в System Center Configuration Manager пользователи могут регистрировать устройства, если им назначено разрешение регистрации (посредством изменения параметров клиента), а на их устройствах установлен необходимый корневой сертификат для надежного взаимодействия с серверами, где размещаются требуемые роли системы сайта. Дополнительные сведения о настройке регистрации см. в статье [Настройка регистрации устройств для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md).  
 
 > [!NOTE]  
->  O ramo atual do Configuration Manager suporta a inscrição na gestão de dispositivos móveis no local para dispositivos que executam os sistemas operativos seguintes:  
+>  Текущая ветвь Configuration Manager поддерживает регистрацию локального управления мобильными устройствами для устройств под управлением следующих операционных систем:  
 >   
-> -  Windows 10 Enterprise  
-> -   Windows 10 Pro  
-> -   Windows 10 Team \(a partir do Configuration Manager versão 1602\)  
+> -  Windows 10 Корпоративная  
+> -   Windows 10 Pro  
+> -   Windows 10 для совместной работы \(начиная с Configuration Manager версии 1602\)  
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Enterprise
-> -   Windows 10 Enterprise de IoT   
+> -   Windows 10 Mobile Корпоративная
+> -   Windows 10 IoT Корпоративная   
 
-As tarefas seguintes explicam como inscrever e verificar a inscrição de computadores e dispositivos para no\-no local a gestão de dispositivos móveis:  
+Следующие задачи описывают процесс регистрации и ее проверки для компьютеров и устройств для локального управления мобильными устройствами\-:  
 
--   [Inscrever um computador Windows 10](#bkmk_enrollDesk)  
+-   [Регистрация компьютера Windows 10](#bkmk_enrollDesk)  
 
--   [Inscrever um dispositivo Windows 10 Mobile](#bkmk_enrollMob)  
+-   [Регистрация устройства Windows 10 Mobile](#bkmk_enrollMob)  
 
--   [Verificar inscrição de dispositivos](#bkmk_verify)  
+-   [Проверка регистрации устройства](#bkmk_verify)  
 
-##  <a name="bkmk_enrollDesk"></a> Inscrever um computador Windows 10  
+##  <a name="bkmk_enrollDesk"></a> Регистрация компьютера Windows 10  
 
-1.  Num computador Windows 10, aceda a **Definições**.  
+1.  На компьютере Windows 10 перейдите в область **Параметры**.  
 
-2.  Clique em **Contas**e, em seguida, clique em **Acesso a trabalho**.  
+2.  Щелкните элемент **Учетные записи**, а затем элемент **Рабочий доступ**.  
 
-3.  Em Acesso a trabalho, sob **Ligar ao trabalho ou escola**, clique em **Ligar**, introduza o seu endereço de e-mail de trabalho e clique em **Continuar**.  
+3.  В разделе **Подключение к месту работы или учебы**области рабочего доступа щелкните **Подключение**, введите свой рабочий адрес электронной почты и нажмите кнопку **Продолжить**.  
 
-4.  Introduza o FQDN do servidor que aloja a função de sistema de sites de ponto de proxy de registo e clique em **continuar**.  
+4.  Введите полное доменное имя сервера, где размещается роль системы сайта для прокси-точки регистрации, и нажмите кнопку **Продолжить**.  
 
-5.  Em A ligar a um serviço, introduza a palavra-passe do seu e-mail de trabalho e clique em **Iniciar sessão**.  
+5.  В разделе "Подключение к службе" введите пароль электронной почты и нажмите кнопку **Вход**.  
 
-6.  Clique em **Ignorar** para memorizar as informações de início de sessão e, após um curto período de tempo, o dispositivo está ligado.  
+6.  Щелкните элемент **Пропустить** в запросе на сохранение данных входа в систему. Через некоторое время устройство будет подключено.  
 
-##  <a name="bkmk_enrollMob"></a> Inscrever um dispositivo Windows 10 Mobile  
+##  <a name="bkmk_enrollMob"></a> Регистрация устройства Windows 10 Mobile  
 
-1.  Num dispositivo Windows 10 Mobile, aceda a **Definições**.  
+1.  На устройстве Windows 10 Mobile перейдите в область **Параметры**.  
 
-2.  Clique em **Contas**e, em seguida, clique em **Acesso a trabalho**.  
+2.  Щелкните элемент **Учетные записи**, а затем элемент **Рабочий доступ**.  
 
-3.  Clique em **Ligar**.  
+3.  Нажмите кнопку **Подключиться**.  
 
-4.  Introduza o seu endereço de e-mail de trabalho e o FQDN do servidor que aloja a função de sistema de sites de ponto proxy de registo. Clique em **Ligar**.  
+4.  Введите свой рабочий адрес электронной почты и полное доменное имя сервера, где размещается роль системы сайта для прокси-точки регистрации. Нажмите кнопку **Подключиться**.  
 
-5.  No ecrã seguinte, introduza o seu endereço de e-mail de trabalho e a palavra-passe e, em seguida, clique em **Iniciar sessão**. Após um curto período de tempo, o dispositivo é inscrito. Clique em **Concluído**.  
+5.  На следующем экране введите свой рабочий адрес электронной почты и пароль, а затем нажмите кнопку **Вход**. Через некоторое время устройство будет зарегистрировано. Нажмите кнопку **Готово**.  
 
-##  <a name="bkmk_verify"></a> Verificar inscrição de dispositivos  
- Pode verificar que dispositivos foram inscritos com êxito na consola do Configuration Manager.  
+##  <a name="bkmk_verify"></a> Проверка регистрации устройства  
+ Вы можете подтвердить успешную регистрацию устройств в консоли Configuration Manager.  
 
-1.  Inicie a consola do Configuration Manager.  
+1.  Запустите консоль Configuration Manager.  
 
-2.  Clique em **Ativos e Compatibilidade** > **Descrição geral** > **Dispositivos**. O dispositivo inscrito aparece na lista.  
+2.  Чтобы выйти из мастера, нажмите кнопку **Активы и соответствие** > **Обзор** > **Устройства**. Зарегистрированное устройство отображается в списке.  

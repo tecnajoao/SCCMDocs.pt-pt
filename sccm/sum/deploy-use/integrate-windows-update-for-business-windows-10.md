@@ -1,6 +1,6 @@
 ---
-title: "Integração com o Windows Update for Business no Windows 10 | Microsoft Docs"
-description: "Utilize o Windows Update para empresas para manter os dispositivos baseados no Windows 10 na sua organização atualizados para os dispositivos ligados ao serviço Windows Update."
+title: "Интеграция с Центром обновления Windows для бизнеса в Windows 10 | Документы Майкрософт"
+description: "Используйте Центр обновления Windows для бизнеса, чтобы поддерживать устройства с Windows 10, подключенные к службе Центра обновления Windows, в организации в актуальном состоянии."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,91 +13,91 @@ ms.technology: configmgr-sum
 ms.assetid: 183315fe-27bd-456f-b2c5-e8d25e05229b
 ms.openlocfilehash: 26e73a69d5e6ca69e766fcf3cedd992353c92cd6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="integration-with-windows-update-for-business-in-windows-10"></a>Integração com o Windows Update for Business no Windows 10
+# <a name="integration-with-windows-update-for-business-in-windows-10"></a>Интеграция с Центром обновления Windows для бизнеса в Windows 10
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-O Windows Update for Business (WUfB) permite-lhe manter os dispositivos baseados no Windows 10 da sua organização sempre atualizados com as mais recentes defesas e funcionalidades de segurança do Windows quando estes dispositivos se ligam diretamente ao serviço Windows Update (WU). O Configuration Manager possui capacidade para diferenciar entre computadores Windows 10 que utilizam o WUfB e o WSUS para obter as atualizações de software.  
+Центр обновления Windows для бизнеса (WUfB) позволяет поддерживать устройства на базе Windows 10 в организации в актуальном состоянии и использовать на них новейшие способы защиты и компоненты Windows, когда такие устройства подключаются непосредственно к службе Центра обновления Windows (WU). Configuration Manager может различать компьютеры Windows 10, использующие Центр обновления Windows для бизнеса и службы WSUS для получения обновлений программного обеспечения.  
 
- Algumas funcionalidades do Configuration Manager já não estão disponíveis quando os clientes do Configuration Manager estão configurados para receber atualizações do WU, que inclui o WUfB ou Windows Insiders:  
+ Некоторые функции Configuration Manager недоступны, когда клиенты Configuration Manager настроены для получения обновлений из Центра обновления Windows, включая Центр обновления Windows для бизнеса и участников программы предварительной оценки Windows.  
 
--   Relatórios de conformidade do Windows Update:  
+-   Отчеты о соответствии для Центра обновления Windows:  
 
-    -   O Configuration Manager será conhecimento das atualizações que são publicadas no WU. Clientes do Configuration Manager configurados para receber atualizações do WU apresentarão **desconhecido** para estas atualizações na consola do Configuration Manager.  
+    -   Configuration Manager не будет знать об обновлениях, опубликованных в Центре обновления Windows. Для клиентов Configuration Manager, настроенных для получения обновлений из Центра обновления Windows, будет отображаться состояние **неизвестно** для этих обновлений в консоли Configuration Manager.  
 
-    -   Resolver o problema do estado de conformidade geral é difícil, porque o estado **desconhecido** destinava-se, anteriormente, apenas aos clientes que não tinham comunicado o estado da análise do WSUS.  Agora inclui também os clientes do Configuration Manager que recebem atualizações do WU.  
+    -   Устранение неполадок, связанных с общим состоянием соответствия, осложнено из-за состояния **неизвестно** , которое используется только для клиентов, не сообщивших о состоянии проверки из служб WSUS.  Теперь это также относится к клиентам Configuration Manager, получающим обновления из Центра обновления Windows.  
 
-    -   Acesso condicional (para recursos da empresa) com base no estado de conformidade de atualização não funcionará conforme esperado para clientes que recebem atualizações do WU, porque estes nunca iriam cumprir a conformidade do Configuration Manager.  
+    -   Условный доступ (для корпоративных ресурсов), основанный на состоянии соответствия обновлений, будет работать неправильно для клиентов, получающих обновления из Центра обновления Windows, так как они никогда не будут соответствовать требованиям Configuration Manager.  
 
-    -   A conformidade das Atualizações de Definições faz parte dos relatórios de conformidade de atualização gerais e também não funcionará conforme esperado.  A conformidade das atualizações de definições também faz parte da avaliação de acesso condicional  
+    -   Соответствие обновлений определений входит в состав отчетов об общем соответствии обновлений и тоже будет работать неправильно.  Кроме того, соответствие обновлений определений является частью оценки условного доступа.  
 
--   Os relatórios globais do Endpoint Protection para o Defender baseados no estado de conformidade das atualizações não devolverão resultados precisos devido aos dados de análise em falta.  
+-   Общие отчеты Endpoint Protection для Защитника, основанные на состоянии соответствия обновлений, не будут давать точные результаты из-за отсутствующих данных проверки.  
 
--   O Configuration Manager não poderá implementar atualizações da Microsoft, tais como Office, IE e Visual Studio para clientes que estejam ligados ao WUfB para receber atualizações.  
+-   Configuration Manager не сможет развернуть обновления Майкрософт, например Office, Internet Explorer и Visual Studio, на клиентах, подключенных к Центру обновления Windows для бизнеса для получения обновлений.  
 
--   O Configuration Manager não poderá implementar atualizações de terceiros 3rd que são publicadas no WSUS e geridas através do Gestor de configuração para clientes que estejam ligados ao WUfB para receber atualizações.  
+-   Configuration Manager не сможет развернуть обновления сторонних производителей, опубликованные в службах WSUS и управляемые с помощью Configuration Manager, для клиентов, подключенных к Центру обновления Windows для бизнеса для получения обновлений.  
 
--   Implementação de cliente completa do Configuration Manager que utiliza a infraestrutura de atualizações de software não irá funcionar para clientes que estão ligados ao WUfB para receber atualizações.  
+-   Полное развертывание клиента Configuration Manager, использующее инфраструктуру обновлений программного обеспечения, не будет работать для клиентов, подключенных к Центру обновления Windows для бизнеса для получения обновлений.  
 
-## <a name="identify-clients-that-use-wufb-for-windows-10-updates"></a>Identificar clientes que utilizam o WUfB para Windows 10 atualizações  
- Utilize o procedimento seguinte para identificar os clientes que utilizam o WUfB para obter atualizações do Windows 10, configurar estes clientes para deixarem de utilizar o WSUS para obter atualizações e implementar uma definição do agente de cliente para desativar o fluxo de trabalho de atualizações de software nestes clientes.  
+## <a name="identify-clients-that-use-wufb-for-windows-10-updates"></a>Определения клиентов, использующих Центр обновления Windows для бизнеса для получения обновлений Windows 10  
+ Используйте следующую процедуру для определения клиентов, использующих Центр обновления Windows для бизнеса для получения обновлений Windows 10, настройте эти клиенты, отключив использование служб WSUS для получения обновлений, и разверните параметр агента клиента, чтобы отключить рабочий процесс обновления программного обеспечения для этих клиентов.  
 
- **Pré-requisitos**  
+ **Предварительные требования**  
 
--   Clientes com Windows 10 Desktop Pro ou Windows 10 Enterprise Edition, versão 1511 ou posterior  
+-   Клиенты, работающие под управлением Windows 10 Desktop Pro или Windows 10 Корпоративная версии 1511 или более поздней  
 
--   O[Windows Update for Business](https://technet.microsoft.com/library/mt622730\(v=vs.85\).aspx) é implementado e os clientes utilizam o WUfB para obter atualizações do Windows 10.  
+-   [Центр обновления Windows для бизнеса](https://technet.microsoft.com/library/mt622730\(v=vs.85\).aspx) развертывается, и клиенты используют его для получения обновлений Windows 10.  
 
-#### <a name="to-identify-clients-that-use-wufb"></a>Para identificar os clientes que utilizam o WUfB  
+#### <a name="to-identify-clients-that-use-wufb"></a>Определение клиентов, использующих Центр обновления Windows для бизнеса  
 
-1.  Desative o Agente do Windows Update para que não faça análises no WSUS, se tiver sido ativado previamente.   
-    A chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\UseWUServer** pode ser definida para indicar se o computador está a analisar no WSUS ou no Windows Update.  Quando o valor é 2, não está a analisar no WSUS.  
+1.  Отключите агент Центра обновления Windows, чтобы он не выполнял сканирование служб WSUS (если он был включен ранее).   
+    В разделе реестра **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\UseWUServer** можно указать, выполняет ли компьютер сканирование служб WSUS или Центра обновления Windows.  Если значение равно 2, сканирование служб WSUS не выполняется.  
 
-2.  Há um novo atributo **UseWUServer**, sob o **Windows Update** nó no Explorador de recursos do Configuration Manager.  
+2.  В узле **Центр обновления Windows** обозревателя ресурсов Configuration Manager имеется новый атрибут **UseWUServer**.  
 
-3.  Crie uma coleção com base no atributo **UseWUServer** para todos os computadores ligados através de WUfB para obter atualizações e melhoramentos.  
+3.  Создайте коллекцию на основе атрибута **UseWUServer** для всех компьютеров, подключенных через Центр обновления Windows для бизнеса, чтобы выполнить обновления.  
 
-4.  Crie uma definição de agente de cliente para desativar o fluxo de trabalho de atualização de software e implemente-a na coleção de computadores ligados diretamente ao WUfB.  
+4.  Создайте параметр агента клиента для отключения рабочего процесса обновления программного обеспечения и разверните этот параметр в коллекции компьютеров, которые подключены непосредственно к Центру обновления Windows для бизнеса.  
 
-5.  Os computadores que são geridos através de WUfB apresentará **desconhecido** estado de conformidade e não serão contados como parte da percentagem de conformidade geral.  
+5.  Компьютеры, управляемые через Центр обновления Windows для бизнеса, имеют состояние соответствия требованиям **Неизвестно** и не учитываются в общем проценте соответствия.  
 
-## <a name="configure-windows-update-for-business-deferral-policies"></a>Configurar o Windows Update para as políticas de diferimento por de negócio
+## <a name="configure-windows-update-for-business-deferral-policies"></a>Настройка политик отсрочки центра обновления Windows для бизнеса
 <!-- 1290890 -->
-A partir do Configuration Manager versão 1706, pode configurar políticas de diferimento por para atualizações de funcionalidade do Windows 10 ou qualidade atualizações para o Windows 10 dispositivos geridos diretamente pelo Windows Update for Business. Pode gerir as políticas de diferimento por na nova **Windows Update para as políticas de negócio** nó **biblioteca de Software** > **manutenção do Windows 10**.
+Начиная с версии 1706 Configuration Manager вы можете настроить политики отсрочки обновлений компонентов Windows 10 или исправлений для устройств Windows 10 непосредственно с помощью управляемых средств обновления Windows для бизнеса. Вы можете управлять политиками отсрочки в новом узле **Политики Центра обновления Windows для бизнеса**, который расположен в разделе **Библиотека программного обеспечения** > **Обслуживание Windows 10**.
 
-### <a name="prerequisites"></a>Pré-requisitos
-Dispositivos Windows 10 geridos pelo Windows Update para empresas tem de ter conectividade à Internet.
+### <a name="prerequisites"></a>Предварительные требования
+Устройства Windows 10, управляемые Центром обновления Windows для бизнеса, должны иметь возможность подключения к Интернету.
 
-#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Para criar uma atualização do Windows para a política de diferimento por de negócio
-1. No **biblioteca de Software** > **manutenção do Windows 10** > **Windows Update para as políticas de negócio**
-2. No **home page** separador o **criar** grupo, selecione **criar Windows Update para empresas política** para abrir o Windows Update criar para o Assistente de política de negócio.
-3. No **geral** , indique um nome e descrição para a política.
-4. No **diferimento por políticas** página, configure se pretende diferir ou colocar em pausa as atualizações de funcionalidade.    
-    Atualizações de funcionalidade são geralmente novas funcionalidades do Windows. Depois de configurar o **sucursal nível de preparação** , em seguida, pode definir se e para o período de tempo, gostaria diferir atualizações de funcionalidades a seguir a respetiva disponibilidade da Microsoft a receber.
-    - **Nível de preparação de sucursal**: Defina o ramo para o qual o dispositivo irá receber atualizações do Windows (Current Branch ou Current Branch for Business).
-    - **Período de diferimento por (dias)**:  Especifique o número de dias para o qual vai ser diferidas atualizações de funcionalidade. Pode diferir receber estas atualizações de funcionalidade durante um período de 180 dias a partir da respetiva versão.
-    - **Iniciar de atualizações de funcionalidades de pausa**: Selecione se para colocar em pausa dispositivos de receber atualizações de funcionalidade durante um período de 60 dias desde o momento em coloque em pausa as atualizações. Após ter passado o máximo de dias, a funcionalidade de pausa automaticamente irá expirar e o dispositivo irá analisar as atualizações do Windows para detetar atualizações aplicáveis. Seguir esta análise, pode colocar em pausa as atualizações de novo. Pode unpause atualizações de funcionalidade desmarcando a caixa de verificação.   
-5. Escolha se pretende diferir ou atualizações de qualidade de colocar em pausa.     
-    Atualizações de qualidade são, geralmente, correções e melhoramentos a funcionalidades existentes do Windows e, normalmente, são publicadas primeira Terça-feira de cada mês, que podem ser libertadas em qualquer altura ao Microsoft. Pode definir se e para o período de tempo, gostaria diferir atualizações de qualidade após a respetiva disponibilidade a receber.
-    - **Período de diferimento por (dias)**: Especifique o número de dias para o qual vai ser diferidas atualizações de funcionalidade. Pode diferir receber estas atualizações de funcionalidade durante um período de 180 dias a partir da respetiva versão.
-    - **Iniciar de atualizações de qualidade de pausa**: Selecione se para colocar em pausa dispositivos a partir da qualidade a receber atualizações durante um período de 35 dias desde o momento em coloque em pausa as atualizações. Após ter passado o máximo de dias, a funcionalidade de pausa automaticamente irá expirar e o dispositivo irá analisar as atualizações do Windows para detetar atualizações aplicáveis. Seguir esta análise, pode colocar em pausa as atualizações de novo. Pode unpause qualidade atualizações ao desmarcar a caixa de verificação.
-6. Selecione **instalar atualizações a partir de outros Microsoft Products** para ativar a definição de política de grupo que as definições de diferimento por aplicável ao Microsoft Update, bem como as atualizações do Windows.
-7. Selecione **incluir controladores com o Windows Update** para atualizar automaticamente os controladores de atualizações do Windows. Se desmarcar esta definição, as atualizações de controladores não são transferidas atualizações do Windows.
-8. Conclua o Assistente para criar a nova política de diferimento por.
+#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Создание политики отсрочки Центра обновления Windows для бизнеса
+1. Откройте узел **Библиотека программного обеспечения** > **Обслуживание Windows 10** > **Политики Центра обновления Windows для бизнеса**
+2. На вкладке **Главная** в группе **Создать** выберите **Создать политику Центра обновления Windows для бизнеса**, чтобы открыть соответствующий мастер создания.
+3. На странице **Общие** укажите имя и описание для новой политики.
+4. На странице **Политики отсрочки** укажите, следует ли откладывать или приостанавливать обновления компонентов.    
+    Обновление компонентов обычно включает новые функции Windows. Настроив параметр **Уровень готовности ветви**, вы можете дополнительно указать, нужно ли (и на какой период) отложить получение обновления компонентов после предоставления их в открытый доступ корпорацией Майкрософт.
+    - **Уровень готовности ветви**. Укажите ветвь, для которой это устройство будет получать обновления Windows (Current Branch или Current Branch for Business).
+    - **Период отсрочки в днях**. Укажите длительность периода, на который будет отложено обновление компонентов. Вы можете отложить получение обновлений компонентов на период до 180 дней после их выпуска.
+    - **Начало приостановки получения обновлений компонентов**. Вы можете приостановить получение обновлений компонентов на устройстве на период до 60 дней с момента приостановки обновлений. По прошествии этого максимального срока приостановка автоматически отключается и устройство начинает проверку доступных обновлений в Центре обновления Windows. После этой проверки вы можете снова приостановить обновления. Паузу в обновлении компонентов можно в любой момент прервать, сняв этот флажок.   
+5. Выберите, следует ли отложить или приостановить получение исправлений.     
+    Пакеты исправления обычно содержат исправления ошибок и улучшения существующих функциональных возможностей Windows. Они традиционно публикуются корпорацией Майкрософт в первый вторник каждого месяца, но при необходимости могут быть выпущены в любое время. Вы можете указать, нужно ли (и как надолго) отложить получение пакетов исправления после их публикации.
+    - **Период отсрочки для обновлений компонентов (в днях)**. Укажите длительность периода, на который будет отложено обновление компонентов. Вы можете отложить получение обновлений компонентов на период до 180 дней после их выпуска.
+    - **Начало приостановки получения исправлений**. Вы можете приостановить получение исправлений на устройстве на период до 35 дней с момента приостановки обновлений. По прошествии этого максимального срока приостановка автоматически отключается и устройство начинает проверку доступных обновлений в Центре обновления Windows. После этой проверки вы можете снова приостановить обновления. Паузу в получении исправлений можно в любой момент прервать, сняв этот флажок.
+6. Выберите **Установка обновлений для других продуктов Майкрософт**, чтобы включить параметр групповой политики, который распространяет параметры отсрочки на Центр обновления Майкрософт и на любые обновления Windows.
+7. Выберите **Включать драйверы в обновления Windows**, чтобы автоматически обновлять драйверы устройств из Центра обновления Windows. Если этот флажок снят, обновления драйверов не загружаются из Центра обновления Windows.
+8. Следуйте указаниям мастера, чтобы завершить создание политики отсрочки.
 
-#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>Implementar uma atualização do Windows para a política de diferimento por de negócio
-1. No **biblioteca de Software** > **manutenção do Windows 10** > **Windows Update para as políticas de negócio**
-2. No **home page** separador o **implementação** grupo, selecione **implementar o Windows Update para empresas política**.
-3. Configure as seguintes definições:
-    - **Política de configuração para implementar**: Selecione a atualização do Windows para a política de negócio que gostaria de implementar.
-    - **Coleção**: Clique em **procurar** para selecionar a coleção onde pretende implementar a política.
-    - **Remediar regras incompatíveis quando suportado**: Selecione esta opção para retificar automaticamente quaisquer regras não compatíveis para o Windows Management Instrumentation (WMI), o registo, scripts e todas as definições para dispositivos móveis que são inscritos pelo Configuration Manager.
-    - **Permitir remediação fora da janela de manutenção**: Se uma janela de manutenção tiver sido configurada para a coleção à qual está a implementar a política, ative esta opção para que as definições de conformidade retifiquem o valor fora da janela de manutenção. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).
-    - **Gerar um alerta**: Configura um alerta que é gerado se a compatibilidade da linha de base de configuração for inferior a uma percentagem especificada por uma data e hora especificadas. Também pode especificar se pretende que seja enviado um alerta para o System Center Operations Manager.
-    - **Atraso aleatório (horas)**: Especifica uma janela de atraso para evitar processamento excessivo no serviço de inscrição de dispositivos de rede. O valor predefinido é 64 horas.
-    - **Agenda**: Especifique o agendamento de avaliação de compatibilidade através do qual o perfil implementado é avaliado nos computadores cliente. O agendamento pode ser simples ou personalizado. O perfil é avaliado por computadores cliente quando o utilizador inicia sessão.
-4.  Conclua o Assistente para implementar o perfil.
+#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>Развертывание политики отсрочки Центра обновления Windows для бизнеса
+1. Откройте узел **Библиотека программного обеспечения** > **Обслуживание Windows 10** > **Политики Центра обновления Windows для бизнеса**
+2. На вкладке **Главная** в группе **Развертывание** выберите пункт **Развернуть политику Центра обновления Windows для бизнеса**.
+3. Настройте следующие параметры.
+    - **Развертываемая политика конфигурации**. Выберите политику Центра обновления Windows для бизнеса, которую вы хотите развернуть.
+    - **Коллекция**. Нажмите кнопку **Обзор**, чтобы выбрать коллекцию, в которой необходимо развернуть политику.
+    - **Исправлять несоответствующие параметры, когда это возможно**. Установите этот флажок, чтобы автоматически исправлять правила, не соответствующие параметрам инструментария WMI, реестра, скриптов и другим параметрам мобильных устройств, зарегистрированных с помощью Configuration Manager.
+    - **Разрешить исправление за пределами периодов обслуживания**. Если для коллекции, в которой развертывается элемент конфигурации, настроен период обслуживания, установите этот флажок, чтобы разрешить исправление параметров соответствия за пределами этого периода. Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания](/sccm/core/clients/manage/collections/use-maintenance-windows).
+    - **Создавать оповещение**. Укажите, будет ли создаваться оповещение, если процент соответствия конфигурационной базе меньше заданного значения в указанную дату и время. Также можно указать, требуется ли отправлять оповещение в System Center Operations Manager.
+    - **Произвольная задержка (ч)**. Укажите интервал задержки, чтобы избежать перегрузки службы регистрации сетевых устройств. Значение по умолчанию: 64 часа.
+    - **Расписание**. Укажите расписание проверки соответствия на клиентских компьютерах для развернутого профиля. Это может быть простое или настраиваемое расписание. Проверка профиля выполняется клиентскими компьютерами при входе пользователя в систему.
+4.  Завершите работу мастера, чтобы развернуть профиль.

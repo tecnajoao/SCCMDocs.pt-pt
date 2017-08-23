@@ -1,6 +1,6 @@
 ---
-title: Atualizar clientes macOS - Configuration Manager | Microsoft Docs
-description: Atualize clientes em computadores Mac no System Center Configuration Manager.
+title: "Обновление клиентов для macOS в Configuration Manager | Документы Майкрософт"
+description: "Вы можете обновить клиенты на компьютерах Mac в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,61 +16,61 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 502116b66fc14914ca0606ae416e82202824de7a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-upgrade-clients-on-mac-computers-in-system-center-configuration-manager"></a>Como atualizar clientes em computadores Mac no System Center Configuration Manager
+# <a name="how-to-upgrade-clients-on-mac-computers-in-system-center-configuration-manager"></a>Обновление клиентов на компьютерах Mac в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Siga os passos de alto nível descritos abaixo para atualizar o cliente para computadores Mac utilizando uma aplicação do System Center Configuration Manager. Em alternativa, pode transferir os ficheiros de instalação do cliente Mac, copiá-los para uma localização de rede partilhada ou uma pasta local do computador Mac e, em seguida, instruir os utilizadores para executarem manualmente a instalação.  
+Ниже приведены общие инструкции по обновлению клиента для компьютеров Mac с помощью приложения System Center Configuration Manager. Помимо этого,  можно загрузить файл установки клиента Mac, скопировать его в общую сетевую или локальную папку на компьютере Mac, а затем поручить пользователям выполнить установку вручную.  
 
 > [!NOTE]  
->  Antes de executar estes passos, certifique-se de que o computador Mac cumpre os pré-requisitos. Consulte [sistemas operativos suportados para computadores Mac](../../../plan-design/configs/supported-operating-systems-for-clients-and-devices.md#mac-computers).  
+>  Прежде чем приступить к выполнению этих действий, убедитесь, что компьютер Mac соответствует необходимым условиям. См. раздел [Поддерживаемые операционные системы для серверов системы сайта](../../../plan-design/configs/supported-operating-systems-for-clients-and-devices.md#mac-computers).  
 
-## <a name="step-1-download-the-latest-mac-client-installation-file-from-the-microsoft-download-center"></a>Passo 1: Transferir o ficheiro de instalação de cliente Mac mais recente do Microsoft Download Center  
- O cliente de Mac para o Configuration Manager não é fornecido no suporte de instalação do Configuration Manager e tem de ser transferido do Microsoft Download Center. Os ficheiros de instalação do cliente Mac estão contidos num ficheiro Windows Installer com o nome ConfigmgrMacClient.msi.  
+## <a name="step-1-download-the-latest-mac-client-installation-file-from-the-microsoft-download-center"></a>Шаг 1. Скачивание файла для установки последней версии клиента Mac из Центра загрузки Майкрософт  
+ Клиент Mac для Configuration Manager не поставляется на установочном носителе Configuration Manager, и его необходимо скачать из центра загрузки Майкрософт. Установочные файлы клиента Mac содержатся в файле установщика Windows с именем ConfigmgrMacClient.msi.  
 
- Pode transferir este ficheiro a partir do [Centro de Transferências da Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=525184).  
+ Его можно загрузить в [Центре загрузки Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=525184).  
 
-## <a name="step-2-run-the-downloaded-installation-file-to-create-the-mac-client-installation-file"></a>Passo 2: Execute o ficheiro de instalação transferido para criar o ficheiro de instalação de cliente Mac  
- Num computador com o Windows, execute o **ConfigmgrMacClient.msi** transferido para descompactar o ficheiro de instalação do cliente Mac, com o nome **Macclient.dmg**. Por predefinição, este ficheiro pode ser localizado na pasta **C:\Program Files (x86)\Microsoft\System Center 2012 Configuration Manager Mac Client** do computador com Windows após a descompactação dos ficheiros.  
+## <a name="step-2-run-the-downloaded-installation-file-to-create-the-mac-client-installation-file"></a>Шаг 2. Запуск скачанного файла установки для создания файла установки клиента Mac  
+ На компьютере, работающем под управлением ОС Windows, запустите загруженный ранее файл **ConfigmgrMacClient.msi** , чтобы распаковать файл установки клиента Mac с именем **Macclient.dmg**. По умолчанию после распаковки этот файл размещается в папке **C:\Program Files (x86)\Microsoft\System Center 2012 Configuration Manager Mac Client** на компьютере Windows.  
 
-## <a name="step-3-extract-the-client-installation-files"></a>Passo 3: Extraia os ficheiros de instalação de cliente  
- Copie o ficheiro de Macclient.dmg numa partilha de rede ou numa pasta local de um computador Mac. Em seguida, no computador Mac, monte e abra o ficheiro Macclient.dmg e copie os ficheiros numa pasta do computador Mac.  
+## <a name="step-3-extract-the-client-installation-files"></a>Шаг 3. Извлечение файлов установки клиента  
+ Скопируйте файл Macclient.dmg в сетевую или локальную папку на компьютере Mac. Затем на компьютере Mac подключите и откройте файл Macclient.dmg, после чего скопируйте файлы в папку на этом компьютере.  
 
-## <a name="step-4-create-a-cmmac-file-that-can-be-used-to-create-an-application"></a>Passo 4: Criar um ficheiro. cmmac que pode ser utilizado para criar uma aplicação  
+## <a name="step-4-create-a-cmmac-file-that-can-be-used-to-create-an-application"></a>Шаг 4. Создание CMMAC-файла, который можно использовать для создания приложения  
 
-1.  Utilize a ferramenta **CMAppUtil** (localizada na pasta **Ferramentas** dos ficheiros de instalação do cliente Mac) para criar um ficheiro .cmmac a partir do pacote de instalação do cliente. Este ficheiro será utilizado para criar a aplicação do Configuration Manager.  
+1.  Используйте средство **CMAppUtil** (находится в папке **Tools** установочных файлов клиента Mac), чтобы создать CMMAC-файл из пакета установки клиента. Этот файл будет использоваться для создания приложения Configuration Manager.  
 
-2.  Copie o novo ficheiro **Cmclient.pkg** ficheiro para uma localização que esteja disponível no computador que está a executar a consola do Configuration Manager.  
+2.  Скопируйте новый файл **CMClient.pkg.cmmac** в папку, которая доступна для компьютера с работающей консолью Configuration Manager.  
 
- Para obter mais informações, consulte o [procedimentos suplementares para criar e implementar aplicações para computadores Mac](/sccm/apps/get-started/creating-mac-computer-applications#supplemental-procedures-to-create-and-deploy-applications-for-mac-computers).  
+ Дополнительные сведения см. в разделе [Дополнительные процедуры для создания и развертывания приложений для компьютеров Mac](/sccm/apps/get-started/creating-mac-computer-applications#supplemental-procedures-to-create-and-deploy-applications-for-mac-computers).  
 
-## <a name="step-5-create-and-deploy-an-application-containing-the-mac-client-files"></a>**Passo 5:** Criar e implementar uma aplicação que contém os ficheiros de cliente Mac  
+## <a name="step-5-create-and-deploy-an-application-containing-the-mac-client-files"></a>**Шаг 5**. Создание и развертывание приложения, содержащего файлы клиента Mac  
 
-1.  Na consola do Configuration Manager, crie uma aplicação a **Cmclient.pkg** ficheiro que contém os ficheiros de instalação de cliente.  
+1.  В консоли Configuration Manager создайте приложение из файла **CMClient.pkg.cmmac**, который содержит файлы установки клиента  
 
-2.  Implemente esta aplicação nos computadores Mac da sua hierarquia.  
+2.  Разверните это приложение на компьютерах Mac в своей иерархии.  
 
- Para obter mais informações, consulte [aplicações para computadores Mac criar com o System Center Configuration Manager](../../../../apps/get-started/creating-mac-computer-applications.md).  
+ Дополнительные сведения см.в разделе [Создание приложений для компьютеров Mac с помощью System Center Configuration Manager](../../../../apps/get-started/creating-mac-computer-applications.md).  
 
-## <a name="step-6-users-install-the-latest-client"></a>Passo 6: Os utilizadores instalam o cliente mais recente  
- Serão solicitados aos utilizadores dos clientes Mac se uma atualização do cliente do Configuration Manager está disponível e tem de estar instalada. Depois de instalarem o cliente, os utilizadores têm de reiniciar o computador Mac.  
+## <a name="step-6-users-install-the-latest-client"></a>Шаг 6. Установка пользователями последней версии клиента  
+ Пользователи клиентов Mac получат сообщение о том, что клиент Configuration Manager доступен и его необходимо установить. После установки клиента пользователям необходимо перезапустить свои компьютеры Mac.  
 
- Depois de reiniciar o computador, o Assistente de Inscrição do Computador é executado automaticamente para solicitar um novo certificado de utilizador.  
+ После перезапуска компьютера автоматически запустится мастер регистрации компьютеров, чтобы запросить новый сертификат пользователя.  
 
- Se não utilizar a inscrição do Gestor de configuração, mas instalar o certificado de cliente independentemente do Configuration Manager, consulte [configurar o cliente atualizado para utilizar um certificado existente](#BKMK_UpgradingClient_MachineEnrollment).  
+ Если вы не используете регистрацию в Configuration Manager и устанавливаете сертификат клиента независимо от Configuration Manager, см. раздел [Настройка обновленного клиента для использования существующего сертификата](#BKMK_UpgradingClient_MachineEnrollment).  
 
 ##  <a name="BKMK_UpgradingClient_MachineEnrollment"></a> Configure the upgraded client to use an existing certificate  
- Efetue o seguinte procedimento para evitar a execução do Assistente de Inscrição do Computador e para configurar o cliente atualizado para utilizar um certificado de cliente existente.  
+ Запустите следующую процедуру для предотвращения запуска мастера регистрации компьютеров и настройки обновленного клиента на использование существующего сертификата клиента.  
 
--   Na consola do Configuration Manager, crie um item de configuração do tipo **Mac OS X**.  
+-   В консоли Configuration Manager создайте элемент конфигурации с типом **Mac OS X**.  
 
--   Adicione uma definição a este item de configuração com o tipo de definição **Script**.  
+-   Добавьте к этому элементу конфигурации параметр с типом **Сценарий**.  
 
--   Adicione o script seguinte à definição:  
+-   Добавьте следующий сценарий настройки:  
 
     ```  
     #!/bin/sh  
@@ -98,6 +98,6 @@ Siga os passos de alto nível descritos abaixo para atualizar o cliente para com
 
     ```  
 
--   Adicione o item de configuração para uma linha de base de configuração e, em seguida, implementar a linha de base de configuração para todos os computadores Mac que instalam um certificado independentemente do Configuration Manager.  
+-   Добавьте элемент конфигурации в конфигурационную базу, а затем разверните ее на всех компьютерах Mac, на которых установлен сертификат, независимо от Configuration Manager.  
 
- Para obter mais informações sobre como criar e implementar itens de configuração para computadores Mac, consulte [como criar itens de configuração para dispositivos Mac OS X geridos com o cliente do System Center Configuration Manager](../../../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md) e [como implementar linhas de base de configuração no System Center Configuration Manager](../../../../compliance/deploy-use/deploy-configuration-baselines.md).  
+ Дополнительные сведения о создании и развертывании элементов конфигурации для компьютеров Mac см. в разделах [Создание элементов конфигурации для устройств Mac OS X, управляемых с помощью клиента System Center Configuration Manager](../../../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md) и [Развертывание конфигурационных баз в System Center Configuration Manager](../../../../compliance/deploy-use/deploy-configuration-baselines.md).  

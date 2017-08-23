@@ -1,6 +1,6 @@
 ---
-title: Gerir clientes Linux e UNIX | Microsoft Docs
-description: Gerir clientes em servidores Linux e UNIX no System Center Configuration Manager.
+title: "Управление клиентами Linux и UNIX | Документы Майкрософт"
+description: "Управление клиентами для серверов Linux и UNIX в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,64 +17,64 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 506df4f7c7baa5f0586a1ddf0cb02b3de9f4d076
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-manage-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Como gerir clientes para servidores Linux e UNIX no System Center Configuration Manager
+# <a name="how-to-manage-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Управление клиентами для серверов Linux и UNIX в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Quando gere servidores Linux e UNIX com o System Center Configuration Manager, pode configurar coleções, janelas de manutenção e as definições de cliente para ajudar a gerir os servidores. Além disso, embora o cliente do Configuration Manager para Linux e UNIX não tem uma interface de utilizador, pode forçar o cliente consultar manualmente a política de cliente.
+При управлении серверами UNIX и Linux с помощью System Center Configuration Manager можно настроить коллекции, периоды обслуживания и параметры клиента для упрощения управления серверами. Хотя клиент Configuration Manager для Linux и UNIX не имеет пользовательского интерфейса, можно настроить клиент для принудительного опроса политики клиента вручную.
 
 ##  <a name="BKMK_CollectionsforLnU"></a> Collections of Linux and UNIX servers  
- Utilizar coleções para gerir grupos de servidores Linux e UNIX da mesma forma que utilize coleções para gerir outros tipos de cliente. As coleções podem ser coleções de associação direta ou coleções baseadas em consulta. As coleções baseadas em consulta identificam sistemas operativos cliente, configurações de hardware ou outros detalhes sobre o cliente que estão armazenados na base de dados do site. Por exemplo, pode utilizar coleções que incluem os servidores Linux e UNIX para gerir as seguintes definições:  
+ Для управления группами серверов Linux и UNIX коллекции используются точно так же, как и для управления другими типами клиентов. Коллекции могут иметь непосредственное членство или основываться на запросах. Коллекции на основе запросов определяют клиентские операционные системы, конфигурации оборудования или другие сведения о клиенте, которые хранятся в базе данных сайта. Например, можно использовать коллекции, которые содержат серверы UNIX и Linux, для управления следующими параметрами.  
 
--   Definições do cliente  
+-   Параметры клиента  
 
--   Implementações de software  
+-   Развертывания программного обеспечения  
 
--   Impor janelas de manutenção  
+-   Принудительное применение периодов обслуживания  
 
- Para que possa identificar um cliente Linux ou UNIX através do sistema operativo ou distribuição, tem de recolher [inventário de hardware](../../../core/clients/manage/inventory/hardware-inventory-for-linux-and-unix.md) do cliente.  
+ Прежде чем вы сможете определить клиент Linux или UNIX по его операционной системе или дистрибутиву, необходимо собрать [данные инвентаризации оборудования](../../../core/clients/manage/inventory/hardware-inventory-for-linux-and-unix.md) с этого клиента.  
 
- As predefinições de cliente para inventário de hardware incluem informações sobre o sistema operativo de um computador cliente. Pode utilizar a propriedade **Legenda** da classe **Sistema Operativo** para identificar o sistema operativo de um servidor Linux ou UNIX.  
+ Параметры клиента по умолчанию для инвентаризации оборудования включают в себя сведения об операционной системе клиентского компьютера. Вы можете использовать свойство **Заголовок** класса **Операционная система** для определения операционной системы сервера UNIX или Linux.  
 
- Pode ver detalhes sobre os computadores que executam o cliente do Configuration Manager para Linux e UNIX no **dispositivos** o nó do **ativos e compatibilidade** área de trabalho na consola do Configuration Manager. No **ativos e compatibilidade** área de trabalho da consola do Configuration Manager, pode ver o nome do sistema de operativo de cada computador no **sistema operativo** coluna.  
+ Можно просмотреть сведения о компьютерах под управлением клиента Configuration Manager для Linux и UNIX в узле **Устройства** рабочей области **Активы и соответствие** консоли Configuration Manager. В рабочей области **Активы и соответствие** консоли Configuration Manager можно просмотреть имя операционной системы каждого компьютера в столбце **Операционная система**.  
 
- Por predefinição, os servidores Linux e UNIX são membros da coleção **Todos os Sistemas** . Recomendamos que crie coleções personalizadas que incluam apenas servidores Linux e UNIX, ou um subconjunto dos mesmos. Coleções personalizadas permitem-lhe gerir operações como a implementação de software ou a atribuição de definições de cliente para grupos de como computadores, para que pode medir com precisão o êxito de uma implementação.   
+ По умолчанию серверы Linux и UNIX являются членами коллекции **Все системы** . Рекомендуем создать пользовательские коллекции, включающие только серверы Linux и UNIX или их подмножество. Пользовательские коллекции позволяют управлять такими операциями, как развертывание программного обеспечения или назначение параметров клиента для групп соответствующих компьютеров, что дает возможность точно определять успешность развертывания.   
 
- Quando criar uma coleção personalizada para servidores Linux e UNIX, inclua as consultas de regra de associação que contenham o atributo Legenda para o atributo Sistema Operativo. Para obter informações sobre como criar coleções, consulte [como criar coleções no System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
+ При создании пользовательской коллекции для серверов Linux и UNIX включите запросы правила членства, содержащие атрибут "Заголовок" для атрибута "Операционная система". Сведения о создании коллекций см. в разделе [Создание коллекций в System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
 
 ##  <a name="BKMK_MaintenanceWindowsforLnU"></a> Maintenance windows for Linux and UNIX servers  
- O cliente do Configuration Manager para servidores Linux e UNIX suporta a utilização de [janelas de manutenção](../../../core/clients/manage/collections/use-maintenance-windows.md). Este suporte é igual de clientes baseados em Windows.  
+ Клиент Configuration Manager для серверов Linux и UNIX поддерживает использование [периодов обслуживания](../../../core/clients/manage/collections/use-maintenance-windows.md). Эта поддержка аналогична поддержке клиентов Windows.  
 
 ##  <a name="BKMK_ClientSettingsforLnU"></a> Client settings for Linux and UNIX servers  
- Pode [configurar definições de cliente](../../../core/clients/deploy/configure-client-settings.md) que se aplicam a servidores Linux e UNIX da mesma forma que configura definições para outros clientes.  
+ Вы можете [настроить параметры клиента](../../../core/clients/deploy/configure-client-settings.md), применяемые к серверам UNIX и Linux, по аналогии с настройкой параметров для других клиентов.  
 
- Por predefinição, as **Predefinições de Agente do Cliente** aplicam-se a servidores Linux e UNIX. Também pode criar definições personalizadas de cliente e implementá-las em coleções de clientes específicos.  
+ По умолчанию **Параметры по умолчанию агента клиента** применяются для серверов Linux и UNIX. Можно также создать настраиваемые параметры клиента и развернуть их в коллекциях, содержащих определенные клиенты.  
 
- Não existem definições de cliente adicionais que se apliquem apenas a clientes Linux e UNIX. No entanto, existem predefinições de cliente que não se aplicam a clientes Linux e UNIX. O cliente para Linux e UNIX só aplica definições para a funcionalidade que suporta.  
+ Нет никаких дополнительных параметров клиента, применяемых исключительно к клиентам Linux и UNIX. Однако существуют параметры клиента по умолчанию, которые не применяются для клиентов Linux и UNIX. Клиент для Linux и UNIX применяет параметры только для тех функций, которые он поддерживает.  
 
- Por exemplo, uma definição de dispositivo de cliente personalizado que ativa e configura as definições de controlo remoto seria ignorada pelos servidores Linux e UNIX, porque o cliente para Linux e UNIX não suporta o controlo remoto.  
+ Например, настраиваемый параметр клиентского устройства, включающий и настраивающий параметры удаленного управления, будет игнорироваться серверами Linux и UNIX. Это вызвано тем, что клиент для Linux и UNIX не поддерживает удаленное управление.  
 
 ##  <a name="BKMK_PolicyforLnU"></a> Computer policy for Linux and UNIX servers  
- O cliente para servidores Linux e UNIX consulta periodicamente se existem respetivo site para a política de computador para saber mais sobre as configurações pedidas e verificar a existência de implementações.  
+ Клиент для серверов Linux и UNIX периодически опрашивает свой сайт на предмет политики компьютера, чтобы узнать о запрошенных конфигурациях и проверить развертывания.  
 
- Pode também forçar o cliente num servidor Linux ou UNIX a consultar imediatamente a política do computador. Para tal, utilize **raiz** credenciais no servidor para executar o seguinte comando: **política do /opt/microsoft/configmgr/bin/ccmexec - rs**  
+ Вы также можете принудительно заставить клиента на сервере UNIX или Linux выполнить немедленный опроса на предмет политики компьютера. Для этого используйте **корневые** учетные данные на сервере для выполнения следующей команды: **/opt/microsoft/configmgr/bin/ccmexec -rs policy**  
 
- Os detalhes da consulta de política do computador são introduzidos no ficheiro de registo de cliente partilhado, **scxcm.log**.  
+ Сведения об опросе на предмет политики компьютера вносятся в общий файл журнала клиента **scxcm.log**.  
 
 > [!NOTE]  
->  O cliente do Configuration Manager para Linux e UNIX nunca pede nem processa a política de utilizador.  
+>  Клиент Configuration Manager для Linux и UNIX никогда не запрашивает и не обрабатывает политику пользователя.  
 
 ##  <a name="BKMK_ManageLinuxCerts"></a> How to manage certificates on the client for Linux and UNIX  
- Depois de instalar o cliente para Linux e UNIX, pode utilizar a ferramenta **certutil** para atualizar o cliente com um novo certificado PKI e para importar uma nova lista de Revogação de Certificados (CRL). Quando instala o cliente para Linux e UNIX, esta ferramenta é colocada na **/opt/microsoft/configmgr/bin/certutil**. 
+ После установки клиента для Linux и UNIX вы можете использовать средство **certutil** для обновления клиента с помощью нового PKI-сертификата, а также для импорта нового списка отзыва сертификатов (CRL). При установке клиента для Linux и UNIX это средство помещается в следующее расположение: **/opt/microsoft/configmgr/bin/certutil**. 
 
- Para gerir os certificados, execute o certutil em cada cliente com uma das seguintes opções:  
+ Чтобы управлять сертификатами, запустите certutil на каждом клиенте с одним из следующих параметров:  
 
-|Opção|Mais informações|  
+|Параметр|Дополнительные сведения|  
 |------------|----------------------|  
-|importPFX|Utilize esta opção para especificar um certificado para substituir o certificado que está a ser utilizado por um cliente.<br /><br /> Quando utiliza **- importPFX**, também tem de utilizar o **-palavra-passe** parâmetro de linha de comandos para fornecer a palavra-passe associada ao ficheiro PKCS #12.<br /><br /> Utilize **-rootcerts** para especificar requisitos de certificado de raiz adicionais.<br /><br /> Exemplo: **certutil - importPFX &lt;caminho para o certificado de PKCS #12 >-palavra-passe &lt;palavra-passe do certificado\> [-rootcerts &lt;lista separada por vírgulas de certificados >]**|  
-|-importsitecert|Utilize esta opção para atualizar o certificado de assinatura do servidor de site que se encontra no servidor de gestão.<br /><br /> Exemplo: **certutil - importsitecert &lt;caminho para o certificado DER\>**|  
-|-importcrl|Utilize esta opção para atualizar a CRL no cliente com um ou mais caminhos de ficheiro CRL.<br /><br /> Exemplo: **certutil - importcrl &lt;caminhos de ficheiro CRL separados por vírgulas\>**|  
+|importPFX|Используйте этот параметр, чтобы указать сертификат для замены сертификата, который в настоящее время используется клиентом.<br /><br /> При использовании параметра **-importPFX** необходимо также использовать параметр командной строки **-password**, чтобы указать пароль, связанный с файлом PKCS#12.<br /><br /> Используйте **-rootcerts** для указания любых дополнительных требований к корневому сертификату.<br /><br /> Пример: **certutil -importPFX &lt;путь к сертификату PKCS#12> -password &lt;пароль сертификата\> [-rootcerts &lt;разделенный запятыми список сертификатов>]**|  
+|-importsitecert|Используйте этот параметр для обновления сертификата подписи сервера сайта, который находится на сервере управления.<br /><br /> Пример: **certutil -importsitecert &lt;путь к DER-сертификату\>**|  
+|-importcrl|Используйте этот параметр для обновления списка отзыва сертификатов на клиенте с одним или несколькими путями к файлам списка отзыва сертификатов.<br /><br /> Пример: **certutil -importcrl &lt;пути к файлу списка отзыва сертификатов, разделенные запятыми\>**|  

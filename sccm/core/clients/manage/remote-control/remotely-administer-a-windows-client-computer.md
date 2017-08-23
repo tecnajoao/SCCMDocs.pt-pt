@@ -1,6 +1,6 @@
 ---
-title: Administrar remotamente o computador com o Windows | Microsoft Docs
-description: Administrar um computador de cliente remoto do Windows utilizando o System Center Configuration Manager.
+title: "Удаленное администрирование компьютера Windows | Документы Майкрософт"
+description: "С помощью System Center Configuration Manager можно осуществлять удаленное администрирование клиентского компьютера Windows."
 ms.custom: na
 ms.date: 07/27/2017
 ms.prod: configuration-manager
@@ -17,81 +17,81 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: aecc4ccfec98932f3988f1ca1fcdc898cd417933
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-remotely-administer-a-windows-client-computer-by-using-system-center-configuration-manager"></a>Como administrar remotamente um computador cliente Windows utilizando o System Center Configuration Manager
+# <a name="how-to-remotely-administer-a-windows-client-computer-by-using-system-center-configuration-manager"></a>Удаленное администрирование клиентского компьютера Windows с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Antes de começar a utilizar o controlo remoto, certifique-se de que reviu as informações nos seguintes tópicos:  
+Прежде чем приступить к использованию удаленного управления, ознакомьтесь с информацией в следующих статьях:  
 
--   [Pré-requisitos para controlo remoto no System Center Configuration Manager](../../../../core/clients/manage/remote-control/prerequisites-for-remote-control.md)  
+-   [Необходимые условия для удаленного управления в System Center Configuration Manager](../../../../core/clients/manage/remote-control/prerequisites-for-remote-control.md)  
 
--   [Configurar o controlo remoto no System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md)  
+-   [Настройка удаленного управления в System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md)  
 
-Seguem-se três formas de iniciar o Visualizador de controlo remoto:  
+Запустить средство просмотра удаленного управления можно тремя способами:  
 
--   Na consola do Configuration Manager.  
+-   В консоли Configuration Manager.  
 
--   Na linha de comandos do Windows.  
+-   В командной строке Windows.  
 
--   O Windows **iniciar** menu num computador que executa a consola do Configuration Manager do **Microsoft System Center** grupo de programas.  
+-   В меню **Пуск** ОС Windows на компьютере с запущенной консолью Configuration Manager, доступной в группе программ **Microsoft System Center**.  
 
-### <a name="to-remotely-administer-a-client-computer-from-the-configuration-manager-console"></a>Para administrar remotamente um computador cliente a partir da consola do Configuration Manager  
+### <a name="to-remotely-administer-a-client-computer-from-the-configuration-manager-console"></a>Удаленное администрирование клиентского компьютера на консоли Configuration Manager  
 
-1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **dispositivos** ou **coleções de dispositivos**.  
+1.  В консоли Configuration Manager выберите **Активы и соответствие** > **Устройства** или **Коллекции устройств**.  
 
-3.  Selecione o computador que pretende administrar remotamente e, em seguida, no **home page** separador o **dispositivo** grupo, escolha **iniciar** > **controlo remoto**.  
+3.  Выберите компьютер для удаленного администрирования, а затем на вкладке **Главная** в группе **Устройство** выберите пункты **Запустить** > **Удаленное управление**.  
 
     > [!IMPORTANT]  
-    >  Se a permissão de cliente **Solicitar ao utilizador permissão do Controlo Remoto** estiver definida como **Verdadeiro**, a ligação não inicia até o utilizador no computador remoto aceitar o pedido de controlo remoto. Para obter mais informações, consulte [configurar o controlo remoto no System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md).  
+    >  Если для параметра клиента **Запрашивать согласие пользователя на удаленное управление** задано значение **True**, подключение не будет инициировано до тех пор, пока пользователь на удаленном компьютере не подтвердит запрос на удаленное управление. Дополнительные сведения см. в разделе [Настройка удаленного управления в System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md).  
 
-4.  Depois de a janela **Controlo Remoto do Configuration Manager** ser aberta, pode administrar remotamente o computador cliente. Utilize as opções seguintes para configurar a ligação.  
+4.  После открытия окна **Удаленное управление Configuration Manager** можно выполнять удаленное администрирование клиентского компьютера. Для настройки подключения используйте следующие параметры.  
 
     > [!NOTE]  
-    >  Se o computador se ligar à tiver vários monitores, a apresentação de todos os monitores é apresentada na janela do controlo remoto.  
+    >  Если компьютер, к которому вы подключаетесь, имеет несколько мониторов, изображение со всех этих мониторов выводится в окне удаленного управления.  
 
-    -   **Ficheiro - ligar** -ligar a outro computador. Esta opção não está disponível quando uma sessão de controlo remoto está ativa.  
+    -   **Файл — подключить**: подключение к другому компьютеру. Этот параметр недоступен, если сеанс удаленного управления активен.  
 
-    -   **Ficheiro - desligar** - desliga a sessão ativa de controlo remoto, mas não fecha a **controlo remoto do Configuration Manager** janela.  
+    -   **Файл — отключить**: отключение активного сеанса удаленного управления без закрытия окна **Удаленное управление Configuration Manager**.  
 
-    -   **Ficheiro - sair** - desliga a sessão de controlo remoto ativa e fecha o **controlo remoto do Configuration Manager** janela.  
-
-        > [!NOTE]  
-        >  Quando desligar uma sessão de controlo remoto, o conteúdo da Área de Transferência do Windows no computador que está a visualizar é eliminado.  
-
-    -   **Vista - ecrã inteiro** -maximiza o **controlo remoto do Configuration Manager** janela.  
+    -   **Файл — выход**: отключение активного сеанса удаленного управления и закрытие окна **Удаленное управление Configuration Manager**.  
 
         > [!NOTE]  
-        >  Para sair do modo de ecrã inteiro, prima Ctrl+Alt+Break.  
+        >  При отключении сеанса удаленного управления содержимое буфера обмена Windows на просматриваемом компьютере удаляется.  
 
-    -   **Vista - Ajustar** -dimensiona a apresentação do computador remoto para ajustar o tamanho do **controlo remoto do Configuration Manager** janela.  
-
-    -   **Vista - barra de estado** -alterna a apresentação do **controlo remoto do Configuration Manager** barra de estado de janela.  
-
-    -   **Ação - Enviar Ctrl + Alt + Del chave** -envia uma combinação de teclas Ctrl + Alt + Del para o computador remoto.  
-
-    -   **Ação - ativar partilha de área de transferência** -lhe permite copiar e colar itens de e para o computador remoto. Se alterar este valor, tem de reiniciar a sessão de controlo remoto para que a alteração tenha efeito.  
+    -   **Вид — во весь экран**: разворачивание окна **Удаленное управление Configuration Manager**.  
 
         > [!NOTE]  
-        >  Se não pretender que a área de transferência partilha esteja ativado na consola do Configuration Manager, no computador que executa a consola, defina o valor da chave de registo, **HKEY_CURRENT_USER\Software\Microsoft\ConfigMgr10\Remote Control\Clipboard partilha** para **0**.  
+        >  Чтобы выйти из полноэкранного режима, нажмите клавиши CTRL + ALT + BREAK.  
 
-    -   **Ação - bloquear teclado e rato remotos** -bloqueia o teclado e rato remotos para impedir que o utilizador se o computador remoto.  
+    -   **Вид — вместить в размер**: масштабирование экрана удаленного компьютера в соответствии с размером окна **Удаленное управление Configuration Manager**.  
 
-    -   **Ajuda - acerca do controlo remoto** -versão atual do ithe apresenta do Visualizador de.  
+    -   **Вид — строка состояния**: отображение или скрытие строки состояния окна **Удаленное управление Configuration Manager**.  
 
-5.  Os utilizadores ao computador remoto, podem ver mais informações sobre a sessão de controlo remoto ao clicarem o Gestor de configuração**controlo remoto** ícone na área de notificação do Windows ou no ícone na barra de sessão de controlo remoto.  
+    -   **Действие — отправить сочетание клавиш Ctrl+Alt+Del**: отправка нажатий клавиш CTRL+ALT+DEL на удаленный компьютер.  
 
-### <a name="to-start-the-remote-control-viewer-from-the-windows-command-line"></a>Para iniciar o visualizador de controlo remoto a partir da linha de comandos do Windows  
+    -   **Действие — включить совместное использование буфера обмена**: возможность копировать и вставлять элементы, перемещая их на удаленный компьютер и с удаленного компьютера. Если значение этого параметра изменено, необходимо перезапустить сеанс удаленного управления, чтобы изменения вступили в силу.  
 
--   A linha de comandos do Windows, escreva *< pasta de instalação do Configuration Manager\>***\AdminConsole\Bin\x64\CmRcViewer.exe**  
+        > [!NOTE]  
+        >  Если включать совместное использование буфера обмена в консоли Configuration Manager не требуется, на компьютере, где запущена консоль, задайте для раздела реестра **HKEY_CURRENT_USER\Software\Microsoft\ConfigMgr10\Remote Control\Clipboard Sharing** значение **0**.  
 
-CmRcViewer.exe suporta as seguintes opções da linha de comandos:  
+    -   **Действие — заблокировать удаленную клавиатуру и мышь**: блокирование удаленной мыши и клавиатуры, чтобы предотвратить работу пользователя на удаленном компьютере.  
 
-- *Endereço* -Especifica o nome NetBIOS, o nome de domínio completamente qualificado (FQDN) ou o endereço IP do computador cliente que pretende ligar.
-- *Nome do servidor do site* -Especifica o nome do servidor do site do System Center Configuration Manager para o qual pretende enviar mensagens de estado relacionadas com a sessão de controlo remoto.
-- **/?** -Apresenta as opções da linha de comandos para o Visualizador de controlo remoto.  
+    -   **Справка — об удаленном управлении**: вывод текущей версии средства просмотра.  
+
+5.  Пользователи удаленного компьютера могут просмотреть дополнительные сведения о сеансе удаленного управления, щелкнув значок **Удаленное управление** Configuration Manager в области уведомлений ОС Windows или значок на панели сеанса удаленного управления.  
+
+### <a name="to-start-the-remote-control-viewer-from-the-windows-command-line"></a>Запуск средства просмотра удаленного управления из командной строки Windows  
+
+-   В командной строке Windows введите *<Папка установки Configuration Manager\>***\AdminConsole\Bin\x64\CmRcViewer.exe**  
+
+CmRcViewer.exe поддерживает следующие параметры командной строки:  
+
+- *Адрес* — укажите NetBIOS-имя, полное доменное имя или IP-адрес клиентского компьютера, к которому необходимо подключиться.
+- *Имя сервера сайта* — укажите имя сервера сайта System Center Configuration Manager, которому необходимо отправлять сообщения о состоянии, относящиеся к сеансу удаленного управления.
+- **/?** — Выводит параметры командной строки для средства просмотра удаленного управления.  
      
-**Example:CmRcViewer.exe** *< endereço\>*   *< \\\Site o nome do servidor >*  
+**Пример:CmRcViewer.exe** *<адрес\>* *<\\\имя сервера сайта>*  

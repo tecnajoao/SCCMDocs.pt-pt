@@ -1,6 +1,6 @@
 ---
-title: Gerir clientes na Internet - Configuration Manager | Microsoft Docs
-description: "Saiba mais sobre a gestão de clientes com o gateway de gestão de nuvem e gestão de clientes baseados na Internet no Configuration Manager."
+title: "Управление клиентами в Интернете с помощью Configuration Manager | Документы Майкрософт"
+description: "Сведения об управлении клиентами с помощью шлюза управления облаком и управления клиентами через Интернет в Configuration Manager."
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
@@ -10,62 +10,62 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 1b6752be448e1062c97a3225db4fa8af9f4832a6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-clients-on-the-internet-with-configuration-manager"></a>Gerir clientes na Internet com o Configuration Manager
+# <a name="manage-clients-on-the-internet-with-configuration-manager"></a>Управление клиентами в Интернете с помощью Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Normalmente no Configuration Manager, a maioria dos computadores e servidores que estão a ser geridos está fisicamente no mesma privada ou empresarial rede interna que os servidores de sistema de sites que efetuam funções de gestão. No entanto, pode gerir computadores cliente fora da rede empresarial que estão ligados à Internet sem necessidade dos clientes ligar através de redes privadas virtuais a chegar ao site servidores do sistema.
+Как правило, в Configuration Manager большинство управляемых компьютеров и серверов физически находятся в той же внутренней частной или корпоративной сети, что и серверы системы сайта, выполняющие функции управления. Однако клиентскими компьютерами можно управлять за пределами корпоративной сети, если они подключены к Интернету. При этом клиентам не нужно подключаться через виртуальные частные сети для связи с серверами системы сайта.
 
-Configuration Manager fornece duas formas de gerir clientes ligadas à Internet:
+Configuration Manager предоставляет два способа управления подключенными к Интернету клиентами.
 
--   Gateway de gestão de nuvem
+-   Шлюз управления облаком
 
--   Gestão de clientes baseada na Internet
+-   Управление клиентами через Интернет
 
-## <a name="cloud-management-gateway"></a>Gateway de gestão de nuvem
+## <a name="cloud-management-gateway"></a>Шлюз управления облаком
 
-A partir da versão 1610, o Configuration Manager apresenta gateway de gestão de nuvem. Este novo método fornece uma forma de gerir clientes baseados na Internet utilizando uma combinação de um serviço em nuvem implementada para o Microsoft Azure e uma nova função de sistema de sites que comunica com esse serviço. Os clientes, em seguida, utilizar o serviço para comunicar com o Configuration Manager.
+Начиная с версии 1610 в Configuration Manager появился шлюз управления облаком. Этот новый метод позволяет управлять клиентами в Интернете с помощью сочетания облачной службы, развернутой в Microsoft Azure, и новой роли системы сайта, которая взаимодействует с этой службой. Затем клиенты используют эту службу для взаимодействия с Configuration Manager.
 
-Vantagens:
+Преимущества:
 
--   Não existem investimento de infraestrutura adicionais necessário.
+-   Дополнительные инвестиции в инфраструктуру не требуются.
 
--   Não expõe a infraestrutura no local para a Internet.
+-   Доступ к локальной инфраструктуре из Интернета не предоставляется.
 
--   Máquinas virtuais na nuvem que executam o serviço são geridas completamente pelo Azure e não requerem nenhuma manutenção.
+-   Облачные виртуальные машины, на которых выполняется служба, полностью управляются Azure и не требуют обслуживания.
 
--   Facilmente definido e configurado na consola do Configuration Manager.
+-   Простота установки и настройки в консоли Configuration Manager.
 
-Desvantagens:
+Недостатки:
 
--   Custo de subscrição da nuvem.
+-   Стоимость облачной подписки.
 
--   Dados de gestão enviados através do serviço em nuvem.
+-   Данные управления отправляются через облачную службу.
 
-Para obter mais informações, consulte [planear para o gateway de gestão de nuvem](plan-cloud-management-gateway.md).
+Дополнительные сведения см. в разделе [Планирование шлюза управления облаком](plan-cloud-management-gateway.md).
 
-## <a name="internet-based-client-management"></a>Gestão de clientes baseada na Internet
+## <a name="internet-based-client-management"></a>Управление клиентами через Интернет
 
-Este método baseia-se em servidores de sistema de site para a Internet para que os clientes comunicam para efeitos de gestão. Este método requer que os clientes e servidores de sistema de sites configurados para gestão baseada na Internet.
+Этот метод предполагает использование серверов системы сайта, доступных из Интернета, с которыми клиенты взаимодействуют в целях управления. Он требует настройки клиентов и серверов системы сайта для управления через Интернет.
 
-Vantagens:
+Преимущества:
 
--   Não existem dependência do serviço de nuvem.
+-   Отсутствует зависимость от облачной службы.
 
--   Sem custos adicionais associados a uma subscrição na nuvem.
+-   Нет дополнительных затрат, связанных с облачной подпиской.
 
--   Controlo total de servidores e funções de fornecer o serviço.
+-   Полный контроль над серверами и ролями, предоставляющими службу.
 
-Desvantagens:
+Недостатки:
 
--   Requerem um investimento infraestrutura adicionais.
+-   Требуются дополнительные инвестиции в инфраструктуру.
 
--   Sobrecarga e o custo operacional de infraestrutura adicional.
+-   Издержки и эксплуатационные затраты, связанные с дополнительной инфраструктурой.
 
--   Infraestrutura tem de ser exposta à Internet.
+-   Инфраструктура должна быть доступна из Интернета.
 
-Para obter mais informações, consulte [planear a gestão de clientes baseada na Internet de](plan-internet-based-client-management.md).
+Дополнительные сведения см. в разделе [Планирование управления клиентами через Интернет](plan-internet-based-client-management.md).

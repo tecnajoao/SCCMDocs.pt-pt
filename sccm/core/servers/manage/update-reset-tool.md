@@ -1,6 +1,6 @@
 ---
-title: "Ferramenta de reposição de atualização | Microsoft Docs"
-description: "Utilize a ferramenta de reposição de atualização para atualizações na consola do System Center Configuration Manager."
+title: "Средство сброса обновлений | Документация Майкрософт"
+description: "Использование средства сброса обновлений для обновлений в консоли для System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -17,63 +17,63 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 1960f86e98a957559f379b9eeb6d293f7e4182e5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="update-reset-tool"></a>Ferramenta de reposição de atualização
+# <a name="update-reset-tool"></a>Средство сброса обновлений
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*  
+*Применимо к: System Center Configuration Manager (Current Branch)*  
 
 
-Início com versão 1706, sites de administração central e sites primários do Configuration Manager, incluir a atualização de reposição de ferramenta do Configuration Manager, **CMUpdateReset.exe**. Utilize a ferramenta para corrigir os problemas quando as atualizações na consola tem problemas de transferir ou a replicar. A ferramenta se encontra no ***\cd.latest\SMSSETUP\TOOLS*** pasta do servidor do site.
+Начиная с версии 1706 основные сайты Configuration Manager и сайты центра администрирования включают средство сброса обновлений **CMUpdateReset.exe** для Configuration Manager. Используйте это средство для устранения проблем со скачиванием или репликацией обновлений в консоли. Средство находится в папке ***\cd.latest\SMSSETUP\TOOLS*** на сервере сайта.
 
-Pode utilizar esta ferramenta com qualquer versão do ramo atual, que permanece no suporte.
+Это средство можно использовать с любой версией Current Branch, для которой сохраняется поддержка.
 
-Utilize esta ferramenta quando um [atualização na consola](/sccm/core/servers/manage/install-in-console-updates) ainda não instalou e está no estado de falha. Estado de falha significa que a transferência da atualização está em progresso mas bloqueados ou tendo um período de tempo excessivamente longo. Muito tempo é considerado horas mais do que as suas expectativas histórico para os pacotes de atualização do tamanho semelhante. Também pode ser uma falha ao replicar a atualização para sites primários subordinados.  
+Используйте это средство, когда [обновление в консоли](/sccm/core/servers/manage/install-in-console-updates) еще не установлено и находится в неисправном состоянии. Состояние считается неисправным, если скачивание обновлений продолжается, но не может завершиться в течение долгого времени. Длительным следует считать период, на несколько часов превышающий обычное время для пакетов обновления сопоставимого размера. Также сюда относится сбой репликации обновлений на дочерние первичные сайты.  
 
-Quando executar a ferramenta, é executada relativamente a atualização que especificou. Por predefinição, a ferramenta não elimina atualizações instaladas ou transferidas com êxito.  
+Средство выполняется для того обновления, которое вы укажете при запуске. По умолчанию средство не удаляет успешно установленные или загруженные обновления.  
 
-### <a name="prerequisites"></a>Pré-requisitos
-A conta que utiliza para executar a ferramenta requer as seguintes permissões:
--   **Leitura** e **escrever** permissões para a base de dados do site de administração central e cada site primário na sua hierarquia. Para definir estas permissões, pode adicionar a conta de utilizador como membro do **db_datawriter** e **db_datareader** [fixo funções de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) na base de dados do Configuration Manager de cada site. A ferramenta não interage com os sites secundários.
--   **Administrador local** no site de nível superior da hierarquia.
--   **Administrador local** no computador que aloja o ponto de ligação de serviço.
+### <a name="prerequisites"></a>Предварительные требования
+Учетная запись для запуска средства должна иметь следующие разрешения:
+-   Разрешения на **чтение** и **запись** для баз данных сайта, размещенных на сайте центра администрирования и на каждом первичном сайте в используемой иерархии. Чтобы установить эти разрешения, учетной записи пользователя можно назначить [предопределенные роли базы данных](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) **db_datawriter** и **db_datareader** для базы данных Configuration Manager каждого сайта. Средство не будет взаимодействовать со вторичными сайтами.
+-   **Локальный администратор** на сайте верхнего уровня в иерархии.
+-   **Локальный администратор** на компьютере, где размещается точка подключения службы.
 
-É necessário o GUID do pacote de atualização que pretende repor. Para obter o GUID:
-  1.   Na consola, aceda a **administração** > **atualizações e manutenção**.
-  2.   No painel de visualização, faça duplo clique no cabeçalho de uma das colunas (como **estado**), em seguida, selecione **Guid de pacote** adicionar essa coluna à apresentação de.
-  3.   A coluna mostra agora o GUID do pacote de atualização.
+Вам нужно знать глобальный уникальный идентификатор (GUID) пакета обновления, который вы хотите сбросить. Чтобы получить GUID, выполните следующие действия.
+  1.   В консоли перейдите к узлу **Администрирования** > **Обновления и обслуживание**.
+  2.   В панели отображения щелкните правой кнопкой мыши заголовок любого столбца (например, **Состояние**) и выберите пункт **Идентификатор пакета**, чтобы добавить на панель этот столбец.
+  3.   Появится столбец, отображающий идентификаторы GUID для пакетов обновления.
 
 > [!TIP]  
-> Para copiar o GUID, selecione a linha para o pacote de atualização que pretende repor e, em seguida, utilize CTRL + C para copiar nessa linha. Se colar a seleção copiada para um editor de texto, em seguida, pode copiar apenas o GUID para utilização como um parâmetro de linha de comandos quando executar a ferramenta.
+> Чтобы скопировать значение GUID, выберите строку нужного пакета обновления и скопируйте ее в буфер обмена с помощью клавиш CTRL+C. Теперь эту строку можно вставить в любой текстовый редактор, а затем скопировать из полученных данных код GUID и вставить его в качестве параметра в командную строку для запуска средства.
 
-### <a name="run-the-tool"></a>Execute a ferramenta    
-A ferramenta tem de ser executada no site de nível superior da hierarquia.
+### <a name="run-the-tool"></a>Запуск программы    
+Средство необходимо запускать на сайте верхнего уровня иерархии.
 
-Quando executar a ferramenta, utilize os parâmetros da linha de comandos para especificar:
-  -   O SQL Server no site de nível superior da hierarquia.
-  -   O nome de base de dados do site no site de nível superior.
-  -   O GUID do pacote de atualização que pretende repor.
+При запуске средства можно использовать параметры командной строки, чтобы указать следующие сведения.
+  -   SQL Server на сайте верхнего уровня иерархии.
+  -   Имя базы данных сайта на сайте верхнего уровня.
+  -   Глобальный уникальный идентификатор (GUID) пакета обновления, который вы хотите сбросить.
 
-Com base no estado da atualização, a ferramenta identifica os servidores adicionais, tem de aceder.   
+Исходя из состояния обновлений, средство определит дополнительные серверы, к которым требуется доступ.   
 
-Se o pacote de atualização está a ser um *após a transferência* Estado, a ferramenta de limpeza não configurar o pacote. Como opção, pode forçar a remoção de uma atualização transferida com êxito utilizando o parâmetro de eliminação de imposição (consulte os parâmetros da linha de comandos posteriormente neste tópico).
+Если пакет обновления находится в состоянии *после загрузки*, средство не очищает такой пакет. В этом случае можно принудительно удалить успешно скачанное обновление, используя параметр force delete (параметры командной строки описаны далее в этой статье).
 
-Depois da ferramenta é executada:
--   Se um pacote foi eliminado, reinicie o serviço SMS_Executive no site de nível superior. Em seguida, verifique a existência de atualizações, pelo que pode transferir o pacote novamente.
--   Se um pacote não foi eliminado, não terá de efetuar qualquer ação. A atualização reinicializa e, em seguida, reinicia a instalação ou a replicação.
+После запуска средства выполните следующие действия.
+-   Если пакет был удален, перезапустите службу SMS_Executive на сайте верхнего уровня. Затем проверьте наличие обновлений, чтобы заново скачать пакет.
+-   Если пакет не был удален, не нужно предпринимать никаких действий. Обновление повторно инициализирует и перезапускает процесс репликации или установки.
 
-**Parâmetros da linha de comandos:**  
+**Параметры командной строки.**  
 
-| Parâmetro        |Descrição                 |  
+| Параметр        |Описание                 |  
 |------------------|----------------------------|  
-|**-S &lt;FQDN do SQL Server do seu site de nível superior >** | *Necessário* <br> Especifique o FQDN do SQL Server que aloja a base de dados do site para o site de nível superior da hierarquia.    |  
-| **-D &lt;nome de base de dados >**                        | *Necessário* <br> Especifique o nome da base de dados no site de nível superior.  |  
-| **-P &lt;GUID do pacote >**                         | *Necessário* <br> Especifique o GUID para o pacote de atualização que pretende repor.   |  
-| **-I &lt;nome de instância do SQL Server >**             | *Opcional* <br> Identifica a instância do SQL Server que aloja a base de dados do site. |
-| **-FDELETE**                              | *Opcional* <br> Forçar a eliminação de um pacote de atualização transferido com êxito. |  
- **Exemplos:**  
- Um cenário típico, que pretende repor uma atualização que tem problemas de transferência. O FQDN de servidores SQL é *server1.fabrikam.com*, a base de dados do site *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ 61F16B3C-F1F6-4F9F-8647-2A524B0C802C -P***
+|**-S &lt;полное доменное имя сервера SQL Server для сайта верхнего уровня>** | *Обязательное* <br> Содержит полное доменное имя сервера SQL Server, на котором размещена база данных сайта для сайта верхнего уровня иерархии.    |  
+| **-D &lt;имя базы данных >**                        | *Обязательное* <br> Содержит имя базы данных на сайте верхнего уровня.  |  
+| **-P &lt;идентификатор GUID пакета >**                         | *Обязательное* <br> Содержит идентификатор GUID для пакета обновления, который необходимо сбросить.   |  
+| **-I &lt;имя экземпляра SQL Server>**             | *Необязательный* <br> Обозначает экземпляр SQL Server, на котором размещается база данных сайта. |
+| **-FDELETE**                              | *Необязательный* <br> Режим принудительного удаления для пакета обновления, который был успешно скачан. |  
+ **Примеры:**  
+ Чаще всего требуется сбросить обновление, для которого возникли проблемы с загрузкой. Допустим, что полное доменное имя SQL Server — *server1.fabrikam.com*, база данных сайта — *CM_XYZ*, а GUID пакета — *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Тогда вам нужно выполнить такую команду: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
- Num cenário mais extremos, pretender forçar a eliminação do pacote de atualização problemáticas. O FQDN de servidores SQL é *server1.fabrikam.com*, a base de dados do site *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe - FDELETE -S server1.fabrikam.com -D CM_XYZ 61F16B3C-F1F6-4F9F-8647-2A524B0C802C -P***
+ В более серьезных случаях вы можете принудительно удалить проблемный пакет обновления. Допустим, что полное доменное имя SQL Server — *server1.fabrikam.com*, база данных сайта — *CM_XYZ*, а GUID пакета — *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Тогда вам нужно выполнить такую команду: ***CMUpdateReset.exe  -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***

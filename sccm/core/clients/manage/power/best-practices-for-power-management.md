@@ -1,6 +1,6 @@
 ---
-title: "Melhores práticas para gestão de energia | Microsoft Docs"
-description: "Obter as melhores práticas para gestão de energia no System Center Configuration Manager."
+title: "Рекомендации по управлению питанием | Документы Майкрософт"
+description: "Ознакомьтесь с рекомендациями по управлению питанием в System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,67 +17,67 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d3cc24c7923141f039dcda26ac27489cb0143e89
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="best-practices-for-power-management-in-system-center-configuration-manager"></a>Melhores práticas para gestão de energia no System Center Configuration Manager
+# <a name="best-practices-for-power-management-in-system-center-configuration-manager"></a>Рекомендации по управлению питанием в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as seguintes melhores práticas para gestão de energia no System Center Configuration Manager.  
+Следуйте приведенным далее рекомендациям по управлению питанием в System Center Configuration Manager.  
 
-## <a name="perform-the-monitoring-phase-at-a-representative-time"></a>Efetuar a fase de monitorização num período representativo  
- A fase de monitorização da gestão de energia fornece-lhe informações sobre o consumo de energia, atividade, capacidades de gestão de energia e o  impacto ambiental de computadores na sua organização. Certifique-se de que escolhe um período representativo para efetuar a fase de monitorização. Por exemplo, efetuar a fase de monitorização durante um feriado público não fornece um relatório realista sobre a utilização de energia do computador.  
+## <a name="perform-the-monitoring-phase-at-a-representative-time"></a>Этап мониторинга следует проводить в репрезентативное время  
+ Этап мониторинга при управлении электропитанием позволяет собрать данные об энергопотреблении, активности, возможностях управления питанием и влиянии компьютеров вашей организации на окружающую среду. Убедитесь, что для реализации этапа мониторинга выбрано репрезентативное время. Например, реализация этапа мониторинга в праздничные дни не обеспечит сбора реалистичных данных об энергопотреблении компьютеров.  
 
-## <a name="create-a-control-collection-of-computers-with-no-power-plans-applied"></a>Criar uma coleção de controlo dos computadores sem esquemas de energia aplicados  
- Crie duas coleções de computadores para o ajudar a monitorizar os efeitos de aplicação de esquemas de energia em computadores. A primeira coleção deve conter a maioria dos computadores em relação aos quais pretende aplicar as definições de energia e a outra coleção (a coleção de controlo) deve conter os restantes computadores. Aplique a gestão de energia necessária para a coleção que contém a maioria dos computadores. Em seguida, pode executar relatórios para comparar o custo da energia, a utilização de energia e o impacto ambiental dos computadores nos quais aplicou definições de controlo com a coleção de controlo às quais não aplicou definições de energia.  
+## <a name="create-a-control-collection-of-computers-with-no-power-plans-applied"></a>Создайте контрольную коллекцию компьютеров, для которых не применены схемы управления питанием  
+ Создайте две коллекции компьютеров для мониторинга эффективности применения схем управления питанием на компьютерах. Первая коллекция должна содержать большую часть компьютеров, к которым необходимо применить параметры управления питанием, другая (контрольная) коллекция — остальные компьютеры. Примените нужную схему управления питанием к коллекции, содержащей большинство компьютеров. Затем с помощью отчетов можно сравнить затраты на электроэнергию, энергопотребление и влияние на окружающую среду компьютеров, к которым были применены параметры, с контрольной коллекцией компьютеров, к которым параметры управления питанием не применялись.  
 
-## <a name="run-the-power-settings-report-before-you-apply-a-power-management-plan"></a>Executar o relatório de Definições de Energia antes de aplicar um esquema de gestão de energia  
- Antes de aplicar um esquema de gestão de energia a uma coleção de computadores, execute o relatório **Definições de Energia** para o ajudar a compreender as definições de gestão de energia já configuradas em computadores na coleção. Se aplicar novas definições de gestão de energia a computadores sem examinar primeiro as definições existentes, isto pode representar um aumento do consumo de energia.  
+## <a name="run-the-power-settings-report-before-you-apply-a-power-management-plan"></a>Запустите отчет "Параметры питания" до применения схемы управления питанием.  
+ Перед применением схемы управления питанием к коллекции компьютеров запустите отчет **Параметры питания** , содержащий сведения о текущих параметрах управления питанием компьютеров коллекции. Применение схем управления питанием до анализа используемых параметров может привести к росту энергопотребления.  
 
-## <a name="exclude-servers-from-power-management"></a>Excluir os servidores da gestão de energia  
- A gestão de energia para os computadores que executam o Windows Server não é suportada (embora os dados de utilização de energia são recolhidos). Certifique-se de que adiciona servidores a uma coleção e a remove da gestão de energia.  
+## <a name="exclude-servers-from-power-management"></a>Исключение серверов из управления питанием  
+ Управление питанием для компьютеров под управлением Windows Server не поддерживается (хотя сбор данных об использовании питания осуществляется). Убедитесь, что добавили серверы в коллекцию и исключили ее из управления питанием.  
 
-## <a name="exclude-computers-that-you-do-not-want-to-manage"></a>Excluir computadores que não pretende gerir  
- Se tiver computadores que não pretenda gerir com a gestão de energia, adicione-as a uma coleção e certifique-se de que a coleção é excluída da gestão de energia.  
+## <a name="exclude-computers-that-you-do-not-want-to-manage"></a>Исключите компьютеры, которыми не нужно управлять  
+ При наличии компьютеров, параметрами которых не нужно управлять c помощью функций управления питанием, добавьте эти компьютеры в отдельную коллекцию и убедитесь, что для нее функции управления питанием не используются.  
 
- Seguem-se alguns exemplos de computadores que pode querer excluir da gestão de energia:  
+ Примеры компьютеров, для которых не следует использовать функции управления питанием:  
 
--   Computadores que têm de permanecer ligados.  
+-   компьютеры, которые должны быть постоянно включены;  
 
--   Computadores que os utilizadores necessitam para ligar utilizando a Ligação ao Ambiente de Trabalho Remoto .  
+-   компьютеры, с которыми пользователи работают через подключение к удаленному рабочему столу;  
 
--   Computadores que não podem utilizar a gestão de energia.  
+-   компьютеры, не поддерживающие использование функций управления питанием.  
 
--   Computadores que tenham a função de sistema de sites de ponto de distribuição.  
+-   компьютеры, имеющие роль системы сайта точки распространения;  
 
--   Computadores públicos, como computadores de quiosque, ecrãs de informações ou consolas de monitorização onde o computador e o monitor devem estar sempre ativados.  
+-   общедоступные компьютеры, такие как информационные киоски, информационные панели ли консоли мониторинга, для которых необходима постоянная работа компьютера и монитора.  
 
- Para obter mais informações, consulte [configurar gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/configuring-power-management.md).  
+ Дополнительные сведения см. в статье [Настройка управления питанием в Configuration Manager](../../../../core/clients/manage/power/configuring-power-management.md).  
 
-## <a name="first-apply-power-plans-to-a-test-collection-of-computers"></a>Em primeiro lugar, aplique os esquemas de energia a uma coleção de teste de computadores  
- Teste sempre o efeito de aplicar um esquema de gestão de energia a uma coleção de teste de computadores antes de aplicar o esquema de energia a uma coleção maior de computadores.  
+## <a name="first-apply-power-plans-to-a-test-collection-of-computers"></a>Сначала примените схемы управления питанием к тестовой коллекции.  
+ Всегда проверяйте результат применения схемы управления питанием на тестовой коллекции перед применением этой схемы к более крупной коллекции компьютеров.  
 
- As definições de energia aplicadas a computadores que executam o Windows XP ou o Windows Server 2003 não são revertidas para os valores originais, mesmo que exclua o computador da gestão de energia. Em versões posteriores do Windows, excluir um computador da gestão de energia faz com que todas as definições de energia sejam revertidas para os valores originais. Não é possível reverter as definições de energia individuais para os valores originais.  
+ Параметры управления питанием, примененные к компьютерам под управлением Windows XP или Windows Server 2003, не будут возвращены к исходным значениям даже после исключения компьютера из списка получения параметров управления питанием. В более поздних версиях Windows исключение компьютера из получателей параметров управления питанием приводит к возврату параметров к исходным значениям. Нельзя вернуть исходные значения только для некоторых параметров управления питанием.  
 
-## <a name="apply-power-plan-settings-individually"></a>Aplicar as definições do plano de energia individualmente  
- Monitorize o efeito de aplicação de cada definição de energia antes de aplicar o seguinte para garantir que cada definição tem o efeito necessário. Para mais informações sobre as definições do plano de energia, consulte [definições do plano de gestão de energia disponíveis](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) no tópico [como criar e aplicar esquemas de energia no System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
+## <a name="apply-power-plan-settings-individually"></a>Применяйте схему управления питанием индивидуально  
+ Контролируйте эффект от применения каждой схемы управления питанием перед ее применением следующей схемы, чтобы убедиться, что используемые параметры приводят к нужному результату. Дополнительные сведения о параметрах схемы управления питанием см. в разделе [Доступные параметры схем управления питанием](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) статьи [Создание и применение схем управления питанием в System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
 
-## <a name="regularly-monitor-computers-to-see-if-they-have-multiple-power-plans-applied"></a>Monitorize regularmente os computadores para verificar se têm vários esquemas de energia aplicados  
- A gestão de energia inclui um relatório que apresenta os computadores que têm mais do que um esquema de energia aplicado.  
+## <a name="regularly-monitor-computers-to-see-if-they-have-multiple-power-plans-applied"></a>Осуществляйте постоянный мониторинг компьютеров, для которых применено несколько схем управления питанием  
+ Компонент управления питанием включает отчет, отображающий список компьютеров, к которым применено несколько схем управления питанием.  
 
- Se um computador for membro de várias coleções, em que cada aplica esquemas de energia diferentes, serão executadas as seguintes ações:  
+ Если компьютер входит в несколько коллекций, к которым применяются различные схемы управления питанием, предпринимаются следующие действия.  
 
--   Esquema de energia: Se forem aplicados vários valores para definições de energia para um computador, é utilizado o valor menos restritivo.  
+-   Схема управления питанием: если для компьютера применено несколько различных значений параметров управления питанием, используется наименее ограничительное значение.  
 
--   Hora de reativação: Se forem aplicadas várias horas de reativação a um computador de secretária, será utilizada a hora mais próxima da meia-noite.  
+-   Время выхода из спящего режима: если для настольного компьютера применено несколько различных значений времени выхода из спящего режима, используется значение времени, наиболее близкое к полуночи.  
 
-     Para obter mais informações, consulte [computadores com vários esquemas de energia](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Multiple) no tópico [como monitorizar e planear a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md). Para obter mais informações sobre como a gestão de energia resolve conflitos, consulte [como criar e aplicar esquemas de energia no System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
+     Дополнительные сведения см. в разделе [Компьютеры с несколькими схемами управления питанием](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Multiple) статьи [Отслеживание и планирование управления питанием в System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md). Дополнительные сведения о разрешении конфликтов параметров управления питанием см. в статье [Создание и применение схем управления питанием в System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
 
-## <a name="save-or-export-power-management-information-during-the-monitoring-and-planning-phase-of-power-management"></a>Guardar ou exportar informações de gestão de energia durante a fase de monitorização e planeamento da gestão de energia  
- Informações de gestão de energia utilizadas pelos relatórios diários são mantidas na base de dados do site do Configuration Manager 31 dias.  
+## <a name="save-or-export-power-management-information-during-the-monitoring-and-planning-phase-of-power-management"></a>Сохраните или экспортируйте данные управления питанием на этапе мониторинга и планирования  
+ Данные управления питанием, используемые ежедневными отчетами, хранятся в базе данных сайта Configuration Manager 31 день.  
 
- Informações de gestão de energia utilizadas pelos relatórios diários são mantidas na base de dados do site do Configuration Manager durante 13 meses.  
+ Данные управления питанием, используемые ежемесячными отчетами, хранятся в базе данных сайта Configuration Manager 13 месяцев.  
 
- Quando executa relatórios durante as fases de monitorização, planeamento e compatibilidade de gestão de energia, guarde ou exporte os resultados de quaisquer relatórios para o qual pretende manter os dados para comparação posterior caso sejam posteriores removido pelo Configuration Manager.  
+ При запуске отчетов на этапах планирования, мониторинга и обеспечения соответствия требованиям следует сохранять или экспортировать результаты выполнения всех отчетов, данные которых понадобятся для последующего сравнения, на случай их удаления из базы данных Configuration Manager.  

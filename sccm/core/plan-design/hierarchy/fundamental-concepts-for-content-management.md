@@ -1,6 +1,6 @@
 ---
-title: "Noções básicas de gestão de conteúdo | Microsoft Docs"
-description: "Utilizar as ferramentas e opções no System Center Configuration Manager para gerir o conteúdo que implementar."
+title: "Основные принципы управления содержимым | Документация Майкрософт"
+description: "Использование средств и параметров в System Center Configuration Manager для управления развертываемым содержимым."
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -17,239 +17,239 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: f73dde64e0e8a0fc49f45b3afb3b8f00c926a820
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamental-concepts-for-content-management-in-system-center-configuration-manager"></a>Conceitos fundamentais da gestão de conteúdos no System Center Configuration Manager
+# <a name="fundamental-concepts-for-content-management-in-system-center-configuration-manager"></a>Основные принципы управления содержимым в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager suporta um sistema robusto de ferramentas e opções para gerir o conteúdo que implementar como aplicações, pacotes, atualizações de software e implementações do sistema operativo.  
+System Center Configuration Manager поддерживает надежную систему средств и параметров для управления содержимым, развертываемым в виде приложений, пакетов, обновлений программного обеспечения и операционных систем.  
 
-O conteúdo que implementa é armazenado em ambos os servidores de site e nos servidores do sistema de sites de ponto de distribuição. Este conteúdo pode exigir uma grande quantidade de largura de banda de rede quando está a ser transferido entre localizações. Para planear e utilizar a infraestrutura de gestão de conteúdos eficazmente, recomendamos que compreender as opções disponíveis e as configurações e, em seguida, considerar como utilizá-las para melhor opção do seu ambiente de rede e necessidades de implementação de conteúdo.  
+Развертываемое содержимое сохраняется как на серверах сайта, так и на серверах системы сайта точки распространения. Для передачи этого содержимого между расположениями может потребоваться высокая пропускная способность. Для эффективного планирования и использования инфраструктуры управления содержимым рекомендуется разобраться в доступных вариантах и конфигурациях и определить оптимальный способ их использования для удовлетворения потребностей, связанных с сетевой средой и развертыванием содержимого.  
 
 > [!TIP]    
-> Pode obter mais informações sobre o processo de distribuição de conteúdo e encontrar ajuda no diagnosticar e resolver problemas gerais de distribuição de conteúdo. Consulte [compreender e resolver problemas de conteúdo no Configuration Manager de distribuição](https://support.microsoft.com/help/4000401/content-distribution-in-mcm) em support.microsoft.com.
+> Дополнительные сведения о процессе распространения содержимого и справочные материалы по диагностированию и устранению общих неполадок, связанных с распространением содержимого, см. в статье [Understanding and Troubleshooting Content Distribution in Microsoft Configuration Manager](https://support.microsoft.com/help/4000401/content-distribution-in-mcm) (Основные сведения о распространении содержимого в Microsoft Configuration Manager и устранение соответствующих неполадок) на сайте support.microsoft.com.
 
-Seguem-se conceitos chave para gestão de conteúdo. Quando um conceito precisar de informações complexas ou adicionais, são fornecidas hiperligações para direcioná-lo para esses detalhes.
+Ниже мы рассмотрим основные понятия, связанные с управлением содержимым. Когда для понимания концепции требуются дополнительные или углубленные сведения, приводятся соответствующие ссылки.
 
-## <a name="accounts-used-for-content-management"></a>Contas utilizadas para a gestão de conteúdos  
- As contas que se seguem podem ser utilizadas com a gestão de conteúdos:  
+## <a name="accounts-used-for-content-management"></a>Учетные записи, используемые для управления содержимым  
+ Для управления содержимым можно использовать следующие учетные записи:  
 
--   **Conta de acesso de rede**: Utilizada pelos clientes para ligar a um ponto de distribuição e aceder ao conteúdo. Por predefinição, a conta de computador está experimentada em primeiro lugar.  
+-   **Учетная запись доступа к сети** — используется клиентами для подключения к точке распространения и доступа к содержимому. По умолчанию клиенты сначала попытаются использовать свою учетную запись компьютера.  
 
-     Esta conta é também utilizada pelos pontos de distribuição de extração para obter conteúdo de um ponto de distribuição de origem numa floresta remota.  
+     Эта учетная запись также используется точками распространения по запросу для получения содержимого из исходной точки распространения в удаленном лесу.  
 
--   **Conta de acesso a pacote**: Por predefinição, o Configuration Manager concede acesso a conteúdo num ponto de distribuição para as contas de acesso genérico utilizadores e administradores. No entanto, pode configurar permissões adicionais para restringir o acesso.   
+-   **Учетная запись доступа к пакетам** — по умолчанию Configuration Manager предоставляет доступ к содержимому на точке распространения общим учетным записям пользователей и администраторов. Однако вы можете настроить дополнительные разрешения для ограничения доступа.   
 
--   **Conta de ligação de multicast**: Utilizado para implementações do sistema operativo.  
+-   **Учетная запись многоадресной рассылки** — используется для развертывания операционных систем.  
 
-Para mais informações sobre estas contas, consulte [gerir contas para aceder ao conteúdo](../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).
+Дополнительные сведения об этих учетных записях см. в разделе [Управление учетными записями для доступа к содержимому](../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).
 
-## <a name="bandwidth-throttling-and-scheduling"></a>Limitação de largura de banda e agendamento  
- Tanto a limitação como o agendamento são opções que o ajudam a controlar quando o conteúdo é distribuído de um servidor do site para pontos de distribuição. Isto é semelhante a, mas não está diretamente relacionado com controlos de largura de banda para replicação baseada em ficheiros de site para site.  
+## <a name="bandwidth-throttling-and-scheduling"></a>Планирование и регулирование пропускной способности  
+ Планирование и регулирование помогают управлять работой при распространении содержимого с сервера сайта на точки распространения. Эти функции аналогичны элементам управления пропускной способностью для межсайтовой файловой репликации, хотя и не связаны с ними напрямую.  
 
- Para obter mais informações, consulte [gerir a largura de banda de rede](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
+ Дополнительные сведения см. в разделе [Управление пропускной способностью сети](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
 
-## <a name="binary-differential-replication"></a>Replicação diferencial binária  
- Um pré-requisito para pontos de distribuição, a replicação diferencial binária (BDR), que é por vezes conhecida como replicação delta, é automaticamente utilizado para reduzir a utilização de largura de banda ao que está a distribuir atualizações de conteúdo que tenha implementado anteriormente para outros sites ou para pontos de distribuição remotos.  
+## <a name="binary-differential-replication"></a>Двоичная дифференциальная репликация  
+ Двоичная дифференциальная репликация (BDR), которая также называется дельта-репликацией и является необходимым условием для точек распространения, используется автоматически для сокращения использования полосы пропускания при распространении обновлений для содержимого, которое ранее было развернуто на других сайтах, или на удаленную точку распространения.  
 
- A BDR minimiza a largura de banda de rede utilizada para enviar atualizações de conteúdo distribuído ao reenviar apenas o conteúdo novo ou alterado, em vez de enviar o conjunto completo de ficheiros de origem do conteúdo sempre que é efetuada uma alteração nesses ficheiros.  
+ С помощью BDR минимизируется полоса пропускания сети, используемая при отправке обновлений для распространения содержимого, за счет повторной отправки только нового или измененного содержимого вместо отправки всего набора исходных файлов содержимого при каждом внесении изменений в эти файлы.  
 
- Quando é utilizada a replicação diferencial de binários, o Configuration Manager identifica as alterações que ocorrem nos ficheiros de origem para cada conjunto de conteúdos que tem sido anteriormente distribuído.  
+ При использовании двоичной дифференциальной репликации Configuration Manager определяет имеющиеся изменения в исходных файлах для каждого набора ранее распространявшегося содержимого.  
 
--   Quando alterar ficheiros de conteúdo de origem, o Configuration Manager cria uma nova versão incremental do conjunto de conteúdos e replica apenas os ficheiros alterados para sites de destino e de pontos de distribuição. Um ficheiro é considerado alterado se foi mudado ou movido ou se o conteúdo do ficheiro foram alterados. Por exemplo, se substituir um único ficheiro de controlador num pacote de implementação de sistema operativo que tenha anteriormente distribuído por vários sites, apenas o ficheiro de controlador alterado será replicado para esses sites de destino.  
+-   При изменении файлов исходного содержимого Configuration Manager создает новую добавочную версию набора содержимого и реплицирует только измененные файлы на конечные сайты или точки распространения. Файл считается измененным, если он был переименован, перемещен или изменилось его содержимое. Например, если заменяется файл одного из драйверов для пакета развертывания операционной системы, который был ранее распространен на несколько сайтов, на эти конечные сайты реплицируется только только измененный файл драйвера.  
 
--   O Configuration Manager suporta até cinco versões incrementais de um conjunto antes de reenviar o conjunto completo de conteúdo de conteúdos. Após a quinta atualização, a próxima alteração ao conjunto de conteúdos faz com que o Configuration Manager para criar uma nova versão do conjunto de conteúdos. Em seguida, o Configuration Manager distribui a nova versão de conteúdo definida para substituir o conjunto anterior e todas as versões incrementais. Após a distribuição do novo conjunto de conteúdos, as alterações incrementais subsequentes aos ficheiros de origem serão novamente replicadas por replicação diferencial de binários.  
-
-
-A BDR é suportada entre cada site principal e site subordinado numa hierarquia. Num site, a BDR é suportada entre o servidor do site e os respetivos pontos de distribuição normal. No entanto, os pontos de distribuição de solicitação e pontos de distribuição baseado na nuvem não suportam a replicação diferencial de binários para transferência de conteúdo. Os pontos de distribuição de solicitação suportam deltas de nível de ficheiros, transferir os novos ficheiros, mas não os blocos de um ficheiro.
-
-As aplicações utilizam sempre a replicação diferencial de binários. Para pacotes, a replicação diferencial de binários é opcional e não está ativada por predefinição. Para utilizar a replicação diferencial de binários para pacotes, tem de ativar esta funcionalidade para cada pacote. Para o fazer, selecione a opção **Ativar replicação de diferencial binário** quando criar um novo pacote ou quando editar o separador **Origem de Dados** das propriedades do pacote.  
-
-## <a name="branchcache"></a>BranchCache  
- Uma tecnologia do Windows que permite aos clientes que suportam o BranchCache e que tenham transferido uma implementação que está configurada para Branch Cache, em seguida, servir como uma origem de conteúdo para outros clientes com capacidade para BranchCache.  
-
- Por exemplo, quando o primeiro computador cliente com capacidade BranchCache pedir conteúdo de um ponto de distribuição com o Windows Server 2012 e estiver configurado como servidor BranchCache, o computador cliente transfere esse conteúdo e coloca-o em cache.  
-
--   Esse computador cliente pode, em seguida, disponibilizar o conteúdo para a capacidade de BranchCache clientes adicionais na mesma sub-rede que também colocam em cache o conteúdo.  
-
--   Desta forma, os clientes seguintes da mesma sub-rede não necessitam de transferir o conteúdo a partir do ponto de distribuição e o conteúdo é distribuído por vários clientes para futuras transferências.  
-
-## <a name="peer-cache"></a>Cache ponto a ponto
-A partir da versão 1610, a Cache de cliente ajuda-o a gerir a implementação de conteúdo para clientes em localizações remotas. A Cache é uma solução incorporada do Configuration Manager que permite que os clientes partilhem conteúdos com outros clientes diretamente a partir da respetiva cache local.
-
-Depois de implementar as definições de cliente que permitem a Cache ponto a ponto numa coleção, os membros dessa coleção podem agir como uma origem de conteúdo ponto a ponto para outros clientes no mesmo grupo de limites.
-
-Para obter mais informações, consulte [Cache ponto a ponto para clientes do Configuration Manager](/sccm/core/plan-design/hierarchy/client-peer-cache).
+-   Configuration Manager поддерживает до 5 добавочных версий набора содержимого перед отправкой его целиком. После пятого обновления при внесении следующего изменения в набор содержимого Configuration Manager создает новую версию набора содержимого. Configuration Manager затем распространяет новую версию набора содержимого для замены предыдущего набора и всех его добавочных версий. После распространения нового набора содержимого последующие добавочные изменения в исходных файлах снова будут реплицироваться с помощью двоичной дифференциальной репликации.  
 
 
-## <a name="windows-pe-peer-cache"></a>Cache ponto a ponto do Windows PE
-Quando implementa um novo sistema operativo no System Center Configuration Manager, computadores que executam a sequência de tarefas podem utilizar a Cache do Windows PE para obter conteúdo de um elemento de rede local (uma origem de cache ponto a ponto) em vez de transferirem conteúdo de um ponto de distribuição. Isto ajuda a minimizar o tráfego da rede alargada (WAN) em cenários de uma sucursal onde não existe um ponto de distribuição local.
+BDR поддерживается между каждым родительским и дочерним сайтом в иерархии. На уровне сайта BDR поддерживается между сервером сайта и его точками регулярного распространения. Тем не менее точки распространения по запросу и облачные точки распространения не поддерживают двоичную дифференциальную репликацию для перемещения содержимого. Точки распространения по запросу поддерживают разность на файловом уровне, перемещая новые файлы,но не отдельные блоки в файле.
 
-Para obter mais informações, consulte [cache de ponto a ponto do Windows PE](../../../osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).
+Приложения всегда используют двоичную дифференциальную репликацию. Для пакетов двоичная дифференциальная репликация является необязательной и по умолчанию не включается. Чтобы использовать двоичную дифференциальную репликацию для пакетов, необходимо включить эту функциональность для каждого пакета. Для этого выберите параметр **Включить двоичную дифференциальную репликацию** при создании нового пакета или при внесении изменений на вкладке **Источник данных** свойств пакета.  
 
+## <a name="branchcache"></a>BranchCache,  
+ Технология Windows, которая позволяет клиентам, поддерживающим BranchCache и скачавшим развертывание, настроенное для BranchCache, выступать в качестве источника содержимого для других клиентов с поддержкой BranchCache.  
 
-## <a name="client-locations"></a>Localizações de clientes  
- Seguem-se as localizações a partir das quais os clientes acedem a conteúdo:  
+ Например, если первый клиентский компьютер с включенной функцией BranchCache запрашивает содержимое из точки распространения, которая работает под управлением Windows Server 2012 и настроена в качестве сервера BranchCache, клиентский компьютер скачивает содержимое и выполняет его кэширование.  
 
--   **Intranet** (no local):  
+-   Затем данный клиентский компьютер может предоставить доступ к этому содержимому другим клиентам с поддержкой BranchCache в той же подсети, которые также кэшируют данное содержимое.  
 
-    -   Pontos de distribuição podem utilizar HTTP ou HTTPs.  
+-   Таким образом последующим клиентам в этой подсети не требуется загружать содержимое из точки распространения; содержимое распространяется между клиентами для дальнейшей передачи.  
 
-    -   Utilize apenas um ponto de distribuição baseado na nuvem para contingência quando pontos de distribuição no local não estão disponíveis.  
+## <a name="peer-cache"></a>Одноранговый кэш
+Начиная с версии 1610 одноранговый кэш клиента помогает управлять развертыванием содержимого на клиентах в удаленных расположениях. Одноранговый кэш — это встроенное решение Configuration Manager, которое позволяет клиентам делиться содержимым с другими клиентами непосредственно из своего локального кэша.
 
--   **Internet**:  
+После развертывания клиентских параметров, включающих одноранговый кэш в коллекции, члены этой коллекции могут выступать в качестве источника однорангового содержимого для других клиентов в той же группе границ.
 
-    -   Necessita de pontos de distribuição para aceitar HTTPS.  
-
-    -   Pode utilizar um ponto de distribuição baseado na nuvem para contingência.  
-
--   **Grupo de Trabalho**:  
-
-    -   Necessita de pontos de distribuição para aceitar HTTPS.  
-
-    -   Pode utilizar um ponto de distribuição baseado na nuvem para contingência.  
+Дополнительные сведения см. в разделе [Одноранговый кэш для клиентов Configuration Manager](/sccm/core/plan-design/hierarchy/client-peer-cache).
 
 
+## <a name="windows-pe-peer-cache"></a>Одноранговый кэш среды предустановки Windows
+При развертывании новой операционной системы в System Center Configuration Manager компьютеры, на которых выполняется последовательность задач, могут использовать одноранговый кэш среды предустановки Windows для получения содержимого из локального узла (источника однорангового кэша) вместо загрузки содержимого из точки распространения. Это позволяет уменьшить объем трафика глобальной сети (WAN) в сценариях с филиалами, где локальные точки распространения отсутствуют.
 
-## <a name="content-library"></a>Biblioteca de conteúdos  
- A biblioteca de conteúdos é o arquivo de instância única de conteúdo que o Configuration Manager utiliza para reduzir o tamanho geral do corpo combinado de conteúdo que distribui.  
-
-- Saiba mais sobre o [biblioteca de conteúdos](../../../core/plan-design/hierarchy/the-content-library.md).
-- Utilize o [ferramenta de limpeza da biblioteca de conteúdos](/sccm/core/plan-design/hierarchy/content-library-cleanup-tool) para remover o conteúdo que já não está associado uma aplicação.  
+Дополнительные сведения см. в разделе [Одноранговый кэш среды предустановки Windows](../../../osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).
 
 
-## <a name="distribution-points"></a>Pontos de distribuição  
- Configuration Manager utiliza pontos de distribuição para armazenar os ficheiros que são necessários para o software seja executado em computadores cliente. Os clientes devem ter acesso a, pelo menos, um ponto de distribuição partir dos quais poderão transferir os ficheiros de conteúdo que implementar.  
+## <a name="client-locations"></a>Расположения клиентов  
+ Ниже перечислены расположения, из которых клиенты могут осуществлять доступ к содержимому:  
 
- O ponto de distribuição básico (não especializado) é normalmente denominado como um ponto de distribuição padrão. Existem duas variações no ponto de distribuição padrão que recebem especial atenção:  
+-   **Интрасеть** (локальная среда).  
 
--   **Ponto de distribuição de solicitação**: Uma variação de um ponto de distribuição em que o ponto de distribuição obtém conteúdo de outro ponto de distribuição (um ponto de distribuição de origem). Este processo é semelhante à forma como os clientes transferem conteúdo de pontos de distribuição. Pontos de distribuição de solicitação podem ajudar a evitar congestionamentos de largura de banda de rede que ocorrem quando o servidor do site tem de distribuir diretamente conteúdo para cada ponto de distribuição.  [Utilizar um ponto de distribuição de extração com o System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point).
+    -   Точки распространения могут использовать HTTP или HTTPS.  
 
--   **Ponto de distribuição baseado na nuvem**: Uma variação de um ponto de distribuição que está instalado no Microsoft Azure. [Saiba como utilizar um ponto de distribuição baseado na nuvem com o System Center Configuration Manager](../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md).  
+    -   Используйте облачную точку распространения только в качестве резервной на случай, когда локальные точки распространения недоступны.  
 
+-   **Интернет**.  
 
-Pontos de distribuição padrão suportam uma variedade de configurações e funcionalidades, tais como Otimização e agendamento, PXE e Multicast, ou de conteúdo pré-configurado.  
+    -   Требует, чтобы точки распространения принимали данные по протоколу HTTPS.  
 
--   Pode utilizar os controlos como **agendas** ou **limitação de largura de banda** para ajudar a controlar a transferência.  
+    -   Облачную точку распространения можно использовать в качестве резервной.  
 
--   Também pode utilizar outras opções, incluindo **conteúdo pré-configurado**, e **pontos de distribuição de solicitação**. Além disso, pode tirar partido do **BranchCache** para reduzir a largura de banda de rede que é utilizada quando implementar o conteúdo.  
+-   **Рабочая группа**.  
 
--   Pontos de distribuição suportam diferentes configurações, tais como  **[PXE](../../../osd/get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint)**  e  **[Multicast](../../../osd/get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_DPMulticast)**  para implementações do sistema operativo ou configurações para suportar **dispositivos móveis**.  
+    -   Требует, чтобы точки распространения принимали данные по протоколу HTTPS.  
 
- Baseado na nuvem e de pontos de distribuição de solicitação suportam muitas destas configurações, mas têm limitações específicas para cada variação de ponto de distribuição.  
-
-## <a name="distribution-point-groups"></a>Grupos de pontos de distribuição  
- Grupos de pontos de distribuição são agrupamentos lógicos de pontos de distribuição que podem simplificar a distribuição de conteúdo.  
-
- Para obter mais informações, consulte [gerir grupos de pontos de distribuição](../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage).
-
-## <a name="distribution-point-priority"></a>Prioridade de pontos de distribuição  
- O valor de prioridade do ponto de distribuição baseia-se na quantidade de tempo necessária para transferir implementações anteriores para esse ponto de distribuição.  
-
--   Este é um valor de sintonização automática atribuído a um ponto de distribuição que ajuda o conteúdo de transferência do Configuration Manager a mais pontos de distribuição num período de tempo mais curto.  
-
--   Quando distribuir conteúdos a vários pontos de distribuição em simultâneo ou a distribuição de uma grupo de pontos, Configuration Manager envia o conteúdo ao ponto de distribuição com a máxima prioridade, antes de enviar os mesmos conteúdos para um ponto de distribuição com uma prioridade mais baixa.  
-
--   Isto não substitui a prioridade de distribuição para pacotes, que permanece o fator decisivo na sequência do momento de transferência das diversas distribuições.  
+    -   Облачную точку распространения можно использовать в качестве резервной.  
 
 
-Por exemplo, se distribuir conteúdo que tenha uma prioridade de distribuição elevada a um ponto de distribuição que tenha uma prioridade de ponto de distribuição baixa, este pacote de prioridade de distribuição elevada será sempre transferido antes de um pacote que tenha uma prioridade de distribuição baixa. A prioridade de distribuição aplica-se mesmo que os pacotes que tenham uma prioridade de distribuição mais baixa sejam distribuídos a pontos de distribuição com prioridade de ponto de distribuição mais elevada.
 
-A prioridade de distribuição elevada do pacote garante que o Configuration Manager distribui esse conteúdo aos pontos de distribuição aplicáveis antes do envio de quaisquer pacotes com uma prioridade de distribuição mais baixa.  
+## <a name="content-library"></a>Библиотека содержимого  
+ Библиотека содержимого — это хранилище единственных копий содержимого, которое Configuration Manager использует, чтобы уменьшить общий размер распространяемого содержимого.  
+
+- Дополнительные сведения о [библиотеке содержимого](../../../core/plan-design/hierarchy/the-content-library.md).
+- Чтобы удалить содержимое, которое уже не связано с приложением, используйте [средство очистки библиотеки содержимого](/sccm/core/plan-design/hierarchy/content-library-cleanup-tool).  
+
+
+## <a name="distribution-points"></a>точки распространения;  
+ Configuration Manager использует точки распространения для хранения файлов, необходимых для работы программного обеспечения на клиентских компьютерах. Клиенты должны иметь доступ хотя бы к одной точке распространения, из которой они смогут скачивать файлы для развертываемого содержимого.  
+
+ Базовая (неспециализированная) точка распространения обычно называется стандартной точкой распространения. Существует два варианта стандартной точки распространения, на которые следует обратить особое внимание.  
+
+-   **Точка распространения по запросу** — разновидность точки распространения, когда она получает содержимое с другой точки распространения (исходной точки распространения). Этот процесс аналогичен скачиванию содержимого из точки распространения клиентами. Использование точек распространения по запросу поможет устранить узкие места пропускной способности сети, которые могут возникать, когда серверу сайта необходимо напрямую распространить содержимое в каждую точку распространения.  [Использование точки распространения по запросу в System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point)
+
+-   **Облачная точка распространения** — разновидность точки распространения, установленной в Microsoft Azure. [Сведения об использовании облачной точки распространения в System Center Configuration Manager](../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md).  
+
+
+Стандартные точки распространения поддерживают широкий спектр конфигураций и функций, таких как регулирование, планирование, PXE и многоадресная рассылка или предварительно подготовленное содержимое.  
+
+-   Можно использовать такие средства управления, как **расписания** или **регулирование полосы пропускания**, упрощающие управление этой передачей.  
+
+-   Можно также использовать другие возможности, в том числе **предварительно подготовленное содержимое** и **точки распространения по запросу**. Кроме того, можно воспользоваться компонентом **BranchCache** для снижения пропускной способности сети, используемой при развертывании содержимого.  
+
+-   Точки распространения поддерживают различные конфигурации, такие как **[PXE](../../../osd/get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint)** и **[многоадресная рассылка](../../../osd/get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_DPMulticast)** для развертывания операционных систем, и конфигурации для поддержки **мобильных устройств**.  
+
+ Облачные точки распространения и точки распространения по запросу поддерживают многие из таких конфигураций, но на отдельные виды точек распространения налагаются определенные ограничения.  
+
+## <a name="distribution-point-groups"></a>Группы точек распространения  
+ Группы точек распространения — это логические группировки точек распространения, позволяющие упростить распространение содержимого.  
+
+ Дополнительные сведения см. в разделе [Управление группами точек распространения](../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage).
+
+## <a name="distribution-point-priority"></a>Приоритет точки распространения  
+ Значение приоритета точки распространения зависит от того, сколько времени заняла передача предыдущих развертываний в эту точку распространения.  
+
+-   Это самонастраивающееся значение, назначаемое точке распространения, помогает Configuration Manager быстрее передавать содержимое на большее количество точек распространения.  
+
+-   При распространении содержимого на несколько точек или на группу распространения одновременно Configuration Manager сначала отправляет содержимое на точку распространения с наивысшим приоритетом.  
+
+-   Оно не заменяет собой приоритет распространения для пакетов, который остается решающим фактором в определении последовательности передачи различных распространений.  
+
+
+Например, при распространении содержимого с высоким приоритетом в точку распространения с низким приоритетом пакет с высоким приоритетом всегда передается раньше, чем пакет с более низким приоритетом. Приоритет распространения применяется, даже если пакеты с более низким приоритетом распространяется в точки распространения с более высоким приоритетом.
+
+Высокий приоритет распространения пакета гарантирует, что Configuration Manager распространит его содержимое в соответствующие точки распространения перед отправкой каких-либо пакетов с более низким приоритетом распространения.  
 
 > [!NOTE]  
->  Os pontos de distribuição de extração também utilizam um conceito de prioridade para ordenar a sequência dos respetivos pontos de distribuição de origem.  
+>  Точки распространения по запросу также используют принцип приоритета для упорядочения последовательности своих исходных точек распространения.  
 >   
->  -   A prioridade de ponto de distribuição para transferências de conteúdo ao ponto de distribuição é distinta da prioridade que os pontos de distribuição de extração utilizam quando procuram conteúdo de um ponto de distribuição de origem.  
->  -   Para obter mais informações, consulte [utilizar um ponto de distribuição de extração com o System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point).  
+>  -   Приоритет точки распространения по запросу для передачи содержимого в точку распространения отличается от приоритета, который точка распространения по запросу использует при поиске содержимого в исходных точках распространения.  
+>  -   Дополнительные сведения см. в разделе [Использование точки распространения по запросу в System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point).  
 
 
-## <a name="fallback"></a>Contingência  
- A partir da versão 1610, vários aspetos mudaram de forma que os clientes localizam um ponto de distribuição que tenha o conteúdo, incluindo contingência. Utilize as seguintes informações que se aplica à versão que utiliza:
+## <a name="fallback"></a>Резервирование  
+ Начиная с версии 1610 изменился ряд принципов поиска клиентами точки распространения с содержимым, включая откат. Ознакомьтесь с приведенными ниже сведениями для используемой версии.
 
-**Versão 1610 e posterior**   
-Os clientes que não é possível localizar o conteúdo de um ponto de distribuição associado ao respetivo grupo de limites atual podem reverter para utilizarem as localizações de origem de conteúdo que estão associadas a grupos de limites de vizinho. Para ser utilizado para contingência, um grupo de limites de vizinho tem de ter uma relação definida com o grupo de limites atual do cliente. Esta relação inclui uma vez configurada que tem de passar antes de um cliente que não é possível localizar o conteúdo localmente pode incluir origens de conteúdo do grupo de limites de vizinho como parte da sua pesquisa.
+**Версия 1610 и более поздние**   
+Клиенты, которым не удается найти содержимое в точке распространения, связанной с текущей группой границ, могут выполнить откат для использования источников содержимого, связанных с соседними группами границ. Чтобы соседняя группа границ использовалась для отката, должна быть определена ее связь с текущей группой границ клиента. Эта связь включает заданное время, по истечении которого клиент, не нашедший локальное содержимое, может включить в поиск источники содержимого из соседней группы границ.
 
-Os conceitos do já não são utilizados pontos de distribuição preferenciais e definições de **permitir que as localizações de origem de contingência para conteúdo** já não estão disponíveis ou imposta.
+Концепция предпочтительных точек распространения больше не используется, а параметры **Разрешить резервные источники содержимого** больше недоступны и не применяются.
 
-Para obter mais informações, consulte [grupos de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
-
-
-**Versão 1511, 1602 e 1606**   
-As definições de contingência estão relacionadas com a utilização de **pontos de distribuição de preferencial** e para localizações de origem de conteúdo que são utilizadas pelos clientes.
-
--   Por predefinição, os clientes transferem apenas conteúdo de um ponto de distribuição preferencial (um que estão associados com grupos de limites do cliente).  
-
--   No entanto, quando um ponto de distribuição está configurado com a definição **Permitir que os clientes utilizem este sistema de sites como uma localização de origem de contingência para o conteúdo**, esse ponto de distribuição só é oferecido como uma origem de conteúdo válida a qualquer cliente que não consiga obter uma implementação de um dos respetivos pontos de distribuição preferenciais.  
+Дополнительные сведения см. в разделе [Группы границ](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
 
 
-Para obter informações sobre os cenários de contingência e localização de conteúdo diferente, consulte [cenários de localização de origem de conteúdo](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Para obter informações sobre grupos de limites, consulte [grupos de limites para versões 1511,1602 e 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
+**Версии 1511, 1602 и 1606**   
+Параметры резервирования связаны с использованием **предпочтительных точек распространения** и с расположением источника содержимого, которые используются клиентами.
 
-## <a name="network-bandwidth"></a>Largura de banda da rede  
- Para ajudar a gerir a quantidade de largura de banda de rede que é utilizada quando distribui conteúdo, pode utilizar as seguintes opções:  
+-   По умолчанию клиенты скачивают содержимое только из предпочтительной точки распространения (которая сопоставлена с группами границ клиента).  
 
--   **Conteúdo pré-configurado**:  Um processo de transferência de conteúdo para um ponto de distribuição sem entidade confiadora no Configuration Manager para distribuir o conteúdo pela rede.  
-
--   **Agendamento e limitação**: As configurações que o ajudam a controlam quando e como o conteúdo é distribuído para pontos de distribuição.  
-
-Para obter mais informações, consulte [gerir a largura de banda de rede](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
-
-## <a name="network-connection-speed-to-content-source"></a>Velocidade da ligação de rede à origem de conteúdo  
-A partir da versão 1610, vários aspetos mudaram de forma que os clientes localizam um ponto de distribuição que tenha o conteúdo, incluindo a velocidade da ligação de rede a uma origem de conteúdo. Utilize as seguintes informações que se aplica à versão que utiliza:
-
-**Versão 1610 e posterior**   
-Velocidades de ligação de rede que definem uma distribuição apontar como **Rápido** ou **lenta** já não são utilizadas. Em vez disso, cada sistema de sites que está associada um grupo de limites é Tratado da mesma.
-
-Para obter mais informações, consulte [grupos de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+-   Тем не менее, когда точка распространения настраивается с использованием параметра **Разрешить клиентам использовать эту систему сайта в качестве резервного источника содержимого**, она используется только в качестве действительного источника содержимого для любого клиента, которому не удается получить развертывание в одной из предпочтительных точек распространения.  
 
 
-**Versão 1511, 1602 e 1606**   
- É possível configurar a velocidade da ligação de rede de cada ponto de distribuição num grupo de limites:  
+Сведения о различных сценариях расположения и резервирования содержимого см. в разделе [Сценарии расположения источника содержимого](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Сведения о группах границ см. в разделе [Группы границ для версий 1511, 1602 и 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
 
--   Os clientes utilizam este valor quando se ligam ao ponto de distribuição.
+## <a name="network-bandwidth"></a>Пропускная способность сети  
+ Чтобы управлять размером полосы пропускания сети, используемой при распространении контента, можно использовать следующие параметры.  
 
--   Por predefinição, a velocidade da ligação de rede é configurada como **Rápido**, mas também podem ser definida como **lenta**.  
+-   **Предварительно подготовленное содержимое.** Процесс передачи содержимого в точку распространения, позволяющий не полагаться на распространение содержимого по сети с помощью Configuration Manager.  
 
--   O **velocidade da ligação de rede**, juntamente com a configuração de uma implementação, determinam se um cliente pode transferir conteúdo de um ponto de distribuição quando o cliente está num grupo de limites associado  
+-   **Планирование и регулирование.** Конфигурации, помогающие контролировать время и способ распространения содержимого в точки распространения.  
 
-Para obter informações sobre os cenários de contingência e localização de conteúdo diferente, consulte [cenários de localização de origem de conteúdo](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Para obter informações sobre grupos de limites, consulte [grupos de limites para versões 1511,1602 e 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
+Дополнительные сведения см. в разделе [Управление пропускной способностью сети](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
 
-## <a name="on-demand-content-distribution"></a>Distribuição de conteúdo a pedido  
- Distribuição de conteúdo a pedido é uma opção que pode ser definido para indivíduo distribuição para os pontos de distribuição preferencial de conteúdo de aplicações e pacotes (implementações) para ativar a pedido.  
+## <a name="network-connection-speed-to-content-source"></a>Скорость сетевого подключения к источнику содержимого  
+Начиная с версии 1610, изменился ряд принципов поиска клиентами точки распространения с содержимым, включая скорость сетевого подключения к источнику содержимого. Ознакомьтесь с приведенными ниже сведениями для используемой версии.
 
--   Para ativar esta opção para uma implementação, ative **distribuir o conteúdo do pacote para pontos de distribuição preferenciais**.  
+**Версия 1610 и более поздние**   
+Скорости сетевых подключений, определяющие точку распространения как **быструю** или **медленную**, больше не используются. Теперь каждая система сайта, связанная с группой границ, обрабатывается одинаково.
 
--   Quando esta opção está ativada para uma implementação e um cliente tenta pedir esse conteúdo, mas o conteúdo não está disponível em qualquer um dos pontos de distribuição preferenciais do cliente, o Configuration Manager distribui automaticamente esse conteúdo aos pontos de distribuição preferenciais do cliente.  
-
--   Embora isto acione o Configuration Manager para distribuir automaticamente o conteúdo para pontos de distribuição preferenciais desse cliente, o cliente poderá obter esse conteúdo de outros pontos de distribuição antes dos pontos de distribuição preferencial para o cliente recebem a implementação. Quando isto ocorre, o conteúdo estará presente nesse ponto de distribuição para utilização pelo cliente seguinte que procura essa implementação.  
-
-Se utilizar a versão 1610 ou posterior, consulte [grupos de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
-Se utilizar a versão 1511, versão 1602 ou 1606, consulte [cenários de localização de origem de conteúdo](../../../core/plan-design/hierarchy/content-source-location-scenarios.md) para obter informações sobre os cenários de contingência e localização de conteúdo diferente.  
+Дополнительные сведения см. в разделе [Группы границ](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
 
 
+**Версии 1511, 1602 и 1606**   
+ Существует возможность настройки скорости сетевого подключения каждой точки распространения в группе границ:  
 
-## <a name="package-transfer-manager"></a>Gestor de Transferência de Pacotes  
- Gestor de transferência do pacote é o componente de servidor do site transfere conteúdo para pontos de distribuição noutros computadores.  
+-   Клиенты используют это значение при подключении к точке распространения.
 
- Saiba mais sobre o [Gestor de transferência de pacotes](../../../core/plan-design/hierarchy/package-transfer-manager.md).  
+-   По умолчанию для скорости сетевого подключения задано значение **Быстрое**, но его можно изменить на **Медленное**.  
 
-## <a name="preferred-distribution-point"></a>Ponto de distribuição preferencial  
- Um ponto de distribuição preferenciais inclui quaisquer pontos de distribuição que estão associados a grupos de limites atuais de um cliente.  
+-   **Скорость сетевого подключения** и конфигурация развертываний определяют возможность скачивания клиентом содержимого из точки распространения, если клиент находится в связанной группе границ.  
 
- Tem a opção de associar cada ponto de distribuição a um ou mais grupos de limites:  
+Сведения о различных сценариях расположения и резервирования содержимого см. в разделе [Сценарии расположения источника содержимого](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Сведения о группах границ см. в разделе [Группы границ для версий 1511, 1602 и 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
 
--   Esta associação ajuda o cliente a identificar os pontos de distribuição a partir da qual pode transferir conteúdo.  
--   Por predefinição, os clientes só podem transferir conteúdo de um ponto de distribuição preferenciais.  
+## <a name="on-demand-content-distribution"></a>Распространение содержимого по запросу  
+ Распространение содержимого по запросу можно использовать для отдельных приложений и пакетов (развертываний), чтобы включить распространение содержимого по запросу в предпочтительные точки распространения.  
+
+-   Чтобы использовать данную функцию для развертывания, включите параметр **Распространять содержимое этого пакета в предпочтительные точки распространения**.  
+
+-   Если этот параметр включен для развертывания и клиент пытается запросить содержимое, но оно недоступно на всех предпочтительных точках распространения клиентов, Configuration Manager автоматически распространяет это содержимое в предпочтительные точки распространения клиентов.  
+
+-   Хотя это вынуждает Configuration Manager автоматически распространять содержимое на эти предпочтительные точки распространения клиентов, клиент может получить данное содержимое из других точек распространения до того, как развертывание получат предпочтительные точки распространения этого клиента. В данном случае содержимое на этой точке распространения затем будет предоставлено следующему клиенту, который ищет это развертывание.  
+
+Если вы используете версию 1610 или более позднюю, см. раздел [Группы границ](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+Сведения о различных сценариях расположения и резервирования содержимого при использовании версии 1511, 1602 или 1606 см. в разделе [Сценарии расположения источника содержимого](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
 
 
-Para obter mais informações:
- - Se utilizar a versão 1610 ou posterior, consulte [grupos de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
- - Se utilizar a versão 1511, versão 1602 ou 1606, consulte [cenários de localização de origem de conteúdo](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).
 
-## <a name="prestage-content"></a>Pré-configurar conteúdo  
- Pré-configuração de conteúdo é um processo de transferência de conteúdo para um ponto de distribuição sem entidade confiadora no Configuration Manager para distribuir o conteúdo pela rede.  
+## <a name="package-transfer-manager"></a>Диспетчер передачи пакетов  
+ Диспетчер передачи пакетов — это компонент сервера сайта, передающий содержимое в точки распространения на других компьютерах.  
 
- Para obter mais informações, consulte [gerir a largura de banda de rede](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
+ Дополнительные сведения о [диспетчере передачи пакетов](../../../core/plan-design/hierarchy/package-transfer-manager.md).  
+
+## <a name="preferred-distribution-point"></a>Предпочтительная точка распространения  
+ Предпочтительные точки распространения включают в себя все точки распространения, которые сопоставлены с текущими группами границ клиента.  
+
+ У вас есть возможность сопоставить каждую точку распространения с одной или несколькими группами границ:  
+
+-   Такое сопоставление помогает клиенту определить те точки распространения, с которых он может скачивать содержимое.  
+-   По умолчанию клиенты могут скачивать только из предпочтительной точки распространения.  
+
+
+Дополнительные сведения:
+ - Если вы используете версию 1610 или более позднюю, см. раздел [Группы границ](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+ - Если вы используете версию 1511, 1602 или 1606, см. статью [Сценарии расположения источника содержимого](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).
+
+## <a name="prestage-content"></a>Предварительная подготовка содержимого  
+ Использование предварительно подготовленного содержимого — это процесс передачи содержимого в точку распространения, позволяющий не полагаться на распространение содержимого по сети с помощью Configuration Manager.  
+
+ Дополнительные сведения см. в разделе [Управление пропускной способностью сети](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).

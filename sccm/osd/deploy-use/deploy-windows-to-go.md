@@ -1,6 +1,6 @@
 ---
-title: Implementar o Windows to Go com o System Center Configuration Manager | Microsoft Docs
-description: "Saiba como aprovisionar o Windows To Go no System Center Configuration Manager, para criar uma área de trabalho Windows To Go que iniciam a partir de uma unidade externa."
+title: "Развертывание Windows To Go с помощью System Center Configuration Manager | Документы Майкрософт"
+description: "Узнайте, как подготовить компонент Windows To Go в System Center Configuration Manager для создания рабочей области Windows To Go, которая загружается с внешнего диска."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,452 +17,452 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: a8b1a42c43438553cfbb62328bed933378bb344c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Implementar o Windows to Go com o System Center Configuration Manager
+# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Развертывание Windows To Go с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico fornece os passos para aprovisionar o Windows To Go no System Center Configuration Manager. O Windows To Go é uma funcionalidade empresarial do Windows 8 que permite a criação de uma área de trabalho do Windows To Go que pode arrancar a partir de uma unidade externa ligada por USB em computadores que cumpram os requisitos de certificação do Windows 7 ou do Windows 8, independentemente do sistema operativo em execução no computador. As áreas de trabalho do Windows To Go podem utilizar a mesma imagem que as empresas utilizam nos seus computadores de secretária e portáteis e podem ser geridas da mesma forma.  
+В этой статье приводятся инструкции по подготовке Windows To Go в System Center Configuration Manager. Windows To Go — это корпоративный компонент Windows 8, позволяющий создать рабочее пространство Windows To Go, которое может загружаться с подключенного через USB внешнего диска на компьютерах, соответствующих требованиям сертификации Windows 7 или Windows 8, независимо от операционной системы, которая работает на этом компьютере. Рабочие пространства Windows To Go могут использовать тот же образ, который используется организациями на своих настольных компьютерах и ноутбуках, и могут управляться таким же способом.  
 
- Para obter mais informações sobre o Windows To Go, consulte [Windows To Go descrição geral da funcionalidade](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
+ Дополнительные сведения о Windows To Go см. в статье [Windows To Go: обзор возможностей](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
 
-## <a name="provision-windows-to-go"></a>Aprovisionar o Windows To Go  
- O Windows To Go é um sistema operativo armazenado numa unidade externa ligada por USB. Pode aprovisionar a unidade do Windows To Go tal como aprovisiona outras implementações de sistema operativo. No entanto, uma vez que o Windows To Go foi concebido para ser uma solução centrada no utilizador e com elevada mobilidade, tem de adotar uma abordagem ligeiramente diferente ao aprovisionamento destas unidades.  
+## <a name="provision-windows-to-go"></a>Подготовка Windows To Go  
+ Windows To Go — это операционная система, хранимая на внешнем диске, подключаемом к USB-порту. Подготовка диска Windows To Go выполняется практически так же, как подготовка других развертываний операционных систем. Однако поскольку Windows To Go разрабатывалась как ориентированное на пользователей решение с высокой степенью мобильности, при подготовке таких дисков необходимо применять немного другой подход.  
 
- A um nível elevado, o Windows To Go é uma implementação de duas fases que lhe permite configurar o dispositivo do Windows To Go e pré-configurar conteúdo para a implementação do sistema operativo. Pode conseguir isto com um impacto mínimo do utilizador e o período de indisponibilidade do limite para o computador do utilizador. Depois de pré-configurar o computador, tem de concluir o processo de aprovisionamento para garantir que o computador fica pronto para o utilizador. O processo de aprovisionamento é semelhante ao processo de implementação do sistema operativo atual. Segue-se o fluxo de trabalho geral para pré-configurar conteúdo e aprovisionar o Windows To Go:  
+ На высоком уровне Windows To Go представляет собой двухэтапное развертывание, которое позволяет настраивать устройство Windows To Go и предварительное содержимое для развертывания операционной системы. Этого можно добиться с минимальными последствиями для пользователей и с ограниченным временем простоя компьютера пользователя. После предварительной подготовки компьютера необходимо завершить процесс подготовки, чтобы убедиться, что компьютер готов для пользователя. Процесс подготовки аналогичен процессу развертывания текущей операционной системы. Следующий список показывает общий рабочий процесс для предварительного создания содержимого и подготовки Windows To Go.  
 
-1.  [Pré-requisitos para aprovisionar o Windows To Go](#BKMK_Prereqs)  
+1.  [Необходимые условия для подготовки Windows To Go](#BKMK_Prereqs)  
 
-2.  [Criar suportes de dados pré-configurados](#BKMK_CreatePrestagedMedia)  
+2.  [Создание предварительно подготовленного носителя](#BKMK_CreatePrestagedMedia)  
 
-3.  [Criar um pacote do Windows To Go Creator](#BKMK_CreatePackage)  
+3.  [Создание пакета создателя Windows To Go](#BKMK_CreatePackage)  
 
-4.  [Atualizar a sequência de tarefas para ativar o BitLocker para o Windows To Go](#BKMK_UpdateTaskSequence)  
+4.  [Обновление последовательности задач в целях включения BitLocker для Windows To Go](#BKMK_UpdateTaskSequence)  
 
-5.  [Implementar o pacote do Windows To Go Creator e a sequência de tarefas](#BKMK_Deployments)  
+5.  [Развертывание пакета средства создания Windows To Go и последовательности задач](#BKMK_Deployments)  
 
-6.  [O utilizador executa o Windows To Go Creator](#BKMK_UserExperience)  
+6.  [Пользователь запускает средство создания Windows To Go](#BKMK_UserExperience)  
 
-7.  [O Configuration Manager configura e prepara a unidade do Windows To Go](#BKMK_ConfigureStageDrive)  
+7.  [Configuration Manager настраивает и готовит диск Windows To Go](#BKMK_ConfigureStageDrive)  
 
-8.  [O utilizador inicia sessão no Windows 8](#BKMK_UserLogsIn)  
+8.  [Пользователь входит в Windows 8](#BKMK_UserLogsIn)  
 
-###  <a name="BKMK_Prereqs"></a> Pré-requisitos para aprovisionar o Windows To Go  
- Antes de aprovisionar o Windows To Go, tem de concluir o seguinte no Configuration Manager:  
+###  <a name="BKMK_Prereqs"></a> Необходимые условия для подготовки Windows To Go  
+ Прежде чем приступить к подготовке Windows To Go, необходимо выполнить в Configuration Manager указанные ниже действия.  
 
--   **Distribuir uma imagem de arranque para um ponto de distribuição**  
+-   **Разместить образ загрузки в точке распространения.**  
 
-     antes de criar o suporte de dados pré-configurado, tem de distribuir a imagem de arranque a um ponto de distribuição.  
-
-    > [!NOTE]  
-    >  Imagens de arranque são utilizadas para instalar o sistema operativo dos computadores de destino no seu ambiente do Configuration Manager. Contêm uma versão do Windows PE que instala o sistema operativo, bem como os controladores de dispositivo adicionais que sejam necessários. Configuration Manager fornece duas imagens de arranque: Uma para suportar plataformas x86 e outra para suportar x64 plataformas. Também pode criar imagens de arranque próprias. Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
-
--   **Distribuir a imagem do sistema operativo Windows 8 para um ponto de distribuição**  
-
-     antes de criar o suporte de dados pré-configurado, tem de distribuir a imagem do sistema operativo Windows 8 a um ponto de distribuição.  
+     Перед созданием предварительно подготовленного носителя необходимо разместить загрузочный образ в точке распространения.  
 
     > [!NOTE]  
-    >  As imagens de sistema operativo são ficheiros com o formato .WIM e representam uma coleção comprimida de ficheiros e pastas de referência que são necessários para instalar e configurar com êxito um sistema operativo num computador. Para obter mais informações, consulte [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
+    >  Образы загрузки используются для установки операционной системы на конечные компьютеры в среде Configuration Manager. Эти образы содержат версию среды предустановки Windows (Windows PE), которая устанавливает операционную систему, а также все необходимые дополнительные драйверы устройств. Configuration Manager предоставляет два образа загрузки: один для поддержки 32-разрядных (x86) платформ, а второй — для 64-разрядных (x64) платформ. Можно также создать свои собственные загрузочные образы. Дополнительные сведения см. в разделе [Управление загрузочными образами](../get-started/manage-boot-images.md).  
 
--   **Criar uma Sequência de Tarefas para Implementar o Windows 8**  
+-   **Разместить образ операционной системы Windows 8 в точке распространения.**  
 
-     tem de criar uma sequência de tarefas para uma implementação do Windows 8 que será referenciar quando criar suportes de dados pré-configurados. Para obter mais informações, consulte [gerir sequências de tarefas para automatizar tarefas](manage-task-sequences-to-automate-tasks.md).  
+     Перед созданием предварительно подготовленного носителя необходимо разместить образ операционной системы Windows 8 в точке распространения.  
 
-###  <a name="BKMK_CreatePrestagedMedia"></a> Criar suportes de dados pré-configurados  
- O suporte de dados pré-configurado contém a imagem de arranque utilizada para iniciar o computador de destino e a imagem de sistema operativo aplicada no computador de destino. O computador que for aprovisionado com um suporte de dados pré-configurado pode ser iniciado utilizando a imagem de arranque. Em seguida, o computador pode executar uma sequência de tarefas existente de implementação de sistema operativo para instalar uma implementação completa do sistema operativo. A sequência de tarefas que implementa o sistema operativo não está incluída no suporte de dados.  
+    > [!NOTE]  
+    >  Образы операционной системы — это файлы формата WIM, которые представляют собой набор сжатых эталонных файлов и папок, необходимых для успешной установки и настройки операционной системы на компьютере. Дополнительные сведения см. в разделе [Управление образами операционных систем](../get-started/manage-operating-system-images.md).  
 
- Pode adicionar conteúdo, como aplicações e controladores de dispositivo, para além da imagem do sistema operativo e da imagem de arranque, durante a fase de pré-configuração. Isto reduz o tempo de implementação de um sistema operativo e reduz o tráfego de rede porque o conteúdo já está na unidade.  
+-   **Создается последовательность задач для развертывания Windows 8.**  
 
- Utilize o procedimento seguinte para criar o suporte de dados pré-configurado.  
+     Необходимо создать последовательность задач для развертывания Windows 8, на которую вы будете ссылаться при создании предварительно подготовленного носителя. Дополнительные сведения см. в разделе [Управление последовательностями задач для их автоматизации](manage-task-sequences-to-automate-tasks.md).  
 
-#### <a name="to-create-prestaged-media"></a>Para criar um suporte de dados pré-configurado  
+###  <a name="BKMK_CreatePrestagedMedia"></a> Создание предварительно подготовленного носителя  
+ Предварительно подготовленный носитель содержит загрузочный образ, используемый для запуска конечного компьютера, и образ операционной системы, который применяется к конечному компьютеру. Компьютер, снабженный предварительно подготовленным носителем, может загружаться с использованием образа загрузки. Затем компьютер может запустить существующую последовательность задач развертывания операционной системы для выполнения полного развертывания. Последовательность задач, развертывающая операционную систему, не содержится на носителе.  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+ На этапе предварительной подготовки вы можете добавлять к образу операционной системы и образу загрузки такое содержимое, как приложения и драйверы устройств. Это уменьшает время, которое занимает развертывание операционной системы, а также сокращает сетевой трафик, поскольку содержимое уже находится на диске.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+ Ниже приведена процедура создания предварительно подготовленного носителя.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Suportes de Dados da Sequência de Tarefas** para iniciar o Assistente de Criação de Suporte de Dados da Sequência de Tarefas.  
+#### <a name="to-create-prestaged-media"></a>Создание предварительно подготовленного носителя  
 
-4.  Na página **Selecione o Tipo de Suporte de Dados** , especifique as informações seguintes e clique em **Seguinte**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-    -   Selecione **Suporte de dados pré-configurado**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
 
-    -   Selecione **Permitir a implementação do sistema operativo autónoma** para arrancar a implementação do Windows To Go sem interação do utilizador.  
+3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать носитель с файлом последовательности задач** , чтобы запустить мастер создания носителя с последовательностью задач.  
 
-        > [!IMPORTANT]  
-        >  Quando utiliza esta opção com a variável personalizada SMSTSPreferredAdvertID (definida mais adiante neste procedimento), não é necessária qualquer interação do utilizador e o computador arrancará automaticamente na implementação do Windows To Go quando detetar uma unidade do Windows To Go. Ainda assim, será solicitada uma palavra-passe ao utilizador se o suporte de dados estiver configurado com proteção por palavra-passe. Se utilizar a definição **Permitir a implementação do sistema operativo autónoma** sem configurar a variável SMSTSPreferredAdvertID, ocorrerá um erro quando implementar a sequência de tarefas.  
+4.  На странице **Выбор типа носителя** укажите следующие сведения, затем нажмите кнопку **Далее**.  
 
-5.  Na página **Gestão de Suporte de Dados** , especifique as informações seguintes e clique em **Seguinte**.  
+    -   Выберите **Предварительно подготовленный носитель**.  
 
-    -   Selecione **Suporte de dados dinâmico** se pretender permitir que um ponto de gestão redirecione o suporte de dados para outro ponto de gestão, com base na localização do cliente nos limites do site.  
-
-    -   Selecione **Suporte de dados baseado no site** se pretender que o suporte de dados entre em contacto apenas com o ponto de gestão especificado.  
-
-6.  Na página **Propriedades do Suporte de Dados**  , especifique as informações seguintes e, em seguida, clique em **Seguinte**.  
-
-    -   **Criado pelo**: Especifique quem criou o suporte de dados.  
-
-    -   **Versão**: Especifique o número de versão do suporte de dados.  
-
-    -   **Comentário**: Especifique uma descrição exclusiva da que é utilizado o suporte de dados.  
-
-    -   **Ficheiro de multimédia**: Especifique o nome e caminho dos ficheiros de saída. O assistente escreve os ficheiros de saída nesta localização. Por exemplo:  **\\\servername\folder\outputfile.wim**  
-
-7.  Na página **Segurança** , especifique as seguintes informações e clique em **Seguinte**.  
-
-    -   Selecione **ativar suporte para computadores desconhecidos** para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não há nenhum registo destes computadores na base de dados do Configuration Manager. Os computadores desconhecidos incluem o seguinte:  
-
-        -   Um computador em que o cliente do Configuration Manager não está instalado  
-
-        -   Um computador que não é importado para o Configuration Manager  
-
-        -   Um computador que não é detetado pelo Configuration Manager  
-
-    -   Selecione **Proteger suporte de dados com uma palavra-passe** e introduza uma palavra-passe segura para ajudar a proteger o suporte de dados contra acesso não autorizado. Quando especificar uma palavra-passe, o utilizador terá de fornecer essa palavra-passe para utilizar o suporte de dados pré-configurado.  
+    -   Выберите **Разрешить автоматическое развертывание операционной системы** , чтобы развертывание Windows To Go могло загружаться без взаимодействия с пользователем.  
 
         > [!IMPORTANT]  
-        >  Como procedimento de segurança recomendado, atribua sempre uma palavra-passe para ajudar a proteger o suporte de dados pré-configurado.  
+        >  При использовании этого параметра с пользовательской переменной SMSTSPreferredAdvertID (которая устанавливается в этой процедуре далее) не требуется никакого взаимодействия с пользователем, и компьютер, обнаружив диск Windows To Go, будет автоматически загружать развертывание Windows To Go. Пользователю может потребоваться ввести пароль, если носитель защищен паролем. Если указать параметр **Разрешить автоматическое развертывание операционной системы** и не настроить переменную SMSTSPreferredAdvertID, то при развертывании последовательности задач возникнет ошибка.  
+
+5.  На странице **Управление носителями** укажите следующие сведения и нажмите кнопку **Далее**.  
+
+    -   Выберите **Динамический носитель** , если требуется разрешить точке управления перенаправлять носитель на другую точку управления (в зависимости от расположения клиента в границах сайта).  
+
+    -   Выберите **Носитель на основе сайта** , если требуется, чтобы носитель связывался только с указанной точкой управления.  
+
+6.  На странице **Свойства носителя**  укажите следующие сведения и нажмите кнопку **Далее**.  
+
+    -   **Создано**: укажите лицо, создавшее носитель.  
+
+    -   **Версия**: укажите номер версии носителя.  
+
+    -   **Комментарий**: введите уникальное описание для назначения носителя.  
+
+    -   **Файл мультимедиа**: укажите имена выходных файлов и путь к ним. Мастер запишет выходные файлы в это расположение. Пример: **\\\servername\folder\outputfile.wim**  
+
+7.  На странице **Безопасность** укажите следующие сведения и нажмите кнопку **Далее**.  
+
+    -   Установите флажок **Включить поддержку неизвестных компьютеров**, чтобы разрешить развертывание операционной системы с носителя на компьютер, который не находится под управлением Configuration Manager. База данных Configuration Manager не содержит записей об этих компьютерах. К неизвестным компьютерам относятся следующие:  
+
+        -   компьютеры, на которых не установлен клиент Configuration Manager;  
+
+        -   компьютеры, которые не импортированы в Configuration Manager;  
+
+        -   компьютеры, которые не обнаружены Configuration Manager.  
+
+    -   Установите флажок **Защитить носитель паролем** и введите надежный пароль, который поможет защитить носитель от несанкционированного доступа. Если вы укажете пароль, пользователь должен будет ввести его, чтобы воспользоваться предварительно подготовленным носителем.  
+
+        > [!IMPORTANT]  
+        >  Для обеспечения дополнительной безопасности следует всегда назначать пароль, чтобы защитить содержимое предварительно подготовленного носителя.  
 
         > [!NOTE]  
-        >  Quando protege o suporte de dados pré-configurado com uma palavra-passe, esta é solicitada ao utilizador mesmo quando o suporte de dados está configurado com a definição **Permitir a implementação do sistema operativo autónoma** .  
+        >  Если предварительно подготовленный носитель защищен паролем, то пользователю предлагается ввести пароль, даже если носитель настраивался с параметром **Разрешить автоматическое развертывание операционной системы** .  
 
-    -   Para comunicações HTTP, selecione **Criar um certificado de suporte de dados autoassinado**e especifique as datas de início e de expiração do certificado.  
+    -   Если для обмена данными используется протокол HTTP, установите переключатель **Создать самоподписанный сертификат носителя**, а затем укажите дату начала и окончания срока действия сертификата.  
 
-    -   Para comunicações HTTPS, selecione **Importar certificado PKI**e especifique o certificado a importar e a respetiva palavra-passe.  
+    -   Для HTTPS-подключений выберите вариант **Импортировать сертификат PKI**, а затем укажите импортируемый сертификат и пароль для него.  
 
-         Para mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte [requisitos dos certificados PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
+         Дополнительные сведения о сертификатах клиентов, которые используются для образов загрузки, см. в разделе [Требования к PKI-сертификатам](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como implementação de sistemas operativos suporta a afinidade dispositivo / utilizador, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Сопоставление пользователей и устройств**. Чтобы включить поддержку управления, ориентированного на пользователей в Configuration Manager, укажите способ, который будет использоваться носителем для связывания пользователей с конечным компьютером. Дополнительные сведения о поддержке сопоставления пользователей и устройств при развертывании операционных систем см. в разделе [Связывание пользователей с конечным компьютером](../get-started/associate-users-with-a-destination-computer.md).  
 
-        -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação automática** se pretender que o suporte de dados associe automaticamente utilizadores ao computador de destino. Esta funcionalidade baseia-se nas ações da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino quando implementa o sistema operativo no computador de destino.  
+        -   Выберите **Разрешить сопоставление пользователей и устройств (утверждение предоставляется автоматически)** , чтобы носитель выполнял автоматическое связывание пользователей с конечным компьютером. Эта функция основана на действиях последовательности задач, развертывающей операционную систему. В этом сценарии последовательность задач при развертывании операционной системы на конечном компьютере создает отношение между указанными пользователями и конечным компьютером.  
 
-        -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação pendente pelo administrador** se pretender que o suporte de dados associe utilizadores ao computador de destino após concessão da aprovação. Esta funcionalidade baseia-se no âmbito da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino, mas aguarda a aprovação de um utilizador administrativo antes da implementação do sistema operativo.  
+        -   Установите флажок **Разрешить сопоставление пользователей и устройств (требуется утверждение администратором)** , если требуется связать пользователей с конечным компьютером после получения утверждения. Эта функция основана на области последовательности задач, развертывающей операционную систему. В этом сценарии последовательность задач создает отношение между указанными пользователями и конечным компьютером, однако, прежде чем развертывать операционную систему, дожидается утверждения администратора.  
 
-        -   Especifique **Não permitir afinidade dispositivo/utilizador** se não pretender que o suporte de dados associe utilizadores ao computador de destino. Neste cenário, a sequência de tarefas não associa utilizadores ao computador de destino durante a implementação do sistema operativo.  
+        -   Выберите вариант **Запретить сопоставление пользователей и устройств** , если не требуется, чтобы носитель связывал пользователей с конечным компьютером. В этом случае последовательность задач не связывает пользователей с конечным компьютером при развертывании операционной системы.  
 
-8.  Na página **Sequência de Tarefas** , especifique a sequência de tarefas do Windows 8 que criou na secção anterior.  
+8.  На странице **Последовательность задач** укажите последовательность задач Windows 8, созданную в предыдущем разделе.  
 
-9. Na página **Imagem de arranque** , especifique as seguintes informações e clique em **Seguinte**.  
+9. На странице **Загрузочный образ** укажите следующие сведения, затем нажмите кнопку **Далее**.  
 
     > [!IMPORTANT]  
-    >  A arquitetura da imagem de arranque que é distribuída deve ser adaptada à arquitetura do computador de destino. Por exemplo, um computador de destino x64 pode efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. No entanto, um computador de destino x86 só pode efetuar o arranque e a execução de uma imagem de arranque x86. Para computadores com certificação do Windows 8 no modo EFI, tem de utilizar uma imagem de arranque x64.  
+    >  Архитектура распространяемого загрузочного образа должна соответствовать архитектуре конечного компьютера. Например, конечный компьютер с 64-разрядной операционной системой может загружать и выполнять загрузочный образ с архитектурой x86 или x64. Однако конечный компьютер с архитектурой x86 может загружать и выполнять только 32-разрядный загрузочный образ (x86). На сертифицированных для Windows 8 компьютерах в режиме EFI необходимо использовать загрузочный образ с архитектурой x64.  
 
-    -   **Imagem de arranque**: Especifique a imagem de arranque para iniciar o computador de destino.  
+    -   **Загрузочный образ**: укажите загрузочный образ для запуска на конечном компьютере.  
 
-    -   **Ponto de distribuição**: Especifique o ponto de distribuição que aloja a imagem de arranque. O assistente obtém a imagem de arranque do ponto de distribuição e escreve-a no suporte de dados.  
-
-        > [!NOTE]  
-        >  O utilizador administrativo tem de ter direitos de acesso de **Leitura** para o conteúdo da imagem de arranque no ponto de distribuição. Para obter mais informações, consulte [gerir contas para aceder ao conteúdo](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
-
-    -   Se tiver selecionado **Suporte de dados baseado no site** na página **Gestão de Suporte de Dados** deste assistente, na caixa **Ponto de gestão** , especifique um ponto de gestão de um site primário.  
-
-    -   Se tiver selecionado **Suporte de dados dinâmico** na página **Gestão de Suporte de Dados** do assistente, na caixa **Pontos de gestão associados** , especifique os pontos de gestão do site primário a utilizar e uma ordem de prioridades para as comunicações iniciais.  
-
-10. Na página **Imagens** , especifique as seguintes informações e clique em **Seguinte**.  
-
-    -   **Pacote de imagem**: Especifique o pacote que contém a imagem do sistema operativo Windows 8.  
-
-    -   **Índice de imagens**: Especifique a imagem a implementar se o pacote contiver várias imagens de sistema operativo.  
-
-    -   **Ponto de distribuição**: Especifique o ponto de distribuição que aloja o pacote de imagem do sistema operativo. O assistente obtém a imagem do sistema operativo a partir do ponto de distribuição e escreve-a no suporte de dados.  
+    -   **Точка распространения**: укажите точку распространения, в которой размещен загрузочный образ. Мастер получает загрузочный образ с точки распространения и записывает его на носитель.  
 
         > [!NOTE]  
-        >  O utilizador administrativo tem de ter direitos de acesso de **Leitura** para o conteúdo da imagem de sistema operativo no ponto de distribuição. Para obter mais informações, consulte [gerir contas para aceder ao conteúdo](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+        >  Пользователь с правами администратора должен иметь права доступа на **чтение** содержимого загрузочного образа в точке распространения. Дополнительные сведения см. в разделе [Управление учетными записями для доступа к содержимому](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
 
-11. Na página **Selecionar Aplicação** , selecione conteúdo de aplicações a incluir no ficheiro do suporte de dados e clique em **Seguinte**.  
+    -   Если на странице **Управление носителями** мастера выбран вариант **Носитель на основе сайта** , в поле **Точка управления** необходимо указать точку управления из первичного сайта.  
 
-12. Na página **Selecionar Pacote** , selecione conteúdo de pacote adicional a incluir no ficheiro do suporte de dados e clique em **Seguinte**.  
+    -   Если на странице **Управление носителями** мастера выбран вариант **Динамический носитель** , в поле **Связанные точки управления** укажите точки управления первичного сайта, которые предполагается использовать, и приоритет при первом соединении.  
 
-13. Na página **Selecionar o Pacote do Controlador** , selecione conteúdo de pacote de controladores a incluir no ficheiro do suporte de dados e clique em **Seguinte**.  
+10. На странице **Образы** укажите следующие сведения и нажмите кнопку **Далее**.  
 
-14. Na página **Pontos de Distribuição** , selecione um ou vários pontos de distribuição que contenham o conteúdo exigido pela sequência de tarefas e clique em **Seguinte**.  
+    -   **Пакет образа**: укажите пакет, содержащий образ операционной системы Windows 8.  
 
-15. Na página **Personalização** , especifique as seguintes informações e clique em **Seguinte**.  
+    -   **Индекс образа**: если пакет содержит несколько образов операционных систем, укажите образ для развертывания.  
 
-    -   **Variáveis**: Especifique as variáveis utilizadas pela sequência de tarefas para implementar o sistema operativo. Para o Windows To Go, utilize a variável SMSTSPreferredAdvertID para selecionar automaticamente a implementação do Windows To Go utilizando o seguinte formato:  
+    -   **Точка распространения**: укажите точку распространения, в которой размещен пакет образа операционной системы. Мастер получает образ операционной системы с точки распространения и записывает его на носитель.  
 
-         SMSTSPreferredAdvertID = {*IDdaImplementação*}, em que IDdaImplementação é o ID da implementação associado à sequência de tarefas que irá utilizar para concluir o processo de aprovisionamento para a unidade do Windows To Go.  
+        > [!NOTE]  
+        >  Пользователь с правами администратора должен иметь права доступа на **чтение** содержимого образа операционной системы в точке распространения. Дополнительные сведения см. в разделе [Управление учетными записями для доступа к содержимому](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+
+11. На странице **выбора приложения** укажите приложения, которые необходимо включить в файл носителя, а затем нажмите кнопку **Далее**.  
+
+12. На странице **выбора пакета** укажите дополнительное пакетное содержимое, которое следует включить в файл носителя, а затем нажмите кнопку **Далее**.  
+
+13. На странице **выбора пакета драйверов** укажите содержимое пакетов драйверов, которое следует включить в файл носителя, а затем нажмите кнопку **Далее**.  
+
+14. На странице **Точки распространения** укажите точки распространения, в которых находится содержимое, необходимое для последовательности задач, и нажмите кнопку **Далее**.  
+
+15. На странице **Настройка** укажите следующие данные, затем нажмите кнопку **Далее**.  
+
+    -   **Переменные**: укажите переменные, которые используются последовательностью задач для развертывания операционной системы. Для Windows To Go укажите переменную SMSTSPreferredAdvertID для автоматического выбора развертывания Windows To Go с помощью следующего формата:  
+
+         SMSTSPreferredAdvertID = {*ИД_развертывания*}, где ИД_развертывания — это идентификатор развертывания, связанный с последовательностью задач, которая будет применяться для завершения процесса подготовки диска Windows To Go.  
 
         > [!TIP]  
-        >  Quando utiliza esta variável com uma sequência de tarefas definida para execução automática (definida mais adiante neste procedimento), não é necessária qualquer interação do utilizador e o computador arranca automaticamente na implementação do Windows To Go quando detetar uma unidade do Windows To Go. Ainda assim, será solicitada uma palavra-passe ao utilizador se o suporte de dados estiver configurado com proteção por palavra-passe.  
+        >  При использовании этой переменной с последовательностью задач, установленной для автоматического запуска (см. выше в этой процедуре), не требуется никакого взаимодействия с пользователем, и компьютер, обнаружив диск Windows To Go, будет автоматически загружать развертывание Windows To Go. Пользователю может потребоваться ввести пароль, если носитель защищен паролем.  
 
-    -   **Comandos de Pré-início**: Especifique os comandos de pré-início que pretende executar antes da execução da sequência de tarefas. Os comandos de pré-início podem ser um script ou um ficheiro executável que podem interagir com o utilizador no Windows PE antes da execução da sequência de tarefas para instalar o sistema operativo. Configure as seguintes variáveis para a implementação do Windows To Go:  
+    -   **Команды перед запуском**: укажите выполняемые перед запуском команды, которые будут выполняться перед запуском последовательности задач. Команды перед запуском могут быть скриптами или исполняемыми файлами, которые могут взаимодействовать с пользователем в среде предустановки Windows перед запуском последовательности задач для установки операционной системы. Настройте следующие переменные для развертывания Windows To Go.  
 
-        -   **OSDBitLockerPIN**: O BitLocker para Windows To Go necessita de uma frase de acesso. Defina a variável **OSDBitLockerPIN** como parte de um comando de pré-início para definir a frase de acesso do BitLocker para a unidade do Windows To Go.  
+        -   **OSDBitLockerPIN**: для BitLocker для Windows To Go требуется парольная фраза. Установите переменную **OSDBitLockerPIN** как часть команды перед запуском, чтобы установить парольную фразу BitLocker для диска Windows To Go.  
 
             > [!WARNING]  
-            >  Quando o BitLocker tiver a frase de acesso ativada, o utilizador terá de introduzir a frase de acesso sempre que o computador arrancar na unidade do Windows To Go.  
+            >  После включения парольной фразы для BitLocker пользователь должен вводить эту парольную фразу при каждой загрузке компьютера с диска Windows To Go.  
 
-        -   **SMSTSUDAUsers**: Especifica o utilizador primário do computador de destino. Utilize esta variável para recolher o nome do utilizador, que pode então ser utilizado para associar o utilizador e o dispositivo. Para obter mais informações, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
+        -   **SMSTSUDAUsers**: указывает основного пользователя конечного компьютера. С помощью этой переменной можно получить имя пользователя, которое затем будет использоваться для связи пользователя и устройства. Дополнительные сведения см. в разделе [Связывание пользователей с конечным компьютером](../get-started/associate-users-with-a-destination-computer.md).  
 
             > [!TIP]  
-            >  Para obter o nome de utilizador, pode criar uma caixa de introdução como parte do comando de pré-início, para o utilizador introduzir o respetivo nome de utilizador, e, em seguida, definir a variável com o valor. Por exemplo, pode adicionar as seguintes linhas ao ficheiro de script do comando de pré-início:  
+            >  Чтобы получить имя пользователя, необходимо в качестве части команды перед запуском создать поле для ввода, предложить пользователю ввести свое имя пользователя, а затем установить это имя в качестве значения переменной. Например, в файл скрипта для команды перед запуском можно добавить следующие строки:  
             >   
             >  `UserID = inputbox("Enter Username" ,"Enter your username:","",400,0)`  
             >   
             >  `env("SMSTSUDAUsers") = UserID`  
 
-         Para obter mais informações sobre como criar um ficheiro de script para utilizar como comando de Pré-início, consulte [comandos para suporte de dados de sequência de tarefas de Pré-início](../understand/prestart-commands-for-task-sequence-media.md).  
+         Дополнительные сведения о создании файла скрипта для использования в качестве команды перед запуском см. в разделе [Команды перед запуском для носителя с последовательностью задач](../understand/prestart-commands-for-task-sequence-media.md).  
 
-16. Conclua o assistente.  
-
-    > [!NOTE]  
-    >  A conclusão do ficheiro do suporte de dados pré-configurado pelo assistente poderá demorar bastante tempo.  
-
-###  <a name="BKMK_CreatePackage"></a> Criar um pacote do Windows To Go Creator  
- Como parte da implementação do Windows To Go, tem de criar um pacote para implementar o ficheiro de suporte de dados pré-configurado. O pacote tem de incluir a ferramenta que configura a unidade do Windows To Go e extrai o suporte de dados pré-configurado para a unidade. Utilize o procedimento seguinte para criar o pacote do Windows To Go Creator.  
-
-#### <a name="to-create-the-windows-to-go-creator-package"></a>Para criar o pacote do Windows To Go Creator  
-
-1.  No servidor para alojar os ficheiros do pacote do Windows To Go Creator, crie uma pasta de origem para os ficheiros de origem do pacote.  
+16. Завершите работу мастера.  
 
     > [!NOTE]  
-    >  A conta de computador do servidor do site tem de ter direitos de acesso de **Leitura** para a pasta de origem.  
+    >  Мастеру может потребоваться дополнительное время для завершения файла предварительно подготовленного носителя.  
 
-2.  Copie o ficheiro de suporte de dados pré-configurado criado na secção [Create prestaged media](#BKMK_CreatePrestagedMedia) para a pasta de origem do pacote.  
+###  <a name="BKMK_CreatePackage"></a> Создание пакета создателя Windows To Go  
+ В качестве части развертывания Windows To Go необходимо создать пакет для развертывания файла предварительно подготовленного носителя. Этот пакет должен включать инструмент, настраивающий диск Windows To Go и извлекающий на этот диск предварительно подготовленный носитель. Для создания пакета создателя Windows To Go используется следующая процедура.  
 
-3.  Copie a ferramenta Windows To Go Creator (WTGCreator.exe) para a pasta de origem do pacote. A ferramenta de criação está disponível em qualquer servidor de site primário na seguinte localização: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\Creator.  
+#### <a name="to-create-the-windows-to-go-creator-package"></a>Создание пакета создателя Windows To Go  
 
-4.  Crie um pacote e um programa utilizando o Assistente para Criar Pacote e Programa.  
+1.  На сервере, предназначенном для размещения файлов пакета создателя Windows To Go, создайте папку для исходных файлов пакета.  
 
-5.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+    > [!NOTE]  
+    >  Учетная запись компьютера сервера сайта должна иметь права доступа на **чтение** в этой папке исходных файлов.  
 
-6.  Na área de trabalho **Biblioteca de Software** , expanda **Gestão de Aplicações**e clique em **Pacotes**.  
+2.  Скопируйте файлы предварительно подготовленного носителя, созданные в разделе [Create prestaged media](#BKMK_CreatePrestagedMedia) , в папку исходных файлов пакета.  
 
-7.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Pacote**.  
+3.  Скопируйте создатель Windows To Go (WTGCreator.exe) в папку исходных файлов пакета. Это средство можно найти на любом сервере первичного сайта в следующем расположении: <*ConfigMgrInstallationFolder*>\OSD\Tools\WTG\Creator.  
 
-8.  Na página **Pacote** , especifique o nome e a descrição do pacote. Por exemplo, introduza **Windows To Go** para o nome do pacote e especifique **Package to configure a Windows To Go drive using System Center Configuration Manager** para a descrição do pacote.  
+4.  Создайте пакет и программу с помощью мастера создания пакетов и программ.  
 
-9. Selecione **Este pacote contém ficheiros de origem**, especifique o caminho da pasta de origem do pacote que criou no passo 1 e clique em **Seguinte**.  
+5.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-10. Na página **Tipo de Programa** , selecione **Programa padrão**e clique em **Seguinte**.  
+6.  В рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**и выберите **Пакеты**.  
 
-11. Na página **Programa Padrão** , especifique o seguinte:  
+7.  На вкладке **Главная** в группе **Создать** щелкните **Создать пакет**.  
 
-    -   **Nome**: Especifique o nome do programa. Por exemplo, escreva **Creator** para o nome do programa.  
+8.  На странице **Пакет** укажите имя и описание пакета. Например, введите **Windows To Go** в качестве имени пакета и **Package to configure a Windows To Go drive using System Center Configuration Manager** в качестве описания пакета.  
 
-    -   **Linha de comandos**: Tipo **WTGCreator.exe /wim: nomepré-Config.wim**, em que PrestageName é o nome do ficheiro pré-configurado que criou e copiou para a pasta de origem do pacote para o pacote Windows To Go Creator.  
+9. Установите флажок **Этот пакет содержит исходные файлы**, укажите путь к папке исходных файлов пакета, созданной в действии 1, и нажмите кнопку **Далее**.  
 
-         Opcionalmente, pode adicionar as seguintes opções:  
+10. На странице **Тип программы** выберите **Стандартная программа**, а затем нажмите кнопку **Далее**.  
 
-        -   **enableBootRedirect**: opção da linha de comandos para alterar as opções de arranque do Windows To Go para permitir o redirecionamento do arranque. Quando utilizar esta opção, o computador arrancará a partir do USB sem ter de alterar a ordem de arranque no firmware do computador ou o utilizador ter de selecionar a partir de uma lista de opções durante o arranque. Se for detetada uma unidade do Windows To Go, o computador arrancará nessa unidade.  
+11. На странице **Стандартная программа** укажите следующее.  
 
-    -   **Executar**: Especifique **Normal** para executar o programa com base nas predefinições do sistema e do programa.  
+    -   **Имя**: укажите имя программы. Например, введите **Creator** в качестве имени программы.  
 
-    -   **Programa pode ser executado**: Especifique se o programa pode ser executado apenas quando um utilizador tiver sessão iniciado.  
+    -   **Команда**: введите **WTGCreator.exe /wim:PrestageName.wim**, где PrestageName — это имя предварительно подготовленного файла, созданного и скопированного в папку исходных файлов пакета для пакета создателя Windows To Go.  
 
-    -   **Modo de execução**: Especifique se o programa será executado com o com sessão iniciada nas permissões de utilizadores ou com permissões administrativas. O Windows To Go Creator requer permissões elevadas para ser executado.  
+         При необходимости можно добавить следующие параметры.  
 
-    -   Selecione **Permitir que os utilizadores visualizem e interajam com a instalação do programa**e clique em **Seguinte**.  
+        -   **enableBootRedirect**— параметр командной строки, который изменяет параметры запуска Windows To Go, чтобы разрешить функцию перенаправления загрузки. При использовании этого параметра компьютер будет загружаться с USB без необходимости изменения порядка загрузки во встроенном ПО компьютера и без необходимости выбора пользователем нужного варианта загрузки в списке при запуске компьютера. Если обнаруживается диск Windows To Go, то компьютер загружается с этого диска.  
 
-12. Na página Requisitos, especifique o seguinte:  
+    -   **Запуск**: укажите **Normal** (Обычный), чтобы программа запускалась в соответствии с параметрами по умолчанию системы и программы.  
 
-    -   **Requisitos de plataforma**: Selecione as plataformas do Windows 8 aplicáveis para permitir o aprovisionamento.  
+    -   **Требования к запуску программы**: укажите, может ли программа запускаться, только когда пользователь выполнил вход.  
 
-    -   **Espaço em disco estimado**: Especifica o tamanho da pasta de origem do pacote para o Windows To Go Creator.  
+    -   **Режим запуска**: укажите, будет ли запускаться программа с разрешениями пользователей, вошедших в систему, или с разрешениями администратора. Для запуска создателя Windows To Go требуется повышенный уровень разрешений.  
 
-    -   **Máximo tempo de execução permitido (minutos)**: Especifica o tempo máximo que o programa poderá demorar a ser executado no computador cliente. Por predefinição, este valor é definido para 120 minutos.  
+    -   Выберите параметр **Разрешить пользователям видеть ход установки программы и взаимодействовать с ним**и нажмите кнопку **Далее**.  
+
+12. На странице требований укажите следующее.  
+
+    -   **Требования к платформе**: выберите применимые платформы Windows 8 для разрешения подготовки.  
+
+    -   **Место на диске**: укажите размер папки исходных файлов пакета для создателя Windows To Go.  
+
+    -   **Максимально допустимое время выполнения (в минутах)**: указывает максимальное время работы программы на клиентском компьютере. По умолчанию устанавливается значение 120 минут.  
 
         > [!IMPORTANT]  
-        >  Se estiver a utilizar janelas de manutenção para a coleção onde este programa é executado, pode ocorrer um conflito se o **Tempo máximo de execução permitido** for superior à janela de manutenção agendada. Se o tempo de execução máximo for definido para **Desconhecido**, começará durante a janela de manutenção, mas continuará a ser executado até concluir ou falhar depois de a janela de manutenção fechar. Se definir o tempo de execução máximo para um período específico (não definido para Desconhecido) que excede a duração de qualquer janela de manutenção, esse programa não será executado.  
+        >  Если для коллекции, в которой выполняется эта программа, используются окна обслуживания, и значение параметра **Максимально допустимое время выполнения** больше запланированного окна обслуживания, может произойти конфликт. Если для параметра максимально допустимого времени выполнения задано значение **Неизвестно**, то программа запустится в течение периода обслуживания, но после закрытия этого окна будет продолжать выполняться вплоть до завершения или сбоя. Если для параметра максимально допустимого времени выполнения задан определенный период (а не значение "Неизвестно"), превышающий длительность любого доступного периода обслуживания, эта программа выполняться не будет.  
 
         > [!NOTE]  
-        >  Se o valor estiver definido como **desconhecido**, tempo de execução do Configuration Manager define o número máximo para 12 horas (720 minutos).  
+        >  Если указано значение **Неизвестно**, Configuration Manager устанавливает максимально допустимое время выполнения равным 12 часам (720 минутам).  
 
         > [!NOTE]  
-        >  Se o tempo máximo de execução (definido pelo utilizador ou como valor predefinido) for excedido, o Configuration Manager interrompe o programa se **executar com direitos administrativos** está selecionado e **permitir que os utilizadores visualizem e interajam com a instalação do programa** não estiver selecionada no **programa padrão** página.  
+        >  В случае превышения максимального времени выполнения (заданного пользователем или установленного по умолчанию) Configuration Manager останавливает программу, если для нее выбран параметр **Запустить с правами администратора** и на странице **Стандартная программа** не выбран параметр **Разрешить пользователям видеть ход установки программы и взаимодействовать с ним**.  
 
-     Clique em **Seguinte** e conclua o assistente.  
+     Нажмите кнопку **Далее** и завершите работу мастера.  
 
-###  <a name="BKMK_UpdateTaskSequence"></a> Atualizar a sequência de tarefas para ativar o BitLocker para o Windows To Go  
- O Windows To Go ativa o BitLocker numa unidade de arranque externa sem a utilização do TPM. Por conseguinte, terá de utilizar uma ferramenta separada para configurar o BitLocker na unidade do Windows To Go. Para ativar o BitLocker, terá de adicionar uma ação à sequência de tarefas após o passo **Configurar Windows e ConfigMgr** .  
+###  <a name="BKMK_UpdateTaskSequence"></a> Обновление последовательности задач в целях включения BitLocker для Windows To Go  
+ Windows To Go разрешает BitLocker на внешнем загрузочном носителе без использования TPM. Таким образом, для настройки BitLocker на диске Windows To Go необходимо использовать отдельный инструмент. Чтобы включить BitLocker, необходимо добавить действие в последовательность задач после этапа **Настройка Windows и Configuration Manager** .  
 
 > [!NOTE]  
->  O BitLocker para Windows To Go necessita de uma frase de acesso. No passo [Create prestaged media](#BKMK_CreatePrestagedMedia) , defina a frase de acesso enquanto parte de um comando pré-arranque utilizando a variável OSDBitLockerPIN.  
+>  BitLocker для Windows To Go требуется парольная фраза. На этапе [Create prestaged media](#BKMK_CreatePrestagedMedia) с помощью переменной OSDBitLockerPIN устанавливается парольная фраза в качестве части команды перед запуском.  
 
- Utilize o seguinte procedimento para atualizar a sequência de tarefas do Windows 8 para ativar o BitLocker para Windows To Go.  
+ Чтобы обновить последовательность задач Windows 8 и включить BitLocker для Windows To Go, используйте следующую процедуру.  
 
-#### <a name="to-update-the-windows-8-task-sequence-to-enable-bitlocker"></a>Para atualizar a sequência de tarefas do Windows 8 para ativar o BitLocker  
+#### <a name="to-update-the-windows-8-task-sequence-to-enable-bitlocker"></a>Обновление последовательности задач Windows 8 для включения BitLocker  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Gestão de Aplicações**e clique em **Pacotes**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**и выберите **Пакеты**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Pacote**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать пакет**.  
 
-4.  Na página **Pacote** , especifique o nome e a descrição do pacote. Por exemplo, escreva **BitLocker for Windows To Go** para o nome do pacote e especifique **Package to update BitLocker for Windows To Go** para a descrição do pacote.  
+4.  На странице **Пакет** укажите имя и описание пакета. Например, введите **BitLocker for Windows To Go** в качестве имени пакета и **Package to update BitLocker for Windows To Go** в качестве описания пакета.  
 
-5.  Selecione **Este pacote contém ficheiros de origem**, especifique a localização para a ferramenta BitLocker para Windows To Go e clique em **Seguinte**. A ferramenta BitLocker está disponível em qualquer servidor de site primário do Configuration Manager na seguinte localização: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\BitLocker\  
+5.  Выберите пункт **Этот пакет содержит исходные файлы**, укажите местоположение средства BitLocker для Windows To Go, а затем щелкните **Далее**. Средство BitLocker можно найти на любом сервере первичного сайта Configuration Manager в следующем расположении: <*ConfigMgrInstallationFolder*>\OSD\Tools\WTG\BitLocker  
 
-6.  Na página **Tipo de Programa** , selecione **Não criar um programa**.  
+6.  На странице **Тип программы** выберите **Не создавать программу**.  
 
-7.  Clique em **Seguinte** e conclua o assistente.  
+7.  Нажмите кнопку **Далее** и завершите работу мастера.  
 
-8.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+8.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-9. Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+9. В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
 
-10. Selecione a sequência de tarefas do Windows 8 que referencia nos suportes de dados pré-configurados.  
+10. Выберите последовательность задач Windows 8, на которую ссылается предварительно подготовленный носитель.  
 
-11. No separador **Home Page** , no grupo **Sequência de Tarefas** , clique em **Editar**.  
+11. На вкладке **Главная** в группе **Последовательность задач** щелкните **Изменить**.  
 
-12. Clique no passo **Configurar Windows e ConfigMgr** , clique em **Adicionar**, clique em **Geral**e, em seguida, clique em **Executar Linha de Comandos**. O passo Executar Linha de Comandos é adicionado após o passo Configurar Windows e ConfigMgr.  
+12. Выберите пункты **Настройка Windows и Configuration Manager** , **Добавить**, **Общие**и **Выполнить из командной строки**. Шаг "Выполнить из командной строки" добавляется после шага "Настройка Windows и Configuration Manager".  
 
-13. No separador **Propriedades** para o passo **Executar Linha de Comandos** , adicione o seguinte:  
+13. На вкладке **Свойства** шага **Выполнить из командной строки** добавьте следующее.  
 
-    1.  **Nome**: Especifique um nome para a linha de comandos, tal como **ativar o BitLocker para Windows To Go**.  
+    1.  **Имя**: укажите имя команды, например **Enable BitLocker for Windows To Go**.  
 
-    2.  **Linha de comandos**: i386\osdbitlocker_wtg.exe /Enable /pwd: < *None &#124; AD*>  
+    2.  **Командная строка**: i386\osdbitlocker_wtg.exe /Enable /pwd:<*None&#124;AD*>  
 
-         Parâmetros:  
+         Параметры:  
 
-        -   /pwd: < none &#124; AD >-especificar o modo de recuperação de palavra-passe do BitLocker. Este parâmetro obriga que utilize o parâmetro /Enable na linha de comandos.  
+        -   /pwd:<None&#124;AD> — укажите режим восстановления пароля BitLocker. Этот параметр является обязательным, если в командной строке используется параметр /Enable.  
 
-             Selecione **AD** para configurar a Encriptação da Unidade do BitLocker para criar cópias de segurança das informações de recuperação para unidades protegidas pelo BitLocker para Serviços de Domínio do Active Directory (AD DS). Criar cópias de segurança de palavras-passe de recuperação para uma unidade protegida pelo BitLocker permite que os utilizadores administrativos recuperem a unidade se estiver bloqueada. Isto garante que os dados encriptados pertencentes à empresa podem ser sempre acedidos por utilizadores autorizados. Quando especificar **Nenhum**, o utilizador é responsável por manter uma cópia da palavra-passe de recuperação ou chave de recuperação. Se o utilizador perder essa informação ou negligenciar a desencriptação da unidade antes de abandonar a organização, os utilizadores administrativos não conseguem aceder facilmente à unidade.  
+             Выберите **AD** для настройки шифрования диска BitLocker с архивацией данных для восстановления дисков, защищенных с помощью BitLocker, в доменных службах Active Directory (AD DS). Архивация паролей восстановления для дисков, защищенных BitLocker, предоставляет администраторам возможность восстановить диск, если он блокируется. Это гарантирует доступность зашифрованных данных предприятия для авторизованных пользователей. При указании варианта **Нет**пользователь несет ответственность за хранение копии пароля восстановления или ключа восстановления. Если пользователь теряет эти сведения или пренебрегает расшифровкой диска перед увольнением из организации, администраторы не смогут сразу получить доступ к диску.  
 
-        -   /wait: < TRUE &#124; FALSE >-especificar se a sequência de tarefas aguarda que encriptação seja concluída antes da conclusão.  
+        -   /wait:<TRUE&#124;FALSE> — укажите, должна ли последовательность задач ждать завершения шифрования перед своим завершением.  
 
-    3.  Selecione **pacote**e, em seguida, especifique o pacote que criou no início deste procedimento.  
+    3.  Выберите **Пакет**, а затем укажите пакет, созданный в начале процедуры.  
 
-    4.  No separador **Opções** , adicione as seguintes condições:  
+    4.  На вкладке **Параметры** укажите перечисленные ниже условия.  
 
-        -   Condição = Variável de Sequência de Tarefas  
+        -   Условие — "Переменная последовательности задач".  
 
-        -   Variável = _SMSTSWTG  
+        -   Переменная — _SMSTSWTG.  
 
-        -   Condição = Igual a  
+        -   Условие — "равно".  
 
-        -   Valor = Verdadeiro  
+        -   Значение — "True".  
 
     > [!NOTE]  
-    >  O passo **Ativar o BitLocker** , o mais provável depois do novo passo da linha de comandos, não é utilizado para ativar o BitLocker para Windows To Go. No entanto, pode manter este passo na sequência de tarefas a utilizar para implementações do Windows 8 que não utilizem uma unidade do Windows To Go.  
+    >  Шаг **Включить BitLocker** , который может добавиться после нового шага командной строки, не будет использоваться для включения BitLocker для Windows To Go. Однако можно сохранить этот шаг в последовательности задач развертывания для использования в развертываниях Windows 8, не использующих диски Windows To Go.  
 
-###  <a name="BKMK_Deployments"></a> Implementar o pacote do Windows To Go Creator e a sequência de tarefas  
- O Windows To Go é um processo de implementação híbrido. Por conseguinte, terá de implementar o pacote do Windows To Go Creator e a sequência de tarefas do Windows 8. Utilize os seguintes procedimentos para concluir o processo de implementação.  
+###  <a name="BKMK_Deployments"></a> Развертывание пакета средства создания Windows To Go и последовательности задач  
+ Windows To Go — гибридный процесс развертывания. Следовательно, нужно развернуть пакет создания Windows To Go и последовательность задач Windows 8. Используйте следующие процедуры для завершения процесса развертывания.  
 
-#### <a name="to-deploy-the-windows-to-go-creator-package"></a>Para implementar o pacote do Windows To Go Creator  
+#### <a name="to-deploy-the-windows-to-go-creator-package"></a>Развертывание пакета создания Windows To Go  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Gestão de Aplicações**e clique em **Pacotes**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**и выберите **Пакеты**.  
 
-3.  Selecione o pacote Windows To Go que criou no Windows no passo [Criar um pacote do Windows To Go Creator](#BKMK_CreatePackage) .  
+3.  Выберите пакет Windows To Go, созданный на шаге [Создание пакета создателя Windows To Go](#BKMK_CreatePackage) .  
 
-4.  No separador **Home Page** , no grupo **Implementação** , clique em **Implementar**.  
+4.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Развернуть**.  
 
-5.  Na página **Geral** , especifique as seguintes definições:  
+5.  На странице **Общие** укажите следующие параметры.  
 
-    1.  **Software**: Certifique-se de que o pacote Windows To Go está selecionado.  
+    1.  **Программное обеспечение**: убедитесь, что выбран пакет Windows To Go.  
 
-    2.  **Coleção**: Clique em **procurar** para selecionar a coleção à qual pretende implementar o pacote Windows To Go.  
+    2.  **Коллекция**: нажмите кнопку **Обзор** , чтобы выбрать коллекцию, в которой требуется развернуть пакет Windows To Go.  
 
-    3.  **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**: Selecione esta opção se pretender armazenar o conteúdo do pacote no grupo de ponto de distribuição da predefinição de coleções. Se não tiver associado a coleção selecionada a um grupo de pontos de distribuição, esta opção estará indisponível.  
+    3.  **Использовать группы точек распространения по умолчанию, связанные с этой коллекцией**. Выберите этот параметр, если содержимое пакета необходимо сохранить в заданной по умолчанию группе точек распространения коллекции. Этот параметр будет недоступен, если выбранная коллекция не была связана с группой точек распространения.  
 
-6.  Na página **Conteúdo** , clique em **Adicionar** e, em seguida, selecione os pontos de distribuição ou os grupos de pontos de distribuição nos quais pretende implementar o conteúdo associado a este pacote e programa.  
+6.  На странице **Содержимое** нажмите кнопку **Добавить** , а затем выберите точки распространения или группы точек распространения, в которых требуется развернуть контент, связанный с пакетом и программой.  
 
-7.  Na página **Definições de Implementação** , selecione **Disponível** para o tipo de implementação e, em seguida, clique em **Seguinte**.  
+7.  На странице **Параметры развертывания** выберите **Доступно** как тип развертывания, а затем нажмите кнопку **Далее**.  
 
-8.  No **Agendamento**, configure quando este pacote e programa serão implementados ou colocados à disposição dos dispositivos cliente.  
+8.  На странице мастера **Планирование**настройте время развертывания или доступности пакета и программы для клиентских устройств.  
 
-     As opções desta página serão diferentes consoante a ação de implementação esteja definida para **Disponível** ou **Necessária**.  
+     В зависимости от установленного действия развертывания — **Доступно к установке** или **Обязательное**— параметры на этой странице могут отличаться.  
 
-9. No **Agendamento**, confirme as seguintes definições e clique em **Seguinte**.  
+9. На странице **Расписание**укажите следующие сведения, а затем нажмите кнопку **Далее**.  
 
-    1.  **Agendar quando esta implementação ficará disponível**: Especifique a data e hora em que o pacote e programa está disponível para ser executada no computador de destino. Se selecionar **UTC**, esta definição garantirá que o pacote e programa ficarão disponíveis para vários computadores de destino ao mesmo tempo, em vez de em alturas diferentes, de acordo com a hora local dos computadores de destino.  
+    1.  **Планирование условий доступности этого развертывания**: укажите дату и время, когда пакет и программа будут доступны для выполнения на конечном компьютере. Если установить флажок **Время в формате UTC**, они станут доступны нескольким конечным компьютерам одновременно, а не в различные моменты времени, в соответствии с местным временем на конечных компьютерах.  
 
-    2.  **Agendar quando esta implementação expirará**: Especifique a data e hora em que o pacote e programa expiram no computador de destino. Se selecionar **UTC**, esta definição garantirá que a sequência de tarefas expira em vários computadores de destino no mesmo tempo, em vez de tal acontecer em diferentes momentos, de acordo com a hora local dos computadores de destino.  
+    2.  **Планирование условий окончания срока действия этого развертывания**: укажите дату и время, когда пакет и программа перестанут быть доступными для выполнения на конечном компьютере. Если установить флажок **Время в формате UTC**, срок действия завершится на нескольких конечных компьютерах одновременно, а не в различные моменты времени, в соответствии с заданным на них местным временем.  
 
-10. Na página **Experiência de Utilizador** do Assistente, especifique as seguintes informações:  
+10. На странице мастера **Взаимодействие с пользователем** укажите следующие сведения.  
 
-    -   **Instalação de software**: Permite que o software seja instalado fora de quaisquer janelas de manutenção configurada.  
+    -   **Установка программного обеспечения**: позволяет устанавливать программное обеспечение вне настроенных периодов обслуживания.  
 
-    -   **Reinício do sistema (se for necessário para concluir a instalação)**: Permite que um dispositivo reinicie fora das janelas de manutenção configuradas quando exigido pela instalação do software.  
+    -   **Перезапуск системы (если требуется для завершения установки)**: позволяет перезапускать устройства вне заданного периода обслуживания, если это требуется для установки программного обеспечения.  
 
-    -   **Dispositivos Embedded**: Quando implementa pacotes e programas em dispositivos Windows Embedded que tenham um filtro de escrita ativado, pode especificar a instalação de pacotes e programas na sobreposição temporária e confirmar as alterações mais tarde, ou confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
+    -   **Встраиваемые устройства**: при развертывании пакетов и программ на устройствах Windows Embedded с включенным фильтром записи можно задать установку пакетов и программ на временном наложении, чтобы зафиксировать изменения позже либо зафиксировать изменения по наступлении крайнего срока установки или в течение периода обслуживания. При фиксации изменений по наступлении крайнего срока установки или в течение периода обслуживания требуется перезагрузка, и изменения сохраняются на устройстве.  
 
-11. Na página **Pontos de Distribuição** , especifique as seguintes informações:  
+11. На странице **Точки распространения** укажите перечисленные ниже сведения.  
 
-    -   **Opções de implementação:** Especifique **transferir conteúdo do ponto de distribuição e executar localmente**.  
+    -   **Варианты развертывания** : выберите **Скачать содержимое из точки распространения и запустить его локально**.  
 
-    -   **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Selecione esta opção para reduzir a carga na rede ao permitir que os clientes transfiram conteúdos a partir de outros clientes na rede que já tenham transferido e colocado o conteúdo na cache. Esta opção utiliza o Windows BranchCache e pode ser utilizada em computadores com o Windows Vista SP2 e posterior.  
+    -   **Разрешить клиентам использовать содержимое совместно с другими клиентами из той же подсети**: выберите этот вариант, чтобы сократить нагрузку на сеть, так как он разрешает клиентам загружать содержимое с других клиентов в сети, которые уже выполнили загрузку и кэширование содержимого. Этот вариант использует компонент Windows BranchCache. Его можно использовать на компьютерах под управлением операционной системы Windows Vista с пакетом обновления 2 (SP2) или более поздней версии.  
 
-    -   **Todos os clientes utilizem uma localização de origem de contingência para conteúdo**: Especifique se pretende permitir que os clientes revertam e utilizem um ponto de distribuição não preferencial como localização de origem de conteúdo quando o conteúdo não está disponível num ponto de distribuição preferencial.  
+    -   **Разрешить всем клиентам использовать резервный источник содержимого**: укажите, разрешено ли клиентам возвращаться к использованию другой точки распространения в качестве исходного расположения контента, если контент недоступен на предпочтительной точке распространения.  
 
-12. Conclua o assistente.  
+12. Завершите работу мастера.  
 
-#### <a name="to-deploy-the-windows-8-task-sequence"></a>Para implementar a sequência de tarefas do Windows 8  
+#### <a name="to-deploy-the-windows-8-task-sequence"></a>Развертывание последовательности задач Windows 8  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
 
-3.  Selecione a sequência de tarefas do Windows 8 que criou no passo [Prerequisites to provision Windows To Go](#BKMK_Prereqs) .  
+3.  Выберите последовательность задач Windows 8, созданную на шаге [Prerequisites to provision Windows To Go](#BKMK_Prereqs) .  
 
-4.  No separador **Home Page** , no grupo **Implementação** , clique em **Implementar**.  
+4.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Развернуть**.  
 
-5.  Na página **Geral** , especifique as seguintes definições:  
+5.  На странице **Общие** укажите следующие параметры.  
 
-    1.  **Sequência de tarefas**: Certifique-se de que a sequência de tarefas do Windows 8 está selecionada.  
+    1.  **Последовательность задач**: убедитесь, что выбрана последовательность задач Windows 8.  
 
-    2.  **Coleção**: Clique em **procurar** para selecionar a coleção que inclui todos os dispositivos para os quais um utilizador pode aprovisionar o Windows To Go.  
-
-        > [!IMPORTANT]  
-        >  Se os suportes de dados pré-configurados que criou na secção [Create prestaged media](#BKMK_CreatePrestagedMedia) utilizarem a variável SMSTSPreferredAdvertID, poderá implementar a sequência de tarefas na coleção **Todos os Sistemas** e especificar a definição **Apenas Windows PE (oculto)** na página **Conteúdo** . Porque a sequência de tarefas está oculta, só estará disponível para suportes de dados.  
-
-    3.  **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção**: Selecione esta opção se pretender armazenar o conteúdo do pacote no grupo de ponto de distribuição da predefinição de coleções. Se não tiver associado a coleção selecionada a um grupo de pontos de distribuição, esta opção estará indisponível.  
-
-6.  Na página **Definições de Implementação** , configure as seguintes definições e clique em **Seguinte**.  
-
-    -   **Objetivo**: Selecione **disponíveis**. Quando implementar a sequência de tarefas num utilizador, este verá a sequência de tarefas publicada no Catálogo de Aplicações e poderá solicitá-la a pedido. Se implementar a sequência de tarefas num dispositivo, o utilizador irá ver a sequência de tarefas no Centro de Software e pode instalá-lo a pedido.  
-
-    -   **Tornar disponível para o seguinte**: Especifique se a sequência de tarefas está disponível para clientes do Configuration Manager, suportes de dados ou PXE.  
+    2.  **Коллекция**: нажмите кнопку **Обзор** , чтобы выбрать коллекцию, которая включает все устройства, для которых пользователь может подготовить Windows To Go.  
 
         > [!IMPORTANT]  
-        >  Utilize a definição **Apenas suportes de dados e PXE (oculto)** para implementações com sequências de tarefas automatizadas. Selecione **Permitir implementação de sistema operativo autónoma** e defina a variável SMSTSPreferredAdvertID como parte dos suporte de dados pré-configurados para que o computador arranque automaticamente para a implementação de Windows To Go, sem interação do utilizador quando deteta uma unidade do Windows To Go. Para mais informações sobre estas definições de suporte de dados pré-configurados, consulte a secção [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
+        >  Если предварительно подготовленный носитель, созданный в разделе [Create prestaged media](#BKMK_CreatePrestagedMedia) , использует переменную SMSTSPreferredAdvertID, можно развернуть последовательность задач в коллекции **Все системы** и указать параметр **Только Windows PE (скрытые)** на странице **Содержимое** . Поскольку последовательность задач скрыта, она будет доступна только на носителе.  
 
-7.  Na página **Agendamento** , confirme as seguintes definições e clique em **Seguinte**.  
+    3.  **Использовать группы точек распространения по умолчанию, связанные с этой коллекцией**. Выберите этот параметр, если содержимое пакета необходимо сохранить в заданной по умолчанию группе точек распространения коллекции. Этот параметр будет недоступен, если выбранная коллекция не была связана с группой точек распространения.  
 
-    1.  **Agendar quando esta implementação ficará disponível**: Especifique a data e hora em que a sequência de tarefas ficará disponível para ser executada no computador de destino. Se selecionar **UTC**, esta definição garantirá que a sequência de tarefa ficará disponível para vários computadores de destino ao mesmo tempo, em vez de em alturas diferentes, de acordo com a hora local dos computadores de destino.  
+6.  На странице **Параметры развертывания** укажите следующие сведения, а затем нажмите кнопку **Далее**.  
 
-    2.  **Agendar quando esta implementação expirará**: Especifique a data e hora em que a sequência de tarefas expira no computador de destino. Se selecionar **UTC**, esta definição garantirá que a sequência de tarefas expira em vários computadores de destino no mesmo tempo, em vez de tal acontecer em diferentes momentos, de acordo com a hora local dos computadores de destino.  
+    -   **Назначение**: выберите **Доступно**. Если последовательность задач развертывается для пользователя, он увидит ее после публикации в каталоге приложений и сможет запросить ее по требованию. Если последовательность развертывается для устройства, пользователь увидит ее в центре программного обеспечения и сможет установить ее по запросу.  
 
-8.  Na página **Experiência de Utilizador** , especifique as seguintes informações:  
+    -   **Сделать доступной для**. Укажите, доступна ли последовательность задач для клиентов Configuration Manager, носителя или PXE.  
 
-    -   **Mostrar Progresso da sequência de tarefas**: Especifique se o cliente do Configuration Manager apresenta o progresso da sequência de tarefas.  
+        > [!IMPORTANT]  
+        >  Используйте для автоматизированного развертывания последовательностей задач вариант **Только носители и PXE (скрытые)** . Выберите пункт **Разрешить автоматическое развертывание операционной системы** и задайте переменную SMSTSPreferredAdvertID в составе предварительно подготовленного носителя, чтобы компьютер автоматически загружался в режиме развертывания без вмешательства пользователя при обнаружении диска Windows To Go. Дополнительные сведения об этих параметрах предварительно подготовленного носителя см. в разделе [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
 
-    -   **Instalação de software**: Especifique se o utilizador tem permissão para instalar o software fora das janelas de manutenção configuradas e depois da data agendada.  
+7.  На странице **Расписание** укажите следующие сведения, а затем нажмите кнопку **Далее**.  
 
-    -   **Reinício do sistema (se for necessário para concluir a instalação)**: Permite que um dispositivo reinicie fora das janelas de manutenção configuradas quando exigido pela instalação do software.  
+    1.  **Планирование условий доступности этого развертывания**: укажите дату и время, когда последовательность задач будет доступной для выполнения на конечном компьютере. Если установить флажок **Время в формате UTC**, последовательность задач станет доступна на нескольких конечных компьютерах одновременно, а не в различные моменты времени, в соответствии с заданным на них местным временем.  
 
-    -   **Dispositivos Embedded**: Quando implementa pacotes e programas em dispositivos Windows Embedded que tenham um filtro de escrita ativado, pode especificar a instalação de pacotes e programas na sobreposição temporária e confirmar as alterações mais tarde, ou confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
+    2.  **Планирование условий окончания срока действия этого развертывания**: укажите дату и время, когда последовательность задач перестанет быть доступной для выполнения на конечном компьютере. Если установить флажок **Время в формате UTC**, срок действия завершится на нескольких конечных компьютерах одновременно, а не в различные моменты времени, в соответствии с заданным на них местным временем.  
 
-    -   **Os clientes baseados na Internet**: Especifique se a sequência de tarefas pode ser executada num cliente baseado na Internet. As operações que instalam software, por exemplo um sistema operativo, não são suportadas por esta definição. Só deve utilizar esta opção para sequências de tarefas genéricas, baseadas em scripts, que executem operações padrão do sistema operativo.  
+8.  На странице **Взаимодействие с пользователем** укажите перечисленные ниже сведения.  
 
-9. Na página **Alertas** , especifique as definições de alerta pretendidas para esta implementação de sequências de tarefas e, em seguida, clique em **Seguinte**.  
+    -   **Показать ход выполнения последовательности задач**. Укажите, должен ли ход выполнения последовательности задач отображаться в клиенте Configuration Manager.  
 
-10. Na página **Pontos de Distribuição** , especifique as seguintes informações e, em seguida, clique em **Seguinte**.  
+    -   **Установка программного обеспечения**: укажите, разрешено ли пользователю устанавливать программное обеспечение вне заданных периодов обслуживания после назначенного времени.  
 
-    -   **Opções de implementação**: Selecione **transferir o conteúdo localmente quando necessário para executar a sequência de tarefas**.  
+    -   **Перезапуск системы (если требуется для завершения установки)**: позволяет перезапускать устройства вне заданного периода обслуживания, если это требуется для установки программного обеспечения.  
 
-    -   **Se estiver disponível nenhum ponto de distribuição local, utilizar um ponto de distribuição remoto**: Especifique se os clientes podem utilizar pontos de distribuição localizados em redes lentas e pouco fiáveis para transferir o conteúdo necessário pela sequência de tarefas.  
+    -   **Встраиваемые устройства**: при развертывании пакетов и программ на устройствах Windows Embedded с включенным фильтром записи можно задать установку пакетов и программ на временном наложении, чтобы зафиксировать изменения позже либо зафиксировать изменения по наступлении крайнего срока установки или в течение периода обслуживания. При фиксации изменений по наступлении крайнего срока установки или в течение периода обслуживания требуется перезагрузка, и изменения сохраняются на устройстве.  
 
-    -   **Permitir que os clientes utilizem uma localização de origem de contingência para conteúdo**:
-        - *Antes de versão 1610*, pode selecionar a permitir a localização de origem de contingência para conteúdo caixa de verificação para permitir que os clientes fora destes grupos de limites recorram à contingência e utilizem o ponto de distribuição como uma localização de origem de conteúdo quando não houver outros pontos de distribuição disponíveis.
-        - *A partir da versão 1610*, já não pode configurar **permitir a localização de origem de contingência para conteúdo**.  Em vez disso, configure as relações entre grupos de limites que determinam quando um cliente pode começar a procurar grupos de limites adicionais para uma localização de origem de conteúdo válida. 
+    -   **Интернет-клиенты**: укажите, может ли последовательность задач запускаться на клиенте в Интернете. Операции, устанавливающие программное обеспечение, например, операционную систему, не поддерживаются этим параметром. Этот параметр следует использовать только для выполнения типовых последовательностей задач на основе скриптов, выполняющих операции в стандартной операционной системе.  
 
-11. Conclua o assistente.  
+9. На странице **Оповещения** укажите параметры оповещений, необходимые для развертывания этой последовательности задач, затем нажмите кнопку **Далее**.  
 
-###  <a name="BKMK_UserExperience"></a> O utilizador executa o Windows To Go Creator  
- Depois de implementar o pacote Windows To Go e a sequência de tarefas do Windows 8, o Windows To Go Creator fica disponível para o utilizador. O utilizador pode ir para o catálogo de software, ou o Centro de Software se o Windows To Go Creator foi implementado em dispositivos, e executar o programa Windows To Go Creator. Depois de o pacote de autor é transferido, será apresentado um ícone intermitente na barra de tarefas. Quando o utilizador clica no ícone, é apresentada uma caixa de diálogo para o utilizador selecionar a unidade do Windows To Go a aprovisionar (exceto se a /opção da linha de comandos da unidade for utilizada). Caso a unidade não satisfaça os requisitos para o Windows To Go ou caso a unidade não tenha espaço livre suficiente no disco para instalar a imagem, o programa de autor apresenta uma mensagem de erro. O utilizador pode verificar a unidade e a imagem que serão aplicadas a partir da página de confirmação. Enquanto o autor configura e prepara conteúdo para a unidade do Windows To Go, apresenta uma caixa de diálogo de progresso. Uma vez concluída a pré-configuração, o criador apresenta um aviso para reiniciar o computador para arrancar para a unidade do Windows To Go.  
+10. На странице **Точки распространения** укажите следующие сведения, затем нажмите кнопку **Далее**.  
+
+    -   **Варианты развертывания**: выберите **Загружать содержимое локально, если это требуется для выполняющейся последовательности задач**.  
+
+    -   **Если нет доступных локальных точек распространения, использовать удаленную точку распространения**: укажите, могут ли клиенты использовать точки распространения, находящиеся в низкоскоростных и ненадежных сетях, для скачивания содержимого, необходимого для последовательности задач.  
+
+    -   **Разрешить клиентам использовать резервный источник содержимого**:
+        - *До версии 1610* можно установить флажок "Разрешить использовать резервный источник содержимого", чтобы разрешить клиентам за пределами этих групп границ откат и использование точек распространения в качестве источника содержимого, если другие точки распространения недоступны.
+        - *Начиная с версии 1610* настроить параметр **Разрешить использовать резервный источник содержимого** больше нельзя.  Вместо этого следует настроить связи между группами границ, которые определяют, когда клиент может начинать поиск допустимого источника содержимого в дополнительных группах границ. 
+
+11. Завершите работу мастера.  
+
+###  <a name="BKMK_UserExperience"></a> Пользователь запускает средство создания Windows To Go  
+ После развертывания пакета Windows To Go и последовательности задач Windows 8 пользователю будет доступно создание Windows To Go. Пользователь может перейти в каталог приложений или центр программного обеспечения, если пакет создания Windows To Go был развернут на устройствах, и запускать программу создания Windows To Go. Когда пакет создания загружается, на панели задач отображается мигающий значок. Когда пользователь щелкает значок, появляется диалоговое окно, чтобы пользователь мог выбрать диск Windows To Go для подготовки (если только не используется параметр командной строки /drive). Если диск не удовлетворяет требованиям Windows To Go или не имеет достаточно свободного места, чтобы установить образ, программа создания выведет сообщение об ошибке. Пользователь может проверить диск и образ на странице подтверждения. Когда программа создания настраивает и готовит контент для диска Windows To Go, отображается диалоговое окно хода выполнения. После завершения подготовки программа создания выводит запрос на перезапуск компьютера для загрузки с диска Windows To Go.  
 
 > [!NOTE]  
->  Se não tiver ativado o redirecionamento do arranque enquanto parte da linha de comandos para o programa de autor na secção [Create a Windows To Go Creator package](#BKMK_CreatePackage) , é possível que o utilizador tenha de arrancar manualmente a unidade do Windows To Go em cada reinício do sistema.  
+>  Если вы не включили функцию перенаправления загрузки в командной строке программу создания в разделе [Create a Windows To Go Creator package](#BKMK_CreatePackage) , пользователю может потребоваться вручную загружаться с диска Windows To Go при каждом перезапуске системы.  
 
-###  <a name="BKMK_ConfigureStageDrive"></a> O Configuration Manager configura e prepara a unidade do Windows To Go  
- Depois de o computador reiniciar a unidade do Windows To Go, a unidade arrancará no Windows PE e ligar-se-á ao ponto de gestão para obter a política para concluir a implementação do sistema operativo. O Configuration Manager configura e prepara a unidade. Depois do Gestor de configuração prepara a unidade, o utilizador pode reiniciar o computador para finalizar o processo de aprovisionamento (como juntar-se um domínio ou instalar aplicações). Este processo é o mesmo para qualquer suporte de dados pré-configurado.  
+###  <a name="BKMK_ConfigureStageDrive"></a> Configuration Manager настраивает и готовит диск Windows To Go  
+ После перезагрузки компьютера с диска Windows To Go с него будет загружена среда Windows PE, а компьютер подключится к точке управления для получения политики и завершения развертывания операционной системы. Configuration Manager настраивает и готовит диск. После подготовки диска в Configuration Manager пользователь может перезагрузить компьютер, чтобы завершить процесс подготовки (например, для присоединения к домену или установки приложений). Этот процесс одинаков для всех предварительно подготовленных носителей.  
 
-###  <a name="BKMK_UserLogsIn"></a> O utilizador inicia sessão no Windows 8  
- Depois do Configuration Manager concluir o processo de aprovisionamento e é apresentado o ecrã de bloqueio do Windows 8, o utilizador pode iniciar sessão no sistema operativo.  
+###  <a name="BKMK_UserLogsIn"></a> Пользователь входит в Windows 8  
+ После завершения процесса подготовки в Configuration Manager и появления экрана блокировки Windows 8 пользователь может войти в операционную систему.  

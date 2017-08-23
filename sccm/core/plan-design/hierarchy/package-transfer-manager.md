@@ -1,6 +1,6 @@
 ---
-title: "Gestor de transferência do pacote | Microsoft Docs"
-description: "Compreenda a forma como o Gestor de transferência de pacotes no System Center Configuration Manager transfere conteúdo de um servidor de site para pontos de distribuição remoto."
+title: "Диспетчер передачи пакетов | Документы Майкрософт"
+description: "Сведения о диспетчере передачи пакетов в System Center Configuration Manager, переносящем содержимое с сервера сайта в удаленные точки распространения."
 ms.custom: na
 ms.date: 2/8/2017
 ms.reviewer: na
@@ -16,74 +16,74 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 54e54409a1792c7e28620a5e3cea3e8d8695c7d4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="package-transfer-manager-in-system-center-configuration-manager"></a>Gestor de transferência de pacotes no System Center Configuration Manager
+# <a name="package-transfer-manager-in-system-center-configuration-manager"></a>Диспетчер передачи пакетов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Um site do System Center Configuration Manager, o Gestor de transferência do pacote é um componente do serviço do SMS_Executive que gere a transferência de conteúdo de um computador de servidor do site para pontos de distribuição remotos num site. (Um ponto de distribuição remoto é aquele que não se encontra num computador do servidor do site.) O Gestor de transferência do pacote não suporta configurações pelo administrador, mas a compreender como funciona o pode ajudar a planear a infraestrutura de gestão de conteúdo. Também o pode ajudar a resolver problemas com a distribuição de conteúdo.
+На сайте System Center Configuration Manager диспетчер передачи пакетов является компонентом SMS_Executive, который управляет передачей содержимого с компьютера сервера сайта в удаленные точки распространения в пределах сайта. (Точкой удаленного распространения называется точка, которая не размещается на компьютере сервера сайта.) Диспетчер передачи пакетов не поддерживает настройки, выполняемые администратором, однако понимание принципов его работы может помочь при планировании инфраструктуры управления содержимым. Оно также может помочь в устранении проблем с распространением содержимого.
 
 
-Quando distribui conteúdo por um ou mais pontos de distribuição remotos num site, o **Gestor de distribuição** cria uma tarefa de transferência de conteúdo. Em seguida, notifica o Gestor de transferência de pacotes em servidores de site primário e secundário para transferir o conteúdo aos pontos de distribuição remoto.
+При распространении содержимого в одну или несколько удаленных точек распространения в пределах сайта **диспетчер распространения** создает задание передачи содержимого. Затем он уведомляет диспетчер передачи пакетов на серверах первичного и вторичного сайтов о возможности передачи содержимого в удаленные точки распространения.
 
- Gestor de transferência de pacotes regista as respetivas ações no **pkgxfermgr.log** ficheiro no servidor do site. O ficheiro de registo é a única localização onde pode ver as atividades do Gestor de transferência de pacotes.  
+ Диспетчер передачи пакетов регистрирует свои действия в файле **pkgxfermgr.log** на сервере сайта. Этот файл журнала является единственным местом, где можно просмотреть действия диспетчера передачи пакетов.  
 
 > [!NOTE]  
->  Em versões anteriores do Configuration Manager, o Gestor de distribuição gere a transferência de conteúdo para um ponto de distribuição remoto. O Gestor de distribuição também gere a transferência de conteúdo entre sites. Com o System Center Configuration Manager, o Gestor de distribuição continua a gerir a transferência de conteúdo entre dois sites. No entanto, o Gestor de transferência do pacote agora gere a transferência de conteúdo a um grande número de pontos de distribuição. Isto ajuda a aumentar o desempenho global da implementação de conteúdo entre sites e pontos de distribuição num site.  
+>  В предыдущих версиях Configuration Manager диспетчер распространения управляет передачей содержимого в удаленную точку распространения. Диспетчер распространения также управляет передачей содержимого между сайтами. В System Center Configuration Manager диспетчер распространения продолжает управлять передачей содержимого между двумя сайтами. Однако диспетчер передачи пакетов теперь управляет передачей содержимого в большое количество точек распространения. Это позволяет повысить общую производительность развертывания содержимого как между сайтами, так и в точки распространения в пределах сайта.  
 
-Para transferir conteúdo para um ponto de distribuição padrão, o Gestor de transferência de pacotes tem um funcionamento igual o Gestor de distribuição em versões anteriores do Configuration Manager. Isto é, gere ativamente a transferência de ficheiros para cada ponto de distribuição remoto. No entanto, para distribuir conteúdo para um ponto de distribuição de solicitação, o Gestor de transferência de pacotes notifica que o ponto de distribuição de solicitação que conteúdo está disponível. A distribuição de solicitação ponto, em seguida, assume o processo de transferência.  
+При передаче содержимого в стандартную точку распространения диспетчер передачи пакетов действует точно так же, как и диспетчер распространения в предыдущих версиях Configuration Manager. Иными словами, он активно управляет передачей файлов в каждую удаленную точку распространения. Однако при распространении содержимого в точку распространения по запросу диспетчер передачи пакетов уведомляет эту точку о доступности содержимого. Затем функции передачи содержимого передаются точке распространения по запросу.  
 
-As informações seguintes descrevem como o Gestor de transferência de pacotes gere a transferência de conteúdo para pontos de distribuição padrão e para pontos de distribuição configurados como pontos de distribuição de solicitação:
-1.  **Administrador implementa conteúdo para um ou mais pontos de distribuição num site.**  
+Приведенные ниже сведения помогут разобраться с тем, как диспетчер передачи пакетов управляет передачей содержимого в стандартные точки распространения и в точки распространения, настроенные как точки распространения по запросу.
+1.  **Администратор развертывает содержимое в одной или нескольких точках распространения в пределах сайта.**  
 
-    -   **Ponto de distribuição padrão:** Gestor de distribuição cria uma tarefa de transferência de conteúdo para esse conteúdo.  
+    -   **Стандартная точка распространения**: диспетчер распространения создает задание передачи содержимого для этого содержимого.  
 
-    -   **Ponto de distribuição de solicitação:** Gestor de distribuição cria uma tarefa de transferência de conteúdo para esse conteúdo.  
+    -   **Точка распространения по запросу**: диспетчер распространения создает задание передачи содержимого для этого содержимого.  
 
-2.  **Gestor de distribuição executa verificações preliminares.**  
+2.  **Диспетчер распространения выполняет предварительные проверки.**  
 
-    -   **Ponto de distribuição padrão:** Gestor de distribuição executa uma verificação básica para confirmar que cada ponto de distribuição está preparado para receber o conteúdo. Após esta verificação, o Gestor de distribuição notifica o Gestor de transferência de pacotes para iniciar a transferência de conteúdo ao ponto de distribuição.  
+    -   **Стандартная точка распространения**: диспетчер распространения выполняет базовую проверку готовности каждой точки распространения к получению содержимого. После этой проверки диспетчер распространения уведомляет диспетчер передачи пакетов о возможности запуска передачи содержимого в точку распространения.  
 
-    -   **Ponto de distribuição de solicitação:** No Gestor de transferência de pacotes notifica a distribuição de solicitação do Gestor de distribuição inicia ponto que não há uma nova tarefa de transferência de conteúdo. O Gestor de distribuição não verifica o estado dos pontos de distribuição remotos que são pontos de distribuição de solicitação, porque cada ponto de distribuição de solicitação gere as suas próprias transferências de conteúdo.  
+    -   **Точка распространения по запросу.** Диспетчер распространения запускает диспетчер передачи пакетов, который затем уведомляет точку распространения по запросу о новом задании передачи содержимого. Диспетчер распространения не проверяет состояние удаленных точек распространения, которые являются точками распространения по запросу, так как каждая точка распространения по запросу управляет своими операциями передачи содержимого.  
 
-3.  **Gestor de transferência de pacotes prepara a transferência de conteúdo.**  
+3.  **Диспетчер передачи пакетов готовится к передаче содержимого.**  
 
-    -   **Ponto de distribuição padrão:** Gestor de transferência de pacotes examina o arquivo de conteúdos de instância única de cada ponto de distribuição remoto especificado. O objetivo é identificar ficheiros que já estejam nesse ponto de distribuição. Em seguida, filas de Gestor de transferência de pacotes para transferência apenas os ficheiros que ainda não está presente.  
-
-        > [!NOTE]  
-        >  Para copiar cada ficheiro da distribuição para o ponto de distribuição, mesmo se os ficheiros já estejam presentes no single instance store do ponto de distribuição, utilize o **redistribuir** ação para o conteúdo.  
-
-    -   **Ponto de distribuição de solicitação:** Para cada ponto de distribuição de extração na distribuição, o Gestor de transferência de pacotes verifica que os pontos de distribuição de origem, para confirmar se o conteúdo está disponível de pontos de distribuição de extração.  
-
-        -   Quando o conteúdo está disponível no ponto de distribuição de origem pelo menos, o Gestor de transferência de pacotes envia uma notificação a esse ponto de distribuição de solicitação. A notificação direciona esse ponto de distribuição para iniciar o processo de transferência de conteúdo. A notificação inclui nomes de ficheiro e tamanhos, atributos e valores de hash.  
-
-        -   Quando o conteúdo ainda não estiver disponível, o Gestor de transferência de pacotes envia uma notificação para o ponto de distribuição. Em vez disso, repete a verificação a cada 20 minutos até que o conteúdo está disponível. Em seguida, quando o conteúdo estiver disponível, o Gestor de transferência de pacotes envia a notificação a esse ponto de distribuição de solicitação.  
+    -   **Стандартная точка распространения.** Диспетчер передачи пакетов проверяет хранилища единственных копий содержимого всех указанных удаленных точек распространения. Это делается для того, чтобы выявить файлы, которые уже находятся в точках распространения. Затем диспетчер передачи пакетов помещает в очередь на передачу только те файлы, которые еще отсутствуют.  
 
         > [!NOTE]  
-        >  Para o ponto de distribuição de solicitação de copiar cada ficheiro da distribuição para o ponto de distribuição, mesmo que os ficheiros já estejam presentes no single instance store do ponto de distribuição de solicitação, utilize o **redistribuir** ação para o conteúdo.  
+        >  Чтобы скопировать каждый файл, участвующий в распространении, в точку распространения, даже если файлы уже присутствуют в хранилище единственных копий точки распространения, используйте действие **Повторить** для содержимого.  
 
-4.  **Conteúdo começa a transferência.**  
+    -   **Точка распространения по запросу**. Для каждой точки распространения по запросу, участвующей в распространении, диспетчер передачи пакетов проверяет доступность содержимого в исходных точках распространения.  
 
-    -   **Ponto de distribuição padrão:** Gestor de transferência de pacotes copia ficheiros para cada ponto de distribuição remoto. Durante a transferência para um ponto de distribuição padrão:  
+        -   Если содержимое доступно хотя бы в одной исходной точке распространения, диспетчер передачи пакетов отправляет точке распространения по запросу уведомление. Оно предписывает точке распространения начать процесс передачи содержимого. Уведомление включает имена и размеры файлов, их атрибуты и хэш-значения.  
 
-        -   Por predefinição, o Gestor de transferência do pacote pode em simultâneo processar três pacotes exclusivos e distribuí-los por cinco pontos de distribuição em paralelo. No seu conjunto, estas são designadas por **definições de distribuição simultânea**. Para configurar a distribuição simultânea, além de **propriedades do componente de distribuição de Software** para cada site, aceda ao **geral** separador.  
-
-        -   Gestor de transferência de pacotes utiliza as configurações de largura de banda de agendamento e a rede de cada ponto de distribuição ao transferir conteúdo para esse ponto de distribuição. Para configurar estas definições, o **propriedades** de cada ponto de distribuição remoto, avance para o **agenda** e **limites de velocidade** separadores. Para obter mais informações, consulte [gerir a infraestrutura de conteúdo e o conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
-
-    -   **Ponto de distribuição de solicitação:** Quando um ponto de distribuição de extração recebe um ficheiro de notificação, o ponto de distribuição inicia o processo para transferir o conteúdo. O processo de transferência é executado independentemente em cada ponto de distribuição de solicitação:  
-
-        1.   A distribuição de extração identifica os ficheiros na distribuição de conteúdo que já não tem no seu single instance store e prepara a transferência desse conteúdo a partir de um dos respetivos pontos de distribuição de origem.  
-
-        2.   Em seguida, as verificações de ponto de distribuição de solicitação com cada um dos respetivos pontos de distribuição de origem, por ordem, até localizar um ponto de distribuição de origem que tenha o conteúdo disponível. Quando o ponto de distribuição de extração identifica um ponto de distribuição de origem com o conteúdo, inicia a transferência desse conteúdo.  
+        -   Если содержимое еще не доступно, диспетчер передачи пакетов не отправляет уведомление точке распространения. Вместо этого он повторяет проверку каждые 20 минут, пока содержимое не станет доступным. Затем, когда содержимое становится доступным, диспетчер передачи пакетов отправляет уведомление этой точке распространения по запросу.  
 
         > [!NOTE]  
-        >  O processo para transferir o conteúdo pelo ponto de distribuição de extração é igual à que é utilizado por clientes do Configuration Manager. Para a transferência de conteúdo pelo ponto de distribuição de solicitação, não são utilizadas em simultâneo transferir definições. Agendamento e limitação opções em que configura para pontos de distribuição padrão não são utilizados o.  
+        >  Чтобы точка распространения по запросу скопировала каждый файл, подлежащий распространению, в точку распространения, даже если файлы уже присутствуют в хранилище единственных копий точки распространения по запросу, используйте действие **Повторить** для содержимого.  
 
-5.  **Conclusão da transferência de conteúdo.**  
+4.  **Начинается передача содержимого.**  
 
-    -   **Ponto de distribuição padrão:** Depois do Gestor de transferência de pacotes terminar transferir ficheiros para cada ponto de distribuição remoto designado, verifica o hash do conteúdo no ponto de distribuição. Em seguida, notifica o Gestor de distribuição que a distribuição foi concluída.  
+    -   **Стандартная точка распространения**: диспетчер передачи пакетов копирует файлы в каждую удаленную точку распространения. Во время передачи в стандартную точку распространения происходит следующее.  
 
-    -   **Ponto de distribuição de solicitação:** Após o ponto de distribuição de extração concluir a transferência de conteúdo, o ponto de distribuição verifica o hash do conteúdo. Em seguida, submete uma mensagem de estado ao ponto de gestão do site para indicar o êxito. Se, após 60 minutos este estado não for recebido, o Gestor de transferência do pacote reativado novamente. Verificar a existência de com o ponto de distribuição de extração para confirmar se o ponto de distribuição de solicitação transferiu o conteúdo. Se a transferência de conteúdo está em curso, o Gestor de transferência de pacotes permanecerá suspenso durante outro 60 minutos antes de verifica novamente com o ponto de distribuição de solicitação. Este ciclo continuará até o ponto de distribuição de extração concluir a transferência do conteúdo.  
+        -   По умолчанию диспетчер передачи пакетов может одновременно обрабатывать три уникальных пакета и параллельно распространять их в пять точек распространения. Эти параметры обобщенно называются **Параметры одновременного распространения**. Чтобы настроить одновременное распространение, в диалоговом окне **Свойства компонента распространения программного обеспечения** для каждого сайта перейдите на вкладку **Общие**.  
+
+        -   Диспетчер передачи пакетов использует настройки расписания и полосы пропускания сети каждой точки распространения при передаче содержимого в эту точку. Эти параметры можно настроить на вкладках **Расписание** и **Пределы скорости** диалогового окна **Свойства** для каждой удаленной точки распространения. Дополнительные сведения см. в статье [Управление содержимым и инфраструктура содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+    -   **Точка распространения по запросу**: когда точка распространения по запросу получает файл уведомления, она начинает процесс передачи содержимого. Процесс передачи выполняется независимо в каждой точке распространения запросу.  
+
+        1.   Точка распространения по запросу выявляет в распространении содержимого файлы, которые отсутствуют в ее хранилище единственных копий, и готовится к загрузке этого содержимого из одной из своих исходных точек распространения.  
+
+        2.   После этого точка распространения по запросу проверяет доступность содержимого на каждой исходной точке распространения, пока не найдет точку с содержимым. Когда точка распространения по запросу находит исходную точку распространения с содержимым, она начинает его загрузку.  
+
+        > [!NOTE]  
+        >  Процесс скачивания содержимого точкой распространения по запросу ничем не отличается от процесса, используемого клиентами Configuration Manager. Для передачи содержимого точкой распространения по запросу параметры одновременной передачи не используются. Параметры планирования и регулирования, настраиваемые для стандартных точек распространения, также не используются.  
+
+5.  **Завершается передача содержимого.**  
+
+    -   **Стандартная точка распространения**. Когда диспетчер передачи пакетов завершает передачу файлов в каждую из назначенных удаленных точек распространения, он проверяет хэш содержимого в точке распространения. Затем он уведомляет диспетчер распространения о завершении распространения.  
+
+    -   **Точка распространения по запросу**. Когда точка распространения по запросу завершает скачивание содержимого, точка распространения проверяет хэш содержимого. Затем она отправляет в точку управления сайта сообщение о состоянии, которое означает успешность операции. Если в течение 60 минут это состояние не получено, диспетчер передачи пакетов выходит из спящего режима. Он проверяет подтверждение скачивания содержимого точкой распространения по запросу. Если скачивание содержимого продолжает выполняться, диспетчер передачи пакетов переходит в спящий режим еще на 60 минут, после чего повторно проверяет подтверждение от точки распространения по запросу. Этот цикл продолжается до тех пор, пока точка распространения по запросу не завершит передачу содержимого.  

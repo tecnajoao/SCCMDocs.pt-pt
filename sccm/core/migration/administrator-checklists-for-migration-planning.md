@@ -1,6 +1,6 @@
 ---
-title: "Listas de verificação da migração | Microsoft Docs"
-description: "Utilize as listas de verificação de administrador para o ajudar a planear uma estratégia de migração para o System Center Configuration Manager."
+title: "Контрольные списки миграции | Документы Майкрософт"
+description: "Контрольные списки для администратора могут помочь вам спланировать стратегию миграции на System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -17,149 +17,149 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 36f7c37e4da3f2bce64a25d266dae57d9fe98c36
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="administrator-checklists-for-migration-planning-in-system-center-configuration-manager"></a>Listas de verificação de administrador para planeamento da migração no System Center Configuration Manager
+# <a name="administrator-checklists-for-migration-planning-in-system-center-configuration-manager"></a>Контрольные списки администратора по планированию миграции в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as seguintes listas de verificação de administrador para o ajudar a planear a estratégia de migração para o System Center Configuration Manager.
+Приведенные ниже контрольные списки для администратора могут помочь вам спланировать стратегию миграции на System Center Configuration Manager.
 
-##  <a name="Checklist_Migraiton_Planning"></a>Lista de verificação de administrador para planeamento da migração  
- Utilize a lista de verificação seguinte para passos de planeamento da pré-migração.  
+##  <a name="Checklist_Migraiton_Planning"></a> Контрольный список администратора для планирования миграции  
+ Используйте следующий контрольный список для планирования действий перед миграцией.  
 
--   **Avalie o ambiente atual:**  
+-   **Оцените текущую среду:**  
 
-     Identifique as necessidades empresariais existentes que são satisfeitas pela hierarquia de origem e desenvolva planos para continuar a satisfazer essas necessidades na hierarquia de destino.  
+     Определите текущие бизнес-требования, которые удовлетворяются в исходной иерархии, и разработайте планы, которые позволят по-прежнему удовлетворять эти требования в конечной иерархии.  
 
--   **Reveja a funcionalidade e as alterações que estão disponíveis com a versão do Configuration Manager que utiliza e utilize estas informações para ajudar a criar a sua hierarquia de destino:**  
+-   **Оцените функциональные возможности и изменения, доступные в используемой вами версии Configuration Manager, и примените эти сведения при разработке конечной иерархии.**  
 
-    Para obter mais informações, veja [Noções básicas do System Center Configuration Manager](../../core/understand/fundamentals.md) e [Novidades do System Center Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md).  
-
-
--   **Determine o modelo de segurança administrativa a utilizar para a administração baseada em funções:**  
-
-    Para obter mais informações, consulte [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
-
--   **Avalie a sua rede e topologia do Active Directory:** Reveja a topologia da estrutura de domínio existente e da rede e considere a forma como esta influencia a estrutura da hierarquia e as tarefas de migração.  
-
--   **Finalize a estrutura de hierarquia de destino:**  
-
-    Decida o posicionamento de um site de administração central, sites primários, sites secundários e opções de distribuição de conteúdo.  
-
--   **Mapeie a hierarquia para os computadores que irá utilizar para sites e servidores de site na hierarquia de destino:**  
-
-    Identifique os computadores que sites e servidores de sistema de sites irão utilizar na hierarquia de destino e, em seguida, certifique-se de que possuem capacidade suficiente para satisfazer os requisitos operacionais atuais e futuros.  
-
--   **Planeie a estratégia de migração de objetos:**  
-
-    Recomendamos que utilize as tarefas de migração disponíveis para migrar objetos diferentes, incluindo limites de sites, coleções, anúncios e implementações. Para obter mais informações, consulte [tipos de tarefas de migração](../../core/migration/planning-a-migration-job-strategy.md#Types_of_Migration) no [planear uma estratégia de tarefa de migração no System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md)  
-
-    O Configuration Manager migra apenas os objetos que selecionar. Os objetos que não são migrados e que sejam necessários na hierarquia de destino tem de ser recriados nessa hierarquia de destino.  
-
-    Os objetos que podem migrar são apresentados quando configurar as tarefas de migração.  
-
--   **Planeie a estratégia de migração de clientes:**  
-
-    Planeie a migração dos clientes utilizando uma abordagem controlada que limita a largura de banda da rede e os requisitos de processamento do servidor quando migra os clientes para a hierarquia de destino. Para obter mais informações sobre como planear uma estratégia de migração de cliente, consulte [planear uma estratégia de migração de clientes no System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).  
-
--   **Planeie os dados de inventário e compatibilidade de:**  
-
-    O Configuration Manager não suporta migração inventário de hardware, inventário de software ou dados de compatibilidade de gestão de configuração pretendida para as atualizações de software ou clientes.  
-
-    Em vez disso, após a migração do cliente para o novo site na hierarquia de destino e após ter recebido a política dessas configurações, o cliente envia as informações para o site atribuído. Esta ação preenche a base de dados do site de destino com os dados atuais de inventário e de compatibilidade.  
-
--   **Planear a conclusão da migração da hierarquia de origem:**  
-
-    Decida quando deverão ser migrados os clientes e os objetos. Depois de concluída a migração, pode optar por desativar os servidores do site na hierarquia de origem.  
-
-##  <a name="Checklist_Hierarchy_for_migration"></a>Lista de verificação de administrador para migração da hierarquia  
-Utilize a lista de verificação seguinte para planear uma hierarquia de destino antes de iniciar a migração.  
-
--   **Identifique os computadores a utilizar na hierarquia de destino:**  
-
-    O Configuration Manager não suporta uma atualização no local da infraestrutura do Configuration Manager 2007. Em vez disso, utilizar a migração para mover dados do Configuration Manager 2007 para o System Center Configuration Manager. Isto requer a utilizar uma implementação lado a lado e instalar o System Center Configuration Manager em novos computadores.  
-
-    Da mesma forma, quando migrar a partir de outra hierarquia do System Center Configuration Manager, tem de instalar uma nova hierarquia de destino que seja uma implementação lado a lado à hierarquia de origem.  
-
--   **Crie a hierarquia de destino:**  
-
-    Para preparar a migração, instale e configure uma hierarquia de destino do System Center Configuration Manager que inclua um site primário. Por exemplo:  
-
-    -   Instalar um site de administração central e, em seguida, instale, pelo menos, um site primário subordinado.  
-
-    -   Instale um site primário autónomo se não planeia utilizar um site de administração central.  
-
--   **Se pretender migrar informações relacionadas com atualizações de software, configurar um ponto de atualização de software na hierarquia de destino e sincronize as atualizações de software:**  
-
-    Tem de configurar e sincronizar atualizações de software na hierarquia de destino para poder migrar informações de atualizações de software a partir da hierarquia de origem.  
+    Дополнительные сведения см. в разделе [Основные сведения о System Center Configuration Manager](../../core/understand/fundamentals.md) и в [новые возможности в System Center Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md).  
 
 
--   **Instalar e configurar funções do sistema de sites adicionais na hierarquia de destino:**  
+-   **Определите административную модель безопасности, чтобы использовать ее при реализации ролевого администрирования.**  
 
-    Configure funções do sistema de sites adicionais e sistemas de sites que precisa.  
+    Дополнительные сведения см. в разделе [Основы ролевого администрирования для System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
--   **Verifique a funcionalidade operacional da hierarquia de destino:**  
+-   **Оцените сеть и топологию Active Directory**. Рассмотрите текущую структуру домена и топологию сети и оцените степень влияния этих факторов на проект иерархии и задачи миграции.  
 
-    Verifique o seguinte:  
+-   **Создайте проект конечной иерархии:**  
 
-    -   Se a hierarquia de destino incluir vários sites, certifique-se de que a replicação da base de dados está a funcionar entre sites. Replicação de base de dados não é aplicável aos sites primários autónomos.  
+    Примите решение о размещении сайта центра администрирования, первичных и вторичных сайтов; определите параметры распространения содержимого.  
 
-    -   Verifique se todas as funções de sistema de sites instaladas estão operacionais.  
+-   **Сопоставьте свою иерархию с компьютерами, которые будут использоваться для сайтов и серверов сайтов в конечной иерархии:**  
 
-    -   Certifique-se de que os clientes do Configuration Manager que instalar à hierarquia de destino podem comunicar corretamente com o respetivo site atribuído.  
+    Определите компьютеры, которые будут использоваться сайтами и серверами системы сайта в конечной иерархии, и убедитесь в наличии ресурсов, достаточных для удовлетворения текущих и будущих функциональных требований.  
+
+-   **Спланируйте стратегию миграции объектов:**  
+
+    Запланируйте использование доступных заданий миграции для переноса разных объектов, включая границы сайтов, коллекции, объявления и развертывания. Дополнительные сведения см. в подразделе [Типы заданий миграции](../../core/migration/planning-a-migration-job-strategy.md#Types_of_Migration) раздела [Планирование стратегии заданий миграции в System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).  
+
+    Configuration Manager выполняет миграцию только выбранных объектов. Все объекты, которые необходимы в конечной иерархии, но не были перенесены в процессе миграции, необходимо создать в конечной иерархии заново.  
+
+    Объекты, для которых поддерживается миграция, отображаются при настройке заданий миграции.  
+
+-   **Спланируйте стратегию миграции клиентов:**  
+
+    Спланируйте миграцию клиентов, используя контролируемый подход, который ограничивает требования к пропускной способности и к обработке на сервере при миграции клиентов в конечную иерархию. Дополнительные сведения о планировании стратегии миграции клиентов см. в разделе [Планирование стратегии миграции клиентов в System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).  
+
+-   **Спланируйте способ переноса данных инвентаризации и соответствия:**  
+
+    Configuration Manager не поддерживает миграцию данных инвентаризации оборудования и программного обеспечения, а также данных соответствия функции управления требуемой конфигурацией для обновлений программного обеспечения и клиентов.  
+
+    Вместо этого после миграции клиента на новый сайт в конечной иерархии и получения им политики для этих конфигураций клиент отправляет эти сведения на назначенный ему сайт. Это действие вносит в базу данных сайта назначения текущие инвентаризационные данные и сведения о соответствии.  
+
+-   **Спланируйте завершение миграции из исходной иерархии:**  
+
+    Определите, когда будет выполнена миграция объектов и клиентов. После завершения миграции можно спланировать списание серверов сайтов в исходной иерархии.  
+
+##  <a name="Checklist_Hierarchy_for_migration"></a> Контрольный список администратора по миграции иерархии  
+Следующий контрольный список администратора поможет в планировании конечной иерархии перед началом миграции.  
+
+-   **Определите компьютеры, которые будут использоваться в конечной иерархии:**  
+
+    Configuration Manager не поддерживает обновление на месте с инфраструктуры Configuration Manager 2007. Вместо этого с помощью миграции следует перенести данные из Configuration Manager 2007 в System Center Configuration Manager. Для этого необходимо использовать параллельное развертывание и установить System Center Configuration Manager на новых компьютерах.  
+
+    Аналогично, при миграции из другой иерархии System Center Configuration Manager необходимо установить новую конечную иерархию, которая является параллельным развертыванием в исходную иерархию.  
+
+-   **Создайте конечную иерархию:**  
+
+    В целях подготовки к миграции установите и настройте конечную иерархию System Center Configuration Manager, которая включает первичный сайт. Пример.  
+
+    -   Установите сайт центра администрирования, а затем установите хотя бы один подчиненный первичный сайт.  
+
+    -   Если использование сайта центра администрирования не планируется, установите автономный первичный сайт.  
+
+-   **Если требуется выполнить миграцию сведений, связанных с обновлениями программного обеспечения, настройте в конечной иерархии точку обновления ПО и синхронизируйте обновления программного обеспечения:**  
+
+    Необходимо настроить и синхронизировать обновления программного обеспечения перед тем, как можно будет выполнять миграцию сведений об обновлении программного обеспечения из исходной иерархии.  
 
 
-##  <a name="Checklisit_Migration"></a>Lista de verificação de administrador para migração  
-Utilize a lista de verificação seguinte para migrar dados da hierarquia de origem para a hierarquia de destino.  
+-   **Установите и настройте дополнительные роли системы сайта в конечной иерархии:**  
 
--   **Ative a migração na hierarquia de destino:**  
+    Настройте дополнительные роли системы сайта и необходимые системы сайта.  
 
-    Configure uma hierarquia de origem especificando o site de nível superior da hierarquia de origem. Para obter mais informações sobre como especificar o site de origem, consulte [planear uma estratégia de hierarquia de origem no System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).  
+-   **Проверьте оперативную функциональность в конечной иерархии:**  
 
--   **Quando a hierarquia de origem executar o Configuration Manager 2007 SP2, selecione e configure sites adicionais na hierarquia de origem:**  
+    Проверьте соблюдение перечисленных ниже условий.  
 
-    Para cada site adicional da hierarquia de origem do Configuration Manager 2007 SP2 que pretende recolher dados a partir do, tem de configurar credenciais para recolha de dados. Ao configurar cada site de origem, o processo de recolha de dados começa de imediato e continua durante o período de migração até parar a recolha de dados para esse site. Recolha de dados garante que pode migrar objetos da hierarquia de origem que são atualizados ou adicionadas após um processo de recolha de dados anterior.
+    -   Если конечная иерархия содержит несколько сайтов, проверьте, работает ли репликация баз данных между сайтами. Репликация баз данных не применяется к автономным первичным сайтам.  
+
+    -   Проверьте работоспособность всех установленных ролей системы сайта.  
+
+    -   Убедитесь в том, что установленные в конечной иерархии клиенты Configuration Manager могут успешно обмениваться данными с назначенным им сайтом.  
+
+
+##  <a name="Checklisit_Migration"></a> Контрольный список администратора для миграции  
+Используйте следующий контрольный список для миграции данных из исходной иерархии в конечную.  
+
+-   **Включите миграцию в конечной иерархии:**  
+
+    Настройте исходную иерархию, указав сайт верхнего уровня исходной иерархии. Дополнительные сведения об указании исходного сайта см. в разделе [Планирование стратегии для исходных иерархий в System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).  
+
+-   **Если в исходной иерархии работает Configuration Manager 2007 с пакетом обновления 2 (SP2), выберите и настройте дополнительные сайты в этой иерархии.**  
+
+    Для каждого дополнительного сайта в исходной иерархии Configuration Manager 2007 с пакетом обновления 2 (SP2), с которого планируется собирать данные, необходимо настроить учетные данные для сбора данных. После настройки каждого исходного сайта немедленно начинается процесс сбора данных, который продолжается в течение всего периода миграции, пока вы не остановите сбор данных для этого сайта. Сбор данных гарантирует возможность миграции обновленных или добавленных (с момента предыдущего сбора данных) объектов из исходной иерархии.
 
     > [!NOTE]  
-    >  Quando a hierarquia de origem com o System Center 2012 Configuration Manager ou posterior, não terá de configurar sites de origem adicionais.  
+    >  Если в исходной иерархии работает System Center 2012 Configuration Manager или более поздней версии, нет необходимости настраивать дополнительные исходные сайты.  
 
--   **Configure a partilha do ponto de distribuição:**  
+-   **Настройте общий доступ к точке распространения:**  
 
-    Pode partilhar pontos de distribuição entre as duas hierarquias para disponibilizar o conteúdo dos objetos migrados para os clientes da hierarquia de destino. Isto garante que os mesmos conteúdos permanecem disponível para clientes em ambas as hierarquias e que pode manter este conteúdo depois de interromper a recolha de dados e concluir a migração.  
+    Точки распространения могут совместно использоваться этими двумя иерархиями, чтобы содержимое для переносимых объектов было доступно клиентам в конечной иерархии. Это позволяет гарантировать, что содержимое будет оставаться доступным для клиентов в обеих иерархиях и вы сможете обслуживать его до тех пор, пока не прекратится сбор данных и не завершится миграция.  
 
-    Para obter informações sobre pontos de distribuição partilhados, consulte [partilhar pontos de distribuição entre hierarquias de origem e destino](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) no [planear uma estratégia de migração de implementação de conteúdos no System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
+    Сведения об общих точках распространения см. в подразделе [Совместное использование точек распространения в исходной и конечной иерархии](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) раздела [Планирование стратегии миграции развертывания содержимого в System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
 
--   **Criar e executar tarefas de migração para migrar objetos associados a clientes na hierarquia de origem:**  
+-   **Создайте и запустите задания миграции для переноса объектов, связанных с клиентами в исходной иерархии:**  
 
-    Crie tarefas de migração para migrar objetos entre hierarquias. As configurações necessárias a cada tarefa de migração podem variar consoante os dados migrados pela tarefa.  
+    Создайте задания миграции для переноса объектов между иерархиями. Необходимые конфигурации для каждого задания миграции могут различаться, в зависимости от того, миграцию каких данных выполняет конкретное задание.  
 
-    Por exemplo, quando efetua a migração do conteúdo, independentemente da tarefa de migração utilizada, tem de atribuir a gestão desse conteúdo a um site da hierarquia de destino. O site atribuído terá acesso à localização original do ficheiro de origem para obter o conteúdo, sendo responsável pela distribuição desse conteúdo pelos pontos de distribuição da hierarquia de destino.  
+    Например, при переносе контента необходимо назначить в конечной иерархии сайт, которому будет принадлежать управление этим контентом, независимо от используемого задания миграции. Этот назначенный сайт будет иметь доступ к первоначальному расположению исходных файлов этого контента и отвечать за его распространение в точки распространения в конечной иерархии.  
 
-    Para obter mais informações, consulte [criar e editar tarefas de migração do system center configuration manager](../../core/migration/operations-for-migration.md#Create_Edit_migration_Jobs) no [operações de migração para o System Center Configuration Manager](../../core/migration/operations-for-migration.md).  
+    Дополнительные сведения см. в подразделе [Создание и редактирование заданий миграции для System Center Configuration Manager](../../core/migration/operations-for-migration.md#Create_Edit_migration_Jobs) раздела [Операции для миграции в System Center Configuration Manager](../../core/migration/operations-for-migration.md).  
 
--   **Migração dos clientes para a hierarquia de destino:**  
+-   **Выполните миграцию клиентов в конечную иерархию:**  
 
-    O processo de migração dos clientes depende do cenário de migração:  
+    Процесс миграции клиентов зависит от сценария миграции.  
 
-    -   Quando migrar clientes que possuem uma versão de cliente que não é igual à hierarquia de destino, tem de atualizar o software de cliente. A atualização requer a remoção do cliente do Configuration Manager atual, seguida da instalação da nova versão do cliente que corresponde ao site de destino.  
+    -   При миграции клиента, версия которого отличается от версии клиента в конечной иерархии, необходимо выполнить обновление клиентского программного обеспечения. Для обновления следует удалить текущий клиент Configuration Manager, а затем установить новую версию клиента, соответствующую целевому сайту.  
 
-    -   Quando migrar clientes que possuem uma versão do cliente que corresponde à versão da hierarquia de destino, o cliente não é atualizado nem reinstalado. Em vez disso, é reatribuído a um site primário da hierarquia de destino.  
+    -   При миграции клиента, версия которого соответствует версии клиента в конечной иерархии, не нужно обновлять или переустанавливать клиент. Вместо этого клиент переназначается первичному сайту в конечной иерархии.  
 
-    Quando migrar um cliente para a hierarquia de destino, este é associado aos respetivos dados migrados anteriormente para esta hierarquia de destino.  
+    При миграции клиента в конечную иерархию этот клиент сопоставляется с его данными, которые ранее были перенесены в эту конечную иерархию.  
 
-    Para obter mais informações, veja [Planear uma estratégia de migração de clientes no System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).  
+    Дополнительные сведения см. в разделе [Планирование стратегии миграции клиентов в System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).  
 
--   **Atualizar ou reatribuir pontos de distribuição partilhados:**  
+-   **Обновите или переназначьте общие точки распространения:**  
 
-    Quando já não necessitar de suportar clientes na sua hierarquia de origem, pode atualizar pontos de distribuição partilhados a partir de um site de origem do Configuration Manager 2007 ou reatribuir pontos de distribuição partilhados a partir de um site de origem do System Center 2012 Configuration Manager ou System Center Configuration Manager. Se atualizar ou reatribuir um ponto de distribuição, a função do sistema de sites é transferida para um site primário da hierarquia de destino e o ponto de distribuição é removido do site de origem da hierarquia de origem. Quando atualiza ou reatribui um ponto de distribuição partilhado, o conteúdo permanece no computador do ponto de distribuição e não precisa de Reimplementar o conteúdo em novos pontos de distribuição na hierarquia de destino.  
+    Если поддержка клиентов в исходной иерархии больше не нужна, можно обновить общие точки распространения из исходного сайта Configuration Manager 2007 либо переназначить общие точки распространения из исходного сайта System Center 2012 Configuration Manager или System Center Configuration Manager. При обновлении либо переназначении точки распространения роль системы сайта передается на первичный сайт конечной иерархии, а точка распространения удаляется из исходного сайта в исходной иерархии. При обновлении либо переназначении общей точки распространения содержимое остается на компьютере этой точки распространения и заново разворачивать содержимое в новых точках распространения в конечной иерархии не требуется.  
 
-    Pode também atualizar um ponto de distribuição que esteja colocalizado num servidor de site secundário do Configuration Manager 2007. Esta operação remove o site secundário e conserva apenas um ponto de distribuição na hierarquia de destino.  
+    Кроме того, можно обновить точку распространения Configuration Manager 2007, совместно размещенную на сервере вторичного сайта. При этом удаляются дополнительный сайт и результаты только в точке распространения в конечной иерархии.  
 
-    Para obter informações sobre pontos de distribuição partilhados, consulte [partilhar pontos de distribuição entre hierarquias de origem e destino](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) no [planear uma estratégia de migração de implementação de conteúdos no System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
+    Сведения об общих точках распространения см. в подразделе [Совместное использование точек распространения в исходной и конечной иерархии](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) раздела [Планирование стратегии миграции развертывания содержимого в System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
 
--   **Concluir a migração:**  
+-   **Завершение миграции:**  
 
-    Depois de ter migrado os dados e os clientes de todos os sites na hierarquia de origem e atualizar pontos de distribuição aplicável, pode concluir a migração. Para concluir a migração interromper a recolha de dados de cada site de origem na hierarquia de origem. Em seguida, pode remover as informações de migração de que não necessita e encerrar a infraestrutura da hierarquia de origem. Para obter mais informações, veja [Planear para concluir a migração no System Center Configuration Manager](../../core/migration/planning-to-complete-migration.md).  
+    После миграции данных и клиентов со всех сайтов в исходной иерархии и обновления соответствующих точек распространения можно завершить миграцию. Для завершения миграции необходимо прекратить сбор данных для каждого исходного сайта в исходной иерархии. Затем можно удалить все ненужные данные миграции и списать инфраструктуру исходной иерархии. Дополнительные сведения см. в разделе [Планирование завершения миграции в System Center Configuration Manager](../../core/migration/planning-to-complete-migration.md).  

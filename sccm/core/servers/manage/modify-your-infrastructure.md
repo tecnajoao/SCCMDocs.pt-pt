@@ -1,373 +1,369 @@
 ---
-title: Modificar a infra-estrutura | Documentos do Microsoft
-description: "Saiba como efetuar alterações ou execute ações que afetam a infraestrutura do Configuration Manager que tiver implementado."
+title: "Изменение инфраструктуры | Документы Майкрософт"
+description: "Узнайте, как вносить изменения или выполнять действия, влияющие на развернутую инфраструктуру Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a7975dc8-46ab-4dae-86b6-dc3e3cf3b2f0
-caps.latest.revision: 19
-caps.handback.revision: 0
+caps.latest.revision: "19"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 52d2e088b8db3c2e9a0af640ca3db72b9fd7af60
 ms.openlocfilehash: a5228c4984347be4b115bfa5563791fa2fb7319c
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Modificar a infraestrutura do System Center Configuration Manager
+# <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Изменение инфраструктуры System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Depois de instalar um ou mais sites, poderá ser necessário modificar configurações ou executar ações que afetam a infraestrutura implementada.  
+После установки одного или нескольких узлов может потребоваться изменить конфигурацию или выполнить действия, которые повлияют на развернутую инфраструктуру.  
 
 
-##  <a name="BKMK_ManageSMSprovider"></a>Gerir o fornecedor de SMS  
- O fornecedor de SMS (um ficheiro de biblioteca de ligação dinâmica: smsprov) fornece o ponto de contacto administrativo para um ou mais consolas do Configuration Manager. Ao instalar múltiplos Fornecedores de SMS, poderá fornecer redundância de pontos de contacto, ao administrar o site e a hierarquia.  
+##  <a name="BKMK_ManageSMSprovider"></a> Управление поставщиком SMS  
+ Поставщик SMS (файл библиотеки динамической компоновки smsprov.dll) предоставляет точку административного контакта для одной или нескольких консолей Configuration Manager. Устанавливая несколько поставщиков SMS, вы можете обеспечить дополнительные точки доступа для администрирования сайта и иерархии.  
 
- Em cada site do Configuration Manager, pode voltar a executar a configuração para:  
+ На каждом сайте Configuration Manager можно повторно запустить программу установки, чтобы выполнить следующие задачи:  
 
--   Adicionar uma instância adicional do fornecedor de SMS (cada instância adicional do fornecedor de SMS tem de ser num computador separado)  
+-   Добавить дополнительный экземпляр поставщика SMS (каждый дополнительный экземпляр поставщика SMS должен находиться на отдельном компьютере)  
 
--   Remover uma instância do fornecedor de SMS (para remover o último fornecedor de SMS de um site, tem de desinstalar o site)  
+-   Удалить экземпляр поставщика SMS (чтобы удалить последний поставщик SMS для сайта, необходимо удалить сайт)  
 
- Pode monitorizar a instalação ou remoção do Fornecedor de SMS, visualizando o **ConfigMgrSetup.log** na pasta raiz do servidor de site onde executa a Configuração.  
+ Отследить установку или удаление поставщика SMS можно в файле **ConfigMgrSetup.log** в корневой папке сервера сайта, где выполнялась программа установки.  
 
- Antes de modificar o Fornecedor de SMS num site, deve estar familiarizado com as informações em [Planear o Fornecedor de SMS para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+ Перед изменением поставщика SMS на сайте можно ознакомиться с информацией в статье [Планирование использования поставщика SMS для System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
-#### <a name="to-manage-the-sms-provider-configuration-for-a-site"></a>Para gerir a configuração do Fornecedor de SMS num site  
+#### <a name="to-manage-the-sms-provider-configuration-for-a-site"></a>Управление конфигурацией поставщика SMS для сайта  
 
-1.  Executar **configuração do Configuration Manager** de  **&lt;pasta de instalação de site do Configuration Manager\>\bin\x64\setup.exe.**.  
+1.  Запустите **программу установки Configuration Manager** из расположения **&lt;папка_установки_сайта_Configuration_Manager\>\BIN\X64\setup.exe**.  
 
-2.  Na página **Introdução**, selecione **Executar a manutenção do site ou repor este site** e clique em **Seguinte**.  
+2.  На странице **Приступая к работе** выберите **Выполнить обслуживание или сброс параметров этого сайта**, а затем нажмите кнопку **Далее**.  
 
-3.  Na página **Manutenção do Site**, selecione **Modificar a configuração do Fornecedor de SMS** e clique em **Seguinte**.  
+3.  На странице **Обслуживание сайта** выберите параметр **Изменить конфигурацию поставщика SMS**, а затем нажмите кнопку **Далее**.  
 
-4.  Na página **Gerir Fornecedores de SMS**, selecione uma das seguintes opções e conclua o assistente através de uma das duas opções seguintes:  
+4.  На странице **Управление поставщиками SMS** выберите один из следующих параметров, после чего завершите работу мастера.  
 
-    -   Para adicionar um Fornecedor de SMS adicional a este site:  
+    -   Добавление дополнительного поставщика SMS на этот сайт  
 
-         Selecione **Adicionar um novo Fornecedor de SMS**, especifique o FQDN de um computador que irá alojar o Fornecedor de SMS, e que não aloje nenhum atualmente, e clique em **Seguinte**.  
+         Выберите **Добавить новый поставщик SMS**, укажите полное доменное имя компьютера, на котором в данный момент нет поставщика SMS, но на который его нужно установить, а затем нажмите кнопку **Далее**.  
 
-    -   Para remover um Fornecedor de SMS de um servidor:  
+    -   Удаление поставщика SMS с сервера  
 
-         Selecione **Desinstalar o Fornecedor de SMS especificado**, selecione o nome do computador do qual pretende remover o Fornecedor de SMS, clique em **Seguinte** e confirme a ação.  
+         Выберите **Удалить указанный поставщик SMS**, выберите имя компьютера, с которого нужно удалить поставщик SMS, нажмите кнопку **Далее**, а затем подтвердите действие.  
 
         > [!TIP]  
-        >  Para mover o Fornecedor de SMS entre dois computadores, tem de instalar o Fornecedor de SMS no novo computador e remover o Fornecedor de SMS da localização original. Não existe uma opção dedicada para mover o Fornecedor de SMS entre computadores num único processo.  
+        >  Чтобы переместить поставщик SMS с одного компьютера на другой, его необходимо установить на новый компьютер и удалить из исходного расположения. Специального параметра для перемещения поставщика SMS между компьютерами не существует.  
 
- Depois da conclusão do Assistente de Configuração, a configuração do Fornecedor de SMS está concluída. No separador **Geral**, na caixa de diálogo **Propriedades** do site, pode verificar os computadores que têm um Fornecedor de SMS instalado para um site.  
+ По окончании работы мастера установки настройка поставщика SMS будет завершена. На вкладке **Главная** в диалоговом окне **Свойства** можно проверить компьютеры, на которых установлен поставщик SMS для сайта.  
 
-##  <a name="bkmk_Console"></a>Gerir a consola do Configuration Manager  
- Seguem-se tarefas que pode fazer para gerir a consola do Configuration Manager:  
+##  <a name="bkmk_Console"></a> Управление консолью Configuration Manager  
+ Ниже перечислены задачи, которые можно выполнять для управления консолью Configuration Manager.  
 
--   **Modificar o idioma que é apresentada na consola do Configuration Manager** - para modificar os idiomas instalados consulte [idioma de consola do Configuration Manager gerir](#BKMK_ManageConsoleLanguages) neste tópico.  
+-   **Изменение языка, используемого в консоли Configuration Manager**. Сведения об изменении установленных языков см. в подразделе [Управление языками консоли Configuration Manager](#BKMK_ManageConsoleLanguages) этого раздела.  
 
--   **Instalar consolas adicionais** - para instalar consolas adicionais, consulte o artigo [consolas de instalar o System Center Configuration Manager](/sccm/core/servers/deploy/install/install-consoles).  
+-   **Установка дополнительных консолей**. Сведения об установке дополнительных консолей см. в разделе [Установка консолей System Center Configuration Manager](/sccm/core/servers/deploy/install/install-consoles).  
 
--   **Configurar o DCOM** - configurar permissões de DCOM para ativar as consolas que são remotas, a partir do servidor do site para ligar, consulte o artigo [permissões de DCOM configurar para consolas do Configuration Manager remoto](#BKMK_ConfigDCOMforRemoteConsole) neste tópico.  
+-   **Настройка DCOM**. Сведения о настройке разрешений DCOM для включения удаленных консолей сервера сайта см. в подразделе [Настройка разрешений DCOM для удаленной консоли Configuration Manager](#BKMK_ConfigDCOMforRemoteConsole) этого раздела.  
 
--   **Modificar permissões para limitar o que os utilizadores administrativos podem ver na consola do** - para modificar as permissões administrativas, o limite de que os utilizadores podem ver e na consola, consulte [modificar o âmbito administrativo de um utilizador administrativo](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_ModAdminUser).     
+-   **Изменение разрешений для ограничения доступного администраторам содержимого консоли**. Сведения об изменении прав администратора, которые ограничивают доступное содержимое и действия в консоли, см. в разделе [Изменение административной области пользователя с правами администратора](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_ModAdminUser).     
 
-###  <a name="BKMK_ManageConsoleLanguages"></a>Gerir o idioma de consola do Configuration Manager  
- Durante a instalação do servidor do site, os ficheiros de instalação da consola do Configuration Manager e os pacotes de idiomas suportados para o site são copiados para o  **&lt;ConfigMgrInstallationPath\>\tools\consolesetup.** subpasta no servidor do site.  
+###  <a name="BKMK_ManageConsoleLanguages"></a> Управление языком консоли Configuration Manager  
+ Во время установки сервера сайта файлы установки консоли Configuration Manager, а также поддерживаемые языковые пакеты для сайта копируются во вложенную папку **&lt;путь_установки_Configuration_Manager\>\Tools\ConsoleSetup** на сервере сайта.  
 
--   Quando inicia a instalação da consola do Configuration Manager a partir desta pasta no servidor do site, a consola do Configuration Manager e os ficheiros do pacote de idiomas suportados são copiados para o computador  
+-   При запуске установки консоли Configuration Manager из этой папки на сервере сайта файлы консоли Configuration Manager и поддерживаемых языковых пакетов копируются на компьютер.  
 
--   Quando um pacote de idiomas está disponível para a definição de idioma atual no computador, a consola do Configuration Manager será aberta nesse idioma  
+-   Если для текущих языковых параметров компьютера доступен соответствующий языковой пакет, консоль Configuration Manager будет открыта на этом языке.  
 
--   Se o pacote de idiomas associado não está disponível para a consola do Configuration Manager, a consola será aberta em inglês  
+-   Если нужный языковой пакет для консоли Configuration Manager отсутствует, будет открыта англоязычная версия консоли.  
 
-Por exemplo, considere um cenário em que instalar a consola do Configuration Manager a partir de um servidor de site que suporte inglês, alemão e francês. Se abrir a consola do Configuration Manager num computador com uma definição de idioma configurada de francês, a consola será aberta em francês. Se abrir a consola do Configuration Manager num computador com um configurada como japonês, a consola será aberta em japonês porque o pacote de idiomas de japonês não está disponível.  
+Рассмотрим ситуацию, когда консоль Configuration Manager устанавливается с сервера сайта, поддерживающего английский, немецкий и французский языки. При открытии консоли Configuration Manager на компьютере с настроенным французским языком консоль откроется на французском языке. При открытии консоли Configuration Manager на компьютере с настроенным японским языком консоль откроется на английском языке, так как японский языковой пакет недоступен.  
 
- Sempre que abre a consola do Configuration Manager, determina as definições de idioma configuradas para o computador, verifica se um pacote de idiomas associado está disponível para a consola do Configuration Manager e, em seguida, abre a consola utilizando o pacote de idiomas apropriado. Quando quiser abrir a consola do Configuration Manager em inglês, independentemente das definições de idioma configuradas no computador, tem manualmente remova ou mude o nome de ficheiros do pacote de idiomas no computador.  
+ Перед каждым открытием консоль Configuration Manager определяет настроенные языковые параметры для компьютера, проверяет доступность соответствующего языкового пакета для консоли Configuration Manager, а затем открывается с использованием нужного языкового пакета. Если независимо от настроенных языковых параметров компьютера нужно открыть англоязычную версию консоли Configuration Manager, следует вручную удалить или переименовать файлы языковых пакетов на компьютере.  
 
- Utilize os procedimentos seguintes para iniciar a consola do Configuration Manager em inglês, independentemente da definição de região configurada no computador.  
+ Описанные ниже процедуры используются для запуска англоязычной версии консоли Configuration Manager независимо от настроенных языковых параметров компьютера.  
 
-##### <a name="to-install-an-english-only-version-of-the-configuration-manager-console-on-computers"></a>Para instalar uma versão apenas em inglês da consola do Configuration Manager em computadores  
+##### <a name="to-install-an-english-only-version-of-the-configuration-manager-console-on-computers"></a>Установка только англоязычной версии консоли Configuration Manager на компьютерах  
 
-1.  No Explorador do Windows, navegue para  **&lt;ConfigMgrInstallationPath\>\tools\consolesetup\languagepack.**  
+1.  В проводнике перейдите в папку **&lt;путь_установки_Configuration_Manager\>\Tools\ConsoleSetup\LanguagePack**.  
 
-2.  Mude o nome dos ficheiros **.msp** e **.mst**. Por exemplo, pode alterar **&lt;nome do ficheiro\>.MSP** para **&lt;nome do ficheiro\>.MSP.disabled**.  
+2.  Переименуйте файлы **.msp** и **.mst** . Например, **&lt;имя_файла\>.MSP** можно изменить на **&lt;имя_файла\>.MSP.disabled**.  
 
-3.  Instale a consola do Configuration Manager no computador.  
+3.  Установите консоль Configuration Manager на компьютере.  
 
     > [!IMPORTANT]  
-    >  Quando são configurados novos idiomas de servidor para o servidor do site, os ficheiros. msp e. mst são novamente copiados para o **LanguagePack** pasta e terá de repetir este procedimento para instalar novas consolas do Configuration Manager apenas em inglês.  
+    >  Если для сервера сайта настраиваются новые языки, MSP- и MST-файлы повторно копируются в папку **LanguagePack**, после чего эту процедуру нужно повторить, чтобы установить новые консоли Configuration Manager только на английском языке.  
 
-##### <a name="to-temporarily-disable-a-console-language-on-an-existing-configuration-manager-console-installation"></a>Para desativar temporariamente um idioma de consola numa instalação existente de consola do Configuration Manager  
+##### <a name="to-temporarily-disable-a-console-language-on-an-existing-configuration-manager-console-installation"></a>Временное отключение языка консоли в существующей установке консоли Configuration Manager  
 
-1.  No computador que está a executar a consola do Configuration Manager, feche a consola do Configuration Manager.  
+1.  На компьютере, на котором выполняется консоль Configuration Manager, закройте ее.  
 
-2.  No Explorador do Windows, navegue para &lt; *ConsoleInstallationPath*> \Bin\ no computador da consola do Configuration Manager.  
+2.  В проводнике перейдите в папку &lt;*путь_установки_консоли*>\Bin\ на компьютере с консолью Configuration Manager.  
 
-3.  Mude o nome da pasta de idiomas apropriada para o idioma que se encontra configurado no computador. Por exemplo, se as definições de idioma do computador tiverem sido definidas para alemão, poderá mudar o nome da pasta **de** para **de.disabled**.  
+3.  Переименуйте соответствующую языковую папку для языка, настроенного на компьютере. Например, если на компьютере настроен немецкий язык, папку **de** следует переименовать в **de.disabled**.  
 
-4.  Para abrir a consola do Configuration Manager no idioma que está configurado para o computador, mude o nome da pasta para o nome original. Por exemplo, mude o nome **de.disabled** para **de**.  
+4.  Чтобы открыть консоль Configuration Manager на настроенном для компьютера языке, задайте для папки исходное имя. Например, переименуйте папку **de.disabled** в **de**.  
 
-##  <a name="BKMK_ConfigDCOMforRemoteConsole"></a>Configurar permissões de DCOM para consolas remotas do Configuration Manager  
- A conta de utilizador que executa a consola do Configuration Manager necessita de permissão para aceder à base de dados do site utilizando o fornecedor de SMS. No entanto, um utilizador administrativo que utiliza uma consola remota do Configuration Manager também necessita de **ativação remota** de permissões DCOM no:  
+##  <a name="BKMK_ConfigDCOMforRemoteConsole"></a> Настройка разрешений DCOM для удаленных консолей Configuration Manager  
+ Учетной записи пользователя, от имени которого запущена консоль Configuration Manager, требуется разрешение на доступ к базе данных сайта с помощью поставщика SMS. Пользователю с правами администратора, который использует удаленную консоль Configuration Manager, также требуются разрешения DCOM на **удаленную активацию** для следующих компонентов:  
 
--   O computador do servidor do site  
+-   Компьютер сервера сайта  
 
--   Cada computador que aloja uma instância do Fornecedor de SMS  
+-   Каждый компьютер, на котором размещается экземпляр поставщика SMS  
 
- O grupo de segurança com o nome **Admins de SMS** concede acesso ao Fornecedor de SMS num computador e também pode ser utilizado para conceder as permissões de DCOM necessárias. (Este grupo é local no computador quando o fornecedor de SMS é executado num servidor membro e é um grupo local de domínio quando o fornecedor de SMS é executado num controlador de domínio.)  
+ Группа безопасности под названием **Администраторы SMS** предоставляет доступ к поставщику SMS на компьютере и также может использоваться для предоставления необходимых разрешений DCOM. (Эта группа является локальной группой компьютера, если поставщик SMS запущен на сервере члена группы, и локальной группой домена, если поставщик SMS запущен в контроллере домена.)  
 
 > [!IMPORTANT]  
->  Consola do Configuration Manager utiliza Windows Management Instrumentation (WMI) para ligar ao fornecedor de SMS e a WMI utiliza o DCOM internamente. Por conseguinte, o Configuration Manager requer permissões para ativar um servidor DCOM no computador do fornecedor de SMS se a consola do Configuration Manager está em execução num computador diferente do computador do fornecedor de SMS. Por predefinição, a ativação remota é concedida apenas aos membros do grupo Administradores incorporado. Se permitir que o grupo Admins de SMS tenha a permissão Ativação Remota, um membro deste grupo pode tentar ataques DCOM contra o computador do Fornecedor de SMS. Esta configuração também aumenta a superfície de ataque do computador. Para atenuar esta ameaça, monitorize cuidadosamente os membros do grupo Admins de SMS.  
+>  Для подключения к поставщику SMS консоль Configuration Manager использует инструментарий управления Windows (WMI), а WMI внутренне использует DCOM. Поэтому если консоль Configuration Manager запущена на компьютере, отличном от компьютера поставщика SMS, Configuration Manager требует разрешений для активации сервера DCOM на компьютере поставщика SMS. По умолчанию разрешения на удаленную активацию предоставляются только членам встроенной группы "Администраторы". Если группе администраторов SMS предоставлено разрешение на удаленную активацию, член этой группы может быть подвержен действию DCOM-атак, направленных на компьютер поставщика SMS. Эта конфигурация также делает компьютер более уязвимым. Чтобы избежать этого риска, уделите особое внимание членству в группе администраторов SMS.  
 
- Utilize o procedimento seguinte para configurar cada site de administração central, servidor de site primário e cada computador onde está instalado o fornecedor de SMS para conceder acesso à consola para os utilizadores administrativos a remoto do Configuration Manager.  
+ Описанная ниже процедура используется для настройки каждого сайта центра администрирования, сервера первичного сайта и каждого компьютера с установленным поставщиком SMS для предоставления пользователям доступа к удаленной консоли Configuration Manager.  
 
-#### <a name="to-configure-dcom-permissions-for-remote-configuration-manager-console-connections"></a>Para configurar permissões de DCOM para ligações de consolas remotas do Configuration Manager  
+#### <a name="to-configure-dcom-permissions-for-remote-configuration-manager-console-connections"></a>Настройка разрешений DCOM для подключений к удаленной консоли Configuration Manager  
 
-1.  Abra **Serviços de Componentes**, executando **Dcomcnfg.exe**.  
+1.  Откройте  **Службы компонентов** , выполнив команду **Dcomcnfg.exe**.  
 
-2.  No **serviços de componentes**, clique em **raiz da consola** >  **serviços de componentes** > **computadores**e, em seguida, clique em **meu computador**. No menu **Ação**, clique em **Propriedades**.  
+2.  В окне **Службы компонентов**щелкните элемент **Корень консоли** >  **Службы компонентов** > **Компьютеры**, а затем нажмите кнопку **Мой компьютер**. В меню **Действие** выберите пункт **Свойства**.  
 
-3.  Na caixa de diálogo **Propriedades de O Meu Computador**, na secção **Permissões de Lançamento e Ativação** do separador **Segurança COM**, clique em **Editar Limites**.  
+3.  В диалоговом окне **Свойства: Мой компьютер** на вкладке **Безопасность COM** в разделе **Разрешения на запуск и активацию** нажмите кнопку **Изменить ограничения**.  
 
-4.  Na caixa de diálogo **Permissões de Lançamento e Ativação**, clique em **Adicionar**.  
+4.  В диалоговом окне **Разрешения на запуск и активацию** нажмите кнопку **Добавить**.  
 
-5.  No **selecionar utilizadores, computadores, contas de serviço ou grupos** caixa de diálogo a **introduza os nomes dos objetos a selecionar (exemplos)** caixa, escreva **Admins de SMS**e, em seguida, clique em **OK**.  
+5.  В диалоговом окне **Выбор пользователей, компьютеров, учетных записей служб или групп** в поле **Введите имена объектов для выбора (примеры)** введите **SMS Admins**, а затем нажмите кнопку **ОК**.  
 
     > [!NOTE]  
-    >  Poderá ter de alterar a definição **Desta localização** para localizar o grupo Admins de SMS. Este grupo é local no computador quando o Fornecedor de SMS é executado num servidor membro e é um grupo local do domínio quando o Fornecedor de SMS é executado num controlador de domínio.  
+    >  Чтобы найти группу администраторов SMS, может потребоваться изменить значение параметра **Из этого расположения** . Эта группа является локальной группой компьютера, если поставщик SMS запущен на рядовом сервере, и локальной группой домена, если поставщик SMS запущен в контроллере домена.  
 
-6.  Na secção **Permissões para Admins de SMS**, para permitir a ativação remota, selecione a caixa de verificação **Ativação Remota**.  
+6.  В разделе **Разрешения для администраторов SMS** установите флажок **Удаленная активация** , чтобы разрешить удаленную активацию.  
 
-7.  Clique em **OK** e clique novamente em **OK** e, em seguida, feche **Gestão de Computadores**. O computador está agora configurado para permitir o acesso à consola para membros do grupo Admins de SMS remoto do Configuration Manager.  
+7.  Нажмите кнопку **ОК** , нажмите кнопку **ОК** еще раз и закройте окно **Управление компьютером**. Теперь компьютер настроен для разрешения членам группы администраторов SMS доступа к удаленной консоли Configuration Manager.  
 
- Repita este procedimento em cada computador fornecedor de SMS que possa suportar consolas remotas do Configuration Manager.  
+ Повторите эту процедуру на каждом компьютере поставщика SMS, который может поддерживать удаленные консоли Configuration Manager.  
 
-##  <a name="bkmk_dbconfig"></a>Modificar a configuração de base de dados do site  
- Após instalar um site, poderá modificar a configuração de base de dados do site e o servidor da base de dados do site executando o Programa de Configuração num servidor de site de administração central ou servidor de site primário. Pode mover a base de dados do site para uma nova instância do SQL Server no mesmo computador, ou para outro computador que execute uma versão suportada do SQL Server. Estas e as alterações relacionadas não são suportadas para a configuração da base de dados em sites secundários.  
+##  <a name="bkmk_dbconfig"></a> Изменение конфигурации базы данных сайта  
+ После установки сайта можно изменить конфигурацию базы данных сайта и сервера базы данных сайта, запустив программу установки на сервере сайта центра администрирования или сервере первичного сайта. Базу данных сайта можно переместить в новый экземпляр SQL Server на том же компьютере или на другой компьютер, где запущена поддерживаемая версия SQL Server. Эти и аналогичные изменения не поддерживаются в конфигурации базы данных на вторичных сайтах.  
 
- Para obter mais informações sobre os limites do suporte, veja [Política de suporte para alterações manuais da base de dados num ambiente do Configuration Manager](https://support.microsoft.com/kb/3106512).  
+ Дополнительные сведения об ограничениях поддержки см. в статье [Политика поддержки для ручных изменений в базах данных в среде Configuration Manager](https://support.microsoft.com/kb/3106512).  
 
 > [!NOTE]  
->  Ao modificar a configuração de base de dados para um site, o Configuration Manager será reiniciado e reinstalará os serviços do Configuration Manager no servidor do site e servidores de sistema de sites remotos que comunicam com a base de dados.  
+>  При изменении конфигурации базы данных для сайта Configuration Manager перезапустит или переустановит службы Configuration Manager на сервере сайта и удаленных серверах системы сайта, которые взаимодействуют с базой данных.  
 
-**Para alterar a configuração da base de dados**, terá de executar a Configuração no servidor do site e selecionar a opção **Executar a manutenção do site ou repor este site**. Em seguida, selecione a opção **Modificar a configuração do SQL Server**. Pode alterar as seguintes configurações de bases de dados do site:  
+**Чтобы изменить конфигурацию базы данных**, необходимо запустить программу установки на сервере сайта и выбрать параметр **Выполнить обслуживание или сброс параметров этого сайта**. Затем выберите параметр **Изменить конфигурацию SQL Server** . Можно изменить следующие конфигурации базы данных сайта.  
 
--   O servidor baseado em Windows que aloja a base de dados.  
+-   Сервер Windows, на котором размещена база данных.  
 
--   A instância do SQL Server utilizada num servidor que aloja a base de dados do SQL Server.  
+-   Экземпляр SQL Server, используемый на сервере, где размещена база данных SQL Server.  
 
--   O nome da base de dados.  
+-   Имя базы данных.  
 
--   A porta do SQL Server utilizada pelo Configuration Manager  
+-   Порт SQL Server, используемый Configuration Manager  
 
--   Porta do SQL Server Service Broker utilizado pelo Configuration Manager  
+-   Порт SQL Server Service Broker, используемый Configuration Manager  
 
-**Se mover a base de dados do site, tem de configurar o seguinte:**  
+**При перемещении базы данных сайта необходимо выполнить указанные ниже действия.**  
 
--   **Configure o acesso:** Quando mover a base de dados do site para um novo computador, adicione a conta de computador do servidor do site para o **administradores locais** grupo no computador que executa o SQL Server. Se utilizar um cluster do SQL Server para a base de dados do site, terá de adicionar a conta de computador ao grupo **Administradores Locais** de cada computador com nós de cluster do Windows Server.  
+-   **Настройка доступа** : при перемещении базы данных сайта на новый компьютер добавьте учетную запись компьютера сервера сайта в группу **Локальные администраторы** на компьютере, где выполняется SQL Server. Если для базы данных сайта используется кластер SQL Server, учетную запись компьютера следует добавить в группу **Локальные администраторы** на каждом компьютере узла кластера Windows Server.  
 
--   **Ative integração language runtime (CLR):**  Quando mover a base de dados para uma nova instância do SQL Server, ou para um novo computador do SQL Server, tem de ativar integração language runtime (CLR). Para ativar o CLR, utilize **SQL Server Management Studio** para estabelecer ligação à instância do SQL Server que aloja a base de dados do site e execute o seguinte procedimento armazenado como uma consulta: **sp_configure 'clr enabled' 1; reconfigurar**.  
--  **Certifique-se de que o novo SQL Server tem acesso à localização de cópia de segurança:** Quando utiliza um UNC para armazenar a cópia de segurança de base de dados do site, depois de mover a base de dados para um novo servidor, incluindo um mover um grupo de Disponibilidade AlwaysOn do SQL Server ou a um cluster do SQL Server, certifique-se a conta de computador do novo servidor do SQL Server tem **escrever** permissões para a localização UNC.  
+-   **Включить интеграцию среды CLR**  : при перемещении базы данных на новый экземпляр SQL Server или на новый компьютер SQL Server требуется включить интеграцию среды CLR. Чтобы включить CLR, с помощью **SQL Server Management Studio** подключитесь к экземпляру SQL Server, на котором размещена база данных сайта, и выполните следующую хранимую процедуру как запрос: **sp_configure 'clr enabled',1; reconfigure**.  
+-  **Обеспечение доступа SQL Server к расположению резервной копии**. Если вы используете UNC для хранения резервной копии базы данных сайта, после переноса базы данных на новый сервер, в том числе ее переноса в группу доступности SQL Server AlwaysOn или кластер SQL Server, убедитесь в том, что учетная запись компьютера нового сервера SQL Server имеет разрешение на **запись** в расположение UNC.  
 
 
 > [!IMPORTANT]  
->  Antes de mover uma base de dados que tenha uma ou mais réplicas de base de dados para pontos de gestão, necessitará primeiro de remover as réplicas de base de dados. Após concluir a mudança da base de dados, poderá reconfigurar as réplicas de base de dados. Para obter mais informações, veja [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+>  Перед перемещением базы данных, в которой есть одна или несколько реплик для точек управления, необходимо сначала удалить реплики базы данных. После завершения перемещения базы данных можно перенастроить реплики базы данных. Дополнительные сведения см. в статье [Database replicas for management points for System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
-##  <a name="bkmk_SPN"></a>Gerir o SPN para o servidor de base de dados do site  
-Pode selecionar a conta que executa o SQL Services para a base de dados do site:  
+##  <a name="bkmk_SPN"></a> Управление именем субъекта-службы для сервера базы данных сайта  
+Для базы данных сайта можно выбрать учетную запись служб SQL.  
 
--   Quando os serviços são executados com a conta de sistema de computadores, o SPN é registado automaticamente para si.  
+-   При запуске службы с системной учетной записью компьютера имя участника-службы регистрируется автоматически.  
 
--   Quando os serviços são executados com uma conta de utilizador local de domínio, tem de registar manualmente o SPN para garantir que os clientes de SQL e outro sistema de sites podem executar a autenticação Kerberos. Sem autenticação Kerberos, a comunicação com a base de dados poderá falhar.  
+-   При запуске служб с учетной записью локального пользователя домена необходимо вручную зарегистрировать имя субъекта-службы, чтобы клиенты SQL и другие системы сайта могли выполнять проверку подлинности Kerberos. Без проверки подлинности Kerberos попытка установки связи с базой данных может завершиться ошибкой.  
 
-A documentação do SQL Server pode ajudá-lo a [registar manualmente o SPN](https://technet.microsoft.com/library/ms191153\(v=sql.120\).aspx) e fornecer informações adicionais sobre SPNs e ligações Kerberos.  
+Документация по SQL Server поможет [вручную зарегистрировать имя участника-службы](https://technet.microsoft.com/library/ms191153\(v=sql.120\).aspx)и предоставит дополнительные сведения о подключениях имен участников-служб и Kerberos.  
 
 > [!IMPORTANT]  
->  -   Ao criar um SPN para um SQL Server em cluster, deverá especificar o nome virtual do Cluster do SQL Server como o nome de computador do SQL Server  
-> -   O comando para registar um SPN para uma instância nomeada do SQL Server é igual ao utilizado para registar um SPN para uma instância predefinida, com exceção do facto de o número de porta ter de corresponder à porta que é utilizada pela instância nomeada  
+>  -   При создании имени субъекта-службы для кластеризованной версии SQL Server виртуальное имя кластера SQL Server необходимо указать в качестве имени компьютера SQL Server.  
+> -   Имя субъекта-службы для именованного экземпляра SQL Server регистрируется с помощью той же команды, которая используется при регистрации имени субъекта-службы для экземпляра по умолчанию. Однако номер порта в ней должен совпадать с номером порта, используемым именованным экземпляром.  
 
-Pode registar um SPN para a conta de serviço do SQL Server do servidor de base de dados do site através da ferramenta **Setspn**. Deverá executar a ferramenta Setspn num computador que resida no domínio do SQL Server, a qual deverá utilizar credenciais de Administrador de Domínio ao ser executada.  
+Для регистрации имени субъекта-службы для учетной записи службы SQL Server сервера базы данных сайта можно воспользоваться программой **Setspn** . Средство Setspn следует запустить на компьютере, который входит в домен SQL Server, и использовать при этом учетные данные администратора домена.  
 
- Utilize os seguintes procedimentos como exemplos de como gerir o SPN para a conta de serviço do SQL Server que utiliza a ferramenta Setspn no Windows Server 2008 R2. Para obter instruções específicas sobre o Setspn, veja [Descrição Geral do Setspn](http://go.microsoft.com/fwlink/p/?LinkId=226343) ou outra documentação semelhante, específica do seu sistema operativo.  
+ Следующие процедуры используются в качестве примеров управления именем субъекта-службы для учетной записи службы SQL Server, применяющей программу средство Setspn на сервере Windows Server 2008 R2. Руководство по программе Setspn см. в статье [Setspn Overview (Обзор средства Setspn) (Возможно, на английском языке)](http://go.microsoft.com/fwlink/p/?LinkId=226343)или похожей документации по конкретной операционной системе.  
 
 > [!NOTE]  
->  Os seguintes procedimentos fazem referência a ferramenta da linha de comandos Setspn. A ferramenta de linha de comandos Setspn está incluída quando instala ferramentas de suporte do Windows Server 2003 a partir do CD de produto ou do [Microsoft Download Center](http://go.microsoft.com/fwlink/p/?LinkId=100114). Para obter mais informações sobre como instalar as Ferramentas de Suporte do Windows a partir do CD de produto, veja [Instalar as Ferramentas de Suporte do Windows](http://go.microsoft.com/fwlink/p/?LinkId=62270).  
+>  В следующих процедурах используется программа командной строки Setspn. Программа командной строки Setspn включается в комплект при установке средств поддержки Windows Server 2003 с компакт-диска продукта или из [Центра загрузки Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=100114). Дополнительные сведения об установке средств поддержки Windows с компакт-диска продукта см. в статье [Установка средств поддержки Windows](http://go.microsoft.com/fwlink/p/?LinkId=62270).  
 
-#### <a name="to-manually-create-a-domain-user-service-principal-name-spn-for-the-sql-server-service-account"></a>Para criar manualmente um utilizador de domínio nome Principal de serviço (SPN) para a conta de serviço do SQL Server  
+#### <a name="to-manually-create-a-domain-user-service-principal-name-spn-for-the-sql-server-service-account"></a>Создание имени субъекта-службы пользователя домена для учетной записи службы SQL Server вручную  
 
-1.  No menu **Início**, clique em **Executar** e, em seguida, introduza **cmd** na caixa de diálogo Executar.  
+1.  В меню **Пуск** выберите пункт **Выполнить**и в диалоговом окне "Выполнить" введите **cmd** .  
 
-2.  Na linha de comandos, navegue para o diretório de instalação das ferramentas de suporte do Windows Server. Por predefinição, estas ferramentas estão localizadas no **c:\Programas\Microsoft Files\Support ferramentas** diretório.  
+2.  В командной строке перейдите к каталогу установки средств поддержки Windows Server. По умолчанию эти средства находятся в каталоге **C:\Program Files\Support Tools** .  
 
-3.  Introduza um comando válido para criar o SPN. Para criar o SPN, pode utilizar o nome NetBIOS ou o nome de domínio completamente qualificado (FQDN) do computador a executar o SQL Server. No entanto, precisará de criar um SPN tanto para o nome NetBIOS como para o FQDN.  
+3.  Введите допустимую команду для создания имени субъекта-службы. Чтобы создать имя субъекта-службы, можно использовать NetBIOS-имя или полное доменное имя (FQDN) компьютера, где выполняется SQL Server. Имя субъекта-службы необходимо создать и для NetBIOS-имени, и для полного доменного имени.  
 
     > [!IMPORTANT]  
-    >  Ao criar um SPN para um SQL Server em cluster, deverá especificar o nome virtual do Cluster do SQL Server como o nome de computador do SQL Server.  
+    >  При создании имени субъекта-службы для кластеризованной версии SQL Server виртуальное имя кластера SQL Server необходимо указать в качестве имени компьютера SQL Server.  
 
-    -   Para criar um SPN para o nome NetBIOS do computador do SQL Server, escreva o seguinte comando: **setspn - A MSSQLSvc /&lt;nome de computador do SQL Server\>: 1433 &lt;Domain\Account >**  
+    -   Чтобы создать имя субъекта-службы для NetBIOS-имени компьютера SQL Server, введите следующую команду: **setspn -A MSSQLSvc/&lt;имя_компьютера_SQL_Server\>:1433 &lt;домен\учетная_запись>**.  
 
-    -   Para criar um SPN para o FQDN do computador do SQL Server, escreva o seguinte comando: **setspn - A MSSQLSvc /&lt;FQDN do SQL Server\>: 1433 &lt;Domain\Account >**  
+    -   Чтобы создать имя субъекта-службы для полного доменного имени компьютера SQL Server, введите следующую команду: **setspn -A MSSQLSvc/&lt;полное_доменное_имя_SQL_Server\>:1433 &lt;домен\учетная_запись>**.  
 
     > [!NOTE]  
-    >  O comando para registar um SPN para uma instância nomeada do SQL Server é igual ao utilizado para registar um SPN para uma instância predefinida, com exceção do fato de o número de porta ter de corresponder à porta que é utilizada pela instância nomeada.  
+    >  Имя субъекта-службы для именованного экземпляра SQL Server регистрируется с помощью той же команды, которая используется при регистрации имени субъекта-службы для экземпляра по умолчанию. Однако номер порта в ней должен совпадать с номером порта, используемым именованным экземпляром.  
 
-#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-by-using-the-setspn-command"></a>Para verificar se o SPN do utilizador de domínio está corretamente registado utilizando o comando Setspn  
+#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-by-using-the-setspn-command"></a>Проверка правильной регистрации имени субъекта-службы пользователя домена с помощью команды Setspn  
 
-1.  No menu **Início**, clique em **Executar** e, em seguida, introduza **cmd** na caixa de diálogo **Executar**.  
+1.  В меню **Пуск** выберите пункт **Выполнить**и в диалоговом окне **Выполнить** введите **cmd** .  
 
-2.  Na linha de comandos, introduza o seguinte comando: **setspn -L &lt;domain\SQL conta de serviço >**.  
+2.  В командной строке введите следующую команду: **setspn -L &lt;домен\учетная_запись_службы_SQL>**.  
 
-3.  Reveja o **ServicePrincipalName** registado para certificar-se de que foi criado um SPN válido para o SQL Server.  
+3.  Проверьте зарегистрированное **Имя субъекта-службы** , чтобы убедиться, что для SQL Server создано допустимое имя субъекта-службы.  
 
-#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-when-using-the-adsiedit-mmc-console"></a>Para verificar se o SPN do utilizador de domínio está corretamente registado utilizando a consola ADSIEdit do MMC  
+#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-when-using-the-adsiedit-mmc-console"></a>Проверка правильной регистрации имени SPN пользователя домена с помощью консоли MMC ADSIEdit  
 
-1.  No menu **Início**, clique em **Executar** e, em seguida, introduza **adsiedit.msc** para iniciar a consola ADSIEdit do MMC.  
+1.  В меню **Пуск** выберите пункт **Выполнить**и введите команду **adsiedit.msc** , чтобы запустить консоль MMC ADSIEdit.  
 
-2.  Se necessário, ligue estabeleça a ligação ao domínio do servidor do site.  
+2.  При необходимости подключитесь к домену сервера сайта.  
 
-3.  No painel da consola, expanda o domínio do servidor de site, expanda **DC =&lt;nome do servidor único\>**, expanda **CN = Users**, com o botão direito **CN =&lt;utilizador da conta de serviço\>**e, em seguida, clique em **propriedades**.  
+3.  На панели консоли последовательно разверните узлы домена сервера сайта, **DC=&lt;различающееся имя сервера\>**, **CN=Пользователи**, правой кнопкой мыши щелкните **CN=&lt;Пользователь учетной записи службы\>** и выберите пункт **Свойства**.  
 
-4.  No **CN =&lt;utilizador da conta de serviço\> propriedades** caixa de diálogo, reveja o **servicePrincipalName** valor para se certificar de que foi criado e associado ao computador do SQL Server correto um SPN válido.  
+4.  В диалоговом окне **Свойства: CN=&lt;Пользователь учетной записи службы\>** проверьте значение параметра **servicePrincipalName**, чтобы убедиться в том, что создано допустимое имя субъекта-службы, которое связано с правильным компьютером SQL Server.  
 
-#### <a name="to-change-the-sql-server-service-account-from-local-system-to-a-domain-user-account"></a>Para alterar a conta de serviço do SQL Server de sistema local para uma conta de utilizador de domínio  
+#### <a name="to-change-the-sql-server-service-account-from-local-system-to-a-domain-user-account"></a>Изменение учетной записи службы SQL Server с локальной системной учетной записи на учетную запись пользователя домена  
 
-1.  Crie ou selecione a conta de utilizador de domínio ou de sistema local que pretende utilizar como a conta de serviço do SQL Server.  
+1.  Создайте или выберите учетную запись пользователя домена или учетную запись пользователя локальной системы, которая будет использоваться в качестве учетной записи службы SQL Server.  
 
-2.  Abra o **Gestor de Configuração do SQL Server**.  
+2.  Откройте **SQL Server Configuration Manager**.  
 
-3.  Clique em **do SQL Server Services**e, em seguida, faça duplo clique **do SQL Server&lt;nome da instância\>**.  
+3.  Щелкните **Службы SQL Server**, а затем дважды щелкните **SQL Server&lt;ИМЯ ЭКЗЕМПЛЯРА\>**.  
 
-4.  No separador **Início de sessão**, selecione **Esta conta** e, em seguida, introduza o nome de utilizador e a palavra-passe da conta de utilizador de domínio criada no passo 1, ou clique em **Procurar** para localizar a conta de utilizador nos Serviços de Domínio do Active Directory e, em seguida, clique em **Aplicar**.  
+4.  На вкладке **Вход** выберите **Эта учетная запись**, а затем введите имя пользователя и пароль для учетной записи пользователя домена, созданной на шаге 1, или нажмите кнопку **Обзор** , чтобы найти учетную запись пользователя в доменных службах Active Directory, а затем нажмите кнопку **Применить**.  
 
-5.  Clique em **Sim** na caixa de diálogo **Confirmar Alteração da Conta** para confirmar a alteração da conta de serviço e reiniciar o serviço do SQL Server.  
+5.  Чтобы подтвердить изменение учетной записи службы и перезапустить службу SQL Server, нажмите кнопку **Да** в диалоговом окне **Подтвердите изменение учетной записи** .  
 
-6.  Clique em **OK** após a alteração com êxito da conta de serviço.  
+6.  После успешного изменения учетной записи службы нажмите кнопку **ОК** .  
 
-##  <a name="bkmk_reset"></a>Executar uma reposição do site  
- Quando uma reposição do site é executada num site de administração central ou site primário, o site:  
+##  <a name="bkmk_reset"></a> Выполнение сброса параметров сайта  
+ При сбросе сайта на сайте центра администрирования или первичном сайте сайт выполняет следующие действия:  
 
--   Reapplies permissões predefinidas do Configuration Manager ficheiros e registo  
+-   Повторно применяет файл Configuration Manager и разрешения для доступа к реестру по умолчанию  
 
--   Reinstala todos os componentes do site e todas as funções de sistema de site no site  
+-   Переустанавливает все компоненты сайта и все роли системы сайта  
 
-Os sites secundários não suportam uma reposição de site.  
+Вторичные сайты не поддерживают сброс параметров сайта.  
 
-As reposições do site podem ser executadas manualmente, quando assim o decidir, mas também podem ser executadas automaticamente depois de modificar a configuração do site.  
+Сброс сайта при желании можно выполнить вручную. Он также может выполняться автоматически после изменения конфигурации сайта.  
 
-Por exemplo, se tiver ocorrido uma alteração às contas utilizadas por componentes do Configuration Manager, deve considerar uma reposição para garantir que os componentes do site para utilizar os novos detalhes de conta de atualização manual do site. No entanto, se modificar os idiomas de cliente ou servidor num site, do Configuration Manager é executado automaticamente um reposição do site devido a reposição não é necessária para que um site pode utilizar esta alteração.  
+Например, если произошло изменение в учетных записях, используемых компонентами Configuration Manager, следует выполнить сброс вручную, чтобы компоненты сайта использовали обновленные учетные записи. Однако после изменения языков интерфейса клиента или сервера на сайте Configuration Manager выполнит сброс сайта автоматически, так как сброс необходим для учета этих изменений.  
 
 > [!NOTE]  
->  Uma reposição do site não repor as permissões de acesso não - objetos do Configuration Manager.  
+>  Сброс сайта не приводит к сбросу разрешений для объектов, не относящихся к Configuration Manager.  
 
-Quando uma reposição do site é executada:  
+При выполнении сброса сайта:  
 
-1.  Programa de configuração interrompe e reinicia o **SMS_SITE_COMPONENT_MANAGER** e os componentes de thread do serviço de **SMS_EXECUTIVE** serviço.  
+1.  Программа установки прекращает работу и перезапускает службу **SMS_SITE_COMPONENT_MANAGER** и компоненты потока службы **SMS_EXECUTIVE** .  
 
-2.  A configuração remove e depois recria, o sistema de sites pasta da partilha e o **SMS Executive** componente no computador local e em computadores do sistema de sites remotos.  
+2.  Программа установки удаляет, а затем повторно создает на локальном компьютере и удаленных компьютерах системы сайта общую папку системы сайта и компонент **SMS Executive** .  
 
-3.  Programa de configuração reinicia o **SMS_SITE_COMPONENT_MANAGER** serviço, este serviço instala o **SMS_EXECUTIVE** e o **SMS_SQL_MONITOR** serviços.  
+3.  Программа установки перезапускает службу **SMS_SITE_COMPONENT_MANAGER** ,которая устанавливает службы **SMS_EXECUTIVE** и **SMS_SQL_MONITOR** .  
 
-Além disso, uma reposição do site restaura os seguintes objetos:  
+Кроме того, при сбросе сайта восстанавливаются следующие объекты:  
 
--   As chaves de registo **SMS** ou **NAL**, bem como outras subchaves predefinidas sob destas chaves.  
+-   разделы реестра **SMS** или **NAL** и все вложенные разделы по умолчанию;  
 
--   A árvore de diretórios de ficheiros do Configuration Manager e quaisquer ficheiros predefinidos ou subdiretórios desta árvore de diretórios de ficheiros.  
+-   дерево папок файлов Configuration Manager и все файлы или подпапки по умолчанию этого дерева папок файлов.  
 
-**Pré-requisitos para executar uma reposição do site**  
+**Необходимые условия для выполнения сброса сайта**  
 
-A conta utilizada para efetuar uma reposição do site tem de ter as seguintes permissões:  
+Учетная запись, используемая для сброса параметров сайта, должна иметь следующие разрешения.  
 
--   A conta utilizada para efetuar uma reposição do site tem de ter as seguintes permissões:  
+-   Учетная запись, используемая для сброса параметров сайта, должна иметь следующие разрешения.  
 
-    -   **Site de administração central**: A conta que utilizar para executar uma reposição do site tem de ser um administrador local no servidor do site de administração central e deve possuir privilégios equivalentes da **administrador total** função de segurança da administração baseada em funções.  
+    -   **Сайт центра администрирования**: учетная запись, используемая для сброса параметров сайта, должна быть учетной записью локального администратора на сервере сайта центра администрирования и должна иметь привилегии, равнозначные роли безопасности ролевого администрирования **Полный администратор** .  
 
-    -   **Site primário**: A conta que utilizar para executar uma reposição do site tem de ser um administrador local no servidor do site primário e deve possuir privilégios equivalentes da **administrador total** função de segurança da administração baseada em funções. Se o site primário estiver numa hierarquia com um site de administração central, esta conta também deverá ser um administrador local no servidor do site de administração central.  
+    -   **Основной сайт**:учетная запись, используемая для сброса параметров этого сайта, должна быть учетной записью локального администратора на сервере основного сайта и должна иметь привилегии, равнозначные роли безопасности ролевого администрирования **Полный администратор** . Если первичный сайт находится в одной иерархии с сайтом центра администрирования, эта учетная запись также должна быть учетной записью локального администратора на сервере сайта центра администрирования.  
 
-**Limitações de uma reposição do site**
-  -    A partir da versão 1602, não é possível utilizar uma reposição para alterar o servidor do site ou pacotes de idiomas de cliente que instalados no sties desde que a hierarquia está configurada para suportar [testar as atualizações de cliente numa coleção de pré-produção](/sccm/core/clients/manage/upgrade/test-client-upgrades).
+**Ограничения на сброс параметров сайта**
+  - Начиная с версии 1602, нельзя использовать сброс параметров сайта для изменения языковых пакетов сервера или клиента, установленных на сайтах, если для иерархии настроена поддержка [тестирования обновлений клиентов в подготовительной коллекции](/sccm/core/clients/manage/upgrade/test-client-upgrades).
 
-#### <a name="to-perform-a-site-reset"></a>Para efetuar uma reposição do site  
+#### <a name="to-perform-a-site-reset"></a>Выполнение сброса параметров сайта  
 
-1.  Executar **configuração do Configuration Manager** de  **&lt;pasta de instalação de site do Configuration Manager\>\bin\x64\setup.exe.**.  
+1.  Запустите **программу установки Configuration Manager** из расположения **&lt;папка_установки_сайта_Configuration_Manager\>\BIN\X64\setup.exe**.  
 
     > [!TIP]  
-    >  Também pode executar um reposição do site ao iniciar a configuração do Configuration Manager no **iniciar** menu do computador do servidor do site ou a partir do suporte de dados de origem do Configuration Manager.  
+    >  Сброс сайта также можно выполнить, запустив программу установки Configuration Manager в меню **Пуск** компьютера сервера сайта или с исходного носителя Configuration Manager.  
 
-2.  Na página **Introdução** , selecione **Executar a manutenção do site ou repor este site**e clique em **Seguinte**.  
+2.  На странице **Приступая к работе** выберите **Выполнить обслуживание или сброс параметров этого сайта**, а затем нажмите кнопку **Далее**.  
 
-3.  Na página **Manutenção do Site**, selecione **Repor o site sem alterações de configuração** e clique em **Seguinte**.  
+3.  На странице **Обслуживание сайта** выберите параметр **Выполнить сброс параметров сайта без изменения конфигурации**, а затем нажмите кнопку **Далее**.  
 
-4.  Clique em **Sim** para iniciar a reposição do site.  
+4.  Нажмите кнопку **Да** , чтобы начать сброс параметров сайта.  
 
-Quando a reposição do site estiver concluída, clique em **Fechar** para concluir este procedimento.  
+По окончании сброса параметров сайта нажмите кнопку **Закрыть** для завершения процедуры.  
 
-##  <a name="bkmk_sitelang"></a>Gerir pacotes de idiomas num site  
-Após a instalação de um site, pode alterar os pacotes de idioma de servidor e cliente que estão em utilização:  
+##  <a name="bkmk_sitelang"></a> Управление языковыми пакетами на сайте  
+После установки можно изменить используемые серверные и клиентские языковые пакеты:  
 
-**Pacotes de idiomas de servidor:**  
+**Серверные языковые пакеты:**  
 
--   **Aplica-se a:**  
+-   **Применимо к:**  
 
-     Instalações da consola do Configuration Manager  
+     Установка консоли Configuration Manager  
 
-     Novas instalações de funções do sistema de sites aplicáveis  
+     Новые установки применимых ролей системы сайта  
 
--   **Detalhes:**  
+-   **Сведения:**  
 
-     Depois de atualizar os pacotes de idiomas de servidor num site, pode adicionar suporte para os pacotes de idiomas para consolas do Configuration Manager.  
+     После обновления серверных языковых пакетов на сайте можно добавить поддержку для языковых пакетов в консолях Configuration Manager.  
 
-     Para adicionar suporte para um pacote de idiomas de servidor para uma consola do Configuration Manager, tem de instalar a consola do Configuration Manager do **ConsoleSetup** pasta num servidor de site que inclui o pacote de idiomas que pretende utilizar. Se já estiver instalada a consola do Configuration Manager, primeiro deve desinstalar para permitir que a nova instalação identifique a lista atual de pacotes de idiomas suportados.  
+     Чтобы добавить поддержку серверного языкового пакета в консоли Configuration Manager, необходимо установить консоль Configuration Manager из папки **ConsoleSetup** на сервере сайта, где находится языковой пакет, который вы хотите использовать. Если консоль Configuration Manager уже установлена, сначала необходимо удалить ее, чтобы позволить новой установке определить текущий список поддерживаемых языковых пакетов.  
 
-**Pacotes de idiomas de cliente:**  
+**Клиентские языковые пакеты:**  
 
--   **Aplica-se a:**  
+-   **Применимо к:**  
 
-     As alterações de pacotes de idiomas de cliente atualizam os ficheiros de origem da instalação do cliente para que as novas instalações e atualizações do cliente adicionem suporte à lista atualizada de idiomas do cliente.  
+     При изменении клиентских языковых пакетов изменяются исходные установочные файлы клиента, так чтобы при установке и обновлении клиентов добавлялась поддержка обновленного списка клиентских языков.  
 
--   **Detalhes:**  
+-   **Сведения:**  
 
-     Após atualizar os pacotes de idiomas de cliente num site, instale cada cliente que utilizará os pacotes de idiomas utilizando os ficheiros de origem que incluem os pacotes de idiomas de cliente.  
+     После обновления клиентских языковых пакетов на сайте необходимо установить каждый клиент, который будет использовать языковые пакеты, с помощью исходных файлов, включающих языковые пакеты клиента.  
 
-Para obter informações sobre os idiomas de cliente e servidor que são suportadas pelo Configuration Manager, consulte o artigo [pacotes de idiomas no System Center Configuration Manager](../../../core/servers/deploy/install/language-packs.md)  
+Сведения о языках клиентских и серверных систем, которые поддерживаются Configuration Manager, см. в статье [Языковые пакеты в System Center Configuration Manager](../../../core/servers/deploy/install/language-packs.md).  
 
-#### <a name="to-modify-the-language-packs-that-are-supported-at-a-site"></a>Para modificar os pacotes de idiomas suportados num site  
+#### <a name="to-modify-the-language-packs-that-are-supported-at-a-site"></a>Чтобы изменить языковые пакеты, поддерживаемые на сайте, выполните следующие действия.  
 
-1.  No servidor do site, execute a configuração do Configuration Manager a partir  **&lt;pasta de instalação de site do Configuration Manager\>\bin\x64\setup.exe..**  
+1.  На сервере сайта запустите программу установки Configuration Manager — **&lt;папка установки сайта Configuration Manager\>\BIN\X64\setup.exe**.  
 
-2.  Na página **Introdução**, selecione **Executar a manutenção do site ou repor este site** e clique em **Seguinte**.  
+2.  На странице **Приступая к работе** выберите **Выполнить обслуживание или сброс параметров этого сайта**, а затем нажмите кнопку **Далее**.  
 
-3.  Na página **Manutenção do Site**, selecione **Modificar a configuração do idioma** e clique em **Seguinte**.  
+3.  На странице **Обслуживание сайта** выберите параметр **Изменить языковую конфигурацию**, а затем нажмите кнопку **Далее**.  
 
-4.  Na página **Transferências de Pré-requisitos**, selecione **Transferir ficheiros necessários** para adquirir atualizações de pacotes de idiomas ou selecione **Utilizar ficheiros anteriormente transferidos** para utilizar ficheiros transferidos anteriormente que incluem os pacotes de idiomas que pretende adicionar ao site. Clique em **Seguinte** para validar os ficheiros e continuar.  
+4.  На странице **Загрузки необходимых компонентов** выберите пункт **Загрузить необходимые файлы** , чтобы получить обновления для языковых пакетов, или пункт **Использовать ранее загруженные файлы** , чтобы использовать ранее загруженные файлы, содержащие языковые пакеты, которые необходимо добавить на сайт. Нажмите кнопку **Далее** , чтобы проверить файлы и продолжить.  
 
-5.  Na página **Seleção do Idioma do Servidor**, selecione a caixa de verificação dos idiomas do servidor suportados por este site e clique em **Seguinte**.  
+5.  На странице **Выбор языка сервера** установите флажок для серверных языков, которые должен поддерживать сайт, а затем нажмите кнопку **Далее**.  
 
-6.  Na página **Seleção de Idioma do Cliente**, selecione a caixa de verificação dos idiomas do cliente suportados por este site e clique em **Seguinte**.  
+6.  На странице **Выбор языка клиента** установите флажок для клиентских языков, которые должен поддерживать сайт, а затем нажмите кнопку **Далее**.  
 
-7.  Clique em **Seguinte** para modificar o suporte de idiomas no site.  
+7.  Нажмите кнопку **Далее**для изменения языковой поддержки на сайте.  
 
     > [!NOTE]  
-    >  Inicia do Configuration Manager uma reposição do site que também reinstala todas as funções de sistema de sites no site.  
+    >  Configuration Manager инициирует сброс сайта, при котором также переустанавливаются все роли системы сайта.  
 
-8.  Clique em **Fechar** para concluir este procedimento.  
+8.  Нажмите кнопку **Закрыть** , чтобы завершить эту процедуру.  
 
-##  <a name="BKMK_ModDBAlert"></a>Modifique o limiar de alerta de servidor de base de dados  
- Por predefinição, o Configuration Manager gera alertas sempre que existir pouco espaço livre em disco num servidor de base de dados do site. As predefinições estão definidas para emitir um aviso quando existirem 10 GB ou menos de espaço livre em disco e um alerta crítico quando existirem menos de 5 GB de espaço livre em disco. Pode modificar estes valores ou desativar os alertas para cada site.  
+##  <a name="BKMK_ModDBAlert"></a> Изменение порога оповещений для сервера базы данных  
+ По умолчанию Configuration Manager создает оповещения при уменьшении объема свободного дискового пространства на сервере базы данных сайта. По умолчанию когда на диске остается не более 10 ГБ свободного места, создается предупреждение, а когда остается не более 5 ГБ свободного места, создается критическое оповещение. Можно изменить эти значения или отключить оповещения для каждого сайта.  
 
- Para alterar estas definições:  
+ Чтобы изменить эти параметры:  
 
-1.  Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Sites**.  
+1.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Сайты**.  
 
-2.  Selecione o site que pretende configurar e abrir desse site **propriedades**.  
+2.  Выберите сайт, который нужно настроить, и откройте страницу **Свойства** этого сайта.  
 
-3.  No site de **propriedades** caixa de diálogo, selecione o **alerta** separador e, em seguida, edite as definições.  
+3.  В диалоговом окне **Свойства** сайта перейдите на вкладку **Оповещение** и настройте параметры.  
 
-4.  Clique em **OK** para fechar a caixa de diálogo de propriedades do site.  
-
+4.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно "Свойства сайта".  

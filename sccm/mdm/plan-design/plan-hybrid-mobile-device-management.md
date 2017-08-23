@@ -1,6 +1,6 @@
 ---
-title: "Planear para MDM híbrida | Microsoft Docs"
-description: "Planear a gestão de dispositivos móveis híbrida com o System Center Configuration Manager e o Microsoft Intune."
+title: "Планирование гибридного управления мобильными устройствами | Документы Майкрософт"
+description: "Спланируйте гибридное управление мобильными устройствами с помощью System Center Configuration Manager и Microsoft Intune."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,22 +17,22 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 814fb545dae35c582146450c316446c21191002f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Planear a gestão de dispositivos móveis híbridos (MDM) com o System Center Configuration Manager e o Microsoft Intune
+# <a name="plan-for-hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Планирование гибридного управления мобильными устройствами с помощью System Center Configuration Manager и Microsoft Intune
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Só pode utilizar uma solução de gestão, a autoridade de gestão de dispositivos móveis, para gerir os dispositivos móveis. Antes de efetuar esta definição deve [escolher entre o Microsoft Intune de autónomo e híbrida de gestão de dispositivos móveis com o Configuration Manager](../understand/choose-between-standalone-intune-and-hybrid-mobile-device-management.md).
+Для управления мобильными устройствами можно использовать только одно решение — центр управления мобильными устройствами. Перед его настройкой следует [выбрать автономную версию Microsoft Intune или гибридное управление мобильными устройствами с помощью Configuration Manager](../understand/choose-between-standalone-intune-and-hybrid-mobile-device-management.md).
 
-Além disso, o [Intune implementação guia de planeamento, Design e implementação](https://docs.microsoft.com/en-us/intune/plan-design/introduction) fornece um elevado grau de informações sobre o processo de desenvolvimento de um plano de implementação, criar um design, integração do Intune e realizar uma implementação de produção.
+Кроме того, см. сведения о процессе разработки плана развертывания, проектировании, внедрении Intune и выполнении развертывания в рабочей среде в статье [Руководство по планированию, проектированию и внедрению для Intune](https://docs.microsoft.com/en-us/intune/plan-design/introduction).
 
-- [Plataformas de dispositivos suportadas](supported-device-platforms-for-hybrid.md) mostra as plataformas de dispositivos móveis que são suportadas pelo Configuration Manager com o Microsoft Intune.
+- Сведения о платформах мобильных устройств, поддерживаемых Configuration Manager при использовании Microsoft Intune, см. в статье [Supported Device Platforms for hybrid MDM](supported-device-platforms-for-hybrid.md) (Поддерживаемые платформы устройств для гибридного управления мобильными устройствами).
 
-- [Métodos de inscrição de dispositivos](device-enrollment-methods.md) fornece informações sobre como inscrever dispositivos pertencentes à empresa e a propriedade do utilizador e as respetivas capacidades suportadas.
+- Сведения о регистрации корпоративных и пользовательских устройств и поддерживаемых ими возможностях см. в статье [Overview of device enrollment methods](device-enrollment-methods.md) (Общие сведения о методах регистрации устройств).
 
 
-### <a name="next-steps"></a>Passos seguintes
- [Configurar a mm híbrida](../deploy-use/setup-hybrid-mdm.md)
+### <a name="next-steps"></a>Дальнейшие действия
+ [Настройка гибридного управления мобильными устройствами](../deploy-use/setup-hybrid-mdm.md)

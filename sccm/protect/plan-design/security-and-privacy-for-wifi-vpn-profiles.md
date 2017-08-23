@@ -1,6 +1,6 @@
 ---
-title: "Perfis de Wi-Fi e VPN segurança e privacidade | Microsoft Docs"
-description: "Saiba mais sobre a segurança melhores práticas para gerir perfis Wi-Fi e VPN para dispositivos no System Center Configuration Manager."
+title: "Безопасность и конфиденциальность профилей Wi-Fi и VPN | Документы Майкрософт"
+description: "Ознакомьтесь с рекомендациями по обеспечению безопасности при управлении профилями Wi-Fi и VPN для устройств в System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/28/2016
 ms.prod: configuration-manager
@@ -17,24 +17,24 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 6d1d0a393a2ce614ae5f819475bd47b05e699b45
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Segurança e privacidade para perfis de Wi-Fi e VPN no System Center Configuration Manager
+# <a name="security-and-privacy-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность профилей Wi-Fi и VPN в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-##  <a name="security-best-practices-for-wi-fi--and-vpn-profiles"></a>Melhores práticas de segurança para perfis VPN e Wi-Fi  
- Utilize as seguintes melhores práticas de segurança ao gerir perfis de Wi-Fi e VPN para dispositivos.  
+##  <a name="security-best-practices-for-wi-fi--and-vpn-profiles"></a>Рекомендации по безопасности для профилей Wi-Fi и VPN  
+ При управлении профилями Wi-Fi и VPN для устройств необходимо учитывать приведенные ниже рекомендации по безопасности.  
 
-|Procedimento recomendado de segurança|Mais informações|  
+|Рекомендация по безопасности|Дополнительные сведения|  
 |----------------------------|----------------------|  
-|Sempre que possível, escolha as opções mais seguras que o Wi-Fi e VPN infraestrutura e sistemas operativos cliente podem suportar.|Perfis VPN e Wi-Fi fornecem um método prático para distribuir e gerir as definições de Wi-Fi e VPN suportadas pelos seus dispositivos já centralmente. Gestor de configuração não adiciona funcionalidade VPN ou Wi-Fi.<br /><br /> Identifique, implemente e siga os procedimentos de segurança eventualmente recomendados para os dispositivos e para a infraestrutura.|  
+|По возможности выбирайте наиболее безопасные параметры, поддерживаемые инфраструктурой Wi-Fi и VPN и клиентскими операционными системами.|Профили Wi-Fi и VPN предоставляют удобный способ централизованного распределения параметров Wi-Fi и VPN, поддерживаемых вашими устройствами, и управления ими. Configuration Manager не обеспечивает дополнительные функции Wi-Fi и VPN.<br /><br /> Определите, реализуйте и выполните все рекомендации по безопасности для устройств и инфраструктуры.|  
 
-## <a name="privacy-information-for-wi-fi-profiles"></a>Informações de Privacidade para Perfis Wi-Fi  
- Pode utilizar perfis de Wi-Fi e VPN para configurar dispositivos de cliente para ligar ao Wi-Fi e servidores VPN e, em seguida, avaliar se esses dispositivos se tornam compatíveis após a aplicação dos perfis. O ponto de gestão envia as informações de compatibilidade para o servidor do site e as informações são armazenadas na base de dados do site. As informações são encriptadas quando os dispositivos as enviam para o ponto de gestão, mas não são armazenadas em formato encriptado na base de dados do site. A base de dados conserva as informações até que sejam eliminadas pela tarefa de manutenção do site **Eliminar Dados de Gestão de Configuração Desatualizados** . O intervalo de eliminação predefinido é 90 dias, mas pode alterá-lo. As informações de conformidade não são enviadas à Microsoft.  
+## <a name="privacy-information-for-wi-fi-profiles"></a>Сведения о конфиденциальности для профилей Wi-Fi  
+ Профили Wi-Fi и VPN можно использовать для настройки клиентских устройств для подключения к серверам Wi-Fi и VPN, а затем проверять эти устройства на соответствие после применения профилей. Точка управления отправляет сведения о соответствии на сервер сайта, и они сохраняются в базе данных сайта. Эта информация шифруется, когда устройства отправляют ее в точку управления, но не хранится в зашифрованном виде в базе данных сайта. Информация хранится в базе данных до тех пор, пока не будет удалена при выполнении задачи обслуживания сайта **Удаление устаревших данных управления конфигурацией** . Интервал удаления по умолчанию составляет 90 дней, однако его можно изменить. Сведения о соответствии не отправляются в Майкрософт.  
 
- Por predefinição, os dispositivos não avaliam perfis VPN e Wi-Fi. Além disso, tem de configurar os perfis e, em seguida, implementá-las aos utilizadores.  
+ По умолчанию устройства не оценивают профили Wi-Fi и VPN. Кроме того, необходимо настроить профили, а затем развернуть их для пользователей.  
 
- Antes de configurar Wi-Fi ou perfis VPN, considere os requisitos de privacidade.  
+ Перед настройкой профилей Wi-Fi и VPN следует проанализировать требования к конфиденциальности.  

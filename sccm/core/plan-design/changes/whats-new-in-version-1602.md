@@ -1,90 +1,88 @@
 ---
-title: "Novo no System Center Configuration Manager versão 1602 | Documentos do Microsoft"
-description: "Obter informações sobre as alterações e novas capacidades introduzidas na versão 1602 do System Center Configuration Manager."
+title: "Новые возможности в System Center Configuration Manager версии 1602 | Документация Майкрософт"
+description: "Сведения об изменениях и новых возможностях, появившихся в System Center Configuration Manager версии 1602."
 ms.custom: na
 ms.date: 12/30/2016
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4021eca1-adfb-4e5a-adee-159263c29637
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: noindex,nofollow
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: 9a548f43625a907173e7b967d26356bd80f1c5d9
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="what39s-new-in-version-1602-of-system-center-configuration-manager"></a>O que &#39; s Novidades na versão 1602 do System Center Configuration Manager
+# <a name="what39s-new-in-version-1602-of-system-center-configuration-manager"></a>Новые возможности в System Center Configuration Manager версии 1602
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Atualize 1602 para o System Center Configuration Manager só está disponível como uma atualização na consola de sites instaladas anteriormente com a versão 1511. Versão 1511 é a versão de linha de base inicial, que utiliza para instalar novos sites do Configuration Manager.  
+Обновление 1602 для System Center Configuration Manager доступно только в виде обновления в консоли для ранее установленных сайтов, работающих под управлением версии 1511. Версия 1511 — это начальная базовая версия, которая используется для установки новых сайтов Configuration Manager.  
 
 
 > [!TIP]  
->  Saiba mais sobre:  
+>  Дополнительные сведения  
 >   
->   -   [Instalar novos sites](/sccm/core/servers/deploy/install) (utilizando uma versão de linha de base como 1511)  
->   -   [Instalar atualizações em sites](/sccm/core/servers/manage/updates) (como atualizar 1602)  
+>   -   [Установка новых сайтов](/sccm/core/servers/deploy/install) (с помощью базовой версии, например 1511)  
+>   -   [Установка обновлений на сайтах](/sccm/core/servers/manage/updates) (например, обновление 1602)  
 
- As secções seguintes fornecem detalhes sobre as alterações e funcionalidades novas, introduzidas na versão 1602 do Configuration Manager.  
+ В следующих разделах содержатся сведения об изменениях и новых возможностях, появившихся в Configuration Manager версии 1602.  
 
-## <a name="site-infrastructure"></a>Infraestrutura de sites  
+## <a name="site-infrastructure"></a>Инфраструктура сайта  
 
-###  <a name="bkmk_UpgradeOS"></a>No local de atualizar o sistema operativo de servidores de sites que executam o Windows Server 2008 R2  
- Sites do Configuration Manager que são executados versão 1602 ou posteriores suportam a atualização no local do sistema de sites servidores operativo a partir do Windows Server 2008 R2 para o Windows Server 2012 R2.  
+###  <a name="bkmk_UpgradeOS"></a> Обновление на месте операционной системы серверов сайта под управлением Windows Server 2008 R2  
+ Сайты Configuration Manager, использующие версию 1602 или более позднюю, поддерживают обновление на месте операционной системы серверов сайта с Windows Server 2008 R2 до Windows Server 2012 R2.  
 
 > [!WARNING]  
->  Antes de atualizar para o Windows Server 2012 R2, tem de desinstalar 3,2 de WSUS a partir do servidor.  
+>  Перед обновлением до Windows Server 2012 R2 необходимо удалить службы WSUS 3.2 с сервера.  
 >   
->  Para obter informações sobre este passo crítico, consulte a secção "Novas e alteradas" [descrição geral do Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx), na documentação do Windows Server.  
+>  Сведения об этом важном шаге см. в подразделе "Новые и измененные функции" раздела [Обзор служб Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx) в документации по Windows Server.  
 
- Para atualizar um servidor, utilize os procedimentos de atualização do Windows Server 2012 R2. Não é necessário executar o restauro de servidor de site após a atualização do Configuration Manager. Para saber quais são os procedimentos de atualização, veja [Opções de Atualização do Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) na documentação do Windows Server.  
+ Для обновления сервера используются процедуры обновления Windows Server 2012 R2. После них не требуется восстанавливать сервер сайта Configuration Manager. Процедуры обновления описаны в разделе [Варианты обновления для Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) документации по Windows Server.  
 
-###  <a name="bkmk_AOAG"></a>Grupos de Disponibilidade AlwaysOn do SQL Server  
- Utilize grupos de Disponibilidade AlwaysOn do SQL Server para alojar a base de dados do site em sites primários e o site de administração central como uma solução de elevada disponibilidade e recuperação de desastres.  
+###  <a name="bkmk_AOAG"></a> Группы доступности SQL Server AlwaysOn  
+ В качестве решения для обеспечения высокой доступности и аварийного восстановления можно использовать группы доступности SQL Server AlwaysOn, чтобы размещать базу данных сайта на первичных сайтах и сайте центра администрирования.  
 
- Para obter mais detalhes, consulte o artigo [SQL Server AlwaysOn numa base de dados do site elevada para o System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  
+ Подробные сведения см. в разделе [SQL Server AlwaysOn для высокодоступной базы данных сайта для System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  
 
-## <a name="operating-system-deployment"></a>Implementação do sistema operativo  
+## <a name="operating-system-deployment"></a>Развертывание операционной системы  
 
-### <a name="windows-10-servicing"></a>Manutenção do Windows 10  
- Foram adicionadas as seguintes melhorias para a manutenção do Windows 10 1602 de versão do Configuration Manager:  
+### <a name="windows-10-servicing"></a>Обслуживание Windows 10  
+ В версии Configuration Manager 1602 были добавлены следующие усовершенствования для обслуживания Windows 10:  
 
--   Novas opções de filtro estão disponíveis para a manutenção planos que permitem-lhe filtrar **idioma**, **necessário**, e **título**. Apenas as atualizações que cumprem os critérios especificados serão adicionadas à implementação associada.  
+-   Новые параметры фильтрации доступны для планов обслуживания, которые позволяют фильтровать по параметрам **Язык**, **Обязательно** и **Заголовок**. В соответствующее развертывание будут добавляться только обновления, соответствующие указанным условиям.  
 
--   Quando seleciona o **atualizações** sincronização de atualizações de classificação de software, é apresentado um aviso. Este aviso permite-lhe saber que [correção 3095113](https://support.microsoft.com/kb/3095113) para Windows Server Update Services (WSUS) 4.0 é necessário pode sincronizar as atualizações de software com êxito e a manutenção de 10 de Windows funcionem corretamente. A partir da mensagem de aviso, pode ir para o artigo da base de dados de conhecimento associados.  
+-   При выборе классификации **Обновления** для синхронизации обновлений программного обеспечения выводится предупреждение. Оно сообщает, что для успешной синхронизации обновлений ПО и правильной работы обслуживания Windows 10 требуется [исправление 3095113](https://support.microsoft.com/kb/3095113) служб WSUS 4.0. Из окна предупреждения можно перейти к соответствующей статье базы знаний.  
 
--   Disponível Windows 10 agora atualiza apenas visualização no **manutenção do Windows 10** \ **todas as atualizações do Windows 10** nó da consola do Configuration Manager. Estas atualizações já não aparecerá no **atualizações de Software** \ **todas as atualizações de Software** nó da consola.  
+-   Доступные обновления Windows 10 теперь отображаются только в узле **Обслуживание Windows 10** \ **Все обновления Windows 10** консоли Configuration Manager. Эти обновления больше не отображаются в узле **Обновления программного обеспечения** \ **Все обновления программного обеспечения** консоли.  
 
--   Um plano de manutenção é considerado uma implementação de alto risco e o **selecionar coleção** janela apresenta apenas as coleções personalizadas que cumprem as definições de verificação de implementação que estão configuradas nas propriedades do site. Para obter mais informações, veja [Definições para gerir implementações de alto risco para o System Center Configuration Manager](../../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+-   План обслуживания рассматривается как развертывание с высоким риском, и в окне **Выбор коллекции** отображаются только пользовательские коллекции, которые соответствуют параметрам проверки развертывания, настроенным в свойствах сайта. Дополнительные сведения см. в статье [Settings to manage high-risk deployments for System Center Configuration Manager](../../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
--   Os utilizadores que começar agora um pacote de atualização do Windows 10 recebem uma mensagem que que actualizará o sistema operativo.  
+-   Пользователям, запускающим пакет обновления для Windows 10, выводится сообщение о предстоящем обновлении операционной системы.  
 
-## <a name="application-management"></a>Gestão de aplicações  
+## <a name="application-management"></a>Управление приложениями  
 
-### <a name="ios-app-configuration-policies"></a>Políticas de configuração de aplicações iOS  
- Utilize políticas de configuração de aplicação do Configuration Manager para fornecer definições que poderão ser necessárias quando o utilizador executa uma aplicação iOS. Por exemplo, uma aplicação pode necessitar de utilizador especificar um número de porta personalizada, idioma, as definições de segurança ou definições de imagem corporativa (como um logótipo de empresa). Se estas definições são introduzidas incorretamente, isto pode aumentar a carga sobre o suporte técnico e também atrasar a adoção de novas aplicações.  
+### <a name="ios-app-configuration-policies"></a>Политики конфигурации приложений iOS  
+ Используйте политики конфигурации приложений Configuration Manager для предоставления параметров, которые могут быть необходимы, когда пользователь работает с приложением iOS. Например, приложение может требовать, чтобы пользователь указал пользовательский номер порта, язык, параметры безопасности или параметры фирменной символики (такие как логотип компании). Если эти параметры введены неправильно, это может увеличить нагрузку на службу поддержки и замедлить внедрение новых приложений.  
 
- Políticas de configuração de aplicação podem ajudar a eliminar estes problemas, permitindo-lhe implementar estas definições para os utilizadores numa política, antes de poderem executam a aplicação. As definições, em seguida, são fornecidas automaticamente e o utilizador não necessita de efetuar qualquer ação. Para obter mais detalhes, consulte o artigo [configurar aplicações iOS com as políticas de configuração da aplicação no System Center Configuration Manager](../../../apps/deploy-use/configure-ios-apps-with-app-configuration-policies.md).  
+ Политики конфигурации приложений помогут устранить эти проблемы, позволяя развертывать эти параметры для пользователей в политике перед запуском приложения. Параметры затем заполняются автоматически, и пользователю не нужно выполнять никаких действий. Подробные сведения см. в разделе [Настройка приложений iOS с помощью политик конфигурации приложений в System Center Configuration Manager](../../../apps/deploy-use/configure-ios-apps-with-app-configuration-policies.md).  
 
-### <a name="manage-volume-purchased-ios-apps"></a>Gerir aplicações iOS adquiridas em volume  
- Gestor de configuração podem ajudar a implementar e gerir as aplicações que comprou no volume a partir do programa de compra de Volume do Apple (VPP). Configuration Manager importa as informações da licença a partir da app store e controla o número das licenças que utilizou.  
+### <a name="manage-volume-purchased-ios-apps"></a>Manage volume-purchased iOS apps  
+ Configuration Manager помогает развертывать приложения, приобретенные по корпоративной программе Apple Volume Purchase Program (VPP), и управлять ими. Configuration Manager импортирует сведения о лицензиях из магазина приложений и отслеживает число используемых лицензий.  
 
- Para obter mais detalhes, consulte o artigo [gerir as aplicações iOS adquirido o volume com o System Center Configuration Manager](../../../apps/deploy-use/manage-volume-purchased-ios-apps.md).  
+ Подробные сведения см. в разделе [Управление приложениями iOS, приобретенными по программе Volume Purchase Program, с помощью System Center Configuration Manager](../../../apps/deploy-use/manage-volume-purchased-ios-apps.md).  
 
-### <a name="automatic-creation-of-office-mobile-apps"></a>Criação automática de aplicações móveis do Office  
- Quando atualizar para versão 1602 de 1511, o Configuration Manager cria automaticamente as seguintes aplicações móveis do Microsoft Office para Android e iOS:  
+### <a name="automatic-creation-of-office-mobile-apps"></a>Автоматическое создание мобильных приложений Office  
+ При обновлении до версии 1602 с версии 1511 Configuration Manager автоматически создает следующие мобильные приложения Microsoft Office для Android и iOS:  
 
 -   Microsoft Word  
 
@@ -94,131 +92,130 @@ Atualize 1602 para o System Center Configuration Manager só está disponível c
 
 -   Microsoft OneDrive  
 
--   Microsoft OneNote (apenas iOS)  
+-   Microsoft OneNote (только iOS)  
 
 -   Microsoft Outlook  
 
-Encontrará estas aplicações no **aplicações** nó da consola do Configuration Manager.  
+Эти приложения появятся в узле **Приложения** консоли Configuration Manager.  
 
- Para obter mais informações sobre a implementação de aplicações, consulte o artigo [como implementar aplicações com o System Center Configuration Manager](../../../apps/deploy-use/deploy-applications.md).  
+ Дополнительные сведения о развертывании приложений см. в разделе [Развертывание приложений с помощью System Center Configuration Manager](../../../apps/deploy-use/deploy-applications.md).  
 
-## <a name="software-updates"></a>Atualizações de software  
+## <a name="software-updates"></a>Обновления программного обеспечения  
 
-### <a name="manage-office-365-client-updates"></a>Gerir atualizações de cliente do Office 365  
- System Center Configuration Manager tem a capacidade para gerir atualizações de cliente do Office 365 utilizando o fluxo de trabalho de gestão de atualização de software. Para obter mais informações, consulte o artigo [gerir Office 365 ProPlus atualizações com o System Center Configuration Manager](/sccm/sum/deploy-use/manage-office-365-proplus-updates).  
+### <a name="manage-office-365-client-updates"></a>Управление обновлениями клиента Office 365  
+ System Center Configuration Manager может управлять обновлениями клиента Office 365 с помощью рабочего процесса управления обновлениями программного обеспечения. Дополнительные сведения см. в разделе [Управление обновлениями Office 365 профессиональный плюс с помощью System Center Configuration Manager](/sccm/sum/deploy-use/manage-office-365-proplus-updates).  
 
-## <a name="compliance-settings"></a>Definições de compatibilidade  
+## <a name="compliance-settings"></a>Параметры соответствия  
 
-### <a name="compliance-settings-for-devices-running-windows-10-team"></a>Definições de compatibilidade para dispositivos que executam o Windows 10 Team  
- Foram adicionadas novas definições para o **Windows 8.1 e Windows 10** item de configuração. Estas definições ajudá-lo a executar o Windows 10 Team, tal como um dispositivo de superfície Hub de dispositivos de controlo.  
+### <a name="compliance-settings-for-devices-running-windows-10-team"></a>Параметры соответствия для устройств с ОС Windows 10 для совместной работы  
+ В элемент конфигурации **Windows 8.1 и Windows 10** были добавлены новые параметры. Они помогают управлять устройствами с ОС Windows 10 для совместной работы, например устройствами Surface Hub.  
 
- Para obter mais detalhes, consulte o artigo [como criar itens de configuração para dispositivos Windows 8.1 e Windows 10 geridos sem o cliente do System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
+ Подробные сведения см. в разделе [Создание элементов конфигурации для устройств Windows 8.1 и Windows 10, управляемых без использования клиента System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
 
-### <a name="kiosk-mode-settings-for-android-samsung-knox-standard-devices"></a>Definições do modo de local público para dispositivos Android Samsung KNOX Standard  
- Modo de local público permite-lhe bloquear um dispositivo para que apenas determinadas funcionalidades funcionam. Por exemplo, pode permitir que um dispositivo execute apenas uma aplicação gerida que especificar ou pode desativar os botões de volume num dispositivo. Estas definições podem ser utilizadas para um modelo de demonstração de um dispositivo ou um dispositivo com a finalidade de desempenhar apenas uma função, tal como um dispositivo de ponto de venda. No Configuration Manager, pode agora especificar as definições do modo de local público para dispositivos Samsung KNOX Standard.  
+### <a name="kiosk-mode-settings-for-android-samsung-knox-standard-devices"></a>Параметры режима терминала для устройств Android Samsung KNOX Standard  
+ Режим киоска позволяет блокировать устройство, разрешая работу только некоторых функций. Например, можно разрешить устройству выполнять только одно управляемое приложение или отключить кнопки громкости на устройстве. Эти параметры могут использоваться для демонстрационной модели устройства или устройства, предназначенного для выполнения только одной функции, например кассового терминала. В Configuration Manager теперь можно указать параметры режима киоска для устройств Samsung KNOX Standard.  
 
- Para obter mais detalhes, consulte o artigo [como criar itens de configuração para dispositivos Android e Samsung KNOX Standard geridos sem o cliente do System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md).  
+ Подробные сведения см. в разделе [Создание элементов конфигурации для устройств Android и Samsung KNOX Standard, управляемых без использования клиента System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md).  
 
-## <a name="conditional-access"></a>Acesso condicional  
+## <a name="conditional-access"></a>Условный доступ  
 
-### <a name="conditional-access-for-pcs-managed-by-system-center-configuration-manager"></a>Acesso condicional para PCs gerido pelo System Center Configuration Manager  
- Anterior nesta versão, para configurar o acesso condicional para um PC, o PC ou teve de ser inscritos no Intune ou teve de ser um PC associado a um domínio. Acesso condicional para PCs gerido pelo System Center Configuration manager a partir da atualização 1602, é suportado. Para os seus PCs que são geridos pelo System Center Configuration Manager, pode restringir o acesso ao Exchange Online e SharePoint Online apenas para dispositivos que são compatíveis com as políticas de conformidade que definir.  
+### <a name="conditional-access-for-pcs-managed-by-system-center-configuration-manager"></a>Условный доступ для ПК, управляемых System Center Configuration Manager  
+ До этого выпуска, чтобы настроить условный доступ для компьютера, такой компьютер должен был быть зарегистрирован в Intune или присоединен к домену. Начиная с версии 1602, поддерживается условный доступ для компьютеров, управляемых диспетчером System Center Configuration Manager. Для компьютеров, управляемых System Center Configuration Manager, можно ограничить доступ к Exchange Online и SharePoint Online только устройствами, совместимыми с заданными политиками соответствия требованиям.  
 
- Para obter mais detalhes, consulte o artigo [gerir o acesso aos serviços do Office 365 para PCs geridos pelo System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
+ Подробные сведения см. в разделе [Управление доступом к службам Office 365 для компьютеров под управлением System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
 
-### <a name="restricting-access-based-on-the-health-of-devices"></a>Restringir o acesso com base no estado de funcionamento de dispositivos  
- Agora pode restringir o acesso ao e-mail e 0ffice 365 serviços com base no estado de funcionamento de dispositivos, conforme comunicado pelo serviço de integridade de atestado. Além disso, os dispositivos geridos pelo Intune são incluídos nos relatórios de estado de funcionamento do dispositivo.  
+### <a name="restricting-access-based-on-the-health-of-devices"></a>Ограничение доступа на основе работоспособности устройств  
+ Теперь вы можете ограничить доступ к электронной почте и службам Office 365 на основе состояния работоспособности устройств, указываемого службой подтверждения работоспособности. Кроме того, устройства под управлением Intune включаются в отчеты о работоспособности устройств.  
 
- Consola do Configuration Manager oferece uma nova regra de compatibilidade, que permite-lhe especificar se os dispositivos devem ser permitidos ou bloquear o acesso com base no respetivo estado de funcionamento. Para obter detalhes sobre o serviço de integridade de atestado e como é reportado o estado de funcionamento de dispositivos no Intune, consulte o artigo [atestado de estado de funcionamento para o System Center Configuration Manager](../../../core/servers/manage/health-attestation.md).  
+ В консоли Configuration Manager появилось новое правило соответствия требованиям, которое позволяет указывать, следует ли предоставить или заблокировать доступ устройству на основе его состояния работоспособности. Дополнительные сведения о службе подтверждения работоспособности и отображении данных по работоспособности устройств в Intune см. в разделе [Аттестация работоспособности в System Center Configuration Manager](../../../core/servers/manage/health-attestation.md).  
 
-### <a name="new-compliance-policy-rules"></a>Novas regras de política de conformidade  
- Foram adicionadas novas regras de política de conformidade, como as atualizações automáticas e que requerem uma palavra-passe para desbloquear os dispositivos, para suportar melhor requisitos de segurança.
+### <a name="new-compliance-policy-rules"></a>Новые правила политики соответствия требованиям  
+ Новые правила политики соответствия требованиям, такие как автоматические обновления и обязательный ввод пароля для разблокировки устройств, были добавлены для лучшего соответствия требованиям безопасности.
 
- Para obter mais detalhes, consulte o artigo [políticas de conformidade do dispositivo no System Center Configuration Manager](../../../protect/deploy-use/device-compliance-policies.md).  
+ Дополнительные сведения см. в разделе [Управление политиками соответствия устройств в System Center Configuration Manager](../../../protect/deploy-use/device-compliance-policies.md).  
 
-### <a name="make-sure-enrolled-and-compliant-devices-always-have-access-to-exchange-on-premises"></a>Certifique-se de dispositivos inscritos e de conformidade têm sempre acesso ao Exchange no local  
- Ao dar a seguinte opção, os dispositivos inscritos no Intune e em conformidade com as políticas de conformidade, estão autorizados a aceder ao Exchange no local: **Predefinição Ignorar regra - permitir sempre inscritos do Intune e dispositivos compatíveis para aceder ao Exchange no local:**. Esta regra está disponível no **página geral** do **configurar Assistente de política de acesso condicional** para Exchange no local.
+### <a name="make-sure-enrolled-and-compliant-devices-always-have-access-to-exchange-on-premises"></a>Убедитесь в том, что зарегистрированные и соответствующие устройства всегда имеют доступ к локальной среде Exchange.  
+ Если выбран следующий параметр, устройства, зарегистрированные в Intune и соответствующие политикам, получают доступ к локальной среде Exchange: **Переопределение правила по умолчанию — всегда разрешать доступ к Exchange для зарегистрированных в Intune и соответствующих требованиям устройств**. Это правило доступно на странице **Общие** **мастера настройки политики условного доступа** для локальной организации Exchange.
 
- Esta regra substitui a regra predefinida, o que significa que mesmo se definir a regra predefinida para acesso à quarentena ou bloco, inscritos e dispositivos compatíveis com continuará a poder aceder ao Exchange no local. Utilize esta definição quando pretender inscritos e dispositivos compatíveis para ter sempre acesso ao e-mail através do Exchange no local.   
+ Это правило переопределяет правило по умолчанию, то есть, даже если вы настроите правило по умолчанию для помещения в карантин или блокировки доступа, зарегистрированные и соответствующие требованиям устройства по-прежнему будут иметь доступ к локальной среде Exchange. Используйте этот параметр, если требуется, чтобы зарегистрированные и соответствующие требованиям устройства всегда получали доступ к электронной почте через локальную организацию Exchange.   
 
- Para instruções detalhadas, consulte o artigo [gerir o acesso correio eletrónico no System Center Configuration Manager](../../../protect/deploy-use/manage-email-access.md).  
+ Подробное пошаговое руководство см. в разделе [Управление доступом к электронной почте в System Center Configuration Manager](../../../protect/deploy-use/manage-email-access.md).  
 
-## <a name="client-management"></a>Gestão de clientes  
+## <a name="client-management"></a>Управление клиентами  
 
-### <a name="client-online-status"></a>Estado online do cliente  
- Um novo estado de clientes está disponível para monitorização, se um computador está online ou não. Um computador é considerado online se esta está ligada ao ponto de gestão atribuído. Para indicar que o computador está online, o cliente envia mensagens de como o ping ao ponto de gestão. Se o ponto de gestão não receber uma mensagem 5 minutos, o cliente é considerado offline.  
+### <a name="client-online-status"></a>Состояние клиента в сети  
+ Доступна новая возможность отслеживания состояния клиентов, позволяющая видеть, находится ли компьютер в сети. Считается, что компьютер в сети, если он подключен к назначенной ему точке управления. Чтобы указать, что компьютер находится в сети, клиент отправляет в точку управления сообщения, действующие по принципу проверки связи. Если точка управления не получает сообщение в течение 5 минут, считается, что клиент вне сети.  
 
- Para obter mais detalhes, consulte o artigo [como monitorizar clientes no System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
+ Подробные сведения см. в разделе [Мониторинг клиентов в System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
 
-### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Atualizar PC política de computador e utilizador a partir do Centro de Software  
- Uma nova opção **política de sincronização**, foi adicionado à **opções** > **manutenção do computador** página do Centro de Software que faz com que o PC para atualizar o Configuration Manager política máquina e utilizador.  
+### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Обновление политики компьютеров и пользователей ПК из центра программного обеспечения  
+ На страницу **Параметры** > **Обслуживание компьютера** центра программного обеспечения был добавлен новый параметр **Sync Policy** (Синхронизировать политику), который предписывает компьютер обновить политику в отношении компьютеров и пользователей Configuration Manager.  
 
-### <a name="software-center-branding-changes"></a>Alterações de imagem corporativa do Centro de software  
- Pode alterar a cor, o nome da organização e o ícone que aparecem no Centro de Software. Estas definições são aplicadas de acordo com as seguintes regras:  
+### <a name="software-center-branding-changes"></a>Изменения фирменной символики центра программного обеспечения  
+ Вы можете изменить цвет, название организации и значок, который отображается в центре программного обеспечения. Эти параметры применяются согласно приведенным ниже правилам.  
 
-- Se a função de servidor de sites do ponto de Web site do catálogo de aplicações não está instalada, em seguida, o Centro de Software apresenta o nome da organização especificado no **agente do computador** cliente denominadas **nome da organização apresentada no Centro de Software**.  
+- Если роль сервера сайта "Точка веб-сайта каталога приложений" не установлена, то в центре программного обеспечения отображается название организации, указанное в параметре клиента **Агент компьютера** > **Название организации, которое отображается в центре программного обеспечения**.  
 
-- Se estiver instalada a função de servidor de sites do ponto de Web site do catálogo de aplicações, Centro de Software apresenta o nome da organização e a cor especificado nas propriedades da função de servidor de sites de ponto de Web site de catálogo de aplicações.  
+- Если роль сервера сайта "Точка веб-сайта каталога приложений" установлена, то в центре программного обеспечения отобразятся те название организации и цвет, которые указаны в свойствах роли сервера сайта "Точка веб-сайта каталога приложений".  
 
-- Se uma subscrição do Microsoft Intune é configurada e ligada ao ambiente do Configuration Manager, em seguida, o Centro de Software apresenta o nome da organização, cor e o logótipo da empresa especificado nas propriedades de subscrição do Intune.  
+- Если подписка Microsoft Intune настроена и подключена к среде Configuration Manager, то в центре программного обеспечения отображаются название организации, цвет и логотип компании, указанные в свойствах подписки Intune.  
 
-### <a name="health-attestation"></a>Atestado de estado de funcionamento  
- Os administradores podem ver o estado de atestado de estado de funcionamento de dispositivo do Windows 10 na consola do Configuration Manager. Isto está disponível para o Configuration Manager, bem como do Configuration Manager com o Microsoft Intune. O atestado de estado de funcionamento permite ao administrador garantir que os computadores cliente têm as seguintes configurações fidedignas de BIOS, TPM e software de arranque ativadas:  
+### <a name="health-attestation"></a>Аттестация работоспособности  
+ Администраторы могут просматривать состояние аттестации работоспособности устройств Windows 10 в консоли Configuration Manager. Эта возможность доступна для Configuration Manager, а также для Configuration Manager с Microsoft Intune. Аттестация работоспособности устройств позволяет администратору гарантировать, что на клиентских компьютерах включены следующие надежные конфигурации BIOS, модуля TPM и загрузочного программного обеспечения.  
 
--   Início antecipado antimalware  
+-   Ранний запуск защиты от вредоносных программ  
 
 -   BitLocker  
 
--   Arranque seguro  
+-   Безопасная загрузка  
 
--   Integridade do código  
+-   Целостность кода  
 
-Para obter mais detalhes, consulte o artigo [atestado de estado de funcionamento para o System Center Configuration Manager](../../../core/servers/manage/health-attestation.md).  
+Дополнительные сведения см. в разделе [Аттестация работоспособности в System Center Configuration Manager](../../../core/servers/manage/health-attestation.md).  
 
-### <a name="improvements-to-endpoint-protection-antimalware-settings"></a>Foram introduzidos melhoramentos nas definições de proteção contra software maligno do Endpoint Protection  
- 1602 adiciona as seguintes novas definições na política de proteção contra software maligno do Endpoint Protection do Windows Defender:  
+### <a name="improvements-to-endpoint-protection-antimalware-settings"></a>Усовершенствования параметров защиты от вредоносных программ Endpoint Protection  
+ В версии 1602 добавлены следующие новые параметры политики защиты от вредоносных программ Endpoint Protection для Защитника Windows.  
 
--   Proteção em tempo real: Bloquear aplicações potencialmente indesejável no transferência, antes da instalação.  
+-   Защита в режиме реального времени: блокировать потенциально нежелательные приложения при скачивании и до установки.  
 
--   Analise as definições: Analise unidades de rede mapeadas durante uma análise completa.  
+-   Параметры проверки: сканировать сопоставленные сетевые диски при полной проверке.  
 
--   Definições de submissão de exemplos de ficheiros de exemplo automática:  
+-   Параметры автоматической отправки примеров файлов:  
 
-     O motor de proteção contra software maligno pode solicitar exemplos de ficheiros para serem enviados para a Microsoft para análise adicional. Por predefinição, será sempre apresentado um aviso antes de enviar esses exemplos. Os administradores podem agora gerir as seguintes definições para configurar este comportamento:  
+     Модуль защиты от вредоносных программ может запросить примеры файлов, отправляемых в корпорацию Майкрософт для дальнейшего анализа. По умолчанию он всегда будет выводить запрос перед отправкой таких примеров. Теперь администраторы могут управлять следующими параметрами для настройки этого поведения.  
 
-    -   Avançado: Ative a submissão automática de ficheiro ajudar a Microsoft a determinar se certos itens detetados maliciosos.  
+    -   Дополнительно: включить автоматическую отправку примеров файлов, чтобы помочь Майкрософт определить, являются ли некоторые обнаруженные элементы вредоносными.  
 
-    -   Avançado: Permitir que os utilizadores modificar as definições de submissão de ficheiro de exemplo automática.  
+    -   Дополнительно: разрешить пользователям изменять параметры автоматической отправки примеров файлов.  
 
-    Além disso, na secção "Definições de exclusão" as política de proteção contra software maligno do endpoint protection, existentes **excluir pastas e ficheiros** agora a definição permite exclusões de dispositivo.  
+    Кроме того, существующий параметр **Исключить файлы и папки** в разделе "Параметры исключения" политики защиты от вредоносных программ Endpoint Protection теперь позволяет исключать устройства.  
 
-Para obter mais detalhes, consulte o artigo [como criar e implementar políticas de proteção contra software maligno do Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/endpoint-antimalware-policies.md).  
+Подробные сведения см. в разделе [Создание и развертывание политик защиты от вредоносных программ для Endpoint Protection в System Center Configuration Manager](../../../protect/deploy-use/endpoint-antimalware-policies.md).  
 
-## <a name="mobile-device-management"></a>Gestão de dispositivos móveis  
+## <a name="mobile-device-management"></a>управление мобильными устройствами  
 
-### <a name="ios-activation-lock"></a>iOS bloqueio de ativação  
- Do Configuration Manager pode ajudar a gerir o iOS bloqueio de ativação, uma funcionalidade do encontrar a minha aplicação iPhone para iOS 7.1 ou posterior. O Bloqueio de Ativação é ativado automaticamente ao utilizar a aplicação Encontrar o Meu iPhone num dispositivo. Depois de estar ativado, o Apple ID e a palavra-passe do utilizador têm de ser introduzidos primeiro para que qualquer pessoa possa:  
+### <a name="ios-activation-lock"></a>Блокировка активации iOS  
+ Configuration Manager позволяет управлять функцией блокировки активации iOS, которая представляет собой отдельный компонент приложения Find My iPhone для устройств на базе iOS 7.1 и более поздних версий. Функция блокировки активации включается автоматически при использовании приложения Find My iPhone на устройстве. После включения функции необходимо ввести Apple ID и пароль пользователя, чтобы можно было выполнить следующие операции:  
 
--   Desative a localizar o meu iPhone.  
+-   выключить приложение Find My iPhone;  
 
--   Apagar o dispositivo.  
+-   удалить данные с устройства;  
 
--   Reativar o dispositivo.  
+-   активировать устройство заново.  
 
-O Configuration Manager podem pedir o estado de bloqueio de ativação dos supervisionado e unsupervised dispositivos que executam o iOS 7.1 e posterior. Para dispositivos supervisionados, o Configuration Manager pode obter o código de omissão de bloqueio de ativação e emiti-lo diretamente para o dispositivo.  
+Configuration Manager может запрашивать состояние блокировки активации защищенных и незащищенных устройств, работающих под управлением iOS 7.1 и более поздних версий. Для защищенных устройств Configuration Manager может получить код обхода блокировки активации и отправить его прямо на устройство.  
 
- Para obter mais detalhes, consulte o artigo [ajudar a proteger os dispositivos com o bloqueio de ativação ignorar no System Center Configuration Manager de iOS](/sccm/mdm/deploy-use/manage-ios-activation-lock).  
+ Подробные сведения см. в разделе [Защита устройств iOS с помощью обхода блокировки активации для Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock).  
 
-### <a name="monitor-terms-and-conditions-deployments"></a>Monitorizar as implementações de termos e condições  
- É possível monitorizar implementações de termos e condições na consola do Configuration Manager.  
+### <a name="monitor-terms-and-conditions-deployments"></a>Мониторинг развертывания условий  
+ В консоли Configuration Manager можно отслеживать развертывание условий.  
 
- Selecione a implementação de termos e condições da lista de implementações. A área de resumo mostra as estatísticas do seguinte:  
+ Выберите развертывание условий из списка развертываний. В области сводки отобразится следующая статистика:  
 
--   **Compatível**: Os utilizadores aceitaram a versão mais recente dos termos e condições.  
+-   **Соответствует** — пользователи приняли последнюю версию условий.  
 
--   **Erro**  
+-   **Ошибка**  
 
--   **Não compatível**: Os utilizadores aceitaram uma versão dos termos e condições, mas não a versão mais recente.  
+-   **Не соответствует** — пользователи приняли условия, но не последнюю версию.  
 
--   **Desconhecido**: Os utilizadores nunca este aceitou os termos e condições, incluindo pessoas sem um dispositivo inscrito.  
-
+-   **Неизвестно** — пользователи, в том числе не имеющие зарегистрированных устройств, не приняли никаких условий.  

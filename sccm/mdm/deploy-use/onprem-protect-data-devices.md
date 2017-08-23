@@ -1,6 +1,6 @@
 ---
-title: "Proteger dados e dispositivos para gestão de dispositivos móveis no local "
-description: "Proteger dados e dispositivos da gestão de dispositivos móveis no local no Configuration Manager."
+title: "Защита данных и устройств с помощью локального управления мобильными устройствами "
+description: "Защита данных и устройств с помощью локального управления мобильными устройствами в Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,19 +17,19 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 88ab415ed3617ae5385636ad23bd02809979b55a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="protect-data-and-devices-in-on-premises-mobile-device-management"></a>Proteger dados e dispositivos na gestão de dispositivos móveis no local
+# <a name="protect-data-and-devices-in-on-premises-mobile-device-management"></a>Защита данных и устройств с помощью локального управления мобильными устройствами
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pretende que os utilizadores possam aceder de forma segura a recursos da sua organização, para que a infraestrutura e os dados estejam protegidos de exposição ou ataque malicioso.
+Требуется, чтобы пользователи могли осуществлять безопасный доступ к ресурсам организации, а инфраструктура и данные были защищены от раскрытия или вредоносной атаки.
 
-Siga as orientações mesma para implementações de MDM híbrida (listados abaixo) para ajudar a proteger recursos da sua organização:
+Следуйте приведенным ниже руководствам для гибридного управления мобильными устройствами, чтобы защитить ресурсы вашей организации.
 
-- [Criar perfis Wi-Fi](create-wifi-profiles.md)
-- [Criar perfis de certificado PFX](create-pfx-certificate-profiles.md)
-- [Criar perfis VPN](create-vpn-profiles.md)
-- [Criar perfis de e-mail](create-exchange-activesync-profiles.md)
+- [Создание профилей Wi-Fi](create-wifi-profiles.md)
+- [Создание профилей сертификатов PFX](create-pfx-certificate-profiles.md)
+- [Создание профилей VPN](create-vpn-profiles.md)
+- [Создание профилей электронной почты](create-exchange-activesync-profiles.md)

@@ -1,6 +1,6 @@
 ---
-title: "Configurar a sua subscrição do Intune com o System Center Configuration Manager | Microsoft Docs"
-description: "Configure a sua subscrição do Intune com o System Center Configuration Manager."
+title: "Настройка подписки Intune с помощью System Center Configuration Manager | Документация Майкрософт"
+description: "Настройка подписки Intune с помощью System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
@@ -17,67 +17,67 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 22d890c972d3166f9c7b583d8d3fa917c1897880
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-your-intune-subscription-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurar a sua subscrição do Intune com o System Center Configuration Manager e o Microsoft Intune
+# <a name="configure-your-intune-subscription-with-system-center-configuration-manager-and-microsoft-intune"></a>Настройка подписки Intune с помощью System Center Configuration Manager и Microsoft Intune
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-A subscrição do Intune permite-lhe gerir dispositivos através da internet. Isto inclui a especificação de coleção de utilizadores que pode inscrever dispositivos e definir as informações apresentadas aos utilizadores. Ao criar a subscrição do Intune, também pode adicionar imagem corporativa no portal da empresa do Intune com o logótipo da empresa e cores personalizadas esquemas.
+Подписка Intune позволяет управлять устройствами через Интернет. При ее наличии можно указать, какой коллекции пользователей разрешено регистрировать устройства, а также определить сведения, предоставляемые пользователям. При создании подписки Intune на корпоративном портале можно также добавить фирменную символику с эмблемой компании и пользовательской цветовой схемой.
 
-A subscrição do Intune faz o seguinte:
+Подписка Intune выполняет следующие функции:
 
--   Obtém o certificado de que o ponto de ligação de serviço necessita para efetuar a ligação ao serviço Intune
--   Define a coleção de utilizadores que permite aos utilizadores inscreverem dispositivos móveis
--   Define e configura as plataformas móveis que pretende suportar
+-   Получение сертификата, необходимого точке подключения службы для установки соединения со службой Intune.
+-   Определение коллекции пользователей, которым разрешено регистрировать свои мобильные устройства.
+-   Определение и настройка мобильных платформ, которые требуется поддерживать.
 
 > [!IMPORTANT]
->  Criar uma subscrição do Microsoft Intune no Configuration Manager irá colocar o ponto de ligação de serviço do seu site no "modo online". Veja [Acerca do ponto de ligação de serviço no System Center Configuration Manager](../../core/servers/deploy/configure/about-the-service-connection-point.md).
+>  Создание подписки для Microsoft Intune в Configuration Manager переключает точку подключения службы сайта в "оперативный режим". См. раздел [Сведения о точке подключения службы в System Center Configuration Manager](../../core/servers/deploy/configure/about-the-service-connection-point.md).
 
-## <a name="to-create-the-microsoft-intune-subscription"></a>Para criar a subscrição do Microsoft Intune
+## <a name="to-create-the-microsoft-intune-subscription"></a>Создание подписки Microsoft Intune
 
-1.  Se ainda não o fez, inscreva-se numa conta do Microsoft Intune em [Microsoft Intune](http://go.microsoft.com/fwlink/?LinkID=258216).  Depois de criar a sua conta do Intune, não terá de adicionar quaisquer utilizadores para a conta do Intune ou efetuar configurações de definições adicionais.
+1.  Если у вас ее нет, зарегистрируйте учетную запись Microsoft Intune на сайте [Microsoft Intune](http://go.microsoft.com/fwlink/?LinkID=258216).  После создания учетной записи Intune не нужно добавлять пользователей в учетную запись Intune или выполнять дополнительную настройку параметров конфигурации.
 
-2.  Na consola do Configuration Manager, clique em **Administração**.
+2.  В консоли Configuration Manager щелкните **Администрирование**.
 
-3.  Na área de trabalho **Administração**, expanda **Serviços Cloud** e clique em **Subscrições do Microsoft Intune**. No separador **Home Page**, clique em **Adicionar Subscrição do Microsoft Intune**.
+3.  В рабочей области **Администрирование** разверните узел **Облачные службы**и выберите **Подписки Microsoft Intune**. На вкладке **Главная** щелкните **Добавление подписки Microsoft Intune**.
 
-![Criar uma subscrição do Intune](../media/mdm-set-intune.png)
+![Создание подписки Intune](../media/mdm-set-intune.png)
 
-4.  Na página **Introdução** do Assistente Criar Subscrição do Microsoft Intune, reveja o texto e clique em **Seguinte**.
+4.  На странице **Введение** мастера создания подписки Microsoft Intune прочтите текст и нажмите кнопку **Далее**.
 
-5.  Na página **Subscrição**, clique em **Iniciar sessão** e inicie sessão utilizando a sua conta escolar ou profissional. No **definir a autoridade de gestão de dispositivos móveis** caixa de diálogo, selecione a caixa de verificação apenas gere dispositivos móveis utilizando o Gestor de configuração através da consola do Configuration Manager. Para continuar a subscrição, terá de selecionar esta opção.
+5.  На странице **Подписка** щелкните **Вход** и войдите в систему с помощью вашей рабочей учетной записи. В диалоговом окне **Настройка центра управления мобильными устройствами** установите флажок, чтобы управлять мобильными устройствами только с помощью Configuration Manager из консоли Configuration Manager. Для продолжения конфигурирования подписки необходимо выбрать этот параметр.
 
     > [!IMPORTANT]
-    >  Depois de selecionar o Configuration Manager como autoridade de gestão, apenas pode alterar a autoridade de gestão para o Microsoft Intune no Configuration Manager versão 1610 ou posterior e o Microsoft Intune version 1705 sem ter de contactar o Support da Microsoft e sem ter de anular a inscrição e inscrever-se novamente os seus dispositivos geridos existentes. Para obter mais informações, consulte [alterar a autoridade de MDM](/sccm/mdm/deploy-use/change-mdm-authority).
+    >  Если вы выбрали Configuration Manager в качестве центра управления, вы можете поменять его на Microsoft Intune в Configuration Manager версии 1610 и выше, а также на Microsoft Intune версии 1705. Для этого вам не нужно обращаться в службу поддержки корпорации Майкрософт, а также отменять регистрацию и повторно регистрировать существующие управляемые устройства. См. дополнительные сведения об [изменении Центра MDM](/sccm/mdm/deploy-use/change-mdm-authority).
 
-6.  Clique nas hiperligações de privacidade para revê-las e clique em **Seguinte**.
+6.  Щелкните ссылки на заявления о конфиденциальности, просмотрите их и нажмите кнопку **Далее**.
 
-7.  Na página **Geral**, especifique as seguintes opções e clique em **Seguinte**.
+7.  На странице **Общие** укажите следующие параметры и нажмите кнопку **Далее**.
 
-  -   **Coleção**: Especifique uma coleção de utilizadores que contenha os utilizadores que irão inscrever os respetivos dispositivos móveis.
+  -   **Коллекция**. Укажите коллекцию пользователей, содержащую пользователей, которые будут регистрировать мобильные устройства.
 
       > [!NOTE]
-      >  Se um utilizador é removido da coleção, o dispositivo do utilizador irá continuar a ser gerido durante até 24 horas, quando o registo do utilizador é removido da base de dados do utilizador.
+      >  Если пользователь удаляется из коллекции, его устройство продолжает находиться под управлением до 24 часов, пока запись пользователя не удалится из базы данных пользователей.
 
-  -   **Nome da empresa**: Especifique o nome da sua empresa.
+  -   **Название организации**: укажите название организации.
 
-  -   **URL para documentação de privacidade**: Se publicar as informações de privacidade da empresa numa ligação acessível a partir da Internet, forneça uma ligação a que os utilizadores podem aceder a partir do portal da empresa, por exemplo http://www.contoso.com/CP_privacy.html. As informações de privacidade permitem clarificar as informações que os utilizadores partilham com a empresa.
+  -   **URL-адрес заявления о конфиденциальности организации**: если заявление о конфиденциальности организации опубликовано по ссылке, доступной через Интернет, укажите эту ссылку, чтобы пользователи могли переходить по ней из портала компании, например: http://www.contoso.com/CP_privacy.html. Заявление о конфиденциальности может разъяснять, какие сведения пользователей становятся доступны вашей организации.
 
-  -   **Esquema de cores para o portal da empresa**: Opcionalmente, altere a cor predefinida (azul) portais de empresa dos.
+  -   **Цветовая схема портала организации**. По желанию измените голубой цвет, выбранный по умолчанию для порталов организаций.
 
-  -   **Código de site do Configuration Manager**: Especifique um código de site para um site primário gerir os dispositivos móveis.
+  -   **Код сайта Configuration Manager**. Укажите код сайта для основного сайта управления мобильными устройствами.
 
     > [!NOTE]
-    >  A alteração do código do site afeta apenas as novas inscrições, não afetando os dispositivos já inscritos.
+    >  Изменение кода сайта затрагивает только новые регистрации и не влияет на существующие зарегистрированные устройства.
 
-8.  No **informações de contacto da empresa** página, especifique as informações de contacto da empresa são apresentadas aos utilizadores em **contactar TI** na aplicação Portal da empresa. Forneça as informações de contacto para a sua empresa e, em seguida, clique em **seguinte**.
+8.  На странице **Контактные данные компании** введите контактные данные компании, которые будут отображаться на портале компании в разделе **Обращение в ИТ-службу**. Укажите контактные данные вашей компании и нажмите кнопку **Далее**.
 
-9. No **logótipo da empresa** página, pode escolher se pretende apresentar logótipos no portal da empresa e, em seguida, clique em **seguinte**.
+9. На странице **Эмблема компании** выберите вариант отображения эмблемы на портале компании, а затем нажмите кнопку **Далее**.
 
-10. Conclua o assistente.
+10. Завершите работу мастера.
 
 > [!div class="button"]
-[< Anterior passo](confirm-dns.md)[passo seguinte >  ](terms-and-conditions.md)
+[< Назад](confirm-dns.md) [Вперед >](terms-and-conditions.md)

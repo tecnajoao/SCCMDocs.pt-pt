@@ -1,6 +1,6 @@
 ---
-title: Implementar clientes UNIX/Linux | Microsoft Docs
-description: Saiba como implementar um cliente num servidor UNIX ou Linux no System Center Configuration Manager.
+title: "Развертывание клиентов для UNIX и Linux | Документы Майкрософт"
+description: "Узнайте, как развернуть клиент на сервере UNIX или Linux в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,224 +16,224 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d61d53daa5ef3d9c986cba8791d4471fea94d29d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-deploy-clients-to-unix-and-linux-servers-in-system-center-configuration-manager"></a>Como implementar clientes em servidores UNIX e Linux no System Center Configuration Manager
+# <a name="how-to-deploy-clients-to-unix-and-linux-servers-in-system-center-configuration-manager"></a>Развертывание клиентов на серверах UNIX и Linux в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Antes de poder gerir um servidor Linux ou UNIX com o System Center Configuration Manager, tem de instalar o cliente do Configuration Manager para Linux e UNIX em cada servidor Linux ou UNIX. Pode efetuar a instalação do cliente manualmente em cada computador ou utilizar um script de shell que instala o cliente remotamente. O Configuration Manager não suporta a utilização da instalação push do cliente para servidores Linux ou UNIX. Opcionalmente, pode configurar um Runbook do System Center Orchestrator para automatizar a instalação do cliente no servidor Linux ou UNIX.  
+Прежде чем управлять сервером UNIX или Linux с помощью System Center Configuration Manager, необходимо установить клиент Configuration Manager для Linux и UNIX на каждом сервере UNIX или Linux. Можно выполнить установку клиента вручную на каждом компьютере или воспользоваться сценарием оболочки, который устанавливает клиент удаленно. Configuration Manager не поддерживает использование принудительной установки клиента для серверов UNIX или Linux. При необходимости можно настроить модуль Runbook для System Center Orchestrator на автоматизацию установки клиента на серверах UNIX или Linux.  
 
- Independentemente do método de instalação utilizado, o processo de instalação requer a utilização de um script com o nome **install** para gerir o processo de instalação. Este script está incluído quando transferir o cliente para Linux e UNIX.  
+ Независимо от используемого метода установки процесс установки требует применения сценария с именем **install** для управления процессом установки. Этот скрипт включается при загрузке клиент для Linux и UNIX.  
 
- O script de instalação do cliente do Configuration Manager para Linux e UNIX suporta propriedades de linha de comandos. Algumas propriedades de linha de comandos são necessárias, enquanto outras são opcionais. Por exemplo, quando instala o cliente, tem de especificar um ponto de gestão do site que é utilizado pelo servidor Linux ou UNIX para o contacto inicial com o site. Para obter a lista completa de propriedades de linha de comandos, veja [Propriedades de Linha de Comandos para Instalação do Cliente em Servidores Linux e UNIX](#BKMK_CmdLineInstallLnUClient).  
+ Скрипт установки для клиента Configuration Manager для Linux и UNIX поддерживает свойства командной строки. Некоторые свойства командной строки требуются другие являются необязательными. Например при установке клиента, необходимо указать точку управления с сайта, используемый для начальной контактов с сайта на сервере UNIX или Linux. Полный список свойств командной строки см. в статье [Свойства командной строки для установки клиента на серверах UNIX и Linux](#BKMK_CmdLineInstallLnUClient).  
 
- Depois de instalar o cliente, especifique as definições de cliente na consola do Configuration Manager para configurar o agente de cliente da mesma forma que faria com clientes baseados em Windows. Para obter mais informações, veja [Definições de cliente para servidores Linux e UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ClientSettingsforLnU).  
+ После установки клиента можно указать параметры клиента в консоли Configuration Manager, чтобы настроить агент клиента по аналогии с клиентами на основе Windows. Дополнительные сведения см. в разделе [Параметры клиента для серверов Linux и UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ClientSettingsforLnU).  
 
-##  <a name="BKMK_AboutInstallPackages"></a> Acerca dos Pacotes de Instalação de Cliente e do Agente Universal  
- Para instalar o cliente para Linux e UNIX numa plataforma específica, tem de utilizar o pacote de instalação de cliente aplicável ao computador onde instalar o cliente. Os pacotes de instalação de cliente aplicáveis são incluídos como parte de cada transferência de cliente a partir do [Centro de Transferências da Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184). Para além de pacotes de instalação de cliente, a transferência do cliente inclui o script de **instalação** que gere a instalação do cliente em cada computador.  
+##  <a name="BKMK_AboutInstallPackages"></a> О пакетах установки клиента и универсальном агенте  
+ Чтобы установить клиент для Linux и UNIX на определенной платформе, необходим подходящий пакет установки клиента для компьютера, где выполняется установка клиента. Соответствующие пакеты установки клиента входят в состав файлов, скачиваемых из [Центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkID=525184). Помимо пакетов установки клиента скачиваемые файлы содержат сценарий **install** , который управляет установкой клиента на каждом компьютере.  
 
- Quando instala um cliente, pode utilizar o mesmo processo e as mesmas propriedades de linha de comandos, independentemente do pacote de instalação de cliente que utiliza.  
+ При установке клиента, можно использовать те же свойства процесса и командной строки, независимо от используемого пакета установки.  
 
- Para obter informações sobre os sistemas operativos, plataformas e pacotes de instalação de cliente suportados por cada versão do cliente do Configuration Manager para Linux e UNIX, consulte [servidores Linux e UNIX](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#linux-and-unix-servers).  
+ Сведения об операционных системах, платформах и пакетах установки клиента, поддерживаемых каждым выпуском клиента Configuration Manager для Linux и UNIX, см. в разделе [Серверы Linux и UNIX](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#linux-and-unix-servers).  
 
-##  <a name="BKMK_InstallLnUClient"></a> Instalar o Cliente em Servidores Linux e UNIX  
- Para instalar o cliente para Linux e UNIX, tem de executar um script em cada computador Linux ou UNIX. O script tem o nome **install** e suporta propriedades de linha de comandos que modificam o comportamento de instalação e fazem referência ao pacote de instalação de cliente. O script de instalação e o pacote de instalação de cliente têm de estar localizados no cliente. O pacote de instalação de cliente contém os ficheiros de cliente do Configuration Manager para um sistema de operativo Linux ou UNIX específico e a plataforma.
-Cada pacote de instalação de cliente contém todos os ficheiros necessários para realizar a instalação do cliente e, ao contrário dos computadores baseados em Windows, não transfere ficheiros adicionais de um ponto de gestão ou outra localização de origem.  
+##  <a name="BKMK_InstallLnUClient"></a> Установка клиента на серверах UNIX и Linux  
+ Чтобы установить клиент для Linux и UNIX, запустите сценарий на каждом компьютере UNIX или Linux. Сценарий называется **установки** и поддерживает свойства командной строки, изменяющие поведение установки и ссылаются на пакет установки клиента. Установочный пакет установки сценарий и клиент должен быть расположен на клиенте. Пакет установки клиента содержит файлы клиента Configuration Manager для конкретной операционной системы UNIX или Linux и платформы.
+Каждый пакет установки клиента содержит все файлы, необходимые для завершения установки клиента и в отличие от компьютеров под управлением Windows, не загружать дополнительные файлы из точки управления или другие расположения источника.  
 
- Depois de instalar o cliente do Configuration Manager para Linux e UNIX, não é necessário reiniciar o computador. Assim que a instalação do software estiver concluída, o cliente está operacional. Se reiniciar o computador, o cliente do Configuration Manager reinicia automaticamente.  
+ После установки клиента Configuration Manager для Linux и UNIX перезагружать компьютер не требуется. Сразу после установки программного обеспечения клиента работает. При перезагрузке компьютера клиент Configuration Manager автоматически перезапускается.  
 
- O cliente instalado é executado com credenciais de raiz. As credenciais de raiz são necessárias para recolher inventário de hardware e efetuar implementações de software.  
+ Установленного клиента выполняется с учетными данными корневой. Корневые учетные данные необходимы для сбора данных инвентаризации оборудования и выполнения развертываний программного обеспечения.  
 
- Segue-se o formato do comando:  
+ Команда имеет следующий формат:  
 
- **. / instalar -mp &lt;computador\> - sitecode &lt;sitecode\> &lt;propriedade #1 > &lt;propriedade #2 > &lt;pacote de instalação de cliente\>**  
+ **./install -mp &lt;компьютер\> -sitecode &lt;код_сайта\> &lt;свойство 1> &lt;свойство 2> &lt;пакет_установки_клиента\>**  
 
--   **install** é o nome do ficheiro de script que instala o cliente para Linux e UNIX. Este ficheiro é fornecido com o software de cliente.  
+-   **установки** имя файла скрипта, который устанавливает клиент для Linux и UNIX. Этот файл входит в состав клиентского программного обеспечения.  
 
--   **-mp &lt;computador** Especifica o ponto de gestão inicial que é utilizado pelo cliente.  
+-   **-mp &lt;компьютер** указывает начальную точку управления, используемую клиентом.  
 
-     Exemplo: smsmp.contoso.com  
+     Пример: smsmp.contoso.com  
 
--   **-sitecode &lt;código do site\>**  Especifica o código do site que o cliente está atribuído.  
+-   **-sitecode &lt;код_сайта\>** указывает код сайта, которому будет назначен клиент.  
 
-     Exemplo: S01  
+     Пример: S01  
 
--   &lt;propriedade #1 > &lt;propriedade #2 > especifica as propriedades da linha de comandos para utilizar com o script de instalação.  
+-   &lt;свойство 1> &lt;свойство 2> указывает свойства командной строки для использования со скриптом установки.  
 
     > [!NOTE]  
-    >  Para obter mais informações, veja [Propriedades de Linha de Comandos para Instalação do Cliente em Servidores Linux e UNIX](#BKMK_CmdLineInstallLnUClient)  
+    >  Дополнительные сведения см. в статье [Свойства командной строки для установки клиента на серверах UNIX и Linux](#BKMK_CmdLineInstallLnUClient)  
 
--   **client installation package** é o nome do pacote .tar de instalação de cliente para o sistema operativo, versão e arquitetura de CPU deste computador. O ficheiro .tar de instalação de cliente tem de ser especificado no fim.  
+-   **пакет установки клиента** — это имя TAR-пакета установки клиента для версии операционной системы и архитектуры ЦП на данном компьютере. Последний должен быть указан .tar файла установки клиента.  
 
-     Exemplo: ccm-Universal-x64. &lt;criar\>. tar  
+     Пример: ccm-Universal-x64.&lt;сборка\>.tar  
 
-###  <a name="BKMK_ToInstallLnUClinent"></a> Para instalar o Cliente do Configuration Manager em servidores Linux e UNIX  
+###  <a name="BKMK_ToInstallLnUClinent"></a> Чтобы установить клиент Configuration Manager на серверах Linux и UNIX  
 
-1.  Num computador Windows, [transfira o ficheiro de cliente adequado para o servidor Linux ou UNIX](http://go.microsoft.com/fwlink/?LinkID=525184) que pretende gerir.  
+1.  На компьютере Windows [скачайте файл соответствующего клиента для сервера Linux или UNIX](http://go.microsoft.com/fwlink/?LinkID=525184) , которым хотите управлять.  
 
-2.  Execute o ficheiro .exe de extração automática no computador Windows para extrair o script de instalação e o ficheiro .tar de instalação do cliente.  
+2.  Запустите самоизвлекающийся EXE-файл на компьютере Windows, чтобы извлечь сценарий установки и TAR-файл установки клиента.  
 
-3.  Copie o script **install** e o ficheiro .tar para uma pasta no servidor que pretende gerir.  
+3.  Скопируйте сценарий **установки** и TAR-файл в папку на сервере, которым требуется управлять.  
 
-4.  No servidor UNIX ou Linux, execute o seguinte comando para permitir que o script seja executado como um programa: **chmod +x install**  
+4.  На сервере UNIX или Linux выполните следующую команду, чтобы разрешить выполнение сценария в качестве программы: **chmod +x install**  
 
     > [!IMPORTANT]  
-    >  É necessário utilizar credenciais de raiz para instalar o cliente.  
+    >  Для установки клиента необходимо использовать учетные данные суперпользователя.  
 
-5.  Em seguida, execute o seguinte comando para instalar o cliente do Configuration Manager: **. / instalar -mp &lt;hostname\> - sitecode &lt;código\> ccm-Universal-x64.&lt; criar\>. tar**  
+5.  Затем выполните следующую команду для установки клиента Configuration Manager: **./install -mp &lt;имя_узла\> -sitecode &lt;код\> ccm-Universal-x64.&lt;сборка\>.tar**  
 
-     Ao introduzir este comando, utilize as propriedades de linha de comandos adicionais de que necessita.  Para obter a lista de propriedades de linha de comandos, veja [Propriedades de Linha de Comandos para Instalação do Cliente em Servidores Linux e UNIX](#BKMK_CmdLineInstallLnUClient)  
+     При вводе этой команды используйте дополнительные свойства командной строки, потребуется.  Список свойств командной строки см. в статье [Свойства командной строки для установки клиента на серверах UNIX и Linux](#BKMK_CmdLineInstallLnUClient).  
 
-6.  Após a execução do script, valide a instalação revendo o ficheiro **/var/opt/microsoft/scxcm.log** . Além disso, pode confirmar que o cliente é instalado e a comunicar com o site através da visualização dos detalhes do cliente no **dispositivos** o nó do **ativos e compatibilidade** área de trabalho na consola do Configuration Manager.  
+6.  После выполнения сценария проверьте установку, просмотрев файл **/var/opt/microsoft/scxcm.log** . Кроме того, вы можете убедиться в том, что клиент установлен и взаимодействует с сайтом, просмотрев сведения о клиенте в узле **Устройства** рабочей области **Активы и соответствие** консоли Configuration Manager.  
 
-###  <a name="BKMK_CmdLineInstallLnUClient"></a> Propriedades de Linha de Comandos para Instalação do Cliente em Servidores Linux e UNIX  
- As propriedades seguintes estão disponíveis para modificar o comportamento do script de instalação:  
+###  <a name="BKMK_CmdLineInstallLnUClient"></a> Свойства командной строки для установки клиента на серверах UNIX и Linux  
+ Для изменения режима сценария установки доступны перечисленные ниже свойства.  
 
 > [!NOTE]  
->  Utilize a propriedade **-h** para apresentar esta lista de propriedades suportadas.  
+>  Используйте свойство **-h** для отображения этого списка поддерживаемых свойств.  
 
--   **-mp &lt;FQDN do servidor\>**  
+-   **-mp &lt;полное доменное имя сервера\>**  
 
-     Necessário. Especifica através do FQDN, o servidor de ponto de gestão que o cliente irá utilizar como ponto inicial de contacto.  
+     Обязательно. Задает полное доменное имя, сервера точки управления, клиент будет использовать в качестве начальной точки контакта.  
 
     > [!IMPORTANT]  
-    >  Esta propriedade não especifica o ponto de gestão ao qual o cliente será atribuído após a instalação.  
+    >  Это свойство не указывает точку управления, которой этот клиент будет назначен после установки.  
 
     > [!NOTE]  
-    >  Quando utiliza a propriedade **-mp** para especificar um ponto de gestão que está configurado para aceitar apenas ligações de cliente HTTPS, também tem de utilizar a propriedade **-UsePKICert** .  
+    >  При использовании свойства **-mp** для указания точки управления, настроенной для приема подключений клиентов только по протоколу HTTPS, необходимо также использовать свойство **-UsePKICert** .  
 
--   **-sitecode &lt;sitecode\>**  
+-   **-sitecode &lt;код_сайта\>**  
 
-     Necessário. Especifica o site primário do Configuration Manager para atribuir o cliente do Configuration Manager.  
+     Обязательно. Задает первичный сайт Configuration Manager, которому должен быть назначен клиент Configuration Manager.  
 
-     Exemplo: -sitecode S01  
+     Пример: -sitecode S01  
 
--   **-fsp &lt;servidor_fqdn >**  
+-   **-fsp &lt;полное_доменное_имя_сервера>**  
 
-     Opcional. Especifica através do FQDN, o servidor de ponto de estado de contingência que o cliente utiliza para submeter mensagens de estado.  
+     Необязательный параметр. Задает полное доменное имя, клиент использует для отправки сообщения о состоянии сервера точки состояния отката.  
 
-     Para obter mais informações sobre o ponto de estado de contingência, veja [Determinar se Necessita de um Ponto de Estado de Contingência](/sccm/core/clients/deploy/plan/determine-the-site-system-roles-for-clients#determine-if-you-need-a-fallback-status-point).  
+     Дополнительные сведения о резервной точке состояния см. в разделе [Определение необходимости резервной точки состояния](/sccm/core/clients/deploy/plan/determine-the-site-system-roles-for-clients#determine-if-you-need-a-fallback-status-point).  
 
 
--   **-dir &lt;diretório\>**  
+-   **-dir &lt;каталог\>**  
 
-     Opcional. Especifica uma localização alternativa para instalar os ficheiros de cliente do Configuration Manager.  
+     Необязательный параметр. Указывает альтернативное расположение для установки файлов клиента Configuration Manager.  
 
-     Por predefinição, o cliente é instalado na seguinte localização: **/opt/microsoft**.  
+     По умолчанию клиент устанавливается в следующем расположении: **/opt/microsoft**.  
 
 -   **-nostart**  
 
-     Opcional. Impede o início automático do serviço de cliente do Configuration Manager, **ccmexec.bin**, depois de concluída a instalação de cliente.  
+     Необязательный параметр. Предотвращает автоматический запуск службы клиента Configuration Manager — **ccmexec.bin** — после завершения установки клиента.  
 
-     Após a instalação do cliente, tem de iniciar manualmente o serviço de cliente.  
+     После установки клиента, необходимо запустить службу клиента вручную.  
 
-     Por predefinição, o serviço de cliente é iniciado depois de concluída a instalação do cliente e sempre que o computador é reiniciado.  
+     По умолчанию после завершения установки клиента и перезагрузки компьютера при каждом запуске службы клиента.  
 
--   **-clean**  
+-   **-очистки**  
 
-     Opcional. Especifica a remoção de todos os dados e ficheiros de cliente a partir de um cliente anteriormente instalado para Linux e UNIX, antes de a nova instalação ser iniciada. Isto remove a base de dados do cliente e o arquivo de certificados.  
+     Необязательный параметр. Задает удаление всех файлов клиента и данные из ранее установленного клиента для Linux и UNIX, перед началом установки новой. При этом удаляется база данных и хранилище сертификатов клиента.  
 
 -   **-keepdb**  
 
-     Opcional. Especifica que a base de dados do cliente local é mantida e reutilizada quando reinstalar um cliente. Por predefinição, quando reinstalar um cliente, esta base de dados é eliminada.  
+     Необязательный параметр. Указывает, что базы данных локального клиента сохраняются и используются всякий раз при переустановке клиента. По умолчанию при переустановке клиента удаляется этой базы данных.  
 
--   **-UsePKICert &lt;parâmetro\>**  
+-   **-UsePKICert &lt;параметр\>**  
 
-     Opcional. Especifica o nome de ficheiro e caminho completo de um certificado PKI X.509 no formato Public Key Certificate Standard (PKCS#12). Este certificado é utilizado para a autenticação de cliente. Se não for especificado um certificado durante a instalação e precisar de adicionar ou alterar um certificado, utilize o utilitário **certutil** . Veja [Como gerir certificados no cliente para Linux e UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ManageLinuxCerts) para obter informações sobre o certutil.  
+     Необязательный параметр. Указывает полный путь и имя файла для сертификатов инфраструктуры открытого ключа X.509 в формате стандарта сертификата открытого ключа (PKCS #12). Этот сертификат используется для проверки подлинности клиента. Если сертификат не указан во время установки и вам нужно добавить или изменить сертификат, используйте служебную программу **certutil** . Информацию о служебной программе certutil см. в разделе [Управление сертификатами на клиенте для Linux и UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ManageLinuxCerts).  
 
-     Quando utiliza **-UsePKICert**, também tem de fornecer a palavra-passe associada ao ficheiro PKCS#12 através da utilização do parâmetro da linha de comandos **-certpw** .  
+     При использовании **-UsePKICert**необходимо указать пароль, связанный с файлом PKCS#12, с помощью параметра командной строки **-certpw** .  
 
-     Se não utilizar esta propriedade para especificar um certificado PKI, o cliente utiliza um certificado autoassinado e todas as comunicações com sistemas de sites são efetuadas por HTTP.  
+     Если это свойство не используется для указания PKI-сертификат, клиент использует самозаверяющий сертификат, и все соединения с системами сайта осуществляются по протоколу HTTP.  
 
-     Se especificar um certificado inválido na linha de comandos de instalação do cliente, não são devolvidos erros. Isto acontece porque a validação do certificado ocorre após a instalação do cliente. Quando o cliente é iniciado, certificados são validados com o ponto de gestão e se um certificado falhar na validação a seguinte mensagem de erro é apresentado na **scxcm.log**, o ficheiro de registo de cliente Unix e Linux Configuration Manager: **Falha ao validar o certificado de ponto de gestão**. A localização do ficheiro de registo predefinida é:  **/var/opt/microsoft/scxcm.log**.  
+     Если указан недопустимый сертификат на клиенте установить командной строки, ошибки не возвращаются. Это вызвано проверки сертификата происходит после установки клиента. При запуске клиента, используется для проверки сертификатов с точкой управления и если сертификат не проходит проверку появится следующее сообщение в **scxcm.log**, файл журнала клиента Configuration Manager для Linux и Unix: **Не удалось проверить сертификат для точки управления**. Расположение файла журнала по умолчанию:  **/var/opt/microsoft/scxcm.log**.  
 
     > [!NOTE]  
-    >  Tem de especificar esta propriedade quando instala um cliente e utiliza a propriedade **-mp** para especificar um ponto de gestão que esteja configurado para aceitar apenas ligações de cliente HTTPS.  
+    >  Это свойство необходимо указывать при установке клиента вручную и использовать свойство **-mp** для указания точки управления, настроенной на принятие подключений клиентов только по протоколу HTTP.  
 
-     Exemplo: - UsePKICert &lt;completa e caminho do ficheiro\> - certpw &lt;palavra-passe\>  
+     Пример: -UsePKICert &lt;полный путь и имя файла\> -certpw &lt;пароль\>  
 
--   **-certpw &lt;parâmetro\>**  
+-   **-certpw &lt;параметр\>**  
 
-     Opcional. Especifica a palavra-passe associada ao ficheiro PKCS#12 que especificou com a propriedade **-UsePKICert** .  
+     Необязательный параметр. Указывает пароль, связанный с файлом PKCS #12, указанной с помощью **- UsePKICert** свойства.  
 
-     Exemplo: - UsePKICert &lt;completa e caminho do ficheiro\> - certpw &lt;palavra-passe\>  
+     Пример: -UsePKICert &lt;полный путь и имя файла\> -certpw &lt;пароль\>  
 
 -   **-NoCRLCheck**  
 
-     Opcional. Especifica que um cliente não deve verificar a lista de revogação de certificados (CRL) quando comunica por HTTPS através de um certificado PKI. Se esta opção não for especificada, o cliente verifica a CRL antes de estabelecer uma ligação HTTPS através de certificados PKI. Para obter mais informações sobre a verificação da CRL de cliente, veja Planear a Revogação de Certificados PKI.  
+     Необязательный параметр. Указывает, что клиент не должен проверять список отзыва сертификатов (CRL) при соединении по протоколу HTTPS, с помощью сертификатов PKI. Если этот параметр не указан, клиент проверяет список отзыва Сертификатов перед установкой соединения HTTPS с помощью сертификатов PKI. Дополнительные сведения о проверке списка отзыва Сертификатов см. Планирование отзыва сертификатов PKI.  
 
-     Exemplo: - UsePKICert &lt;completa e caminho do ficheiro\> - certpw &lt;palavra-passe\> - NoCRLCheck  
+     Пример: -UsePKICert &lt;полный путь и имя файла\> -certpw &lt;пароль\> -NoCRLCheck  
 
--   **-rootkeypath &lt;localização do ficheiro\>**  
+-   **-rootkeypath &lt;расположение файла\>**  
 
-     Opcional. Especifica o caminho completo e nome de ficheiro para a chave de raiz fidedigna do Configuration Manager. Fidedigna do Configuration Manager a chave de raiz fornece um mecanismo que clientes Linux e UNIX utilizam para verificar que estão ligados a um sistema de sites que pertença à hierarquia correta.  
+     Необязательный параметр. Указывает полный путь и имя файла для корневого ключа доверия Configuration Manager. Корневой ключ доверия Configuration Manager предоставляет механизм, позволяющий клиентам Linux и UNIX удостовериться в том, что они подключены к системе сайта, относящейся к правильной иерархии.  
 
-     Se não especificar a chave de raiz fidedigna na linha de comandos, o cliente irá confiar no primeiro ponto de gestão com o qual comunica e irá obter automaticamente a chave de raiz fidedigna a partir desse ponto de gestão.  
+     Если не указать доверенный корневой ключ в командной строке, клиент будет доверять первой точке управления, к которой он обращается, и автоматически получит доверенный корневой ключ из этой точки управления.  
 
-     Para obter mais informações, veja [Planear a Chave de Raiz Fidedigna](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
+     Дополнительные сведения см. в разделе [Планирование доверенного корневого ключа](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
 
-     Exemplo: - rootkeypath &lt;completa e caminho do ficheiro\>  
+     Пример: -rootkeypath &lt;полный путь и имя файла\>  
 
--   **-httpport &lt;porta\>**  
+-   **-httpport &lt;порт\>**  
 
-     Opcional. Especifica a porta que está configurada nos pontos de gestão que o cliente utiliza ao comunicar com pontos de gestão através de HTTP. Se a porta não for especificada, será utilizado o valor predefinido 80.  
+     Необязательный параметр. Указывает порт, который настроен в точках управления, которые используются при связи с точки управления по протоколу HTTP. Если порт не указан, используется значение по умолчанию 80.  
 
-     Exemplo: -httpport 80  
+     Пример: - httpport 80  
 
--   **-httpsport &lt;porta\>**  
+-   **-httpsport &lt;порт\>**  
 
-     Opcional. Especifica a porta que está configurada nos pontos de gestão que o cliente utiliza ao comunicar com pontos de gestão através de HTTPS. Se a porta não for especificada, será utilizado o valor predefinido 443.  
+     Необязательный параметр. Указывает порт, который настроен в точках управления, которые используются при связи с точки управления по протоколу HTTPS. Если порт не указан, используется значение по умолчанию 443.  
 
-     Exemplo: - UsePKICert &lt;caminho completo e certificado nome\> - httpsport 443  
+     Пример: -UsePKICert &lt;полный путь и имя сертификата\> -httpsport 443  
 
 -   **-ignoreSHA256validation**  
 
-     Opcional. Especifica que a instalação do cliente ignora a validação de SHA-256. Utilize esta opção ao instalar o cliente em sistemas operativos que não foram lançados com uma versão de OpenSSL que suporte SHA-256. Para obter mais informações, veja [Sobre Sistemas Operativos Linux e UNIX que não Suportam SHA-256](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md#BKMK_NoSHA-256).  
+     Необязательный параметр. Указывает, что установка клиента пропускает проверку SHA-256. Используйте этот параметр при установке клиента в операционных системах, которые не содержат версии OpenSSL, поддерживающей SHA-256. Дополнительные сведения см. в разделе [Сведения об операционных системах Linux и UNIX, не поддерживающих SHA-256](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md#BKMK_NoSHA-256).  
 
--   **-signcertpath &lt;localização do ficheiro\>**  
+-   **-signcertpath &lt;расположение файла\>**  
 
-     Opcional. Especifica o caminho completo e o nome de ficheiro **.cer** do certificado autoassinado exportado no servidor do site. Se não estiverem disponíveis certificados PKI, o servidor de site do Configuration Manager gera automaticamente certificados autoassinados.  
+     Необязательный параметр. Указывает полный путь и **.cer** имя файла экспортируемого самозаверяющего сертификата на сервере сайта. Если PKI-сертификаты недоступны, сервер сайта Configuration Manager автоматически создает самозаверяющие сертификаты.  
 
-     Estes certificados são utilizados para confirmar se as políticas de cliente transferidas do ponto de gestão foram enviadas a partir do site pretendido. Se não for especificado um certificado autoassinado durante a instalação ou se precisar de alterar um certificado, utilize o utilitário **certutil** . Veja [Como gerir certificados no cliente para Linux e UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ManageLinuxCerts) para obter informações sobre o certutil.  
+     Эти сертификаты используются для проверки того, что политики клиента, загружаются из точки управления, отправленных с нужным сайтом. Если самозаверяющий сертификат не указан во время установки или вам нужно изменить этот сертификат, используйте служебную программу **certutil** . Информацию о служебной программе certutil см. в разделе [Управление сертификатами на клиенте для Linux и UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ManageLinuxCerts).  
 
-     Este certificado pode ser obtido através do arquivo de certificados **SMS** e tem o nome de Requerente **Servidor do Site** e o nome amigável **Certificado de Assinatura do Servidor do Site**.  
+     Этот сертификат можно получить из хранилища сертификатов **SMS** , ему задано имя субъекта **Сервер сайта** и понятное имя **Сертификат подписи сервера сайта**.  
 
-     Se esta opção não for especificada durante a instalação, os clientes Linux e UNIX irão confiar no primeiro ponto de gestão com o qual comunicam e irão obter automaticamente o certificado de assinatura a partir desse ponto de gestão.  
+     Если этот параметр не указан во время установки, Linux и UNIX клиенты будут доверять первой точке управления они взаимодействуют и автоматически получать сертификат подписи из этой точки управления.  
 
-     Exemplo: - signcertpath &lt;nome de ficheiro e caminho completo\>  
+     Пример: -signcertpath &lt;полный путь и имя файла\>  
 
 -   **-rootcerts**  
 
-     Opcional. Especifica certificados PKI adicionais a importar que não fazem parte de uma hierarquia de autoridade de certificação (AC) de pontos de gestão. Se especificar vários certificados na linha de comandos, estes devem ser delimitados por vírgulas.  
+     Необязательный параметр. Задает дополнительные сертификаты PKI для импорта, которые не являются частью управления точек иерархии центров сертификации (ЦС). Если указать несколько сертификатов в командной строке, они должны быть с разделителями-запятыми.  
 
-     Utilize esta opção se utilizar certificados de cliente PKI que não encadeiam num certificado de AC de raiz que seja considerada fidedigna pelos pontos de gestão. Pontos de gestão irão rejeitar o cliente se o certificado de cliente não encadear num certificado de raiz fidedigna na lista de emissores de certificados do site.  
+     Используйте этот параметр, если вы используете PKI сертификатов клиентов, которые не связаны корневого центра сертификации, которому доверяют все точки управления на сайтах. Точки управления отклонят подключение клиента, если сертификат клиента не объединен в цепочку с доверенным корневым сертификатом в списке издателей сертификатов сайта.  
 
-     Se não utilizar esta opção, o cliente Linux e UNIX irá verificar a hierarquia de confiança ao utilizar apenas o certificado na opção **-UsePKICert** .  
+     Если этот параметр не используется, Linux и UNIX клиент будет проверять доверенной иерархии с помощью сертификата в **- UsePKICert** параметр.  
 
-     Exemplo: - rootcerts &lt;nome de ficheiro e caminho completo\>,&lt;nome de ficheiro e caminho completo\>  
+     Пример: -rootcerts &lt;полный путь и имя файла\>,&lt;полный путь и имя файла\>  
 
-###  <a name="BKMK_UninstallLnUClient"></a> Desinstalar o Cliente de Servidores Linux e UNIX  
- Para desinstalar o cliente do Configuration Manager para Linux e UNIX, utilize o utilitário de desinstalação, **desinstalação**. Por predefinição, este ficheiro está localizado na pasta **/opt/microsoft/configmgr/bin/** no computador cliente. Este comando de desinstalação não suporta quaisquer parâmetros de linha de comandos e irá remover todos os ficheiros relacionados com o software de cliente do servidor.  
+###  <a name="BKMK_UninstallLnUClient"></a> Удаление клиента из серверов UNIX и Linux  
+ Чтобы удалить клиент Configuration Manager для Linux и UNIX, используйте служебную программу удаления **uninstall**. По умолчанию этот файл находится в **/opt/microsoft/configmgr/bin/** папки на клиентском компьютере. Эта команда удаления не поддерживает параметры командной строки и будут удалены все файлы, связанные с клиентского программного обеспечения с сервера.  
 
- Para desinstalar o cliente, utilize a seguinte linha de comandos: **/opt/microsoft/configmgr/bin/uninstall**  
+ Чтобы удалить клиент, используйте следующую командную строку: **/opt/microsoft/configmgr/bin/uninstall**  
 
- Não é necessário reiniciar o computador depois de desinstalar o cliente do Configuration Manager para Linux e UNIX.  
+ После удаления клиента Configuration Manager для Linux и UNIX перезагружать компьютер не требуется.  
 
-##  <a name="BKMK_ConfigLnUClientCommuincations"></a> Configurar Portas de Pedido para o Cliente para Linux e UNIX  
- Semelhante para os clientes baseados em Windows, o cliente do Configuration Manager para Linux e UNIX utiliza HTTP e HTTPS para comunicar com sistemas de sites do Configuration Manager. As portas que o cliente do Configuration Manager utiliza para comunicar são referidas como portas de pedido.  
+##  <a name="BKMK_ConfigLnUClientCommuincations"></a> Настройка портов запроса для клиента для Linux и UNIX  
+ Клиент Configuration Manager для Linux и UNIX, по аналогии с клиентами на основе Windows, использует протоколы HTTP и HTTPS для обмена данными с системами сайта Configuration Manager. Порты, которые клиент Configuration Manager использует для обмена данными, называются портами запросов.  
 
- Quando instala o cliente do Configuration Manager para Linux e UNIX, pode alterar as portas de pedido de predefinição de clientes, especificando o **- httpport** e **- httpsport** as propriedades de instalação. Se não especificar a propriedade de instalação e um valor personalizado, o cliente utilizará os valores predefinidos. Os valores predefinidos são **80** para tráfego HTTP e **443** para tráfego HTTPS.  
+ При установке клиента Configuration Manager для Linux и UNIX вы можете изменить порты запросов клиента по умолчанию, указав свойства установки **-httpport** и **-httpsport**. При установке свойства и пользовательские значения не указаны, клиент использует значения по умолчанию. Значения по умолчанию, **80** для трафика HTTP и **443** для трафика HTTPS.  
 
- Depois de instalar o cliente, não é possível alterar a configuração da respetiva porta de pedido. Em vez disso, para alterar a configuração da porta, tem de reinstalar o cliente e especificar a nova configuração de porta. Ao reinstalar o cliente para alterar os números de portas de pedido, execute o comando **install** semelhante à instalação do novo cliente, mas utilize a propriedade adicional da linha de comandos **-keepdb**. Este parâmetro dá instruções à instalação para manter a base de dados e os ficheiros do cliente, incluindo o arquivo de certificados e o GUID do cliente.  
+ После установки клиента нельзя изменить конфигурацию порта запроса. Вместо этого для изменения конфигурации портов необходимо переустановить клиент и указать новую конфигурацию порта. При переустановке клиента, чтобы изменить номера портов запрос запуска **установки** команды аналогичен установки нового клиента, но использовать свойство командной строки **- keepdb**. Этот параметр указывает установки для сохранения клиентской базы данных и файлы, включая хранилище GUID и сертификатов клиентов.  
 
- Para obter mais informações sobre os números de portas de comunicação de cliente, veja [Como configurar portas de comunicação de cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
+ Дополнительные сведения о номерах портов связи с клиентами см. в разделе [Настройка портов связи для клиентов в System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
 
-##  <a name="BKMK_ConfigClientMP"></a> Configurar o Cliente para Linux e UNIX para Localizar Pontos de Gestão  
- Quando instala o cliente do Configuration Manager para Linux e UNIX, tem de especificar um ponto de gestão para utilizar como um ponto inicial de contacto.  
+##  <a name="BKMK_ConfigClientMP"></a> Настройка клиента для Linux и UNIX, для поиска точек управления  
+ При установке клиента Configuration Manager для Linux и UNIX необходимо указать точку управления, к которой клиент будет обращаться изначально.  
 
- O cliente do Configuration Manager para Linux e UNIX contacta este ponto de gestão durante que a instalação do cliente. Se o cliente não conseguir contactar o ponto de gestão, o software de cliente continuará a tentar até ter êxito.  
+ Клиент Configuration Manager для Linux и UNIX обращается к этой точке управления во время своей установки. Если ему не удается связаться с точкой управления, клиентское программное обеспечение продолжает попытки до успешной установки соединения.  
 
- Para obter mais informações sobre como os clientes localizam pontos de gestão, veja [Localizar Pontos de Gestão](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points).
+ Дополнительные сведения об обнаружении точек управления клиентами см. в разделе [Поиск точек управления](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points).

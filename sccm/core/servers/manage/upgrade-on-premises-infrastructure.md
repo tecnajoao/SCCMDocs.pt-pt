@@ -1,6 +1,6 @@
 ---
-title: Atualizar infraestrutura no local | Microsoft Docs
-description: Saiba como atualizar a infraestrutura, como o SQL Server e o sistema operativo do site dos sistemas de sites.
+title: "Обновление локальной инфраструктуры | Документы Майкрософт"
+description: "Узнайте, как обновить инфраструктуру, например SQL Server и операционную систему для систем сайта."
 ms.custom: na
 ms.date: 06/05/2017
 ms.prod: configuration-manager
@@ -17,195 +17,195 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 188b7f2537dd0e569a5c00995620124512cf311b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Atualizar a infraestrutura no local que suporta o System Center Configuration Manager
+# <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Обновление локальной инфраструктуры, которая поддерживает System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as informações neste tópico para o ajudar a atualizar a infraestrutura de servidor que executa o System Center Configuration Manager.  
+Используйте приведенные в этом разделе сведения, чтобы обновить инфраструктуру, работающую на базе System Center Configuration Manager.  
 
- - Se pretender atualizar a partir de uma versão anterior do Configuration Manager para o System Center Configuration Manager, consulte [atualizar para o System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
+ - Чтобы выполнить обновление с более ранней версии Configuration Manager до System Center Configuration Manager, см. раздел [Обновление до System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
 
-- Se pretender atualizar a infraestrutura do System Center Configuration Manager para uma nova versão, consulte [atualizações para o System Center Configuration Manager](/sccm/core/servers/manage/updates).
+- Чтобы обновить инфраструктуру System Center Configuration Manager до новой версии, см. раздел [Обновления для System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-##  <a name="BKMK_SupConfigUpgradeSiteSrv"></a>Atualize o sistema operativo dos sistemas de sites  
- O Configuration Manager suporta a atualização no local do sistema operativo de servidores que alojam um servidor de site e de servidores remotos que alojar qualquer função de sistema de sites, nas seguintes situações:  
+##  <a name="BKMK_SupConfigUpgradeSiteSrv"></a> Обновление операционной системы для систем сайта  
+ Configuration Manager поддерживает обновление на месте операционных систем серверов, на которых размещается система сайта, и удаленных серверов, на которых размещается любая роль системы сайта, в следующих ситуациях:  
 
--   Atualização no local para um service pack posterior do Windows Server se o nível do Windows continua a ser suportado pelo Configuration Manager.  
--   Atualização no local de:
-    - Windows Server 2012 R2 para Windows Server 2016 ([ver detalhes adicionais](#bkmk_2016)).
-    - Windows Server 2012 para o Windows Server 2016 ([ver detalhes adicionais](#bkmk_2016)).
-    - Windows Server 2012 para o Windows Server 2012 R2 ([ver detalhes adicionais](#bkmk_2012r2)).
-    - Quando utilizar o Configuration Manager versão 1602 ou posterior, também é suportada para atualizar o Windows Server 2008 R2 para o Windows Server 2012 R2 ([ver detalhes adicionais](#bkmk_from2008r2).
+-   Обновление Windows Server до более позднего пакета обновления на месте при условии, что конечный уровень пакета обновления поддерживается Configuration Manager.  
+-   Обновление на месте:
+    - Windows Server 2012 R2 до Windows Server 2016 ([см. дополнительные сведения](#bkmk_2016));
+    - Windows Server 2012 до Windows Server 2016 ([см. дополнительные сведения](#bkmk_2016));
+    - Windows Server 2012 до Windows Server 2012 R2 ([см. дополнительные сведения](#bkmk_2012r2));
+    - при использовании Configuration Manager версии 1602 и выше также поддерживается обновление Windows Server 2008 R2 до Windows Server 2012 R2 ([см. дополнительные сведения](#bkmk_from2008r2)).
 
     > [!WARNING]  
-    >  Antes de atualizar para o Windows Server 2012 R2, *tem de desinstalar o WSUS 3.2* do servidor.  
+    >  Перед обновлением до Windows Server 2012 R2 *необходимо удалить службы WSUS 3.2* с сервера.  
     >   
-    >  Para obter informações sobre este passo crítico, consulte a secção "Funcionalidades novas e alteradas" [descrição geral do Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx) na documentação do Windows Server.  
+    >  Сведения об этом важном шаге см. в подразделе "Новые и измененные функции" раздела [Обзор служб Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx) в документации по Windows Server.  
 
-Para atualizar um servidor, utilize os procedimentos de atualização fornecidos pelo sistema operativo que estiver a atualizar.  Consulte o seguinte:
-  -  [Atualizar opções para o Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) na documentação do Windows Server.  
-  - [Opções de atualização e a conversão para o Windows Server 2016](https://technet.microsoft.com/windows-server-docs/get-started/supported-upgrade-paths) na documentação do Windows Server.
+При обновлении сервера используйте процедуры обновления для соответствующей операционной системы.  См. следующие разделы:
+  -  [Варианты обновления для Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) в документации по Windows Server.  
+  - [Параметры обновления и преобразования для Windows Server 2016](https://technet.microsoft.com/windows-server-docs/get-started/supported-upgrade-paths) в документации по Windows Server.
 
-### <a name="bkmk_2016"></a>Atualizar o Windows Server 2012 ou Windows Server 2012 R2 para 2016
-Quando atualizar o Windows Server 2012 ou Windows Server 2012 R2 para Windows Server 2016, situações seguintes:
+### <a name="bkmk_2016"></a> Обновление Windows Server 2012 или Windows Server 2012 R2 до Windows 2016
+При обновлении Windows Server 2012 или Windows Server 2012 R2 до Windows Server 2016, необходимо сделать следующее.
 
 
-**Antes da atualização:**  
--   Remova o cliente do System Center Endpoint Protection (SCEP). Windows Server 2016 tem o Windows Defender incorporada, que substitui o cliente SCEP. A presença do cliente SCEP pode impedir uma atualização ao Windows Server 2016.
+**Действия перед обновлением:**  
+-   Удалите клиент System Center Endpoint Protection (SCEP). В Windows Server 2016 имеется встроенный Защитник Windows, который заменяет клиент SCEP. Наличие клиента SCEP может помешать обновлению до Windows Server 2016.
 
-**Após a atualização:**
--   Certifique-se de que o Windows Defender estiver ativado, definido para o início automático e em execução.
--   Certifique-se de que os seguintes serviços do Configuration Manager em execução:
+**Действия после обновления:**
+-   Убедитесь в том, что Защитник Windows включен, для него настроен автоматический запуск и он выполняется.
+-   Убедитесь в том, что запущены следующие службы Configuration Manager:
   -     SMS_EXECUTIVE
   -     SMS_SITE_COMPONENT_MANAGER
 
 
--   Certifique-se a **ativação de processos do Windows** e **WWW/W3svc** serviços estão ativado, definido para início automático e em execução para que as seguintes funções de sistema de sites (estes serviços estão desativados durante a atualização):
-  -     Servidor do site
-  -     Ponto de gestão
-  -     Ponto de serviço Web do Catálogo de Aplicações
-  -     Ponto de site do Catálogo de Aplicações
+-   Убедитесь в том, что запущены **Служба активации Windows** и служба **WWW/W3svc**, для них настроен автоматический запуск и они выполняются для следующих ролей системы сайта (эти службы отключаются во время обновления):
+  -     Сервер сайтов
+  -     Точка управления.
+  -     Тточка веб-службы каталога приложений
+  -     Точка веб-сайта каталога приложений
 
--   Certifique-se de que cada servidor que aloja uma função de sistema de sites continua a corresponder a todos os o [pré-requisitos para funções do sistema de sites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) que são executadas nesse servidor. Por exemplo, poderá ter de reinstalar o BITS, o WSUS, ou configurar definições específicas do IIS.
+-   Убедитесь, что каждый сервер, на котором размещена роль системы сайта, по-прежнему отвечает всем [необходимым условиям для ролей системы сайта](/sccm/core/plan-design/configs/site-and-site-system-prerequisites), которые выполняются на нем. Например, может потребоваться переустановить BITS, WSUS или настроить некоторые параметры служб IIS.
 
--   Depois de restaurar os pré-requisitos em falta, reinicie o servidor mais uma vez para garantir que os serviços são iniciadas e operacional.
+-   После выполнения всех условий перезагрузите сервер еще раз, чтобы службы запустились и работали.
 
-**Problema conhecido para consolas remotas do Configuration Manager:**  
-Depois de atualizar o servidor do site ou um servidor que aloja uma instância de SMS_Provider para Windows Server 2016, os utilizadores administrativos poderão não conseguir ligar uma consola do Configuration Manager para o site. Para contornar este problema, tem de restaurar manualmente as permissões para o grupo de Admins de SMS no WMI. Tem de ser definidas permissões no servidor do site e, em cada servidor remoto que aloja uma instância do SMS_Provider:
+**Известные проблемы с удаленными консолями Configuration Manager:**  
+После обновления сервера сайта или сервера, на котором размещается экземпляр SMS_Provider для Windows Server 2016, пользователи с правами администратора могут не подключить консоль Configuration Manager к сайту. Чтобы решить эту проблему, необходимо вручную восстановить разрешения для группы администраторов SMS в WMI. Разрешения должны быть заданы на сервере сайта и на каждом удаленном сайте, на котором размещается экземпляр SMS_Provider.
 
-1. Nos servidores aplicáveis, abra a consola de gestão da Microsoft (MMC) e adicione o snap-in **controlo WMI**e, em seguida, selecione **computador Local**.
-2. Na MMC, abra o **propriedades** de **controlo WMI (Local)** e selecione o **segurança** separador.
-3. Expandir a árvore abaixo raiz, selecione o **SMS** nó e, em seguida, escolha **segurança**.  Certifique-se a **Admins de SMS** grupo tem as seguintes permissões:
-  -     Ativar conta
-  -     Ativar remoto
-4. No **separador segurança** abaixo o **SMS** nó, selecione o **site_&lt;sitecode**> nó e, em seguida, escolha **segurança**. Certifique-se a **Admins de SMS** grupo tem as seguintes permissões:
-  -   Executar métodos
-  -   Escrita de fornecedor
-  -   Ativar conta
-  -   Ativar remoto
-5. Guarde as permissões para restaurar o acesso para a consola do Configuration Manager.
+1. На соответствующих серверах откройте консоль управления (MMC), добавьте оснастку **Управляющий элемент WMI** и выберите **Локальный компьютер**.
+2. В консоли управления (MMC) откройте окно **Свойства** оснастки **Элемент управления WMI (локальный)** и перейдите на вкладку **Безопасность**.
+3. Разверните дерево под элементом "Корень", выберите узел **SMS**, а затем щелкните **Безопасность**.  Убедитесь в том, что группа **Администраторы SMS** имеет следующие разрешения:
+  -     Включить учетную запись
+  -     Включить удаленно
+4. На вкладке **Безопасность** под узлом **SMS** выберите узел **site_&lt;код сайта**> узел, а затем — **Безопасность**. Убедитесь в том, что группа **Администраторы SMS** имеет следующие разрешения:
+  -   Выполнение методов
+  -   Запись поставщика
+  -   Включить учетную запись
+  -   Включить удаленно
+5. Сохраните разрешения, чтобы восстановить доступ к консоли Configuration Manager.
 
-### <a name="bkmk_2012r2"></a>Windows Server 2012 para o Windows Server 2012 R2
+### <a name="bkmk_2012r2"></a> Windows Server 2012 до Windows Server 2012 R2
 
-**Antes da atualização:**
--  Ao contrário de outros cenários suportados, este cenário não requer considerações adicionais antes da atualização.
+**Действия перед обновлением:**
+-  В отличие от других поддерживаемых сценариев, этот сценарий не требует дополнительных действий перед обновлением.
 
-**Após a atualização:**
-  - Certifique-se de que o serviço de implementação do Windows está iniciado e em execução para as seguintes funções de sistema de sites (este serviço for parado durante a atualização):
-    - Servidor do site
-    - Ponto de gestão
-    - Ponto de serviço Web do Catálogo de Aplicações
-    - Ponto de site do Catálogo de Aplicações
+**Действия после обновления:**
+  - Убедитесь в том, что службы развертывания Windows запущены и работают для следующих ролей системы сайта (эта служба останавливается во время обновления):
+    - Сервер сайтов
+    - Точка управления.
+    - Тточка веб-службы каталога приложений
+    - Точка веб-сайта каталога приложений
 
-  -     Certifique-se a **ativação de processos do Windows** e **WWW/W3svc** serviços estão ativado, definido para início automático e em execução para que as seguintes funções de sistema de sites (estes serviços estão desativados durante a atualização):
-    -   Servidor do site
-    -   Ponto de gestão
-    -   Ponto de serviço Web do Catálogo de Aplicações
-    -   Ponto de site do Catálogo de Aplicações
-
-
-  -     Certifique-se de que cada servidor que aloja uma função de sistema de sites continua a corresponder a todos os o [pré-requisitos para funções do sistema de sites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) que são executadas nesse servidor. Por exemplo, poderá ter de reinstalar o BITS, o WSUS, ou configurar definições específicas do IIS.
-
-  Depois de restaurar os pré-requisitos em falta, reinicie o servidor mais uma vez para garantir que os serviços são iniciadas e operacional.
-
-### <a name="bkmk_from2008r2"></a>Atualizar o Windows Server 2008 R2 para o Windows Server 2012 R2
-Neste cenário de atualização do sistema operativo tem as seguintes condições:  
-
-**Antes da atualização:**
--   Desinstale o WSUS 3.2.  
-    Antes de atualizar um sistema operativo do servidor para Windows Server 2012 R2, tem de desinstalar o WSUS 3.2 a partir do servidor. Para obter informações sobre este passo crítico, consulte a secção novas e alteradas da funcionalidade em Descrição geral do Windows Server Update Services na documentação do Windows Server.
-
-**Após a atualização:**
-  - Certifique-se de que o serviço de implementação do Windows está iniciado e em execução para as seguintes funções de sistema de sites (este serviço for parado durante a atualização):
-    - Servidor do site
-    - Ponto de gestão
-    - Ponto de serviço Web do Catálogo de Aplicações
-    - Ponto de site do Catálogo de Aplicações
+  -     Убедитесь в том, что запущены **Служба активации Windows** и служба **WWW/W3svc**, для них настроен автоматический запуск и они выполняются для следующих ролей системы сайта (эти службы отключаются во время обновления):
+    -   Сервер сайтов
+    -   Точка управления.
+    -   Тточка веб-службы каталога приложений
+    -   Точка веб-сайта каталога приложений
 
 
-  -     Certifique-se a **ativação de processos do Windows** e **WWW/W3svc** serviços estão ativado, definido para início automático e em execução para que as seguintes funções de sistema de sites (estes serviços estão desativados durante a atualização):
-    -   Servidor do site
-    -   Ponto de gestão
-    -   Ponto de serviço Web do Catálogo de Aplicações
-    -   Ponto de site do Catálogo de Aplicações
+  -     Убедитесь, что каждый сервер, на котором размещена роль системы сайта, по-прежнему отвечает всем [необходимым условиям для ролей системы сайта](/sccm/core/plan-design/configs/site-and-site-system-prerequisites), которые выполняются на нем. Например, может потребоваться переустановить BITS, WSUS или настроить некоторые параметры служб IIS.
+
+  После выполнения всех условий перезагрузите сервер еще раз, чтобы службы запустились и работали.
+
+### <a name="bkmk_from2008r2"></a> Обновление Windows Server 2008 R2 до Windows Server 2012 R2
+Ниже представлены условия такого варианта обновления операционной системы.  
+
+**Действия перед обновлением:**
+-   Удалите службы WSUS 3.2.  
+    Перед обновлением операционной системы сервера до Windows Server 2012 R2 необходимо удалить службы WSUS 3.2 с сервера. Сведения об этом важном шаге см. в подразделе "Новые и измененные функции" раздела "Обзор служб Windows Server Update Services" в документации по Windows Server.
+
+**Действия после обновления:**
+  - Убедитесь в том, что службы развертывания Windows запущены и работают для следующих ролей системы сайта (эта служба останавливается во время обновления):
+    - Сервер сайтов
+    - Точка управления.
+    - Тточка веб-службы каталога приложений
+    - Точка веб-сайта каталога приложений
 
 
-  -     Certifique-se de que cada servidor que aloja uma função de sistema de sites continua a corresponder a todos os [os pré-requisitos para funções de sistema de sites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) que são executadas nesse servidor. Por exemplo, poderá ter de reinstalar o BITS, o WSUS, ou configurar definições específicas do IIS.
-
-  Depois de restaurar os pré-requisitos em falta, reinicie o servidor mais uma vez para garantir que os serviços são iniciadas e operacional.
-
-
-### <a name="unsupported-upgrade-scenarios"></a>Cenários de atualização não suportados
-Os cenários de atualização do Windows Server seguintes são geralmente mais frequentes sobre, mas não suportados pelo Configuration Manager:  
-
--   Windows Server 2008 para o Windows Server 2012 ou posterior  
--   Windows Server 2008 R2 para o Windows Server 2012
+  -     Убедитесь в том, что запущены **Служба активации Windows** и служба **WWW/W3svc**, для них настроен автоматический запуск и они выполняются для следующих ролей системы сайта (эти службы отключаются во время обновления):
+    -   Сервер сайтов
+    -   Точка управления.
+    -   Тточка веб-службы каталога приложений
+    -   Точка веб-сайта каталога приложений
 
 
+  -     Каждый сервер, на котором размещена роль системы сайта, по-прежнему отвечает всем [необходимым условиям для ролей системы сайта](/sccm/core/plan-design/configs/site-and-site-system-prerequisites), которые выполняются на нем. Например, может потребоваться переустановить BITS, WSUS или настроить некоторые параметры служб IIS.
 
-##  <a name="BKMK_SupConfigUpgradeClient"></a>Atualize o sistema operativo dos clientes do Configuration Manager  
- O Configuration Manager suporta uma atualização no local do sistema operativo para clientes do Configuration Manager nas seguintes situações:  
+  После выполнения всех условий перезагрузите сервер еще раз, чтобы службы запустились и работали.
 
--   Atualização no local para um service pack posterior do Windows se o nível de service pack resultante continua a ser suportado pelo Configuration Manager.  
 
--   Atualização no local do Windows de uma versão suportada do Windows 10. Para obter mais informações, consulte [Atualizar o Windows para a versão mais recente com o System Center Configuration Manager](../../../osd/deploy-use/upgrade-windows-to-the-latest-version.md).  
+### <a name="unsupported-upgrade-scenarios"></a>Неподдерживаемые сценарии обновления
+Следующие варианты обновления Windows Server часто запрашиваются, но не поддерживаются в Configuration Manager:  
 
--   Atualizações de manutenção de compilação em compilação do Windows 10.  Para obter mais informações, consulte [Gerir o Windows como um serviço com o System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md).  
+-   Windows Server 2008 до Windows Server 2012 или более поздней версии;  
+-   Windows Server 2008 R2 до Windows Server 2012.
 
-##  <a name="BKMK_SupConfigUpgradeDBSrv"></a>Atualizar o SQL Server no servidor de base de dados do site  
-  O Configuration Manager suporta uma atualização no local do SQL Server de uma versão suportada do SQL Server no servidor de base de dados do site. Os cenários de atualização do SQL Server nesta secção são suportados pelo Configuration Manager e incluem os requisitos para cada cenário.
 
- Para obter informações sobre as versões do SQL Server que são suportadas pelo Configuration Manager, consulte [suporte para versões do SQL Server para o System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
- **Atualize a versão de service pack do SQL Server:**    
- O Configuration Manager suporta a atualização no local do SQL Server para um service pack posterior se o nível de pacote de serviço do SQL Server resultante continua a ser suportado pelo Configuration Manager.
+##  <a name="BKMK_SupConfigUpgradeClient"></a> Обновление операционной системы клиентов Configuration Manager  
+ Configuration Manager поддерживает обновление операционной системы клиентов Configuration Manager на месте в следующих ситуациях.  
 
- Quando tiver vários sites do Configuration Manager numa hierarquia, cada site pode executar uma versão de pacote de serviço diferente do SQL Server, e não existem limitações para a ordem na qual os sites atualizam a versão de service pack do SQL Server que é utilizado para a base de dados do site.
+-   Обновление Windows до более позднего пакета обновления на месте при условии, что конечный уровень пакета обновления поддерживается Configuration Manager.  
 
- **Atualizar para uma nova versão do SQL Server:**   
- O Configuration Manager suporta a atualização no local do SQL Server para as seguintes versões:
+-   Обновление на месте Windows из поддерживаемой версии Windows 10. Дополнительные сведения см. в разделе [Обновление Windows до последней версии с помощью System Center Configuration Manager](../../../osd/deploy-use/upgrade-windows-to-the-latest-version.md).  
+
+-   Технические обновления между выпуском сборок Windows 10.  Дополнительные сведения см. в разделе [Управление Windows как службой с помощью System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md).  
+
+##  <a name="BKMK_SupConfigUpgradeDBSrv"></a> Обновление SQL Server на сервере базы данных сайта  
+  Configuration Manager поддерживает обновление SQL Server на месте с поддерживаемой версии SQL на сервере базы данных сайта. Сценарии обновления SQL Server в этом разделе поддерживаются Configuration Manager и включают требования для каждого сценария.
+
+ Сведения о версиях SQL Server, поддерживаемых Configuration Manager, см. в разделе [Поддержка версий SQL Server в System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+
+ **Обновление версии пакета обновления для SQL Server**    
+ Configuration Manager поддерживает обновление SQL Server до более позднего пакета обновления на месте при условии, что конечный уровень пакета обновления SQL Server поддерживается в Configuration Manager.
+
+ При наличии нескольких сайтов Configuration Manager в иерархии на каждом сайте может работать своя версия пакета обновления для SQL Server и нет ограничений на порядок, в котором сайты обновляют версию пакета обновления для SQL Server, используемую для базы данных сайта.
+
+ **Обновление до новой версии SQL Server:**   
+ Configuration Manager поддерживает обновление SQL Server на месте до следующих версий:
 
  - SQL Server 2012  
  - SQL Server 2014  
- - SQL Server 2016  
+ - SQL Server 2016  
 
-Ao atualizar a versão do SQL Server que aloja a base de dados do site, tem de atualizar a versão do SQL Server que é utilizada nos sites na seguinte ordem:
+При обновлении версии сервера SQL Server, на котором размещена база данных сайта, необходимо обновить версию SQL Server, используемую на сайтах, в указанном ниже порядке.
 
- 1. Atualize primeiro o SQL Server no site de administração central.
- 2. Atualize sites secundários antes de atualizar o site primário principal do site secundário.
- 3. Por último, atualize os sites primários principais. Isto inclui os sites primários subordinados que dependem de um site de administração central e sites primários autónomos que são o site de nível superior de uma hierarquia.
+ 1. Сначала обновите SQL Server на сайте центра администрирования.
+ 2. Обновите вторичные сайты перед обновлением их родительского первичного сайта.
+ 3. И наконец, обновите родительские первичные сайты. Сюда входят оба дочерних первичных сайта, отправляющих отчеты на сайт центра администрирования, и автономные первичные сайты, являющиеся сайтом верхнего уровня в иерархии.
 
-**Nível de estimativa de cardinalidade do SQL Server e a base de dados do site:**   
-Quando uma base de dados do site é atualizado a partir de uma versão anterior do SQL Server, a base de dados mantém o nível de estimativa de cardinalidade do SQL (CE) existente se, no mínimo permitido para essa instância do SQL Server. Atualizar automaticamente o SQL Server com uma base de dados a um nível de compatibilidade inferior ao nível de permitido define a base de dados para o nível de compatibilidade inferior permitido pelo SQL Server.
+**Уровень оценки кратности SQL Server и база данных сайта.**   
+Когда база данных сайта обновляется с предыдущей версии SQL Server, она сохраняет имеющийся уровень оценки кратности SQL, если он не ниже минимального допустимого для данного экземпляра SQL Server. Если уровень совместимости обновляемой базы данных SQL Server ниже допустимого, для базы данных задается минимальный допустимый уровень совместимости для SQL Server.
 
-A tabela seguinte identifica os níveis de compatibilidade recomendada de bases de dados do Configuration Manager sites:
+В таблице ниже приведены рекомендуемые уровни совместимости для баз данных сайтов Configuration Manager.
 
-|Versão do SQL Server | Níveis de compatibilidade suportado |Nível recomendado|
+|Версия SQL Server | Поддерживаемые уровни совместимости |Рекомендуемый уровень|
 |----------------|--------------------|--------|
-| SQL Server 2016| 130, 120, 110, 100 | 130|
+| SQL Server 2016| 130, 120, 110, 100 | 130|
 | SQL Server 2014| 120, 110, 100      | 110|
 
-Para identificar o nível de compatibilidade do SQL Server CE em utilização para a base de dados do site, execute a seguinte consulta SQL no servidor de base de dados do site:  **SELECIONE o nome, compatibility_level FROM Databases**
+Чтобы определить уровень совместимости оценки кратности SQL Server, используемый для базы данных сайта, выполните следующий запрос SQL на сервере базы данных сайта: **SELECT name, compatibility_level FROM sys.databases**
 
- Para obter mais informações sobre níveis de compatibilidade de SQL CE e como colocá-los, consulte [ALTER a nível de compatibilidade da base de dados (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx).
-
-
-Para obter mais informações sobre o SQL Server, consulte a documentação do SQL Server na TechNet:
--   [Atualizar para o SQL Server 2012](http://technet.microsoft.com/library/ms143393\(v=sql.110))
--   [Atualizar para o SQL Server 2014](http://technet.microsoft.com/library/ms143393\(v=sql.120))  
--   [Atualizar para o SQL Server 2016](https://technet.microsoft.com/library/bb677622(v=sql.130))
+ Дополнительные сведения об уровнях совместимости оценки кратности SQL и их задании см. в статье [Уровень совместимости инструкции ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx).
 
 
+Дополнительные сведения об SQL Server см. в документации по SQL Server на сайте TechNet:
+-   [Обновление до SQL Server 2012](http://technet.microsoft.com/library/ms143393\(v=sql.110))
+-   [Обновление до SQL Server 2014](http://technet.microsoft.com/library/ms143393\(v=sql.120))  
+-   [Обновление до SQL Server 2016](https://technet.microsoft.com/library/bb677622(v=sql.130))
 
-### <a name="to-upgrade-sql-server-on-the-site-database-server"></a>Para atualizar o SQL Server no servidor da base de dados do site  
 
-1.  Pare todos os serviços do Configuration Manager no site.  
-2.  Atualize o SQL Server para uma versão suportada.  
-3.  Reinicie os serviços do Configuration Manager.  
+
+### <a name="to-upgrade-sql-server-on-the-site-database-server"></a>Порядок обновления SQL Server на сервере базы данных сайта  
+
+1.  Остановите все службы Configuration Manager на сайте.  
+2.  Обновите SQL Server до поддерживаемой версии.  
+3.  Перезапустите службы Configuration Manager.  
 
 > [!NOTE]  
->  Quando altera a edição do SQL Server em utilização no site de administração central de uma edição Standard para uma edição Datacenter ou Enterprise, a partição da base de dados que limita o número de clientes que a hierarquia suporta não se altera.
+>  При смене выпуска SQL Server, используемого на сайте центра администрирования, со Standard на Datacenter или Enterprise секционирование базы данных, которое ограничивает количество клиентов, поддерживаемых иерархией, не изменяется.

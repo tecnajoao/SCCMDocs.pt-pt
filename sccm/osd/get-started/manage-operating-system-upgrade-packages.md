@@ -1,6 +1,6 @@
 ---
-title: "Gerir pacotes de atualização do sistema de operativo | Microsoft Docs"
-description: "Saiba como gerir pacotes de atualização do sistema operativo no System Center Configuration Manager."
+title: "Управление пакетами обновления операционной системы | Документы Майкрософт"
+description: "Сведения об управлении пакетами обновления для операционных систем с помощью System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/06/2016
 ms.prod: configuration-manager
@@ -17,77 +17,77 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 5fef04f26b12bced073332fd1f7b4e7c7bd7d398
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Gerir pacotes de atualização do sistema operativo com o System Center Configuration Manager
+# <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Управление пакетами обновления для операционных систем с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Um pacote de atualização no System Center Configuration Manager contém os ficheiros de origem de configuração do Windows que são utilizados para atualizar um sistema operativo existente num computador. Utilize as seguintes secções para gerir pacotes de atualização do sistema operativo no Configuration Manager.
+Пакет обновления в System Center Configuration Manager содержит исходные файлы установки Windows, используемые для обновления существующей операционной системы на компьютере. Используйте сведения из следующих разделов для управления пакетами обновления операционной системы в Configuration Manager.
 
-##  <a name="BKMK_AddOSUpgradePkgs"></a> Adicionar pacotes de atualização do sistema operativo no Configuration Manager  
- Antes de poder utilizar um pacote de atualização do sistema operativo, tem de adicionar o pacote para um site do Configuration Manager. Utilize o procedimento seguinte para adicionar um pacote de atualização do sistema operativo a um site.  
+##  <a name="BKMK_AddOSUpgradePkgs"></a> Добавление пакетов обновления операционной системы в Configuration Manager  
+ Перед использованием пакета обновления операционной системы пакет необходимо добавить на сайт Configuration Manager. Для этого выполните описанные ниже действия.  
 
-#### <a name="to-add-an-operating-system-upgrade-package"></a>Para adicionar um pacote de atualização do sistema operativo  
+#### <a name="to-add-an-operating-system-upgrade-package"></a>Добавление пакета обновления операционной системы  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Pacotes de atualização de Sistema Operativo**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Пакеты обновления операционной системы**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Adicionar Atualização de Sistema Operativo** para iniciar o Assistente para Adicionar Atualização de Sistema Operativo.  
+3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Добавить пакет обновления операционной системы** , чтобы запустить мастер обновления операционной системы.  
 
-4.  Na página **Origem de Dados** , especifique o caminho de rede para os ficheiros de origem de instalação do pacote de atualização do sistema operativo. Por exemplo, especifique o UNC **\\\server\path** onde estão instalados os ficheiros de origem de instalação.  
+4.  На странице **Источник данных** укажите сетевой путь к исходным файлам для установки пакета обновления операционной системы. Например, укажите UNC-путь **\\\сервер\путь** к месту размещения исходных файлов для установки.  
 
     > [!NOTE]  
-    >  Os ficheiros de origem de instalação contêm Setup.exe e outros ficheiros e pastas para instalar o sistema operativo.  
+    >  Исходные файлы установки содержат Setup.exe, а также другие файлы и папки для установки операционной системы.  
 
     > [!IMPORTANT]  
-    >  Limite o acesso aos ficheiros de origem de instalação para impedir a adulteração indesejável.  
+    >  Ограничьте доступ к исходным файлам установки, чтобы предотвратить нежелательные незаконные изменения.  
 
-5.  Na página **Geral** , especifique as seguintes informações e clique em **Seguinte**. Estas informações são úteis para fins de identificação quando tem vários programas de instalação do sistema operativo.  
+5.  На странице **Общие** укажите следующие данные и нажмите кнопку **Далее**. Эти данные используются для идентификации при наличии нескольких установщиков операционной системы.  
 
-    -   **Nome**: Especifique o nome do programa de instalação de sistema operativo.  
+    -   **Имя**. Укажите имя установщика операционной системы.  
 
-    -   **Versão**: Especifique a versão da instalação do sistema operativo.  
+    -   **Версия**. Укажите версию установщика операционной системы.  
 
-    -   **Comentário**: Especifique uma breve descrição da instalação do sistema operativo.  
+    -   **Комментарий**: Укажите краткое описание установщика операционной системы.  
 
-6.  Conclua o assistente.  
+6.  Завершите работу мастера.  
 
- É agora possível distribuir o programa de instalação do sistema operativo pelos pontos de distribuição a que se acede através das sequências de tarefas de implementação.  
+ Теперь установщик операционной системы может быть передан на точки распространения, к которым имеют доступ ваши последовательности задач развертывания.  
 
-##  <a name="BKMK_DistributeBootImages"></a> Distribuir imagens do sistema operativo por pontos de distribuição  
- As imagens do sistema operativo são distribuídas por pontos de distribuição da mesma forma que são distribuídos outros conteúdos. Na maioria dos casos, terá de distribuir a imagem do sistema operativo por, pelo menos, um ponto de distribuição antes de implementar o sistema operativo. Para obter os passos para distribuir uma imagem do sistema operativo, veja [Distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+##  <a name="BKMK_DistributeBootImages"></a> Распространение образов операционной системы на точки распространения  
+ Распространение образов операционной системы на точки распространения ничем не отличается от распространения другого содержимого. В большинстве случаев перед развертыванием операционной системы необходимо распространить образ по меньшей мере на одну точку распространения. Инструкции по распространению образа операционной системы см. в статье [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-##  <a name="BKMK_OSUpgradePkgApplyUpdates"></a> Aplicar atualizações de software num pacote de atualização do sistema operativo  
- A partir do Configuration Manager versão 1602, pode aplicar novas atualizações de software à imagem do sistema operativo no seu pacote de atualização do sistema operativo. Antes de poder aplicar as atualizações de software a um pacote de atualização que tem de ter o software de atualizações de infraestrutura no local e com êxito atualizações de software sincronizadas, transferir as atualizações de software para a biblioteca de conteúdos no servidor do site. Para obter mais informações, consulte [implementar atualizações de software](../../sum/deploy-use/deploy-software-updates.md).  
+##  <a name="BKMK_OSUpgradePkgApplyUpdates"></a> Применение обновлений программного обеспечения к пакету обновления операционной системы  
+ Начиная с Configuration Manager версии 1602 обновления программного обеспечения можно применить к образу операционной системы в пакете обновления операционной системы. Перед применением обновлений программного обеспечения к пакету обновления требуется развернуть инфраструктуру обновлений ПО, успешно синхронизировать обновления ПО и скачать их в библиотеку содержимого на сервере сайта. Дополнительные сведения о см. в разделе [Развертывание обновлений программного обеспечения](../../sum/deploy-use/deploy-software-updates.md).  
 
- Pode aplicar atualizações de software aplicáveis a um pacote de atualização numa agenda especificada. Na agenda que especificar, o Configuration Manager aplica as atualizações de software que selecionar para o pacote de atualização do sistema operativo e, em seguida, distribui opcionalmente o pacote de atualização atualizado a pontos de distribuição. As informações sobre o pacote de atualização do sistema operativo são armazenadas na base de dados do site, incluindo as atualizações de software que foram aplicadas no momento da importação. As atualizações de software aplicadas ao pacote de atualização desde que foi adicionado inicialmente também são armazenadas na base de dados do site. Ao iniciar o assistente para aplicar as atualizações de software ao pacote de atualização do sistema operativo, o assistente obtém uma lista de atualizações de software aplicáveis que ainda não foram aplicadas ao pacote de atualização para que possa selecioná-las. Configuration Manager copia as atualizações de software da biblioteca de conteúdos no servidor do site e aplica as atualizações de software para o pacote de atualização do sistema operativo.  
+ Обновления программного обеспечения можно применять к пакету обновления по заданному расписанию. В соответствии с заданным расписанием Configuration Manager применяет выбранные вами обновления программного обеспечения к пакету обновления операционной системы, а затем при необходимости распространяет этот обновленный пакет обновления в точки распространения. Информация о пакете обновления операционной системы хранится в базе данных сайта, включая обновления ПО, которые были установлены на момент импорта. Обновления программного обеспечения, которые были применены к пакету обновления с момента первоначального добавления, также сохраняются в базе данных сайта. При запуске мастера для применения обновлений к пакету обновления операционной системы он получает список доступных обновлений программного обеспечения, которые еще не были применены к этому пакету обновления. Configuration Manager копирует обновления программного обеспечения из библиотеки содержимого на сервере сайта и применяет обновления программного обеспечения к пакету обновления операционной системы.  
 
- Utilize o procedimento seguinte para aplicar atualizações de software a um pacote de atualização do sistema operativo.  
+ Чтобы применить обновления программного обеспечения к пакету обновления операционной системы, выполните следующие действия.  
 
-#### <a name="to-apply-software-updates-to-an-operating-system-upgrade-package"></a>Aplicar atualizações de software a um pacote de atualização do sistema operativo  
+#### <a name="to-apply-software-updates-to-an-operating-system-upgrade-package"></a>Применение обновлений ПО к пакету обновления операционной системы  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Pacotes de atualização de Sistema Operativo**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Пакеты обновления операционной системы**.  
 
-3.  Selecione o pacote de atualização do sistema operativo em relação ao qual pretende aplicar atualizações de software.  
+3.  Выберите пакет обновления операционной системы, к которому следует применить обновления программного обеспечения.  
 
-4.  No separador **Home Page** , no grupo **Pacotes de Atualização do Sistema Operativo** , clique em **Agendar Atualizações** para iniciar o assistente.  
+4.  На вкладке **Главная** в группе **Пакеты обновления операционной системы** щелкните элемент **Запланировать обновления** , чтобы запустить мастер.  
 
-5.  Na página **Escolher as Atualizações** , selecione as atualizações de software para aplicar à imagem do sistema operativo e clique em **Seguinte**.  
+5.  На странице **Выбор обновлений** выберите обновления программного обеспечения, которые следует применить к образу операционной системы, и нажмите кнопку **Далее**.  
 
-6.  Na página **Definir Agendamento** , especifique as seguintes definições e clique em **Seguinte**.  
+6.  На странице **установки расписания** укажите следующие параметры и нажмите кнопку **Далее**.  
 
-    1.  **Agenda**: Especifique o agendamento para quando as atualizações de software são aplicadas à imagem do sistema operativo.  
+    1.  **Расписание**. Укажите расписание, в соответствии с которым обновления программного обеспечения должны применяться к образу операционной системы.  
 
-    2.  **Continuar com o erro**:  Selecione esta opção para continuar a aplicar atualizações de software à imagem, mesmo se ocorrer um erro.  
+    2.  **Продолжать при ошибке**. Выберите этот параметр, чтобы обновления программного обеспечения применялись к образу даже при появлении ошибки.  
 
-    3.  **Distribuir a imagem por pontos de distribuição**: Selecione esta opção para atualizar a imagem do sistema operativo em pontos de distribuição após as atualizações de software são aplicadas.  
+    3.  **Распространять образ в точки распространения**. Выберите этот параметр, чтобы обновлять образ операционной системы в точках распространения после применения обновлений программного обеспечения.  
 
-7.  Na página **Resumo** , verifique as informações e clique em **Seguinte**.  
+7.  На странице **Сводка** проверьте параметры и нажмите кнопку **Далее**.  
 
-8.  Na página **Conclusão** , confirme que as atualizações de software foram aplicadas com êxito na imagem do sistema operativo.  
+8.  На странице **Завершение** убедитесь в успешном применении обновлений программного обеспечения к образу операционной системы.  

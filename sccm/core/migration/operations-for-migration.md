@@ -1,6 +1,6 @@
 ---
-title: "Operações de migração | Microsoft Docs"
-description: Criar e executar tarefas para migrar dados e os clientes para o System Center Configuration Manager.
+title: "Операции миграции | Документы Майкрософт"
+description: "Создание и запуск заданий для переноса данных и клиентов в System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -16,224 +16,224 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: fb8a292c4fecbe5744e2cd09bc1442fab11046bc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="operations-for-migrating-to-system-center-configuration-manager"></a>Operações de migração para o System Center Configuration Manager
+# <a name="operations-for-migrating-to-system-center-configuration-manager"></a>Операции для миграции на System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Para a migração no System Center Configuration Manager, pode migrar dados e clientes depois de recolher com êxito dados de um site de origem numa hierarquia de origem suportada. Utilize as informações nas secções seguintes para criar e executar tarefas de migração para migrar dados e clientes e, em seguida, conclua o processo de migração.  
+При миграции в System Center Configuration Manager после успешного сбора данных с исходного сайта в поддерживаемой исходной иерархии можно приступить к переносу данных и клиентов. В следующих разделах содержится информация по созданию и запуску заданий миграции для переноса данных и клиентов, а также последующему завершению процесса миграции.  
 
--   [Criar e editar tarefas de migração](#Create_Edit_migration_Jobs)  
+-   [Создание и изменение заданий миграции](#Create_Edit_migration_Jobs)  
 
--   [Executar tarefas de migração](#Run_Migration_Jobs)  
+-   [Запуск заданий миграции](#Run_Migration_Jobs)  
 
--   [Atualizar ou reatribuir um ponto de distribuição partilhado](#BKMK_ProcUpgrdSS)  
+-   [Обновление или переназначение общей точки распространения](#BKMK_ProcUpgrdSS)  
 
--   [Monitorizar a atividade de migração na área de trabalho Migração](#Monitor_MIgration)  
+-   [Отслеживание действий миграции в рабочей области «Миграция»](#Monitor_MIgration)  
 
--   [Migrar clientes](#BKMK_MigrateClients)  
+-   [Миграция клиентов](#BKMK_MigrateClients)  
 
--   [Concluir migração](#Complete_Migration)  
+-   [Завершение миграции](#Complete_Migration)  
 
-##  <a name="Create_Edit_migration_Jobs"></a> Criar e editar tarefas de migração  
- Utilize os procedimentos seguintes para criar tarefas de migração de dados, editar a lista de exclusão para tarefas de migração baseada em coleções, configurar pontos de distribuição partilhados e editar agendamentos de tarefas de migração.  
+##  <a name="Create_Edit_migration_Jobs"></a> Создание и изменение заданий миграции  
+ Для создания заданий миграции данных, редактирования списка исключений для заданий миграции, основанных на коллекциях, настройки общих точек распространения и изменения расписаний заданий миграции используются описанные ниже процедуры.  
 
 > [!NOTE]  
->  O procedimento seguinte para criar uma tarefa de migração que efetua migrações por coleções aplica-se apenas a hierarquias de origem que executem uma versão suportada do Configuration Manager 2007. O tipo de tarefa de migração baseada em coleções não está disponível quando migra de uma hierarquia de origem do System Center 2012 Configuration Manager ou System Center Configuration Manager.  
+>  Приведенная ниже процедура создания задания миграции по коллекциям относится только к исходным иерархиям с поддерживаемыми версиями Configuration Manager 2007. Тип задания миграции на основе коллекций недоступен при миграции из исходной иерархии System Center 2012 Configuration Manager или System Center Configuration Manager.  
 
-#### <a name="create-a-migration-job-to-migrate-by-collections"></a>Criar uma tarefa de migração para migrar por coleções  
+#### <a name="create-a-migration-job-to-migrate-by-collections"></a>Создание задания миграции для переноса по коллекциям  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **migração**e, em seguida, escolha **tarefas de migração**.  
+2.  В рабочей области **Администрирование** разверните узел **Миграция** и выберите **Задания миграции**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar tarefa de migração**.  
+3.  На вкладке **Главная** в группе **Создать** выберите элемент **Создать задание миграции**.  
 
-4.  No **geral** página do Assistente Criar tarefa de migração, configure o seguinte e, em seguida, escolha **OK**:  
+4.  На странице **Общие** мастера создания задания миграции настройте указанные ниже параметры, а затем нажмите кнопку **ОК**.  
 
-    -   Especifique um nome para a tarefa de migração.  
+    -   Укажите имя для задания миграции.  
 
-    -   Na lista pendente **Tipo de tarefa** , selecione **Migração de coleção**.  
+    -   В раскрывающемся списке **Тип задания** выберите **Миграция коллекций**.  
 
-5.  No **selecionar coleções** página, configure o seguinte e, em seguida, escolha **seguinte**:  
+5.  На странице **Выбор коллекций** настройте указанные ниже параметры, а затем нажмите кнопку **Далее**.  
 
-    -   Selecione as coleções que pretende migrar.  
+    -   Выберите коллекции, которые требуется перенести.  
 
-    -   Se pretender migrar apenas coleções e não os objetos que estão associados essas coleções, desmarque **migrar objetos que estão associados às coleções especificadas**. Se desmarcar esta opção, não existem objetos associados são migrados nesta tarefa e pode ignorar os passos 6 e 7.  
+    -   Чтобы перенести только коллекции, а не объекты, связанные с ними, снимите флажок **Миграция объектов, связанных с выбранными коллекциями**. Если снять этот флажок, связанные объекты не будут переноситься в этом задании и можно будет пропустить действия 6 и 7.  
 
-6.  No **selecionar objetos** página, desmarque todos os tipos de objeto ou objetos específicos disponíveis que não pretende migrar. Por predefinição, são selecionados todos os tipos de objetos associados e objetos disponíveis. Escolha **seguinte**.  
+6.  На странице **Выбор объектов** снимите флажки для всех типов объектов или для конкретных доступных объектов, которые переносить не требуется. По умолчанию выбраны все связанные типы объектов и доступные объекты. Нажмите кнопку **Далее**.  
 
-7.  No **propriedade do conteúdo** página, atribua a propriedade do conteúdo de cada site de origem listado a um site na hierarquia de destino e, em seguida, escolha **seguinte**.  
+7.  На странице **Владение содержимым** назначьте содержимое каждого исходного сайта в списке сайту в конечной иерархии, а затем нажмите кнопку **Далее**.  
 
-8.  No **âmbito de segurança** página, selecione um ou mais âmbitos de segurança de administração baseada em funções para atribuir os objetos a migrar nesta tarefa de migração e, em seguida, escolha **seguinte**.  
+8.  На странице **Область безопасности** выберите одну или несколько областей безопасности ролевого администрирования, которые будут назначены объектам, переносимым в рамках этого задания миграции, а затем нажмите кнопку **Далее**.  
 
-9. No **limitação de coleção** página, configure uma coleção da hierarquia de destino para limitar o âmbito de cada coleção listada e, em seguida, escolha **seguinte**. Não se estiver listada nenhuma coleção, escolha **seguinte**.  
+9. На странице **Ограничение коллекции** настройте коллекцию из исходной иерархии, которая будет ограничивать область каждой коллекции в списке, а затем нажмите кнопку **Далее**. Если в списке нет коллекций, нажмите кнопку **Далее**.  
 
-10. No **substituição do código do Site** página, atribua um código de site da hierarquia de destino para substituir o código do site do Configuration Manager 2007 para cada coleção listada e, em seguida, escolha **seguinte**. Não se estiver listada nenhuma coleção, escolha **seguinte**.  
+10. На странице **Замена кода сайта** назначьте код сайта из конечной иерархии, который будет заменять код сайта Configuration Manager 2007 для каждой коллекции в списке, а затем нажмите кнопку **Далее**. Если в списке нет коллекций, нажмите кнопку **Далее**.  
 
-11. No **rever informações** página, escolha **guardar para ficheiro** para guardar as informações apresentadas para posterior visualização. Quando estiver pronto para continuar, selecione **seguinte**.  
+11. На странице **Проверка сведений** нажмите кнопку **Сохранить в файл**, чтобы сохранить отображаемые сведения для дальнейшего просмотра. Когда вы будете готовы продолжить, нажмите кнопку **Далее**.  
 
-12. No **definições** página, configure quando será executada a tarefa de migração, escolha quaisquer definições adicionais que sejam necessárias para esta tarefa de migração e, em seguida, escolha **seguinte**.  
+12. На странице **Параметры** настройте время запуска, а также дополнительные параметры для этого задания миграции, а затем нажмите кнопку **Далее**.  
 
-13. Confirme as definições e conclua o assistente.  
+13. Проверьте параметры и завершите работу мастера.  
 
-#### <a name="create-a-migration-job-to-migrate-by-objects"></a>Criar uma tarefa de migração para migrar por objetos  
+#### <a name="create-a-migration-job-to-migrate-by-objects"></a>Создание задания миграции для переноса по объектам  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **migração**e, em seguida, escolha **tarefas de migração**.  
+2.  В рабочей области **Администрирование** разверните узел **Миграция** и выберите **Задания миграции**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar tarefa de migração**.  
+3.  На вкладке **Главная** в группе **Создать** выберите элемент **Создать задание миграции**.  
 
-4.  No **geral** página do Assistente Criar tarefa de migração, configure o seguinte e, em seguida, escolha **seguinte**:  
+4.  На странице **Общие** мастера создания задания миграции настройте указанные ниже параметры, а затем нажмите кнопку **Далее**.  
 
-    -   Especifique um nome para a tarefa de migração.  
+    -   Укажите имя для задания миграции.  
 
-    -   Na lista pendente **Tipo de tarefa** , selecione **Migração de objeto**.  
+    -   В раскрывающемся списке **Тип задания** выберите **Миграция объектов**.  
 
-5.  Na página **Selecionar Objetos** , selecione os tipos de objeto que pretende migrar. Por predefinição, são selecionados todos os objetos disponíveis para cada tipo de objeto que selecionou.  
+5.  На странице **Выбор объектов** выберите типы объектов для миграции. По умолчанию для каждого выбранного типа объекта выбираются все доступные объекты.  
 
-6.  No **propriedade do conteúdo** página, atribua a propriedade do conteúdo de cada site de origem listado a um site na hierarquia de destino e, em seguida, escolha **seguinte**. Se estiver listado nenhum site de origem, escolha **seguinte**.  
+6.  На странице **Владение содержимым** назначьте содержимое каждого исходного сайта в списке сайту в конечной иерархии, а затем нажмите кнопку **Далее**. Если в списке нет исходных сайтов, нажмите кнопку **Далее**.  
 
-7.  No **âmbito de segurança** página, selecione um ou mais âmbitos de segurança de administração baseada em funções para atribuir aos objetos nesta tarefa de migração e, em seguida, escolha **seguinte**.  
+7.  На странице **Область безопасности** выберите одну или несколько областей безопасности ролевого администрирования, которые будут назначены объектам в рамках этого задания миграции, а затем нажмите кнопку **Далее**.  
 
-8.  No **rever informações** página, escolha **guardar para ficheiro** para guardar as informações apresentadas para posterior visualização. Quando estiver pronto para continuar, selecione **seguinte**.  
+8.  На странице **Проверка сведений** нажмите кнопку **Сохранить в файл**, чтобы сохранить отображаемые сведения для дальнейшего просмотра. Когда вы будете готовы продолжить, нажмите кнопку **Далее**.  
 
-9. No **definições** página, configure quando será executada e escolher outras definições que sejam necessárias para esta tarefa de migração que a tarefa de migração. Em seguida, escolha **seguinte**.  
+9. На странице **Параметры** настройте время запуска, а также дополнительные параметры для этого задания миграции. Нажмите кнопку **Далее**.  
 
-10. Confirme as definições e conclua o assistente.  
+10. Проверьте параметры и завершите работу мастера.  
 
-#### <a name="create-a-migration-job-to-migrate-changed-objects"></a>Criar uma tarefa de migração para migrar objetos alterados  
+#### <a name="create-a-migration-job-to-migrate-changed-objects"></a>Создание задания миграции для переноса измененных объектов  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **migração**e, em seguida, escolha **tarefas de migração**.  
+2.  В рабочей области **Администрирование** разверните узел **Миграция** и выберите **Задания миграции**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar tarefa de migração**.  
+3.  На вкладке **Главная** в группе **Создать** выберите элемент **Создать задание миграции**.  
 
-4.  No **geral** página do Assistente Criar tarefa de migração, configure o seguinte e, em seguida, escolha **seguinte**:  
+4.  На странице **Общие** мастера создания задания миграции настройте указанные ниже параметры, а затем нажмите кнопку **Далее**.  
 
-    -   Especifique um nome para a tarefa de migração.  
+    -   Укажите имя для задания миграции.  
 
-    -   No **tipo de tarefa** na lista pendente, selecione **objetos modificados após migração**.  
+    -   В раскрывающемся списке **Тип задания** выберите **Объекты, измененные после миграции**.  
 
-5.  Na página **Selecionar Objetos** , selecione os tipos de objeto que pretende migrar. Por predefinição, são selecionados todos os objetos disponíveis para cada tipo de objeto que selecionou.  
+5.  На странице **Выбор объектов** выберите типы объектов для миграции. По умолчанию для каждого выбранного типа объекта выбираются все доступные объекты.  
 
-6.  No **propriedade do conteúdo** página, atribua a propriedade do conteúdo de cada site de origem listado a um site na hierarquia de destino e, em seguida, escolha **seguinte**. Se estiver listado nenhum site de origem, escolha **seguinte**.  
+6.  На странице **Владение содержимым** назначьте содержимое каждого исходного сайта в списке сайту в конечной иерархии, а затем нажмите кнопку **Далее**. Если в списке нет исходных сайтов, нажмите кнопку **Далее**.  
 
-7.  No **âmbito de segurança** página, selecione um ou mais âmbitos de segurança de administração baseada em funções para atribuir aos objetos nesta tarefa de migração e, em seguida, escolha **seguinte**.  
+7.  На странице **Область безопасности** выберите одну или несколько областей безопасности ролевого администрирования, которые будут назначены объектам в рамках этого задания миграции, а затем нажмите кнопку **Далее**.  
 
-8.  No **rever informações** página, escolha **guardar para ficheiro** para guardar as informações apresentadas para posterior visualização. Quando estiver pronto para continuar, selecione **seguinte**.  
+8.  На странице **Проверка сведений** нажмите кнопку **Сохранить в файл**, чтобы сохранить отображаемые сведения для дальнейшего просмотра. Когда вы будете готовы продолжить, нажмите кнопку **Далее**.  
 
-9. No **definições** página, configure quando será executada e escolher outras definições que sejam necessárias para esta tarefa de migração que a tarefa de migração. Ao contrário dos outros migração tipos de tarefas, esta tarefa de migração tem de substituir os objetos migrados anteriormente na base de dados do System Center Configuration Manager. Escolha **seguinte**.  
+9. На странице **Параметры** настройте время запуска, а также дополнительные параметры для этого задания миграции. В отличие от других типов заданий миграции это задание миграции переписывает ранее перенесенные объекты в базе данных System Center Configuration Manager. Нажмите кнопку **Далее**.  
 
-10. Confirme as definições e, em seguida, conclua o assistente.  
+10. Проверьте параметры и завершите работу мастера.  
 
-###  <a name="BKMK_Modify_Exclusion_List"></a>Modifique a lista de exclusão para a migração  
+###  <a name="BKMK_Modify_Exclusion_List"></a> Изменение списка исключений для миграции  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, escolha **migração** para obter acesso à lista de exclusão. Também pode aceder à lista de exclusão a partir dos nós **Hierarquia de Origem** ou **Tarefas de Migração** .  
+2.  В рабочей области **Администрирование** выберите элемент **Миграция**, чтобы получить доступ к списку исключений. К списку исключений можно перейти также из узла **Исходная иерархия** или **Задания миграции** .  
 
-3.  No **home page** separador o **migração** grupo, escolha **Editar lista de exclusão**.  
+3.  На вкладке **Главная** в группе **Миграция** выберите элемент **Изменить список исключений**.  
 
-4.  No **Editar lista de exclusão** diálogo caixa, selecione o objeto excluído que pretende remover da lista de exclusão e, em seguida, escolha **remover**.  
+4.  В диалоговом окне **Изменить список исключений** выберите исключенный объект, который требуется удалить из списка исключений, а затем нажмите кнопку **Удалить**.  
 
-5.  Escolha **OK** para guardar as alterações e concluir a edição. Para cancelar as alterações atuais e restaurar todos os objetos que removeu, escolha **Cancelar**e, em seguida, escolha **não**. Este procedimento irá cancelar a remoção dos objetos e fechar a caixa de diálogo **Editar Lista de Exclusão** .  
+5.  Нажмите кнопку **ОК**, чтобы сохранить изменения и завершить редактирование. Чтобы отменить текущие изменения и восстановить все удаленные объекты, нажмите кнопку **Отмена**, а затем — **Нет**. Это приведет к отмене удаления объектов и закрытию диалогового окна **Изменение списка исключений** .  
 
-#### <a name="share-distribution-points-from-the-source-hierarchy"></a>Partilhar pontos de distribuição da hierarquia de origem  
+#### <a name="share-distribution-points-from-the-source-hierarchy"></a>Совместное использование точек распространения из исходной иерархии  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **migração**, escolha **hierarquia de origem**e, em seguida, selecione o site de origem que pretende configurar.  
+2.  В области **Администрирование** разверните узел **Миграция**, выберите элемент **Исходная иерархия**, а затем выберите исходный сайт, который требуется настроить.  
 
-3.  No **home page** separador o **Site de origem** grupo, escolha **configurar**.  
+3.  На вкладке **Главная** в группе **Исходный сайт** выберите команду **Настроить**.  
 
-4.  No **credenciais do Site de origem** caixa de diálogo, selecione **ativar partilha do servidor do site de origem do ponto de distribuição**e, em seguida, escolha **OK**.  
+4.  В диалоговом окне **Учетные данные исходного сайта** установите флажок **Включить общий доступ к точке распространения для сервера исходного сайта** и нажмите кнопку **ОК**.  
 
-5.  Quando estiver concluída, a recolha de dados escolha **fechar**.  
+5.  По окончании сбора данных нажмите кнопку **Закрыть**.  
 
-#### <a name="change-the-schedule-of-a-migration-job"></a>Alterar o agendamento de uma tarefa de migração  
+#### <a name="change-the-schedule-of-a-migration-job"></a>Изменение расписания задания миграции  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **migração**e, em seguida, escolha **tarefas de migração**.  
+2.  В рабочей области **Администрирование** разверните узел **Миграция** и выберите **Задания миграции**.  
 
-3.  Escolha a tarefa de migração que pretende alterar. No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+3.  Выберите задание миграции, которое требуется изменить. На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
 
-4.  Nas propriedades da tarefa de migração, selecione o **definições** separador, altere a hora de execução da tarefa de migração e, em seguida, escolha **OK**.  
+4.  В окне свойств задания миграции перейдите на вкладку **Параметры**, измените время запуска задания миграции, а затем нажмите кнопку **ОК**.  
 
-##  <a name="Run_Migration_Jobs"></a> Executar tarefas de migração  
- Utilize o procedimento seguinte para executar uma tarefa de migração que ainda não foi iniciada.  
+##  <a name="Run_Migration_Jobs"></a> Запуск заданий миграции  
+ Используйте описанную ниже процедуру, чтобы запустить задание миграции, которое еще не началось.  
 
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **migração**e, em seguida, escolha **tarefas de migração**.  
+2.  В рабочей области **Администрирование** разверните узел **Миграция** и выберите **Задания миграции**.  
 
-3.  Escolha a tarefa de migração que pretende executar. No **home page** separador o **tarefa de migração** grupo, escolha **iniciar**.  
+3.  Выберите задание миграции, которое требуется запустить. На вкладке **Главная** в группе **Задание миграции** нажмите кнопку **Запустить**.  
 
-4.  Escolha **Sim** para iniciar a tarefa de migração.  
+4.  Нажмите кнопку **Да**, чтобы запустить задание миграции.  
 
-##  <a name="BKMK_ProcUpgrdSS"></a> Atualizar ou reatribuir um ponto de distribuição partilhado  
- Pode atualizar um ponto de distribuição suportado partilhado a partir de um site de origem do Configuration Manager 2007 (ou reatribuir um ponto de distribuição suportado partilhado a partir de um site de origem do System Center Configuration Manager) para um ponto de distribuição na hierarquia de destino.  
+##  <a name="BKMK_ProcUpgrdSS"></a> Обновление или переназначение общей точки распространения  
+ Вы можете обновить поддерживаемую точку распространения, доступ к которой предоставлен с исходного сайта Configuration Manager 2007 (или переназначить поддерживаемую точку распространения, доступ к которой предоставлен с исходного сайта System Center Configuration Manager), чтобы сделать ее точкой распространения в конечной иерархии.  
 
 > [!IMPORTANT]  
->  Antes de atualizar um ponto de distribuição secundário do Configuration Manager 2007, tem de desinstalar o software de cliente do Configuration Manager 2007 do computador do ponto de distribuição secundário. Se o software de cliente do Configuration Manager 2007 é instalado quando tentar atualizar o ponto de distribuição, a atualização falhar e o conteúdo que foi anteriormente implementado no ponto de distribuição secundário será removido do computador.  
+>  Перед обновлением точки распространения филиала Configuration Manager 2007 необходимо удалить клиентское программное обеспечение Configuration Manager 2007 с компьютера этой точки. Если клиентское программное обеспечение Configuration Manager 2007 установлено, при попытке обновления точки распространения происходит ошибка обновления и содержимое, которое ранее было развернуто в точке распространения филиала, удаляется с компьютера.  
 
 > [!CAUTION]  
->  Quando atualiza ou reatribui um ponto de distribuição partilhado, o computador ponto de distribuição site sistema site e da função de sistema são removidos do site de origem e adicionados como um ponto de distribuição para o site na hierarquia de destino que selecionar.  
+>  При обновлении или переназначении общей точки распространения роль системы сайта точки распространения и компьютер системы сайта удаляются с исходного сайта и добавляются в качестве точки распространения на сайт в выбранной конечной иерархии.  
 
-#### <a name="upgrade-or-reassign-a-shared-distribution-point"></a>Atualizar ou reatribuir um ponto de distribuição partilhado  
+#### <a name="upgrade-or-reassign-a-shared-distribution-point"></a>Обновление или переназначение общей точки распространения  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **migração**e, em seguida, escolha **hierarquia de origem**.  
+2.  В рабочей области **Администрирование** разверните узел **Миграция** и выберите **Исходная иерархия**.  
 
-3.  Selecione o site que é proprietário do ponto de distribuição que pretende atualizar, escolha o **pontos de distribuição partilhados** separador e selecione o ponto de distribuição elegível que pretende atualizar ou reatribuir.  
+3.  Выберите сайт, которому принадлежит обновляемая точка распространения, перейдите на вкладку **Общие точки распространения** и выберите подходящую точку распространения для обновления или переназначения.  
 
-4.  No **ponto de distribuição** separador o **ponto de distribuição** grupo, escolha **reatribuir**.  
+4.  На вкладке **Точка распространения** в группе **Точка распространения** выберите команду **Переназначить**.  
 
-5.  Especifique as definições no Assistente de ponto de distribuição partilhados reatribuir como estiver a instalar um novo ponto de distribuição da hierarquia de destino, acrescentando o seguinte:  
+5.  Укажите параметры в мастере переназначения общей точки распространения, как при установке новой точки распространения для конечной иерархии, с учетом следующего дополнения.  
 
-    -   No **conversão de conteúdo** , reveja as orientações sobre o espaço necessário para converter o conteúdo existente. Em seguida, no **definições de unidade** página do assistente, certifique-se de que a unidade do computador do ponto de distribuição selecionado possui a quantidade necessária de espaço livre em disco.  
+    -   На странице **Преобразование содержимого** узнайте необходимый объем пространства для преобразования существующего содержимого. Затем на странице **Параметры диска** мастера убедитесь в том, что диск на компьютере выбранной точки распространения имеет необходимый объем свободного места.  
 
-6.  Confirme as definições e, em seguida, conclua o assistente.  
+6.  Проверьте параметры и завершите работу мастера.  
 
-##  <a name="Monitor_MIgration"></a> Monitorizar a atividade de migração na área de trabalho Migração  
- Utilize a consola do Configuration Manager para monitorizar a migração.  
+##  <a name="Monitor_MIgration"></a> Отслеживание действий миграции в рабочей области «Миграция»  
+ Для наблюдения за миграцией используйте консоль Configuration Manager.  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **migração**e, em seguida, escolha **tarefas de migração**.  
+2.  В рабочей области **Администрирование** разверните узел **Миграция** и выберите **Задания миграции**.  
 
-3.  Escolha a tarefa de migração que pretende monitorizar.  
+3.  Выберите задание миграции, которое требуется отследить.  
 
-4.  Visualize os detalhes e o estado da tarefa de migração selecionada nos separadores **Resumo** e **Objetos na Tarefa**.  
+4.  Просмотрите сведения, включая данные о состоянии, для выбранного задания миграции, которые отображаются на вкладках **Сводка** и **Объекты в задании**.  
 
-##  <a name="BKMK_MigrateClients"></a> Migrar clientes  
- Depois de migrar os dados dos clientes entre hierarquias, mas antes de concluir a migração, planeie a migração dos clientes para a hierarquia de destino. A migração de clientes entre hierarquias envolve a desinstalar o software de cliente do Configuration Manager de computadores que estão atribuídos à hierarquia de origem e, em seguida, instalar o software de cliente do Configuration Manager da hierarquia de destino. Quando instala o cliente na hierarquia de destino, também atribui o cliente a um site primário nessa hierarquia. Para obter mais informações sobre como migrar clientes, consulte [planear uma estratégia de migração de clientes no System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).  
+##  <a name="BKMK_MigrateClients"></a> Миграция клиентов  
+ После переноса данных для клиентов между иерархиями, но до завершения миграции необходимо запланировать миграцию клиентов в конечную иерархию. Миграция клиентов между иерархиями включает удаление клиентского программного обеспечения Configuration Manager с компьютеров, привязанных к исходной иерархии, и установку клиентского программного обеспечения Configuration Manager из конечной иерархии. При установке клиента из конечной иерархии клиент также привязывается к основному сайту в этой иерархии. Дополнительные сведения о миграции клиентов см. в разделе [Планирование стратегии миграции клиентов в System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).  
 
-##  <a name="Complete_Migration"></a>Concluir migração  
- Utilize este procedimento para concluir a migração da hierarquia de origem.  
+##  <a name="Complete_Migration"></a> Завершение миграции  
+ Ниже приведена процедура завершения миграции из исходной иерархии.  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **migração**e, em seguida, escolha **hierarquia de origem**.  
+2.  В рабочей области **Администрирование** разверните узел **Миграция** и выберите **Исходная иерархия**.  
 
-3.  Para uma hierarquia de origem do Configuration Manager 2007, selecione um site de origem que esteja no nível inferior da hierarquia de origem. Para uma hierarquia de origem do System Center 2012 Configuration Manager ou System Center Configuration Manager, selecione o site de origem disponível.  
+3.  В исходной иерархии Configuration Manager 2007 выберите исходный сайт, находящийся на нижнем уровне исходной иерархии. В исходной иерархии System Center 2012 Configuration Manager или System Center Configuration Manager выберите доступный исходный сайт.  
 
-4.  No **home page** separador o **limpar** grupo, escolha **parar a recolha de dados**.  
+4.  На вкладке **Главная** в группе **Очистка** нажмите кнопку **Остановить сбор данных**.  
 
-5.  Escolha **Sim** para confirmar a ação.  
+5.  Нажмите кнопку **Да**, чтобы подтвердить действие.  
 
-6.  Para uma hierarquia de origem do Configuration Manager 2007, antes de continuar para o passo seguinte, repita os passos 3, 4 e 5. Efetuar estes passos em cada site da hierarquia, desde a parte inferior da hierarquia até ao topo. Para uma hierarquia de origem do System Center 2012 Configuration Manager ou System Center Configuration Manager, avance para o passo seguinte.  
+6.  В исходной иерархии Configuration Manager 2007, прежде чем перейти к следующему шагу, повторите шаги 3, 4 и 5. Повторите эти шаги на каждом сайте в иерархии, начиная с нижнего уровня. В исходной иерархии System Center 2012 Configuration Manager или System Center Configuration Manager переходите к следующему шагу.  
 
-7.  No **home page** separador o **limpar** grupo, escolha **limpar dados de migração**.  
+7.  На вкладке **Главная** в группе **Очистка** нажмите кнопку **Очистить данные переноса**.  
 
-8.  No **limpar dados de migração** da caixa de diálogo do **hierarquia de origem** na lista pendente, selecione o código do site e o servidor de site do site de nível superior da hierarquia de origem e, em seguida, escolha **OK**.  
+8.  В диалоговом окне **Очистить данные переноса** в раскрывающемся списке **Исходная иерархия** выберите код и сервер сайта верхнего уровня в исходной иерархии и нажмите кнопку **ОК**.  
 
-9. Escolha **Sim** para concluir o processo de migração da hierarquia de origem.  
+9. Нажмите кнопку **Да**, чтобы завершить процесс миграции для исходной иерархии.  

@@ -1,6 +1,6 @@
 ---
-title: "Utilizar suportes de dados autónomos para implementar o Windows sem utilizar a rede | Microsoft Docs"
-description: "Utilize suportes de dados autónomo no Configuration Manager para implementar sistemas operativos onde a largura de banda é limitada ou como uma opção para atualizar, instalar ou atualizar os computadores."
+title: "Применение автономного носителя для развертывания Windows без использования сети | Документы Майкрософт"
+description: "Сведения об использовании автономного носителя в Configuration Manager для развертывания операционных систем с ограниченной пропускной способностью или в качестве варианта обновления или установки компьютеров."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,65 +16,65 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 30ae794381c6894e11b21a8167d0af60463c5279
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-stand-alone-media-to-deploy-windows-without-using-the-network-in-system-center-configuration-manager"></a>Utilizar suportes de dados autónomos para implementar o Windows sem utilizar a rede no System Center Configuration Manager
+# <a name="use-stand-alone-media-to-deploy-windows-without-using-the-network-in-system-center-configuration-manager"></a>Применение автономного носителя для развертывания Windows без использования сети с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-No System Center Configuration Manager de suporte de dados autónomo contém tudo o que é necessário para implementar um sistema operativo num computador. Isto inclui a imagem de arranque, a imagem do sistema operativo e a sequência de tarefas para instalar o sistema operativo, incluindo aplicações, controladores, etc. As implementações com suportes de dados autónomos permitem implementar sistemas operativos nas seguintes condições:  
+Автономный носитель в System Center Configuration Manager содержит все необходимые данные для развертывания операционной системы на компьютере. Сюда входит образ загрузки, образ операционной системы и последовательность задач для установки операционной системы, включая приложения, драйверы и т. п. Развертывание с автономного носителя позволяет выполнять развертывание операционной системы в следующих ситуациях:  
 
--   Em ambientes onde não é prático copiar uma imagem de sistema operativo ou outros pacotes grandes através da rede.  
+-   в средах, где копирование образа операционной системы или других крупных пакетов по сети, является непрактичным;  
 
--   Em ambientes sem conectividade de rede ou uma conectividade de rede com largura de banda reduzida.  
+-   в средах без подключения к сети или с низкой пропускной способностью сети.  
 
-Pode utilizar suportes de dados autónomos nos seguintes cenários de implementação do sistema operativo:  
+Автономный носитель можно использовать в следующих сценариях развертывания операционной системы:  
 
--   [Atualizar um computador existente com uma nova versão do Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Обновление существующего компьютера до новой версии Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Instalar uma nova versão do Windows num novo computador (bare-metal)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Установка новой версии Windows на новом компьютере (без операционной системы)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Atualize o Windows para a versão mais recente](upgrade-windows-to-the-latest-version.md)  
+-   [Обновление Windows до последней версии](upgrade-windows-to-the-latest-version.md)  
 
- Execute os passos num dos cenários de implementação do sistema operativo e utilize as secções seguintes para se preparar e criar suportes de dados autónomos.  
+ Выполните шаги, указанные для одного из сценариев развертывания операционной системы, а затем используйте следующие разделы для подготовки и создания автономного носителя.  
 
-## <a name="task-sequence-actions-not-supported-when-using-stand-alone-media"></a>Ações de sequência de tarefas não suportadas ao utilizar suportes de dados autónomos  
- Se executou os passos num dos cenários de implementação de sistema operativo suportados, a sequência de tarefas para implementar, ou atualizar, o sistema operativo foi criada e todo o conteúdo associado foi distribuído para um ponto de distribuição. Quando utiliza suportes de dados autónomos, as seguintes ações não são suportadas na sequência de tarefas:  
+## <a name="task-sequence-actions-not-supported-when-using-stand-alone-media"></a>Неподдерживаемые действия последовательности задач при использовании автономного носителя  
+ Если вы выполнили шаги одного из поддерживаемых сценариев развертывания операционной системы, последовательность задач для развертывания или обновления операционной системы уже создана, а все соответствующее содержимое уже передано на точку распространения. При использовании автономного носителя в последовательности задач не поддерживаются следующие действия:  
 
--   O passo Aplicar Controladores Automaticamente na sequência de tarefas. A aplicação automática de controladores de dispositivo a partir do catálogo de controladores não é suportada, mas pode escolher o passo Aplicar Pacote de Controlador para disponibilizar um conjunto especificado de controladores à Configuração do Windows.  
+-   автоматическое применение драйверов в последовательности задач. Автоматическое применение драйверов устройств из каталога драйверов не поддерживается, однако определенный набор драйверов можно сделать доступным в программе установки Windows, выбрав шаг «Применить пакет драйверов»;  
 
--   Instalação de atualizações de software.  
+-   установку обновлений программного обеспечения;  
 
--   Instalação de software antes de implementar o sistema operativo.  
+-   установку программного обеспечения перед развертыванием операционной системы;  
 
--   Associação de utilizadores ao computador de destino para suportar a afinidade dispositivo/utilizador.  
+-   связывание пользователей с конечным компьютером (поддержка сопоставления пользователей и устройств).  
 
--   O pacote dinâmico é instalado através da tarefa Instalar Pacotes.  
+-   динамическую установку пакетов через задачу установки пакетов;  
 
--   A aplicação dinâmica é instalada através da tarefa Instalar Aplicação.  
+-   динамическую установку приложений через задачу установки приложений.  
 
 > [!NOTE]  
->  Se a sequência de tarefas para implementar um sistema operativo incluir o [Instalar pacote](../understand/task-sequence-steps.md#BKMK_InstallPackage) passo e criar o suporte de dados autónomo num site de administração central, poderá ocorrer um erro. O site de administração central não possui as políticas de configuração de cliente necessárias para ativar o agente de distribuição de software durante a execução da sequência de tarefas. O erro seguinte pode ser apresentado no ficheiro CreateTsMedia.log:  
+>  Если последовательность задач для развертывания операционной системы включает шаг [Установить пакет](../understand/task-sequence-steps.md#BKMK_InstallPackage) и вы создаете автономный носитель на сайте центра администрирования, может возникнуть ошибка. Сайт центра администрирования не имеет политик конфигурации клиентов, необходимых для включения агента распространения программного обеспечения при выполнении последовательности задач. В файле журнала CreateTsMedia.log может возникнуть следующая ошибка:  
 >   
 >  `"WMI method SMS_TaskSequencePackage.GetClientConfigPolicies failed (0x80041001)"`
 >   
->  Para suporte de dados autónomo que inclua um **Instalar pacote** passo, tem de criar o suporte de dados autónomo num site primário que tenha o agente de distribuição de software ativado ou adicionar um [executar linha de comandos](../understand/task-sequence-steps.md#BKMK_RunCommandLine) passo após o [configurar Windows e ConfigMgr](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) passo e antes do primeiro **Instalar pacote** passo da sequência de tarefas. O passo **Executar Linha de Comandos** executa um comando WMIC para ativar o agente de distribuição de software antes da execução do primeiro passo Instalar Pacote. Pode utilizar o seguinte no passo da sequência de tarefas **Executar Linha de Comandos** :  
+>  Для автономного носителя, включающего шаг **Установить пакет**, необходимо проводить создание на первичном сайте с включенным агентом распространения ПО или добавить шаг [Выполнить из командной строки](../understand/task-sequence-steps.md#BKMK_RunCommandLine) после шага [Настроить Windows и Configuration Manager](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) и перед первым шагом **Установить пакет** в последовательности задач. Шаг **Выполнить из командной строки** выполняет команду WMIC, чтобы включить программу агент распространения ПО до первого шага "Установить пакет". Можно использовать следующий шаг **Выполнить из командной строки** :  
 >   
->  **Linha de comandos**: **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig caminho ccm_SoftwareDistributionClientConfig criar ComponentName = "Ativar SWDist", ativado = "true", LockSettings = "TRUE", PolicySource = "local", PolicyVersion = "1.0" SiteSettingsKey = "1" /NOINTERACTIVE**  
+>  **Командная строка**: **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
 
-## <a name="configure-deployment-settings"></a>Configurar definições de implementação  
- Quando utilizar suportes de dados autónomos para iniciar o processo de implementação do sistema operativo, tem de configurar a implementação para disponibilizar o sistema operativo nos suportes. Pode configurar esta opção na página **Definições de Implementação** do Assistente de Implementação de Software ou no separador **Definições de Implementação** , nas propriedades da implementação.  Na definição **Tornar disponível para o seguinte** , configure um dos seguintes:  
+## <a name="configure-deployment-settings"></a>Настройка параметров развертывания  
+ При использовании автономного носителя для запуска процесса развертывания операционной системы необходимо настроить развертывание на предоставление носителю доступа к операционной системе. Такую настройку можно выполнить на странице **Параметры развертывания** мастера развертывания программного обеспечения или на вкладке **Параметры развертывания** в свойствах развертывания.  Для параметра **Сделать доступной для** настройте одно из следующих значений:  
 
--   **Clientes do Configuration Manager, suportes de dados e PXE**  
+-   **Клиенты Configuration Manager, носители и PXE**  
 
--   **Apenas suportes de dados e PXE**  
+-   **Только носители и PXE**  
 
--   **Apenas suportes de dados e PXE (oculto)**  
+-   **Только носители и PXE (скрытые)**  
 
-## <a name="create-the-stand-alone-media"></a>Criar o suporte de dados autónomo  
- Pode especificar se o suporte de dados autónomo é uma pen USB ou um conjunto CD/DVD. O computador que vai iniciar o suporte de dados tem de suportar a opção que escolher como unidade de arranque. Para obter mais informações, consulte [criar suportes de dados autónomos](create-stand-alone-media.md).  
+## <a name="create-the-stand-alone-media"></a>Создание автономного носителя  
+ Вы можете указать, является ли автономный носитель USB-устройством флэш-памяти либо набором компакт-дисков или DVD-дисков. Компьютер, на котором запускается носитель, должен поддерживать использование выбранного носителя в качестве загрузочного диска. Дополнительные сведения см. в разделе [Создание автономного носителя](create-stand-alone-media.md).  
 
-## <a name="install-the-operating-system-from-stand-alone-media"></a>Instalar o sistema operativo a partir de suportes de dados autónomos  
- Insira o suporte de dados autónomo numa unidade de arranque no computador e ligue-o para instalar o sistema operativo.  
+## <a name="install-the-operating-system-from-stand-alone-media"></a>Установка операционной системы с автономного носителя  
+ Вставьте автономный носитель в загрузочный дисковод компьютера и затем включите питание для установки операционной системы.  

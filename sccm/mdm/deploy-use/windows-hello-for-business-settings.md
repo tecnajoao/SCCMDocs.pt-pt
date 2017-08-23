@@ -1,6 +1,6 @@
 ---
-title: "Windows Hello para definições da empresa | Microsoft Docs"
-description: Saiba como integrar o Windows Hello para empresas com o System Center Configuration Manager.
+title: "Параметры Windows Hello для бизнеса | Документы Майкрософт"
+description: "Узнайте, как интегрировать Windows Hello для бизнеса с System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,91 +16,91 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: a97b3d97eb302e4133b0a79a8c7e27004872c8b1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="windows-hello-for-business-settings-in-system-center-configuration-manager-hybrid"></a>Windows Hello para definições da empresa no System Center Configuration Manager (híbrido)
+# <a name="windows-hello-for-business-settings-in-system-center-configuration-manager-hybrid"></a>Параметры Windows Hello для бизнеса в System Center Configuration Manager (гибридное управление)
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager permite-lhe integrar com o Windows Hello para empresas (anteriormente o Microsoft Passport for Windows), que é um método de início de sessão alternativo para dispositivos Windows 10. O Hello para Empresas utiliza o Active Directory ou uma conta do Azure Active Directory para substituir uma palavra-passe, um smart card ou um smart card virtual.  
+System Center Configuration Manager можно интегрировать с Windows Hello для бизнеса (прежнее название — Microsoft Passport для Windows) — альтернативным методом входа на устройства Windows 10. Hello для бизнеса использует учетную запись Active Directory или Azure Active Directory для замены пароля, смарт-карты или виртуальной смарт-карты.  
 
-Com o Hello para Empresas, pode utilizar um **gesto de utilizador** para iniciar sessão, em vez de uma palavra-passe. Um gesto de utilizador pode ser um PIN simples, uma autenticação biométrica ou um dispositivo externo, como um leitor de impressões digitais.  
+Hello для бизнеса позволяет использовать для входа **жест пользователя** , а не пароль. Жестом пользователя может быть простой ПИН-код, биометрическая проверка подлинности или внешнее устройство, например считыватель отпечатков пальцев.  
 
- O Configuration Manager integra-se com o Windows Hello para empresas de duas formas:  
+ Configuration Manager интегрируется с Windows Hello для бизнеса двумя способами.  
 
--   Pode utilizar o Configuration Manager para controlar que utilizadores gestos podem e não podem utilizar para iniciar sessão.  
+-   Вы можете использовать Configuration Manager для управления тем, какие жесты пользователи могут и не могут использовать для входа.  
 
--   Pode armazenar certificados de autenticação no fornecedor de armazenamento de chaves (KSP) do Windows Hello para Empresas. Para obter mais informações, consulte [perfis de certificado](create-pfx-certificate-profiles.md).  
+-   Хранение сертификатов проверки подлинности в поставщике хранилища ключей (KSP) Windows Hello для бизнеса. Дополнительные сведения см. в разделе [Профили сертификатов](create-pfx-certificate-profiles.md).  
 
-- Pode implementar o Windows Hello para empresas as políticas para dispositivos Windows 10 associados a um domínio, que executam o cliente do Configuration Manager. Esta configuração está descrita na [configurar o Windows Hello para empresas nos dispositivos Windows 10 associados a domínios](../../protect/deploy-use/windows-hello-for-business-settings.md#configure-windows-hello-for-business-on-domain-joined-windows-10-devices). Quando estiver a utilizar o Configuration Manager com o Intune (híbrido), pode configurar estas definições em dispositivos Windows 10 Mobile e Windows 10, mas não em dispositivos associados a um domínio que executam o cliente do Configuration Manager.   
+- Вы можете развернуть политики Windows Hello для бизнеса на присоединенных к домену устройствах Windows 10, на которых выполняется клиент Configuration Manager. Эта конфигурация описывается в разделе [Настройка Windows Hello для бизнеса на присоединенных к домену устройствах Windows 10](../../protect/deploy-use/windows-hello-for-business-settings.md#configure-windows-hello-for-business-on-domain-joined-windows-10-devices). Если вы используете Configuration Manager с Intune (гибридная среда), то можете настроить эти параметры на устройствах Windows 10 и Windows 10 Mobile, но не на присоединенных к домену устройствах, на которых выполняется клиент Configuration Manager.   
 
-Para obter informações gerais sobre a configuração do Windows Hello para definições da empresa, consulte [Windows Hello para definições da empresa no System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md).
+Общие сведения о конфигурации параметров Windows Hello для бизнеса см. в статье [Параметры Windows Hello для бизнеса в System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md).
 
-## <a name="configure-windows-hello-for-business-settings-hybrid"></a>Configurar o Windows Hello para empresas definições (híbrido)  
+## <a name="configure-windows-hello-for-business-settings-hybrid"></a>Настройка параметров Windows Hello для бизнеса (гибридное управление)  
 
-1.  Na consola do Configuration Manager, clique em **administração** > **serviços em nuvem** > **subscrições do Microsoft Intune**.  
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Облачные службы** > **Подписки Microsoft Intune**.  
 
-3.  Na lista, selecione a sua subscrição do Microsoft Intune e, em seguida, no separador **Base** , no grupo **Subscrição** , clique em **Configurar Plataformas** > **Windows (MDM)**.  
+3.  В списке выберите подписку Microsoft Intune и затем на вкладке **Главная** в группе **Подписки** щелкните **Настройка платформ** > **Windows (MDM)**.  
 
-4.  No separador **Windows Hello para Empresas** da caixa de diálogo **Propriedades de Subscrição do Microsoft Intune** , escolha de entre os valores seguintes que irão afetar todos os dispositivos Windows 10 e Windows 10 Mobile inscritos:  
+4.  На вкладке **Windows Hello для бизнеса** в диалоговом окне **Свойства подписки Microsoft Intune** выберите следующие значения, которые повлияют на все зарегистрированные устройства Windows 10 и Windows 10 Mobile.  
 
-    -   **Desativar o Windows Hello para Empresas para dispositivos inscritos** ou **Ativar o Windows Hello para Empresas para dispositivos inscritos** - Ativa ou desativa a utilização do Windows Hello para Empresas em todos os dispositivos Windows 10 e Windows 10 Mobile inscritos.  
+    -   **Отключить Windows Hello для бизнеса на зарегистрированных устройствах** или **Включить Windows Hello для бизнеса на зарегистрированных устройствах** . Этот флажок включает или отключает использование Windows Hello для бизнеса на всех зарегистрированных устройствах Windows 10 и Windows 10 Mobile.  
 
-    -   **Utilizar um Trusted Platform Module (TPM)** - Um chip Trusted Platform Module (TPM) fornece uma camada adicional de segurança de dados. Escolha um dos seguintes valores:  
+    -   **Использовать доверенный платформенный модуль (TPM)** . Микросхема доверенного платформенного модуля (TPM) обеспечивает дополнительный уровень защиты данных. Выберите одно из следующих значений:  
 
-        -   **Necessário** (predefinição) - Apenas os dispositivos com um TPM acessível podem aprovisionar o Windows Hello para Empresas.  
+        -   **Обязательный** (по умолчанию) — предоставлять Windows Hello для бизнеса могут только устройства с доступным модулем TPM.  
 
-        -   **Preferido** - Os dispositivos tentam utilizar primeiro um TPM. Se não estiver disponível, podem utilizar a encriptação de software  
+        -   **Предпочитаемый** — устройства сначала пытаются использовать модуль TPM. Если оно недоступно, они могут использовать шифрование программного обеспечения  
 
-    -   **Requerer comprimento mínimo do PIN** - Permite especificar o número mínimo de carateres necessários para o PIN do Windows Hello para Empresas. Tem de utilizar, pelo menos, 4 carateres (o valor predefinido é 6 carateres).  
+    -   **Требовать минимальную длину ПИН-кода** . Укажите минимальное количество знаков, необходимых для ПИН-кода Windows Hello для бизнеса. Необходимо использовать по меньшей мере 4 знака (значение по умолчанию — 6 знаков).  
 
-    -   **Requerer comprimento máximo do PIN** - Permite especificar o número máximo de carateres permitidos para o PIN do Windows Hello para Empresas. Pode utilizar até 127 carateres.  
+    -   **Требовать максимальную длину ПИН-кода** . Укажите максимальное количество знаков, разрешенных для ПИН-кода Windows Hello для бизнеса. Можно использовать не более 127 символов.  
 
-    -   **Requer letras minúsculas no PIN** - Permite especificar se têm de ser utilizadas letras em minúsculas no PIN do Windows Hello para Empresas. Escolha entre:  
+    -   **Требовать строчные буквы в ПИН-коде** . Указывает, обязательно ли использовать строчные буквы в ПИН-коде Windows Hello для бизнеса. Выберите один из следующих типов.  
 
-        -   **Permitido** - Os utilizadores podem utilizar carateres minúsculos no PIN.  
+        -   **Разрешено** — пользователи могут использовать строчные буквы в своих ПИН-кодах.  
 
-        -   **Necessário** - Os utilizadores têm de incluir, pelo menos, um caráter minúsculo no PIN.  
+        -   **Обязательно** — пользователи должны включить по меньшей мере одну строчную букву в свои ПИН-коды.  
 
-        -   **Não permitido** (predefinição) - Os utilizadores não podem utilizar carateres minúsculos no PIN.  
+        -   **Запрещено** (по умолчанию) — пользователи не должны использовать строчные буквы в своих ПИН-кодах.  
 
-    -   **Requer letras maiúsculas no PIN** - Permite especificar se têm de ser utilizadas letras em maiúsculas no PIN do Windows Hello para Empresas. Escolha entre:  
+    -   **Требовать прописные буквы в ПИН-коде** . Указывает, обязательно ли использовать прописные буквы в ПИН-коде Windows Hello для бизнеса. Выберите один из следующих типов.  
 
-        -   **Permitido** - Os utilizadores podem utilizar carateres maiúsculos no PIN.  
+        -   **Разрешено** — пользователи могут использовать прописные буквы в своих ПИН-кодах.  
 
-        -   **Necessário** - Os utilizadores têm de incluir, pelo menos, um caráter maiúsculo no PIN.  
+        -   **Обязательно** — пользователи должны включить по меньшей мере одну прописную букву в свои ПИН-коды.  
 
-        -   **Não permitido** (predefinição) - Os utilizadores não podem utilizar carateres maiúsculos no PIN.  
+        -   **Запрещено** (по умолчанию) — пользователи не должны использовать прописные буквы в своих ПИН-кодах.  
 
-    -   **Requerer carateres especiais** - Especifica a utilização de carateres especiais no PIN. Escolha entre:  
+    -   **Требовать наличия специальных символов** . Указывает, обязательно ли использовать специальные знаки в ПИН-коде. Выберите один из следующих типов.  
 
-        -   **Permitido** - Os utilizadores podem utilizar carateres especiais no PIN.  
+        -   **Разрешено** — пользователи могут использовать специальные символы в своих ПИН-кодах.  
 
-        -   **Necessário** - Os utilizadores têm de incluir, pelo menos, um caráter especial no PIN.  
+        -   **Обязательно** — пользователи должны включить по меньшей мере один специальный символ в свои ПИН-коды.  
 
-        -   **Não permitido** (predefinição) - Os utilizadores não podem utilizar carateres especiais no PIN (este é também o comportamento se a definição não estiver configurada).  
+        -   **Запрещено** (по умолчанию) — пользователи не должны использовать специальные символы в своих ПИН-кодах (это поведение, используемое, если параметр не задан).  
 
-         Os carateres especiais incluem: **! " # $ % & ' ( ) \* + , - . / : ; < = > ? @ [ \ ] ^ _ ` { &#124; } ~**.  
+         В число специальных символов входят следующие: **! " # $ % & ' ( ) \* + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~**.  
 
-    -   **Requerer expiração do PIN (dias)** - Especifica o número de dias antes de ser necessário alterar o PIN do dispositivo. A predefinição é de 41 dias.  
+    -   **Требовать указание срока действия ПИН-кода (в днях)**. Указывает число дней до смены ПИН-кода устройства. Значение по умолчанию — 41 день.  
 
-    -   **Prevenir a reutilização de PINs anteriores** - Utilize esta definição para restringir a reutilização de PINs utilizados anteriormente. A predefinição é a impossibilidade de reutilizar os últimos cinco PINs utilizados.  
+    -   **Запрещать повторное использование ПИН-кодов** . Этот параметр используется для запрета повторного использования ранее использовавшихся ПИН-кодов. Значение по умолчанию — последние 5 использовавшихся ПИН-кодов нельзя использовать повторно.  
 
-    -   **Ativar gestos biométricos** - Permite a autenticação biométrica, como reconhecimento facial ou impressão digital, como alternativa a um PIN para o Windows Hello para Empresas. Os utilizadores continuam a ter de configurar um PIN, para a eventualidade de a autenticação biométrica falhar.  
+    -   **Включить биометрические жесты** . Включает биометрическую проверку подлинности, например распознавание лиц или отпечатков пальцев, в качестве альтернативы ПИН-кода для Windows Hello для бизнеса. В случае сбоя биометрической проверки подлинности пользователи по-прежнему должны будут настраивать рабочий ПИН-код.  
 
-         Se estiver definido como **Ativado**, o Windows Hello para Empresas permite a autenticação biométrica.  Se estiver definido como **Desativado**, o Windows Hello para Empresas impede a autenticação biométrica (para todos os tipos de conta).  
+         Если задано значение **Включено**, Windows Hello для бизнеса допускает биометрическую проверку подлинности.  Если задано значение **Отключено**, Windows Hello для бизнеса запрещает биометрическую проверку подлинности (для всех типов учетных записей).  
 
-    -   **Utilizar anti-spoofing avançado, quando disponível** - Configura se o anti-spoofing avançado é utilizado em dispositivos que o suportam.  
+    -   **Использовать расширенную защиту от спуфинга (при наличии)** . Этот параметр настраивает возможность использования расширенной функции защиты от спуфинга на устройствах, поддерживающих эту функцию.  
 
-         Se estiver definido como **Ativado**, o Windows exige que todos os utilizadores utilizem anti-spoofing para funcionalidades faciais, quando suportado.  
+         Если задано значение **Включено**, Windows требует, чтобы все пользователи прибегали к функции защиты от подмены в случае применения возможностей распознавания лиц (если поддерживается).  
 
-    -   **Utilizar Passport Remoto** - Se esta opção estiver definida como **Ativado**, os utilizadores podem utilizar um Hello para Empresas remoto para servir de dispositivo complementar portátil para autenticação de computadores de secretária. O computador de secretária tem de estar associado ao Azure Active Directory e o dispositivo complementar tem de ser configurado com um PIN do Windows Hello para Empresas.  
+    -   **Использовать удаленный Passport** . Если для этого параметра задано значение **Включено**, пользователи могут использовать удаленную службу Hello для бизнеса в качестве переносимого устройства-компаньона для проверки подлинности настольного компьютера. Настольный компьютер должен входить в состав Azure Active Directory, а устройство-компаньон должно быть настроено для использования ПИН-кода Windows Hello для бизнеса.  
 
-5.  Quando concluir o procedimento, clique em **OK**.  
+5.  По завершении нажмите кнопку **ОК**.  
 
-### <a name="see-also"></a>Consulte também  
- [Proteger a infraestrutura de dados e do site com o System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
+### <a name="see-also"></a>См. также  
+ [Защита данных и инфраструктуры сайтов с помощью System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
 
- [Gerir a verificação de identidade com o Windows Hello para empresas](https://technet.microsoft.com/itpro/windows/keep-secure/manage-identity-verification-using-microsoft-passport).  
+ [Управление проверкой личности с помощью Windows Hello для бизнеса](https://technet.microsoft.com/itpro/windows/keep-secure/manage-identity-verification-using-microsoft-passport).  

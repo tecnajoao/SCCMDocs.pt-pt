@@ -1,6 +1,6 @@
 ---
-title: "Remover um ponto de atualização de software | Microsoft Docs"
-description: "Siga este procedimento para remover a função de sistema de sites de ponto de atualização do software num site a partir da consola do Configuration Manager."
+title: "Удаление точки обновления программного обеспечения | Документы Майкрософт"
+description: "Выполните следующую процедуру, чтобы удалить роль системы сайта точки обновления программного обеспечения из консоли Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,27 +13,27 @@ ms.technology: configmgr-sum
 ms.assetid: 2486375c-d4a2-4cf2-9124-9bee02bbf173
 ms.openlocfilehash: 22de02c51be3a0cd66b1be0f04b2fbdeb897858c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_RemoveSUP"></a> Remover a função de sistema de sites do ponto de atualização de software  
+#  <a name="BKMK_RemoveSUP"></a> Удаление роли системы сайта "Точка обновления программного обеспечения"  
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode remover a função de sistema de sites de ponto de atualização do software num site a partir da consola do Configuration Manager. A política de cliente é atualizada para remover o ponto de atualização de software da lista. Ao remover o último ponto de atualização de software no site, a lista de pontos de atualização de software não conterá pontos de atualização de software e as atualizações de software serão essencialmente desativadas no site. Quando tem mais do que um ponto de atualização de software num site primário e remove o ponto de atualização de software que está configurado como origem de sincronização, tem de escolher outro ponto de atualização de software no site para ser a nova origem de sincronização.  
+Роль системы сайта точки обновления программного обеспечения можно удалить с помощью консоли Configuration Manager. Из клиентской политики удаляется точка обновления программного обеспечения. При удалении последней точки обновления программного обеспечения с сайта список точек обновления не будет содержать ничего, и обновление программного обеспечения будет по существу отключено. Если вы используете более одной точки обновления программного обеспечения на первичном сайте и удаляете точку обновления программного обеспечения, настроенную в качестве источника синхронизации, следует выбрать другую точку обновления программного обеспечения на сайте в качестве нового источника.  
 
 > [!NOTE]  
->  Quando remover a função de site de ponto de atualização de software de um sistema de sites, aguarde pelo menos 15 minutos antes de a reinstalar.  
+>  При удалении роли сайта точки обновления программного обеспечения подождите по крайней мере 15 минут перед повторной установкой роли сайта точки обновления программного обеспечения.  
 
- Utilize o procedimento seguinte para remover um ponto de atualização de software.  
+ Следующая процедура используется для удаления точки обновления программного обеспечения.  
 
-#### <a name="to-remove-the-software-update-point"></a>Para remover o ponto de atualização de software  
+#### <a name="to-remove-the-software-update-point"></a>Удаление точки обновления программного обеспечения  
 
-1.  Na consola do **Configuration Manager** , clique em **Administração**.  
+1.  В консоли **Configuration Manager** щелкните элемент **Администрирование**.  
 
-2.  Na área de trabalho Administração, expanda **Configuração do Site**e clique em **Servidores e Funções de Sistema de Sites**.  
+2.  В рабочей области "Администрирование" разверните узел **Конфигурация сайта**и выберите **Серверы и роли системы сайта**.  
 
-3.  Selecione o servidor do sistema de sites com o ponto de atualização de software a remover e, em **Funções do Sistema de Sites**, selecione **Ponto de atualização de software**.  
+3.  Выберите сервер системы сайта с удаляемой точкой обновления программного обеспечения, а затем в области **Роли системы сайта**выберите **Точка обновления программного обеспечения**.  
 
-4.  No separador **Função do Site** , no grupo **Função do Site** , clique em **Remover Função**. Confirme que pretende remover o ponto de atualização de software ou selecione uma nova origem de sincronização para os outros pontos de atualização de software no site.  
+4.  На вкладке **Роль сайта** в группе **Роль сайта** щелкните **Удалить роль**. Подтвердите удаление точки обновления программного обеспечения или выберите новый источник синхронизации для других точек обновления на сайте.  

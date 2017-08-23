@@ -1,6 +1,6 @@
 ---
-title: Como criar perfis de Wi-Fi | Microsoft Docs
-description: "Saiba como utilizar perfis de Wi-Fi no System Center Configuration Manager para implementar definições de rede sem fios para utilizadores na sua organização."
+title: "Создание профилей Wi-Fi | Документы Майкрософт"
+description: "Узнайте, как использовать профили Wi-Fi в System Center Configuration Manager, чтобы развернуть параметры беспроводной сети для пользователей в вашей организации."
 ms.custom: na
 ms.date: 12/11/2016
 ms.prod: configuration-manager
@@ -17,112 +17,112 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: f1ae976899de1fd3efcbde0c7268f071a5d0218b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-wi-fi-profiles"></a>Criar perfis de Wi-Fi
+# <a name="create-wi-fi-profiles"></a>Создание профилей Wi-Fi
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Utilize perfis Wi-Fi no System Center Configuration Manager para implementar definições de rede sem fios para utilizadores na sua organização. Ao implementar estas definições, pode torna mais fácil para os seus utilizadores a estabelecer ligação ao Wi-Fi.  
+С помощью профилей Wi-Fi в System Center Configuration Manager можно развернуть параметры беспроводной сети для пользователей в вашей организации. Развертывание этих параметров позволяет упростить подключение к Wi-Fi для пользователей.  
 
- Por exemplo, ter uma rede Wi-Fi que pretende ativar todos os dispositivos iOS ligar a. Crie um perfil de Wi-Fi que contém as definições necessárias para ligar à rede sem fios. Em seguida, implemente o perfil para todos os utilizadores com dispositivos iOS na sua hierarquia. Os utilizadores de dispositivos com iOS veem a rede da empresa na lista de redes sem fios, podendo ligar-se de imediato à mesma.  
+ Например, имеется сеть Wi-Fi, возможность подключения к которой необходимо обеспечить для всех устройств iOS. Создайте профиль Wi-Fi, содержащий параметры, которые необходимы для подключения к беспроводной сети. Затем развернете профиль для всех пользователей, имеющих устройства iOS в иерархии. Пользователи устройств iOS увидят локальную сеть в списке беспроводных сетей и смогут легко подключиться к ней.  
 
- Pode configurar os seguintes tipos de dispositivos com perfis Wi-Fi:  
+ С помощью профилей Wi-Fi можно настроить следующие типы устройств:  
 
--   Dispositivos com o Windows 8.1 de 32 bits  
+-   устройства с 32-разрядной версией Windows 8.1;  
 
--   Dispositivos com o Windows 8.1 de 64 bits  
+-   Устройства с 64-разрядной версией Windows 8.1  
 
--   Dispositivos com o Windows RT 8.1  
+-   устройства с Windows RT 8.1;  
 
--   Dispositivos com o Windows 10 Desktop ou Mobile  
+-   устройства с Windows 10 Desktop или Mobile;  
 
-[Criar perfis de Wi-Fi para dispositivos móveis](../../mdm/deploy-use/create-wifi-profiles.md) fornece informações sobre como utilizar perfis de Wi-Fi no Configuration Manager para implementar definições de rede sem fios para utilizadores de dispositivos móveis. "
+Общие сведения об использовании профилей Wi-Fi в Configuration Manager для развертывания параметров беспроводной сети для пользователей мобильных устройств см. в статье [How to create Wi-Fi profiles for mobile devices in System Center Configuration Manager](../../mdm/deploy-use/create-wifi-profiles.md) (Как создать профили Wi-Fi для мобильных устройств в System Center Configuration Manager).
 
 > [!IMPORTANT]  
->  Para implementar perfis para Android, iOS, Windows Phone e inscritos do Windows 8.1 ou posterior inscritos, estes dispositivos têm de estar inscritos no Microsoft Intune. Para obter informações sobre como inscrever os seus dispositivos, consulte [inscrever dispositivos para gestão no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
+>  Для развертывания профилей на устройствах Android, iOS, Windows Phone и зарегистрированных устройствах Windows 8.1 или более поздней версии эти устройства должны быть зарегистрированы в Microsoft Intune. Сведения о том, как зарегистрировать устройства, см. в разделе [Регистрация устройств для управления в Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
 
- Ao criar um perfil Wi-Fi, pode incluir um vasto leque de definições de segurança. Estas incluem certificados para autenticação de cliente e validação do servidor que tenham sido feito o Push através de perfis de certificado do Configuration Manager. Para obter mais informações sobre perfis de certificado, veja [Perfis de certificado no System Center Configuration Manager](introduction-to-certificate-profiles.md).  
+ При создании профиля Wi-Fi можно указать большое количество параметров безопасности, в том числе сертификаты для проверки сервера и проверки подлинности клиента, подготовленные с помощью профилей сертификатов в Configuration Manager. Дополнительные сведения о профилях сертификатов см. в разделе [Профили сертификатов в System Center Configuration Manager](introduction-to-certificate-profiles.md).  
 
-## <a name="create-a-wi-fi-profile"></a>Criar um perfil de Wi-Fi  
+## <a name="create-a-wi-fi-profile"></a>Создание профиля Wi-Fi  
 
-1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **as definições de compatibilidade** >  **acesso a recursos da empresa** > **perfis Wi-Fi**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** >  **Доступ к ресурсам компании** > **Профили Wi-Fi**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar perfil Wi-Fi**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать профиль Wi-Fi**.  
 
-1.  No **geral** página, introduza um nome exclusivo e uma descrição para o perfil de Wi-Fi.  Se pretender utilizar as definições de outro perfil Wi-Fi, selecione **Importar um item de perfil Wi-Fi existente de um ficheiro**.  
-
-    > [!IMPORTANT]  
-    >  Certifique-se de que o perfil Wi-Fi que importou contém XML válido para um perfil Wi-Fi. Gestor de configuração não valida o perfil quando importar o ficheiro.  
-
-3.  No **gravidade de incompatibilidade para relatórios**, especifique o nível de gravidade reportado se o perfil de Wi-Fi é identificado como estando em conformidade nos dispositivos cliente (por exemplo, se a instalação do perfil falhar). Os níveis de gravidade disponíveis são os seguintes:  
-
-    -   **Nenhum**: Os computadores que não cumpram esta regra de compatibilidade não reportam uma gravidade de falha para relatórios do Configuration Manager.  
-
-    -   **Informações**: Os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **informações** para relatórios do Configuration Manager.  
-
-    -   **Aviso**: Os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **aviso** para relatórios do Configuration Manager.  
-
-    -   **Crítico**: Os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **crítico** para relatórios do Configuration Manager.  
-
-    -   **Crítico com evento**: Os computadores que não cumpram esta regra de compatibilidade reportam uma gravidade de falha de **crítico** para relatórios do Configuration Manager. Este nível de gravidade é também registado como um evento do Windows no registo de eventos de aplicações.  
-
-1.  No **perfil Wi-Fi** página fornecer o nome que os dispositivos apresentarão como nome de rede.  
+1.  На странице **Общие** введите уникальное имя и описание для профиля Wi-Fi.  Если вы хотите использовать параметры другого профиля Wi-Fi, выберите вариант **Импортировать существующий профиль Wi-Fi из файла**.  
 
     > [!IMPORTANT]  
-    >  O Configuration Manager não suporta a utilização do apóstrofo (**â €˜**) nem da vírgula (**,**) no nome da rede.  
+    >  Убедитесь, что импортируемый профиль Wi-Fi содержит допустимый XML-код для профиля Wi-Fi. Configuration Manager не проверяет профиль при импорте файла.  
 
-2.  Especifique a maiúsculas e minúsculas **SSID**
-3.  Escolha as outras opções de conectividade adequadas, incluindo.   **Ligar quando a rede não estiver a difundir o nome (SSID)**, se existir a possibilidade de que o SSID é oculto  
+3.  В поле **Степень важности несоответствия для отчетов** укажите степень серьезности, которая передается при обнаружении несоответствия профиля Wi-Fi на клиентских устройствах (например, в случае сбоя при установке профиля). Ниже перечислены доступные степени серьезности.  
 
-4.  No **configuração de segurança** página, selecione o protocolo de segurança que a rede sem fios utiliza, ou selecionem **sem autenticação (aberto)** se a rede não for protegida.
+    -   **Нет** — компьютеры, для которых не выполняется данное правило соответствия, не передают сведения о серьезности сбоя для отчетов Configuration Manager.  
+
+    -   **Информация** — компьютеры, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager сведения о серьезности сбоя с уровнем **Информация**.  
+
+    -   **Предупреждение** — компьютеры, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager сведения о серьезности сбоя с уровнем **Предупреждение**.  
+
+    -   **Ошибка** — компьютеры, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager сведения о серьезности сбоя с уровнем **Ошибка**.  
+
+    -   **Ошибка с событием** — компьютеры, для которых не выполняется данное правило соответствия, передают для отчетов Configuration Manager сведения о серьезности сбоя с уровнем **Ошибка**. Указанная степень серьезности также регистрируется в журнале событий приложений в качестве события Windows.  
+
+1.  На странице **Профиль Wi-Fi** укажите имя, которое будет отображаться на устройствах в качестве имени сети.  
+
     > [!IMPORTANT]  
-    >  Se estiver a criar um perfil de Wi-Fi para no\-local gestão de dispositivos móveis, o ramo atual do Configuration Manager só suporta as seguintes configurações de segurança Wi-Fi:  
+    >  Configuration Manager не поддерживает использование в имени сети таких символов, как апостроф (**â€˜**) и запятая (**,**).  
+
+2.  Укажите идентификатор **SSID** с учетом регистра.
+3.  Выберите другие необходимые параметры подключения, включая перечисленные ниже.   **Подключаться, если сеть не ведет вещание своего имени (SSID)**, если есть вероятность того, что идентификатор SSID скрыт.  
+
+4.  На странице **Настройка безопасности** выберите протокол безопасности, используемый беспроводной сетью, или пункт **Без проверки подлинности (Open)** для незащищенных сетей.
+    > [!IMPORTANT]  
+    >  При создании профиля Wi-Fi для локального управления мобильными устройствами текущая ветвь Configuration Manager поддерживает только следующие конфигурации безопасности Wi-Fi:  
     >   
-    >  Tipos de segurança: **WPA2 Enterprise** ou **WPA2 pessoal**  
-    > Tipos de encriptação: **AES** ou **TKIP**  
-    > Tipos de EAP: **Smart Card ou outro certificado** ou **PEAP**  
+    >  Типы безопасности: **WPA2 Enterprise** или **WPA2 Personal**  
+    > Типы шифрования: **AES** или **TKIP**  
+    > Типы EAP: **Смарт-карта или другой сертификат** или **PEAP**  
 
-    > Para dispositivos Android, os tipos de segurança **WPA pessoal**, **WPA2 pessoal** e **WEP** não são suportadas.  
+    > Для устройств Android типы безопасности **WPA-Personal**, **WPA2-Personal** и **WEP** не поддерживаются.  
 
-2.  Selecione o método de encriptação utilizado pela rede sem fios.  
+2.  Выберите метод шифрования, используемый беспроводной сетью.  
 
-3.  Selecione o tipo de EAP utilizado para a autenticação na rede sem fios.  
+3.  Выберите тип EAP, используемый для проверки подлинности в беспроводной сети.  
 
-     Apenas para dispositivos Windows Phone: os tipos EAP **LEAP** e **EAP-FAST** não são suportados.  
+     Только для устройств Windows Phone: типы EAP **LEAP** и **EAP-FAST** не поддерживаются.  
 
-4.  Clique em **Configurar** para especificar outras propriedades para o tipo de EAP selecionado. Esta opção pode não estar disponível nalguns tipos de EAP selecionados.  
+4.  Нажмите **Настройка** , чтобы настроить свойства для выбранного типа EAP. Для некоторый выбранных типов EAP этот параметр может быть недоступен.  
 
     > [!IMPORTANT]  
-    >  Quando clicar em **Configurar**, a caixa de diálogo que se abre é uma caixa de diálogo do Windows. Por este motivo, deve garantir que o sistema operativo do computador que executa o Gestor de configuração consola suporta a configuração do tipo EAP selecionado.  
+    >  Диалоговое окно, которое открывается после нажатия кнопки **Настроить**, является диалоговым окном ОС Windows. Поэтому необходимо убедиться в том, что операционная система компьютера, на котором запущена консоль Configuration Manager, поддерживает настройку выбранного типа EAP.  
     >   
-    >  Para dispositivos iOS, se selecionar um método não-EAP para autenticação, independentemente do método que escolher, o MS-CHAP v2 será utilizado para a ligação.  
+    >  Если для устройств iOS выбран метод проверки подлинности, отличный от EAP, для подключения будет использоваться MS-CHAP v2 независимо от выбранного метода.  
 
-5.  Se pretender armazenar credenciais de utilizador para que os utilizadores não tenham de introduzir as credenciais sempre que iniciarem sessão, selecione **Lembrar as credenciais de utilizador em cada início de sessão**.  
+5.  Чтобы учетные данные пользователя сохранялись и ему не приходилось вводить их каждый раз при входе, выберите **Запоминать учетные данные пользователя при каждом входе**.  
 
-6. **Para dispositivos iOS:**  
- Configure as informações de todos os certificados necessários à ligação Wi-Fi. Tem de configurar o certificado de cliente e o nome do certificado de servidor fidedigno ou o certificado de raiz do seguinte modo:  
+6. **Только для устройств iOS:**  
+ настройте сведения для всех сертификатов, требуемых для подключения по Wi-Fi. Необходимо настроить сертификат клиента, а также имя сертификата доверенного сервера или корневой сертификат, как описано ниже.  
 
-    -   **Nomes de certificado de servidor fidedigno**: Se o servidor que o dispositivo estabelece ligação utilizar um certificado de autenticação de servidor para identificar o servidor e ajudar a proteger o canal de comunicação, introduza o nome ou nomes no € certificateâ™ s nome requerente ou nome alternativo do requerente. O nome ou nomes são normalmente o nome de domínio completamente qualificado do servidor. Por exemplo, se o certificado do servidor tiver um nome comum de srv1.contoso.com no requerente do certificado, introduza **srv1.contoso.com**. Se o certificado do servidor tiver vários nomes especificados no nome alternativo do requerente, introduza os nomes separados por ponto e vírgula.  
+    -   **Имена сертификатов доверенных серверов**. Если сервер, к которому подключается устройство, использует сертификат проверки подлинности сервера для идентификации сервера и обеспечения безопасности канала передачи данных, введите одно или несколько имен в имени субъекта или альтернативном имени субъекта этого сертификата. В качестве этих имен обычно используется полное доменное имя сервера. Например, если сертификат сервера имеет общее имя "srv1.contoso.com" в субъекте сертификата, введите **srv1.contoso.com**. Если сертификат сервера содержит несколько имен, которые указаны в альтернативном имени субъекта, введите все имена, разделяя их точкой с запятой.  
 
     > [!TIP]  
-    >  Se o certificado de cliente selecionado para o EAP ou para a autenticação de cliente de um dispositivo iOS for utilizado para autenticação num servidor RADIUS (Remote Authentication Dial-In User Service), como um servidor que executa o Servidor de Políticas de Rede, tem de definir o Nome Alternativo do Requerente como Nome Principal de Utilizador.  
+    >  Если сертификат клиента, выбранный для EAP или проверки подлинности клиента для устройства iOS, будет использоваться для проверки подлинности сервера RADIUS, например сервера, на котором выполняется сервер политики сети, необходимо задать имя участника-пользователя в качестве альтернативного имени субъекта.  
 
-    -   **Selecionar certificados de raiz para validação do servidor**: Se o servidor que o dispositivo estabelece ligação utilizar um certificado de autenticação de servidor que o dispositivo não considera fidedigno, selecione o perfil de certificado que contém o certificado de raiz para o certificado de servidor, para criar uma cadeia de fidedignidade de certificados no dispositivo.  
+    -   **Выберите корневые сертификаты для проверки серверов**. Если сервер, к которому подключается устройство, использует сертификат проверки подлинности сервера, не являющийся доверенным для устройства, выберите профиль сертификата, содержащий корневой сертификат для сертификата сервера, чтобы создать цепочку доверенных сертификатов на устройстве.  
 
-    -   **Selecione um certificado de cliente para autenticação de cliente**: Se o servidor ou dispositivo de rede requer um certificado de cliente para autenticar o dispositivo de ligação, selecione o perfil de certificado que contém o certificado de autenticação de cliente.  
+    -   **Выберите сертификат клиента для проверки подлинности клиента**. Если сервер или сетевое устройство требуют сертификат клиента для проверки подлинности подключающегося устройства, выберите профиль сертификата, содержащий сертификат проверки подлинности клиента.  
 
     > [!NOTE]  
-    >  Antes de poder selecionar o certificado de raiz e o certificado de cliente, tem primeiro de os configurar e implementar como um perfil de certificado. Para obter mais informações sobre perfis de certificado, veja [Perfis de certificado no System Center Configuration Manager](introduction-to-certificate-profiles.md).  
+    >  Прежде чем выбрать корневой сертификат и сертификат клиента, сначала их необходимо настроить и развернуть в качестве профиля сертификата. Дополнительные сведения о профилях сертификатов см. в разделе [Профили сертификатов в System Center Configuration Manager](introduction-to-certificate-profiles.md).  
 
-7.  No **definições avançadas** página, especifique as definições avançadas para o perfil de Wi-Fi, como o modo de autenticação, as opções de início de sessão único e compatibilidade Federal Information Processing Standards. Para obter mais informações sobre estas opções, consulte a documentação do Windows. As definições avançadas podem não estar disponíveis ou podem variar consoante as opções selecionadas na página **Configuração de Segurança** do assistente.  
+7.  На странице **Дополнительные параметры** укажите дополнительные параметры для профиля Wi-Fi, такие как режим проверки подлинности, параметры единого входа и режим соответствия Федеральным стандартам обработки информации. Дополнительные сведения об этих параметрах см. в документации Windows. В зависимости от параметров, выбранных на станице мастера **Настройка безопасности** , дополнительные параметры могут быть недоступны или отличаться от указанных.  
 
-1.  No **as definições de Proxy** página, selecione **configurar definições de proxy para este perfil de Wi-Fi** se a rede sem fios utilizar um servidor proxy e, em seguida, forneça as informações de configuração.  
+1.  Если в беспроводной сети используется прокси-сервер, на странице **Параметры прокси-сервера** установите флажок **Настроить параметры прокси-сервера для этого профиля Wi-Fi** и укажите сведения о конфигурации.  
 
-2. No **plataformas suportadas** página, selecione os sistemas operativos onde pretende instalar o perfil de Wi-Fi. Em alternativa, clique em **Selecionar tudo** para instalar o perfil Wi-Fi em todos os sistemas operativos disponíveis.  
+2. На странице **Поддерживаемые платформы** выберите операционные системы, в которых необходимо установить профиль Wi-Fi. В противном случае щелкните **Выбрать все** , чтобы установить профиль Wi-Fi во всех доступных операционных системах.  
 
-### <a name="next-steps"></a>Passos seguintes
- Para obter informações sobre como implementar o perfil Wi-Fi, veja [Como implementar perfis Wi-Fi no System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  
+### <a name="next-steps"></a>Дальнейшие действия
+ Сведения о развертывании профиля Wi-Fi см. в разделе [Развертывание профилей Wi-Fi в System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar conteúdo | Microsoft Docs"
-description: "Compreenda como monitorizar conteúdo distribuído ao utilizar a consola do Configuration Manager."
+title: "Мониторинг содержимого | Документы Майкрософт"
+description: "Узнайте, как отслеживать распространяемое содержимое с помощью консоли Configuration Manager."
 ms.custom: na
 ms.date: 4/17/2017
 ms.prod: configuration-manager
@@ -16,155 +16,155 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 7659d5789b8ce4e9e0b585a331c8f68869c9492d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Monitorizar o conteúdo que distribuiu com o System Center Configuration Manager
+# <a name="monitor-content-you-have-distributed-with-system-center-configuration-manager"></a>Мониторинг содержимого, распространенного с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize a consola do System Center Configuration Manager para monitorizar conteúdo distribuído, incluindo:  
+С помощью консоли System Center Configuration Manager можно отслеживать распространяемое содержимое, в том числе:  
 
--   O estado de todos os tipos de pacotes relativamente aos pontos de distribuição associados.  
--   O estado de validação de conteúdo para o conteúdo num pacote.  
--   O estado dos conteúdos atribuídos a um grupo de pontos de distribuição específico.  
--   O estado dos conteúdos atribuídos a um ponto de distribuição.  
--   O estado das funcionalidades opcionais de cada ponto de distribuição (validação de conteúdo, PXE e multicast).  
+-   состояние всех типов пакетов и сопоставленных с ними точек распространения;  
+-   состояние проверки содержимого для содержимого в пакете;  
+-   состояние содержимого, назначенного конкретной группе точек распространения;  
+-   состояние содержимого, назначенного точке распространения;  
+-   состояние дополнительных функций для каждой точки распространения (проверка содержимого, PXE и многоадресная рассылка).  
 
 > [!NOTE]  
->  O Configuration Manager monitoriza apenas o conteúdo no ponto de distribuição que está na biblioteca de conteúdos. Conteúdo armazenado no ponto de distribuição no pacote ou partilhas personalizadas não é monitorizado.  
+>  Configuration Manager наблюдает только за содержимым точки распространения, находящимся в библиотеке содержимого. Содержимое точки распространения, хранящееся в пакете или в настраиваемых общих папках, не отслеживается.  
 
-##  <a name="BKMK_ContentStatus"></a> Monitorização do estado do conteúdo  
- O nó **Estado do Conteúdo** da área de trabalho **Monitorização** disponibiliza informações sobre pacotes de conteúdos. Na consola do Configuration Manager, pode rever informações como:  
+##  <a name="BKMK_ContentStatus"></a> Мониторинг состояния содержимого  
+ Узел **Состояние содержимого** в рабочей области **Мониторинг** содержит сведения о пакетах содержимого. В консоли Configuration Manager можно просмотреть информацию, например:  
 
--   O nome do pacote.  
--   O tipo.  
--   Pontos de distribuição quantos um pacote foi enviado para o.  
--   A taxa de conformidade.  
--   Quando o pacote foi criado.  
--   ID de pacote.  
--   A versão de origem.  
+-   имя пакета;  
+-   тип;  
+-   число точек распространения, в которые был отправлен пакет;  
+-   уровень соответствия;  
+-   время создания пакета;  
+-   ИД пакета;  
+-   версия исходных файлов.  
 
-Encontrará também informações de estado detalhadas para qualquer pacote, bem como o estado de distribuição para o pacote, incluindo:  
+Вы также можете найти подробные сведения о состоянии для любого пакета, а также состояние распространения пакета, включая:  
 
--   O número de falhas.  
--   Distribuições pendentes.  
--   O número de instalações.
+-   количество ошибок;  
+-   ожидающие распространения;  
+-   число установок.
 
-Também pode gerir as distribuições que continuam em curso para um ponto de distribuição ou que falhou ao distribuir o conteúdo para um ponto de distribuição com êxito:  
+Кроме того, вы можете управлять распространениями, которые выполняются в точку распространения или которым не удалось распространить содержимое в точку распространения.  
 
--   A opção para cancelar ou redistribuir conteúdos está disponível quando visualiza a mensagem de estado de implementação de uma tarefa de distribuição para um ponto de distribuição no **detalhes do ativo** painel. Neste painel, pode ser encontrado no **em curso** separador ou **erro** separador do **estado do conteúdo** nó.  
--   Além disso, os detalhes da tarefa apresentam a percentagem do trabalho que foi concluída quando visualiza detalhes de uma tarefa no **em curso** separador. Os detalhes da tarefa também apresentam o número de tentativas que restam para uma tarefa, bem como tempo antes da próxima nova tentativa ocorre quando visualiza detalhes de uma tarefa que está disponível a partir de **erro** separador.  
+-   Соответствующий параметр для отмены или повторного распространения содержимого доступен во время просмотра сообщения о состоянии развертывания задания распространения для точки распространения в области **Сведения об активе**. Эта область находится на вкладке **Выполняется** или **Ошибка** в узле **Состояние содержимого**.  
+-   Кроме того, при просмотре сведений о задании на вкладке **Выполняется** отображается ход выполнения задания в процентах. Кроме того, при просмотре сведений о задании на вкладке **Ошибка** отображается количество оставшихся повторных попыток для задания, а также время до следующей попытки.  
 
-Se cancelar uma implementação que ainda não está concluída, interrompe a tarefa de distribuição para transferência desse conteúdo:  
+При отмене еще не завершенного развертывания задание распространения по передаче содержимого будет остановлено.  
 
--   O estado da implementação será então atualizado para indicar que a distribuição falhou e que foi cancelada por uma ação do utilizador.  
--   Este novo estado é apresentado no **erro** separador.  
+-   Состояние развертывание обновляется, чтобы показать сбой распространения и отмену действия пользователем.  
+-   Новое состояние отображается на вкладке **Ошибка** .  
 
 > [!TIP]  
->  Quando uma implementação estiver próxima da conclusão, é possível que a ação de cancelamento dessa distribuição não irá processar antes da conclusão da distribuição para o ponto de distribuição. Se isto ocorre, a ação de cancelamento da implementação é ignorada e o estado da implementação apresenta conclusão com êxito.  
+>  Когда развертывание приближается к завершению, возможно, что действие по отмене этого распространения не будет выполнено до завершения распространения в точку распространения. Если это происходит, действие по отмене развертывания игнорируется и состояние развертывания получает значение "Успешно".  
 
 > [!NOTE]  
->  Embora possa selecionar a opção para cancelar uma distribuição a um ponto de distribuição que está localizado num servidor do site, isto não tem qualquer efeito. Isto acontece porque o servidor do site e a pontos de distribuição numa partilha de servidor do site o mesmo arquivo de conteúdo de instância única. Não há nenhuma tarefa de distribuição existente para cancelar.  
+>  Несмотря на возможность отмены распространения в точку распространения, которая находится на сервере сайта, это действие выполнено не будет. Это связано с тем, что сервер сайта и точка распространения на сервере сайта совместно используют хранилище единственных копий содержимого. Фактическое задание распространения, которое нужно отменить, отсутствует.  
 
-Quando redistribuir conteúdos cuja transferência para um ponto de distribuição falhado anteriormente, o Configuration Manager começa imediatamente a reimplementação desse conteúdo ao ponto de distribuição. O Configuration Manager atualiza o estado da implementação para refletir o estado dessa reimplementação.  
+При повторном распространении содержимого, которое ранее не удалось передать в точку распространения, Configuration Manager сразу же начинает повторно развертывать содержимое в точке распространения. Configuration Manager обновляет состояние развертывания, чтобы отразить текущее состояние повторного развертывания.  
 
-Utilize os procedimentos seguintes para ver o estado do conteúdo e gerir as distribuições que continuam em curso ou que falharam.  
+Следующие процедуры используются для просмотра состояния содержимого и управления распространениями, которые выполняются или завершились ошибкой.  
 
-### <a name="to-monitor-content-status"></a>Para monitorizar o estado do conteúdo  
+### <a name="to-monitor-content-status"></a>Мониторинг состояния содержимого  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  No **monitorização** área de trabalho, expanda **estado da distribuição**e, em seguida, clique em **estado do conteúdo**. Os pacotes são apresentados.  
+2.  В рабочей области **Мониторинг** разверните узел **Состояние распространения**, затем щелкните **Состояние содержимого**. Отобразятся пакеты.  
 
-3.  Selecione o pacote que pretende obter informações detalhadas de estado.  
+3.  Выберите пакет, сведения о состоянии которого требуется получить.  
 
-4.  No separador **Home Page** , clique em **Ver Estado**. São apresentadas informações de estado detalhadas sobre o pacote.  
+4.  На вкладке **Главная** щелкните **Просмотр состояния**. Отобразятся подробные сведения о состоянии пакета.  
 
-### <a name="to-cancel-a-distribution-that-remains-in-progress"></a>Para cancelar uma distribuição que continua em curso  
+### <a name="to-cancel-a-distribution-that-remains-in-progress"></a>Отмена выполняющегося распространения  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  No **monitorização** área de trabalho, expanda **estado da distribuição**e, em seguida, clique em **estado do conteúdo**. Os pacotes são apresentados.  
+2.  В рабочей области **Мониторинг** разверните узел **Состояние распространения**, затем щелкните **Состояние содержимого**. Отобразятся пакеты.  
 
-3.  Selecione o pacote que pretende gerir e, em seguida, no painel de detalhes, clique em **Ver estado**.  
+3.  Выберите пакет для управления, а затем в области сведений щелкните **Просмотр состояния**.  
 
-4.  No **detalhes do ativo** painel do **em curso** separador, faça duplo clique na entrada de distribuição que pretende cancelar e selecione **Cancelar**.  
+4.  В области **Сведения об активе** на вкладке **Выполняется** правой кнопкой мыши щелкните запись распространения, которое нужно отменить, и выберите пункт **Отмена**.  
 
-5.  Clique em **Sim** para confirmar a ação e cancelar a tarefa de distribuição a esse ponto de distribuição.  
+5.  Чтобы подтвердить действие и отменить задание распространения в эту точку распространения, нажмите кнопку **Да** .  
 
-### <a name="to-redistribute-content-that-failed-to-distribute"></a>Para redistribuir conteúdos que falhou ao distribuir  
+### <a name="to-redistribute-content-that-failed-to-distribute"></a>Повторное распространение содержимого, которое не удалось распространить  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  No **monitorização** área de trabalho, expanda **estado da distribuição**e, em seguida, clique em **estado do conteúdo**. Os pacotes são apresentados.  
+2.  В рабочей области **Мониторинг** разверните узел **Состояние распространения**, затем щелкните **Состояние содержимого**. Отобразятся пакеты.  
 
-3.  Selecione o pacote que pretende gerir e, em seguida, no painel de detalhes, clique em **Ver estado**.  
+3.  Выберите пакет для управления, а затем в области сведений щелкните **Просмотр состояния**.  
 
-4.  No **detalhes do ativo** painel do **erro** separador, faça duplo clique na entrada de distribuição que pretende redistribuir e selecione **redistribuir**.  
+4.  В области **Сведения об активе** на вкладке **Ошибка** правой кнопкой мыши щелкните запись распространения, которое нужно распространить повторно, и выберите пункт **Повторить**.  
 
-5.  Clique em **Sim** para confirmar a ação e iniciar o processo de redistribuição a esse ponto de distribuição.  
+5.  Чтобы подтвердить действие и запустить процесс распространения в эту точку распространения, нажмите кнопку **Да**.  
 
-## <a name="distribution-point-group-status"></a>Estado do grupo de pontos de distribuição  
-O nó **Estado do Grupo de Pontos de Distribuição** na área de trabalho **Monitorização** fornece informações acerca dos grupos de pontos de distribuição. Pode rever informações como:  
+## <a name="distribution-point-group-status"></a>Состояние группы точек распространения  
+Узел **Состояние группы точек распространения** в рабочей области **Мониторинг** содержит сведения о группах точек распространения. Вы можете просмотреть следующую информацию:  
 
--   O nome de grupo de ponto de distribuição.  
--   A descrição.  
--   Quantos pontos de distribuição sejam membros da distribuição de um grupo de pontos.  
--   O número de pacotes que foram atribuído ao grupo.  
--   O estado de grupo de pontos de distribuição.  
--   A taxa de conformidade.  
+-   имя группы точек распространения;  
+-   описание;  
+-   число точек распространения, являющихся членами группы точек распространения;  
+-   число пакетов, назначенных группе;  
+-   состояние группы точек распространения;  
+-   уровень соответствия.  
 
-Também ver informações detalhadas de estado para o seguinte:  
+Можно также просмотреть подробные сведения о состоянии для следующих аспектов:  
 
--   Erros para o grupo de pontos de distribuição.  
--   Quantas distribuições estão em curso.
--   Quantos tiverem sido distribuídos com êxito.  
+-   ошибки для группы точек распространения;  
+-   количество выполняемых в данный момент операций распространения;
+-   количество успешно завершенных операций распространения.  
 
-### <a name="to-monitor-distribution-point-group-status"></a>Para monitorizar o estado do grupo de pontos de distribuição  
+### <a name="to-monitor-distribution-point-group-status"></a>Мониторинг состояния группы точек распространения  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  No **monitorização** área de trabalho, expanda **estado da distribuição**e, em seguida, clique em **estado do grupo de pontos de distribuição**. Os grupos de pontos de distribuição são apresentados.  
+2.  В рабочей области **Мониторинг** разверните узел **Состояние распространения**и щелкните элемент **Состояние группы точек распространения**. Отобразятся группы точек распространения.  
 
-3.  Selecione o grupo de pontos de distribuição que pretende obter informações detalhadas de estado.  
+3.  Выберите группу точек распространения, сведения о состоянии которой требуется получить.  
 
-4.  No separador **Home Page** , clique em **Ver Estado**. São apresentadas informações detalhadas de estado para o grupo de pontos de distribuição.  
+4.  На вкладке **Главная** щелкните **Просмотр состояния**. Отобразятся подробные сведения для группы точек распространения.  
 
-## <a name="distribution-point-configuration-status"></a>Estado da configuração de ponto de distribuição  
- O nó **Estado da Configuração do Ponto de Distribuição** na área de trabalho **Monitorização** fornece informações acerca do ponto de distribuição. Pode rever quais os atributos que estão ativados para o ponto de distribuição, como PXE, multicast, conteúdo validação e o estado de distribuição para o ponto de distribuição. Também pode ver informações detalhadas de estado para o ponto de distribuição.  
+## <a name="distribution-point-configuration-status"></a>Состояние конфигурации точки распространения  
+ Узел **Состояние конфигурации точек распространения** в рабочей области **Мониторинг** содержит сведения о точке распространения. Здесь можно выяснить, какие атрибуты точки распространения включены (например, PXE, многоадресная рассылка и проверка содержимого), а также состояние распространения для точки распространения. Кроме того, можно отобразить подробные сведения о состоянии точки распространения.  
 
 > [!WARNING]  
->  Estado de configuração de ponto de distribuição é relativo para as últimas 24 horas. Se o ponto de distribuição tem um erro e recuperar, o estado de erro pode ser apresentado até 24 horas depois do ponto de distribuição recuperar.  
+>  Состояние конфигурации точки распространения определяется для последних 24 часов. Если на точке распространения возникла ошибка, и было выполнено восстановление, состояние ошибки может отображаться до 24 часов после восстановления.  
 
-Utilize o seguinte procedimento para ver o estado da configuração do ponto de distribuição.  
+Следующая процедура предназначена для просмотра состояния конфигурации точки распространения.  
 
-### <a name="to-monitor-distribution-point-configuration-status"></a>Para monitorizar o estado da configuração do ponto de distribuição  
+### <a name="to-monitor-distribution-point-configuration-status"></a>Мониторинг состояния конфигурации точки распространения  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  No **monitorização** área de trabalho, expanda **estado da distribuição**e, em seguida, clique em **estado de configuração de ponto de distribuição**. Os pontos de distribuição são apresentados.  
+2.  В рабочей области **Мониторинг** разверните узел **Состояние распространения**и щелкните элемент **Состояние конфигурации точки распространения**. Отобразятся точки распространения.  
 
-3.  Selecione o ponto de distribuição para o qual pretende que as informações de estado do ponto de distribuição.  
+3.  Выберите точку распространения, сведения о состоянии которой требуется отобразить.  
 
-4.  No painel de resultados, clique no separador **Detalhes** . São apresentadas informações de estado para o ponto de distribuição.  
+4.  В области результатов откройте вкладку **Подробности** . Здесь отображаются сведения о состоянии точки распространения.  
 
-## <a name="client-data-sources-dashboard"></a>Dashboard de origens de dados de cliente
-A partir da versão 1610, pode utilizar o **origens de dados de cliente** dashboard para ajudar a compreender a utilização de [Cache ponto a ponto](/sccm/core/plan-design/hierarchy/client-peer-cache) no seu ambiente. O dashboard será iniciada a apresentar dados depois dos clientes transferem conteúdo e o relatório de informações de volta para o site. Esta operação pode demorar até 24 horas.
+## <a name="client-data-sources-dashboard"></a>Панель мониторинга "Клиентские источники данных"
+Начиная с версии 1610, чтобы получить представление об использовании источников содержимого [однорангового кэша](/sccm/core/plan-design/hierarchy/client-peer-cache) в среде, можно использовать панель мониторинга **Клиентские источники данных**. Панель мониторинга начинает отображать данные после того, как клиенты скачают содержимое и отправят эту информацию обратно на сайт. Это может занять до 24 часов.
 
 > [!TIP]  
-> **A Cache do cliente** e **origens de dados de cliente** dashboard são funcionalidades de pré-lançamento introduzidas na versão 1610. Tem de ativar a Cache do cliente para que o dashboard de origens de dados de cliente fica visível na consola. Para ativar a Cache ponto a ponto do cliente, consulte [utilizar as funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease). Pode demorar até 24 horas depois de a ativar iniciar a apresentar dados.
+> **Одноранговый кэш клиента** и панель мониторинга **Источники данных клиента** — функции предварительной версии, представленные в версии 1610. Необходимо включить одноранговый кэш клиента, прежде чем панель мониторинга "Источники данных клиента" станет видимой в консоли. Сведения о включении однорангового кэша клиента см. в разделе [Использование функций предварительной версии из обновлений](/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease). Промежуток между включением панели и началом отображения данных на ней может составлять до 24 часов.
 
-Na consola, aceda a **monitorização** > **estado da distribuição** > **origens de dados de cliente**. Aqui, pode selecionar um período de tempo para aplicar ao dashboard. Em seguida, no ecrã, pode selecionar o grupo de limites ou o pacote para o qual pretende ver informações. Ao visualizar informações, pode pairar o rato sobre a superfície de para ver mais detalhes sobre o conteúdo diferente ou origens de política.
+В консоли последовательно выберите **Наблюдение** > **Состояние распространения** > **Источники данных клиента**. Здесь можно выбрать период времени, который будет применен к панели мониторинга. Затем на экране можно выбрать группу границ или пакет, для которых требуется просмотреть сведения. При просмотре можно наводить курсор мыши на область, чтобы увидеть дополнительные сведения о различном содержимом или источниках политик.
 
-Os detalhes incluem o seguinte:  
-- **Origens de conteúdo de cliente**: Apresenta a partir da qual os clientes recebeu conteúdos de origem.
-- **Pontos de distribuição**: Mostra o número de pontos de distribuição que fazem parte do grupo de limites selecionado.
-- **Clientes que utilizar um ponto de distribuição**: O número de clientes que estejam no grupo de limites selecionado, esta ação mostra quantos um ponto de distribuição utilizado para aceder a conteúdo.
-- **Elemento origens de Cache**: Para o grupo de limites selecionado, esta ação mostra quantos origens de cache ponto a ponto relataram histórico de transferências.
-- **Clientes que é utilizado um elemento**: O número de clientes que estejam no grupo de limites selecionado, mostra quantos utilizado uma origem de cache ponto a ponto para aceder a conteúdo.
+В их число входят следующие сведения:  
+- **Источники содержимого клиентов** — источник, из которого клиенты получили содержимое.
+- **Точки распространения** — количество точек распространения, которые являются частью выбранной группы границ.
+- **Клиенты, которые использовали точку распространения** — сколько клиентов из выбранной группы границ использовали точку распространения для получения содержимого.
+- **Источники однорангового кэша** — сколько источников однорангового кэша для выбранной группы границ предоставили журнал скачивания.
+- **Клиенты, которые использовали кэширующий узел** — сколько клиентов из выбранной группы границ использовали источник однорангового кэша для получения содержимого.
 
 
 
-Também pode utilizar um novo relatório, **origens de dados de cliente - resumo**, para ver um resumo das origens de dados de cliente para cada grupo de limites.
+Чтобы просмотреть сводку по источникам данных клиента для каждой группы границ, можно также воспользоваться новым отчетом **Источники данных клиента — сводные данные**.

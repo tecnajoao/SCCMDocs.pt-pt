@@ -1,6 +1,6 @@
 ---
-title: "Preparar implementações de computadores desconhecidos | Microsoft Docs"
-description: "Saiba como implementar sistemas operativos em computadores que não são geridos pelo Configuration Manager no seu ambiente do System Center Configuration Manager."
+title: "Подготовка развертываний на неизвестные компьютеры | Документы Майкрософт"
+description: "Узнайте, как развертывать операционные системы на компьютерах, которые не находятся под управлением Configuration Manager, в среде System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,69 +17,69 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 445e76950f0605da917f3d0e7e71557d969e3c2d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-for-unknown-computer-deployments-in-system-center-configuration-manager"></a>Preparar implementações de computadores desconhecidos no System Center Configuration Manager
+# <a name="prepare-for-unknown-computer-deployments-in-system-center-configuration-manager"></a>Подготовка развертываний на неизвестные компьютеры в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as informações neste tópico para implementar sistemas operativos em computadores desconhecidos no seu ambiente do System Center Configuration Manager. Um computador desconhecido é um computador que não seja gerido pelo Configuration Manager. Isto significa que não existe nenhum registo destes computadores na base de dados do Configuration Manager. Os computadores desconhecidos incluem o seguinte:  
+В этой статье содержатся сведения о развертывании операционных систем на неизвестных компьютерах в среде System Center Configuration Manager. Неизвестным называется компьютер, который не управляется диспетчером Configuration Manager. Это значит, что в базе данных Configuration Manager нет записей об этих компьютерах. К неизвестным компьютерам относятся следующие:  
 
--   Um computador em que o cliente do Configuration Manager não está instalado  
+-   компьютеры, на которых не установлен клиент Configuration Manager;  
 
--   Um computador que não é importado para o Configuration Manager  
+-   компьютеры, которые не импортированы в Configuration Manager;  
 
--   Um computador que não é detetado pelo Configuration Manager  
+-   компьютеры, которые не обнаружены Configuration Manager.  
 
- Pode implementar sistemas operativos em computadores desconhecidos com os seguintes métodos de implementação:  
+ Для развертывания операционных систем на неизвестные компьютеры можно использовать следующие методы:  
 
--   [Utilizar o PXE para implementar o Windows na rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md)  
+-   [Использование PXE для развертывания Windows по сети](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md)  
 
--   [Utilizar suportes de dados para implementar um sistema operativo](../deploy-use/create-bootable-media.md)  
+-   [Развертывание операционной системы с помощью загрузочного носителя](../deploy-use/create-bootable-media.md)  
 
--   [Utilizar suportes de dados pré-configurados para implementar um sistema operativo](../deploy-use/create-prestaged-media.md)  
+-   [Развертывание операционной системы с помощью предварительно подготовленного носителя](../deploy-use/create-prestaged-media.md)  
 
-## <a name="unknown-computer-deployment-workflow"></a>Fluxo de trabalho da implementação em computadores desconhecidos  
- É apresentado a seguir o fluxo de trabalho básico para implementar um sistema operativo num computador desconhecido:  
+## <a name="unknown-computer-deployment-workflow"></a>Рабочий процесс развертывания на неизвестные компьютеры  
+ Ниже приводится простой рабочий процесс по развертыванию операционной системы на неизвестный компьютер:  
 
--   Selecione um objeto de computador desconhecido para utilizar na implementação. Pode implementar o sistema operativo num dos objetos de computador desconhecido na coleção **Todos os Computadores Desconhecidos** ou adicionar os objetos da coleção **Todos os Computadores Desconhecidos** a outra coleção. Configuration Manager fornece dois objetos de computador desconhecido no **todos os computadores desconhecidos** coleção. Um dos objetos destina-se a computadores x86 e outro a computadores x64.  
+-   Выберите объект неизвестного компьютера для использования в развертывании. Можно развернуть операционную систему на одном из объектов неизвестных компьютеров в коллекции **Все неизвестные компьютеры** или добавить объекты из коллекции **Все неизвестные компьютеры** в другую коллекцию. Configuration Manager в коллекции **Все неизвестные компьютеры** предоставляет два объекта неизвестных компьютеров. Один объект представляет 32-разрядные (x86) компьютеры, а другой — 64-разрядные (x64).  
 
     > [!NOTE]  
-    >  O objeto **Computador Desconhecido x86** destina-se a computadores que apenas são compatíveis com x86. O objeto **Computador Desconhecido x64** destina-se a computadores que apenas são compatíveis com x86 e x64. Por outras palavras, estes objetos descrevem a arquitetura do computador de destino. Não descrevem o sistema operativo que pretende implementar no computador de destino.  
+    >  Объект **Неизвестный компьютер x86** представляет компьютеры, которые совместимы только с 32-разрядной архитектурой. Объект **Неизвестный компьютер x64** представляет компьютеры, которые совместимы с архитектурой x86 и x64. Другими словами, эти объекты описывают архитектуру конечного компьютера. Они не описывают операционную систему, которую требуется развернуть на конечный компьютер.  
 
--   Configure um suporte de dados ou um ponto de distribuição ativado para PXE ou crie um suporte de dados para suportar implementações em computadores desconhecidos.  
+-   Настройте носитель или точку распространения с поддержкой PXE для поддержки развертываний на неизвестные компьютеры.  
 
--   Implemente a sequência de tarefas para instalar o sistema operativo.  
+-   Разверните последовательность задач для установки операционной системы.  
 
-## <a name="unknown-computer-installation-process"></a>Processo de Instalação de Computador Desconhecido  
- Quando um computador é iniciado pela primeira vez a partir de PXE ou de suportes de dados, o Configuration Manager verifica se existe um registo desse computador na base de dados do Configuration Manager. Se existir um registo, o Configuration Manager, em seguida, verifica se existem sequências de tarefas implementadas no registo. Se não existir um registo, o Configuration Manager verifica se existem sequências de tarefas implementadas num objeto de computador desconhecido. Em ambos os casos, o Configuration Manager, em seguida, executa uma das seguintes ações:  
+## <a name="unknown-computer-installation-process"></a>Процесс установки на неизвестный компьютер  
+ При первом запуске компьютера с помощью PXE или носителя Configuration Manager проверяет, имеется ли для этого компьютера запись в базе данных Configuration Manager. Если запись имеется, Configuration Manager проверяет, развернуты ли для этой записи какие-либо последовательности задач. Если записи нет, Configuration Manager проверяет, развернуты ли какие-либо последовательности задач для объекта неизвестного компьютера. В любом случае Configuration Manager выполняет затем одно из указанных ниже действий.  
 
--   Se existir uma sequência de tarefas disponível, o Configuration Manager pede ao utilizador a executar a sequência de tarefas.  
+-   Если есть доступная последовательность задач, Configuration Manager предлагает пользователю выполнить ее.  
 
--   Se existir uma sequência de tarefas necessária, o Configuration Manager é executado automaticamente a sequência de tarefas.  
+-   Если есть обязательная последовательность задач, Configuration Manager автоматически запускает ее.  
 
--   Se uma sequência de tarefas não for implementada para o registo, o Configuration Manager gera um erro que não existe nenhuma sequência de tarefas implementada para o computador de destino.  
+-   Если для записи не развернута последовательность задач, Configuration Manager создает ошибку, которая информирует, что для конечного компьютера нет последовательности задач.  
 
- Quando um computador desconhecido é iniciado, o Configuration Manager reconhece o computador como um computador não aprovisionado em vez de um computador desconhecido. Isto significa que o computador pode agora receber as sequências de tarefas que foram implementadas no objeto de computador desconhecido. A sequência de tarefas implementada, em seguida, instala uma imagem do sistema operativo que tem de incluir o cliente do Configuration Manager.  
+ После запуска неизвестного компьютера Configuration Manager распознает его как неподготовленный, а не как неизвестный. Это значит, что компьютер теперь может получать последовательности задач, которые были развернуты для объекта неизвестного компьютера. Развернутая последовательность задач после этого устанавливает образ операционной системы, который должен включать клиент Configuration Manager.  
 
- Depois do cliente do Configuration Manager está instalado, é criado um registo para o computador e o computador é listado na coleção do Configuration Manager adequado. Se o computador falhar ao instalar a imagem do sistema operativo ou o cliente do Configuration Manager, é criado um registo "Desconhecido" para o computador e o computador é apresentado no **todos os sistemas** coleção.  
+ После установки клиента Configuration Manager для компьютера создается запись, и компьютер заносится в соответствующую коллекцию Configuration Manager. Если компьютеру не удается установить образ операционной системы или клиент Configuration Manager, для компьютера создается запись "Неизвестный" и он включается в коллекцию **Все системы**.  
 
 > [!NOTE]  
->  Durante a instalação da imagem do sistema operativo, a sequência de tarefas pode obter as variáveis de coleção mas não as variáveis de computador deste computador.  
+>  Во время установки образа операционной системы последовательность задач может получить переменные коллекции, но не сможет получить от компьютера переменные компьютера.  
 
-##  <a name="BKMK_EnablingUnknown"></a> Ativar o Suporte para Computadores Desconhecidos  
- Utilize o seguinte para ativar o suporte para computadores desconhecidos quando implementar um sistema operativo através de PXE, suportes de dados de arranque e suportes de dados pré-configurados.  
+##  <a name="BKMK_EnablingUnknown"></a> Включение поддержки неизвестных компьютеров  
+ Используйте следующую информацию, чтобы включить поддержку неизвестных компьютеров при развертывании операционной системы с помощью PXE, загрузочных и предварительно подготовленных носителей.  
 
 -   **PXE**  
 
-     Selecione a caixa de verificação **Ativar suporte para computadores desconhecidos** no separador **PXE** para um ponto de distribuição ativado para PXE. Para obter mais informações, veja [Configurar pontos de distribuição para aceitar pedidos PXE](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint).  
+     Установите флажок **Включить поддержку неизвестных компьютеров** на вкладке **PXE** для точки распространения, которая поддерживает PXE. Дополнительные сведения см. в разделе [Настройка точек распространения для приема PXE-запросов](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint).  
 
--   **Suporte de dados de arranque**  
+-   **Загрузочный носитель**  
 
-     Selecione a caixa de verificação **Ativar suporte para computadores desconhecidos** na página **Segurança** do Assistente de Criação de Suporte de Dados da Sequência de Tarefas. Para obter mais informações, veja [Configurar pontos de distribuição para aceitar pedidos PXE](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint) e [Utilizar PXE para implementar o Windows através da rede com o System Center Configuration Manager](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+     Установите флажок **Включить поддержку неизвестных компьютеров** на вкладке **Безопасность** в мастере создания носителя с последовательностью задач. Дополнительные сведения см. в разделах [Настройка точек распространения для приема PXE-запросов](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint) и [Использование PXE для развертывания Windows по сети с помощью System Center Configuration Manager](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
--   **Suportes de dados de pré-configuração**  
+-   **Предварительно подготовленный носитель**  
 
-     Selecione a caixa de verificação **Ativar suporte para computadores desconhecidos** na página **Segurança** do Assistente de Criação de Suporte de Dados da Sequência de Tarefas. Para obter mais informações, veja [Criar suportes de dados pré-configurados com o System Center Configuration Manager](../deploy-use/create-prestaged-media.md).  
+     Установите флажок **Включить поддержку неизвестных компьютеров** на вкладке **Безопасность** в мастере создания носителя с последовательностью задач. Дополнительные сведения см. в разделе [Создание предварительно подготовленного носителя с помощью System Center Configuration Manager](../deploy-use/create-prestaged-media.md).  

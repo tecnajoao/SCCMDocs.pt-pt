@@ -1,6 +1,6 @@
 ---
-title: "Configurar opções | Microsoft Docs"
-description: "Configurar opções para utilizar o System Center Updates Publisher"
+title: "Настройка параметров | Документация Майкрософт"
+description: "Настройка параметров для System Center Updates Publisher"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,136 +17,136 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: b66ed0a5e1c87d8c82853da86e3d55b0e2c043bb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-options-for-updates-publisher"></a>Configurar opções para o Updates Publisher
+# <a name="configure-options-for-updates-publisher"></a>Настройка параметров для Updates Publisher
 
-*Aplica-se a: O System Center Updates Publisher*
+*Область применения: System Center Updates Publisher*
 
-Reveja e configure as opções e definições relacionadas que afetem o funcionamento do Updates Publisher.
+Просматривайте и задавайте параметры, влияющие на работу Updates Publisher.
 
-Para aceder às opções de Updates Publisher, no canto superior esquerdo da consola, clique em de **Updates Publisher** **propriedades** separador e, em seguida, escolha **opções**.
+Для доступа к параметрам Updates Publisher в левом верхнем углу консоли щелкните вкладку **Свойства** **Updates Publisher**, а затем выберите **Параметры**.
 
-![Opções](media/properties1.png)   
+![Параметры](media/properties1.png)   
 
 
-As opções são divididas no seguinte:
+Параметры делятся на следующие:
 
--   Servidor de atualização
--   Servidor do ConfigMgr
--   Definições de proxy
--   Fabricantes fidedignos
--   Avançadas
--   Atualizações
--   Registo
+-   Обновление сервера
+-   Сервер ConfigMgr
+-   Параметры прокси
+-   доверенные издатели;
+-   Дополнительно
+-   Обновления
+-   Ведение журнала
 
-## <a name="update-server"></a>Servidor de atualização
-Tem de configurar o Updates Publisher para trabalhar com o servidor de atualização como o Windows Server Update Services (WSUS) para que possa [publicar atualizações](/sccm/sum/tools/manage-updates-with-updates-publisher#publish-updates-and-bundles). Isto inclui a especificação do servidor, métodos para ligar a este servidor quando for remoto a partir da consola e um certificado a utilizar para assinar digitalmente as atualizações publicar.
+## <a name="update-server"></a>Обновление сервера
+Прежде чем [публиковать обновления](/sccm/sum/tools/manage-updates-with-updates-publisher#publish-updates-and-bundles), вы должны настроить Updates Publisher для работы с сервером обновлений, например Windows Server Update Services (WSUS). Вам нужно указать сервер, способы подключения к этому серверу, если он расположен удаленно относительно консоли, и сертификат для цифровой подписи публикуемых обновлений.
 
--   **Configurar um servidor de atualização**. Quando configura um servidor de atualização, selecione o servidor de nível superior de WSUS (servidor de atualização) na sua hierarquia do Configuration Manager para que todos os sites subordinados têm acesso às atualizações de publicar.
+-   **Настройка сервера обновлений.** При настройке сервера обновлений выберите сервер WSUS верхнего уровня (сервер обновлений) в иерархии Configuration Manager, чтобы все дочерние сайты имели доступ к публикуемым обновлениям.
 
-  Se o servidor de atualização remoto a partir do seu servidor do Updates Publisher, especifique o nome de domínio completamente qualificado (FQDN) do servidor, e se irá ligar-se por SSL. Quando se liga por SSL, a porta predefinida é alterado de 8530 para 8531. Certifique-se de que a porta que configurou corresponde ao que está em utilização pelo seu servidor de atualização.
+  Если сервер обновления расположен удаленно от сервера Updates Publisher, для подключения по протоколу SSL укажите полное доменное имя (FQDN) сервера. При подключении по протоколу SSL порт по умолчанию меняется с 8530 на 8531. Убедитесь, что установленный вами порт соответствует тому, который использует ваш сервер обновления.
 
     > [!TIP]  
-    > Se não configurar um servidor de atualização, pode utilizar o Updates Publisher para criar as atualizações de software.
+    > Если сервер обновления не задан, вы по-прежнему можете использовать Updates Publisher для создания обновлений программного обеспечения.
 
--   **Configurar o certificado de assinatura**. Tem de configurar e ligar com êxito para um servidor de atualização antes de poder configurar o certificado de assinatura.
+-   **Настройка сертификата для подписи.** Перед настройкой сертификата для подписи вы должны настроить сервер обновлений и успешно подключиться к нему.
 
-    Publicador de atualizações utiliza o certificado de assinatura para assinar as atualizações de software que são publicadas para o servidor de atualização. Publicação falha se o certificado digital não está disponível no arquivo de certificados do servidor de atualização ou o computador que executa o Updates Publisher.
+    Updates Publisher использует сертификат для подписи, чтобы подписывать обновления программного обеспечения, публикуемые на сервере обновлений. Публикацию не удастся выполнить, если цифрового сертификата нет в хранилище сертификатов сервера обновлений или на компьютере, на котором выполняется Updates Publisher.
 
-    Para obter mais informações sobre como adicionar o certificado ao arquivo de certificados, consulte [certificados e segurança para o Updates Publisher](/sccm/sum/tools/updates-publisher-security).
+    Дополнительные сведения о добавлении сертификата в хранилище сертификатов см. в статье о [сертификатах и безопасности в Updates Publisher](/sccm/sum/tools/updates-publisher-security).
 
-    Se um certificado digital não será detetado automaticamente para o servidor de atualização, escolha um dos seguintes:
+    Если цифровой сертификат не обнаружен автоматически для сервера обновлений, выберите один из следующих вариантов:
 
-    -   **Procurar**: Procurar só está disponível quando o servidor de atualização está instalado no servidor onde executa a consola. Depois de selecionar um certificado tem de escolher **criar** para adicionar esse certificado para o arquivo de certificados do WSUS no servidor de atualização. Tem de introduzir o **. pfx** ficheiro palavra-passe de certificados que selecionar através deste método.
+    -   **Обзор.** Обзор доступен только при установке сервера обновления на сервере, на котором выполняется консоль. Выбрав сертификат, щелкните **Создать**, чтобы добавить сертификат в хранилище сертификатов WSUS на сервере обновлений. Для сертификатов, выбранных таким способом, нужно ввести пароль в файле типа **PFX**.
 
-    -   **Crie:** Utilize esta opção para criar um novo certificado. Isto também adiciona o certificado para o arquivo de certificados do WSUS no servidor de atualização.
+    -   **Создать.** Используйте этот параметр, чтобы создать сертификат. При этом сертификат будет также добавлен в хранилище сертификатов WSUS на сервере обновлений.
 
-    **Se criar o seu próprio certificado de assinatura**, configure o seguinte:
+    **При создании собственного сертификата для подписи** настройте следующие значения:
 
-    -   Ativar o **permitir que a chave privada seja exportada** opção.
+    -   Включите параметр **Разрешить экспортировать закрытый ключ**.
 
-    -   Definir **utilização de chave** para assinatura digital.
+    -   Задайте в качестве значения параметра **Использование ключа** цифровую подпись.
 
-    -   Definir **tamanho de chave mínimo** para um valor igual ou superior a 2048 bits.
+    -   Задайте **минимальный размер ключа** более 2048 бит.
 
-    Utilize o **remover** opção para remover um certificado do arquivo de certificados WSUS. Esta opção está disponível quando o servidor de atualização é local para a consola do Updates Publisher que utiliza, ou quando utilizou **SSL** para ligar a um servidor de atualização remota.
+    Используйте параметр **Удалить**, чтобы удалить сертификат из хранилища сертификатов служб WSUS. Этот параметр доступен, когда сервер обновления является локальным для используемой консоли Updates Publisher или при подключении к удаленному серверу обновления по протоколу **SSL**.
 
-## <a name="configmgr-server"></a>Servidor do ConfigMgr
-Utilize estas opções quando utilizar o Configuration Manager com o Updates Publisher.
+## <a name="configmgr-server"></a>Сервер ConfigMgr
+Применяйте эти параметры при использовании Configuration Manager с Updates Publisher.
 
--   **Especifique o servidor do Configuration Manager:** Depois de ativar o suporte para o Configuration Manager, especifique a localização do servidor do site de nível superior da hierarquia do Configuration Manager. Se esse servidor é remoto relativamente a instalação do Updates Publisher, especifique o FQDN do servidor do site. Escolha **Testar ligação** para garantir que pode ligar ao servidor do site.
+-   **Указание сервера Configuration Manager.** Включив поддержку Configuration Manager, укажите расположение сервера сайта верхнего уровня в иерархии Configuration Manager. Если этот сервер расположен удаленно от установки Updates Publisher, укажите полное доменное имя сервера сайта. Выберите **Проверить подключение**, чтобы убедиться, что вы можете подключиться к серверу сайта.
 
--   **Configure limiares:** Os limiares são utilizados quando publicar atualizações com um tipo de publicação de automático. Os valores de limiar ajudam a determinar quando o conteúdo completo para uma atualização for publicado em vez de apenas os metadados. Para saber mais tipos de publicação, consulte [atribuir atualizações para uma publicação](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication)
+-   **Настройка пороговых значений.** Пороговые значения используются при публикации обновлений с типом публикации автоматически. Пороговые значения помогают определить, когда опубликовано все содержимое обновления, а не только метаданные. Дополнительные сведения о типах публикаций см. в разделе [Назначение обновлений публикации](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication).
 
-    É possível um ou ambos dos seguintes limiares:
+    Вы можете включить один или оба набора пороговых значений, приведенных ниже:
 
-    -   **Limiar de contagem de clientes de pedido:** Isto define quantos clientes tem de solicitar uma atualização antes do Updates Publisher pode publicar automaticamente o conjunto completo de conteúdo para essa atualização. Até que o número especificado de clientes pedir a atualização, apenas os metadados de atualizações é publicado.
+    -   **Пороговое значение запрашиваемых клиентов** — определяет, сколько клиентов должны запросить обновление, прежде чем Updates Publisher сможет автоматически публиковать полный набор содержимого этого обновления. Пока указанное число клиентов не запросят обновление, публикуются только метаданные обновлений.
 
-    -   **Limiar de tamanho de origem de pacote (MB):** Isto impede que a publicação automática de atualizações que excedem o tamanho que especificar. Se o tamanho de atualizações excede este valor, apenas os metadados é publicado. Atualizações que estão menores do que o tamanho especificado pode ter o respetivo conteúdo completo publicado.
+    -   **Пороговое значение размера исходного пакета (МБ)** — предотвращает автоматическую публикацию обновлений, которые превышают заданный размер. Если размер обновления превышает это значение, то публикуются только метаданные. Обновления, которые меньше указанного размера, могут публиковаться с полным содержимым.
 
-## <a name="proxy-settings"></a>Definições de proxy
-Publicador de atualizações utiliza as definições de proxy quando importar catálogos de software a partir da Internet ou publicar atualizações à Internet.
+## <a name="proxy-settings"></a>Параметры прокси
+Updates Publisher использует параметры прокси-сервера при импорте каталогов программного обеспечения из Интернета и для публикации обновлений в Интернете.
 
--   Especifique o FQDN ou endereço IP de um servidor proxy. São suportados IPv4 e IPv6.
+-   Укажите полное доменное имя или IP-адрес прокси-сервера. Поддерживаются форматы IPv4 и IPv6.
 
--   Se o servidor proxy autentica utilizadores para acesso à Internet, tem de especificar o nome do Windows. Não é suportado um nome de princípio universal (UPN).
+-   Если прокси-сервер выполняет проверку подлинности пользователей для доступа к Интернету, необходимо указать имя Windows. Имя участника-пользователя (UPN) не поддерживается.
 
-## <a name="trusted-publishers"></a>Fabricantes fidedignos
-Quando importa um catálogo de atualização, a origem do catálogo de (com base no respetivo certificado), é adicionado como um fabricante fidedigno. Da mesma forma, quando publica uma atualização, a origem do certificado de atualizações é adicionada como um fabricante fidedigno.
+## <a name="trusted-publishers"></a>доверенные издатели;
+При импорте каталога обновлений источник этого каталога (на основе его сертификата) добавляется в качестве надежного издателя. Аналогично при публикации обновления источник обновления сертификата добавляется как надежный издатель.
 
-Pode ver detalhes do certificado para cada fabricante e remover um fabricante da lista de fabricantes fidedignos.
+Вы можете просмотреть сведения о сертификате для каждого издателя и удаленного издателя из списка надежных издателей.
 
-Conteúdo de fabricantes que não são fidedignas potencialmente pode danificar os computadores cliente quando o cliente verifica a existência de atualizações. Deve aceitar conteúdo só de fabricantes que considera fidedignos.
+Содержимое от ненадежных издателей может повредить клиентские компьютеры при проверке обновлений. Принимайте обновления только от тех издателей, которым вы доверяете.
 
-## <a name="advanced"></a>Avançadas
-Opções avançadas incluem o seguinte:
+## <a name="advanced"></a>Дополнительно
+Дополнительные параметры включают следующее:
 
--   **Localização de repositório:** Ver e modificar a localização do ficheiro da base de dados, **scupdb.sdf**. Este ficheiro é o repositório para o Updates Publisher.
+-   **Расположение репозитория.** Просматривайте и изменяйте расположение файла базы данных **scupdb.sdf**. Этот файл является репозиторием для Updates Publisher.
 
--   **Timestamp:** Quando ativada, um timestamp é adicionado à atualizações inicia a sessão que identifica quando estava assinado. Pode ser utilizada uma atualização que foi assinada durante um certificado válido depois desse certificado de assinatura expira. Por predefinição, não não possível implementar atualizações de software depois do respetivo certificado de assinatura expira.
+-   **Метка времени.** Когда этот параметр включен, к подписанным обновлениям добавляется метка времени, определяющая, когда они были подписаны. Обновление, подписанное с использованием действительного сертификата, можно использовать после истечения срока действия этого сертификата для подписи. По умолчанию обновления программного обеспечения невозможно развернуть после истечения срока действия их сертификата для подписи.
 
--   **Verificar se existem atualizações para catálogos subscritos:** Sempre que inicia o Updates Publisher,-lo pode procurar automaticamente atualizações para catálogos que tem subscritos. Quando é encontrada uma atualização de catálogo, os detalhes são fornecidos como **alertas recentes** no **descrição geral** janela do **atualiza a área de trabalho**.
+-   **Проверка обновлений в каталогах подписки.** При каждом запуске Updates Publisher автоматически проверяет наличие обновлений для каталогов, на которые вы подписались. При обнаружении обновления каталога сведения предоставляются в виде **недавних оповещений** в окне **Обзор** **рабочей области "Обновления"**.
 
--   **Revogação de certificados:** Escolha esta opção para ativar verificações de revogação de certificado.
+-   **Отзыв сертификата.** Выберите этот параметр, чтобы включить проверку отзыва сертификатов.
 
--   **Publicação de local de origem:** Publicador de atualizações, pode utilizar uma cópia local de uma atualização que está a publicar antes da transferência dessa atualização através da Internet. A localização tem de ser uma pasta no computador que executa o Updates Publisher. Por predefinição, esta localização é **My Documents\LocalSourcePublishing.** Utilize esta opção quando tiver transferido anteriormente uma ou mais atualizações ou foram efetuadas modificações para uma atualização que pretende implementar.
+-   **Публикация локального источника.** Updates Publisher может использовать локальную копию публикуемого обновления, прежде чем скачать это обновление из Интернета. Эта папка должна быть расположена на компьютере, на котором выполняется Updates Publisher. По умолчанию — это расположение **Мои документы\LocalSourcePublishing**. Этот параметр используется, если ранее было скачано одно или несколько обновлений или были внесены изменения в обновление, которое вы хотите развернуть.
 
--   **Assistente de limpeza de atualizações de software:** Inicie o Assistente de limpeza de atualizações. O assistente expira as atualizações que estão no servidor de atualização, mas não no repositório de Updates Publisher. Consulte [expirar atualizações não referenciadas](#expire-unreferenced-software-updates) para obter mais detalhes.
+-   **Мастер очистки обновлений программного обеспечения.** Запускает мастер очистки обновлений. Мастер завершает срок действия обновлений на сервере обновлений, но не в репозитории Updates Publisher. Дополнительные сведения см. в разделе об [истечении срока действия обновлений без ссылок](#expire-unreferenced-software-updates).
 
-## <a name="updates"></a>Atualizações
- Publicador de atualizações automaticamente pode verificar novas atualizações sempre que é aberta. Também pode escolher para receber compilações de pré-visualização do Updates Publisher.
+## <a name="updates"></a>Обновления
+ При каждом открытии Updates Publisher автоматически проверяет наличие новых обновлений. Вы также можете зарегистрироваться на получение предварительных версий Updates Publisher.
 
-Para manualmente procurar atualizações, na consola do Updates Publisher clique no ![propriedades](media/properties2.png)  
-Para abrir o **propriedades do publicador de atualizações**e, em seguida, escolha **Verifique a existência de update**.
+Чтобы вручную проверить наличие обновлений в консоли Updates Publisher, щелкните ![Свойства](media/properties2.png)  
+для открытия **Свойств Updates Publisher** и щелкните **Проверить на наличие обновлений**.
 
-Depois do Updates Publisher localiza uma nova atualização, é apresentado o **atualizar disponíveis** janela e, em seguida, pode optar por instalá-lo. Se optar por não instalar a atualização, é-lhe oferecida da próxima vez que abrir a consola.
+После того как Updates Publisher найдет новое обновление, появится окно **Update Available** (Доступно обновление), а затем вы сможете установить это обновление. Если вы решили не устанавливать обновление, его повторно предложат установить при следующем открытии консоли.
 
-## <a name="logging"></a>Registo
-Publicador de atualizações regista informações básicas sobre o Updates Publisher para  **&lt;* caminho*&gt;\Windows\Temp\UpdatesPublisher.log**.
+## <a name="logging"></a>Ведение журнала
+Основные сведения о Updates Publisher из журналов Updates Publisher в файле **&lt;*путь*&gt;\Windows\Temp\UpdatesPublisher.log**.
 
-Bloco de notas de utilização ou **CMTrace** para ver o registo. CMTrace é a ferramenta de ficheiro de registo do Configuration Manager e pode ser encontrado no **\SMSSetup\Tools** pasta do suporte de dados de origem do Configuration Manager.
+Используйте Блокнот или **CMTrace** для просмотра журнала. CMTrace — это инструмент файла журнала Configuration Manager, который можно найти в папке **\SMSSetup\Tools** на исходном носителе Configuration Manager.
 
-Pode alterar o tamanho do registo e o respetivo nível de detalhe.
+Вы можете изменить размер журнала и его уровень детализации.
 
-Quando ativar a base de dados de registo, informações sobre as consultas que são executadas na base de dados do Updates Publisher, são incluídos. Utilização do registo da base de dados pode levar a um desempenho do computador Updates Publisher.
+При включении ведения журнала базы данных в него включается информация о запросах, запускаемых в базе данных Updates Publisher. При ведении журналов базы данных производительность компьютера с Updates Publisher может снизиться.
 
-Para ver o ficheiro de registo, na consola do clique em ![propriedades](media/properties2.png) para abrir o **propriedades do publicador de atualizações**e, em seguida, escolha **ficheiro de registo de vista**.
+Для просмотра файла журнала в консоли щелкните ![Свойства](media/properties2.png), чтобы открыть окно **свойств Updates Publisher**, и выберите **Просмотр файла журнала**.
 
-## <a name="expire-unreferenced-software-updates"></a>As atualizações de software não referenciadas de expirar
-Pode executar o **Assistente de limpeza de atualização de Software** expirar as atualizações que estão no seu servidor de atualização, mas não no repositório de Updates Publisher. Isto notifica o Gestor de configuração que, em seguida, remove as atualizações de todas as implementações futuras.
+## <a name="expire-unreferenced-software-updates"></a>Завершение срока действия обновлений программного обеспечения без ссылок
+Вы можете запустить **мастер очистки программного обеспечения**, чтобы просрочить обновления, которые находятся на вашем сервере обновлений, но не в репозитории Updates Publisher. Configuration Manager получает уведомление и удаляет эти обновления из любых развертываний в будущем.
 
-Não é possível reverter o ato de expirar uma atualização. Só deverá efetue esta tarefa quando tem a certeza de que as atualizações de software que selecionou já não são necessárias pela sua organização.
+Действие завершения срока действия обновления необратимо. Делайте это, только если вы уверены, что выбранные вами обновления программного обеспечения больше не требуются вашей организации.
 
-### <a name="to-remove-expired-software-updates"></a>Para remover as atualizações de software expiradas
-1.  Na consola do Updates Publisher, clique em ![propriedades](media/properties2.png) para abrir o **propriedades do publicador de atualizações**e, em seguida, escolha **opções**.
+### <a name="to-remove-expired-software-updates"></a>Удаление просроченных обновлений программного обеспечения
+1.  В консоли Updates Publisher щелкните ![Свойства](media/properties2.png), чтобы открыть окно **свойств Updates Publisher**, и выберите **Просмотр файла журнала**.
 
-2.  Escolha **avançadas**e, em **assistente limpa de atualização de Software,** escolha **iniciar**.
+2.  Выберите **Дополнительно**, а затем в разделе **Software Update Clean Wizard** (Мастер очистки обновлений программного обеспечения) выберите **Запустить**.
 
-3.  Selecione as atualizações de software que pretende expire e, em seguida, escolha **seguinte**.
+3.  Выберите обновления программного обеспечения, срок действия которых нужно завершить, а затем нажмите кнопку **Далее**.
 
-4.  Depois de rever as suas seleções, escolheu **seguinte** aceite as seleções e expirar essas atualizações.
+4.  Просмотрев выбранные параметры, нажмите кнопку **Далее**, чтобы подтвердить их и завершить срок действия этих обновлений.
 
-5.  Depois de concluído o assistente, selecione **fechar** para concluir o assistente.
+5.  По окончании работы мастера выберите **Закрыть**, чтобы завершить его работу.

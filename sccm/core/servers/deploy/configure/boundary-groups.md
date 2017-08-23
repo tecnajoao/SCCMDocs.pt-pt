@@ -1,363 +1,360 @@
 ---
-title: Definir grupos de limites | Microsoft Docs
-description: "Compreenda os grupos de limites com ligação de clientes para sistemas de sites no System Center Configuration Manager."
+title: "Определение групп границ | Документация Майкрософт"
+description: "Информация о группах границ, которые связывают клиентов с системами сайтов в System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 5db2926f-f03e-49c7-b44b-e89b1a5a6779
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 5debc6559f4b1c213e8ca513d685941c9e669063
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-boundary-groups-for-system-center-configuration-manager"></a>Configurar grupos de limites para o System Center Configuration Manager
+# <a name="configure-boundary-groups-for-system-center-configuration-manager"></a>Настройка групп границ для System Center Configuration Manager
 
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilizar grupos de limites no System Center Configuration Manager para agrupar logicamente relacionadas com as localizações de rede ([limites](/sccm/core/servers/deploy/configure/boundaries)) torna mais fácil de gerir a sua infraestrutura. Limites devem ser atribuídos a grupos de limites, antes de poder utilizar o grupo de limites.
+Группы границ используются в System Center Configuration Manager для логической группировки связанных сетевых расположений ([границ](/sccm/core/servers/deploy/configure/boundaries)), чтобы упростить управление инфраструктурой. Чтобы группу границ можно было использовать, ей необходимо назначить границы.
 
-Por predefinição, o Configuration Manager cria um grupo de limites de site predefinido em cada site.
+По умолчанию Configuration Manager создает стандартную группу границ для каждого сайта.
 
 > [!IMPORTANT]  
->  **As informações nesta secção de grupos de limites e respetivas secções subordinado aplica-se a versão 1610 ou posterior.** Este conteúdo tiver sido revisto para ser específico a alterações estruturais introduzidas para grupos de limites com esta versão de atualização.
+>  **Сведения в этом разделе "Группы границ" и его подразделах относятся к версии 1610 и более поздним.** Содержимое было переработано в соответствии с изменениями, внесенными в группы границ в этой версии обновления.
 >
-> **Se utilizar versões anteriores à 1610**, consulte [grupos de limites para as versões do System Center Configuration Manager versão 1511, 1602 e 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606) para obter informações sobre como utilizar e configurar grupos de limites com essas versões de produto.
+> **Если вы используете версию до 1610**, сведения об использовании и настройке групп границ см. в статье [Группы границ для версий System Center Configuration Manager 1511, 1602 и 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
 
-Para configurar grupos de limites, associar limites (localizações de rede) e funções de sistema de sites, como pontos de distribuição, para o grupo de limites. Isto ajuda a associar clientes para servidores do sistema de sites como perto de pontos de distribuição que estão localizados os clientes na rede.
+Чтобы настроить группу границ, нужно связать с ней границы (сетевые расположения) и роли системы сайта, например точки распространения. Это позволяет связать клиентов с серверами системы сайта (например, точками распространения), расположенными рядом с клиентами в сети.
 
-Ao atribuir o mesmo limite a vários grupos de limites e atribuir o mesmo site servidores do sistema, como pontos de distribuição a vários grupos de limites, aumentar a disponibilidade dos sistemas de sites para uma vasta gama de localizações de rede.
+Вы можете повысить доступность систем сайта для большего числа сетевых расположений, назначая каждую границу и каждый сервер системы сайта (например, точки распространения) нескольким группам границ.
 
-Os clientes utilizam um grupo de limites para:  
+Вот для чего клиенты используют группы границ.  
 
--   Atribuição automática de site  
--   Para localizar um servidor de sistema de sites que pode fornecer um serviço, incluindo:
-    - Pontos de distribuição para localização de conteúdo
-    -   Pontos de atualização de software (início com a versão 1702)
-    - Pontos de migração de estado
-    - Pontos de gestão preferenciais (se utilizar pontos de gestão preferidos, tem de ativar esta opção para a hierarquia e não a partir da configuração do grupo de limites. Consulte [para ativar a utilização de pontos de gestão preferenciais](#to-enable-use-of-preferred-management-points) neste tópico.)
+-   Автоматическое назначение сайта  
+-   Чтобы найти сервер системы сайта, который может предоставить службу, в том числе:
+    - точки распространения содержимого;
+    -   точки обновления программного обеспечения (начиная с версии 1702);
+    - Точки миграции состояния
+    - предпочтительные точки управления. (Если вы используете предпочтительные точки управления, этот параметр необходимо включить для иерархии, а не в конфигурации групп границ. Подробнее см. раздел [Включение предпочтительных точек управления](#to-enable-use-of-preferred-management-points) в этой статье.)
 
-##  <a name="boundary-groups-and-relationships"></a>Grupos de limites e relações
-Para cada grupo de limites na hierarquia, pode atribuir:
+##  <a name="boundary-groups-and-relationships"></a>Группы границ и отношения
+Для каждой группы границ в иерархии вы можете назначить следующие элементы.
 
--  Um ou mais limites. Quando um cliente estiver numa localização de rede que está definida como um limite atribuído a um grupo de limites específico, que é chamado o **atual** grupo de limites. Um cliente pode ter mais do que um grupo de limites atuais.
-- Uma ou mais funções de sistema de sites.  Os clientes podem sempre utilizar funções de sistema de sites associadas com o respetivo grupo de limites atuais. Dependendo das configurações adicionais, poderá seria capazes de utilizar as funções do sistema de sites em grupos de limites adicionais.  
+-  Одну или несколько границ. Когда клиент находится в сетевом расположении, которое определено как граница и назначено определенной группе границ, соответствующая группа границ является для него **текущей**. У клиента может быть несколько текущих групп границ.
+- Одну или несколько ролей систем сайта.  Клиенты всегда могут использовать роли системы сайта, связанные с текущей группой границ. В зависимости от дополнительных параметров они иногда могут использовать роли систем сайта, относящиеся к другим группам границ.  
 
-Para cada grupo de limites que cria, pode configurar uma ligação unidirecional para outro grupo de limites. A ligação é chamada um **relação**. Os grupos de limites a associar ao são denominados **vizinho** grupos de limites. Um grupo de limites pode ter várias relações, cada um com um grupo de limites de vizinho específico.
+Для каждой создаваемой группы границ можно настроить одностороннюю связь с другой группой границ. Такая связь называется **отношением**. Группы границ, на которые указывает созданная связь, называются **соседними**. Каждая группа границ может иметь несколько отношений с разными соседними группами границ.
 
-A configuração de cada relação determina quando um cliente que não consegue localizar que um servidor do sistema de sites disponíveis no seu grupo de limites atual pode começar a pesquisar um grupo de limites de vizinho para localizar um sistema de sites disponíveis. Esta pesquisa de grupos adicionais denomina **contingência**.
+Конфигурация каждого конкретного отношения определяет, при каких условиях клиент, который не может найти доступный сервер системы сайта в текущей группе границ, может начать поиск доступной системы сайта в соседней группе границ. Такой поиск в дополнительных группах называется **резервированием**.
 
-## <a name="fallback"></a>Contingência
-Para evitar problemas para clientes quando estes não é possível localizar um sistema de sites disponíveis no respetivo grupo de limites atual, é possível definir a relação entre grupos de limites que define o comportamento de contingência. Contingência permite que um cliente expandir a sua pesquisa para grupos de limites adicionais para localizar um sistema de sites disponíveis.
+## <a name="fallback"></a>Резервирование
+Чтобы помочь клиентам, которым не удается найти доступную систему сайта в пределах текущей группы границ, избежать проблем, вам следует определить правила резервирования, создав отношения между группами границ. Резервирование позволяет расширить область поиска доступных систем сайта на дополнительные группы границ.
 
-As relações estão configuradas em Propriedades do grupo de limites **relações** separador. Quando configurar uma relação, é possível definir uma ligação a um grupo de limites de vizinho. Para cada tipo de função de sistema de sites que é suportada, pode configurar definições independentes para reversão para esse grupo de limites de vizinho. Por exemplo, quando configurar uma relação a um grupo de limites específico pode definir contingência para pontos de distribuição para ocorrer após 20 minutos, em vez da predefinição de 120. Consulte [exemplo de como utilizar grupos de limites](#example-of-using-boundary-groups) para obter um exemplo mais extenso.
+Отношения настраиваются на вкладке **Отношения** в свойствах группы границ. Чтобы настроить отношение, вам нужно создать связь, указывающую на соседнюю группу границ. Для каждого поддерживаемого типа ролей систем сайта можно указать отдельные настройки резервирования в каждую из соседних групп границ. Например, при настройке отношений с определенной группой границ вы можете указать, что резервирование для точек распространения будет выполняться через 20 минут вместо стандартных 120 минут. Более подробный пример см. в разделе [Пример использования групп границ](#example-of-using-boundary-groups).
 
-Se um cliente não conseguir localizar uma função de sistema de sites disponíveis no seu grupo de limites atual, o cliente utiliza o contingência tempo em minutos para determinar após o período de tempo pode começar a pesquisar um sistema de sites disponíveis que está associado esse grupo de limites de vizinho.  
+Если клиент не может найти доступную роль системы сайта в текущей группе границ, он применяет параметр времени резервирования, который определяет число минут, по истечении которых поиск доступных систем сайта можно начинать в соответствующей соседней группе границ.  
 
-Quando um cliente não é possível localizar um sistema de sites disponíveis e começa a procurar nas localizações dos grupos de limites de vizinho, aumenta o conjunto de sistemas de sites disponíveis que pode utilizar de forma que é definida pela sua configuração de grupos de limites e relações.
+Если клиент не может найти доступную систему сайта и начинает поиск в расположениях, относящихся к соседним группам границ, для него увеличивается пул доступных систем сайта соответствии с настройками групп границ и их отношений.
 
-- Um grupo de limites pode ter mais de uma relação. As relações de múltiplos pode configurar a contingência para cada tipo de sistema de sites para diferentes vizinhos para ocorrer após os períodos de tempo diferentes.    
-- Clientes só contingência para um grupo de limites que é um vizinho direto do respetivo grupo de limites atuais.
-- Quando um cliente é um membro de vários grupos de limites, o grupo de limites atual está definido como uma União de tudo o que os grupos de limites do cliente. Que o cliente pode, em seguida, contingência para vizinhos de qualquer um desses grupos de limites original.
+- Группа границ может иметь несколько отношений. Наличие нескольких отношений позволяет настроить для каждого типа системы сайта резервирование в разные соседние группы с разными интервалами.    
+- Клиенты переходят только к той группе границ, которая является непосредственным соседом для текущей группы границ.
+- Если клиент входит в несколько групп границ, текущая группа границ определяется как объединение всех групп границ клиента. Тогда клиент может при отработке резервирования перейти к любой из этих групп границ.
 
-### <a name="the-default-site-boundary-group"></a>O grupo de limites de site predefinido
-Para além dos grupos de limites que cria, cada site tem um grupo de limites de site predefinido que é criado pelo Configuration Manager. Este grupo é designado ***predefinição-Site-limite-grupo&lt;sitecode >***. Por exemplo, o grupo para o site ABC seria possível designado *predefinição-Site-limite-grupo&lt;ABC >.*
+### <a name="the-default-site-boundary-group"></a>Группа границ по умолчанию для сайта
+Помимо созданных вами групп границ, для каждого сайта определена группа границ по умолчанию, которую создает Configuration Manager. Имя этой группы — ***Default-Site-Boundary-Group&lt;код_сайта>***. Например, для сайта с именем ABC имя группы по умолчанию будет *Default-Site-Boundary-Group&lt;ABC>.*
 
-Para cada grupo de limites que cria, o Configuration Manager cria automaticamente uma ligação implícita para cada grupo de limites de site predefinido na hierarquia.
--   A hiperligação implícita é uma opção de contingência de predefinido de um grupo de limites atuais ao grupo de limites de sites predefinido, que tem um tempo de contingência da predefinição de 120 minutos.
--   Os clientes que não estão num limite associado a nenhum grupo de limites na hierarquia utilizam o grupo de limites de site predefinido do respetivo site atribuído para identificar funções do sistema de sites válidos podem utilizar.
+Для каждой создаваемой группы границ Configuration Manager автоматически создает неявные ссылки на каждую группу границ по умолчанию, существующую в иерархии сайтов.
+-   Неявная ссылка определяет резервирование по умолчанию из текущей группы границ к группе границ сайтов по умолчанию со значением времени резервирования 120 минут.
+-   Клиенты, расположенные в границе, которая не связана ни с одной из определенных вами групп границ, определяют допустимые роли систем сайта, которые им можно использовать, на основе группы границ по умолчанию для назначенного им сайта.
 
-Para gerir a contingência para o grupo de limites de site predefinido:
-- Pode aceder às propriedades do site predefinido limites do grupo e alterar os valores no **comportamento predefinido** separador. Alterações efetuadas aqui aplicam-se a *todos os* implícito ligações a este grupo de limites. Estas definições podem ser substituídas quando configurar a ligação explícita para este grupo de limites de site predefinido do outro grupo de limites.
-- Pode aceder às propriedades de um grupo de limites que criou e alterar os valores para a ligação explícita que passa para um grupo de limites de site predefinido. Quando definir um novo período de tempo em minutos para contingência ou bloco de contingência, essa alteração afeta apenas a ligação que está a configurar. Configurações da ligação explícita substituem as que no **comportamento predefinido** separador de um grupo de limites de site predefinido.
-
-
-## <a name="site-assignment"></a>Atribuição de site  
- É possível configurar cada grupo de limites com um site atribuído para clientes.  
-
--   Um cliente recentemente instalado que utilize a atribuição automática de site é associado ao site atribuído de um grupo de limites que contém a localização de rede atual do cliente.  
--   Depois da atribuição a um site, um cliente não altera a sua atribuição de site ao alterar a respetiva localização de rede. Por exemplo, se o cliente fizer roaming para uma nova localização de rede que é representada por um limite num grupo de limites com uma atribuição de site diferente, não altere permanece de site atribuído do cliente.  
--   Quando a Deteção de Sistemas do Active Directory deteta um novo recurso, as informações de rede do recurso detetado são comparadas com os limites dos grupos de limites. Este processo associa o novo recurso a um site atribuído que será utilizado pelo método de instalação push do cliente.  
--   Quando um limite é um membro de vários grupos de limites que possuem diferentes sites atribuídos, os clientes aleatoriamente selecionam um dos sites.  
--   As alterações efetuadas a um site atribuído de um grupo de limites apenas são aplicáveis a novas ações de atribuição de site. Os clientes atribuídos anteriormente a um site, não reevaluate a atribuição do site com base nas alterações à configuração de um grupo de limites (ou para sua própria localização de rede).  
-
-Para obter mais informações sobre a atribuição de sites do cliente, consulte [utilizando a atribuição de Site automática para computadores](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_AutomaticAssignment) no [como atribuir clientes a um site no System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
-
-## <a name="distribution-points"></a>Pontos de distribuição
-
-Quando um cliente solicita a localização de um ponto de distribuição, o Configuration Manager envia ao cliente uma lista que inclui os sistemas de sites do tipo adequado que estão associados a cada grupo de limites que inclui a localização de rede atual:
-
--   **Durante a distribuição de software**, os clientes solicitam uma localização para o conteúdo de implementação que está disponível a partir de um ponto de distribuição ou outra origem de conteúdo válida (por exemplo, um cliente configurado para a Cache ponto a ponto).
-
--   **Durante a implementação do sistema operativo**, os clientes solicitam uma localização para enviar ou receber as respetivas informações de migração de estado.  
-
-Durante a implementação de conteúdos, se um cliente solicita conteúdo que não está disponível de uma origem no seu grupo de limites atual, o cliente continua a pedir esse conteúdo tentar diferentes origens de conteúdo no seu grupo de limites atual até que o período de contingência para um grupo de limites de vizinho ou o grupo de limites de site predefinido for atingido. Se o cliente ainda não encontrar o conteúdo, em seguida, expandir a pesquisa de origens de conteúdo incluir os grupos de limites de vizinho.
-
-No entanto, se o conteúdo é distribuído a pedido e não está disponível num ponto de distribuição quando solicitado por um cliente, o processo para transferir o conteúdo para esse ponto de distribuição começa e é possível que o cliente irá encontrar este servidor como uma origem de conteúdo antes de reverter para utilizar um grupo de limites de vizinho.
-
-## <a name="software-update-points"></a>Pontos de atualização de software
-A partir da versão 1702, os clientes utilizam grupos de limites para localizar um novo ponto de atualização de software. Pode adicionar pontos de atualização de individual software para diferentes grupos de limites para controlar quais os servidores de um cliente pode localizar.
-
-Se atualizar a partir de uma versão antes de 1702, todos os pontos de atualização de software existentes são adicionados ao grupo de limites do site predefinido em cada site. Isto mantém o comportamento de pré-atualização onde os clientes selecionam um ponto de atualização de software do agrupamento de pontos de atualização de software disponíveis que configurou para a sua hierarquia.  Este comportamento é mantido até optar por adicionar pontos de atualização de individual software para diferentes grupos de limites para seleção controlada e o comportamento de contingência.
-
-Se instalar um novo site que executa a versão 1702 ou posterior, os pontos de atualização de software não foram adicionados ao grupo de limites de site predefinido. Atribua os pontos de atualização de software a um grupo de limites para que os clientes possam localizar e utilizá-los.
-
-### <a name="fallback-for-software-update-points"></a>Contingência para pontos de atualização de software
-Contingência para pontos de atualização de software está configurada como outras funções de sistema de sites, mas tem os seguintes avisos:
-- **Novos clientes utilizam grupos de limites para selecionar pontos de atualização de software.** Depois de instalar a versão 1702, os clientes novos que instalar selecionam um ponto de atualização de software encontram associadas os grupos de limites que configurou. Esta ação substitui o anterior comportamento onde os clientes selecionam um ponto de atualização de software aleatoriamente uma lista dos partilhar na floresta do cliente.
-
-- **Os clientes continuam a utilizar um ponto de atualização de software boa último conhecido até que a contingência para localizar um novo.** Clientes que já tenham um ponto de atualização de software continuam a utilizar esse ponto de atualização de software até que o servidor não é possível aceder.  Isto inclui a utilização contínua de um ponto de atualização de software que não está associada ao grupo de limites atual do cliente.
-
-  A utilização contínua de um ponto de atualização de software existente, mesmo quando nesse servidor não está no grupo de limites atual do cliente é intencional. Isto acontece porque uma alteração de ponto de atualização de software pode resultar numa grande utilização de largura de banda de rede, como o cliente sincroniza os dados com o novo ponto de atualização de software. O atraso em transição pode ajudar a evitar saturating a sua rede, se todos os seus clientes mudarem para um novo software de um ponto de atualização em simultâneo.
-
-- **Um cliente tenta sempre alcançar o último ponto de atualização de software boa conhecida para 120 minutos antes de começar contingência.** Depois de 120 minutos, se o cliente não tenha estabelecido contacte, em seguida, começa contingência. Quando inicia a reversão, o cliente recebe uma lista de todos os pontos de atualização de software do respetivo grupo de limites atuais. Pontos de atualização de software adicionais de grupos de limites de vizinho e grupo de limites do site predefinido estão disponíveis com base nas configurações de contingência.
-
-### <a name="fallback-configurations-for-software-update-points"></a>Configurações de contingência para pontos de atualização de software
-#### <a name="beginning-with-version-1706"></a>A partir da versão 1706   
-Pode configurar **contingência exceder o tempo (em minutos)** para atualização de software pontos para ser inferior a 120 minutos. No entanto, o cliente tem continuam a tentar contactar o respetivo ponto de atualização de software original para 120 minutos antes que expande-pesquisa para servidores adicionais. Porque os tempos de contingência de grupo de limites iniciar quando o cliente primeiro não consegue contactar o respetivo servidor original, quaisquer grupos de limites que estão configurados para menos de 120 minutos são fornecidos para o cliente, quando expandir a pesquisa depois de conseguir contactar o respetivo servidor original para 120 minutos.
-
-Pode configurar **nunca contingência** para o bloco de contingência para o software de um ponto de atualização para um grupo de limites de vizinho.
-
-Depois de conseguir contactar o respetivo servidor original de duas horas, o cliente utiliza um ciclo mais curto para estabelecer uma ligação para um novo ponto de atualização de software. Isto permite ao cliente procurar rapidamente a lista de expansão de potenciais pontos de atualização de software.
-
- -  **Exemplo de contingência:**  
-    Grupo de limites atuais de um cliente tem de contingência para pontos de atualização de software que está configurado como *10* minutos para o grupo de limites *A*, e *130* minutos para o grupo de limites *B*. Quando o cliente não conseguir alcançar o último ponto de atualização de software boas:
-    -   O cliente tenta aceder apenas o servidor original para os seguintes 120 minutos.  Após 10 minutos, o software de pontos de atualização do grupo de limites A são adicionados ao agrupamento de servidores disponíveis. No entanto, o cliente não é possível tentar contactá-los ou qualquer outro servidor, enquanto tiver decorrido o período inicial de 120 minutos para restabelecer a ligação com o servidor original.
-    -   Após a tentar localizar esse ponto de atualização de software original para 120 minutos, o cliente, em seguida, pode expandir a pesquisa. Nessa altura, foram adicionados servidores no grupo de limites atual do cliente e quaisquer grupos de limites de vizinho que estão configuradas para 120 minutos ou menos, para o conjunto de pontos de atualização de software disponível. Isto inclui os servidores do grupo de limites A que tenham sido previamente adicionados ao agrupamento de servidores disponíveis.
-    -       Depois de 10 minutos (130 minutos tempo total após o cliente primeiro não conseguiu contactar o último ponto de atualização de software boas), o cliente expande a pesquisa para incluir os pontos de atualização de software do grupo de limites B.  
-
-#### <a name="prior-to-version-1706"></a>Antes de versão 1706
-Antes de versão 1706, configurações de contingência para pontos de atualização de software não suportam um período de tempo configurável em minutos. Em vez disso, o comportamento de contingência está limitado a:
-
-  - **Tempos de contingência (em minutos):**  Esta opção está desativada para pontos de atualização de software e não pode ser configurada. Está definido para 120 minutos.
-  -     **Nunca contingência:** Pode bloquear a contingência para um ponto de atualização de software a um grupo de limites de vizinho quando utiliza esta configuração.
-
-Quando um cliente que já tem um ponto de atualização de software não consegue contactar, o cliente pode contingência, em seguida, para localizar outro. Quando utiliza a contingência, o cliente recebe uma lista de todos os pontos de atualização de software do respetivo grupo de limites atuais. Se não conseguir encontrar um servidor disponível para 120 minutos, irá, em seguida, contingência respetivos grupos de limites de vizinho e o grupo de limites de site predefinido. Acontece contingência para ambos os grupos de limites ao mesmo tempo, porque o software de atualizar os pontos de tempo de contingência para grupos de elementos vizinhos está definido para 120 minutos e não pode ser alterado. 120 minutos também é o período predefinido utilizado para contingência para o grupo de limites de site predefinido. Quando um cliente retrocede para ambos os um vizinho e grupo de limites de site predefinido, o cliente tenta contactar os pontos de atualização de software do grupo de limites de vizinho antes de tentar utilizar um grupo de limites de site predefinido.
-
-### <a name="manually-switch-to-a-new-software-update-point"></a>Mudar manualmente para um novo ponto de atualização de software
-Além da utilização de contingência, pode utilizar *notificação do cliente* para forçar manualmente um dispositivo para mudar para um novo ponto de atualização de software.
-
-Quando mudar para um novo servidor, os dispositivos utilizam contingência localizar esse servidor novo. Por conseguinte, reveja as configurações do grupo de limites e certifique-se de que os seus pontos de atualização de software estão nos grupos de limites correto antes de começar esta alteração.
-
-Para obter mais informações, consulte [mudar manualmente os clientes para um novo ponto de atualização de software](/sccm/sum/plan-design/plan-for-software-updates#manually-switch-clients-to-a-new-software-update-point).
+Управление резервированием для группы границ сайта по умолчанию.
+- Вы можете перейти к свойствам группы границ сайта по умолчанию и изменить значения на вкладке **Поведение по умолчанию**. Внесенные здесь изменения применяются ко *всем* неявным ссылкам на эту группу границ. Эти параметры можно переопределить, указав явную ссылку на эту группу границ сайта по умолчанию из другой группы границ.
+- Вы можете перейти к свойствам созданной группы границ и изменить значения для явной ссылки, ведущей к группе границ сайта по умолчанию. Когда вы указываете здесь новое значение времени резервирования или запрещаете резервирование, такие изменения влияют только на одну конкретную ссылку. Конфигурации явных ссылок имеет более высокий приоритет, чем настройки на вкладке **Поведение по умолчанию** для группы границ сайта по умолчанию.
 
 
-## <a name="preferred-management-points"></a>Pontos de gestão preferenciais
+## <a name="site-assignment"></a>Назначение сайта  
+ Каждую группу границ можно настроить, указав назначенный сайт для клиентов.  
 
- Os pontos de gestão preferenciais permitem a um cliente identificar um ponto de gestão que esteja associado à sua localização de rede atual (limite).  
+-   Все новые клиенты, использующие автоматическое назначение сайта, после установки присоединяются к назначенному сайту в группе границ, содержащей текущее сетевое расположение клиента.  
+-   После назначения сайту клиент не изменяет свое назначение сайта при смене сетевого расположения. Например, если клиент переходит в новое сетевое расположение, представленное границей в другой группе границ, назначенный клиенту сайт не изменяется, даже если новой группе границ назначен другой сайт.  
+-   При обнаружении нового ресурса функцией обнаружения систем Active Directory сведения о сети для обнаруженного ресурса сопоставляются границам, включенным в группы границ. Это процесс связывает новый ресурс с назначенным сайтом для использования при принудительной установке клиента.  
+-   Если граница принадлежит нескольким группам границ с разными назначенными сайтами, клиент выбирает один из сайтов случайным образом.  
+-   Изменения назначенного сайта групп границ применяются только к новым действиям назначения сайта. Для клиентов, которым уже назначен сайт, при изменении конфигурации группы границ (или изменении сетевого расположения) не требуется повторная оценка назначения сайта.  
 
--   Um cliente tenta utilizar um ponto de gestão preferidos do respetivo site atribuído antes de utilizar um ponto de gestão do respetivo site atribuído que não está configurado como preferencial.  
--   Para utilizar esta opção, tem de ativá-la para a hierarquia e, em seguida, configurar grupos de limites em sites primários individuais para incluir os pontos de gestão que devem ser associados aos limites associados do grupo de limites.  
--   Quando os pontos de gestão preferenciais são configurados e um cliente organiza a respetiva lista de pontos de gestão, o cliente coloca os pontos de gestão preferenciais no topo da lista de pontos de gestão atribuídos (que inclui todos os pontos de gestão do site atribuído do cliente).  
+Дополнительные сведения о назначении сайтов клиентам см. в подразделе [Автоматическое назначение сайта компьютерам](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_AutomaticAssignment) раздела [Назначение клиентов сайту в System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
+
+## <a name="distribution-points"></a>точки распространения;
+
+Когда клиент запрашивает расположение точки распространения, Configuration Manager отправляет клиенту список систем сайта соответствующего типа, которые связаны с любой из групп границ, включающих текущее сетевое расположение клиента.
+
+-   **При распространении программного обеспечения** клиент запрашивает расположение для развертывания содержимого, доступного в точке распространения или в другом допустимом источнике содержимого (например, в клиенте, использующем одноранговый кэш).
+
+-   **При развертывании операционной системы** клиент запрашивает расположение для отправки и получения информации о состоянии миграции.  
+
+Если при распространении содержимого клиент запрашивает содержимое, которое не доступно из источников в его текущей группе границ, клиент будет и дальше запрашивать содержимое у разных источников содержимого в текущей группе границ, пока не истечет время резервирования для связи с любой из соседних групп границ или с группой границ сайта по умолчанию. Если к этому моменту клиент еще не нашел нужное содержимое, он расширит область поиска, включив в нее источники содержимого из соседних групп границ.
+
+При этом, если содержимое распространяется только по требованию и недоступно в точке распространения, к которой обращается клиент, начнется передача содержимого в эту точку распространения. Может случиться так, что клиент найдет этот сервер-источник раньше, чем применит механизм резервирования для перехода к соседним группам границ.
+
+## <a name="software-update-points"></a>Точки обновления программного обеспечения
+Начиная с версии 1702 клиенты используют группы границ для поиска новых точек обновления программного обеспечения. Вы можете добавлять отдельные точки обновления в разные группы границ, чтобы контролировать, какие серверы может найти каждый клиент.
+
+Если вы обновляетесь с версии старше, чем 1702, все существующие точки обновления программного обеспечения добавляются в стандартную группу границ сайта на каждом сайте. Это позволяет сохранить поведение, использовавшееся до обновления, то есть клиент выбирает точку обновления программного обеспечения из всего пула доступных точек обновления, настроенных для вашей иерархии.  Такое поведение сохраняется до тех пор, пока вы не добавите точки обновления в конкретные группы границ, чтобы реализовать контролируемый механизм выбора и резервирования точек обновления.
+
+Если вы устанавливаете новый сайт, работающий с версией 1702 или более поздней, точки обновления программного обеспечения не добавляются в стандартную группу границ сайта. Добавьте точки обновления программного обеспечения в группу границ, чтобы клиенты могли находить и использовать их.
+
+### <a name="fallback-for-software-update-points"></a>Резервирование точек обновления программного обеспечения
+Резервирование для точек обновления программного обеспечения настраивается так же, как и для других ролей системы сайта, но с учетом нескольких дополнительных аспектов.
+- **Новые клиенты используют группы границ для выбора точки обновления программного обеспечения.** После установки версии 1702 все установленные новые клиенты будут выбирать точки обновления программного обеспечения из числа тех, которые настроены для существующих групп границ. Этот механизм заменяет использовавшееся ранее поведение, при котором клиент случайным образом выбирал точку обновления ПО из списка совместно используемых точек в клиентском лесу.
+
+- **Клиенты продолжают использовать последнюю успешно использованную точку обновления ПО, пока не выполнят резервирование для поиска новой резервной точки.** Клиенты, которые уже имеют точку обновления ПО, продолжают использовать ее, пока доступен соответствующий сервер.  При этом клиент продолжит использовать эту точку обновления ПО, даже если она не связана с текущей группой границ для этого клиента.
+
+  Использование существующей точки обновления программного обеспечения, даже если она не включена в текущую группу границ для клиента, сохраняется намеренно. Связан он с тем, что смена точки обновления ПО может привести к интенсивному использованию пропускной способности сети, когда клиент синхронизирует данные с новой точкой обновления ПО. Такая задержка перехода предотвращает перегрузку сети, которая возникла бы при одновременном переключении всех клиентов на новые точки обновления ПО.
+
+- **Клиент всегда пытается связаться с последней успешно использованной точкой обновления программного обеспечения в течение 120 минут, прежде чем выполнять резервирование.** Если за 120 минут клиент не смог установить связь, он начинает резервирование. При этом клиент получает список всех точек обновления программного обеспечения для своей текущей группы границ. В зависимости от настроек резервирования ему могут быть доступны дополнительные точки обновления из соседних групп границ или из группы границ сайта по умолчанию.
+
+### <a name="fallback-configurations-for-software-update-points"></a>Конфигурации резервирования для точек обновления программного обеспечения
+#### <a name="beginning-with-version-1706"></a>Начиная с версии 1706   
+Вы можете настроить **время резервирования (в минутах)**, указав менее 120 минут для точек обновления программного обеспечения. Но при этом клиент по-прежнему будет пытаться подключиться к исходной точке обновления программного обеспечения в течение 120 минут, и только после этого начнет поиск по списку дополнительных серверов. Время резервирования для группы границ начинается в тот момент, когда клиент впервые не может связаться с сервером-исходником в течение 120 минут. Поэтому в самом начале этого поиска клиенту сразу предоставляются все группы границ, для которых настроено время менее 120 минут.
+
+Вы можете выбрать вариант **Никогда не использовать резервирование**,чтобы отключить резервирование в соседнюю группу границ для точки обновления программного обеспечения.
+
+Если в течение двух часов не удается подключиться к исходному серверу, клиент использует более короткий цикл обращений к новой точке обновления программного обеспечения. Это позволяет клиенту быстро выполнить поиск по расширяющемся списку потенциально доступных точек обновления программного обеспечения.
+
+ -  **Пример резервирования.**  
+    Для группы границ, используемой клиентом, настроены следующие параметры резервирования: *10* минут для группы границ *A*, и *130* минут для группы границ *B*. Если клиент не может связаться с последней работоспособной точкой обновления программного обеспечения, начинается следующий процесс.
+    -   Клиент пытается обращаться только к исходному серверу в течение 120 минут.  Через 10 минут все точки обновления программного обеспечения, входящие в группу границ A, добавляются в пул доступных серверов. Но клиент не может обращаться к ним или к любым другим серверам, пока не истечет период в 120 минут, установленный для реализации попыток повторного подключения с исходным сервером.
+    -   Когда все попытки связаться с исходной точкой обновления программного обеспечения в течение 120 минут окажутся безуспешными, клиент может расширить область поиска. В это время в пул доступных точек обновления программного обеспечения добавляются все серверы, входящие в текущую группу границ и во все соседние группы границ, для которых настроено время резервирования 120 минут или менее. В нашем примере это серверы из группы границ A, которые уже добавлены в пул доступных серверов.
+    -       Еще через 10 минут (то есть через 130 минут с момента, когда клиенту не удалось связаться последней работоспособной точкой обновления) клиент может дополнительно расширить область поиска, включив в нее точки обновления программного обеспечения из группы границ B.  
+
+#### <a name="prior-to-version-1706"></a>До выхода версии 1706
+В версиях старше 1706 конфигурация резервирования для точек обновления программного обеспечения не поддерживает настройку времени в минутах. Старый механизм резервирования использует только следующие параметры.
+
+  - **Время резервирования (в минутах).** Этот параметр неактивен для точек обновления программного обеспечения и не может быть изменен. Он всегда имеет значение 120 минут.
+  -     **Никогда не использовать резервирование.** С помощью этого параметра резервирование к соседней группе границ можно отключить для точки обновления программного обеспечения.
+
+Если клиент, у которого уже есть точка обновления, не может получить к ней доступ, он использует механизм резервирования для поиска другой точки обновления. При резервировании клиент получает список всех точек обновления программного обеспечения для своей текущей группы границ. Если среди них не удастся найти доступный сервер в течение 120 минут, клиент обращается к соседним группам границ и стандартной группе границ сайта. Резервирование для перехода к обеим группам границ выполняется одновременно, так как для точек обновления программного обеспечения параметр времени резервирования имеет неизменяемое значение 120 минут. Такое же значение (120 минут) используется и в отношении времени резервирования для группы границ сайта по умолчанию. Когда клиент обращается соседним группам границ и стандартной группе границ сайта, он сначала пытается установить подключение к точкам обновления программного обеспечения из соседних групп границ, и только потом — из стандартной группы границ сайта.
+
+### <a name="manually-switch-to-a-new-software-update-point"></a>Переключение на новую точку обновления программного обеспечения вручную
+Кроме механизма резервирования, вы можете использовать *уведомление клиента*, чтобы принудительно переключить устройство на новую точку обновления программного обеспечения.
+
+При переходе на новый сервер устройство использует механизм резервирования для поиска этого сервера. Поэтому важно следить за конфигураций групп границ, чтобы перед началом таких изменений все точки обновления программного обеспечения были правильно включены в группы границ.
+
+См. дополнительные сведения о [планировании обновлений программного обеспечения в System Center Configuration Manager](/sccm/sum/plan-design/plan-for-software-updates#manually-switch-clients-to-a-new-software-update-point).
+
+
+## <a name="preferred-management-points"></a>Предпочтительные точки управления
+
+ Предпочтительные точки управления позволяют клиенту определить точку управления, сопоставленную с текущим сетевым расположением (или границей).  
+
+-   Клиент пытается использовать предпочтительную точку управления из назначенного сайта перед использованием тех точек управления из назначенного сайта, которые не заданы как предпочтительные.  
+-   Чтобы использовать этот вариант, его необходимо включить для иерархии, а затем настроить группы границ на отдельных основных сайтах так, чтобы они включали точки управления, которые должны быть сопоставлены со связанными границами группы границ.  
+-   Если настроены предпочтительные точки управления, клиент, упорядочивая список точек управления, размещает предпочтительные точки управления в начале списка назначенных точек управления (который включает все точки управления из назначенного для клиента сайта).  
 
 > [!NOTE]  
->  Quando um cliente fizer roaming (o que significa alterar as respetivas localizações de rede, tais como quando um computador portátil circula para uma localização de escritório remoto), poderá utilizar um ponto de gestão (ou ponto de gestão do proxy) a partir do site local na nova localização antes de tentar utilizar um ponto de gestão a partir do respetivo site atribuído (que inclui os pontos de gestão preferenciais).  Consulte [compreender a forma como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) para obter mais informações.  
+>  При роуминге клиента (что означает изменение его сетевых расположений, например когда ноутбук перемещается в удаленный филиал) он может использовать точку управления (или прокси-точку управления) с локального сайта в качестве нового расположения, прежде чем попытаться использовать точку управления с назначенного ему сайта (что включает в себя предпочтительные точки управления).  Дополнительные сведения см. в разделе [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
-### <a name="overlapping-boundaries"></a>Sobreposição de limites  
- O Configuration Manager suporta configurações de limites sobrepostos para localização de conteúdo:  
+### <a name="overlapping-boundaries"></a>Перекрывающиеся границы  
+ Configuration Manager поддерживает конфигурации с перекрывающимися границами для расположения содержимого:  
 
--   **Quando um cliente solicita conteúdo**e a localização de rede do cliente pertence a vários grupos de limites, o Configuration Manager envia ao cliente uma lista de todos os pontos de distribuição que possuem o conteúdo.  
--   **Quando um cliente solicita a um servidor para enviar ou receber as informações de migração de estado**e a localização de rede do cliente pertence a vários grupos de limites, o Configuration Manager envia ao cliente uma lista de todos os pontos de migração de estado que estão associados um grupo de limites que inclui a localização de rede atual do cliente.  
+-   **Когда клиент запрашивает содержимое**, а сетевое расположение клиента входит в несколько групп границ, Configuration Manager отправляет клиенту список всех точек распространения, где есть это содержимое.  
+-   **Когда клиент запрашивает у сервера отправку или получение сведений о миграции состояния**, а сетевое расположение клиента входит в несколько групп границ, Configuration Manager отправляет клиенту список всех точек миграции состояния, связанных с группой границ, в которой находится текущее сетевое расположение клиента.  
 
-Este comportamento permite que o cliente selecione o servidor mais próximo para transferir o conteúdo ou as informações de migração de estado.  
+Такой механизм работы позволяет клиенту выбрать ближайший сервер для передачи содержимого или сведений о миграции состояния.  
 
 
 
-## <a name="example-of-using-boundary-groups"></a>Exemplo de como utilizar grupos de limites
-O exemplo seguinte utiliza um cliente procurar conteúdo a partir de um ponto de distribuição. Este exemplo pode ser aplicado a outras funções de sistema de sites que utilizam grupos de limites. No entanto, como se aplica aos pontos de atualização de software, tenha em atenção que os pontos de atualização de software não suporta a configuração de um período de tempo em minutos para contingência para um grupo de vizinho e utilize sempre um período de 120 minutos.
+## <a name="example-of-using-boundary-groups"></a>Пример использования группы границ
+В следующем примере клиент выполняет поиск содержимого в точке распространения. Этот пример можно применить к любой роли систем сайта, которая использует группы границ. Тем не менее в отношении точек обновления программного обеспечения следует помнить, что для них не поддерживается изменение времени резервирования в минутах, и переход к соседней группе всегда начинается через 120 минут.
 
-Crie três grupos de limites que não partilham limites ou servidores de sistema de sites:
--   Grupo BG_A com pontos de distribuição DP_A1 e DP_A2 associados ao grupo
--   Grupo BG_B com pontos de distribuição DP_B1 e DP_B2 associados ao grupo
--   Grupo BG_C com pontos de distribuição DP_C1 e DP_C2 associados ao grupo
+Создайте три группы границ, не имеющих общих границ или общих серверов системы сайта:
+-   Группа BG_A с точками распространения DP_A1 и DP_A2, связанными с группой
+-   Группа BG_B с точками распространения DP_B1 и DP_B2, связанными с группой
+-   Группа BG_C с точками распространения DP_C1 и DP_C2, связанными с группой
 
-A adicionar as localizações de rede dos clientes como limites para apenas o grupo de limites BG_A e, em seguida, configurar relações desse grupo de limites para os outros dois grupos de limites:
--   Configurar pontos de distribuição para o primeiro *vizinho* grupo (BG_B) a ser utilizada após 10 minutos. Este grupo contém pontos de distribuição DP_B1 e DP_B2. Ambos são boas ligações para as localizações de limites de grupos primeiro.
--   Configurar a segunda *vizinho* grupo (BG_C) a ser utilizada após 20 minutos. Este grupo contém pontos de distribuição DP_C1 e DP_C2. Ambos são através de uma WAN dos outros grupos de limites de dois.
--   Pode também adiciona um ponto de distribuição adicionais que está localizado no servidor do site ao grupo de limites de site de sites predefinido. Esta é a localização de origem de conteúdo menos preferencial, mas está centralmente localizado para todos os grupos de limites.
+Добавьте сетевые расположения клиентов в качестве границ только в группу границ BG_A, а затем настройте связи из этой группы границ с двумя другими группами.
+-   Настройте точки распространения для первой *соседней* группы (BG_B), которая будет использоваться через 10 минут. Эта группа содержит точки распространения DP_B1 и DP_B2. Они также подключены к расположениям границ первой группы.
+-   Настройте вторую *соседнюю* группу (BG_C), которая будет использоваться через 20 минут. Эта группа содержит точки распространения DP_C1 и DP_C2. Они находятся в глобальной сети из двух других групп границ.
+-   Добавьте дополнительную точку распространения, расположенную на сервере сайта, в группу границ сайта по умолчанию. Это наименее предпочтительное расположение источника содержимого, однако он имеет централизованное местоположение относительно всех групп границ.
 
-    Exemplo de grupos de limites e tempos de contingência:
+    Пример группы границ и времени отката
 
      ![BG_Fallack](media/BG_Fallback.png)
 
 
-Com esta configuração:
--   O cliente começa a procurar conteúdo dos pontos de distribuição no respetivo *atual* pesquisar a distribuição de cada grupo de limites (BG_A), para que aponte do dois minutos antes de mudar para o próximo ponto de distribuição no grupo de limites. O conjunto de clientes de localizações de origem de conteúdo válida inclui DP_A1 e DP_A2.
--   Se o cliente não conseguir localizar o conteúdo do respetivo *atual* grupo de limites depois de procurar durante 10 minutos, em seguida, adiciona os pontos de distribuição do grupo de limites BG_B para a sua pesquisa. Em seguida, continua a pesquisar conteúdo a partir de um ponto de distribuição no respetivo conjunto combinado de pontos de distribuição que inclui os grupos de limites BG_A tanto BG_B agora. O cliente continua a contactar cada ponto de distribuição de dois minutos antes de mudar para o próximo ponto de distribuição do seu conjunto. O conjunto de clientes de localizações de origem de conteúdo válida inclui DP_A1, DP_A2, DP_B1 e DP_B2.
--   Após um adicionais de 10 minutos (totais de 20 minutos) se o cliente ainda não encontrou um ponto de distribuição com conteúdo, que expande o conjunto de pontos de distribuição disponíveis para incluir as da segunda *vizinho* grupo, o grupo de limites BG_C. O cliente agora tem 6 pontos de distribuição para pesquisa (DP_A1, DP_A2, DP_B2, DP_B2, DP_C1 e DP_C2) e continua a alteração cada dois minutos até ser encontrado conteúdo para um novo ponto de distribuição.
--   Se o cliente não foi encontrado conteúdo depois de um total de 120 minutos, fica novamente para incluir o *grupo de limites de site predefinido* como parte da sua pesquisa contínua. O conjunto de pontos de distribuição inclui agora todos os pontos de distribuição dos três grupos de limites configurado e o ponto de distribuição final localizado no computador do servidor do site.  O cliente, em seguida, continua a pesquisa de conteúdo, alterar a cada dois minutos até ser encontrado conteúdo de pontos de distribuição.
+В этой конфигурации:
+-   Клиент начинает поиск содержимого из точек распространения в его *текущей* группе границ (BG_A). Поиск выполняется в течение двух минут до перехода к следующей точке распространения в группе границ. В пул клиентов допустимых источников содержимого входят точки распространения DP_A1 и DP_A2.
+-   Если клиенту не удается найти содержимое из его *текущей* группы границ после поиска в течение 10 минут, он добавляет в область поиска точки распространения из группы границ BG_B. Затем он продолжает поиск содержимого из точки распространения в объединенном пуле точек распространения, в который теперь входят точки из групп границ BG_A и BG_B. Клиент продолжает обращаться к каждой точке распространения в течение двух минут до перехода к следующей точке распространения из пула. В пул клиентов допустимых источников содержимого входят точки распространения DP_A1, DP_A2, DP_B1 и DP_B2.
+-   Если через 10 дополнительных минут (всего 20 минут) клиенту по-прежнему не удалось найти точку распространения с содержимым, он расширяет пул доступных точек распространения, включая точки из второй *соседней* группы — группы границ BG_C. Теперь у клиента есть 6 точек распространения для поиска (DP_A1, DP_A2, DP_B2, DP_B2, DP_C1 и DP_C2), и он продолжит переходить на новую точку распространения каждые две минуты до тех пор, пока не найдет содержимое.
+-   Если клиент не нашел содержимое через 120 минут, он возвращается, чтобы включить *группу границ сайта по умолчанию* в состав дальнейшего поиска. Теперь в пул точек распространения входят все точки распространения из трех настроенных групп границ, а также последняя точка распространения, расположенная на сервере сайта.  Клиент продолжает поиск содержимого, каждые две минуты, переходя на новые точки распространения, пока содержимое не будет найдено.
 
-Ao configurar os grupos de vizinho diferentes para estar disponível em alturas diferentes, pode controlar quando são adicionados como uma localização de origem de conteúdo, pontos de distribuição específico e quando, ou se, o cliente utiliza a contingência para o grupo de limites de site predefinido como uma rede de segurança para o conteúdo que não está disponível a partir de qualquer outra localização.
-
-
+Настроив доступность различных соседних групп в разное время, вы можете контролировать время добавления определенных точек распространения в качестве источника содержимого, а также время или возможность отката клиента к группе границ сайта по умолчанию в качестве резервного расположения для содержимого, которое недоступно из другого места.
 
 
 
 
-### <a name="update-existing-boundary-groups-to-the-new-model"></a>Atualizar os grupos de limites existentes para o novo modelo
-Quando atualizar para versão antes de 1610, as seguintes configurações são efetuadas automaticamente. Estes são concebidas para Certifique-se de que o comportamento de contingência atual permanece disponível até configurar novos grupos de limites e relações.
-
--   É criado um grupo de limites de site predefinido para cada site primário, o nome é ***predefinição-Site-limite-grupo&lt;sitecode >.***
-  - Pontos de distribuição com *permitir a localização de origem de contingência para conteúdo* marcada e pontos de migração de estado em sites primários são adicionados para o *grupo-de-Site-limites-predefinição&lt;sitecode >* grupo de limites desse site.
-  - A partir da versão 1702, pontos de atualização de software são adicionados para cada sites *predefinição-Site-limite-grupo&lt;sitecode >*.
--   É efetuada uma cópia de cada grupo de limites existentes, que inclui um servidor de site configurado com uma ligação lenta. O nome do novo grupo é *** &lt;nome original do grupo de limites >-&lt;ID do grupo de limites original >***:  
-    -   Sistemas de sites que tenham uma ligação rápida são mantidos no grupo de limites original.
-    -   Uma cópia dos sistemas de sites (pontos de distribuição, pontos de gestão) que tenham uma ligação lenta são adicionadas para a cópia do grupo de limites. Os sistemas de site original configurados como lenta permanecem no respetivos original grupos de limites para compatibilidade com versões anteriores, mas não são utilizados a partir desses grupos de limites.
-    - Esta cópia do grupo de limites não tem limites associados à mesma. No entanto, é criada uma ligação de contingência entre o grupo original e a nova cópia do grupo de limites com o tempo de contingência definido como zero.  
 
 
-- **Sites específicos para secundário:**
-  - É criado um grupo de limites, se um site secundário tem, pelo menos, um ponto com de distribuição *permitir a localização de origem de contingência para conteúdo* ponto de migração de estado ou marcada. O nome do grupo de limites é ***secundária-Site-vizinho – Tmp&lt;Sitecode >.***
-  - Pontos de distribuição de todos os com *permitir a localização de origem de contingência para conteúdo* marcado e os pontos de migração de estado são adicionados a este grupo de limites de site secundário recentemente criado.
-  - É criada uma ligação de contingência entre o grupo de limites original e o grupo de limites de vizinho recentemente criado e a hora de contingência está definida para zero.
+### <a name="update-existing-boundary-groups-to-the-new-model"></a>Обновление существующих групп границ до новой модели
+При обновлении до версии старше 1610 автоматически применяются указанные ниже настройки. Это сделано для того, чтобы сохранить используемый механизм резервирования, пока вы не настроите новые группы границ и отношения.
+
+-   Для каждого первичного сайта создается группа границ сайта по умолчанию с именем ***Default-Site-Boundary-Group&lt;код_сайта>.***
+  - Точки распространения с включенным параметром *Разрешить использовать резервный источник содержимого* и точками миграции состояния на первичных сайтах добавляются в группу границ *Default-Site-Boundary-Group&lt;код_сайта>* соответствующего сайта.
+  - Начиная с версии 1702, точки обновления программного обеспечения добавляются для каждого сайта в группу по умолчанию *Default-Site-Boundary-Group&lt;код_сайта>*.
+-   Создается копия каждой существующей группы границ, в состав которой входит сервер сайта, настроенный с медленным подключением. Имя новой группы — ***&lt;исходное_имя_группы_границ>-&lt;исходный_идентификатор_группы_границ>***:  
+    -   Системы сайта с быстрым подключением остаются в исходной группе границ.
+    -   Копия систем сайта (точек распространения и точек управления) с медленным подключением добавляется в копию группы границ. Исходные системы сайта, настроенные как медленные, остаются в исходных группах границ для обеспечения обратной совместимости, но не используются из этих групп.
+    - У этой копии группы границ нет связанных с ней границ. Однако между исходной группой и копией новой группы границ создается резервная связь с временем отката, равным нулю.  
 
 
- A tabela seguinte identifica o novo comportamento contingência pode esperar da combinação de definições de implementação original e a distribuição de configurações de pontos:
+- **Для вторичных сайтов:**
+  - Группа границ создается, если на вторичном сайте есть по крайней мере одна точка распространения с включенным параметром *Разрешить использовать резервный источник содержимого* или точкой миграции состояния. Имя группы границ — ***Secondary-Site-Neighbor--Tmp&lt;код_сайта>.***
+  - Все точки распространения с включенным параметром *Разрешить использовать резервный источник содержимого* и точками миграции состояния добавляются в эту новую группу границ вторичного сайта.
+  - Между исходной группой границ и новой соседней группой границ создается резервная связь с временем отката, равным нулю.
 
-Configuração de implementação original "não executaram" na rede lenta  |Configuração para "Permitir ao utilizar uma localização de origem de contingência para conteúdo de cliente" do ponto de distribuição original  |Novo comportamento de contingência  
+
+ В следующей таблице описано новое поведение, ожидаемое при использовании сочетания исходных параметров развертывания и конфигураций точек распространения.
+
+Исходная конфигурация развертывания для параметра "Не запускать программу" в медленной сети  |Исходная конфигурация точки распространения для параметра "Разрешить клиентам использовать резервный источник содержимого"  |Новое резервное поведение  
 ---------|---------|---------
-Selecionado     |  Selecionado    |  **Não existem contingência** -utilizar apenas os pontos de distribuição no grupo de limites atual       
-Selecionado     |  Não selecionada|  **Não existem contingência** -utilizar apenas os pontos de distribuição no grupo de limites atual       
-Não selecionada |  Não selecionada|  **Contingência para vizinho** - utilizar os pontos de distribuição no grupo de limites atual e, em seguida, adicione os pontos de distribuição do grupo de limites de vizinho. A menos que uma ligação explícita para o grupo de limites de site predefinido está configurada, os clientes irão não contingência a esse grupo.    
-Não selecionada | Selecionado     |   **Contingência normal** -utilizar pontos de distribuição no grupo de limites atual, em seguida, os do site e vizinho predefinido de grupos de limites
+Выбрано     |  Выбрано    |  **Без отката** — использование только точек распространения в текущей группе границ       
+Выбрано     |  Не выбрано|  **Без отката** — использование только точек распространения в текущей группе границ       
+Не выбрано |  Не выбрано|  **Откат к соседней группе** — использование точек распространения в текущей группе границ, а затем добавление точки распространения из соседней группы границ. Пока не будет настроена явная связь с группой границ сайта по умолчанию, клиенты не будут выполнять откат к этой группе.    
+Не выбрано | Выбрано     |   **Обычный откат** — использование точек распространения в текущей группе границ, затем из соседней группы и группы границ сайта по умолчанию.
 
- Todas as outras configurações de implementação resultam em **contingência Normal**.  
-
-
+ Результатом всех остальных конфигураций развертывания является **обычный откат**.  
 
 
-## <a name="changes-from-prior-versions-for-ui-and-behavior-for-content-locations"></a>Alterações de versões anteriores para a IU e o comportamento para localizações de conteúdo
-Seguem-se as alterações principais grupos de limites e a forma como os clientes localizam os conteúdos. Estas alterações são introduzidas com a versão 1610. Muitas destas alterações e conceitos funcionam em conjunto.
 
 
--   **Configurações para rápida ou lenta são removidas:** Já não está a configurar pontos de distribuição individuais para serem rápida ou lenta.  Em vez disso, cada sistema de sites associado a um grupo de limites é Tratado da mesma. Devido a esta alteração, o **referências** separador das propriedades do grupo de limites já não suporta a configuração rápida ou lenta.
--   **Novo grupo de limites de predefinição em cada site:**  Cada site primário tem um novo grupo de limites de predefinição com o nome ***predefinição-Site-limite-grupo&lt;sitecode >***.  Quando um cliente não está numa localização de rede que está atribuída a um grupo de limites, esse cliente utilizará os sistemas de sites associados ao grupo predefinido do seu site atribuído. Planear a utilização deste grupo de limites como uma substituição para o conceito de localização de conteúdo de contingência.      
- -  **'Permitir que as localizações de origem de contingência para conteúdo'** for removido: Já não está explicitamente a configurar um ponto de distribuição para ser utilizado para contingência e as opções para configurar esta são removidas da IU.
-
-    Além disso, o resultado da definição **permitir que os clientes utilizem uma localização de origem de contingência para conteúdo** numa implementação tipo para aplicações foi alterada. Esta definição num tipo de implementação agora permite que um cliente para utilizar o grupo de limites de site predefinido como uma localização de origem de conteúdo.
-
- -  **Relações de grupos de limites:** Cada grupo de limites pode ser associado a um ou mais grupos de limites adicionais. Estas ligações formam relações que estão configuradas no novo limite grupo separador de propriedades com o nome **relações**:
-    -   Cada grupo de limites que um cliente é diretamente associado é chamado um **atual** grupo de limites.  
-    -   Nenhum grupo de limites pode utilizar um cliente devido a uma associação entre esse cliente *atual* grupo de limites e outro grupo é chamado um **vizinho** grupo de limites.
-    -  É o **relações** separador adicionar grupos de limites que podem ser utilizados como um *vizinho* grupo de limites. Também pode configurar um período de tempo em minutos que determina quando um cliente que não consegue localizar o conteúdo a partir de um ponto de distribuição no *atual* grupo irá começar a procurar nas localizações de conteúdo das *vizinho* grupos de limites.
-
-        Quando adicionar ou alterar uma configuração do grupo de limites, terá a opção para o bloco de contingência para esse grupo de limites específico do grupo atual que estiver a configurar.
-
-    Para utilizar a nova configuração, pode define associações explícitas (ligações) a partir de um grupo de limites para outro e configura todos os pontos de distribuição nesse grupo associados com o mesmo tempo em minutos. O tempo que configura determina quando um cliente que não consegue encontrar uma origem de conteúdo do respetivo *atual* grupo de limites pode começar a pesquisar origens de conteúdo desse grupo de limites de vizinho.
-
-    Além dos grupos de limites que configurar explicitamente, cada grupo de limites tem uma ligação implícita para o grupo de limites de site predefinido. Esta ligação fica ativa depois de 120 minutos em que momento o grupo de limites de site predefinido torna-se um grupo de limites de vizinho que permite que os clientes utilizar os pontos de distribuição associados esse grupo de limites como localizações de origem de conteúdo.
-
-    Este comportamento substitui que anteriormente foi referido como contingência para conteúdo.  Pode substituir este comportamento predefinido de 120 minutos associando explicitamente o grupo de limites de site predefinido para um *atual* grupo e definir uma hora específica em minutos ou bloquear contingência inteiramente para impedir a sua utilização.
+## <a name="changes-from-prior-versions-for-ui-and-behavior-for-content-locations"></a>Изменения в пользовательском интерфейсе и поведении расположений содержимого по сравнению с предыдущими версиями
+Ниже приведены ключевые изменения в группах границ и способах обнаружения содержимого клиентами. Эти изменения реализованы начиная с версии 1610. Многие из этих изменений и основных понятий работают вместе.
 
 
--   **Os clientes tentam obter conteúdos de cada ponto de distribuição para 2 minutos:** Quando um cliente procura de uma localização de origem de conteúdo, este tenta aceder a cada ponto de distribuição para 2 minutos antes de, em seguida, tentar outro ponto de distribuição. Esta é uma alteração de versões anteriores onde os clientes tentaram ligar a um ponto de distribuição de até 2 horas.
+-   **Удалена настройка быстрых или медленных точек распространения.** Больше не требуется настраивать отдельные точки распространения как быстрые или медленные.  Теперь каждая система сайта, связанная с группой границ, обрабатывается одинаково. В связи с этим изменением на вкладке **Ссылки** в окне свойств группы границ больше не поддерживается настройка быстрых или медленных точек распространения.
+-   **Новая группа границ по умолчанию на каждом сайте.** Каждый первичный сайт имеет новую группу границ по умолчанию с именем ***группа_границ_сайта_по_умолчанию&lt;код_сайта >***.  Если клиент отсутствует в сетевом расположении, назначенном группе границ, он будет использовать системы сайта, связанные с группой по умолчанию, с назначенного ему сайта. Запланируйте использовать эту группу границ в качестве замены понятия резервного источника содержимого.      
+ -  Удален параметр **Разрешить резервные источники**. Вы больше не можете явным образом настраивать точку распространения для отката — соответствующие параметры удалены из пользовательского интерфейса.
 
-    - O primeiro ponto de distribuição que um cliente tenta utilizar aleatoriamente está selecionado do agrupamento de pontos de distribuição disponíveis do cliente *atual* grupo de limites (ou grupos).
+    Кроме того, изменен результат действия параметра **Разрешить клиентам использовать резервный источник содержимого** в типе развертывания приложений. Теперь этот параметр в типе развертывания позволяет клиенту использовать группу границ сайта по умолчанию в качестве источника содержимого.
 
-    - Depois de dois minutos, se o cliente não foi encontrado o conteúdo, muda para um novo ponto de distribuição e tenta obter conteúdo a partir desse servidor. Este processo repete-se a cada dois minutos até que o cliente localiza o conteúdo ou atinge o último servidor no seu conjunto.
+ -  **Отношения групп границ.** Каждую группу границ можно связать с одной или несколькими дополнительными группами границ. Эти связи формируют отношения, настраиваемые на новой вкладке свойств группы границ **Отношения**.
+    -   Каждая группа границ, с которой клиент связан напрямую, называется **текущей** группой границ.  
+    -   Группа границ, которую клиент может использовать из-за связи между *текущей* группой границ и другой группой, называется **соседней**.
+    -  На вкладке **Отношения** можно добавлять группы границ, которые будут использоваться в качестве *соседних*. Также можно настроить время в минутах, которое определяет, когда клиенту, которому не удалось найти содержимое в точке распространения в *текущей* группе, следует начать поиск источников содержимого в *соседних* группах границ.
 
-    - Se um cliente não é possível encontrar uma localização de origem de conteúdo válida a partir do respetivo *atual* agrupamento antes do período de contingência para um *vizinho* for atingido o grupo de limites, o cliente, em seguida, adiciona os pontos de distribuição do *vizinho* até ao fim da respetiva lista atual de grupo e, em seguida, irá procurar o grupo expandido das localizações de origem que inclua os pontos de distribuição a partir de ambos os grupos de limites.
+        При добавлении или изменении конфигурации группы границ у вас будет возможность заблокировать откат к определенной группе границ из текущей настраиваемой группы.
+
+    Чтобы использовать новую конфигурацию, определите явные ассоциации (связи) одной группы границ с другой и настройте все точки распространения в этой связанной группе, указав то же значение времени в минутах. Настроенное время определяет, когда клиенту, которому не удалось найти источник содержимого в его *текущей* группе границ, следует начать поиск источников содержимого из соседней группы границ.
+
+    Помимо явной настройки, каждая группа границ имеет неявную связь с группой границ сайта по умолчанию. Эта связь становится активной через 120 минут. В это время группа границ сайта по умолчанию становится соседней группой границ, что позволяет клиентам использовать точки распространения, связанные с этой группой границ, как источники содержимого.
+
+    Это поведение заменяет то, что ранее называлось откатом содержимого.  Можно переопределить это заданное по умолчанию поведение, явным образом связав группу границ сайта по умолчанию с *текущей* группой и указав определенное время в минутах либо полностью заблокировав откат, чтобы исключить его использование.
+
+
+-   **Клиенты пытаются получить содержимое из каждой точки распространения за 2 минуты.** Когда клиент выполняет поиск источника содержимого, он пытается получить доступ к каждой точке распространения за 2 минуты, а затем переходит к другой точке распространения. Этим данный выпуск отличается от предыдущих версий, когда клиенты пытались подключиться к точке распространения до 2 часов.
+
+    - Первая точка распространения, используемая клиентом, случайным образом выбирается из пула доступных точек распространения *текущей* группы (или групп) границ клиента.
+
+    - Если клиенту не удалось найти содержимое, через две минуты он переключается на новую точку распространения и пытается получить содержимое с этого сервера. Этот процесс повторяется каждые две минуты, пока клиент не найдет содержимое или не перейдет к последнему серверу в пуле.
+
+    - Если клиенту не удается найти допустимый источник содержимого из *текущего* пула раньше, чем истечет время резервирования в *соседней* группе границ, он добавляет точки распространения из этой *соседней* группы в конец текущего списка, а затем продолжает поиск по расширенной группе источников, в который теперь входят точки распространения из обеих групп границ.
 
         > [!TIP]  
-        > Quando criar uma ligação explícita do grupo de limites atuais para o grupo de limites de site predefinido e definir uma hora de contingência que é inferior à hora de contingência para uma ligação a um grupo de limites de vizinho, os clientes começam a pesquisar localizações de origem do grupo de limites de site predefinido antes, incluindo o grupo de vizinho.
+        > При создании явной связи из текущей группы границ с группой границ сайта по умолчанию и определении времени отката, которое меньше времени отката для связи с соседней группой границ, клиенты будут начинать поиск источников из группы границ сайта по умолчанию до включения соседней группы.
 
-    - Quando o cliente não consegue obter conteúdos do último servidor no agrupamento, começar o processo de novo.
-
-
-## <a name="procedures-for-boundary-groups"></a>Procedimentos para grupos de limites
-Os procedimentos seguintes aplicam-se à versão 1610 ou posterior. Se utilizar a versão antes de 1610, consulte os procedimentos [grupos de limites para as versões do System Center Configuration Manager versão 1511, 1602 e 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
+    - Если клиенту не удается получить содержимое из последнего сервера в пуле, он начнет процесс заново.
 
 
-### <a name="to-create-a-boundary-group"></a>Para criar um grupo de limites  
-1.  Na consola do Configuration Manager, clique em **administração** > **configuração da hierarquia** >  **grupos de limites**.  
-
-2.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Grupo de Limites**.  
-
-3.  Na caixa de diálogo **Criar Grupo de Limites** , selecione o separador **Geral** e especifique um **Nome** para este grupo de limites.  
-
-4.  Clique em **OK** para guardar o novo grupo de limites.  
+## <a name="procedures-for-boundary-groups"></a>Процедуры для групп границ
+Описанные ниже процедуры относятся к версии 1610 или более поздним. Если используется версия до 1610, см. процедуры в разделе [Группы границ для версий System Center Configuration Manager 1511, 1602 и 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
 
 
-### <a name="to-configure-a-boundary-group"></a>Para configurar um grupo de limites  
- 1.  Na consola do Configuration Manager, clique em **administração** > **configuração da hierarquia** >  **grupos de limites**.  
+### <a name="to-create-a-boundary-group"></a>Создание группы границ  
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация иерархии** >  **Группы границ**.  
 
- 2.  Selecione o grupo de limites que pretende modificar.  
+2.  На вкладке **Главная** в группе **Создать** щелкните **Создать группу границ**.  
 
- 3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  В диалоговом окне **Создание группы границ** откройте вкладку **Общие** и укажите **Имя** для данной группы границ.  
 
- 4.  Na caixa de diálogo **Propriedades** do grupo de limites, selecione o separador **Geral** para modificar os limites que são membros deste grupo de limites:  
+4.  Нажмите кнопку **ОК** , чтобы сохранить новую группу границ.  
 
-     -   Para adicionar limites, clique em **Adicionar**, selecione a caixa de verificação de um ou mais limites e clique em **OK**.  
 
-     -   Para remover limites, selecione o limite e clique em **Remover**.  
+### <a name="to-configure-a-boundary-group"></a>Настройка группы границ  
+ 1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация иерархии** >  **Группы границ**.  
 
- 5.  Selecione o separador **Referências** para modificar a atribuição de sites e a configuração do servidor do sistema de sites associada:  
+ 2.  Выберите группу границ, которую требуется изменить.  
 
-     -   Para permitir que este grupo seja utilizado pelos clientes para atribuição de site, selecione a caixa de verificação **Utilizar este grupo de limites para atribuição de site**e, em seguida, selecione um site na caixa pendente **Site atribuído** .  
+ 3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
 
-     -   Para configurar que servidores do sistema de sites disponíveis estão associados a este grupo de limites:  
+ 4.  В диалоговом окне **Свойства** группы границ откройте вкладку **Общие** , чтобы изменить границы, включенные в эту группу границ.  
 
-     1.  Clique em **Adicionar**e, em seguida, selecione a caixa de verificação de um ou mais servidores. Os servidores são adicionados como servidores do sistema de sites associados a este grupo de limites. Só estão disponíveis os servidores que têm a função de sistema de sites instalada.  
+     -   Чтобы добавить границы, нажмите **Добавить**, установите флажок напротив одной или нескольких границ и затем нажмите кнопку **ОК**.  
 
-         > [!NOTE]  
-         >  Pode selecionar uma combinação de sistemas de sites disponíveis a partir de qualquer site na hierarquia. Os sistemas de sites selecionados são listados no separador **Sistemas de Sites** nas propriedades de cada limite que seja membro deste grupo de limites.  
+     -   Чтобы удалить границы, выберите границу и нажмите кнопку **Удалить**.  
 
-     2.  Para remover um servidor deste grupo de limites, selecione o servidor e, em seguida, clique em **Remover**.  
+ 5.  Перейдите на вкладку **Ссылки** , чтобы изменить назначение сайта и связанную конфигурацию сервера системы сайта:  
+
+     -   Чтобы разрешить использование этой группы границ клиентами для назначения сайта, установите флажок **Использовать эту группу границ для назначения сайта**, после чего выберите сайт в раскрывающемся списке **Назначенный сайт** .  
+
+     -   Для настройки доступных серверов системы сайта, связанных с этой группой границ:  
+
+     1.  Нажмите **Добавить**, после чего установите флажок для одного или нескольких серверов. Серверы добавляются в эту группу границ как связанные серверы системы сайта. Доступны только те серверы, на которых установлена поддерживаемая роль системы сайта.  
 
          > [!NOTE]  
-         >  Para parar a utilização deste grupo de limites para associar sistemas de sites, tem de remover todos os servidores listados como servidores do sistema de sites associados.  
+         >  Можно выбрать любое сочетание доступных систем сайта из любого сайта в иерархии. Выбранные системы сайта отображаются на вкладке **Системы сайта** в свойствах каждой границы, включенной в данную группу границ.  
 
- 6.  Selecione o **relações** separador para configurar o comportamento de contingência:  
+     2.  Чтобы удалить сервер из этой группы границ, выберите его и нажмите кнопку **Удалить**.  
 
-     - Clique em **adicionar**e, em seguida, selecione o grupo de limites que pretende configurar.
+         > [!NOTE]  
+         >  Чтобы прекратить использование этой группы границ для связывания систем сайта, необходимо удалить все серверы, указанные как связанные серверы системы сайта.  
 
-     - Defina uma hora para pontos de distribuição de contingência. Após este período de tempo, os clientes num grupo de limites que está a configurar relações, será possível iniciar a pesquisa de conteúdo dos pontos de distribuição do grupo de limites que está a adicionar.
+ 6.  Перейдите на вкладку **Связи**, чтобы настроить поведение отката.  
 
-     - Para impedir a contingência para um grupo de limites específico, incluindo o *grupo de limites de site predefinido* que está configurado por predefinição, selecione o grupo de limites e, em seguida, selecione a caixa para **nunca contingência**.   
+     - Нажмите кнопку **Добавить** и выберите группу границ, которую нужно настроить.
 
- 7.  Clique em **OK** para fechar as propriedades do grupo de limites e guardar a configuração.  
+     - Задайте время отката для точек распространения. После этого периода времени клиенты в группе границ, для которой настраиваются связи, смогут начинать поиск содержимого из точек распространения в добавляемой группе границ.
 
-#### <a name="to-associate-a-site-systme-server-with-a-boundary-group"></a>Para associar um servidor de sistema de sites um grupo de limites  
- 1.  Na consola do Configuration Manager, clique em **administração** > **configuração da hierarquia** >  **grupos de limites**.  
+     - Чтобы запретить откат к определенной группе границ, включая *группу границ сайта по умолчанию*, выберите эту группу, а затем установите флажок **Запретить откат**.   
 
- 2.  Selecione o grupo de limites que pretende modificar.  
+ 7.  Нажмите кнопку **ОК** , чтобы закрыть свойства границы и сохранить конфигурацию.  
 
- 3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+#### <a name="to-associate-a-site-systme-server-with-a-boundary-group"></a>Связывание сервера системы сайта с группой границ  
+ 1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация иерархии** >  **Группы границ**.  
 
- 4.  Na caixa de diálogo **Propriedades** do grupo de limites, selecione o separador **Referências** .  
+ 2.  Выберите группу границ, которую требуется изменить.  
 
- 5.  Em **Selecionar servidores do sistema de sites**, clique em **Adicionar**, selecione a caixa de verificação dos servidores do sistema de sites que pretende associar a este grupo de limites e, em seguida, clique em **OK**.  
+ 3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
 
- 6.  Clique em **OK** para fechar a caixa de diálogo e guardar a configuração do grupo de limites.  
+ 4.  В диалоговом окне **Свойства** группы границ откройте вкладку **Ссылки** .  
+
+ 5.  В области **Выберите серверы системы сайта**нажмите кнопку **Добавить**, установите флажок напротив серверов системы сайта, которые требуется связать с этой группой границ, после чего нажмите кнопку **ОК**.  
+
+ 6.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно и сохранить конфигурацию группы границ.  
 
 
-#### <a name="to-configure-a-fallback-site-for-automatic-site-assignment"></a>Para configurar um site de contingência para atribuição automática de sites  
+#### <a name="to-configure-a-fallback-site-for-automatic-site-assignment"></a>Настройка резервного сайта для автоматического назначения сайтов  
 
-  1.  Na consola do Configuration Manager, clique em **administração** > **configuração do Site** >  **Sites**.  
+  1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация сайта** >  **Сайты**.  
 
-  2.  No separador **Home Page** , no grupo **Sites** , clique em **Definições de Hierarquia**.  
+  2.  На вкладке **Главная** в группе **Сайты** нажмите кнопку **Параметры иерархии**.  
 
-  3.  No separador **Geral** , selecione a caixa de verificação para **Utilizar um site de contingência**e selecione um site na lista pendente **Site de contingência** .  
+  3.  На вкладке **Общие** установите флажок **Использовать резервный сайт**, после чего выберите сайт в раскрывающемся списке **Резервный сайт** .  
 
-  4.  Clique em **OK** para guardar a configuração.  
+  4.  Нажмите кнопку **ОК** , чтобы сохранить настройки.  
 
-#### <a name="to-enable-use-of-preferred-management-points"></a>Para ativar a utilização de pontos de gestão preferenciais  
+#### <a name="to-enable-use-of-preferred-management-points"></a>включить предпочтительные точки управления  
 
- 1.  Na consola do Configuration Manager, clique em **administração** > **configuração do Site** > **Sites**e, em seguida, no **home page** separador selecione **definições de hierarquia**.  
+ 1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация сайта** > **Сайты**, а затем на вкладке **Главная** выберите **Параметры иерархии**.  
 
- 2.  No separador **Geral** das Definições de Hierarquia, selecione **Os clientes preferem utilizar pontos de gestão especificados em grupos de limites**.  
+ 2.  На вкладке **Общие** параметров иерархии выберите **Клиенты предпочитают использовать точки управления, указанные в группах границ**.  
 
- 3.  Clique em **OK** para fechar a caixa de diálogo e guardar a configuração.  
-
+ 3.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно и сохранить конфигурацию.  

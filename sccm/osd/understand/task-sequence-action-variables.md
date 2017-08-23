@@ -1,6 +1,6 @@
 ---
-title: "As variáveis de ação de sequência de tarefas | Microsoft Docs"
-description: "Utilize variáveis de ação de sequência, tais como as variáveis de definição de rede, para especificar definições de configuração para um único passo numa sequência de tarefas do Configuration Manager."
+title: "Переменные действия последовательности задач | Документы Майкрософт"
+description: "С помощью переменных действия последовательности задач, например переменных сетевого параметра, можно задать параметры конфигурации для отдельного шага в последовательности задач Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,331 +17,331 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 6049ec2369e0a97b21ce6523ba8448335385ab9a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="task-sequence-action-variables-in-system-center-configuration-manager"></a>Variáveis de ação de sequência de tarefas no System Center Configuration Manager
+# <a name="task-sequence-action-variables-in-system-center-configuration-manager"></a>Переменные действия последовательности задач в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Variáveis de ação de sequência de tarefas especificam definições de configuração que são utilizadas por um passo individual numa sequência de tarefas do System Center Configuration Manager. Por predefinição, as definições utilizadas por um passo de sequência de tarefas são inicializadas antes de o passo ser executado e estão disponíveis apenas enquanto o passo de sequência de tarefas associado é executado. Por outras palavras, a definição da variável de sequência de tarefas é adicionada ao ambiente de sequência de tarefas antes de o passo de sequência de tarefas ser executado e o valor é removido do ambiente de sequência de tarefas após o passo de sequência de tarefas ter sido executado.  
+Переменные действий последовательности задач указывают параметры конфигурации, используемые в рамках одного шага последовательности задач System Center Configuration Manager. По умолчанию параметры, используемые на шаге последовательности, инициализируется перед выполнением шага и доступны только во время выполнения соответствующего шага. Другими словами, значение переменной последовательности задач добавляется в среду последовательности задач перед выполнением шага последовательности задач; после выполнения шага последовательности задач это значение удаляется из среды последовательности задач.  
 
-## <a name="action-variable-example"></a>Exemplo de Variável de Ação  
- Por exemplo, pode especificar um diretório de início para uma ação da linha de comandos utilizando o passo de sequência de tarefas **Executar Linha de Comandos** . Este passo inclui uma propriedade **Iniciar em** cujo valor predefinido é armazenado no ambiente de sequência de tarefas como a variável **WorkingDirectory** . A variável de ambiente **WorkingDirectory** é inicializada antes de a ação de sequência de tarefas **Executar Linha de Comandos** ser executada. Durante o passo **Executar Linha de Comandos** , o valor **WorkingDirectory** pode ser acedido através da propriedade **Iniciar em** . Em seguida, depois de concluído o passo de sequência de tarefas, o valor da variável **WorkingDirectory** é removido do ambiente de sequência de tarefas. Se a sequência contiver outro passo de sequência de tarefas **Executar Linha de Comandos** , a nova variável **WorkingDirectory** é inicializada e definida como o valor inicial para esse passo de sequência de tarefas.  
+## <a name="action-variable-example"></a>Пример переменной действия  
+ Например, можно указать рабочую папку для действий командной строки, используя шаг последовательности задач **Выполнить из командной строки** . Этот этап включает свойство **Рабочая папка** , значение по умолчанию для которого хранится в среде последовательности задач в переменной **WorkingDirectory** . Переменная среды последовательности задач **WorkingDirectory** инициализируется перед выполнением действия **Выполнить из командной строки** последовательности задач. При выполнении этапа **Выполнить из командной строки** значение переменной **WorkingDirectory** доступно через свойство **Рабочая папка** . После завершения этого шага последовательности задач значение переменной **WorkingDirectory** удаляется из среды последовательности задач. Если последовательность содержит другой шаг последовательности задач **Выполнить из командной строки** , инициализируется новая переменная **WorkingDirectory** , которой присваивается начальное значение для данного шага последовательности задач.  
 
- Ao passo que o valor predefinido para uma definição de ação de sequência de tarefas está presente enquanto o passo de sequência de tarefas é executado, qualquer novo valor que definiu pode ser utilizado por vários passos da sequência. Se utilizar um dos métodos de criação de variáveis de sequência de tarefas para substituir um valor de variável incorporado, o novo valor permanece no ambiente e substitui o valor predefinido para outros passos da sequência de tarefas. No exemplo anterior, se um **definir variável da sequência de tarefas** passo é adicionado como o primeiro passo de sequência de tarefas e define o **WorkingDirectory** variável de ambiente para o valor **c:\\**, ambos os **executar linha de comandos** passos da sequência de tarefas irão utilizar o novo valor inicial do diretório.  
+ Хотя значение по умолчанию для параметра действия последовательности задач существует во время выполнения соответствующего шага последовательности задач, любое новое заданное значение может использоваться в нескольких шагах последовательности. Если при помощи одного из методов создания переменной последовательности задач изменить значение встроенной переменной, новое значение сохраняется в среде и заменяет собой значение по умолчанию для других шагов в последовательности задач. Если в предыдущем примере в качестве первого шага последовательности задач добавлен шаг **Задать переменную последовательности задач**, на котором для переменной среды **WorkingDirectory** задается значение **C:\\**, для обоих шагов **Выполнить из командной строки** в этой последовательности задач будет использоваться это новое значение начального каталога.  
 
-## <a name="action-variables-for-task-sequence-actions"></a>Variáveis de Ação para Ações de Sequência de Tarefas  
- Variáveis de sequência de tarefas do Configuration Manager estão agrupadas pela respetiva ação de sequência de tarefas associadas. Utilize as hiperligações seguintes para recolher informações sobre as variáveis de ação associadas a uma ação específica. As variáveis de sequência das tarefas definem o funcionamento da ação de sequência de tarefas. A ação de sequência de tarefas lê e utiliza as variáveis assinaladas pelo utilizador como variáveis de entrada. Em alternativa, as variáveis podem ser configuradas no runtime através da ação Set Task Sequence Variable ou do objeto TSEnvironment COM. Apenas a ação de sequência de tarefas assinala variáveis como variáveis de saída que são lidas pelas ações que tenham lugar mais tarde na sequência de tarefas.  
+## <a name="action-variables-for-task-sequence-actions"></a>Переменные действия для действий последовательности задач  
+ Переменные последовательности задач Configuration Manager разделены на группы в соответствии с действием последовательности задач. Посетив следующие веб-страницы, можно ознакомиться со сведениями о переменных действия, связанных с определенными действиями. Переменные последовательности задач определяют способ выполнения действия последовательности задач. Действие последовательности задач считывает и использует переменные, помеченные как входные. Можно также использовать действие "Задать переменную последовательности задач" или COM-объект TSEnvironment, чтобы задать переменные во время выполнения. Только действие последовательности задач помечает переменные как выходные, которые считываются последующими действиями последовательности задач.  
 
 > [!NOTE]  
->  Nem todas as ações de sequência de tarefas estão associadas a um conjunto de variáveis de sequência de tarefas. Por exemplo, apesar de existirem variáveis associadas à ação Ativar BitLocker, não existe nenhuma variável associada à ação Desativar BitLocker.  
+>  Не все действия последовательности задач связаны с набором переменных последовательности задач. Например, несмотря на то, что есть переменные, связанные с действием "Включить BitLocker", переменные, связанные с действием "Отключить BitLocker", отсутствуют.  
 
-###  <a name="BKMK_ApplyDataImage"></a> Variáveis de Ação da Sequência de Tarefas Aplicar Imagem de Dados  
- As variáveis para esta ação especificam a imagem de um ficheiro WIM que é aplicada ao computador de destino e se pretende eliminar os ficheiros na partição de destino. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [aplicar dados de imagem do passo de sequência](task-sequence-steps.md#BKMK_ApplyDataImage).  
+###  <a name="BKMK_ApplyDataImage"></a> Применить образ данных. Переменные действия последовательности задач  
+ Переменные данного действия указывают, какой образ WIM-файла применяется к целевому компьютеру и требуется ли удаление файлов на целевом разделе. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Шаг последовательности задач "Применить образ данных"](task-sequence-steps.md#BKMK_ApplyDataImage).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDDataImageIndex<br /><br /> (entrada)|Especifica o valor de índice da imagem que está aplicada ao computador de destino.|  
-|OSDWipeDestinationPartition<br /><br /> (entrada)|Especifica se pretende eliminar os ficheiros localizados na partição de destino.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**|  
+|OSDDataImageIndex<br /><br /> (входная)|Указывает значение индекса образа, применяемого к целевому компьютеру.|  
+|OSDWipeDestinationPartition<br /><br /> (входная)|Указывает, требуется ли удаление файлов, расположенных в целевом разделе.<br /><br /> Допустимые значения:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**|  
 
-###  <a name="BKMK_ApplyDriverPackage"></a> Variáveis de Ação da Sequência de Tarefas Aplicar Pacote de Controlador  
- As variáveis para esta ação especificam informações de instalação de controladores de armazenamento em massa e se pretende instalar controladores não assinados. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [aplicar pacote de controlador](task-sequence-steps.md#BKMK_ApplyDriverPackage).  
+###  <a name="BKMK_ApplyDriverPackage"></a> Применить пакет драйверов. Переменные действия последовательности задач  
+ Переменные этого действия указывают сведения об установке драйверов накопителей большой емкости, а также разрешают или запрещают установку неподписанных драйверов. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Применить пакет драйверов](task-sequence-steps.md#BKMK_ApplyDriverPackage).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDApplyDriverBootCriticalContentUniqueID<br /><br /> (entrada)|Especifica o ID de conteúdo do controlador de dispositivo de armazenamento em massa a instalar a partir do pacote de controlador. Se não for especificado, não é instalado nenhum controlador de armazenamento em massa.|  
-|OSDApplyDriverBootCriticalINFFile<br /><br /> (entrada)|Especifica o ficheiro INF do controlador de armazenamento em massa a instalar.<br /><br /> <br /><br /> Esta variável de sequência de tarefas é necessária se o OSDApplyDriverBootCriticalContentUniqueID for definido.|  
-|OSDApplyDriverBootCriticalHardwareComponent<br /><br /> (entrada)|Especifica se um controlador de dispositivo de armazenamento em massa está instalado, tem de ser **scsi**.<br /><br /> <br /><br /> Esta variável de sequência de tarefas é necessária se o OSDApplyDriverBootCriticalContentUniqueID for definido.|  
-|OSDApplyDriverBootCriticalID<br /><br /> (entrada)|Especifica o ID crítico de arranque do controlador de dispositivo de armazenamento em massa a instalar. Este ID está listado no "**scsi**" secção do ficheiro txtsetup.oem do controlador de dispositivo.<br /><br /> <br /><br /> Esta variável de sequência de tarefas é necessária se o OSDApplyDriverBootCriticalContentUniqueID for definido.|  
-|OSDAllowUnsignedDriver<br /><br /> (entrada)|Especifica se pretende configurar o Windows para permitir a instalação de controladores de dispositivo não assinados. Esta variável de sequência de tarefas não é utilizada quando implementar o Windows Vista e o sistema operativo posterior.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
+|OSDApplyDriverBootCriticalContentUniqueID<br /><br /> (входная)|Указывает идентификатор содержимого драйвера запоминающего устройства, устанавливаемого из пакета драйверов. Если это значение не указано, установка драйвера не выполняется.|  
+|OSDApplyDriverBootCriticalINFFile<br /><br /> (входная)|Указывает INF-файл устанавливаемого драйвера накопителя большой емкости.<br /><br /> <br /><br /> Эта переменная последовательности задач необходима, если задано значение переменной OSDApplyDriverBootCriticalContentUniqueID.|  
+|OSDApplyDriverBootCriticalHardwareComponent<br /><br /> (входная)|Указывает, установлен ли драйвер запоминающего устройства; значение должно быть **scsi**.<br /><br /> <br /><br /> Эта переменная последовательности задач необходима, если задано значение переменной OSDApplyDriverBootCriticalContentUniqueID.|  
+|OSDApplyDriverBootCriticalID<br /><br /> (входная)|Указывает ИД загрузки устанавливаемого драйвера запоминающего устройства. Этот ИД указан в разделе **scsi** файла txtsetup.oem драйвера устройства.<br /><br /> <br /><br /> Эта переменная последовательности задач необходима, если задано значение переменной OSDApplyDriverBootCriticalContentUniqueID.|  
+|OSDAllowUnsignedDriver<br /><br /> (входная)|Указывает, требуется ли разрешить в Windows установку неподписанных драйверов устройств. Эта переменная последовательности задач не используется при развертывании Windows Vista и более поздних версий операционной системы.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
 
-###  <a name="BKMK_ApplyNetworkSettings"></a> Variáveis de Ação da Sequência de Tarefas Aplicar Definições de Rede  
- As variáveis para esta ação especificam definições de rede para o computador de destino, tais como definições para os adaptadores de rede do computador, definições de domínio e definições do grupo de trabalho. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [passo de definições de rede aplicam-se](task-sequence-steps.md#BKMK_ApplyNetworkSettings).  
+###  <a name="BKMK_ApplyNetworkSettings"></a> Применить параметры сети. Переменные действия последовательности задач  
+ Переменные этого действия указывают параметры сети для целевого компьютера, например параметры сетевых адаптеров компьютера, параметры домена и рабочей группы. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Применить параметры сети](task-sequence-steps.md#BKMK_ApplyNetworkSettings).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDAdapter<br /><br /> (entrada)|Esta variável de sequência de tarefas é uma variável de matriz. Cada elemento da matriz representa as definições para um adaptador de rede individual no computador. As definições especificadas para cada adaptador são acedidas através da combinação do nome da variável de matriz com o índice de adaptador de rede baseado em zero e o nome da propriedade.<br /><br /> <br /><br /> Se vários adaptadores de rede forem configurados com esta ação de sequência de tarefas, as propriedades do segundo adaptador de rede são definidas utilizando o respetivo índice no nome da variável; por exemplo, OSDAdapter1EnableDHCP, OSDAdapter1IPAddressList, OSDAdapter1DNSDomain, OSDAdapter1WINSServerList, OSDAdapter1EnableWINS, etc.<br /><br /> <br /><br /> Por exemplo, os nomes de variáveis seguintes podem ser utilizados para definir as propriedades para o primeiro adaptador de rede que será configurado por esta ação de sequência de tarefas:<br /><br /> <ul><li>**OSDAdapter0EnableDHCP** - TRUE para ativar o protocolo de configuração dinâmica de anfitrião (DHCP) para o adaptador.<br />    Esta definição é obrigatória. Os valores possíveis são:  VERDADEIRO ou FALSO.</li><li>**OSDAdapter0IPAddressList** -endereços lista delimitada por vírgulas de IP para o adaptador. Esta propriedade é ignorada, a menos que **EnableDHCP** esteja definido como **falso**.<br />    Esta definição é obrigatória.</li><li>**OSDAdapter0SubnetMask** -lista delimitada por vírgulas de máscaras de sub-rede. Esta propriedade é ignorada, a menos que **EnableDHCP** esteja definido como **falso**.<br />    Esta definição é obrigatória.</li><li>**OSDAdapter0Gateways** -lista delimitada por vírgulas de endereços de gateway IP. Esta propriedade é ignorada, a menos que **EnableDHCP** esteja definido como **falso**.<br />    Esta definição é obrigatória.</li><li>**OSDAdapter0DNSDomain** - domínio de Sistema de Nomes de Domínio (DNS) para o adaptador.</li><li>**OSDAdapter0DNSServerList** -lista delimitada por vírgulas de servidores DNS para o adaptador.<br />    Esta definição é obrigatória.</li><li>**OSDAdapter0EnableDNSRegistration** - **verdadeiro** para registar o endereço IP para o adaptador no DNS.</li><li>**OSDAdapter0EnableFullDNSRegistration** - **verdadeiro** para registar o endereço IP para o adaptador no DNS sob o nome DNS completo para o computador.</li><li>**OSDAdapter0EnableIPProtocolFiltering** - **verdadeiro** para ativar o protocolo de endereço IP no adaptador de filtragem.</li><li>**OSDAdapter0IPProtocolFilterList** -lista delimitada por vírgulas de protocolos de permissão para ser executada através de IP. Esta propriedade é ignorada se **EnableIPProtocolFiltering** estiver definido como **falso**.</li><li>**OSDAdapter0EnableTCPFiltering** - **verdadeiro** para ativar a filtragem para o adaptador de porta TCP.</li><li>**OSDAdapter0TCPFilterPortList** -lista delimitada por vírgulas de portas para ser concedido permissões de acesso para TCP. Esta propriedade é ignorada se **EnableTCPFiltering** estiver definido como **falso**.</li><li>**OSDAdapter0TcpipNetbiosOptions** -opções para NetBIOS por TCP/IP. Os valores possíveis são:<br /><br /> <ul><li>0 Utilizar definições NetBIOS do servidor DHCP.</li><li>1 Ativar NetBIOS por TCP/IP.</li><li>2 Desativar NetBIOS por TCP/IP.</li></ul></li><li>**OSDAdapter0EnableWINS** - **verdadeiro** utilizar WINS para resolução de nomes.</li><li>**OSDAdapter0WINSServerList** -lista delimitada por vírgulas de endereços IP do servidor WINS. Esta propriedade é ignorada, a menos que **EnableWINS** esteja definido como **verdadeiro**.</li><li>**OSDAdapter0MacAddress** -endereço de controlador (MAC) utilizado para corresponde às definições do adaptador de rede físico de acesso de suporte.</li><li>**OSDAdapter0Name** – nome da ligação de rede conforme aparece no programa de painel de controlo de ligações de rede. O nome tem entre 0 e 255 carateres.</li><li>**OSDAdapter0Index** -índice das definições de adaptador de rede na matriz de definições.<br /><br />     OSDAdapterCount = 1<br />    OSDAdapter0EnableDHCP = FALSE<br />    OSDAdapter0IPAddressList = 192.168.0.40<br />    OSDAdapter0SubnetMask = 255.255.255.0<br />    OSDAdapter0Gateways = 192.168.0.1<br />    OSDAdapter0DNSSuffix=contoso.com</li></ul>|  
-|OSDAdapterCount<br /><br /> (entrada)|Especifica o número de adaptadores de rede instalados no computador de destino. Quando o valor **OSDAdapterCount** estiver definido, têm de ser definidas todas as opções de configuração para cada adaptador. Por exemplo, se definir o valor **OSDAdapterTCPIPNetbiosOptions** para um adaptador específico, todos os valores para esse adaptador têm também de ser configurados.<br /><br /> <br /><br /> Se este valor não for especificado, todos os valores **OSDAdapter** serão ignorados.|  
-|OSDDNSDomain<br /><br /> (entrada)|Especifica o servidor DNS primário utilizado pelo computador de destino.|  
-|OSDDomainName<br /><br /> (entrada)|Especifica o nome do domínio Windows ao qual o computador de destino é associado. O valor especificado tem de ser um nome de domínio de Serviços de Domínio do Active Directory válido.|  
-|OSDDomainOUName<br /><br /> (entrada)|Especifica o nome do formato RFC 1779 da unidade organizacional (UO) ao qual o computador de destino é associado. Se for especificado, o valor tem de conter o caminho completo.<br /><br /> Exemplo:<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
-|OSDEnableTCPIPFiltering<br /><br /> (entrada)|Especifica se a filtragem TCP/IP está ativada.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDJoinAccount<br /><br /> (entrada)|Especifica a conta de rede que é utilizada para adicionar o computador de destino a um domínio Windows.|  
-|OSDJoinPassword<br /><br /> (entrada)|Especifica a palavra-passe de rede que é utilizada para adicionar o computador de destino a um domínio Windows.|  
-|OSDNetworkJoinType<br /><br /> (entrada)|Especifica se o computador de destino é associado a um domínio Windows ou a um grupo de trabalho.<br /><br /> **"0"** indica que o computador de destino é associado um domínio Windows. **"1"** especifica que o computador é associado um grupo de trabalho.<br /><br /> Valores válidos:<br /><br /> **"0"**<br /><br /> **"1"**|  
-|OSDDNSSuffixSearchOrder<br /><br /> (entrada)|Especifica a ordem de procura DNS para o computador de destino.|  
-|OSDWorkgroupName<br /><br /> (entrada)|Especifica o nome do grupo de trabalho ao qual o computador de destino é associado.<br /><br /> Tem de especificar este valor ou o valor **OSDDomainName** . O nome do grupo de trabalho pode ter um máximo de 32 carateres.<br /><br /> Exemplo:<br /><br /> **"Contabilidade"**|  
+|OSDAdapter<br /><br /> (входная)|Эта переменная последовательности задач является массивом. Каждый элемент массива содержит параметры для одного сетевого адаптера на компьютере. Для доступа к параметрам, заданным для каждого адаптера, следует использовать имя переменной типа "массив", индекс сетевого адаптера (нумерация начинается с 0) и имя свойства.<br /><br /> <br /><br /> Если при помощи данного действия последовательности задач выполняется настройка нескольких адаптеров, свойства второго сетевого адаптера можно задавать, используя их индекс в имени переменной, например OSDAdapter1EnableDHCP, OSDAdapter1IPAddressList, OSDAdapter1DNSDomain, OSDAdapter1WINSServerList, OSDAdapter1EnableWINS и т. д.<br /><br /> <br /><br /> Например, приведенные ниже имена переменных могут использоваться для задания свойств первого сетевого адаптера, который будет настроен при помощи данного действия последовательности задач.<br /><br /> <ul><li>**OSDAdapter0EnableDHCP** — если задано значение true, для адаптера включается протокол DHCP.<br />    Это обязательный параметр. Возможные значения: True и False.</li><li>**OSDAdapter0IPAddressList** — список IP-адресов для адаптера с разделителями-запятыми. Это свойство игнорируется, если свойство **EnableDHCP** имеет значение **false**.<br />    Это обязательный параметр.</li><li>**OSDAdapter0SubnetMask** — список масок подсетей с разделителями-запятыми. Это свойство игнорируется, если свойство **EnableDHCP** имеет значение **false**.<br />    Это обязательный параметр.</li><li>**OSDAdapter0Gateways** — список IP-адресов шлюзов с разделителями-запятыми. Это свойство игнорируется, если свойство **EnableDHCP** имеет значение **false**.<br />    Это обязательный параметр.</li><li>**OSDAdapter0DNSDomain** — домен службы доменных имен (DNS-домен) для адаптера.</li><li>**OSDAdapter0DNSServerList** — список DNS-серверов для адаптера с разделителями-запятыми.<br />    Это обязательный параметр.</li><li>**OSDAdapter0EnableDNSRegistration** - **true** — если задано значение true, IP-адрес адаптера регистрируется в DNS.</li><li>**OSDAdapter0EnableFullDNSRegistration** - **true** — если задано значение true, IP-адрес адаптера регистрируется в DNS с использованием полного DNS-имени компьютера.</li><li>**OSDAdapter0EnableIPProtocolFiltering** - **true** — если задано значение true, на адаптере включается фильтрация протокола IP.</li><li>**OSDAdapter0IPProtocolFilterList** — список протоколов, для которых разрешена работа через протокол IP, с разделителями-запятыми. Это свойство игнорируется, если свойство **EnableIPProtocolFiltering** имеет значение **false**.</li><li>**OSDAdapter0EnableTCPFiltering** - **true** — если задано значение true, в адаптере включается фильтрация TCP-порта.</li><li>**OSDAdapter0TCPFilterPortList** — список разрешенных TCP-портов с разделителями-запятыми. Это свойство игнорируется, если свойство **EnableTCPFiltering** имеет значение **false**.</li><li>**OSDAdapter0TcpipNetbiosOptions** — параметры протокола NetBIOS через TCP/IP. Возможные значения:<br /><br /> <ul><li>0 — использовать параметры NetBIOS DHCP-сервера;</li><li>1 — включить NetBIOS через TCP/IP;</li><li>2 — отключить NetBIOS через TCP/IP.</li></ul></li><li>**OSDAdapter0EnableWINStrue** - **true** — если задано значение true, для разрешения имен используется WINS.</li><li>**OSDAdapter0WINSServerList** — список IP-адресов WINS-серверов с разделителями-запятыми. Это свойство игнорируется, если свойство **EnableWINS** имеет значение **false**.</li><li>**OSDAdapter0MacAddress** — MAC-адрес, используемый для сопоставления параметров с физическим сетевым адаптером.</li><li>**OSDAdapter0Name** — имя сетевого подключения, отображаемое на панели управления "Сетевые подключения". Длина имени должна находиться в диапазоне от 0 до 255 знаков.</li><li>**OSDAdapter0Index** — индекс параметров сетевого адаптера в массиве параметров.<br /><br />     OSDAdapterCount=1<br />    OSDAdapter0EnableDHCP=FALSE<br />    OSDAdapter0IPAddressList=192.168.0.40<br />    OSDAdapter0SubnetMask=255.255.255.0<br />    OSDAdapter0Gateways=192.168.0.1<br />    OSDAdapter0DNSSuffix=contoso.com</li></ul>|  
+|OSDAdapterCount<br /><br /> (входная)|Указывает количество сетевых адаптеров, установленных на конечном компьютере. Когда указано значение **OSDAdapterCount** , необходимо задать все параметры конфигурации для каждого адаптера. Например, если задать значение **OSDAdapterTCPIPNetbiosOptions** для конкретного адаптера, необходимо также настроить все значения для этого адаптера.<br /><br /> <br /><br /> Если это значение не указано, все значения **OSDAdapter** игнорируются.|  
+|OSDDNSDomain<br /><br /> (входная)|Задает первичный DNS-сервер, который будет использоваться конечным компьютером.|  
+|OSDDomainName<br /><br /> (входная)|Задает имя домена Windows, к которому должен быть присоединен конечный компьютер. Заданное значение должно быть допустимым именем домена доменных служб Active Directory.|  
+|OSDDomainOUName<br /><br /> (входная)|Задает в формате RFC 1779 имя подразделения (OU), к которому должен быть присоединен конечный компьютер. Если это значение задано, оно должно содержать полный путь.<br /><br /> Пример.<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
+|OSDEnableTCPIPFiltering<br /><br /> (входная)|Указывает, должна ли быть включена фильтрация TCP/IP.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDJoinAccount<br /><br /> (входная)|Указывает сетевую учетную запись, которая будет использоваться для добавления конечного компьютера в домен Windows.|  
+|OSDJoinPassword<br /><br /> (входная)|Указывает сетевой пароль, который будет использоваться для добавления конечного компьютера в домен Windows.|  
+|OSDNetworkJoinType<br /><br /> (входная)|Указывает, к чему присоединяется конечный компьютер — к домену Windows или рабочей группе Windows.<br /><br /> **"0"** означает, что конечный компьютер будет присоединен к домену Windows. **"1"** означает, что конечный компьютер будет присоединен к рабочей группе.<br /><br /> Допустимые значения:<br /><br /> **"0"**<br /><br /> **"1"**|  
+|OSDDNSSuffixSearchOrder<br /><br /> (входная)|Задает порядок поиска DNS для конечного компьютера.|  
+|OSDWorkgroupName<br /><br /> (входная)|Задает имя рабочей группы Windows, к которой будет присоединен конечный компьютер.<br /><br /> Необходимо указать значение либо этого параметра, либо параметра **OSDDomainName** . Имя рабочей группы не должно быть длиннее 32 символов.<br /><br /> Пример.<br /><br /> **"Accounting"**|  
 
-###  <a name="BKMK_ApplyOperatingSystem"></a> Variáveis de Ação da Sequência de Tarefas Aplicar Imagem do Sistema Operativo  
- As variáveis para esta ação especificam definições para o sistema operativo que pretende instalar no computador de destino. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [aplicar imagem do sistema operativo](task-sequence-steps.md#BKMK_ApplyOperatingSystemImage).  
+###  <a name="BKMK_ApplyOperatingSystem"></a> Применить образ операционной системы. Переменные действия последовательности задач  
+ Переменные этого действия указывают параметры операционной системы, которую требуется установить на конечном компьютере. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Применение образа операционной системы](task-sequence-steps.md#BKMK_ApplyOperatingSystemImage).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDConfigFileName<br /><br /> (entrada)|Especifica o nome de ficheiro do ficheiro de resposta de implementação do sistema operativo associado ao pacote de implementação do sistema operativo.|  
-|OSDImageIndex<br /><br /> (entrada)|Especifica o valor de índice da imagem do ficheiro WIM aplicado ao computador de destino.|  
-|OSDInstallEditionIndex<br /><br /> (entrada)|Especifica a versão do sistema operativo Windows Vista ou posterior que está instalado. Se não for especificada uma versão, a configuração do Windows determinará a versão a instalar utilizando a chave de produto referenciada.<br /><br /> Utilize apenas um valor de zero (0) se as condições seguintes forem verdadeiras:<br /><br /> -Estiver a instalar um sistema de operativo anterior ao Windows Vista<br />-Estiver a instalar uma edição de licença de volume do Windows Vista ou posterior, e é especificada qualquer chave de produto.<br /><br /> Valores válidos:<br /><br /> **"0"** (predefinição)|  
-|OSDTargetSystemDrive (saída)|Especifica a letra de unidade da partição que contém os ficheiros do sistema operativo.|  
+|OSDConfigFileName<br /><br /> (входная)|Указывает имя файла ответов развертывания операционной системы, связанного с пакетом развертывания операционной системы.|  
+|OSDImageIndex<br /><br /> (входная)|Указывает значение индекса образа WIM-файла, применяемого к конечному компьютеру.|  
+|OSDInstallEditionIndex<br /><br /> (входная)|Указывает устанавливаемую версию Windows Vista (или более позднюю версию ОС). Если версия не указана, программа установки Windows определит, какую версию требуется установить, по указанному ключу продукта.<br /><br /> Если выполняются указанные ниже условия, следует указывать только нулевое значение (0).<br /><br /> — Если выполняется установка операционной системы версии, предшествующей Windows Vista.<br />— Выполняется установка выпуска Windows Vista или более поздней версии по программе корпоративного лицензирования, и ключ продукта не указывается.<br /><br /> Допустимые значения:<br /><br /> **"0"** (по умолчанию)|  
+|OSDTargetSystemDrive (выходная)|Указывает букву диска раздела, содержащего файлы операционной системы.|  
 
-###  <a name="BKMK_ApplyWindowsSettings"></a> Variáveis de Ação da Sequência de Tarefas Aplicar Definições do Windows  
- As variáveis para esta ação especificam definições do Windows para o computador de destino, tal como o nome do computador, a chave de produto do Windows, o utilizador e a organização registados, e a palavra-passe de administrador local. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [aplicar definições do Windows](task-sequence-steps.md#BKMK_ApplyWindowsSettings).  
+###  <a name="BKMK_ApplyWindowsSettings"></a> Применить настройки Windows. Переменные действия последовательности задач  
+ Переменные для этого действия указывают параметры Windows на конечном компьютере, например имя компьютера, ключ продукта Windows, зарегистрированного пользователя и организацию, а также пароль локального администратора. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Применить настройки Windows](task-sequence-steps.md#BKMK_ApplyWindowsSettings).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDComputerName<br /><br /> (entrada)|Especifica o nome do computador de destino.<br /><br /> Exemplo:<br /><br /> **"%_SMSTSMachineName%"** (predefinição)|  
-|OSDProductKey<br /><br /> (entrada)|Especifica a chave de produto do Windows. O valor especificado tem de ter entre 1 e 255 carateres.|  
-|OSDRegisteredUserName<br /><br /> (entrada)|Especifica o nome de utilizador registado predefinido no novo sistema operativo. O valor especificado tem de ter entre 1 e 255 carateres.|  
-|OSDRegisteredOrgName<br /><br /> (entrada)|Especifica o nome da organização registado predefinido no novo sistema operativo. O valor especificado tem de ter entre 1 e 255 carateres.|  
-|OSDTimeZone<br /><br /> (entrada)|Especifica a predefinição de fuso horário utilizada no novo sistema operativo.|  
-|OSDServerLicenseMode<br /><br /> (entrada)|Especifica o modo de licenciamento do Windows Server utilizado.<br /><br /> Valores válidos:<br /><br /> **"PerSeat"**<br /><br /> **"PerServer"**|  
-|OSDServerLicenseConnectionLimit<br /><br /> (entrada)|Especifica o número máximo de ligações permitido. O número especificado tem estar no intervalo de 5 a 9999 ligações.|  
-|OSDRandomAdminPassword<br /><br /> (entrada)|Especifica uma palavra-passe gerada aleatoriamente para a conta de administrador no novo sistema operativo. Se definido como **verdadeiro**, a conta de administrador local será desativada no computador de destino. Se definido como **falso**, a conta de administrador local será ativada no computador de destino e a palavra-passe da conta de administrador local será atribuída o valor da variável **OSDLocalAdminPassword**.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**|  
-|OSDLocalAdminPassword<br /><br /> (entrada)|Especifica a palavra-passe de administrador local. Este valor é ignorado se a opção **Gerar aleatoriamente a palavra-passe do administrador local e desativar a conta nas plataformas suportadas** estiver ativada. O valor especificado tem de ter entre 1 e 255 carateres.|  
+|OSDComputerName<br /><br /> (входная)|Указывает имя конечного компьютера.<br /><br /> Пример.<br /><br /> **"%_SMSTSMachineName%"** (по умолчанию)|  
+|OSDProductKey<br /><br /> (входная)|Указывает ключ продукта Windows. Указанное значение должно иметь длину от 1 до 255 знаков.|  
+|OSDRegisteredUserName<br /><br /> (входная)|Указывает зарегистрированное имя пользователя по умолчанию в новой операционной системе. Указанное значение должно иметь длину от 1 до 255 знаков.|  
+|OSDRegisteredOrgName<br /><br /> (входная)|Указывает зарегистрированное имя организации по умолчанию в новой операционной системе. Указанное значение должно иметь длину от 1 до 255 знаков.|  
+|OSDTimeZone<br /><br /> (входная)|Указывает часовой пояс, по умолчанию используемый в новой операционной системе.|  
+|OSDServerLicenseMode<br /><br /> (входная)|Задает используемый режим лицензирования Windows Server.<br /><br /> Допустимые значения:<br /><br /> **"PerSeat"**<br /><br /> **"PerServer"**|  
+|OSDServerLicenseConnectionLimit<br /><br /> (входная)|Задает максимальное число подключений. Указанное число должно быть в диапазоне от 5 до 9999.|  
+|OSDRandomAdminPassword<br /><br /> (входная)|Указывает сгенерированный случайным образом пароль учетной записи администратора в новой операционной системе. Если задано значение **true**, учетная запись локального администратора на целевом компьютере будет отключена. Если задано значение **false**, учетная запись локального администратора будет включена на целевом компьютере, а в качестве пароля учетной записи локального администратора будет использоваться значение переменной **OSDLocalAdminPassword**.<br /><br /> Допустимые значения:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**|  
+|OSDLocalAdminPassword<br /><br /> (входная)|Указывает пароль локального администратора. Это значение игнорируется, если включен параметр **Задать пароль локального администратора случайным образом и отключить учетную запись локального администратора на всех поддерживаемых платформах** . Указанное значение должно иметь длину от 1 до 255 знаков.|  
 
-###  <a name="BKMK_AutoApplyDrivers"></a> Variáveis de Ação da Sequência de Tarefas Aplicar Controladores Automaticamente  
- As variáveis para esta ação especificam os controladores do Windows que estão instalados no computador de destino e se estão instalados controladores não assinados. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [aplicar controladores automaticamente](task-sequence-steps.md#BKMK_AutoApplyDrivers).  
+###  <a name="BKMK_AutoApplyDrivers"></a> Автоматическое применение драйверов. Переменные действия последовательности задач  
+ Переменные для этого действия указывают, какие драйверы Windows устанавливаются на конечном компьютере, и устанавливаются ли неподписанные драйверы. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Автоматическое применение драйверов](task-sequence-steps.md#BKMK_AutoApplyDrivers).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDAutoApplyDriverCategoryList<br /><br /> (entrada)|Uma lista delimitada por vírgulas dos IDs exclusivos das categorias do catálogo de controladores. Se for especificado, a ação da sequência de tarefas **Aplicar Controladores Automaticamente** considerará apenas os controladores que se encontram em, pelo menos, uma destas categorias ao instalar controladores. Este valor é opcional e não está especificado por predefinição. Os IDs das categorias disponíveis podem ser obtidos através da enumeração da lista de objetos **SMS_CategoryInstance** no site.|  
-|OSDAllowUnsignedDriver<br /><br /> (entrada)|Especifica se o Windows está configurado para permitir a instalação de controladores de dispositivo não assinados. Esta variável de sequência de tarefas não é utilizada na implementação do Windows Vista e sistemas operativos posteriores.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDAutoApplyDriverBestMatch<br /><br /> (entrada)|Especifica o que faz a ação da sequência de tarefas se existirem vários controladores de dispositivo no catálogo de controladores que são compatíveis com um dispositivo de hardware. Se definido como **"true"**, apenas o melhor controlador de dispositivo será instalado.  Se **falso**, todos os controladores de dispositivo compatíveis serão instalados e o sistema operativo irá escolher o melhor controlador a utilizar.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**|  
+|OSDAutoApplyDriverCategoryList<br /><br /> (входная)|Список уникальных идентификаторов категорий каталога драйверов с разделителями-запятыми. Если это значение задано, во время установки драйверов действие последовательности задач **Автоматическое применение драйверов** распространяется только на те драйверы, которые относятся как минимум к одной из указанных категорий. Это значение является необязательным и не задано по умолчанию. Доступные идентификаторы категорий можно получить посредством перечисления списка объектов **SMS_CategoryInstance** на сайте.|  
+|OSDAllowUnsignedDriver<br /><br /> (входная)|Указывает, разрешена ли в Windows установка неподписанных драйверов устройств. Эта переменная последовательности задач не используется при развертывании Windows Vista и более поздних версий операционной системы.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDAutoApplyDriverBestMatch<br /><br /> (входная)|Указывает, какие операции выполняет действие последовательности задач, если в каталоге драйверов есть несколько драйверов, совместимых с устройством. Если задано значение **true**, устанавливается только наиболее подходящий драйвер устройства.  Если задано значение **false**, устанавливаются все совместимые драйвера устройства, из числа которых операционной системой будет выбран наиболее подходящий драйвер.<br /><br /> Допустимые значения:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**|  
 
-###  <a name="BKMK_CaptureNetworkSettings"></a> Variáveis de Ação da Sequência de Tarefas Capturar Definições de Rede  
- As variáveis para esta ação especificam se as informações de configuração das definições do adaptador de rede (TCP/IP, DNS e WINS) são capturadas e se as informações de associação a grupos de trabalho ou a domínios são migradas como parte da implementação do sistema operativo. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [capturar definições de rede](task-sequence-steps.md#BKMK_CaptureNetworkSettings).  
+###  <a name="BKMK_CaptureNetworkSettings"></a> Сохранить параметры сети. Переменные действия последовательности задач  
+ Переменные этого действия указывают, выполняется ли сохранение сведений о параметрах сетевых адаптеров (TCP/IP, DNS и WINS) и выполняется ли миграция сведений о членстве в рабочей группе или домене в рамках развертывания операционной системы. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Сохранить параметры сети](task-sequence-steps.md#BKMK_CaptureNetworkSettings).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDMigrateAdapterSettings<br /><br /> (entrada)|Especifica se as informações de configuração das definições do adaptador de rede (TCP/IP, DNS e WINS) são capturadas.<br /><br /> Exemplos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**|  
-|OSDMigrateNetworkMembership<br /><br /> (entrada)|Especifica se as informações de associação a grupos de trabalho ou a domínios são migradas como parte da implementação do sistema operativo.<br /><br /> Exemplos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**|  
+|OSDMigrateAdapterSettings<br /><br /> (входная)|Указывает, выполняется ли сохранение сведений о параметрах сетевого адаптера (TCP/IP, DNS и WINS).<br /><br /> Примеры:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**|  
+|OSDMigrateNetworkMembership<br /><br /> (входная)|Указывает, выполняется ли миграция сведений о членстве в рабочей группе или домене в рамках развертывания операционной системы.<br /><br /> Примеры:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**|  
 
-###  <a name="BKMK_CaptureOperatingSystemImage"></a> Variáveis de Ação da Sequência de Tarefas Capturar Imagem do Sistema Operativo  
- As variáveis para esta ação especificam informações sobre a imagem do sistema operativo que está a ser capturada, tais como onde está armazenada a imagem, quem criou a imagem e uma descrição da imagem. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [Capturar imagem do sistema operativo](task-sequence-steps.md#BKMK_CaptureOperatingSystemImage).  
+###  <a name="BKMK_CaptureOperatingSystemImage"></a> Записать образ операционной системы. Переменные действия последовательности задач  
+ Переменные этого действия указывают сведения о снимаемом образе операционной системы, например место сохранения образа, создателя образа, а также его описание. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Записать образ операционной системы](task-sequence-steps.md#BKMK_CaptureOperatingSystemImage).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDCaptureAccount<br /><br /> (entrada)|Especifica o nome de uma conta do Windows que tem permissões para armazenar a imagem capturada numa partilha de rede.|  
-|OSDCaptureAccountPassword<br /><br /> (entrada)|Especifica a palavra-passe para a conta do Windows utilizada para armazenar a imagem capturada numa partilha de rede.|  
-|OSDCaptureDestination<br /><br /> (entrada)|Especifica a localização na qual a imagem do sistema operativo capturada é guardada. O comprimento máximo do nome do diretório é 255 carateres.|  
-|OSDImageCreator<br /><br /> (entrada)|Um nome opcional do utilizador que criou a imagem. Este nome é armazenado no ficheiro WIM. O comprimento máximo do nome de utilizador é 255 carateres.|  
-|OSDImageDescription<br /><br /> (entrada)|Uma descrição opcional definida pelo utilizador da imagem do sistema operativo capturada. Esta descrição é armazenada no ficheiro WIM. O comprimento máximo da descrição é 255 carateres.|  
-|OSDImageVersion<br /><br /> (entrada)|Número da versão opcional definido pelo utilizador para atribuir à imagem do sistema operativo capturada. Este número de versão é armazenado no ficheiro WIM. Este valor pode ser qualquer combinação de letras com um comprimento máximo de 32 carateres.|  
-|OSDTargetSystemRoot<br /><br /> (entrada)|Especifica o caminho para o diretório do Windows do sistema operativo instalado no computador de referência. Este sistema operativo é validado como sistema operativo suportado para captura pelo Configuration Manager.|  
+|OSDCaptureAccount<br /><br /> (входная)|Указывает имя учетной записи пользователя Windows, имеющей разрешения на снятие записанного образа в общей сетевой папке.|  
+|OSDCaptureAccountPassword<br /><br /> (входная)|Указывает пароль учетной записи Windows, используемой для снятия записанного образа в общей сетевой папке.|  
+|OSDCaptureDestination<br /><br /> (входная)|Указывает расположение, в котором сохраняется снятый образ операционной системы. Максимальная длина имени каталога составляет 255 знаков.|  
+|OSDImageCreator<br /><br /> (входная)|Необязательное имя пользователя, создавшего образ. Это имя хранится в WIM-файле. Максимальная длина имени пользователя составляет 255 знаков.|  
+|OSDImageDescription<br /><br /> (входная)|Необязательное описание снятого образа операционной системы, указываемое пользователем. Это описание хранится в WIM-файле. Максимальная длина описания составляет 255 знаков.|  
+|OSDImageVersion<br /><br /> (входная)|Необязательный, задаваемый пользователем номер версии, который назначается записанному образу операционной системы. Этот номер версии хранится в WIM-файле. Это значение может представлять собой любое сочетание букв общей длиной до 32 знаков.|  
+|OSDTargetSystemRoot<br /><br /> (входная)|Указывает путь к каталогу Windows с установленной операционной системой на эталонном компьютере. Эта операционная система проверяется на предмет того, поддерживает ли она запись в Configuration Manager.|  
 
-###  <a name="BKMK_CaptureUserState"></a> Variáveis de Ação da Sequência de Tarefas Capturar Estado do Utilizador  
- As variáveis para esta ação especificam informações utilizadas pela User State Migration Tool (USMT), tais como a pasta onde o estado do utilizador é guardado, opções da linha de comandos para a USMT e os ficheiros de configuração utilizados para controlar a captura de perfis de utilizador.  Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [capturar estado do utilizador](task-sequence-steps.md#BKMK_CaptureUserState).  
+###  <a name="BKMK_CaptureUserState"></a> Записать пользовательское состояние. Переменные действия последовательности задач  
+ Переменные для этого действия указывают сведения, используемые средством миграции пользовательской среды (USMT), например папку, в которой сохраняются данные о пользовательской среде, параметры командной строки USMT, а также файлы конфигурации, используемые для управления записью профилей пользователей.  Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Записать пользовательское состояние](task-sequence-steps.md#BKMK_CaptureUserState).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDStateStorePath<br /><br /> (entrada)|O UNC ou o nome de caminho local da pasta onde o estado de utilizador é guardado. Não tem predefinição.|  
-|OSDMigrateAdditionalCaptureOptions<br /><br /> (entrada)|Especifica opções user state migration tool (USMT) linha de comandos que são utilizadas ao capturar o estado do utilizador, mas não são expostas na interface de utilizador do Configuration Manager. As opções adicionais são especificadas sob a forma de cadeia que é acrescentada à linha de comando USMT gerada automaticamente.<br /><br /> <br /><br /> As opções da USMT especificadas com esta variável da sequência de tarefas não são validadas em termos de exatidão antes da execução da sequência de tarefas.|  
-|OSDMigrateMode<br /><br /> (entrada)|Permite-lhe personalizar os ficheiros que são capturados pela USMT. Se esta variável é definida como "Simple", em seguida, são utilizados apenas os ficheiros de configuração de USMT padrão. Se esta variável é definida como "Advanced", em seguida, a variável de sequência de tarefas OSDMigrateConfigFiles Especifica os ficheiros de configuração que utiliza a USMT.<br /><br /> Valores válidos:<br /><br /> **"Simples"**<br /><br /> **"Avançada"**|  
-|OSDMigrateConfigFiles<br /><br /> (entrada)|Especifica os ficheiros de configuração utilizados para controlar a captura de perfis de utilizador. Esta variável só é utilizada se OSDMigrateMode estiver definido como "Advanced". Este valor da lista delimitada por vírgulas está definido para efetuar a migração personalizada de perfis de utilizador.<br /><br /> Exemplo: miguser.xml,migsys.xml,migapps.xml|  
-|OSDMigrateContinueOnLockedFiles<br /><br /> (entrada)|Permite que a captura de estado do utilizador prossiga se não for possível capturar alguns ficheiros.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**|  
-|OSDMigrateEnableVerboseLogging<br /><br /> (entrada)|Ativa o registo verboso para a USMT.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDMigrateSkipEncryptedFiles<br /><br /> (entrada)|Especifica se são capturados ficheiros encriptados.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|_OSDMigrateUsmtPackageID<br /><br /> (entrada)|Especifica o ID de pacote do pacote do Configuration Manager que irá conter os ficheiros da USMT. Esta variável é necessária.|  
+|OSDStateStorePath<br /><br /> (входная)|UNC-путь или локальный путь к папке, в которой сохраняются данные о пользовательской среде. Значение по умолчанию отсутствует.|  
+|OSDMigrateAdditionalCaptureOptions<br /><br /> (входная)|Указывает параметры командной строки для средства миграции пользовательской среды (USMT), используемые при записи пользовательской среды, но не отображаемые в пользовательском интерфейсе Configuration Manager. Дополнительные параметры указываются в виде строки, присоединяемой к автоматически сгенерированной командной строке средства USMT.<br /><br /> <br /><br /> Параметры USMT, указываемые в этой переменной последовательности задач, не проверяются на точность перед выполнением последовательности задач.|  
+|OSDMigrateMode<br /><br /> (входная)|Позволяет настраивать файлы, записываемые средством USMT. Если для этой переменной присвоено значение Simple, то используются только стандартные файлы конфигурации USMT. Если эта переменная имеет значение Advanced, то переменная OSDMigrateConfigFiles последовательности задач указывает файлы конфигурации, используемые средством USMT.<br /><br /> Допустимые значения:<br /><br /> **"Simple"**<br /><br /> **"Advanced"**|  
+|OSDMigrateConfigFiles<br /><br /> (входная)|Указывает файлы конфигурации, используемые для управления записью профилей пользователей. Эта переменная используется только в случае если переменной OSDMigrateMode присвоено значение Advanced. Это значение списка с разделителями-запятыми задается с целью выполнения настраиваемой миграции профилей пользователей.<br /><br /> Например: miguser.xml,migsys.xml,migapps.xml|  
+|OSDMigrateContinueOnLockedFiles<br /><br /> (входная)|Позволяет записывать состояния пользователей, если запись некоторых файлов выполнить невозможно.<br /><br /> Допустимые значения:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**|  
+|OSDMigrateEnableVerboseLogging<br /><br /> (входная)|Включает запись подробных сведений в журнал средством USMT.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDMigrateSkipEncryptedFiles<br /><br /> (входная)|Указывает, записываются ли зашифрованные файлы.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|_OSDMigrateUsmtPackageID<br /><br /> (входная)|Указывает ИД пакета Configuration Manager, который будет содержать файлы средства миграции пользовательской среды. Это обязательная переменная.|  
 
-###  <a name="BKMK_CaptureWindowsSettings"></a> Variáveis de Ação da Sequência de Tarefas Capturar Definições do Windows  
- As variáveis para esta ação especificam se as definições específicas do Windows são migradas para o computador de destino, como o nome do computador, o nome da organização registado e informações de fuso horário. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [capturar definições do Windows](task-sequence-steps.md#BKMK_CaptureWindowsSettings).  
+###  <a name="BKMK_CaptureWindowsSettings"></a> Сохранить параметры Windows. Переменные действия последовательности задач  
+ Переменные этого действия указывают, выполняется ли миграция определенных параметров Windows на конечный компьютер, например, имени компьютера, имени зарегистрированной организации и часового пояса. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Сохранить параметры Windows](task-sequence-steps.md#BKMK_CaptureWindowsSettings).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDMigrateComputerName<br /><br /> (entrada)|Especifica se o nome do computador é migrado.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**<br /><br /> Se o valor for "true", em seguida, a variável OSDComputerName é definida com o nome NetBIOS do computador.|  
-|OSDComputerName<br /><br /> (saída)|Definida como o nome NetBIOS do computador. O valor é definido apenas se a variável OSDMigrateComputerName for definida como "true".|  
-|OSDMigrateRegistrationInfo<br /><br /> (entrada)|Especifica se as informações sobre a organização e o utilizador do computador são migradas.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**<br /><br /> Se o valor for "true", em seguida, a variável OSDRegisteredOrgName é definida como o nome da organização registado do computador.|  
-|OSDRegisteredOrgName<br /><br /> (saída)|Definida como o nome da organização registado do computador. O valor é definido apenas se a variável OSDMigrateRegistrationInfo for definida como "true".|  
-|OSDMigrateTimeZone<br /><br /> (entrada)|Especifica se o fuso horário do computador é migrado.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**<br /><br /> Se o valor for "true", em seguida, a variável OSDTimeZone é definida para o fuso horário do computador.|  
-|OSDTimeZone<br /><br /> (saída)|Definida como o fuso horário do computador. O valor é definido apenas se a variável OSDMigrateTimeZone for definida como "true".|  
+|OSDMigrateComputerName<br /><br /> (входная)|Указывает, переносится ли имя компьютера.<br /><br /> Допустимые значения:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**<br /><br /> Если задано значение true, то переменной OSDComputerName присваивается NetBIOS-имя компьютера.|  
+|OSDComputerName<br /><br /> (выходная)|Указывает NetBIOS-имя компьютера. Значение задается, только если переменной OSDMigrateComputerName присвоено значение true.|  
+|OSDMigrateRegistrationInfo<br /><br /> (входная)|Указывает, выполняется ли миграция сведений о пользователях и организации.<br /><br /> Допустимые значения:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**<br /><br /> Если задано значение true, то переменной OSDRegisteredOrgName присваивается зарегистрированное имя организации компьютера.|  
+|OSDRegisteredOrgName<br /><br /> (выходная)|Этой переменной задается зарегистрированное имя организации компьютера. Значение задается, только если переменной OSDMigrateRegistrationInfo присвоено значение true.|  
+|OSDMigrateTimeZone<br /><br /> (входная)|Указывает, переносится ли часовой пояс компьютера.<br /><br /> Допустимые значения:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**<br /><br /> Если задано значение true, то переменной OSDTimeZone присваивается часовой пояс компьютера.|  
+|OSDTimeZone<br /><br /> (выходная)|Указывает часовой пояс компьютера. Значение задается, только если переменной OSDMigrateTimeZone присваивается значение true.|  
 
-###  <a name="BKMK_ConnecttoNetworkFolder"></a> Variáveis de Ação da Sequência de Tarefas Ligar à Pasta de Rede  
- As variáveis para esta ação especificam informações sobre uma pasta numa rede, tais como a conta utilizada e a palavra-passe para ligar à pasta de rede, a letra de unidade da pasta e o caminho para a pasta. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [ligar à pasta de rede](task-sequence-steps.md#BKMK_ConnectToNetworkFolder).  
+###  <a name="BKMK_ConnecttoNetworkFolder"></a> Подключить к сетевой папке. Переменные действия последовательности задач  
+ Переменные этого действия указывают сведения о папке в сети, например учетную запись и пароль, используемые для подключения к сетевой папке, букву диска папки и путь к папке. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Подключить к сетевой папке](task-sequence-steps.md#BKMK_ConnectToNetworkFolder).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|SMSConnectNetworkFolderAccount<br /><br /> (entrada)|Especifica a conta de administrador que é utilizada para ligar à partilha de rede.|  
-|SMSConnectNetworkFolderDriveLetter<br /><br /> (entrada)|Especifica a letra de unidade de rede à qual ligar. Este valor é opcional; se não for especificado, a ligação de rede não é mapeada para uma letra de unidade. Se este valor for especificado, o valor tem de estar compreendido no intervalo de D: a Z:.  Além disso, não utilize X:, uma vez que é a letra de unidade utilizada pelo Windows PE durante a fase Windows PE.<br /><br /> Exemplos:<br /><br /> **"D:"**<br /><br /> **"E:"**|  
-|SMSConnectNetworkFolderPassword<br /><br /> (entrada)|Especifica a palavra-passe de rede que é utilizada para ligar à partilha de rede.|  
-|SMSConnectNetworkFolderPath<br /><br /> (entrada)|Especifica o caminho de rede para a ligação.<br /><br /> Exemplo:<br /><br /> **"\\\servername\sharename"**|  
+|SMSConnectNetworkFolderAccount<br /><br /> (входная)|Указывает учетную запись администратора, используемую для подключения к общей сетевой папке.|  
+|SMSConnectNetworkFolderDriveLetter<br /><br /> (входная)|Указывает букву диска, с которой сопоставляется сетевая папка. Это значение является необязательным. Если оно не указано, сетевое подключение не связывается с буквой диска. Если это значение указано, оно должно быть в диапазоне от D: до Z:.  Кроме того, не следует использовать букву X:, т. к. эта буква диска используется средой предустановки Windows (Windows PE).<br /><br /> Примеры:<br /><br /> **"D:"**<br /><br /> **"E:"**|  
+|SMSConnectNetworkFolderPassword<br /><br /> (входная)|Указывает сетевой пароль, используемый для подключения к общей сетевой папке.|  
+|SMSConnectNetworkFolderPath<br /><br /> (входная)|Указывает сетевой путь для подключения.<br /><br /> Пример:<br /><br /> **"\\\имя_сервера\имя_общей_папки"**|  
 
-###  <a name="BKMK_ConvertDisk"></a> Variáveis de Ação da Sequência de Tarefas Converter Disco em Dinâmico  
- A variável para esta ação especifica o número do disco físico a converter de um disco básico para um disco dinâmico. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [Converter disco em dinâmico](task-sequence-steps.md#BKMK_ConvertDisktoDynamic).  
+###  <a name="BKMK_ConvertDisk"></a> Преобразовать диск в динамический диск. Переменные действия последовательности задач  
+ Переменная этого действия указывает номер физического диска, который будет преобразован из базового в динамический. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Преобразовать диск в динамический диск](task-sequence-steps.md#BKMK_ConvertDisktoDynamic).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDConvertDiskIndex<br /><br /> (entrada)|Especifica o número do disco físico que é convertido.|  
+|OSDConvertDiskIndex<br /><br /> (входная)|Указывает номер преобразуемого физического диска.|  
 
-###  <a name="BKMK_EnableBitLocker"></a> Variáveis de Ação da Sequência de Tarefas Ativar BitLocker  
- As variáveis para esta ação especificam as opções de palavra-passe de recuperação e de chave de arranque utilizadas para ativar o BitLocker no computador de destino. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [ativar BitLocker](task-sequence-steps.md#BKMK_EnableBitLocker).  
+###  <a name="BKMK_EnableBitLocker"></a> Включить BitLocker. Переменные действия последовательности задач  
+ Переменные этого действия указывают параметры пароля восстановления и ключа запуска для включения BitLocker на конечном компьютере. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Включить BitLocker](task-sequence-steps.md#BKMK_EnableBitLocker).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDBitLockerRecoveryPassword<br /><br /> (entrada)|Em vez de gerar uma palavra-passe de recuperação aleatória, a ação da sequência de tarefas **Ativar BitLocker** utiliza o valor especificado como a palavra-passe de recuperação. O valor tem de ser uma palavra-passe de recuperação do BitLocker numérica válida.|  
-|OSDBitLockerStartupKey<br /><br /> (entrada)|Em vez de gerar uma chave de arranque aleatória para a opção de gestão de chaves **chave de arranque em USB apenas,** o **ativar BitLocker** ação de sequência de tarefas utiliza o Trusted Platform Module (TPM) como a chave de arranque. O valor tem de ser uma chave de arranque do BitLocker codificada em Base64 de 256 bits válida.|  
+|OSDBitLockerRecoveryPassword<br /><br /> (входная)|Вместо генерирования случайного пароля восстановления задача **Включить BitLocker** использует в качестве пароля восстановления значение этой переменной. Значение должно быть допустимым числовым паролем восстановления BitLocker.|  
+|OSDBitLockerStartupKey<br /><br /> (входная)|Вместо генерирования случайного ключа запуска для параметра управления ключами **Ключ запуска на USB** действие последовательности задач **Включить BitLocker** использует доверенный платформенный модуль (TPM) в качестве ключа запуска. Значение должно представлять собой допустимый 256-разрядный ключ запуска, зашифрованный с использованием Base64.|  
 
-###  <a name="BKMK_FormatPartitionDisk"></a> Variáveis de Ação da Sequência de Tarefas Formatar e Particionar Disco  
- As variáveis para esta ação especificam informações para formatação e criação de partições de um disco físico, como o número de disco e uma matriz de definições de partição. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [formatar e particionar disco](task-sequence-steps.md#BKMK_FormatandPartitionDisk).  
+###  <a name="BKMK_FormatPartitionDisk"></a> Отформатировать диск и создать разделы. Переменные действия последовательности задач  
+ Переменные этого действия указывают сведения для форматирования и разбиения на разделы физического диска, например номер диска и массив параметров раздела. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Отформатировать диск и создать разделы](task-sequence-steps.md#BKMK_FormatandPartitionDisk).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDDiskIndex<br /><br /> (entrada)|Especifica o número do disco físico a particionar.|  
-|OSDDiskpartBiosCompatibilityMode<br /><br /> (entrada)|Especifica se pretende desativar otimizações de alinhamento de cache ao particionar o disco rígido para compatibilidade com certos tipos de BIOS. Isto poderá ser necessário ao implementar os sistemas operativos Windows XP ou Windows Server 2003. Para mais informações, consulte o [artigo 931760](http://go.microsoft.com/fwlink/?LinkId=134081) e o [artigo 931761](http://go.microsoft.com/fwlink/?LinkId=134082) da Base de Dados de Conhecimento Microsoft.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDGPTBootDisk<br /><br /> (entrada)|Especifica se pretende criar uma partição EFI num disco rígido GPT para que possa ser utilizado como disco de arranque em computadores baseados em EFI.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDPartitions<br /><br /> (entrada)|Especifica uma matriz de definições de partição; consulte o tópico do SDK para aceder a variáveis de matriz no ambiente de sequência de tarefas.<br /><br /> Esta variável de sequência de tarefas é uma variável de matriz. Cada um dos elementos da matriz representa as definições para uma partição individual no disco rígido. As definições especificadas para cada partição são acedidas através da combinação do nome da variável de matriz com o número de partição do disco baseado em zero e o nome da propriedade.<br /><br /> Por exemplo, os nomes de variáveis seguintes podem ser utilizados para definir as propriedades para a primeira partição que será criada por esta ação de sequência de tarefas no disco rígido:<br /><br /> - **OSDPartitions0Type** -Especifica o tipo de partição. Esta propriedade é necessária. Os valores válidos são "**Principal**", "**Expandida**", "**Lógica**" e "**Oculta**".<br />-   **OSDPartitions0FileSystem** - especifica o tipo de sistema de ficheiros a utilizar ao formatar a partição. Esta propriedade é opcional; se não for especificado um sistema de ficheiros, a partição não será formatada. Os valores válidos são "**FAT32**" e "**NTFS**".<br />-   **OSDPartitions0Bootable** - especifica se a partição é de arranque. Esta propriedade é necessária. Se este valor for definido como "**VERDADEIRO**" para discos MBR, esta será tornada na partição ativa.<br />-   **OSDPartitions0QuickFormat** -especifica o tipo de formato utilizado. Esta propriedade é necessária. Se este valor for definido como "**VERDADEIRO**", será efetuada uma formatação rápida; caso contrário, será efetuada uma formação completa.<br />-   **OSDPartitions0VolumeName** - especifica o nome atribuído ao volume quando é formatado. Esta propriedade é opcional.<br />-   **OSDPartitions0Size** - especifica o tamanho da partição. As unidades são especificadas pela variável **OSDPartitions0SizeUnits** . Esta propriedade é opcional. Se esta propriedade não for especificada, a partição é criada utilizando todo o espaço livre restante.<br />-   **OSDPartitions0SizeUnits** - especifica as unidades que serão utilizadas ao interpretar a variável da sequência de tarefas **OSDPartitions0Size** . Esta propriedade é opcional. Os valores válidos são "**MB**" (predefinição), "**GB**" e "**Percentagem**".<br />-   **OSDPartitions0VolumeLetterVariable** - as partições utilizarão sempre a letra de unidade disponível seguinte no Windows PE quando forem criadas. Utilize esta propriedade opcional para especificar o nome de outra variável da sequência de tarefas, que será utilizado para guardar a nova letra de unidade para referência futura.<br /><br /> <br /><br /> Se pretender definir várias partições com esta ação de sequência de tarefas, as propriedades para a segunda partição podem ser definidas utilizando o respetivo índice no nome da variável; por exemplo, **OSDPartitions1Type**, **OSDPartitions1FileSystem**, **OSDPartitions1Bootable**, **OSDPartitions1QuickFormat**, **OSDPartitions1VolumeName** , etc.|  
-|OSDPartitionStyle<br /><br /> (entrada)|Especifica o estilo de partição a utilizar ao particionar o disco. "**MBR**" indica o estilo de partição de registo de arranque principal e "**GPT**" indica o estilo de Tabela de Partições GUID.<br /><br /> Valores válidos:<br /><br /> **"GPT"**<br /><br /> **"MBR"**|  
+|OSDDiskIndex<br /><br /> (входная)|Указывает номер физического диска, подлежащего разбиению на разделы.|  
+|OSDDiskpartBiosCompatibilityMode<br /><br /> (входная)|Указывает, необходимо ли отключать оптимизацию упорядочивания кэша при разбиении жесткого диска для обеспечения совместимости с определенными типами BIOS. Это может потребоваться при развертывании операционных систем Windows XP или Windows Server 2003. Дополнительные сведения см. в [статье 931760](http://go.microsoft.com/fwlink/?LinkId=134081) и [статье 931761](http://go.microsoft.com/fwlink/?LinkId=134082) базы знаний Майкрософт.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDGPTBootDisk<br /><br /> (входная)|Указывает, требуется ли создание раздела EFI на жестком диске GPT, чтобы его можно было использовать в качестве загрузочного диска на компьютерах, поддерживающих EFI.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDPartitions<br /><br /> (входная)|Указывает массив параметров раздела. См. статью, посвященную SDK, для получения информации о доступе к переменным массива в среде последовательности задач.<br /><br /> Эта переменная последовательности задач является массивом. Каждый элемент массива содержит параметры для одного раздела на жестком диске. Для доступа к параметрам, заданным для каждого раздела, следует использовать имя переменной типа "массив", номер раздела (нумерация начинается с 0) и имя свойства.<br /><br /> Например, приведенные ниже имена переменных могут использоваться для задания свойств первого раздела, который будет создан на диске при помощи данного действия последовательности задач.<br /><br /> - **OSDPartitions0Type**. Задает тип раздела. Это обязательное свойство. Допустимые значения: "**Primary**", "**Extended**", "**Logical**" и "**Hidden**".<br />-   **OSDPartitions0FileSystem** . Указывает тип файловой системы, используемой при форматировании раздела. Это необязательное свойство. Если файловая система не указана, форматирование раздела не выполняется. Допустимые значения: "**FAT32**" и "**NTFS**".<br />-   **OSDPartitions0Bootable** . Указывает, является ли раздел загрузочным. Это обязательное свойство. Если эта переменная имеет значение "**TRUE**" для MBR-дисков, то данный раздел будет активным.<br />-   **OSDPartitions0QuickFormat** . Задает тип используемого форматирования. Это обязательное свойство. Если этой переменной задано значение "**TRUE**", будет выполнено быстрое форматирование; в противном случае будет выполнено полное форматирование.<br />-   **OSDPartitions0VolumeName** . Указывает имя, назначаемое тому при форматировании. Это свойство является необязательным.<br />-   **OSDPartitions0Size** . Указывает размер раздела. Единицы задаются переменной **OSDPartitions0SizeUnits** . Это свойство является необязательным. Если это свойство не указано, раздел создается с использованием всего свободного пространства.<br />-   **OSDPartitions0SizeUnits** . Указывает единицы, которые будут использоваться для обозначения переменной последовательности задач **OSDPartitions0Size** . Это свойство является необязательным. Допустимые значения: "**MB**" (по умолчанию), "**GB**" и "**Percent**".<br />-   **OSDPartitions0VolumeLetterVariable** . Разделам при их создании в среде предустановки Windows всегда назначается следующая доступная буква диска. Используйте этот необязательный параметр, чтобы указать имя другой переменной последовательности задач, которая будет использоваться для сохранения новой буквы диска для дальнейшего обращения.<br /><br /> <br /><br /> Если с помощью этого действия последовательности задач будут определены несколько разделов, свойства второго раздела могут быть определены с использованием индексов в имени переменной, например: **OSDPartitions1Type**, **OSDPartitions1FileSystem**, **OSDPartitions1Bootable**, **OSDPartitions1QuickFormat**, **OSDPartitions1VolumeName** и т. д.|  
+|OSDPartitionStyle<br /><br /> (входная)|Задает стиль раздела для использования при создании разделов на диске. "**MBR**" означает стиль раздела "Основная загрузочная запись", а "**GPT**" означает стиль "Таблица разделов GUID".<br /><br /> Допустимые значения:<br /><br /> **"GPT"**<br /><br /> **"MBR"**|  
 
-###  <a name="BKMK_InstallSoftwareUpdates"></a> Variáveis de Ação da Sequência de Tarefas Instalar Atualizações de Software  
- A variável para esta ação especifica se pretende instalar todas as atualizações ou apenas as atualizações obrigatórias. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [instalar atualizações de Software](task-sequence-steps.md#BKMK_InstallSoftwareUpdates).  
+###  <a name="BKMK_InstallSoftwareUpdates"></a> Установить обновления программного обеспечения. Переменные действия последовательности задач  
+ Переменная этого действия указывает, требуется ли установка всех обновлений, либо должны устанавливаться только обязательные обновления. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Установить обновления программного обеспечения](task-sequence-steps.md#BKMK_InstallSoftwareUpdates).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação<br /><br /> (entrada)|Descrição|  
+|Имя переменной действия<br /><br /> (входная)|Описание|  
 |----------------------------------------|-----------------|  
-|SMSInstallUpdateTarget<br /><br /> (entrada)|Especifica se pretende instalar todas as atualizações ou apenas as atualizações obrigatórias.<br /><br /> Valores válidos:<br /><br /> **"Todas"**<br /><br /> **"Obrigatórias"**|  
+|SMSInstallUpdateTarget<br /><br /> (входная)|Указывает, следует ли установить все обновления или только обязательные обновления.<br /><br /> Допустимые значения:<br /><br /> **"All"**<br /><br /> **"Mandatory"**|  
 
-###  <a name="BKMK_JoinDomainWorkgroup"></a> Variáveis de Ação da Sequência de Tarefas Associar Domínio ou Grupo de Trabalho  
- As variáveis para esta ação especificam informações necessárias para associar o computador de destino a um grupo de trabalho ou domínio do Windows. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [associar domínio ou grupo de trabalho](task-sequence-steps.md#BKMK_JoinDomainorWorkgroup).  
+###  <a name="BKMK_JoinDomainWorkgroup"></a> Присоединить к домену или рабочей группе. Переменные действия последовательности задач  
+ Переменные этого действия указывают сведения, необходимые для присоединения конечного компьютера к домену или рабочей группе Windows. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Присоединить к домену или рабочей группе](task-sequence-steps.md#BKMK_JoinDomainorWorkgroup).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDJoinAccount<br /><br /> (entrada)|Especifica a conta utilizada pelo computador de destino para associar o domínio do Windows. Esta variável é necessária ao associar um domínio.|  
-|OSDJoinDomainName<br /><br /> (entrada)|Especifica o nome de um domínio Windows ao qual o computador de destino é associado. O comprimento do nome do domínio do Windows tem de ser entre 1 e 255 carateres.|  
-|OSDJoinDomainOUName<br /><br /> (entrada)|Especifica o nome do formato RFC 1779 da unidade organizacional (UO) ao qual o computador de destino é associado. Se for especificado, o valor tem de conter o caminho completo. O comprimento do nome da UO do domínio do Windows tem de ser entre 1 e 32.767 carateres. Este valor não é definido se a variável **OSDJoinType** for definida como "1" (associar grupo de trabalho).<br /><br /> Exemplo:<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
-|OSDJoinPassword<br /><br /> (entrada)|Especifica a palavra-passe de rede que é utilizada pelo computador de destino para associar um domínio Windows. Se a variável não for especificada, é experimentada uma palavra-passe em branco. Este valor é necessário se a variável **OSDJoinType** for definida como "**0**" (associar domínio).|  
-|OSDJoinSkipReboot<br /><br /> (entrada)|Especifica se pretende ignorar o reinício após o computador de destino ser associado ao domínio ou grupo de trabalho.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"**|  
-|OSDJoinType<br /><br /> (entrada)|Especifica se o computador de destino é associado a um domínio Windows ou a um grupo de trabalho. Para associar o computador de destino a um domínio Windows, especifique "**0**". Para associar o computador de destino a um grupo de trabalho, especifique "**1**".<br /><br /> Valores válidos:<br /><br /> **"0"**<br /><br /> **"1"**|  
-|OSDJoinWorkgroupName<br /><br /> (entrada)|Especifica o nome de um grupo de trabalho ao qual o computador de destino é associado. O comprimento do nome do grupo de trabalho tem de ser entre 1 e 32 carateres.<br /><br /> Exemplo:<br /><br /> **"Contabilidade"**|  
+|OSDJoinAccount<br /><br /> (входная)|Указывает учетную запись, используемую конечным компьютером для присоединения к домену Windows. Эта переменная является обязательной при присоединении к домену.|  
+|OSDJoinDomainName<br /><br /> (входная)|Задает имя домена Windows, к которому будет присоединен целевой компьютер. Имя домена Windows может иметь длину от 1 до 255 символов.|  
+|OSDJoinDomainOUName<br /><br /> (входная)|Задает в формате RFC 1779 имя подразделения (OU), к которому должен быть присоединен конечный компьютер. Если это значение задано, оно должно содержать полный путь. Имя подразделения домена Windows может иметь длину от 0 до 32 767 символов. Это значение не задается, если переменной **OSDJoinType** задано значение "1" (присоединение к рабочей группе).<br /><br /> Пример.<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
+|OSDJoinPassword<br /><br /> (входная)|Указывает сетевой пароль, используемый конечным компьютером для присоединения к домену Windows. Если переменная не указана, предпринимается попытка использования пустого пароля. Это значение является обязательным, если переменной **OSDJoinType** задано значение "**0**" (присоединение к домену).|  
+|OSDJoinSkipReboot<br /><br /> (входная)|Указывает, следует ли пропустить перезагрузку после присоединения конечного компьютера к домену или рабочей группе.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"**|  
+|OSDJoinType<br /><br /> (входная)|Указывает, к чему присоединяется конечный компьютер — к домену Windows или рабочей группе Windows. Чтобы присоединить конечный компьютер к домену Windows, укажите "**0**". Чтобы присоединить конечный компьютер к рабочей группе, укажите "**1**".<br /><br /> Допустимые значения:<br /><br /> **"0"**<br /><br /> **"1"**|  
+|OSDJoinWorkgroupName<br /><br /> (входная)|Задает имя рабочей группы, к которой будет присоединен конечный компьютер. Имя рабочей группы должно иметь длину от 1 до 32 символов.<br /><br /> Пример.<br /><br /> **"Accounting"**|  
 
-###  <a name="BKMK_PrepareWindowsCapture"></a> Variáveis de Ação da Sequência de Tarefas Preparar Windows para Captura  
- As variáveis para esta ação especificam informações utilizadas para capturar o sistema operativo Windows a partir do computador de destino. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [preparar ConfigMgr Client para captura](task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture).  
+###  <a name="BKMK_PrepareWindowsCapture"></a> Подготовка Windows перед снятием образа. Переменные действия последовательности задач  
+ Переменные этого действия указывают сведения, используемые для записи операционной системы Windows с конечного компьютера. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Подготовка Windows перед снятием образа](task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDBuildStorageDriverList<br /><br /> (entrada)|Especifica se o sysprep cria uma lista de controladores de dispositivo de armazenamento em massa. Esta definição aplica-se apenas ao Windows XP e ao Windows Server 2003. Preencherá a secção [SysprepMassStorage] de sysprep.inf com informações sobre todos os controladores de armazenamento em massa que são suportadas pela imagem a capturar.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDKeepActivation<br /><br /> (entrada)|Especifica se o sysprep repõe o sinalizador de ativação do produto.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDTargetSystemRoot<br /><br /> (saída)|Especifica o caminho para o diretório do Windows do sistema operativo instalado no computador de referência. Este sistema operativo é validado como sistema operativo suportado para captura pelo Configuration Manager.|  
+|OSDBuildStorageDriverList<br /><br /> (входная)|Указывает, будет ли программа sysprep создавать список драйверов запоминающих устройств. Этот параметр применим только в операционных системах Windows XP и Windows Server 2003. Он заполняет раздел [SysprepMassStorage] файла sysprep.inf сведениями обо всех драйверах накопителей большой емкости, поддерживаемых снимаемым образом.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDKeepActivation<br /><br /> (входная)|Указывает, будет ли программа sysprep сбрасывать флаг активации продукта.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDTargetSystemRoot<br /><br /> (выходная)|Указывает путь к каталогу Windows с установленной операционной системой на эталонном компьютере. Эта операционная система проверяется на предмет того, поддерживает ли она запись в Configuration Manager.|  
 
-###  <a name="BKMK_ReleaseStateStore"></a> Variáveis de Ação da Sequência Disponibilizar Armazenamento de Estados  
- As variáveis para esta ação especificam informações utilizadas para libertar o estado do utilizador armazenado. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [disponibilizar armazenamento de Estados](task-sequence-steps.md#BKMK_ReleaseStateStore).  
+###  <a name="BKMK_ReleaseStateStore"></a> Освободить хранилище состояний. Переменные действия последовательности  
+ Переменные этого действия указывают сведения, используемые для освобождения сохраненного состояния пользователя. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Освободить хранилище состояний](task-sequence-steps.md#BKMK_ReleaseStateStore).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDStateStorePath<br /><br /> (entrada)|O UNC ou nome do caminho local para a localização a partir da qual o estado do utilizador é restaurado. Este valor é utilizado pela ação da sequência de tarefas **Capturar Estado do Utilizador** e pela ação da sequência de tarefas **Restaurar Estado do Utilizador** .|  
+|OSDStateStorePath<br /><br /> (входная)|UNC-путь или локальный путь к расположению, из которого восстанавливается состояние пользователя. Это значение используется как действием **Записать пользовательское состояние** , так и действием **Восстановить пользовательское состояние** последовательности задач.|  
 
-###  <a name="BKMK_RequestState"></a> Variáveis de Ação da Sequência de Tarefas Solicitar Armazenamento de Estados  
- As variáveis para esta ação especificam informações utilizadas para solicitar o estado do utilizador armazenado, como a pasta no ponto de migração de estado onde os dados de utilizador são armazenados. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [disponibilizar armazenamento de Estados](../../osd/understand/task-sequence-steps.md#BKMK_ReleaseStateStore).  
+###  <a name="BKMK_RequestState"></a> Запросить хранилище состояний. Переменные действия последовательности задач  
+ Переменные этого действия указывают сведения, используемые для запрашивания сохраненного состояния пользователей, например сведения о папке в точке миграции состояния, в которой сохранены данные пользователя. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Освободить хранилище состояний](../../osd/understand/task-sequence-steps.md#BKMK_ReleaseStateStore).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDStateFallbackToNAA<br /><br /> (entrada)|Especifica se a Conta de Acesso à Rede é utilizada como contingência quando a conta de computador falha a ligação ao ponto de migração de estado.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDStateSMPRetryCount<br /><br /> (entrada)|Especifica o número de vezes que o passo de sequência de tarefas tenta encontrar um ponto de migração de estado antes de o passo falhar. O número especificado tem de estar compreendido entre 0 e 600.|  
-|OSDStateSMPRetryTime<br /><br /> (entrada)|Especifica o número de segundos que o passo de sequência de tarefas aguarda entre as tentativas. O número de segundos pode ter um máximo de 30 carateres.|  
-|OSDStateStorePath<br /><br /> (saída)|O caminho UNC para a pasta no ponto de migração de estado onde o estado do utilizador está armazenado.|  
+|OSDStateFallbackToNAA<br /><br /> (входная)|Указывает, используется ли учетная запись доступа к сети в качестве резервной в случае, если учетная запись компьютера не может подключиться к точке миграции состояния.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDStateSMPRetryCount<br /><br /> (входная)|Указывает количество попыток поиска точки миграции состояния последовательностью задач, после которого шаг завершается неудачей. Может быть указано количество от 0 до 600.|  
+|OSDStateSMPRetryTime<br /><br /> (входная)|Указывает время в секундах между попытками поиска, предпринимаемыми последовательностью задач. Можно указать значение периода длиной максимум 30 символов.|  
+|OSDStateStorePath<br /><br /> (выходная)|UNC-путь к папке в точке миграции состояния, где сохраняется состояние пользователя.|  
 
-###  <a name="BKMK_RestartComputer"></a> Variáveis de Ação da Sequência de Tarefas Reiniciar Computador  
- As variáveis para esta ação especificam informações utilizadas para reiniciar o computador de destino. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [reiniciar o computador](task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer).  
+###  <a name="BKMK_RestartComputer"></a> Перезагрузить компьютер. Переменные действия последовательности задач  
+ Переменные этого действия указывают сведения, используемые для перезагрузки конечного компьютера. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Перезагрузить компьютер](task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|SMSRebootMessage<br /><br /> (entrada)|Especifica a mensagem a apresentar aos utilizadores antes de reiniciar o computador de destino. Se esta variável não for definida, será apresentado o texto da mensagem predefinida. A mensagem especificada não pode exceder os 512 carateres.<br /><br /> Exemplo:<br /><br /> -"Este computador será reiniciado; Guarde o seu trabalho."|  
-|SMSRebootTimeout<br /><br /> (entrada)|Especifica o número de segundos durante o qual o aviso é apresentado ao utilizador antes de o computador ser reiniciado. Especifique zero segundos para indicar que não é apresentada qualquer mensagem de reinício.<br /><br /> Exemplos:<br /><br /> **"0"** (predefinição)<br /><br /> **"5"**<br /><br /> **"10"**|  
+|SMSRebootMessage<br /><br /> (входная)|Указывает сообщение, отображаемое пользователям перед перезагрузкой конечного компьютера. Если эта переменная не задана, отображается сообщение по умолчанию. Длина указанного сообщения не должна превышать 512 знаков.<br /><br /> Пример:<br /><br /> — "Этот компьютер будет перезагружен. Пожалуйста, сохраните работу."|  
+|SMSRebootTimeout<br /><br /> (входная)|Указывает время в секундах, которое проходит с момента отображения предупреждения пользователю до перезагрузки компьютера. Чтобы отключить сообщение о перезагрузке, укажите количество секунд, равное нулю.<br /><br /> Примеры:<br /><br /> **"0"** (по умолчанию)<br /><br /> **"5"**<br /><br /> **"10"**|  
 
-###  <a name="BKMK_RestoreUserState"></a> Variáveis de Ação da Sequência de Tarefas Restaurar Estado do Utilizador  
- As variáveis para esta ação especificam informações utilizadas para restaurar o estado do utilizador do computador de destino, como o nome do caminho da pasta a partir da qual o estado do utilizador é restaurado e se a conta de computador local é restaurada. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [restaurar estado do utilizador](task-sequence-steps.md#BKMK_RestoreUserState).  
+###  <a name="BKMK_RestoreUserState"></a> Восстановить пользовательское состояние. Переменные действия последовательности задач  
+ Переменные этого действия указывают сведения, используемые для восстановления состояния пользователей конечного компьютера, такие как путь к папке, из которой восстанавливается состояние пользователей, а также данные о том, выполняется ли восстановление учетной записи локального компьютера. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Восстановить пользовательское состояние](task-sequence-steps.md#BKMK_RestoreUserState).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|OSDStateStorePath<br /><br /> (entrada)|O UNC ou nome do caminho local da pasta a partir da qual o estado do utilizador é restaurado.|  
-|OSDMigrateContinueOnRestore<br /><br /> (entrada)|Especifica que o restauro do estado do utilizador continua, mesmo se não for possível restaurar alguns ficheiros.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"** (predefinição)<br /><br /> **"falso"**|  
-|OSDMigrateEnableVerboseLogging<br /><br /> (entrada)|Ativa o registo verboso para a ferramenta USMT. Este valor é necessário para a ação; tem de ser definido como "verdadeiro" ou "falso".<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDMigrateLocalAccounts<br /><br /> (entrada)|Especifica se a conta de computador local é restaurada.<br /><br /> Valores válidos:<br /><br /> **"verdadeiro"**<br /><br /> **"falso"** (predefinição)|  
-|OSDMigrateLocalAccountPassword<br /><br /> (entrada)|Se o **OSDMigrateLocalAccounts** variável é "verdadeiro", esta variável deve conter a palavra-passe que está atribuída a todas as contas locais que forem migradas. Porque a mesma palavra-passe é atribuída a todas as contas locais migradas, é considerada uma palavra-passe temporária que será alterada mais tarde por algum método diferente de implementação do sistema operativo do Configuration Manager.|  
-|OSDMigrateAdditionalRestoreOptions<br /><br /> (entrada)|Especifica opções adicionais da linha de comandos da User State Migration Tool (USMT), que são utilizadas ao restaurar o estado do utilizador. As opções adicionais são especificadas sob a forma de cadeia que é acrescentada à linha de comando USMT gerada automaticamente. As opções da USMT especificadas com esta variável da sequência de tarefas não são validadas em termos de exatidão antes da execução da sequência de tarefas.|  
-|_OSDMigrateUsmtRestorePackageID<br /><br /> (entrada)|Especifica o ID de pacote do pacote do Configuration Manager que contém os ficheiros da USMT. Esta variável é necessária.|  
+|OSDStateStorePath<br /><br /> (входная)|UNC-путь или локальный путь к папке, из которой восстанавливается состояние пользователя.|  
+|OSDMigrateContinueOnRestore<br /><br /> (входная)|Указывает, что восстановление состояния пользователя продолжается, даже если некоторые файлы не могут быть восстановлены.<br /><br /> Допустимые значения:<br /><br /> **"true"** (по умолчанию)<br /><br /> **"false"**|  
+|OSDMigrateEnableVerboseLogging<br /><br /> (входная)|Включает запись подробных сведений в журнал средством миграции пользовательской среды. Это значение является необходимым для действия. Может быть указано значение "true" или "false".<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDMigrateLocalAccounts<br /><br /> (входная)|Указывает, будет ли восстановлена учетная запись локального компьютера.<br /><br /> Допустимые значения:<br /><br /> **"true"**<br /><br /> **"false"** (по умолчанию)|  
+|OSDMigrateLocalAccountPassword<br /><br /> (входная)|Если переменной **OSDMigrateLocalAccounts** присвоено значение true, данная переменная должна содержать пароль, назначаемый всем локальным учетным записям, для которых выполняется миграция. Так как всем переносимым локальным учетным записям назначается один и тот же пароль, он считается временным и подлежит изменению каким-либо методом, отличным от развертывания операционной системы Configuration Manager.|  
+|OSDMigrateAdditionalRestoreOptions<br /><br /> (входная)|Указывает дополнительные параметры командной строки средства миграции пользовательской среды (USMT), используемые при восстановлении состояний пользователей. Дополнительные параметры указываются в виде строки, присоединяемой к автоматически сгенерированной командной строке средства USMT. Параметры USMT, указываемые в этой переменной последовательности задач, не проверяются на точность перед выполнением последовательности задач.|  
+|_OSDMigrateUsmtRestorePackageID<br /><br /> (входная)|Указывает ИД пакета Configuration Manager, который содержит файлы средства миграции пользовательской среды. Это обязательная переменная.|  
 
-###  <a name="BKMK_RunCommand"></a> Variáveis de Ação da Sequência de Tarefas Executar Linha de Comandos  
- As variáveis para esta ação especificam informações utilizadas para executar um comando a partir da linha de comandos, tal como o diretório de trabalho onde o comando é executado. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [executar linha de comandos](task-sequence-steps.md#BKMK_RunCommandLine).  
+###  <a name="BKMK_RunCommand"></a> Переменные действия последовательности задач "Выполнить из командной строки"  
+ Переменные этого действия указывают данные, используемые при выполнении команды из командной строки, например, рабочую папку, в которой выполняется команда. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Выполнить из командной строки](task-sequence-steps.md#BKMK_RunCommandLine).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação|Descrição|  
+|Имя переменной действия|Описание|  
 |--------------------------|-----------------|  
-|SMSTSDisableWow64Redirection<br /><br /> (entrada)|Por predefinição, numa execução num sistema operativo de 64 bits, o programa na linha de comandos é localizado e executado com o redirecionador do sistema de ficheiros WOW64, para que sejam encontradas as versões de 32 bits dos programas e DLLs do sistema operativo. A definição desta variável como "true" desativa a utilização do redirecionador do sistema de ficheiros WOW64, para que sejam encontradas as versões de 64 bits nativas do sistema operativo programas e DLLs. Esta variável não produz qualquer efeito numa execução num sistema operativo de 32 bits.|  
-|WorkingDirectory<br /><br /> (entrada)|Especifica o diretório inicial para uma ação da linha de comandos. O nome do diretório especificado não pode exceder os 255 caracteres.<br /><br /> Exemplos:<br /><br /> -   **"C:\\"**<br />-   **"%SystemRoot%"**|  
-|SMSTSRunCommandLineUserName<br /><br /> (entrada)|Especifica a conta através da qual a linha de comandos é executada. O valor é uma cadeia de formato nomedeutilizador ou domínio\nomedeutilizador.|  
-|SMSTSRunCommandLinePassword<br /><br /> (entrada)|Especifica a palavra-passe para a conta especificada pela variável SMSTSRunCommandLineUserName.|  
+|SMSTSDisableWow64Redirection<br /><br /> (входная)|По умолчанию при использовании 64-разрядной операционной системы программа в командной строке размещается и выполняется при помощи перенаправителя файловой системы WOW64; таким образом происходит обнаружение 32-разрядных версий программ операционной системы и библиотек DLL. Если задать для этой переменной значение true, использование перенаправления файловой системы WOW64 будет отключено, чтобы можно было найти 64-разрядные версии программ и библиотек DLL операционной системы. Эта переменная не действует при использовании 32-разрядной операционной системы.|  
+|WorkingDirectory<br /><br /> (входная)|Задает начальный каталог для действия командной строки. Указанное имя каталога не должно превышать 255 знаков.<br /><br /> Примеры:<br /><br /> -   **"C:\\"**<br />-   **"%SystemRoot%"**|  
+|SMSTSRunCommandLineUserName<br /><br /> (входная)|Указывает учетную запись, которая используется при выполнении командной строки. Значением этой переменной является строка формата "имя_пользователя" или "домен\имя_пользователя".|  
+|SMSTSRunCommandLinePassword<br /><br /> (входная)|Указывает пароль учетной записи, которая определена в переменной SMSTSRunCommandLineUserName.|  
 
-### <a name="set-dynamic-variables"></a>Definir Variáveis Dinâmicas  
- As variáveis para esta ação são configuradas automaticamente quando adicionar o passo de sequência de tarefas Definir Variáveis Dinâmicas. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [definir variáveis dinâmicas](task-sequence-steps.md#BKMK_SetDynamicVariables).  
+### <a name="set-dynamic-variables"></a>Установка динамических переменных  
+ Переменные для этого действия задаются автоматически при добавлении шага последовательности задач "Задать динамические переменные". Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Установка динамических переменных](task-sequence-steps.md#BKMK_SetDynamicVariables).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação<br /><br /> (entrada)|Descrição|  
+|Имя переменной действия<br /><br /> (входная)|Описание|  
 |----------------------------------------|-----------------|  
-|_SMSTSMake|Especifica a marca do computador.|  
-|_SMSTSModel|Especifica o modelo do computador.|  
-|_SMSTSMacAddresses|Especifica os endereços MAC utilizados pelo computador.|  
-|_SMSTSIPAddresses|Especifica os endereços IP utilizados pelo computador.|  
-|_SMSTSSerialNumber|Especifica o número de série do computador.|  
-|_SMSTSAssetTag|Especifica a etiqueta de ativo para o computador.|  
-|_SMSTSUUID|Especifica o UUID do computador.|  
-|_SMSTSDefaultGateways|Especifica os gateways predefinidos utilizados pelo computador.|  
+|_SMSTSMake|Указывает исполнение компьютера.|  
+|_SMSTSModel|Указывает модель компьютера.|  
+|_SMSTSMacAddresses|Указывает используемые компьютером MAC-адреса.|  
+|_SMSTSIPAddresses|Указывает используемые компьютером IP-адреса.|  
+|_SMSTSSerialNumber|Указывает серийный номер компьютера.|  
+|_SMSTSAssetTag|Указывает ярлык компьютера.|  
+|_SMSTSUUID|Указывает UUID компьютера.|  
+|_SMSTSDefaultGateways|Указывает шлюзы по умолчанию, используемые компьютером.|  
 
-###  <a name="BKMK_SetupWindows"></a> Variáveis de Ação da Sequência de Tarefas Configurar Windows e ConfigMgr  
- A variável para esta ação Especifica as propriedades de instalação de cliente que são utilizadas ao instalar o cliente do Configuration Manager. Para obter mais informações sobre o passo de sequência de tarefas associado a estas variáveis, consulte [configurar Windows e ConfigMgr](task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr).  
+###  <a name="BKMK_SetupWindows"></a> Переменные действия последовательности задач "Настройка Windows и Configuration Manager"  
+ Переменная для этого действия определяет свойства установки клиента, которые используются в процессе установки клиента Configuration Manager. Дополнительные сведения о шагах последовательности задач, связанных с этими переменными, см. в разделе [Настройка Windows и Configuration Manager](task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação<br /><br /> (entrada)|Descrição|  
+|Имя переменной действия<br /><br /> (входная)|Описание|  
 |----------------------------------------|-----------------|  
-|SMSClientInstallProperties<br /><br /> (entrada)|Especifica as propriedades de instalação de cliente que são utilizadas ao instalar o cliente do Configuration Manager.|  
+|SMSClientInstallProperties<br /><br /> (входная)|Указывает свойства установки клиента, которые используются при установки клиента Configuration Manager.|  
 
-### <a name="upgrade-operating-system"></a>Atualizar Sistema Operativo  
- A variável para esta ação Especifica opções adicionais da linha de comandos que não estão disponíveis no Gestor de configuração de consola são adicionadas à configuração para uma atualização do Windows 10. Para obter mais informações sobre o passo de sequência de tarefas associado esta variável, consulte [atualizar sistema operativo](task-sequence-steps.md#BKMK_UpgradeOS).  
+### <a name="upgrade-operating-system"></a>Обновление операционной системы  
+ Переменная для этого действия указывает дополнительные параметры командной строки, которые недоступны в консоли Configuration Manager и добавляются в программу установки для обновления Windows 10. Дополнительные сведения о шаге последовательности задач, связанном с этой переменной, см. в разделе [Обновление операционной системы](task-sequence-steps.md#BKMK_UpgradeOS).  
 
-#### <a name="details"></a>Detalhes  
+#### <a name="details"></a>Подробные сведения  
 
-|Nome da Variável de Ação<br /><br /> (entrada)|Descrição|  
+|Имя переменной действия<br /><br /> (входная)|Описание|  
 |----------------------------------------|-----------------|  
-|OSDSetupAdditionalUpgradeOptions<br /><br /> (entrada)|Especifica as opções adicionais da linha de comandos que são adicionadas à Configuração durante uma atualização do Windows 10. As opções da linha de comandos não são verificadas. Por isso, verifique se a opção que introduz é precisa.<br /><br /> Para obter mais informações, consulte [Windows Setup Command-Line Options (Opções da Linha de Comandos de Configuração do Windows)](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx).|  
+|OSDSetupAdditionalUpgradeOptions<br /><br /> (входная)|Задает дополнительные параметры командной строки, добавляемые в программу установки во время обновления Windows 10. Эти параметры командной строки не проверяются. Поэтому следует проверить правильность вводимого параметра.<br /><br /> Дополнительные сведения см. в статье [Параметры командной строки программы установки Windows](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx).|  

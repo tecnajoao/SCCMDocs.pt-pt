@@ -1,6 +1,6 @@
 ---
-title: "Criar e implementar uma aplicação | Microsoft Docs"
-description: "Criar e implementar uma aplicação que contenha uma aplicação de linha de negócio e saber como gerir aplicações de forma eficaz."
+title: "Создание и развертывание приложения | Документы Майкрософт"
+description: "Создание и развертывание приложения, содержащего бизнес-приложения, и получение сведений об эффективном управлении приложениями."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,191 +17,191 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: bbbf278f5d31c51bfe061dd44e170f7ab1ca70ad
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-and-deploy-an-application-with-system-center-configuration-manager"></a>Criar e implementar uma aplicação com o System Center Configuration Manager
+# <a name="create-and-deploy-an-application-with-system-center-configuration-manager"></a>Создание и развертывание приложения с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Neste tópico, irá avançar diretamente e criar uma aplicação com o System Center Configuration Manager. Neste exemplo, irá criar e implementar uma aplicação que contém uma aplicação de linha de negócio para PCs Windows chamado **Contoso.msi**, que tem de ser instalado em todos os PCs que estejam a executar o Windows 10 na sua empresa. Ao longo do percurso, irá aprender várias coisas que pode efetuar para gerir aplicações de forma eficaz.  
+В этой статье вы можете сразу перейти к делу и создать приложение с помощью System Center Configuration Manager. В этом примере вы создадите и развернете приложение, содержащее бизнес-приложение для компьютеров с ОС Windows, с именем **Contoso.msi**, которое требуется установить на все компьютеры с Windows 10 в организации. Попутно вы узнаете о многих вещах, помогающих эффективнее управлять приложениями.  
 
- Este procedimento foi concebido para lhe dar uma descrição geral de como criar e implementar aplicações do Configuration Manager. No entanto, não abrange todas as configurações opções ou como criar e implementar aplicações em outras plataformas.  
+ Эта процедура позволяет вам получить представление о том, как создавать и развертывать приложения Configuration Manager. Однако она не охватывает все доступные параметры конфигурации, а также создание и развертывание приложений для других платформ.  
 
- Para obter detalhes específicos que são relevantes para cada plataforma, consulte um dos seguintes tópicos:  
+ Конкретные сведения, относящиеся к каждой платформе, см. в одном из следующих разделов.  
 
--   [Criar aplicações Windows](../../apps/get-started/creating-windows-applications.md)  
--   [Criar aplicações iOS](../../apps/get-started/creating-ios-applications.md)  
--   [Criar aplicações Android](../../apps/get-started/creating-android-applications.md)  
--   [Criar aplicações Windows Phone](../../apps/get-started/creating-windows-phone-applications.md)  
--   [Criar aplicações para computadores Mac](../../apps/get-started/creating-mac-computer-applications.md)  
--   [Criar aplicações de servidor Linux e UNIX](../../apps/get-started/creating-linux-and-unix-server-applications.md)
--   [Criar aplicações Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md)
+-   [Создание приложений Windows](../../apps/get-started/creating-windows-applications.md)  
+-   [Создание приложений iOS](../../apps/get-started/creating-ios-applications.md)  
+-   [Создание приложений Android](../../apps/get-started/creating-android-applications.md)  
+-   [Создание приложений Windows Phone](../../apps/get-started/creating-windows-phone-applications.md)  
+-   [Создание приложений для компьютеров Mac](../../apps/get-started/creating-mac-computer-applications.md)  
+-   [Создание серверных приложений Linux и UNIX](../../apps/get-started/creating-linux-and-unix-server-applications.md)
+-   [Создание приложений Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md)
 
 
-Se já estiver familiarizado com aplicações do Configuration Manager, pode ignorar este tópico. No entanto, pode querer rever [criar aplicações](../../apps/deploy-use/create-applications.md) para saber mais sobre todas as opções que estão disponíveis quando criar e implementar aplicações.  
+Если вы уже знакомы с приложениями Configuration Manager, эту статью можно пропустить. Однако вам может потребоваться обратиться к разделу [Создание приложений](../../apps/deploy-use/create-applications.md), где приведены сведения о всех параметрах, доступных при создании и развертывании приложений.  
 
-## <a name="before-you-start"></a>Antes de começar  
+## <a name="before-you-start"></a>Перед началом работы  
 
-Certifique-se de que tenha de rever as informações [introdução à gestão de aplicações](/sccm/apps/understand/introduction-to-application-management) para que se preparou o seu site para instalar aplicações e perceber a terminologia utilizada neste tópico.  
+Обязательно ознакомьтесь с подразделом [Общие сведения об управлении приложениями](/sccm/apps/understand/introduction-to-application-management), чтобы подготовить сайт к установке приложений и понимать терминологию, используемую в этом разделе.  
 
- Além disso, certifique-se de que os ficheiros de instalação para o **Contoso.msi** aplicação estão numa localização acessível na sua rede.  
+ Кроме того, убедитесь в том, что установочные файлы для приложения **Contoso.msi** находятся в доступном расположении в сети.  
 
-## <a name="create-the-configuration-manager-application"></a>Criar a aplicação do Configuration Manager  
+## <a name="create-the-configuration-manager-application"></a>Создание приложения Configuration Manager  
 
-### <a name="to-start-the-create-application-wizard-and-create-the-application"></a>Para iniciar o Assistente para criar aplicação e criar a aplicação  
+### <a name="to-start-the-create-application-wizard-and-create-the-application"></a>Запуск мастера создания приложений и создание приложения  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.  
+1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **Criar aplicação**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать приложение**.  
 
-4.  No **geral** página do **Assistente para criar aplicação**, escolha **detetar automaticamente informação sobre esta aplicação nos ficheiros de instalação**. Isto previamente preenche algumas das informações no assistente com informações que são extraídas do ficheiro. msi de instalação. Em seguida, especifique as seguintes informações:  
+4.  На странице **Общие** **мастера создания приложений**выберите **Автоматически получить данные об этом приложении из файлов установки**. Это позволит заполнить часть информации в мастере с помощью данных, извлеченных из MSI-файла установки. После этого укажите следующие сведения:  
 
-    -   **Tipo**: Escolha **do Windows Installer (\*ficheiro. msi)**.  
+    -   **Тип** — выберите значение **Установщик Windows (\*MSI-файл)**.  
 
-    -   **Localização**: Escreva a localização (ou escolha **procurar** para selecionar a localização) do ficheiro de instalação **Contoso.msi**. Tenha em atenção que a localização tem de ser especificada no formato  *\\\Server\Share\File* para o Configuration Manager para localizar os ficheiros de instalação.  
+    -   **Расположение** — введите расположение (или нажмите кнопку **Обзор** для выбора расположения) файла установки **Contoso.msi**. Обратите внимание на то, что расположение должно быть указано в виде *\\\сервер\общий ресурс\файл*, чтобы Configuration Manager смог найти файлы установки.  
 
-    Irá acaba por ficar com algo que se assemelha a captura de ecrã seguinte:  
+    У вас должно получиться нечто, похожее на следующий снимок экрана.  
 
-    ![Página geral do Assistente de gestão de aplicações](/sccm/apps/get-started/media/App-management-wizard-general-page.png)  
+    ![Страница "Общие" мастера управления приложениями](/sccm/apps/get-started/media/App-management-wizard-general-page.png)  
 
-5.  Escolha **seguinte**. No **importar informação** página, verá algumas informações sobre a aplicação e todos os ficheiros associados que foram importados para o Configuration Manager. Quando tiver terminado, escolha **seguinte** novamente.  
+5.  Нажмите кнопку **Далее**. На странице **Импорт сведений** мастера вы увидите некоторые сведения о приложении и всех связанных с ним файлах, которые были импортированы в Configuration Manager. Закончив, нажмите кнопку **Далее** еще раз.  
 
-6.  No **informações gerais** página, pode fornecer mais informações sobre a aplicação para o ajudar a ordenar e localizá-la na consola do Configuration Manager.  
+6.  На странице **Общие сведения** мастера можно указать дополнительные сведения о приложении для упрощения его сортировки и поиска в консоли Configuration Manager.  
 
-     Além disso, o **programa de instalação** campo permite-lhe especificar a linha de comandos completa que será utilizada para instalar a aplicação nos PCs. Pode editá-lo para adicionar as suas propriedades (por exemplo **/q** para uma instalação autónoma).  
+     Кроме того, в поле **Программа установки** можно указать полную командную строку, которая будет использоваться для установки приложения на компьютерах. Вы можете изменить ее, добавив определенные свойства (например, **/q** для автоматической установки).  
 
     > [!TIP]  
-    >  Alguns dos campos nesta página do assistente poderão ter sido preenchidos automaticamente quando importou os ficheiros de instalação da aplicação.  
+    >  Некоторые поля на этой странице мастера могут быть уже заполнены автоматически при импорте файлов установки приложения.  
 
-     Irá acaba por ficar com um ecrã semelhante à captura de ecrã seguinte:  
+     По завершении работы ваша страница будет похожа на следующий снимок экрана.  
 
-     ![Página de informações gerais do Assistente de gestão de aplicações](/sccm/apps/get-started/media/App-management-wizard-general-information-page.png)  
+     ![Страница "Общие сведения" мастера управления приложениями](/sccm/apps/get-started/media/App-management-wizard-general-information-page.png)  
 
-7.  Escolha **seguinte**. Na página Resumo, pode confirmar as definições da aplicação e, em seguida, conclua o assistente.  
+7.  Нажмите кнопку **Далее**. На странице сводки вы можете подтвердить параметры приложения, а затем завершить работу мастера.  
 
- Acabou de criar a aplicação. Para localizar, no **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**e, em seguida, escolha **aplicações**. Para este exemplo, será apresentado:  
+ Приложение создано. Чтобы найти его, в рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями** и выберите **Приложения**. Для данного примера вы увидите следующее:  
 
- ![Gráfico de aplicação final](/sccm/apps/get-started/media/Final-app-graphic.png)  
+ ![Изображение завершенного приложения](/sccm/apps/get-started/media/Final-app-graphic.png)  
 
-## <a name="examine-the-properties-of-the-application-and-its-deployment-type"></a>Examinar as propriedades da aplicação e o respetivo tipo de implementação  
+## <a name="examine-the-properties-of-the-application-and-its-deployment-type"></a>Просмотр свойств приложения и его типа развертывания  
 
-Agora que criou uma aplicação, pode refinar as definições da aplicação, se for necessário. Para ver as propriedades da aplicação, selecione a aplicação e, em seguida, no **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+После создания приложения можно уточнить его параметры. Чтобы просмотреть свойства приложения, выберите его, а затем на вкладке **Главная** в группе **Свойства** щелкните элемент **Свойства**.  
 
- No **< Contoso\> propriedades da aplicação** caixa de diálogo, verá muitos itens que pode configurar para otimizar o comportamento da aplicação. Para obter detalhes sobre todas as definições que pode configurar, consulte [criar aplicações](../../apps/deploy-use/create-applications.md). Para efeitos deste exemplo, irá alterar apenas algumas propriedades do tipo de implementação da aplicação.  
+ В диалоговом окне **Свойства приложения <Contoso\>** вы увидите много элементов, которые можно изменить для точной настройки поведения приложения. Дополнительные сведения обо всех параметрах, которые можно настроить, см. в статье [Создание приложений](../../apps/deploy-use/create-applications.md). В рамках данного примера вы измените лишь некоторые свойства типа развертывания приложения.  
 
- Escolha o **tipos de implementação** separador > **aplicação Contoso** tipo de implementação > **editar**.  
+ Откройте вкладку **Типы развертывания**, выберите тип развертывания **Приложение Contoso**, а затем нажмите кнопку **Изменить**.  
 
-Será apresentada uma caixa de diálogo como a seguinte:  
+Вы увидите диалоговое окно, похожее на следующее:  
 
-![Página de propriedades da aplicação de gestão de aplicações](/sccm/apps/get-started/media/App-management-app-properties-page.png)  
+![Страница свойств приложения управления приложениями](/sccm/apps/get-started/media/App-management-app-properties-page.png)  
 
-## <a name="add-a-requirement-to-the-deployment-type"></a>Adicionar um requisito ao tipo de implementação  
- Os requisitos especificam condições que têm ser satisfeitas para que uma aplicação possa ser instalada num dispositivo.  Pode escolher a partir de requisitos incorporados ou criar os seus próprios. Neste exemplo, adicionar um requisito que a aplicação só irá obter instalada em PCs que estejam a executar o Windows 10.  
+## <a name="add-a-requirement-to-the-deployment-type"></a>Добавление требования к типу развертывания  
+ Требования используются для указания условий, которые должны быть выполнены перед установкой приложения на устройстве.  Можно использовать встроенные требования или создавать свои собственные. В этом примере вы добавите требование о том, что приложение должно устанавливаться только на компьютерах с ОС Windows 10.  
 
-1.  A partir da página de propriedades de tipo de implementação que acabou de abrir, escolha o **requisitos** separador.  
+1.  На только что открытой странице свойств типа развертывания выберите вкладку **Требования**.  
 
-2.  Escolha **adicionar** para abrir o **criar requisito** caixa de diálogo.  
+2.  Нажмите кнопку **Добавить**, чтобы открыть диалоговое окно **Создать требование**.  
 
-3.  Na caixa de diálogo **Criar Requisito** , especifique as seguintes informações:  
+3.  В диалоговом окне **Создать требование** укажите следующие сведения.  
 
-    -   **Categoria**: **Dispositivo**  
+    -   **Категории** — **Устройство**  
 
-    -   **Condição**: **Sistema operativo**  
+    -   **Условие** — **Операционная система**  
 
-    -   **Tipo de regra**: **Valor**  
+    -   **Тип правила** — **Значение**  
 
-    -   **Operador**: **Um dos**  
+    -   **Оператор** — **Один из**  
 
-    -   Na lista de sistemas operativos, selecione **Windows 10**.  
+    -   Выберите **Windows 10**в списке операционных систем.  
 
-    Será apresentada uma caixa de diálogo semelhante à seguinte:  
+    В конечном итоге ваше диалоговое окно будет выглядеть следующим образом:  
 
-    ![Página de requisitos de gestão de aplicações](/sccm/apps/get-started/media/App-management-requirements-page.png)  
+    ![Страница требований к управлению приложениями](/sccm/apps/get-started/media/App-management-requirements-page.png)  
 
-4.  Escolha **OK** para fechar a cada página de propriedade que tiver aberto. Em seguida, volte à **aplicações** lista na consola do Configuration Manager.  
-
-> [!TIP]  
->  Os requisitos podem ajudar a reduzir o número de coleções do Configuration Manager que precisa. Uma vez que apenas especificar que a aplicação apenas pode obter instalada em PCs que estejam a executar o Windows 10, pode posteriormente implementá-la numa coleção que contenha PCs com muitos sistemas operativos diferentes. Mas a aplicação só irá obter instalada em Windows 10 PCs.  
-
-## <a name="add-the-application-content-to-a-distribution-point"></a>Adicionar o conteúdo da aplicação a um ponto de distribuição  
-
-Em seguida, para implementar a aplicação em PCs, certifique-se de que o conteúdo da aplicação é copiado para um ponto de distribuição. PCs acedem ao ponto de distribuição para instalar a aplicação.  
+4.  Нажмите кнопку **ОК**, чтобы закрыть каждую из открытых страниц свойств. Затем вернитесь к списку **Приложения** в консоли Configuration Manager.  
 
 > [!TIP]  
->  Para obter mais informações sobre pontos de distribuição e gestão de conteúdos no Configuration Manager, consulte o artigo [gerir a infraestrutura de conteúdo e conteúda](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+>  Требования позволяют уменьшить количество необходимых коллекций Configuration Manager. Так как вы только что указали, что приложение разрешено устанавливать только на компьютерах с ОС Windows 10, позднее его можно развернуть в коллекции, содержащей компьютеры с множеством разных операционных систем. Однако приложение будет установлено только на компьютеры с Windows 10.  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software**.  
+## <a name="add-the-application-content-to-a-distribution-point"></a>Добавление содержимого приложения в точку распространения  
 
-2.  No **biblioteca de Software** área de trabalho, expanda **aplicações**. Em seguida, na lista de aplicações, selecione o **aplicação Contoso** que criou.  
-
-3.  No **home page** separador o **implementação** grupo, escolha **distribuir conteúdo**.  
-
-4.  No **geral** página do **Assistente para distribuir conteúdo**, verifique se o nome da aplicação está correto e, em seguida, escolha **seguinte**.  
-
-5.  No **conteúdo** , reveja as informações que serão copiadas para o ponto de distribuição e, em seguida, escolha **seguinte**.  
-
-6.  No **destino do conteúdo** página, escolha **adicionar** para selecionar um ou mais pontos de distribuição ou grupos de pontos de distribuição em que pretende instalar o conteúdo da aplicação.  
-
-7.  Conclua o assistente.  
-
-Pode verificar que o conteúdo da aplicação foi copiado com êxito para o ponto de distribuição do **monitorização** área de trabalho, em **estado da distribuição** > **estado do conteúdo**.  
-
-## <a name="deploy-the-application"></a>Implementar a aplicação  
-
-Em seguida, implemente a aplicação numa coleção de dispositivos na sua hierarquia. Neste exemplo, para implementar a aplicação para o **todos os sistemas** coleção de dispositivos.  
+Для развертывания приложения на компьютерах следует убедиться в том, что содержимое приложения копируется в точку распространения. Компьютеры будут обращаться к точке распространения для установки приложения.  
 
 > [!TIP]  
->  Lembre-se de que apenas os computadores Windows 10 irão instalar a aplicação devido aos requisitos que selecionou anteriormente.  
+>  Дополнительные сведения о точках распространения и управлении содержимым в Configuration Manager см. в статье [Управление содержимым и инфраструктурой содержимого](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-3.  Na lista de aplicações, selecione a aplicação que criou anteriormente (**aplicação Contoso**) e, em seguida, no **home page** separador o **implementação** grupo, escolha **implementar**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Приложения**. Выберите в списке приложений созданное вами **Приложение Contoso**.  
 
-4.  No **geral** página do **Assistente de implementação de Software**, escolha **procurar** para selecionar o **todos os sistemas** coleção de dispositivos.  
+3.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Распространить содержимое**.  
 
-5.  No **conteúdo** página, verifique se o ponto de distribuição a partir do qual pretende que os PCs instalem a aplicação está selecionado.  
+4.  На странице **Общие** **мастера распространения содержимого** проверьте правильность имени приложения и нажмите кнопку **Далее**.  
 
-6.  No **definições de implementação** página, certifique-se de que a ação de implementação está definida como **instalar**, e o objetivo da implementação está definido como **necessário**.  
+5.  На странице **Содержимое** просмотрите сведения, которые будут скопированы в точку распространения, и нажмите кнопку **Далее**.  
+
+6.  На странице **Места распространения содержимого** нажмите кнопку **Добавить**, чтобы выбрать одну или несколько точек распространения либо группу точек распространения для установки содержимого приложения.  
+
+7.  Завершите работу мастера.  
+
+Проверить, успешно ли скопировано содержимое приложения в точку распространения, можно в рабочей области **Наблюдение**, для открытия которой выберите **Состояние распространения** > **Состояние содержимого**.  
+
+## <a name="deploy-the-application"></a>Развертывание приложения  
+
+Затем разверните приложение в коллекции устройств в иерархии. В этом примере вы развернете приложение в коллекции устройств **Все системы**.  
+
+> [!TIP]  
+>  Помните, что согласно указанным ранее требованиям устанавливаться приложение будет только на компьютерах с Windows 10.  
+
+1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**.  
+
+3.  Выберите в списке созданное ранее приложение (**Приложение Contoso**), а затем на вкладке **Главная** в группе **Развертывание** щелкните **Развернуть**.  
+
+4.  На странице **Общие** **мастера развертывания программного обеспечения** нажмите кнопку **Обзор** и выберите коллекцию устройств **Все системы**.  
+
+5.  На странице **Содержимое** убедитесь, что выбрана точка распространения, с которой компьютеры должны установить приложение.  
+
+6.  На странице **Параметры развертывания** убедитесь в том, что заданы действие развертывания **Установить** и цель развертывания **Обязательно**.  
 
     > [!TIP]  
-    >  Ao definir o objetivo de implementação para **necessário**, certifique-se de que a aplicação é instalada em PCs que cumprem os requisitos que definir. Se definir este valor como **Disponível**, os utilizadores poderão instalar a aplicação a pedido a partir do Centro de Software.  
+    >  Устанавливая цель развертывания **Обязательно**, вы гарантируете, что приложение будет установлено на компьютерах, которые удовлетворяют заданным требованиям. Если задать значение **Доступно**, то пользователи могут установить приложение по требованию из центра программного обеспечения.  
 
-7.  Na página **Agendamento** , pode configurar quando a aplicação será instalada. Para este exemplo, selecione **Logo que possível após o tempo disponível**.  
+7.  На странице **Расписание** можно настроить время установки приложения. В этом примере выберите **Как можно скорее в ближайшее доступное время**.  
 
-8.  No **experiência de utilizador** página, escolha **seguinte** para aceitar os valores predefinidos.  
+8.  На странице **Взаимодействие с пользователем** нажмите кнопку **Далее**, чтобы принять значения по умолчанию.  
 
-9. Conclua o assistente.  
+9. Завершите работу мастера.  
 
-Utilize as informações nas seguintes **monitorizar a aplicação** secção para ver o estado da implementação da aplicação.  
+Используйте сведения из приведенного ниже раздела **Мониторинг приложений**, чтобы просмотреть состояние развертывания приложения.  
 
-## <a name="monitor-the-application"></a>Monitorizar a aplicação  
- Nesta secção, irá demorar ver rapidamente o estado de implementação da aplicação que acabou de ser implementada.  
+## <a name="monitor-the-application"></a>Мониторинг приложений  
+ В этом разделе вы кратко ознакомитесь с состоянием недавно развернутого приложения.  
 
-### <a name="to-review-the-deployment-status"></a>Para rever o estado de implementação  
+### <a name="to-review-the-deployment-status"></a>Просмотр состояния развертывания  
 
-1.  Na consola do Configuration Manager, escolha **monitorização** > **implementações**.  
+1.  В консоли Configuration Manager щелкните **Наблюдение** > **Развертывания**.  
 
-3.  Na lista de implementações, selecione **Aplicação Contoso**.  
+3.  В списке развертываний выберите **приложение Contoso**.  
 
-4.  No **home page** separador o **implementação** grupo, escolha **Ver estado**.  
+4.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Просмотр состояния**.  
 
-5.  Selecione um dos seguintes separadores para ver mais atualizações de estado sobre a implementação da aplicação:  
+5.  Откройте одну из следующих вкладок, чтобы просмотреть дополнительные сведения о состоянии развертывания приложения:  
 
-    -   **Êxito**: A aplicação foi instalada com êxito nos PCs indicados.  
+    -   **Успешно** — приложение успешно установлено на указанных компьютерах;  
 
-    -   **Em curso**: A aplicação não ainda concluiu a instalação.  
+    -   **Выполняется** — приложение еще не завершило установку;  
 
-    -   **Erro**: Erro ao instalar a aplicação nos PCs indicados. São também apresentadas mais informações sobre o erro.  
+    -   **Ошибка** — при установке приложения на указанных компьютерах произошла ошибка; Также отображаются дополнительные сведения об ошибке.  
 
-    -   **Requisitos não cumpridos**: Não foi feita nenhuma tentativa de instalação nos dispositivos indicados porque estes não cumpriam os requisitos que configurou (neste exemplo, porque não executam no Windows 10).  
+    -   **Требования не выполнены** — попытка установить приложение на указанных устройствах не предпринималась, так как они не отвечают заданным требованиям (в этом примере они работают не под управлением Windows 10);  
 
-    -   **Desconhecido**: Não foi possível comunicar o estado da implementação do Configuration Manager. Verifique novamente mais tarde.  
+    -   **Неизвестно** — Configuration Manager не удалось сообщить состояние развертывания. Проверьте этот параметр еще раз позднее.  
 
 > [!TIP]  
->  Existem algumas formas de monitorizar as implementações de aplicações. Para mais informações, consulte [monitorizar aplicações](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
+>  Существует несколько способов, с помощью которых можно отслеживать развертывания приложений. Дополнительные сведения см. в статье [Мониторинг приложений](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
 
-## <a name="end-user-experience"></a>Experiência do utilizador final  
+## <a name="end-user-experience"></a>Взаимодействие с конечным пользователем  
 
-Os utilizadores que têm PCs geridos pelo Configuration Manager e o Windows 10 em execução Verão uma mensagem a informar que têm de instalar a aplicação Contoso. Assim que aceitarem a instalação, a aplicação é instalada.  
+Пользователи компьютеров с ОС Windows 10 под управлением Configuration Manager увидят сообщение о том, что им требуется установить приложение Contoso. После получения их согласия приложение устанавливается.  

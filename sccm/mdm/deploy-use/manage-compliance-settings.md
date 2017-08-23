@@ -1,6 +1,6 @@
 ---
-title: Gerir a compatibilidade em dispositivos geridos com o Intune | Microsoft Docs
-description: "Saiba mais sobre as definições de compatibilidade do System Center Configuration Manager ao trabalhar com alguns cenários comuns."
+title: "Контроль соответствия требованиям на устройствах, управляемых с помощью Intune | Документация Майкрософт"
+description: "Сведения об использовании параметров соответствия System Center Configuration Manager при работе с некоторыми распространенными сценариями."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,119 +16,119 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: b3a63f6c55c317c9c84d4394dfdcb9f1cbbbc90b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="managing-compliance-on-devices-managed-with-intune"></a>Gerir a compatibilidade em dispositivos geridos com o Intune
+# <a name="managing-compliance-on-devices-managed-with-intune"></a>Контроль соответствия требованиям на устройствах, управляемых с помощью Intune
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Estes cenários dão-lhe uma introdução à utilização de definições de compatibilidade do System Center Configuration Manager ao trabalhar com alguns cenários comuns que poderá encontrar.  
+Эти сценарии позволяют получить общее представление об использовании параметров соответствия System Center Configuration Manager при работе с некоторыми распространенными сценариями.  
 
- Se já estiver familiarizado com as definições de compatibilidade, pode encontrar documentação detalhada sobre todas as funcionalidades que utiliza no [itens de configuração para dispositivos geridos com o Intune](#configuration-items-for-devices-managed-with-intune) secção.  
+ Если вы уже знакомы с параметрами соответствия, подробную документацию по всем используемым функциям вы можете найти в разделе [Элементы конфигурации для устройств, управляемых с помощью Intune](#configuration-items-for-devices-managed-with-intune).  
 
- [Introdução às definições de compatibilidade](../../compliance/get-started/get-started-with-compliance-settings.md) fornece as noções básicas sobre as definições de compatibilidade e [planear e configurar as definições de compatibilidade](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) ajuda-o a implementar os pré-requisitos necessários.  
+ Чтобы получить основные сведения о параметрах соответствия, ознакомьтесь со статьей [Приступая к работе с параметрами соответствия в System Center Configuration Manager](../../compliance/get-started/get-started-with-compliance-settings.md), а также со статьей [Планирование и настройка параметров соответствия в System Center Configuration Manager](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) для выполнения всех необходимых условий.  
 
-## <a name="general-information-for-each-scenario"></a>Informações gerais para cada cenário  
- Em cada cenário, irá criar um item de configuração que realiza uma tarefa específica. Para abrir o Assistente de Criação de Item de Configuração, utilize os seguintes passos:  
+## <a name="general-information-for-each-scenario"></a>Общие сведения для каждого сценария  
+ В каждом сценарии вы создадите элемент конфигурации, выполняющий определенную задачу. Откройте мастер создания элементов конфигурации и выполните следующие действия:  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **itens de configuração**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Элементы конфигурации**.  
 
-3.  No separador **Início** , no grupo **Criar** , clique em **Criar Item de Configuração**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать элемент конфигурации**.  
 
-4.  No separador **Geral** do Assistente de Criação de Item de Configuração, conforme apresentado abaixo, especifique um nome e uma descrição para o item de configuração e escolha o tipo de item de configuração adequado para cada cenário deste tópico.  
+4.  Как показано ниже, на вкладке **Общие** мастера создания элементов конфигурации укажите имя и описание элемента, а затем выберите подходящий тип элемента конфигурации для каждого сценария в этой статье.  
 
-     ![Mostra a página geral do Assistente de item de configuração de criar.](media/Compliance-Settings-Wizard---1.png)  
+     ![Отображение страницы "Общие" мастера создания элементов конфигурации.](media/Compliance-Settings-Wizard---1.png)  
 
-## <a name="scenarios-for-windows-81-and-windows-10-devices-managed-with-intune"></a>Cenários para dispositivos Windows 8.1 e Windows 10 geridos com o Intune  
+## <a name="scenarios-for-windows-81-and-windows-10-devices-managed-with-intune"></a>Сценарии для устройств Windows 8.1 и Windows 10, управляемых с помощью Intune  
 
-### <a name="scenario-restrict-access-to-the-app-store-on-all-windows-pcs"></a>Cenário: Restringir o acesso à loja de aplicações em todos os PCs Windows  
- Neste cenário, o utilizador é o administrador de TI de uma empresa que lida com informações extremamente confidenciais. Por este motivo, quer restringir as aplicações que os utilizadores podem instalar. Pretende impedir que os utilizadores de todos os PCs Windows 10 transfiram aplicações da Loja Windows e, por isso, executa as ações seguintes.  
+### <a name="scenario-restrict-access-to-the-app-store-on-all-windows-pcs"></a>Сценарий: ограничение доступа к хранилищу приложений на всех компьютерах под управлением Windows  
+ В этом сценарии вы исполняете роль ИТ-администратора организации, которая имеет дело с конфиденциальной информацией. По этой причине вы ограничиваете спектр приложений, которые пользователи могут устанавливать. Вы хотите запретить пользователям всех ПК с Windows 10 скачивать приложения в Магазине Windows, для чего выполняете следующие действия.  
 
-1.  Na página **Geral** do Assistente de Criação de Item de Configuração, selecione o tipo de item de configuração **Windows 8.1 e Windows 10** e clique em **Seguinte**.  
+1.  На странице **Общие** мастера создания элемента конфигурации выберите тип **Windows 8.1 и Windows 10** , а затем нажмите кнопку **Далее**.  
 
-2.  No **plataformas suportadas** página, selecione todas as plataformas Windows 10.  
+2.  На странице **Поддерживаемые платформы** выберите все платформы Windows 10.  
 
-3.  Na página **Definições do Dispositivo** , selecione **Loja**e clique em **Seguinte**.  
+3.  На странице **Параметры устройства** выберите **Магазин**, а затем нажмите кнопку **Далее**.  
 
-4.  Na página **Loja** , selecione **Proibido** como o valor de **Loja de aplicações**.  
+4.  На странице **Магазин** выберите значение **Запрещено** для параметра **Магазин приложений**.  
 
-5.  Selecione **Remediar definições incompatíveis** para garantir que a alteração é aplicada a todos os PCs.  
+5.  Выберите **Исправлять несоответствующие параметры** , чтобы применить изменение ко всем ПК.  
 
-6.  Conclua o assistente para criar o item de configuração.  
+6.  Следуйте указаниям мастера, чтобы создать элемент конфигурации.  
 
- Agora, pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para o ajudar a implementar a configuração que criou em dispositivos.  
+ Теперь можно использовать информацию из статьи [Распространенные задачи, связанные с созданием и развертыванием шаблонов базовых конфигураций](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) для развертывания созданной конфигурации на устройства.  
 
-## <a name="scenarios-for-windows-phone-devices-managed-with-intune"></a>Cenários para dispositivos Windows Phone geridos com o Intune  
+## <a name="scenarios-for-windows-phone-devices-managed-with-intune"></a>Сценарии для устройств Windows Phone, управляемых с помощью Intune  
 
-### <a name="scenario-disable-the-use-of-screen-capture-on-a-windows-phone"></a>Cenário: Desativar a utilização de captura de ecrã num Windows Phone  
- Neste cenário, utiliza os dispositivos Windows Phone 8.1 na sua empresa. Estes dispositivos executam uma aplicação de vendas que contém informações confidenciais. Para proteger a sua empresa, pretende desativar a utilização de captura de ecrã no dispositivo que, potencialmente, poderia ser utilizado para transmitir informações confidenciais fora da sua empresa.  
+### <a name="scenario-disable-the-use-of-screen-capture-on-a-windows-phone"></a>Сценарий: отключение использования снимка экрана на Windows Phone  
+ В этом сценарии вы используете устройства Windows Phone 8.1 в организации. На этих устройствах выполняется торговое приложение, содержащее конфиденциальную информацию. Для защиты организации необходимо отключить использование снимка экрана на устройстве, так как эта функция может использоваться для передачи конфиденциальных данных за пределы организации.  
 
-1.  Na página **Geral** do Assistente de Criação de Item de Configuração, selecione o tipo de item de configuração **Windows Phone** e clique em **Seguinte**.  
+1.  На странице **Общие** мастера создания элемента конфигурации выберите тип **Windows Phone** , а затем нажмите кнопку **Далее**.  
 
-2.  No **plataformas suportadas** página, selecione **todos os Windows Phone 8.1** plataformas.  
+2.  На странице **Поддерживаемые платформы** выберите **Все платформы Windows Phone 8.1**.  
 
-3.  Na página **Definições do Dispositivo** , selecione **Dispositivo**e clique em **Seguinte**.  
+3.  На странице **Параметры устройства** выберите **Устройство**, а затем нажмите кнопку **Далее**.  
 
-4.  Na página **Dispositivo** , selecione **Desativado** como o valor de **Captura de ecrã**.  
+4.  На странице **Устройство** выберите значение **Отключено** для параметра **Снимок экрана**.  
 
-5.  Selecione **Remediar definições incompatíveis** para garantir que a alteração é aplicada a todos os dispositivos Windows Phone 8.1.  
+5.  Выберите **Исправлять несоответствующие параметры** , чтобы применить изменение ко всем устройствам Windows Phone 8.1.  
 
-6.  Conclua o assistente para criar o item de configuração.  
+6.  Следуйте указаниям мастера, чтобы создать элемент конфигурации.  
 
- Agora, pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração com o System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para o ajudar a implementar a configuração que criou em dispositivos.  
+ Теперь можно использовать информацию из статьи [Распространенные задачи, связанные с созданием и развертыванием шаблонов базовых конфигураций с помощью System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) для развертывания созданной конфигурации на устройства.  
 
-## <a name="scenarios-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Cenários para dispositivos iOS e Mac OS X geridos com o Intune  
+## <a name="scenarios-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Сценарии для устройств iOS и Mac OS X, управляемых с помощью Intune  
 
-### <a name="scenario-disable-the-camera-on-ios-devices"></a>Cenário: Desativar a câmara em dispositivos iOS  
- Neste cenário, a sua empresa produz esquemas para novos designs de produto. Estes contêm informações confidenciais que não podem ser divulgadas. Como a empresa lança iPhones ou iPads para todos os funcionários, pretende desativar a utilização da câmara nestes dispositivos para impedi-los de serem utilizados para fotografar os esquemas.  
+### <a name="scenario-disable-the-camera-on-ios-devices"></a>Сценарий: отключение камеры на устройствах iOS  
+ В этом сценарии ваша компания разрабатывает проекты для новых моделей продуктов. Они содержат конфиденциальные данные, утечка которых недопустима. Поскольку ваша организация выдала всем сотрудникам устройства iPhone или iPad, необходимо отключить использование камеры на этих устройствах, чтобы с их помощью нельзя было сфотографировать проекты.  
 
-1.  Na página **Geral** do Assistente de Criação de Item de Configuração, selecione o tipo de item de configuração **iOS e Mac OS X** e clique em **Seguinte**.  
+1.  На странице **Общие** мастера создания элемента конфигурации выберите тип **iOS и Mac OS X** , а затем нажмите кнопку **Далее**.  
 
-2.  No **plataformas suportadas** página, selecione todos os iPhone e todas as plataformas de dispositivos iPad.  
+2.  На странице **Поддерживаемые платформы** выберите все платформы устройств iPhone и iPad.  
 
-3.  Na página **Definições do Dispositivo** , selecione **Segurança**e clique em **Seguinte**.  
+3.  На странице **Параметры устройства** выберите **Безопасность**, а затем нажмите кнопку **Далее**.  
 
-4.  Na página **Segurança** , selecione **Proibido** como o valor de **Câmara**.  
+4.  На странице **Безопасность** выберите значение **Запрещено** для параметра **Камера**.  
 
-5.  Selecione **Remediar definições incompatíveis** para garantir que a alteração é aplicada a todos os dispositivos iOS.  
+5.  Выберите **Исправлять несоответствующие параметры** , чтобы применить изменение ко всем устройствам iOS.  
 
-6.  Conclua o assistente para criar o item de configuração.  
+6.  Следуйте указаниям мастера, чтобы создать элемент конфигурации.  
 
- Agora, pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração com o System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para o ajudar a implementar a configuração que criou em dispositivos.  
+ Теперь можно использовать информацию из статьи [Распространенные задачи, связанные с созданием и развертыванием шаблонов базовых конфигураций с помощью System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) для развертывания созданной конфигурации на устройства.  
 
-## <a name="scenarios-for-android-and-samsung-knox-standard-devices-managed-with-intune"></a>Cenários para dispositivos Android e Samsung KNOX Standard geridos com o Intune  
+## <a name="scenarios-for-android-and-samsung-knox-standard-devices-managed-with-intune"></a>Сценарии для устройств Android и Samsung KNOX Standard, управляемых с помощью Intune  
 
-### <a name="scenario-require-a-password-on-all-android-5-devices"></a>Cenário: Exigir uma palavra-passe em todos os dispositivos Android 5  
- Neste cenário, irá criar um item de configuração apenas para dispositivos Android 5 que exige que os utilizadores configurem uma palavra-passe com, pelo menos, 6 carateres nos respetivos dispositivos. Além disso, se um utilizador introduzir uma palavra-passe incorreta 5 vezes, o dispositivo será apagado.  
+### <a name="scenario-require-a-password-on-all-android-5-devices"></a>Сценарий: запрос пароля на всех устройствах Android 5  
+ В этом сценарии вы создадите элемент конфигурации только для устройств Android 5, требующий от пользователей настроить на своих устройствах пароль длиной не менее 6 знаков. Кроме того, если пользователь вводит неправильный пароль 5 раз, устройство очищается.  
 
-1.  Na página **Geral** do Assistente de Criação de Item de Configuração, selecione o tipo de item de configuração **Android e Samsung KNOX** e clique em **Seguinte**.  
+1.  На странице **Общие** мастера создания элемента конфигурации выберите тип **Android и Samsung KNOX** , а затем нажмите кнопку **Далее**.  
 
-2.  No **plataformas suportadas** página, selecione apenas **Android 5** (para garantir que as definições são aplicadas apenas nessa plataforma).  
+2.  На странице **Поддерживаемые платформы** выберите только элемент **Android 5** (чтобы применить параметры только для этой платформы).  
 
-3.  Na página **Definições do Dispositivo** , selecione **Palavra-passe**e clique em **Seguinte**.  
+3.  На странице **Параметры устройства** выберите **Пароль**, а затем нажмите кнопку **Далее**.  
 
-4.  Na página **Palavra-passe** , configure as seguintes definições:  
+4.  На странице **Пароль** настройте следующие параметры:  
 
-    -   **Exigir definições de palavra-passe em dispositivos** > **Necessário**  
+    -   **Требовать параметры пароля на устройствах** > **Обязательно**  
 
-    -   **Comprimento mínimo de palavra-passe (carateres)** > **6**  
+    -   **Минимальная длина пароля (символов)** > **6**  
 
-    -   **Número de tentativas de início de sessão falhadas antes de o dispositivo ser apagado** > **5**  
+    -   **Число неудачных попыток входа до стирания памяти устройства** > **5**  
 
-5.  Conclua o assistente para criar o item de configuração.  
+5.  Следуйте указаниям мастера, чтобы создать элемент конфигурации.  
 
- Agora, pode utilizar as informações de [tarefas comuns para criar e implementar linhas de base de configuração](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) tópico para o ajudar a implementar a configuração que criou em dispositivos.  
+ Теперь можно использовать информацию из статьи [Распространенные задачи, связанные с созданием и развертыванием шаблонов базовых конфигураций](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) для развертывания созданной конфигурации на устройства.  
 
-## <a name="configuration-items-for-devices-managed-with-intune"></a>Itens de configuração para dispositivos geridos com o Intune
+## <a name="configuration-items-for-devices-managed-with-intune"></a>Элементы конфигурации для устройств, управляемых с помощью Intune
 
-Os seguintes tipos de item de configuração do System Center Configuration Manager estão disponíveis para dispositivos que não são geridos pelo cliente do Configuration Manager, por exemplo, os dispositivos inscritos com o Microsoft Intune.  
+Следующие типы элементов конфигурации System Center Configuration Manager доступны для устройств, не управляемых клиентом Configuration Manager, например устройств, зарегистрированных с помощью Microsoft Intune.  
 
- -   [Como criar itens de configuração para dispositivos Windows 8.1 e Windows 10 geridos com o Intune](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)  
+ -   [Как создать элементы конфигурации для устройств Windows 8.1 и Windows 10, управляемых с помощью Intune](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)  
 
- -   [Como criar itens de configuração para dispositivos Windows Phone geridos com o Intune](create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)  
+ -   [Как создать элементы конфигурации для устройств Windows Phone, управляемых с помощью Intune](create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)  
 
- -   [Como criar itens de configuração para dispositivos iOS e Mac OS X geridos com o Intune](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)  
+ -   [Создание элементов конфигурации для устройств iOS и Mac OS X, управляемых с помощью Intune](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)  
 
- -   [Como criar itens de configuração para dispositivos Android e Samsung KNOX Standard geridos com o Intune](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)  
+ -   [Создание элементов конфигурации для устройств Android и Samsung KNOX Standard, управляемых с помощью Intune](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)  

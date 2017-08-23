@@ -1,6 +1,6 @@
 ---
-title: "Capacidades na pré-visualização técnica 1610 do Configuration Manager"
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1610."
+title: "Возможности в Technical Preview 1610 для Configuration Manager"
+description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1610."
 ms.custom: na
 ms.date: 01/23/2017
 ms.reviewer: na
@@ -16,149 +16,149 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 59633ce68e2bb2d722900215751f345d6d098721
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1610-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1610 do System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1610-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1610 для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
-
-
-
-Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1610. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager.      Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.    
+*Применимо к: System Center Configuration Manager (Technical Preview)*
 
 
-**Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
-## <a name="filter-by-content-size-in-automatic-deployment-rules"></a>Filtrar pelo tamanho do conteúdo nas regras de implementação automática
-Agora pode filtrar o tamanho do conteúdo para atualizações de software nas regras de implementação automática. Por exemplo, pode definir o **conteúdo tamanho (KB)** filtrar para **< 2048** para transferir apenas atualizações de software que são inferior a 2 MB. Utilizar este filtro impede que as atualizações de software grande automaticamente a transferência para um melhor suporte simplificado Windows quando a largura de banda de rede é limitada de manutenção de nível inferior. Para obter mais informações, consulte [do Configuration Manager e simplificada manutenção do Windows em baixo nível de sistemas operativos](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
 
-#### <a name="to-configure-the-content-size-field"></a>Para configurar o campo de tamanho do conteúdo
-Para configurar o **conteúdo tamanho (KB)** campo, acedo ao **atualizações de Software** página no Assistente de criação automática implementação regra quando criar uma ADR ou vá para o **atualizações de Software** separador nas propriedades de uma ADR existente.
-
-![Campo de tamanho do conteúdo](media/contentsizefield.png)
-
-## <a name="improved-functionality-for-required-software-dialogs"></a>Funcionalidade melhorada para caixas de diálogo de software necessárias
-Quando um utilizador recebe o software necessário, do **Snooze e avisar-me Depois:** definição, podem selecionar a partir da seguinte na lista pendente de valores:
-- Mais tarde: Especifica que as notificações são agendadas baseada nas definições de notificação configuradas nas definições do agente de cliente.
-- Fixo de tempo: Especifica que a notificação será agendada a apresentar depois do tempo selecionado. Por exemplo, se um utilizador seleccionar 30 minutos, irá apresentar a notificação novamente dentro de 30 minutos.
-
-![Página de agente do computador nas definições do agente de cliente](media/computeragentsettings.png)
-
-O tempo máximo de suspensão é sempre com base nos valores de notificação configurados nas definições do agente do cliente em sempre ao longo da linha cronológica de implementação. Por exemplo, se o **implementação prazo superior a 24 horas, lembrar utilizadores cada (horas)** definição no computador agente página está configurada para 10 horas e é mais de 24 horas antes do prazo quando é iniciada a caixa de diálogo, o utilizador deverá ser apresentado com um conjunto de opções de suspensão até mas nunca superior a 10 horas. Como se aproxima do prazo, a caixa de diálogo irá mostrar menos opções, consistentes com as definições de agente do cliente relevantes para cada componente da linha cronológica de implementação.
-
-Além disso, para uma implementação de alto risco, como uma sequência de tarefas que implementa um sistema operativo, a experiência de notificação do utilizador final é agora mais intrusivo. Em vez de uma notificação de barra de tarefas transitório, sempre que o utilizador é notificado de que a manutenção crítica do software é necessária, um caixa de diálogo, tais como a apresenta seguintes no computador do utilizador:
-
-![Caixa de diálogo de Software necessária](media/requiredsoftwaredialog.png)
+В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1610. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager.      Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.    
 
 
-Para obter mais informações:
-- [Definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md)
-- [Como configurar as definições do cliente](../clients/deploy/configure-client-settings.md)
+**Ниже перечислены новые возможности, доступные в этой версии.**  
+## <a name="filter-by-content-size-in-automatic-deployment-rules"></a>Фильтрация по размеру содержимого в правилах автоматического развертывания
+Теперь можно выполнять фильтрацию по размеру содержимого для обновлений программного обеспечения в правилах автоматического развертывания. Например, можно задать для фильтра **Размер содержимого (КБ)** значение **< 2048**, чтобы скачивать только обновления программного обеспечения, размер которых не превышает 2 МБ. Этот фильтр препятствует автоматическому скачиванию больших обновлений программного обеспечения, чтобы более эффективно поддерживать упрощенное обслуживание старых ОС Windows при ограниченной пропускной способности сети. Дополнительные сведения см. в статье [Configuration Manager и упрощенное обслуживание более старых версий ОС Windows](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
 
-## <a name="deny-previously-approved-application-requests"></a>Negar pedidos de aplicação anteriormente aprovados
+#### <a name="to-configure-the-content-size-field"></a>Настройка поля "Размер содержимого"
+Чтобы настроить поле **Размер содержимого (КБ)**, при создании правила ADR в мастере создания правил автоматического развертывания перейдите на страницу **Обновления программного обеспечения** либо перейдите на вкладку **Обновления программного обеспечения** в окне свойств существующего правила ADR.
 
-Como um administrador pode agora negar um pedido de aplicação anteriormente aprovados. Uma vez negado, para instalar esta aplicação utilizadores posteriores tem de submeter um pedido. Negação não desinstala a aplicação; em vez disso, força reapproval qualquer pedido de novo para essa aplicação do utilizador. Anteriormente, a recusa do pedido de aplicação só estava disponível para pedidos de aplicação que não tinham sido aprovados.
+![Поле "Размер содержимого"](media/contentsizefield.png)
 
-#### <a name="try-it-out"></a>Experimente
-Para negar uma aplicação aprovou o pedido:
+## <a name="improved-functionality-for-required-software-dialogs"></a>Улучшенные функциональные возможности для диалоговых окон необходимого программного обеспечения
+Когда пользователь получает необходимое программное обеспечение, он может установить для параметра **Отложить и напомнить снова через:** значение, выбрав нужный вариант в раскрывающемся списке.
+- Позднее: указывает, что вывод уведомлений запланирован на основе параметров уведомлений, настроенных в окне параметров агента клиента.
+- Фиксированное время: указывает, что запланировано повторное отображение уведомления через установленный период времени. Например, если пользователь выбирает 30 минут, уведомление будет отображено повторно через 30 минут.
 
-1.  Na consola do Configuration Manager, [criar e implementar uma aplicação](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/create-applications) que necessita de aprovação.
-2.  Num computador cliente, abra o Centro de Software e submeter um pedido para a aplicação.
-3.  Na consola do Configuration Manager, aprove o pedido de aplicação.
-4.  Negar o pedido de aplicação aprovados: Na consola do Configuration Manager, navegue **biblioteca de Software** > **descrição geral** > **gestão de aplicações** > **pedidos de aprovação** e selecione o pedido de aplicação que pretende negar.  No Friso, clique em **negar**.
+![Страница "Агент компьютера " в параметрах агента клиента](media/computeragentsettings.png)
 
-## <a name="exclude-clients-from-automatic-upgrade"></a>Excluir os clientes da atualização automática
-1610 do Technical Preview introduz uma nova definição, que pode utilizar para excluir uma coleção de clientes a instalar automaticamente as versões de cliente atualizado.  Isto aplica-se a atualização automática, bem como outros métodos, tais como a atualização baseada em atualização de software, scripts de início de sessão e política de grupo. Isto pode ser utilizado para uma coleção de computadores que necessitam de maior cuidado ao atualizar o cliente. Um cliente que está a ser uma coleção excluída ignora os pedidos para instalar o software de cliente atualizado.
+Максимальное значение времени переноса всегда зависит от значений уведомлений, каждый раз настраиваемых в параметрах агента клиента, а также от временной шкалы развертывания. Например, если для параметра **Крайний срок развертывания более 24 часов, напоминать пользователю каждые (в часах)** на странице агента компьютера задано 10 часов, а до наступления крайнего срока более 24 часов, то при открытии диалогового окна пользователю будет доступен набор параметров переноса со значениями до 10 часов, но никак не больше. По мере приближения крайнего срока в диалоговом окне будет отображаться меньше вариантов согласно соответствующим параметрам агента клиента для каждого компонента временной шкалы развертывания.
 
-### <a name="configure-exclusion-from-automatic-upgrade"></a>Configurar a exclusão de atualização automática
-Para configurar exclusões de atualização automáticas:
-1.  Na consola do Configuration Manager, abra **definições de hierarquia** em **administração > Configuração do Site > Sites**e, em seguida, selecione o **atualização de cliente** separador.
-2.  Selecione a caixa de verificação **excluir especificado de clientes de atualização**e, em seguida, para **coleção de exclusão**, selecione a coleção que pretende excluir. Só pode selecionar uma única coleção para exclusão.
-3.  Clique em **OK** para fechar e guardar a configuração. Em seguida, depois de política de atualização de clientes, os clientes na coleção excluída automaticamente já não irão instalar atualizações para o software de cliente.
+Кроме того, для развертывания с высоким уровнем риска, такого как последовательность задач для развертывания операционной системы, уведомление конечных пользователей осуществляется более активно. Вместо временных уведомлений на панели задач, информирующих о необходимости обслуживания важного программного обеспечения, на экране компьютера отображается диалоговое окно, аналогичное показанному далее.
 
-  ![Definições de exclusão de atualização automática](media/automatic_upgrade_exclusion.png)
+![Диалоговое окно "Необходимое программное обеспечение"](media/requiredsoftwaredialog.png)
 
-> [!NOTE]
-> Embora a interface de utilizador de Estados de que os clientes não serão atualizados através de qualquer método, existem dois métodos que pode utilizar para substituir estas definições. Instalação push do cliente e uma instalação de cliente manual podem ser utilizadas para substituir esta configuração. Para obter mais detalhes, consulte a secção seguinte.
 
-### <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>Como atualizar um cliente que está a ser uma coleção excluída
-Uma coleção é configurada a serem excluídos, desde que os membros dessa coleção só podem ter atualizado por um dos dois métodos que substituem a exclusão do respetivo software de cliente:
- - **Instalação Push do cliente** – pode utilizar a instalação push do cliente para atualizar um cliente que está a ser uma coleção excluída. Isto é permitido como é considerada a intenção do administrador e permite-lhe atualizar os clientes sem remover o conjunto completo de exclusão.       
- - **Instalação de cliente manual** – pode atualizar manualmente os clientes que estejam numa coleção excluída quando utilizar o seguinte parâmetro de linha de comandos com ccmsetup: ***/ignoreskipupgrade***
+Дополнительные сведения:
+- [Параметры для управления развертываниями с высоким риском](../../protect/understand/settings-to-manage-high-risk-deployments.md)
+- [Настройка параметров клиента](../clients/deploy/configure-client-settings.md)
 
-  Se tentar atualizar manualmente um cliente que é um membro da coleção excluída e não utilize este parâmetro, o cliente não irá instalar o software de cliente novo. Para obter mais informações consulte [como instalar o Configuration Manager clientes manualmente](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#a-namebkmkmanuala-how-to-install-configuration-manager-clients-manually).
+## <a name="deny-previously-approved-application-requests"></a>Отклонение ранее утвержденных запросов приложений
 
-Para obter mais informações sobre métodos de instalação de cliente, consulte [como implementar clientes em computadores Windows no System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
+Теперь администратор может отклонить ранее утвержденный запрос приложения. После отклонения пользователь может установить это приложение позднее, предварительно отправив запрос повторно. Отклонение не приводит к удалению приложения. Оно требует повторного утверждения нового запроса для этого приложения от данного пользователя. Ранее отклонение запроса приложения было доступно только для запросов приложений, которые не были утверждены.
 
-## <a name="windows-defender-configuration-settings"></a>Definições de configuração do Windows Defender
+#### <a name="try-it-out"></a>Попробуйте!
+Отклонение утвержденного запроса приложения
 
-Agora, pode configurar as definições de cliente do Windows Defender em computadores Windows 10 inscritos no Intune, utilizar itens de configuração na consola do Configuration Manager.
+1.  В консоли Configuration Manager [создайте и разверните приложение](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/create-applications), требующее утверждения.
+2.  На клиентском компьютере откройте центр программного обеспечения и отправьте запрос для приложения.
+3.  В консоли Configuration Manager утвердите запрос приложения.
+4.  Отклоните утвержденный запрос приложения: в консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Обзор** > **Управление приложениями** > **Запросы утверждения** и выберите запрос приложения, который нужно отклонить.  На ленте щелкните **Удалить**.
 
-Especificamente, pode configurar as seguintes definições do Windows Defender:
-- Permitir monitorização em tempo real
-- Permitir a monitorização de comportamento
-- Ativar o Sistema de Inspeção de Rede
-- Analisar todas as transferências
-- Permitir análise de script
-- Monitorizar a atividade de programas e ficheiros
-  - Ficheiros monitorizados
-- Dias para controlar o software maligno resolvido
-- Permitir acesso à IU de cliente
-- Agendar uma análise do sistema
-  - Dia agendado
-  - Hora agendada
-- Agendar uma análise rápida diária
-  - Hora agendada
-- % De utilização de limite de CPU durante uma análise da análise ficheiros de arquivo
-- Analisar mensagens de e-mail
-- Analisar unidades amovíveis
-- Analisar unidades mapeadas
-- Analisar ficheiros abertos a partir de partilhas de redes
-- Intervalo de atualização de assinatura
-- Permitir proteção da nuvem
-- Solicitar aos utilizadores de amostras
-- Deteção de aplicação indesejável potencialmente
-- Ficheiros/pastas excluídas
-- Extensões de ficheiro excluídos
-- Processos excluídos
+## <a name="exclude-clients-from-automatic-upgrade"></a>Исключение клиентов из автоматического обновления
+В Technical Preview 1610 представлен новый параметр, запрещающий коллекции клиентов автоматически устанавливать обновленные версии клиентов.  Этот параметр действует для автоматического обновления, а также для других методов, таких как обновление на основе обновления программного обеспечения, сценарии входа в систему и групповая политика. Его можно использовать для коллекции компьютеров, которым требуется особое внимание при обновлении клиента. Клиент, который находится в исключенной коллекции, игнорирует запросы на установку обновленного клиентского программного обеспечения.
+
+### <a name="configure-exclusion-from-automatic-upgrade"></a>Настройка исключения из автоматического обновления
+Настройка исключений из автоматического обновления
+1.  В консоли Configuration Manager откройте окно **Параметры иерархии**, предварительно выбрав **Администрирование > Конфигурация сайта > Сайты**, а затем перейдите на вкладку **Обновление клиентов**.
+2.  Установите флажок **Исключить указанные клиенты из обновления**, а затем в поле **Коллекция исключения** выберите коллекцию, которую требуется исключить. Можно выбрать только одну коллекцию для исключения.
+3.  Нажмите кнопку **ОК**, чтобы закрыть окно и сохранить конфигурацию. После обновления политики клиенты в исключенной коллекции больше не будут автоматически устанавливать обновления для клиентского программного обеспечения.
+
+  ![Параметры для исключения из автоматического обновления](media/automatic_upgrade_exclusion.png)
 
 > [!NOTE]
-> Estas definições só podem ser configuradas em computadores cliente com a atualização de Novembro de 10 do Windows (versão 1511) e superior.
+> Хотя в интерфейсе пользователя указывается, что клиенты не будут обновлены с помощью какого-либо метода, существует два способа, которые можно использовать для переопределения этих параметров. Для переопределения этой конфигурации применяется принудительная установка клиента и установка клиента вручную. Дополнительные сведения см. в следующем разделе.
 
-### <a name="try-it-out"></a>Experimente!
+### <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>Обновление клиента, который находится в исключенной коллекции
+Пока коллекция настроена как исключаемая, клиентское программное обеспечение членов этой коллекции может обновляться с помощью одного из двух методов, которые переопределяют исключение.
+ - **Принудительная установка клиента** — принудительную установку клиента можно использовать для обновления клиента, который находится в исключенной коллекции. Это допустимый способ, так как он считается намерением администратора и позволяет обновлять клиенты без удаления всей коллекции из исключения.       
+ - **Установка клиента вручную** — можно вручную обновить клиенты, находящиеся в исключенной коллекции, с помощью следующего параметра командной строки с ccmsetup: ***/ignoreskipupgrade***.
 
-1.  Na consola do Configuration Manager, vá **ativos e compatibilidade** > **descrição geral** > **as definições de compatibilidade** > **itens de configuração**e criar um novo **Item de configuração**.
-2.  Introduza um nome, em seguida, selecione **Windows 8.1 e Windows 10** em **definições para dispositivos geridos sem o cliente do Configuration Manager** e clique em **seguinte**.
-3.  Certifique-se **todos os Windows 10 (64-bit)** e **todos os Windows 10 (32-bit)** estão selecionadas no **plataformas suportadas** página, em seguida, clique em **seguinte**.
-4.  Selecione o **Windows Defender** definição de grupo, em seguida, clique em **seguinte**.
-5.  Configure as definições pretendidas nesta página, em seguida, clique em **seguinte**.
-6.  Conclua o assistente.
-7.  Adicionar este item de configuração para uma linha de base de configuração e implementar esta linha de base em computadores com Windows 10 Novembro Update (versão 1511) ou acima.
+  Если вы пытаетесь вручную обновить клиент, который является членом исключенной коллекции, и не используете этот параметр, клиент не установит новое клиентское ПО. Дополнительные сведения см. в статье [Установка клиентов Configuration Manager вручную](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#a-namebkmkmanuala-how-to-install-configuration-manager-clients-manually).
+
+Дополнительные сведения о методах установки клиентов см. в статье [Развертывание клиентов для компьютеров Windows в System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
+
+## <a name="windows-defender-configuration-settings"></a>Параметры конфигурации Защитника Windows
+
+Вы можете настроить параметры клиента Защитника Windows на зарегистрированных в Intune компьютерах с Windows 10 с помощью элементов конфигурации в консоли Configuration Manager.
+
+В частности, можно настроить следующие параметры Защитника Windows:
+- Разрешить наблюдение в реальном времени
+- Включить контроль поведения
+- Включить систему проверки сети
+- Проверять все загружаемые файлы
+- Разрешить сканирование скриптов
+- Наблюдать за действиями с файлами и программами
+  - Отслеживается файлов
+- Время отслеживания устраненных вредоносных программ, дн.
+- Разрешить доступ к пользовательскому интерфейсу клиента
+- Запланировать проверку системы
+  - Запланированный день
+  - Запланированное время
+- Запланировать ежедневную быструю проверку
+  - Запланированное время
+- Ограничить загрузку ЦП при проверке Проверять архивные файлы
+- Проверять сообщения электронной почты
+- Проверять съемные носители
+- Проверять подключенные диски
+- Проверять файлы, открываемые из сетевых папок
+- Интервал обновления сигнатур
+- Разрешить облачную защиту
+- Запрашивать отправку образцов у пользователей
+- Обнаружение потенциально нежелательных приложений
+- Исключенные файлы и папки
+- Исключенные расширения файлов
+- Исключенные процессы
 
 > [!NOTE]
-> Não se esqueça de verificar o **remediar definições incompatíveis** caixa de verificação ao implementar a linha de base de configuração.
+> Эти параметры можно настраивать только на клиентских компьютерах с ОС Windows 10 с ноябрьским обновлением (1511) или более поздней версии.
 
-## <a name="request-policy-sync-from-administrator-console"></a>Política de pedido de sincronização da consola do administrador
+### <a name="try-it-out"></a>Попробуйте!
 
-Agora pode pedir uma sincronização de política para um dispositivo móvel da consola do Configuration Manager, em vez de que necessita pedir uma sincronização do próprio dispositivo. Informações de estado de pedido de sincronização estão disponíveis como uma nova coluna nas vistas de dispositivo, denominado **estado de sincronização remoto**. Estado também aparece no **dados de deteção** secção o **propriedades** caixa de diálogo para cada dispositivo móvel.
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Обзор** > **Параметры соответствия** > **Элементы конфигурации** и создайте **элемент конфигурации**.
+2.  Введите имя, выберите **Windows 8.1 и Windows 10** в разделе **Параметры для устройств, управляемых без помощи клиента Configuration Manager**, а затем нажмите кнопку **Далее**.
+3.  Убедитесь в том, что на странице **Поддерживаемые платформы** выбраны элементы **Все Windows 10 (64-разрядные)** и **Все Windows 10 (32-разрядные)**, а затем нажмите кнопку **Далее**.
+4.  Выберите группу параметров **Защитник Windows** и нажмите кнопку **Далее**.
+5.  Настройте нужные параметры на этой странице и нажмите кнопку **Далее**.
+6.  Завершите работу мастера.
+7.  Добавьте этот элемент конфигурации в конфигурационную базу и разверните ее на компьютерах с ОС Windows 10 с ноябрьским обновлением (1511) или более поздней версии.
 
-### <a name="try-it-out"></a>Experimente!
+> [!NOTE]
+> При развертывании конфигурационной базы не забудьте установить флажок **Исправлять несоответствующие параметры**.
 
-1.  Na consola do Configuration Manager, vá **ativos e compatibilidade** > **descrição geral** > dispositivos.
-2.  No **ações do dispositivo remoto** menu, selecione **enviar pedido de sincronização**.
+## <a name="request-policy-sync-from-administrator-console"></a>Запрос синхронизации политики из консоли администрирования
 
-Sincronização poderá demorar cinco a dez minutos. As alterações na política são sincronizadas para o dispositivo. Pode controlar o estado do pedido de sincronização no **estado de sincronização remoto** coluna no **dispositivos** vista, ou o dispositivo **propriedades** caixa de diálogo.
+Теперь вы можете запросить синхронизацию политики для мобильного устройства из консоли Configuration Manager вместо того, чтобы запрашивать синхронизацию на самом устройстве. Сведения о состоянии запроса синхронизации доступны в новом столбце **Состояние удаленной синхронизации** в представлениях устройств. Оно также отображается в разделе **Данные обнаружения** диалогового окна **Свойства** для каждого мобильного устройства.
 
-## <a name="additional-security-role-support"></a>Suporte de função de segurança adicionais
+### <a name="try-it-out"></a>Попробуйте!
 
-Para além de administrador global, as seguintes funções de segurança incorporadas agora tem acesso total aos itens a **todos os dispositivos pertencentes** nó, incluindo **Predeclared dispositivos**, **perfis de inscrição iOS**, e **perfis de inscrição do Windows**: • **Gestor do Asset Intelligence** • **Gestor de acesso a recursos da empresa**
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Обзор** > "Устройства".
+2.  В меню **Действия удаленного устройства** выберите команду **Отправить запрос синхронизации**.
 
-Ainda é concedido o acesso só de leitura para estas áreas da consola do Configuration Manager para o **analista só de leitura** função.
+Синхронизация занимает от пяти до десяти минут. Любые изменения в политике синхронизируются с устройством. Состояние запроса синхронизации можно отслеживать в столбце **Состояние удаленной синхронизации** в представлении **Устройства** или в диалоговом окне **Свойства** устройства.
 
-## <a name="conditional-access-for-windows-10-vpn-profiles"></a>Acesso condicional para perfis de VPN do Windows 10
+## <a name="additional-security-role-support"></a>Поддержка дополнительной роли безопасности
 
-Agora pode exigir a Windows 10 dispositivos inscritos no Azure Active Directory para estar em conformidade para ter acesso VPN através de perfis de VPN do Windows 10 criadas na consola do Configuration Manager. Isto é possível através de novo **ativar o acesso condicional para esta ligação VPN** caixa de verificação no **método de autenticação** página no Assistente do perfil VPN e propriedades de perfil VPN para perfis de VPN do Windows 10. Também pode especificar um certificado diferente para autenticação de início de sessão único se ativar o acesso condicional para o perfil.
+Помимо роли "Полный администратор", следующие встроенные роли безопасности теперь имеют полный доступ к элементам в узле **Все корпоративные устройства**, включая элементы **Предварительно объявленные устройства**, **Профили регистрации iOS** и **Профили регистрации Windows**: • **Менеджер по активам** • **Диспетчер доступа к ресурсам компании**
 
-## <a name="see-also"></a>Consulte Também
-[Pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md)
+Доступ только для чтения к этим областям консоли Configuration Manager по-прежнему предоставляется роли **Аналитик с правами только для чтения**.
+
+## <a name="conditional-access-for-windows-10-vpn-profiles"></a>Условный доступ для профилей VPN Windows 10
+
+Теперь можно затребовать соответствие устройств Windows 10, зарегистрированных в Azure Active Directory, требованиям для доступа к VPN посредством профилей VPN Windows 10, созданных в консоли Configuration Manager. Это можно сделать с помощью нового параметра **Включить условный доступ для этого VPN-подключения** на странице **Метод проверки подлинности** в мастере профилей VPN и свойств профиля VPN для профилей VPN Windows 10. Также можно указать отдельный сертификат для единого входа, если для профиля включен условный доступ.
+
+## <a name="see-also"></a>См. также
+[Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md)

@@ -1,6 +1,6 @@
 ---
-title: "Afinidade de utilizador para híbrida geridos dispositivos no Configuration Manager | Microsoft Docs"
-description: Configure a afinidade de utilizador para dispositivos geridos no Configuration Manager.
+title: "Сопоставление пользователей для устройств с гибридным управлением в Configuration Manager | Документы Майкрософт"
+description: "Настройка сопоставления пользователей для управляемых устройств в Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.reviewer: na
@@ -16,40 +16,40 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: d039792a88b9e7704f37718a88f841dd9216d1b1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="user-affinity-for-hybrid-managed-devices-in-configuration-manager"></a>Afinidade de utilizador para híbrida geridos dispositivos no Configuration Manager
+# <a name="user-affinity-for-hybrid-managed-devices-in-configuration-manager"></a>Сопоставление пользователей для устройств с гибридным управлением в Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Quando configurar perfis de dispositivos pertencentes à empresa, o administrador pode especificar se os dispositivos geridos podem ter *afinidade de utilizador* que identifica um utilizador específico com o dispositivo.  
+При настройке профилей для корпоративных устройств администратор может указать, могут ли управляемые устройства использовать *сопоставление пользователей*, идентифицирующее конкретного пользователя с устройством.  
 
-##  <a name="BKMK_iOSCP"></a>Dispositivos geridos com a afinidade de utilizador  
- Os dispositivos configurados com **user affinity** podem instalar e executar a aplicação Portal da Empresa para transferir aplicações e gerir dispositivos. Assim que os utilizadores recebem os respetivos dispositivos, têm de executar um número de passos adicionais para concluir o Assistente de configuração e instalar a aplicação Portal da empresa.  
+##  <a name="BKMK_iOSCP"></a> Управляемые устройства с сопоставлением пользователей  
+ Устройства, настроенные с применением **user affinity** , могут устанавливать и запускать приложение корпоративного портала для скачивания приложений и управления устройствами. Когда пользователи получают свои устройства, они должны выполнить ряд дополнительных действий, чтобы запустить помощник по настройке и установить приложение корпоративного портала.  
 
-#### <a name="how-to-enroll-ios-devices-with-user-affinity"></a>Como inscrever dispositivos iOS com afinidade de utilizador  
+#### <a name="how-to-enroll-ios-devices-with-user-affinity"></a>Регистрация устройств iOS с сопоставлением пользователей  
 
-1.  Pela primeira vez que os utilizadores inscrevem os respetivos dispositivos novos, são-lhe pedidas para concluir o Assistente de configuração. Pode especificar o perfil de inscrição para solicitar credenciais durante a configuração. Os utilizadores podem utilizar as credenciais (ou seja, o nome pessoal exclusivo ou UPN) associadas à respetiva subscrição no Intune.  
+1.  Когда пользователи впервые включают свои новые устройства, им предлагается запустить помощник по настройке. Профиль регистрации можно настроить для вывода запроса учетных данных во время установки. Пользователи должны использовать учетные данные (т. е. уникальное имя или имя участника-пользователя), связанные с подпиской в Intune.  
 
-2.  Durante a configuração, os utilizadores podem também ser-lhe pedidos para um ID Apple. Tem de ser fornecido um Apple ID antes do dispositivo pode instalar o Portal da empresa. Os utilizadores podem fornecer um ID Apple após a conclusão do iOS do programa de configuração **definições** menu.  
+2.  Во время установки пользователям также может быть предложено ввести идентификатор Apple ID. Чтобы разрешить устройству устанавливать корпоративный портал, необходимо указать идентификатор Apple ID. Идентификатор Apple ID также можно указать после завершения установки из меню **Параметры** iOS.  
 
-3.  Após concluir a configuração, o dispositivo iOS tem de instalar a aplicação Portal da empresa da loja de aplicações, por exemplo [aplicação Portal da empresa](https://itunes.apple.com/us/app/id719171358).  
+3.  По завершении установки на устройство iOS необходимо установить приложение корпоративного портала из магазина App Store, например [приложение корпоративного портала](https://itunes.apple.com/us/app/id719171358).  
 
-4.  O utilizador poderá então iniciar sessão no portal da empresa com o UPN utilizado quando configurou o dispositivo.  
+4.  Теперь пользователь может войти на корпоративный портал с помощью имени участника-пользователя, указанного при настройке устройства.  
 
-5.  Após iniciar sessão, é pedido ao utilizador para inscrever o respetivo dispositivo. O primeiro passo é **Identificar o dispositivo**. A aplicação apresenta uma lista de dispositivos iOS pertencentes à empresa e atribuídos à conta do Intune do utilizador final. Selecione o dispositivo correspondente.  
+5.  После входа в систему пользователю предлагается зарегистрировать свое устройство. Первым шагом является **идентификация устройства**. Приложение выводит список устройств iOS, которые зарегистрированы как корпоративные и назначены учетной записи Intune конечного пользователя. Выберите соответствующее устройство.  
 
-     Se este dispositivo não estiver já inscritos pela empresa, selecione "novo dispositivo" para continuar com o fluxo de inscrição padrão.  
+     Если это устройство еще не зарегистрировано как корпоративное, выберите "новое устройство", чтобы перейти к стандартной регистрации.  
 
-6.  No ecrã seguinte, o utilizador tem de confirmar o número de série do novo dispositivo. O utilizador pode tocar na ligação “confirme o número de série” de modo a iniciar a aplicação Definições para verificar o número de série. Em seguida, o utilizador tem de introduzir os últimos 4 carateres do número de série na aplicação Portal da Empresa.  
+6.  На следующем экране пользователь должен подтвердить серийный номер нового устройства. Пользователь может коснуться ссылки "подтвердить серийный номер", чтобы открыть параметры и проверить серийный номер. Затем пользователь должен ввести последние 4 знака серийного номера в приложении корпоративного портала.  
 
-     Este passo verifica se o dispositivo é o dispositivo da empresa inscrito no Intune. Se o número de série do dispositivo não coincidir, significa que foi selecionado o dispositivo errado. Volte ao ecrã anterior e selecione um dispositivo diferente.  
+     Этот шаг позволяет проверить, является ли устройство корпоративным и зарегистрированным в Intune. Если серийный номер на устройстве не совпадает, значит было выбрано неправильное устройство. Вернитесь к предыдущему экрану и выберите другое устройство.  
 
-7.  Depois de verificar o número de série, a aplicação Portal da empresa redireciona para o Web site do Portal da empresa para finalizar a inscrição e, em seguida, pede ao utilizador para regressar à aplicação.  
+7.  После проверки серийный номер приложение корпоративного портала перенаправляет на веб-сайт корпоративного портала для завершения процесса регистрации, а затем предлагает пользователю вернуться в приложение.  
 
-8.  A inscrição está agora concluída. Agora, pode utilizar este dispositivo com o conjunto completo de capacidades.  
+8.  На этом регистрация завершена. Теперь можно использовать это устройство с полным набором возможностей.  
 
-##  <a name="BKMK_noUA"></a>Dispositivos geridos sem afinidade de utilizador  
- Os dispositivos configurados com **no user affinity** não suportam o Portal da Empresa e não devem instalar a aplicação. O Portal da Empresa foi concebido para utilizadores com credenciais da empresa e que necessitam de acesso a recursos empresariais personalizados (por exemplo, e-mail). Os dispositivos inscritos **sem afinidade de utilizador** não se destinam a ter um início de sessão de utilizador dedicado. Os dispositivos de quiosque, ponto de venda (POS) ou utilitário partilhado são casos de utilização típicos para dispositivos inscritos sem afinidade de utilizador. Se for necessária afinidade de utilizador, certifique-se de que o perfil de inscrição do dispositivo tem a opção **Afinidade de Utilizador** selecionada antes de inscrever o dispositivo. Para alterar o estado de afinidade num dispositivo, tem de extinguir e voltar a inscrever o dispositivo.
+##  <a name="BKMK_noUA"></a> Управляемые устройства без сопоставления пользователей  
+ Устройства, настроенные с применением **no user affinity** , не поддерживают корпоративный портал, поэтому на них не следует устанавливать приложение. Корпоративный портал предназначен для пользователей, у которых есть корпоративные учетные данные и которым необходим доступ к персонализированным корпоративным ресурсам (например, электронной почте). Устройства, зарегистрированные **без сопоставления пользователей** , не предназначены для использования функций с выделенным входом пользователя. Киоски, точки продаж (POS-терминалы) или служебные устройства общего пользования — это типичные места применения устройств, зарегистрированных без сопоставления пользователей. Если требуется сопоставление пользователей, убедитесь, что до начала регистрации устройства в профиле регистрации выбран параметр **Сходство пользователей** . Чтобы изменить на устройстве статус сопоставления, необходимо снять его с учета и повторно зарегистрировать.

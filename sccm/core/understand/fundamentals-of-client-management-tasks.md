@@ -1,68 +1,64 @@
 ---
-title: "Noções básicas de gestão de cliente | Documentos do Microsoft"
-description: Saiba mais sobre as tarefas que executar para gerir clientes do System Center Configuration Manager.
+title: "Основные принципы управления клиентами | Документы Майкрософт"
+description: "Сведения о задачах, выполняемых для управления клиентами System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8d4e5641-354e-4439-8b4f-620a760e233d
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 86b90b8e591e1ae4f58cb361a5e544db6b09cce1
 ms.openlocfilehash: 0fee4f4ba462e59859ac93c4218b67cb26bdd6f6
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-client-management-tasks-for-system-center-configuration-manager"></a>Noções básicas de tarefas de gestão de cliente do System Center Configuration Manager
+# <a name="fundamentals-of-client-management-tasks-for-system-center-configuration-manager"></a>Основные принципы выполнения задач управления клиентами для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Depois de instalar os clientes do System Center Configuration Manager, existem várias tarefas que executar para gerir os clientes.  Algumas das tarefas são executadas a partir da consola do Configuration Manager. Outras tarefas são executadas a partir da aplicação de cliente do Configuration Manager. A aplicação de cliente do Configuration Manager é instalada com o software de cliente do Configuration Manager.
+После установки клиентов System Center Configuration Manager существует ряд задач, которые служат для управления ими.  Некоторые задачи выполняются из консоли Configuration Manager. Другие выполняются из приложения клиента Configuration Manager. Клиент Configuration Manager устанавливается при установке клиентского программного обеспечения Configuration Manager.
 
-## <a name="configuration-manager-console-tasks"></a>Tarefas da consola do Configuration Manager
- Na consola do Configuration Manager, pode efetuar várias tarefas de gestão de clientes:  
+## <a name="configuration-manager-console-tasks"></a>Задачи консоли Configuration Manager
+ В консоли Configuration Manager можно выполнять различные задачи управления клиентами.  
 
--   Implementar aplicações, atualizações de software, scripts de manutenção e sistemas operativos. Configurar a instalação de uma data e hora específicas, disponibilizar o software para os utilizadores instalarem quando forem necessários ou configurar aplicações para serem desinstaladas.  
+-   Развертывание приложений, обновлений программного обеспечения, сценариев обслуживания и операционных систем. Запланируйте установку на заданные дату и время, предоставьте пользователям возможность установки по запросу или настройте приложения для удаления.  
 
--   Ajudar a proteger os computadores contra software maligno e ameaças à segurança, e receber notificações quando forem detetados problemas.  
+-   Защита компьютеров от вредоносного ПО и угроз безопасности, а также оповещение пользователя при обнаружении проблем.  
 
--   Configure as definições de configuração de cliente que pretende monitorizar e retificar em caso de não conformidade.  
+-   Задание параметров конфигурации клиента, которые требуется отслеживать и исправлять в случае несоответствия.  
 
--   Recolher informações do inventário de hardware e software, o que inclui a monitorização e a reconciliação das informações de licença da Microsoft.  
+-   Выполните сбор данных инвентаризации оборудования и программного обеспечения, включая мониторинг и согласование сведений о лицензировании от Майкрософт.  
 
--   Resolver problemas de computadores utilizando o controlo remoto.  
+-   Устранение неполадок на компьютерах с помощью удаленного управления.  
 
--   Implementar definições de gestão de energia para gerir e monitorizar o consumo de energia dos computadores.  
+-   Примените параметры управления питанием и осуществляйте мониторинг энергопотребления компьютеров.  
 
-Consola do Configuration Manager monitoriza as tarefas em tempo real near anterior. Informações de estado e de notificação para cada tarefa estão disponíveis na consola do Configuration Manager. Para recolher dados e tendências históricas, utilize as capacidades de relatório integradas do SQL Server Reporting Services. Os clientes enviam detalhes para o site como o estado do cliente.  Informações de estado do cliente fornecem dados sobre o estado de funcionamento do cliente e a atividade do cliente e for visualizadas na consola ou utilizando os relatórios incorporados para o Configuration Manager. Estes dados ajudam a identificar os computadores que não estão a responder e, em alguns casos, os problemas são remediados automaticamente.  
+Консоль Configuration Manager осуществляет мониторинг предыдущих задач в режиме, приближенном к реальному времени. Уведомления и сведения о состоянии каждой задачи доступны в консоли Configuration Manager. Для сбора данных и формирования трендов используйте встроенные возможности составления отчетов, имеющиеся в службах SQL Server Reporting Services Клиенты передают сведения на сайт в виде статуса клиента.  Сведения о состоянии клиента содержат информацию о работоспособности клиента и его активности. Их можно просматривать в консоли или с помощью встроенных отчетов для Configuration Manager. Эти данные помогают определить, какие компьютеры не отвечают на запросы, и в некоторых случаях автоматически устранить неполадки.  
 
- Para mais informações sobre tarefas de gestão de clientes, veja [Como gerir os clientes no System Center Configuration Manager](../../core/clients/manage/manage-clients.md) e [Como gerir os clientes para servidores Linux e UNIX no System Center Configuration Manager](../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md). Para obter mais informações sobre como utilizar relatórios, consulte   
-            [Introdução aos relatórios no System Center Configuration Manager](../../core/servers/manage/introduction-to-reporting.md).  
+ Дополнительные сведения о задачах управления для клиентов см. в статьях [Управление клиентами в System Center Configuration Manager](../../core/clients/manage/manage-clients.md) и [Управление клиентами для серверов Linux и UNIX в System Center Configuration Manager](../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md). Сведения о работе с отчетами см. в разделе   
+            [Общие сведения о ведении отчетов в System Center Configuration Manager](../../core/servers/manage/introduction-to-reporting.md).  
 
-## <a name="configuration-manager-client-application"></a>Aplicação de cliente do Configuration Manager  
- Ao instalar o software de cliente do Configuration Manager, a aplicação de cliente do Configuration Manager está instalada demasiado. Ao contrário do Centro de Software, a aplicação de cliente do Configuration Manager é concebida para o suporte técnico e não para o utilizador final. Algumas opções de configuração requerem permissões administrativas locais e a maioria das opções requer conhecimentos técnicos sobre como funciona a aplicação de cliente do Configuration Manager. Pode utilizar esta aplicação para efetuar as seguintes tarefas num cliente:  
+## <a name="configuration-manager-client-application"></a>Приложение клиента Configuration Manager  
+ При установке клиентского программного обеспечения Configuration Manager также устанавливается приложение клиента Configuration Manager. В отличие от центра программного обеспечения это приложение разработано для службы поддержки, а не для конечных пользователей. Для некоторых параметров конфигурации нужны локальные административные разрешения, причем большая часть параметров требует технических знаний о принципах работы приложения клиента Configuration Manager. Это приложение может использоваться для выполнения следующих задач в отношении отдельного клиента:  
 
--   Ver propriedades sobre o cliente, tais como o número de compilação, o site atribuído, a gestão ponto qual está a comunicar, e se o cliente está a utilizar um certificado de infraestrutura de chaves públicas (PKI) ou um certificado autoassinado.  
+-   Просмотрите свойства клиента, например номер сборки, назначенный сайт, точку управления, с которой он связывается, а также сведения о том, какой сертификат используется — сертификат инфраструктуры открытых ключей (PKI) или самозаверяющий сертификат.  
 
--   Certifique-se de que o cliente transferiu com êxito uma política do cliente depois do cliente é instalado pela primeira vez. Confirme que as definições de cliente estão ativadas ou desativadas conforme previsto, de acordo com as definições de cliente que são configuradas na consola do Configuration Manager.  
+-   Убедитесь в том, что клиент успешно скачал политику клиента после его первой установки. Кроме того, убедитесь в том, что параметры клиента включены или отключены требуемым образом в соответствии с параметрами клиента, настроенными в консоли Configuration Manager.  
 
--   Inicie ações do cliente. Por exemplo, transferir a política de cliente se tiver ocorrido alguma alteração recente à configuração na consola do Configuration Manager e não pretender que a aguardar a próxima hora agendada.  
+-   Запустите действия клиента. Например, скачайте политику клиента, если недавно произошло изменение конфигурации в консоли Configuration Manager и вы не хотите дожидаться следующего запланированного периода.  
 
--   Atribuir um cliente a um site do Configuration Manager ou tentar localizar um site manualmente. Em seguida, especifique o sufixo de sistema de nomes de domínio (DNS) para pontos de gestão que publicam no DNS.  
+-   Вручную назначьте клиент сайту Configuration Manager или попытайтесь найти сайт. Затем укажите DNS-суффикс точек управления, публикующих данные в DNS.  
 
--   Configure a cache do cliente que armazena temporariamente os ficheiros. Em seguida, elimine ficheiros na cache se necessitar de mais espaço em disco para instalar o software.  
+-   Настройте кэш клиента, в котором периодически сохраняются файлы. Удалите файлы из кэша, если требуется дополнительное пространство для установки программного обеспечения.  
 
--   Configurar as definições da gestão de clientes baseada na Internet.  
+-   Настройте параметры управления интернет-клиентами.  
 
--   Ver linhas de base de configuração que foram implementadas no cliente, iniciar a avaliação de compatibilidade e ver relatórios de compatibilidade.  
-
+-   Просмотрите основные параметры конфигурации, развернутые на клиенте, инициируйте оценку соответствия и просмотрите отчеты о соответствии.  

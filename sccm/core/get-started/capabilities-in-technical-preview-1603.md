@@ -1,6 +1,6 @@
 ---
-title: Funcionalidades no Technical Preview 1603 do Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1603."
+title: "Возможности в Technical Preview 1603 для Configuration Manager"
+description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1603."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,78 +17,78 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: dee2b4ce042bb4a434bb019e17a6b16e2807945c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1603-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1603 do System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1603-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1603 для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+*Применимо к: System Center Configuration Manager (Technical Preview)*
 
-Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1603. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. Em alternativa, quando utiliza o System Center Technical Preview 5, esta versão é instalado como uma versão de linha de base do System Center Configuration Manager Technical Preview. Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.  
+В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1603. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager. Кроме того, при использовании System Center Technical Preview 5 эта версия устанавливается в качестве базовой версии System Center Configuration Manager Technical Preview. Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.  
 
- **Problemas conhecidos para este Technical Preview:**  
+ **Известные проблемы в этой версии Technical Preview**  
 
--   Esta versão inclui atualizações para funcionalidades lançadas anteriormente, mas não introduz novas funcionalidades. Por conseguinte, a página de funcionalidades do Assistente de atualização estará vazia se anteriormente tiver atualizado para a versão 1602 e ativado todas as funcionalidades incluídas na 1602.  
+-   Этот выпуск включает в себя обновления для ранее выпущенных компонентов, но не вводит новые компоненты. Таким образом, страница "Компоненты" мастера установки обновлений будет пустой, если вы уже выполнили обновление до версии 1602 и включили все компоненты, входящие в версию 1602.  
 
--   Depois do servidor do site das atualizações para o Technical Preview 1603, os clientes não conseguem utilizar as funcionalidades de controlo remoto até atualizarem também para a versão 1603.  
+-   После обновления сервера сайта до версии Technical Preview 1603 клиенты не смогут использовать функции удаленного управления, пока они также не будут обновлены до версии 1603.  
 
- **Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
+ **Ниже перечислены новые возможности, доступные в этой версии.**  
 
-##  <a name="BKMK_SC1603"></a>Melhoramentos ao centro de Software  
+##  <a name="BKMK_SC1603"></a> Усовершенствования в центре программного обеспечения  
 
-### <a name="new-tiled-view-for-apps"></a>Nova vista em mosaico para aplicações  
- Os utilizadores finais podem escolher agora entre uma lista de aplicações, ou uma vista em mosaico das aplicações no **aplicações** separador do Centro de Software.  
+### <a name="new-tiled-view-for-apps"></a>Новое мозаичное представление приложений  
+ Конечные пользователи теперь могут выбирать между списком приложений и мозаичным представлением приложений на вкладке **Приложения** центра программного обеспечения.  
 
-### <a name="select-multiple-updates-in-software-center"></a>Selecionar múltiplas atualizações no Centro de Software  
- No **atualizações** separador do Centro de Software, pode agora selecionar múltiplas atualizações ou selecionar **atualizar tudo** para começar a instalar várias atualizações em simultâneo.  
+### <a name="select-multiple-updates-in-software-center"></a>Выбор нескольких обновлений в центре программного обеспечения  
+ Теперь на вкладке **Обновления** центра программного обеспечения можно выбрать несколько обновлений или **Обновить все** и начать установку нескольких обновлений одновременно.  
 
-##  <a name="BKMK_RC1603"></a>Melhoramentos no controlo remoto  
+##  <a name="BKMK_RC1603"></a> Усовершенствования для удаленного управления  
 
-### <a name="limit-shared-clipboard-access-in-a-remote-control-session"></a>Limitar o acesso de área de transferência partilhada numa sessão de controlo remoto  
- Agora, pode ativar o nova definição de cliente de ferramentas remotas **pedir ao utilizador permissão de transferência do ficheiro de área de transferência partilhada** para limitar o acesso à área de transferência partilhada numa sessão de controlo remoto.  
+### <a name="limit-shared-clipboard-access-in-a-remote-control-session"></a>Ограничение доступа к общему буферу обмена в сеансе удаленного управления  
+ Теперь, чтобы ограничить доступ к общему буферу обмена в сеансе удаленного управления, можно включить новый параметр клиента средств удаленного управления **Запросить у пользователя разрешение на передачу файлов из общего буфера обмена**.  
 
- Quando ativada, o utilizador final que está a partilhar uma sessão remota tem de conceder permissões ao Visualizador dessa sessão antes do Visualizador poder transferir ficheiros da sessão para a respetiva máquina local através da área de transferência partilhada.  
+ Когда этот параметр включен, конечный пользователь, открывающий доступ к сеансу удаленного управления, должен предоставить разрешения на просмотр этого сеанса, чтобы получивший эти разрешения пользователь смог передавать файлы из сеанса на свой локальный компьютер с помощью общего буфера обмена.  
 
- Esta ação adiciona uma camada de proteção para o utilizador final, como anteriormente, se o Visualizador era concedido controlo total do computador do utilizador final, seria capazes de utilizar a área de transferência partilhada para transferir os ficheiros da sessão para o respetivo computador local de uma forma completamente transparente para o utilizador final.  
+ Эта функция дает дополнительный уровень защиты для конечного пользователя: пользователь, получивший все разрешения на управление компьютером конечного пользователя, сможет использовать общий буфер обмена для передачи файлов из сеанса на свой локальный компьютер, при этом его действия будут полностью прозрачны для конечного пользователя.  
 
-##  <a name="BKMK_RamDiskTFTP"></a> Personalizar o tamanho do bloco TFTP do disco de RAM e o tamanho da janela em pontos de distribuição com PXE ativado  
- No 1603 Technical Preview, pode personalizar o tamanho do bloco TFTP do disco de RAM e o tamanho da janela de pontos de distribuição com PXE ativado. Se tiver personalizado a rede, poderá fazer com que a transferência da imagem de arranque falhe, com um erro de tempo limite excedido, porque o tamanho do bloco ou da janela é demasiado grande. A personalização do tamanho do bloco TFTP do disco de RAM e do tamanho da janela permitem otimizar o tráfego TFTP ao utilizar o PXE para satisfazer requisitos de rede específicos.   
-Terá de testar as definições personalizadas no seu ambiente para determinar o que é mais eficiente.  
+##  <a name="BKMK_RamDiskTFTP"></a> Настройка размеров блока и окна RamDisk TFTP в точках распространения с поддержкой PXE  
+ В версии 1603 Technical Preview можно настраивать размеры блока и окна RamDisk TFTP для точек распространения с поддержкой PXE. Если изменить настройки сети, это может привести к тому, что при скачивании образа загрузки произойдет ошибка тайм-аута из-за слишком большого размера блока или окна. Настройка размеров блока и окна RamDisk TFTP позволяет оптимизировать трафик TFTP при использовании PXE для соответствия определенным требованиям сети.   
+Чтобы определить наиболее эффективный вариант, необходимо протестировать измененные параметры в среде пользователя.  
 
--   **Tamanho do bloco TFTP**: O tamanho do bloco é o tamanho dos pacotes de dados que são enviados pelo servidor para o cliente que está a transferir o ficheiro (conforme referido em RFC 2347). Um tamanho de bloco maior permitirá ao servidor enviar menos pacotes, pelo que existem menos atrasos no percurso de ida e volta entre o servidor e o cliente. No entanto, tamanhos de bloco maiores resultam em pacotes fragmentados, não suportados pela maioria das implementações de cliente PXE.  
+-   **Размер блока TFTP**. Размер блока — это размер пакетов данных, отправляемых сервером клиенту, который загружает файл (как описано в RFC 2347). Больший размер блока позволяет серверу отправлять меньшее число пакетов, поэтому между сервером и клиентом возникает меньше задержек кругового пути. Однако, большие размеры блока приводят к фрагментации пакетов, которую не поддерживает большинство реализаций PXE-клиента.  
 
--   **Tamanho da janela de TFTP**: TFTP necessita de um pacote de confirmação (ACK) para cada bloco de dados que são enviados. O servidor não envia o bloco seguinte na sequência até receber o pacote ACK para o bloco anterior. O sistema baseado em janelas do TFTP é uma funcionalidade dos Serviços de Implementação do Windows que permite definir quantos blocos de dados são necessários para preencher uma janela. O servidor envia os blocos de dados continuamente até que a janela seja preenchida e, em seguida, o cliente envia um pacote ACK. O aumento do tamanho desta janela reduz o número de atrasos no percurso de ida e volta entre o cliente e o servidor, e diminui o tempo global que é necessário para transferir uma imagem de arranque.  
+-   **Размер окна TFTP**. TFTP требуется пакет подтверждения (ACK) для каждого передаваемого блока данных. Сервер не отправляет следующий блок в последовательности, пока не получит пакет ACK для предыдущего блока. Изменение размера окна TFTP — это функция служб развертывания Windows, которая позволяет определять, сколько блоков данных необходимо для заполнения окна. Сервер отправляет блоки данных один за другим до заполнения окна, а затем клиент отправляет пакет ACK. Увеличение размера этого окна уменьшает число задержек кругового пути между клиентом и сервером, а также уменьшает общее время, необходимое для скачивания образа загрузки.  
 
-### <a name="try-it-out"></a>Experimente!  
- Experimente concluir as seguintes tarefas e, em seguida, utilize as informações de feedback perto da parte superior deste tópico para nos informar como correu:  
+### <a name="try-it-out"></a>Попробуйте!  
+ Попробуйте выполнить следующие задачи, а затем используйте информацию для обратной связи, расположенную ближе к началу этой статьи, чтобы сообщить нам о полученном результате.  
 
--   Consigo personalizar o tamanho da janela de TFTP do disco de RAM no ponto de distribuição com PXE ativado.  
+-   Я могу настроить размер окна RamDisk TFTP в точке распространения с поддержкой PXE.  
 
--   Consigo personalizar o tamanho do bloco TFTP do disco de RAM no ponto de distribuição com PXE ativado.  
+-   Я могу настроить размер блока RamDisk TFTP в точке распространения с поддержкой PXE.  
 
-### <a name="to-modify-the-ramdisk-tftp-window-size"></a>Para modificar o tamanho da janela de TFTP do disco de RAM  
+### <a name="to-modify-the-ramdisk-tftp-window-size"></a>Изменение размера окна RamDisk TFTP  
 
--   Adicione a seguinte chave de registo em pontos de distribuição com PXE ativado para personalizar o tamanho da janela de TFTP do disco de RAM:  
+-   Чтобы настроить размер окна RamDisk TFTP, добавьте следующий раздел реестра в точках распространения с поддержкой PXE:  
 
-     **Localização**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Nome: RamDiskTFTPWindowSize  
+     **Расположение**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Имя: RamDiskTFTPWindowSize  
 
-     **Tipo**: REG_DWORD  
+     **Тип**: REG_DWORD  
 
-     **Valor**: &lt;tamanho de janela personalizado\>  
+     **Значение**: &lt;измененный размер окна\>  
 
- O valor predefinido é 1 (1 bloco de dados preenche a janela)  
+ Значение по умолчанию — 1 (1 блок данных заполняет окно).  
 
-### <a name="to-modify-the-ramdisk-tftp-block-size"></a>Para modificar o tamanho do bloco de TFTP do disco de RAM  
+### <a name="to-modify-the-ramdisk-tftp-block-size"></a>Изменение размера блока RamDisk TFTP  
 
--   Adicione a seguinte chave de registo em pontos de distribuição com PXE ativado para personalizar o tamanho da janela de TFTP do disco de RAM:  
+-   Чтобы настроить размер окна RamDisk TFTP, добавьте следующий раздел реестра в точках распространения с поддержкой PXE:  
 
-     **Localização**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Nome: RamDiskTFTPBlockSize  
+     **Расположение**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Имя: RamDiskTFTPBlockSize  
 
-     **Tipo**: REG_DWORD  
+     **Тип**: REG_DWORD  
 
-     **Valor**: &lt;tamanho de bloco personalizado\>  
+     **Значение**: &lt;измененный размер блока\>  
 
- O valor predefinido é 4096 (4k).  
+ Значение по умолчанию — 4096 (4 КБ).  

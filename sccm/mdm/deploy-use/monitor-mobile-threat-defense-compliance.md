@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar a conformidade de defesa de ameaça Mobile | O System Center Configuration Manager"
-description: "Monitorizar o estado de conformidade de parceiro Mobile ameaça defesa partir da consola do Configuration Manager"
+title: "Мониторинг соответствия Mobile Threat Defense | System Center Configuration Manager"
+description: "Мониторинг состояния соответствия партнера Mobile Threat Defense из консоли управления Configuration Manager"
 ms.custom: na
 ms.date: 03/21/2017
 ms.prod: configuration-manager
@@ -16,59 +16,59 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 8edf83a0f761dfc16274ce49c3aa2b878c7fe6cd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-mobile-threat-defense-compliance"></a>**Monitorizar a conformidade de defesa de ameaça Mobile**
+# <a name="monitor-mobile-threat-defense-compliance"></a>**Мониторинг соответствия Mobile Threat Defense**
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-## <a name="to-monitor-the-overall-compliance-status"></a>Para monitorizar o estado de conformidade geral
+## <a name="to-monitor-the-overall-compliance-status"></a>Мониторинг общего состояния соответствия
 
-Para monitorizar o estado de defesa de ameaça móveis:
+Чтобы отслеживать состояние Mobile Threat Defense, выполните следующие действия.
 
-1.  Na consola do Configuration Manager, clique em **monitorização** área de trabalho.
+1.  В консоли Configuration Manager щелкните рабочую область **Мониторинг**.
 
-2.  No **monitorização** área de trabalho, clique em de **segurança** nós.
+2.  В рабочей области **Мониторинг** щелкните узел **Безопасность**.
 
-Pode ver um resumo do Estado de compatibilidade com níveis de ameaça diferentes, que é apresentado num formato gráfico visual. Pode clicar nas secções individuais dos gráficos para obter mais informações, como: 
+Вы увидите сводку состояний соответствия с разными уровнями угроз в виде диаграммы. Вы можете щелкнуть любой раздел диаграммы, чтобы увидеть дополнительные сведения, например: 
 
-- O número de relatórios não conformes como pela plataforma de dispositivos
-- Quaisquer erros relacionados com o estado de conformidade do dispositivo
+- число устройств, которые платформа считает несоответствующими;
+- ошибки, относящиеся к состоянию соответствия устройств.
 
 ![](http://i.imgur.com/bmPsiWk.png)
 
-## <a name="to-monitor-the-individual-compliance-status"></a>Para monitorizar o estado de conformidade individuais
+## <a name="to-monitor-the-individual-compliance-status"></a>Мониторинг индивидуального состояния соответствия
 
-Também pode ver o estado do dispositivo individual:
+Вы также можете увидеть состояние для отдельного устройства.
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** área de trabalho.
+1.  В консоли Configuration Manager щелкните рабочую область **Активы и соответствие**.
 
-2.  Clique em **dispositivos**.
+2.  Щелкните **Устройства**.
 
 > [!TIP] 
-> Pode adicionar o **conformidade do dispositivo ameaça** e **nível de ameaças de dispositivo** colunas para ver o estado. Estas colunas não são apresentadas por predefinição.
+> Для отображения данных о состоянии можно добавить столбцы **Device threat compliance** (Соответствие устройства политике защиты от угроз) и **Уровень угрозы устройства**. Эти столбцы не отображаются по умолчанию.
 
-## <a name="device-threat-protection-tab"></a>Separador de proteção contra ameaças do dispositivo
+## <a name="device-threat-protection-tab"></a>Вкладка "Защита устройства от угроз"
 
-Além disso, no **dispositivos** ecrã, pode selecionar dispositivos específicos, em seguida, clique em de **proteção contra ameaças do dispositivo** separador fornece mais detalhes sobre o estado de conformidade do dispositivo. Localize abaixo as descrições das colunas e os respetivos valores esperados para ajudar a que analisar o estado de conformidade do dispositivo.
+Кроме того, на экране **Устройства** можно выбрать конкретные устройства, а затем щелкнуть вкладку **Защита устройства от угроз**, чтобы получить дополнительные сведения о состоянии соответствия для устройства. Ниже вы найдете описания и ожидаемые значения для столбцов, которые помогут вам анализировать состояние соответствия для устройства.
 
 > [!IMPORTANT] 
-> O separador proteção contra ameaças de dispositivo só aparece se o dispositivo selecionado é um dispositivo móvel.
+> Вкладка "Защита устройства от угроз" отображается только для мобильных устройств.
 
-|Nome da coluna|Visíveis por predefinição|Descrição| 
+|Имя столбца|Видимость по умолчанию|Описание| 
 |-|-|-|
-|**Descrição**| Sim | Detalhes sobre a ameaça fornecido pelo parceiro de defesa de ameaça Mobile. |
-|**Hora da última atualização**| Sim | A última enviado do parceiro de defesa de ameaça Mobile atualizados detalhes sobre a ameaça para o Intune. |
-|**Gravidade de ameaça**| Sim | Gravidade de ameaça é a definição de uma ameaça individuais com base na configuração de administração na consola do parceiro de defesa de ameaça Mobile. Tem um dos três valores seguintes: **Baixa**, **média** ou **elevada** |
-|**Estado de ameaça**| Sim | O estado atual da ameaça no dispositivo. Estados possíveis: **Active Directory**, **resolvido** ou **ignoradas:** Indica que o utilizador ignorado a ameaça nos respetivos dispositivos, mas a ameaça ainda está presente. |
-|**Tipo de ameaça**| Sim | Tipo de parceiro de Mobile ameaça defesa de ameaça. Valores possíveis: **Aplicação**, **ficheiro** ou **SO** |
-|**ID de conta do AAD**| Não | O identificador exclusivo do Azure Active Directory. |
-|**Classificação**| Sim | Parceiro de defesa de ameaça Mobile fornecido a classificação de ameaça. Valores possíveis: **Ativador de raiz, Riskware, Adware, Chargeware, DataLeak, Trojan, Worm, vírus, exploram, Backdoor, Bot, AppDropper, ClickFraud, Spam, Spyware, SurveillanceWare, vulnerabilidade, desconhecida, raiz Jailbrake, Conetividade, TollFraud, SideloadedApp** |
-|**ID de dispositivo**| Não | O ID de objeto do Azure Active Directory que representa o dispositivo associado à área de trabalho com informações de ameaças. |
-|**ID de ameaça**| Não | Parceiro de defesa de ameaça Mobile gerado um identificador exclusivo para a ameaça. O ID de ameaça é utilizado para resolução de controlo. |
-|**URL de ameaça**| Não | Quando presente, as ligações de URL de ameaças de volta para a vista de consola de gestão do parceiro Mobile ameaça defesa desta ameaça específica. |
+|**Описание**| Да | Сведения о угрозах, предоставляемые партнером Mobile Threat Defense. |
+|**Время последнего обновления**| Да | Время отправки последнего обновления сведений об угрозах от партнера Mobile Threat Defense в Intune. |
+|**Уровень серьезности угрозы**| Да | Уровень серьезности вычисляется для каждой отдельной угрозы на основе параметров, указанных администратором в консоли партнера Mobile Threat Defense. Он может принимать одно из трех значений: **низкий**, **средний** или **высокий**. |
+|**Состояние угрозы**| Да | Текущее состояние угрозы для устройства. Возможные состояния: **Активно**, **Устранено** или **Игнорируется** (последний вариант обозначает, что пользователь проигнорировал угрозу на своем устройстве, но она по-прежнему сохраняется). |
+|**Тип угрозы**| Да | Тип угрозы по данным партнера Mobile Threat Defense. Возможные значения: **Приложение**, **Файл** или **ОС**. |
+|**Идентификатор учетной записи AAD**| Нет | Уникальный идентификатор Azure Active Directory. |
+|**Классификация**| Да | Классификация угрозы, предоставленная партнером Mobile Threat Defense. Возможные значения: **Root Enabler, Riskware, Adware, Chargeware, DataLeak, Trojan, Worm, Virus, Exploit, Backdoor, Bot, AppDropper, ClickFraud, Spam, Spyware, SurveillanceWare, Vulnerability, Unknown, Root Jailbrake, Connectivity, TollFraud, SideloadedApp**. |
+|**Идентификатор устройства**| Нет | Идентификатор объекта Azure Active Directory, соответствующий устройству, присоединенному к рабочему месту, для которого отображается информация об угрозе. |
+|**Идентификатор угрозы**| Нет | Уникальный идентификатор угрозы, предоставленный партнером Mobile Threat Defense. Идентификатор угроз используется для отслеживания устранения. |
+|**URL-адрес угрозы**| Нет | Если значение присутствует, оно содержит URL-адрес страницы в консоли управления партнера Mobile Threat Defense, посвященной этой конкретной угрозе. |
 
 > [!TIP] 
-> Certifique-se de ativar as colunas que não são **visíveis por predefinição** para ver mais detalhes sobre o estado de conformidade para os seus dispositivos móveis defesa de ameaça.
+> Обязательно включите столбцы, которые не **отображаются по умолчанию**, чтобы получить дополнительные сведения о состоянии соответствия Mobile Threat Defense для мобильных устройств.

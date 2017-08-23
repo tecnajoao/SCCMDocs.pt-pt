@@ -1,6 +1,6 @@
 ---
-title: Preparar para o System Center Configuration Manager | Microsoft Docs
-description: "Encontrar tópicos de que o irão ajudar a planear uma implementação do System Center Configuration Manager."
+title: "Подготовка к использованию System Center Configuration Manager | Документы Майкрософт"
+description: "Разделы, которые помогут спланировать развертывание System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,25 +17,25 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b2d9cf11b944b6ee648b8fc7bc836ed5a82925a5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="get-ready-for-system-center-configuration-manager"></a>Preparar para o System Center Configuration Manager
+# <a name="get-ready-for-system-center-configuration-manager"></a>Подготовка к использованию System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as informações nos tópicos seguintes quando estiver pronto para começar a planear a implementação do System Center Configuration Manager:  
+Когда вы будете готовы начать планирование развертывания System Center Configuration Manager, используйте сведения в следующих разделах:  
 
 
-  -   [Estruturar uma hierarquia de sites para o System Center Configuration Manager](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md)  
+  -   [Разработка иерархии сайтов для System Center Configuration Manager](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md)  
 
-  -   [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md)  
+  -   [Основы ролевого администрирования для System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md)  
 
-  -   [Conceitos fundamentais da gestão de conteúdos no System Center Configuration Manager](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)  
+  -   [Основные принципы управления содержимым в System Center Configuration Manager](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)  
 
-  -   [Compreender a forma como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md)  
+  -   [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md)  
 
--   [Preparar o ambiente de rede para o System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)  
+-   [Подготовка сетевой среды для System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)  
 
--   [Configurações suportadas para o System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md)  
+-   [Поддерживаемые конфигурации для System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md)  

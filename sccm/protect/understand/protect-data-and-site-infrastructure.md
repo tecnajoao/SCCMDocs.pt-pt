@@ -1,6 +1,6 @@
 ---
-title: Proteger a infraestrutura de dados e do site | Microsoft Docs
-description: "Saiba como proteger recursos da sua organização de exposição ou ataque malicioso com o System Center Configuration Manager."
+title: "Защита данных и инфраструктуры сайтов | Документы Майкрософт"
+description: "Узнайте, как защитить ресурсы организации от раскрытия или вредоносных атак с помощью System Center Configuration Manager."
 ms.custom: na
 ms.date: 11/27/2016
 ms.prod: configuration-manager
@@ -16,27 +16,27 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d527cb4bfb55ca50c8d2a0fed7c427af5747fe99
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="protect-data-and-site-infrastructure-with-system-center-configuration-manager"></a>Proteger a infraestrutura de dados e do site com o System Center Configuration Manager
+# <a name="protect-data-and-site-infrastructure-with-system-center-configuration-manager"></a>Защита данных и инфраструктуры сайтов с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Pretende que os utilizadores possam aceder de forma segura a recursos da sua organização, para que a infraestrutura e os dados estejam protegidos de exposição ou ataque malicioso. As informações nos seguintes tópicos descrevem como utilizar o System Center Configuration Manager (também conhecido como do ConfigMgr ou SCCM) para permitir que o acesso e como ajudar a proteger os recursos da sua organização.  
+Требуется, чтобы пользователи могли осуществлять безопасный доступ к ресурсам организации, а инфраструктура и данные были защищены от раскрытия или вредоносной атаки. В приведенных ниже разделах описывается включение доступа и защита ресурсов вашей организации с помощью System Center Configuration Manager (SCCM).  
 
--   Pode minimizar os esforços dos seus utilizadores para se ligarem a recursos empresariais através da ativação de conectividade VPN com perfis VPN. Saiba mais em [perfis VPN no System Center Configuration Manager](../deploy-use/vpn-profiles.md).  
+-   Свести к минимуму усилия пользователей для подключения к корпоративным ресурсам можно, включив VPN-подключение с использованием профилей VPN. Дополнительные сведения см. в разделе [Профили VPN в System Center Configuration Manager](../deploy-use/vpn-profiles.md).  
 
--   Os perfis Wi-Fi fornecem um conjunto de ferramentas e recursos para ajudar a criar, implementar e monitorizar definições de rede sem fios em dispositivos da sua organização. Com a implementação destas definições, está a minimizar o esforço do utilizador final necessário para estabelecer ligação às redes sem fios da empresa. Saiba mais em [perfis de Wi-Fi no System Center Configuration Manager](/sccm/protect/deploy-use/create-wifi-profiles).  
+-   Профили Wi-Fi включают набор средств и ресурсов, которые позволяют создавать, развертывать и отслеживать параметры беспроводных сетей на устройствах в организации. Развертывание этих параметров упрощает подключение пользователей к корпоративным беспроводным сетям. Дополнительные сведения см. в разделе [Профили Wi-Fi в System Center Configuration Manager](/sccm/protect/deploy-use/create-wifi-profiles).  
 
--   [No System Center Configuration Manager de perfis de certificado](../deploy-use/introduction-to-certificate-profiles.md) descreve como aprovisionar dispositivos dos utilizadores com os certificados que necessitam para ligar aos recursos da empresa.  
+-   В разделе [Профили сертификатов в System Center Configuration Manager](../deploy-use/introduction-to-certificate-profiles.md) описывается способ подготовки устройств пользователей с помощью сертификатов, необходимых для подключения к ресурсам компании.  
 
--   [System Center Endpoint Protection](../deploy-use/endpoint-protection.md) permite-lhe gerir políticas antimalware e de segurança da Firewall do Windows para computadores cliente.  
+-   [System Center Endpoint Protection](../deploy-use/endpoint-protection.md) позволяет управлять политиками защиты от вредоносных программ и параметрами безопасности брандмауэра Windows для клиентских компьютеров.  
 
--   Pode utilizar o acesso condicional para ajudar a proteger o e-mail e outros serviços em dispositivos que estão inscritos no Microsoft Intune, conforme descrito em [gerir o acesso a serviços no System Center Configuration Manager](../deploy-use/manage-access-to-services.md).  
+-   Вы можете использовать условный доступ для защиты электронной почты и других служб на устройствах, зарегистрированных в Microsoft Intune, как описано в разделе [Управление доступом к службам в System Center Configuration Manager](../deploy-use/manage-access-to-services.md).  
 
--   Os perfis de e-mail fornecem um conjunto de ferramentas e recursos que o ajudam a criar, implementar e monitorizar definições de e-mail em dispositivos. Isto permite que os utilizadores acedam ao e-mail da empresa nos seus dispositivos pessoais, sem qualquer configuração necessária por parte dos mesmos. Saiba mais em [no System Center Configuration Manager de perfis de E-Mail](../deploy-use/introduction-to-email-profiles.md).  
+-   Профили электронной почты предоставляют набор средств и ресурсов, помогающих создавать, развертывать и отслеживать параметры электронной почты на устройствах. Это предоставляет пользователям возможность получения доступа к корпоративной электронной почте на личных устройствах без каких-либо необходимых настроек с их стороны. Дополнительные сведения см. в разделе [Профили электронной почты в System Center Configuration Manager](../deploy-use/introduction-to-email-profiles.md).  
 
--   O Configuration Manager permite-lhe integrar com o Windows Hello para empresas (anteriormente o Microsoft Passport for Work) que é um início de sessão método alternativo que utiliza o Active Directory ou uma conta do Azure Active Directory para substituir uma palavra-passe, um smart card ou um virtual smart card. Saiba mais em [Windows Hello para definições da empresa no System Center Configuration Manager](../deploy-use/windows-hello-for-business-settings.md).  
+-   Configuration Manager поддерживает интеграцию с Windows Hello для бизнеса (прежнее название Microsoft Passport for Work) альтернативным методом входа, использующим учетную запись Active Directory или Azure Active Directory для замены пароля, смарт-карты или виртуальной смарт-карты. Дополнительные сведения см. в разделе [Параметры Windows Hello для бизнеса в System Center Configuration Manager](../deploy-use/windows-hello-for-business-settings.md).  

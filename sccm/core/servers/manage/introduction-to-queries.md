@@ -1,6 +1,6 @@
 ---
-title: "Introdução às consultas | Microsoft Docs"
-description: "Criar e executar consultas para localizar objetos numa hierarquia do System Center Configuration Manager que correspondam aos critérios de consulta."
+title: "Общие сведения о запросах | Документы Майкрософт"
+description: "Создавать и отправлять запросы для поиска объектов в иерархии System Center Configuration Manager, соответствующей выбранным условиям."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,23 +17,23 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: f84d518670c0ece3c08c890d2293335518f7f8e9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-queries-in-system-center-configuration-manager"></a>Introdução às consultas no System Center Configuration Manager
+# <a name="introduction-to-queries-in-system-center-configuration-manager"></a>Общие сведения о запросах в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode criar e executar consultas para localizar objetos numa hierarquia do System Center Configuration Manager que correspondam aos critérios de consulta. Estes objetos incluem itens, tais como tipos específicos de computadores ou grupos de utilizadores. As consultas podem devolver a maior parte dos tipos de objetos do Configuration Manager, que incluem sites, coleções, aplicações e dados de inventário.  
+Можно создавать и отправлять запросы для поиска объектов в иерархии System Center Configuration Manager, соответствующей выбранным условиям. В число таких объектов входят определенные типы компьютеров или групп пользователей. Запросы позволяют возвращать большую часть типов объектов Configuration Manager, в том числе сайтов, коллекций, приложений и данных инвентаризации.  
 
- Quando cria uma consulta, tem de especificar um mínimo de dois parâmetros: onde pretende pesquisar e o que pretende procurar. Por exemplo, para localizar a quantidade de espaço de disco rígido que está disponível em todos os computadores num site do Configuration Manager, pode criar uma consulta para procurar o **disco lógico** classe de atributo e o **espaço livre (MB)** atributo de espaço em disco de rígido disponível.  
+ При создании запроса необходимо указать не менее двух параметров: область поиска и предмет поиска. Например, чтобы найти сведения об объеме пространства на жестком диске, доступного на всех компьютерах сайта Configuration Manager, можно создать запрос для поиска класса атрибута **Логический диск** и атрибута **Свободно (МБ)**, определяющего доступный объем места.  
 
- Depois de criar uma consulta inicial, pode especificar critérios de consulta adicionais. Por exemplo, pode especificar que os resultados da consulta incluem apenas os computadores que estão atribuídos a um site especificado. Também pode modificar a forma como os resultados são apresentados, para que possa visualizar os resultados por uma ordem que faça sentido para si. Por exemplo, pode especificar que os resultados são ordenados pela quantidade de espaço livre em disco rígido, por ordem ascendente ou descendente.  
+ После создания первоначального запроса можно указать дополнительные условия. Например, можно указать, чтобы в результаты запроса входили только компьютеры, назначенные определенному сайту. Кроме того, можно изменить способ отображения результатов для их просмотра в удобном для вас порядке. Например, можно указать, чтобы результаты сортировались по объему свободного пространства на жестком диске в порядке возрастания или убывания.  
 
- Quando cria uma consulta, são armazenado pelo Configuration Manager e apresentado no **consultas** no nó de **monitorização** área de trabalho. A partir desta localização, pode criar uma nova consulta e, em seguida, executar, atualizar ou gerir uma consulta existente.  
+ При создании запроса он сохраняется Configuration Manager и отображается в узле **Запросы** рабочей области **Мониторинг**. В этом узле можно создать новый запрос, а затем выполнить, обновить или управлять существующим запросом.  
 
- Também pode importar uma consulta para uma regra de consulta numa coleção do Configuration Manager. Para obter mais informações, consulte [como criar coleções no System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
+ Можно также импортировать запрос в правило запроса коллекции Configuration Manager. Дополнительные сведения см. в статье [Создание коллекций в System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
 
-## <a name="see-also"></a>Consulte Também  
- [Referência técnica de consultas para o System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)
+## <a name="see-also"></a>См. также  
+ [Технический справочник по запросам для System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)

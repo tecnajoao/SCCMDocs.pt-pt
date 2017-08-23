@@ -1,6 +1,6 @@
 ---
-title: "Configurar a subscrição do Intune | Microsoft Docs"
-description: "Configure uma subscrição do Intune para controlar o licenciamento para a gestão de dispositivos móveis no local no System Center Configuration Manager."
+title: "Настройка подписки Intune | Документация Майкрософт"
+description: "Настройте подписку Intune, чтобы отслеживать лицензирование для локального управления мобильными устройствами в System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,52 +17,52 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 5a81ec06e16992ae1c41b0fc98ebcd07386c5381
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-a-microsoft-intune-subscription-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Configurar uma subscrição do Microsoft Intune para gestão de dispositivos móveis no local no System Center Configuration Manager
+# <a name="set-up-a-microsoft-intune-subscription-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Настройка подписки Microsoft Intune для локального управления мобильными устройствами в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager no\-local gestão de dispositivos móveis requer uma subscrição do Microsoft Intune para controlar o licenciamento. O serviço do Intune não é utilizado para gerir os dispositivos ou armazenar informações de gestão. Nos\-local gestão de dispositivos móveis, toda a gestão de dispositivos é processado pela infraestrutura do Configuration Manager.  
+Для отслеживания лицензирования в рамках локального управления мобильными устройствами System Center Configuration Manager требуется подписка Microsoft Intune. Служба Intune не используется для управления устройствами или хранения данных управления. В случае с локальным управлением мобильными устройствами все операции управления устройствами осуществляются инфраструктурой Configuration Manager.  
 
 > [!NOTE]  
-> A partir da versão 1610, Configuration Manager suporta a utilização de ambos os Microsoft Intune e no local infraestrutura do Configuration Manager para gerir dispositivos móveis ao mesmo tempo.   
+> Начиная с версии 1610 Configuration Manager поддерживает одновременное использование Microsoft Intune и локальной инфраструктуры Configuration Manager для управления мобильными устройствами.   
 
 > [!TIP]  
->  Recomendamos que configure a subscrição do Intune no\-no local a gestão de dispositivos móveis antes de instalar as funções do sistema de sites necessárias para minimizar o tempo necessário para as funções do sistema de sites recentemente instaladas se tornarem funcionais.  
+>  Мы рекомендуем настроить подписку Intune для локального управления мобильными устройствами перед установкой нужных ролей системы сайта, чтобы сократить время, необходимое для начала функционирования установленных ролей системы сайта.  
 
-##  <a name="sign-up-for-microsoft-intune"></a>Inscrever-se no Microsoft Intune  
- Intune é necessário efetuar no\-no local a gestão de dispositivos móveis funcional. Basta [inscrever](http://www.microsoft.com/en-us/server-cloud/products/microsoft-intune/) para uma subscrição de avaliação ou paga e avançar para o passo seguinte para adicionar a subscrição para o Configuration Manager.  
+##  <a name="sign-up-for-microsoft-intune"></a>Регистрация в Microsoft Intune  
+ Служба Intune необходима для функционирования локального управления мобильными устройствами. Просто [зарегистрируйтесь](http://www.microsoft.com/en-us/server-cloud/products/microsoft-intune/) для получения пробной или платной подписки и перейдите к следующему шагу, чтобы добавить эту подписку в Configuration Manager.  
 
-##  <a name="add-the-intune-subscription-to-configuration-manager"></a>Adicionar a subscrição do Intune ao Configuration Manager  
- Para adicionar a subscrição para o Configuration Manager, siga os mesmos passos básicos, tal como faria para adicionar a subscrição para gestão de dispositivos móveis com o Intune. Leia as notas abaixo para conhecer as diferenças específicas e, em seguida, utilize as instruções no [configurar a sua subscrição do Intune](../deploy-use/configure-intune-subscription.md).  
+##  <a name="add-the-intune-subscription-to-configuration-manager"></a>Добавление подписки Intune в Configuration Manager  
+ Чтобы добавить подписку в Configuration Manager, выполните те же основные действия, что и при добавлении подписки для управления мобильными устройствами с Intune. Ознакомьтесь с представленными ниже сведениями об отличиях, а затем следуйте инструкциям в разделе [Настройка подписки Microsoft Intune](../deploy-use/configure-intune-subscription.md).  
 
 > [!NOTE]  
->  Ao adicionar a subscrição do Intune, tenha em atenção o seguinte:  
+>  При добавлении подписки Intune учитывайте следующее:  
 >   
->  -   A coleção especificada no Microsoft Intune Assistente para adicionar subscrição não é utilizada para\-no local a delegação de direitos de utilizador de gestão de dispositivos móveis. Só é utilizada para gestão de dispositivos móveis com o Intune. No entanto, tem de especificar uma coleção para que o assistente continue.  
-> -   A definição de código do site especificada no assistente é ignorada no\-no local a gestão de dispositivos móveis. O código do site utilizado é aquele que especificar no perfil de inscrição que concede aos utilizadores permissão para inscreverem dispositivos.  
-> -   Não ative a autenticação multifator. Não é suportada no\-no local a gestão de dispositivos móveis.  
+>  -   Коллекция, указанная в мастере добавления подписки Microsoft Intune, не используется для делегирования прав пользователя на локальное управление мобильными устройствами. Она применяется только для управления мобильными устройствами с помощью Intune. Однако для продолжения работы мастера вам следует указать коллекцию.  
+> -   Для локального управления мобильными устройствами параметр кода сайта, указанный в мастере, игнорируется. Используется тот код сайта, который вы указали в профиле регистрации, чтобы предоставить пользователям разрешение на регистрацию устройств.  
+> -   Не включайте многофакторную проверку подлинности. Она не поддерживается для локального управления мобильными устройствами.  
 
-##  <a name="configure-the-intune-subscription-for-on-premises-mobile-device-management"></a>Configurar a subscrição do Intune para gestão de dispositivos móveis no local  
+##  <a name="configure-the-intune-subscription-for-on-premises-mobile-device-management"></a>Настройка подписки Intune для локального управления мобильными устройствами  
 
-1.  Na consola do Configuration Manager, clique com botão direito do **subscrição do Microsoft Intune**e clique em **propriedades**.  
+1.  В консоли Configuration Manager щелкните правой кнопкой мыши элемент **Подписка Microsoft Intune** и выберите пункт **Свойства**.  
 
-2.  Na caixa de gestão de dispositivos no móveis no local, escolha um dos seguintes:
+2.  В поле "Локальное управление мобильными устройствами" выберите один из указанных ниже вариантов.
 
-  - Se planear ter apenas a dispositivos geridos no local, clique na caixa de verificação junto a **apenas gerir dispositivos no local**e clique em **OK**.  
+  - Если управление устройствами будет осуществляться только локально, установите флажок **Управлять устройствами только локально** и нажмите кнопку **ОК**.  
 
       > [!NOTE]  
-      >  Ao clicar nesta caixa de verificação, configurar a subscrição do Intune para manter todos os gestão informações no local e não replicar dados para a nuvem.  
+      >  Установив этот флажок, настройте подписку Intune для хранения всех сведений об управлении в локальной среде без их репликации в облако.  
 
-    - Se planear ter dispositivos geridos pelo Intune e Configuration Manager no local, deixe a caixa desmarcada.
+    - Если управление устройствами будет осуществляться локально как с помощью Intune, так и с помощью Configuration Manager, не устанавливайте этот флажок.
 
-3.  Se pretender gerir dispositivos Windows 10 Mobile, clique com o botão direito do rato em **Subscrição do Windows Intune**, clique em **Configurar Plataformas**e, em seguida, clique em  **Windows Phone**.  
+3.  Если вы планируете управлять устройствами на базе Windows 10 Mobile, щелкните правой кнопкой мыши элемент **Подписка Windows Intune**, выберите пункт **Настройка платформ**и щелкните  **Windows Phone**.  
 
-4.  Clique na caixa de verificação junto a **Windows Phone 8.1 e Windows 10 Mobile**e, em seguida, clique em **OK**.  
+4.  Установите флажок рядом с элементом **Windows Phone 8.1 и Windows 10 Mobile**, а затем нажмите кнопку **ОК**.  
 
-5.  Se pretender gerir computadores de secretária Windows 10, clique com o botão direito do rato em **Subscrição do Windows Intune**, clique em **Configurar Plataformas**e, em seguida, clique em **Ativar Inscrição Windows**.  
+5.  Если вы планируете управлять настольными компьютерами на базе Windows 10, щелкните правой кнопкой мыши элемент **Подписка Windows Intune**, выберите пункт **Настройка платформ**и щелкните **Включить регистрацию в ОС Windows**.  
 
-6.  Clique na caixa de verificação junto a **Ativar inscrição Windows**e, em seguida, clique em **OK**.  
+6.  Установите флажок рядом с элементом **Включить регистрацию в ОС Windows**, а затем нажмите кнопку **ОК**.  

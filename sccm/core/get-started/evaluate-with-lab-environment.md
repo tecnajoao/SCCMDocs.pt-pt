@@ -1,6 +1,6 @@
 ---
-title: Avaliar o Configuration Manager | Microsoft Docs
-description: "Crie um ambiente de laboratório para avaliar o System Center Configuration Manager para utilização na sua organização."
+title: "Оценка Configuration Manager | Документы Майкрософт"
+description: "Создайте лабораторную среду для оценки использования System Center Configuration Manager в вашей организации."
 ms.custom: na
 ms.date: 2/28/2017
 ms.prod: configuration-manager
@@ -17,51 +17,51 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d7ea785ab1beee09b9adda735a87f89bc9481620
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="evaluate-system-center-configuration-manager-by-building-your-own-lab-environment"></a>Avaliar o System Center Configuration Manager ao criar o seu ambiente de laboratório
+# <a name="evaluate-system-center-configuration-manager-by-building-your-own-lab-environment"></a>Оценка System Center Configuration Manager путем создания собственной лабораторной среды
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
- Saiba como criar um ambiente de laboratório para avaliar o System Center Configuration Manager para utilização na sua organização.  
+ Узнайте, как создать лабораторную среду для оценки использования System Center Configuration Manager в вашей организации.  
 
- System Center Configuration Manager é uma ferramenta complexa e poderosa para gerir os seus utilizadores, dispositivos e software. É uma boa ideia exaustivamente avaliar o System Center Configuration Manager antes da implementação completa, para que possa aliar uma compreensão conceptual a exercícios práticos.  
+ System Center Configuration Manager — это сложное и эффективное средство для управления пользователями, устройствами и программным обеспечением. Рекомендуется провести тщательную оценку System Center Configuration Manager до полного развертывания, чтобы закрепить полученные знания практическими упражнениями.  
 
- Este guia destina-se principalmente a administradores que estiver a avaliar a utilização do Configuration Manager em ambientes empresariais:  
+ Это руководство предназначено в первую очередь для администраторов, оценивающих использование Configuration Manager в корпоративных средах.  
 
--   Administradores que pretendem uma solução para gerir totalmente PCs, servidores e dispositivos móveis  
+-   Администраторы, ищущие решение для полноценного управления компьютерами, серверами и мобильными устройствами.  
 
--   Administradores em indústrias de alta segurança que necessitam da segurança da gestão de dispositivos no local com a flexibilidade da gestão de dispositivos baseado na nuvem  
+-   Администраторы из отраслей с повышенным уровнем безопасности, которым требуется защита, характерная для локального управления устройствами, и гибкость, характерная для управления устройствами в облаке.  
 
--   Os administradores que pretendem gerir a dimensionamento de segurança da respetiva arquitetura de servidor no local  
+-   Администраторы, которые хотят управлять масштабированием своей локальной серверной архитектуры.  
 
-## <a name="what-this-lab-does"></a>O que faz este laboratório  
- O objetivo principal da criação deste ambiente de laboratório é para lhe fornecer os conhecimentos gerais para começar a trabalhar com o Configuration Manager e para melhorar a compreensão do Configuration Manager. Irá guiá-lo através de uma assemblagem expedita da versão atual do Configuration Manager, ao utilizar dois servidores:  
+## <a name="what-this-lab-does"></a>Что входит в эту лабораторную работу  
+ Основная цель создания этой среды — получение общих знаний, достаточных для начала работы с Configuration Manager, а также более глубокое изучение Configuration Manager во время работы. Вы выполняете ускоренную сборку текущей версии Configuration Manager с использованием двух серверов.  
 
--   Um que aloja o Active Directory, o controlador de domínio e o servidor DNS  
+-   На одном размещается Active Directory, контроллер домена и DNS-сервер.  
 
--   Associado a um que aloja o Configuration Manager e todos os componentes do SQL Server  
+-   На втором размещается Configuration Manager и все связанные компоненты SQL Server.  
 
-As máquinas cliente estão instaladas no Hyper-V. O próprio laboratório também pode ser executado como um sistema totalmente virtualizado num único servidor.  
+Клиентские компьютеры устанавливаются в Hyper-V. Саму лабораторную работу также можно запустить в виде полностью виртуализированной системы на одном сервере.  
 
-## <a name="what-this-lab-does-not-do"></a>O que não faz este laboratório  
- Este laboratório não o orienta através de todos os cenários do Gestor de configuração. Não foi concebido para ser migrado imediatamente para um ambiente ativo.  
+## <a name="what-this-lab-does-not-do"></a>Что выходит за рамки этой лабораторной работы  
+ Эта лабораторная работа не охватывает все сценарии Configuration Manager. Она не предназначена для немедленной миграции в активную среду.  
 
- Quando criar este laboratório, terá um ambiente funcional para utilizar. Mas este ambiente não estará otimizado para fatores, como o desempenho do sistema, gestão de espaço de disco rígido e armazenamento do SQL Server.  
+ При выполнении этой лабораторной работы вы получите функционирующую среду. Но эта среда не оптимизирована для таких факторов, как производительность системы, управление местом на жестком диске, хранилище SQL Server и т. п.  
 
-##  <a name="BKMK_EvalRec"></a>Leitura recomendada antes de criar o laboratório  
- Há vários conteúdos disponíveis no [documentação para o System Center Configuration Manager](http://docs.microsoft.com/sccm/). Recomendamos que leia os tópicos seguintes desta biblioteca antes de começar a criar o laboratório:  
+##  <a name="BKMK_EvalRec"></a> Материалы, с которыми рекомендуется ознакомиться до создания лабораторной среды  
+ [Документация по System Center Configuration Manager](http://docs.microsoft.com/sccm/) содержит множество различных материалов. Ниже приведена подборка статей из этой библиотеки, которые рекомендуется изучить всем администраторам перед началом выполнения упражнений лабораторной работы.  
 
--   Aprenda os principais conceitos sobre a consola do Configuration Manager, portais do utilizador final e cenários de exemplo [introdução ao System Center Configuration Manager](../../core/understand/introduction.md).  
+-   Основные понятия о консоли Configuration Manager, порталах пользователей и примерах сценариев см. в разделе [Общие сведения о System Center Configuration Manager](../../core/understand/introduction.md).  
 
--   Saiba mais sobre as capacidades de gestão principal do Configuration Manager numa [funcionalidades e capacidades do System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md).  
+-   Описание основных возможностей управления Configuration Manager см. в разделе [Функции и возможности в System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md).  
 
--   Aumente o seu conhecimento com [Noções básicas do System Center Configuration Manager](../../core/understand/fundamentals.md).  
+-   Более подробные сведения см. в разделе [Основные сведения о Microsoft System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
--   Conheça a importância das funções de segurança no [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+-   Сведения о важности ролей безопасности см. в разделе [Основы ролевого администрирования для System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
--   Saiba mais sobre a gestão de conteúdos no [conceitos de gestão de conteúdos](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+-   Определенные понятия, относящиеся к управлению содержимым, см. в статье [Концепции управления содержимым](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   Saiba como suportar com êxito as tarefas diárias em toda a implementação no [compreender a forma como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+-   [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md), помогут обеспечить поддержку ежедневных операций в развертывании.  

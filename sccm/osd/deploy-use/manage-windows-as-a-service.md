@@ -1,6 +1,6 @@
 ---
-title: "Gerir o Windows como um serviço - do Configuration Manager | Microsoft Docs"
-description: "Ver o estado do Windows como um serviço utilizando o Gestor de configuração, criar planos de manutenção para anéis de implementação do formulário e ver alertas quando os clientes do Windows 10 estão perto do final de suporte."
+title: "Управление Windows как в Configuration Manager | Документация Майкрософт"
+description: "Вы можете просматривать состояние Windows как службы с помощью Configuration Manager, создавать планы обслуживания для формирования кругов развертывания и просматривать предупреждения о скором завершении поддержки клиентов Windows 10."
 ms.custom: na
 ms.date: 03/26/2017
 ms.prod: configuration-manager
@@ -16,266 +16,266 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 2c2c0f81736c1b00ea487ae1261803a8105bb5e4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gerir o Windows como um serviço com o System Center Configuration Manager
+# <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Управление Windows как службой с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
-
-
- No System Center Configuration Manager, pode ver o estado do Windows como um serviço no seu ambiente, criar planos de manutenção para anéis de implementação do formulário e certifique-se de que são lançadas ramo atual sistemas são mantidos atualizados quando novas compilações do Windows 10 e ver alertas quando os clientes do Windows 10 estiverem prestes a fim de suporte para a respetiva compilação de Current Branch (CB) ou Current Branch for Business (CBB).  
-
- Para obter mais informações sobre as opções de manutenção do Windows 10, veja  [Windows 10 servicing options for updates and upgrades (Opções de manutenção do Windows 10 para atualizações)](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx).  
-
- Utilize as secções seguintes para gerir o Windows como um serviço.
-
-##  <a name="BKMK_Prerequisites"></a> Pré-requisitos  
- Para ver dados no dashboard de manutenção do Windows 10, terá de efetuar o seguinte:  
-
--   Computadores Windows 10 tem de utilizar as atualizações de software do Configuration Manager com o Windows Server Update Services (WSUS) para a gestão de atualização de software. Quando os computadores utilizam o Windows Update for Business (ou Windows Insiders) para a gestão de atualizações de software, o computador não será avaliado nos planos de manutenção do Windows 10. Para obter mais informações, veja [Integration with Windows Update for Business in Windows 10 (Integração com o Windows Update for Business no Windows 10)](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
-
--   O WSUS 4.0 com a [correção 3095113](https://support.microsoft.com/kb/3095113) tem de estar instalado nos pontos de atualização de software e nos servidores do site. Desta forma, é adicionada a classificação de atualização de software **Atualização** . Para obter mais informações, consulte [pré-requisitos para atualizações de software](../../sum/plan-design/prerequisites-for-software-updates.md).  
-
--   WSUS 4.0 com a [correção 3159706](https://support.microsoft.com/kb/3159706) tem de estar instalado nos seus pontos de atualização de software e servidores para atualizar computadores para o Windows 10 aniversário da Update, bem como para versões subsequentes do site. Existem passos manuais descritos no artigo de suporte que tem de efetuar para instalar esta correção. Para obter mais informações, consulte o [blogue Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
-
--   Ative a Deteção Heartbeat. Os dados apresentados no dashboard de manutenção do Windows 10 são encontrados através da deteção. Para obter mais informações, veja [Configure Heartbeat Discovery (Configurar a Deteção de Heartbeat)](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery).  
-
-     As informações de ramo e compilação do Windows 10 são detetadas e armazenadas nos seguintes atributos:  
-
-    -   **Ramo de preparação do sistema operativo**: Especifica o ramo do sistema operativo. Por exemplo, **0** = CB (não diferir atualizações), **1** = CBB (diferir atualizações), **2** = Long Term Servicing Branch (LTSB)
-
-    -   **Compilação de sistema operativo**: Especificar a compilação de sistema operativo. Por exemplo, **10.0.10240** (RTM) ou **10.0.10586** (versão 1511)  
-
--   O ponto de ligação de serviço tem de estar instalado e configurado para o modo **Online, ligação persistente** , para ver dados no dashboard de manutenção do Windows 10. Quando estiver no modo offline, não verá as atualizações de dados no dashboard quando obtiver as atualizações de manutenção do Configuration Manager.   
-     Para obter mais informações, consulte [acerca do ponto de ligação de serviço](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
--   Internet Explorer 9 ou posterior tem de estar instalado no computador que executa a consola do Configuration Manager.  
+ В System Center Configuration Manager вы можете просматривать состояние Windows в качестве службы в среде, создавать планы обслуживания для формирования колец развертываний и проверять, находятся ли системы текущей ветви Windows 10 в актуальном состоянии при выходе новых выпусков, а также просматривать оповещения, информирующие о скором окончании поддержки сборки для Current Branch (CB) или Current Branch for Business (CBB) у клиентов Windows 10.  
 
--   As atualizações de software têm de ser configuradas e sincronizadas. Tem de selecionar o **atualizações** classificação e sincronizar as atualizações de software antes de quaisquer atualizações de funcionalidade do Windows 10 estarem disponíveis na consola do Configuration Manager. Para obter mais informações, consulte [preparar para o software de gestão de atualizações](../../sum/get-started/prepare-for-software-updates-management.md).  
+ Дополнительные сведения о параметрах обслуживания Windows 10 см. в статье  [Параметры обслуживания Windows 10 для обновлений](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx).  
 
-##  <a name="BKMK_ServicingDashboard"></a> Dashboard de manutenção do Windows 10  
- O dashboard de manutenção do Windows 10 fornece informações sobre computadores Windows 10 no seu ambiente, planos de manutenção ativos, informações de compatibilidade, etc. Os dados no dashboard de manutenção do Windows 10 estão dependentes de ter um Ponto de Ligação de Serviço instalado. O dashboard tem os seguintes mosaicos:  
+ В следующих разделах описано управление Windows как службой.
 
--   **Mosaico utilização do Windows 10**:  Fornece uma repartição das compilações públicas do Windows 10. As compilações do Windows Insiders estão listadas como **outras** , bem como as outras compilações ainda desconhecidas pelo seu site. O ponto de ligação de serviço irá transferir os metadados que informam sobre as compilações do Windows e, em seguida, estes dados são comparados aos dados de deteção.  
+##  <a name="BKMK_Prerequisites"></a> Предварительные требования  
+ Чтобы просмотреть данные на панели мониторинга обслуживания Windows 10, необходимо выполнить следующие действия:  
 
--   **Mosaico anéis do Windows 10**:  Fornece uma repartição do Windows 10 por ramo e estado de preparação. O segmento LTSB corresponderá a todas as versões LTSB (enquanto o primeiro mosaico divide as versões específicas. Por exemplo, Windows 10 LTSB 2015. O segmento **Release Ready** corresponde a CB e o segmento **Business Ready** corresponde a CBB.  
+-   Компьютеры с Windows 10 должны использовать обновления программного обеспечения Configuration Manager со службами WSUS для управления обновлениями. Когда компьютеры используют Центр обновления Windows для бизнеса (или средства предварительной оценки Windows) для управления обновлениями программного обеспечения, они не учитываются в планах обслуживания Windows 10. Дополнительные сведения см. в разделе [Integration with Windows Update for Business in Windows 10](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
 
--   **Criar plano de serviço mosaico**:   Fornece uma forma rápida de criar um plano de manutenção. Especifique o nome, coleção (mostra apenas as dez principais coleções por tamanho, a mais pequena primeiro), pacote de implementação (mostra apenas os dez principais pacotes por modificação mais recente) e estado de preparação. Os valores predefinidos são utilizados para as outras definições. Clique em **Definições Avançadas** para iniciar o assistente Criar Plano de Manutenção, onde poderá configurar todas as definições do plano de manutenção.  
+-   На серверах сайта и точках обновления программного обеспечения нужно установить службы WSUS 4.0 с [исправлением 3095113](https://support.microsoft.com/kb/3095113). Это добавляет классификацию обновлений программного обеспечения **Обновления**. Дополнительные сведения см. в статье [Необходимые условия для обновлений программного обеспечения](../../sum/plan-design/prerequisites-for-software-updates.md).  
 
--   **Mosaico expirado**: Apresenta a percentagem de dispositivos que estão numa compilação do Windows 10 que passou o respetivo final de vida. O Configuration Manager determina a percentagem dos metadados que o ponto de ligação de serviço transfere e compara-os aos dados de deteção. Uma compilação que passou o respetivo final de vida já não está a receber atualizações cumulativas mensais, incluindo atualizações de segurança. Os computadores nesta categoria devem ser atualizados para a próxima versão de compilação. O Configuration Manager Arredonda por excesso para o número inteiro seguinte. Por exemplo, se tiver 10.000 computadores e apenas um numa compilação expirada, o mosaico apresentará 1%.  
+-   Службы WSUS 4.0 с [исправлением 3159706](https://support.microsoft.com/kb/3159706) должны быть установлены на точках обновления программного обеспечения и серверах сайта для обновления компьютеров до Windows 10 Anniversary Update и последующих версий. Для установки этого исправления потребуется выполнить ручные процедуры, описанные в статье службы поддержки. Дополнительные сведения см. в [блоге, посвященном корпоративной мобильности и безопасности](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
 
--   **Mosaico expirar em breve**: Apresenta a percentagem de computadores que estão numa compilação que está perto do final de vida (dentro de, aproximadamente, quatro meses), semelhante a **expirado** mosaico. O Configuration Manager Arredonda por excesso para o número inteiro seguinte.  
+-   Включить Heartbeat-обнаружение. Поиск данных, отображаемых на панели мониторинга обслуживания Windows 10, выполняется с помощью функции обнаружения. Дополнительные сведения см. в статье [Configure Heartbeat Discovery](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery).  
 
--   **Mosaico alertas**: Apresenta os alertas ativos.  
+     Следующие сведения о ветви и сборке Windows 10 обнаруживаются и хранятся в следующих атрибутах:  
 
--   **Mosaico monitorização do plano de serviço**: Mostra os planos que tenha criado de manutenção e um gráfico da compatibilidade para cada. Isto fornece uma rápida descrição geral do estado atual das implementações do plano de manutenção. Se um anel de implementação anterior for ao encontro das suas expectativas em termos de conformidade, poderá selecionar um plano de manutenção posterior (anel de implementação) e clicar em **Implementar Agora** em vez de aguardar que as regras do plano de manutenção sejam acionadas automaticamente.  
+    -   **Ветвь готовности операционной системы** — задает ветвь операционной системы. Например, **0** = CB (не откладывать обновления), **1** = CBB (отложить обновления), **2** = Long Term Servicing Branch (LTSB)
 
--   O **mosaico compilações do Windows 10**:  Apresentar é uma hora de imagem fixa linha que fornece, que baseia-se uma descrição geral do Windows 10 lançadas atualmente e dá uma ideia geral de quando compilações irão transitar para Estados diferentes.  
+    -   **Сборка операционной системы** — указанные сборки операционной системы. Например, **10.0.10240** (RTM) или **10.0.10586** (версия 1511)  
+
+-   Для просмотра данных на панели мониторинга обслуживания Windows 10 необходимо установить точку подключения службы и настроить ее для режима **интерактивного постоянного подключения**. При работе в автономном режиме обновления данных не отображаются на панели мониторинга, пока вы не получите обновления для обслуживания Configuration Manager.   
+     Дополнительные сведения см. в статье [Точки подключения службы](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+
+
+-   На компьютере с консолью Configuration Manager должен быть установлен браузер Internet Explorer 9 или более поздней версии.  
+
+-   Обновления программного обеспечения должны быть настроены и синхронизированы. Необходимо выбрать классификацию **Обновления** и синхронизировать обновления программного обеспечения, прежде чем обновления компонентов Windows 10 появятся в консоли Configuration Manager. Дополнительные сведения см. в статье [Подготовка к управлению обновлением программного обеспечения](../../sum/get-started/prepare-for-software-updates-management.md).  
+
+##  <a name="BKMK_ServicingDashboard"></a> Панель мониторинга обслуживания Windows 10  
+ Панель мониторинга обслуживания Windows 10 предоставляет сведения о компьютерах Windows 10 в вашей среде, активных планах обслуживания, соответствии требованиям и т. п. Данные на панели мониторинга обслуживания Windows 10 зависят от наличия точки подключения службы. Панель мониторинга содержит следующие элементы:  
+
+-   **Windows 10 Usage**(Использование Windows 10): обеспечивает подразделение открытых сборок Windows 10. Сборки для предварительной оценки Windows имеют обозначение **другое**, как и сборки, которые еще не известны на сайте. Точка подключения службы будет скачивать метаданные с информацией о сборках Windows, после чего эти данные будут сравниваться с данными обнаружения.  
+
+-   **Windows 10 Rings**(Кольца Windows 10): обеспечивает подразделение Windows 10 по ветви и состоянию готовности. Сегмент LTSB будет содержать все версии LTSB (в то время как первый элемент обеспечивает подразделение версий, например Windows 10 LTSB 2015). Сегмент **Немедленная установка** соответствует CB, а сегмент **Отложенная установка** — CBB.  
+
+-   **Create Service Plan**(Создать план обслуживания): позволяет быстро создать план обслуживания. Укажите имя, коллекцию (отображаются первые десять коллекций по размеру, наименьшая на первом месте), пакет развертывания (отображаются первые десять пакетов по дате последнего изменения) и состояние готовности. Для других параметров используются значения по умолчанию. Щелкните **Дополнительные параметры** для запуска мастера создания плана обслуживания, где можно настроить все параметры плана.  
+
+-   **Expired**(Срок действия истек): отображает процент устройств со сборкой Windows 10, которая достигла конца срока службы. Configuration Manager определяет этот процент с помощью метаданных, скачиваемых точкой подключения службы, и сравнивает его с данными обнаружения. Сборка с истекшим сроком службы перестает получать ежемесячные накопительные пакеты обновления, содержащие обновления для системы безопасности. Компьютеры из этой категории следует обновить до следующей версии сборки. Configuration Manager выполняет округление до следующего целого числа. Например, если из 10 000 компьютеров только один имеет сборку с истекшим сроком службы, элемент отображает значение 1 %.  
+
+-   **Expire Soon**(Истекает срок действия): отображает процент компьютеров со сборкой, у которой скоро истекает срок службы (примерно через четыре месяца), аналогично элементу **Expired** (Срок действия истек). Configuration Manager выполняет округление до следующего целого числа.  
+
+-   **Alerts**(Оповещения): отображает активные оповещения.  
+
+-   **Service Plan Monitoring**(Мониторинг плана обслуживания): отображает созданные планы обслуживания и диаграмму соответствия для каждого из них. Это позволяет быстро получить представление о текущем состоянии развертываний планов обслуживания. Если предыдущее кольцо развертывания соответствует ожиданиям с точки зрения соответствия, то можно выбрать более поздний план обслуживания (кольцо развертывания) и нажать кнопку **Deploy Now** (Развернуть), а не ждать, пока правила плана обслуживания будут выполнены автоматически.  
+
+-   **Windows 10 Builds**(Сборки Windows 10): отображает фиксированную шкалу времени, позволяющую получить представление об уже выпущенных сборках Windows 10 и о смене состояний сборок.  
 
 > [!IMPORTANT]  
->  As informações mostradas no dashboard de manutenção do Windows 10 (por exemplo, o ciclo de vida de suporte para as versões do Windows 10) são fornecidas para sua comodidade e apenas para utilização interna na empresa. Não deverá confiar apenas nestas informações para confirmar a compatibilidade de atualização. Certifique-se de que verifica a exatidão das informações que lhe são fornecidas.  
+>  Сведения, отображаемые на панели мониторинга обслуживания Windows 10 (например, жизненный цикл поддержки для версий Windows 10), предоставляются для справки и предназначены для использования только внутри организации. Не следует полагаться исключительно на эту информацию при подтверждении соответствия обновления. Не забудьте проверить точность предоставленных сведений.  
 
-## <a name="servicing-plan-workflow"></a>Fluxo de trabalho do plano de manutenção  
- Planos de manutenção do Windows 10 no Configuration Manager são muito como regras de implementação automática para atualizações de software. Criar um plano de manutenção com os seguintes critérios que avalia do Configuration Manager:  
+## <a name="servicing-plan-workflow"></a>Рабочий процесс плана обслуживания  
+ Планы обслуживания Windows 10 в Configuration Manager во многом похожи на правила автоматического развертывания для обновлений программного обеспечения. Можно создать план обслуживания со следующими критериями для оценки в Configuration Manager:  
 
--   **Classificação atualizações**: Apenas as atualizações que se encontrem no **atualizações** classificação são avaliadas.  
+-   **Классификация обновлений**: оцениваются только те обновления, которые относятся к классификации **Обновления**.  
 
--   **Estado de preparação**: O estado de preparação definido no plano de manutenção é comparado com o estado de preparação para a atualização. Os metadados para a atualização são obtidos quando o ponto de ligação de serviço verifica a existência de atualizações.  
+-   **Состояния готовности**: состояние готовности, определенное в плане обслуживания, сравнивается с состоянием готовности обновления. Метаданные для обновления извлекаются, когда точка подключения службы выполняет проверку на наличие обновлений.  
 
--   **Diferimento por tempo**: O número de dias que especificar para **quantos dias depois da Microsoft ter publicado uma nova atualização gostaria de aguardar antes de implementar no seu ambiente** no plano de manutenção. O Configuration Manager avalia se pretende incluir uma atualização na implementação se a data atual for posterior à data de lançamento mais o número de dias configurado.  
+-   **Time deferral**(Расход времени): количество дней, указанное для параметра **How many days after Microsoft has published a new upgrade would you like to wait before deploying in your environment** (Через сколько дней после публикации обновления корпорацией Майкрософт вы хотите развернуть его в своей среде) в плане обслуживания. Configuration Manager оценивает, следует ли включить обновление в развертывание, если текущая дата превышает сумму даты выпуска и заданного количества дней.  
 
- Quando uma atualização cumpre os critérios, o plano de manutenção adiciona a atualização ao pacote de implementação, distribui o pacote por pontos de distribuição e implementa a atualização na coleção com base nas definições configuradas no plano de manutenção.  Pode monitorizar as implementações no mosaico Monitorização do Plano de Serviço no Dashboard de Manutenção do Windows 10. Para obter mais informações, consulte [monitorizar atualizações de software](../../sum/deploy-use/monitor-software-updates.md).  
+ Если обновление соответствует критериям, план обслуживания добавляет его в пакет развертывания, распространяет пакет на точки распространения и развертывает обновление в коллекции в соответствии с параметрами, настроенными в плане обслуживания.  Можно отслеживать развертывания с помощью элемента мониторинга плана обслуживания на панели мониторинга обслуживания Windows 10. Дополнительные сведения о функции обновления программного обеспечения см. в статье [Мониторинг обновлений программного обеспечения](../../sum/deploy-use/monitor-software-updates.md).  
 
-##  <a name="BKMK_ServicingPlan"></a> Plano de manutenção do Windows 10  
- À medida que implementa o Windows 10 CB, pode criar um ou mais planos de manutenção para definir os anéis de implementação que pretende no seu ambiente e, em seguida, monitorizá-los no dashboard de manutenção do Windows 10.   
-Os planos de serviço utilizam apenas a classificação de atualizações de software **Atualizações** e não atualizações cumulativas para o Windows 10. No caso dessas atualizações, terá ainda de implementar através do fluxo de trabalho de atualizações de software.  A experiência do utilizador final com um plano de manutenção é idêntica à das atualizações de software, incluindo as definições configuradas no plano de manutenção.  
-
-> [!NOTE]  
->  Pode utilizar uma sequência de tarefas para implementar uma atualização para cada compilação do Windows 10, mas requer mais trabalho manual. Terá de importar os ficheiros de origem atualizados como um pacote de atualização do sistema operativo e, em seguida, criar e implementar a sequência de tarefas para o conjunto adequado de computadores. No entanto, uma sequência de tarefas fornece opções personalizadas adicionais, tais como as ações de pré-implementação e pós-implementação.  
-
- Pode criar um plano de manutenção básico a partir do dashboard de manutenção do Windows 10. Depois de especificar o nome, coleção (mostra apenas as dez principais coleções por tamanho, a mais pequena primeiro), pacote de implementação (mostra apenas os dez principais pacotes por mais recentemente modificação) e a preparação de estado, o Configuration Manager cria o plano de manutenção com os valores predefinidos para as outras definições. Também pode iniciar o assistente Criar Plano de Manutenção para configurar todas as definições. Utilize o procedimento seguinte para criar um plano de manutenção utilizando o assistente Criar Plano de Manutenção.  
+##  <a name="BKMK_ServicingPlan"></a> План обслуживания Windows 10  
+ При развертывании Windows 10 CB можно создать один или несколько планов обслуживания для определения колец развертывания, которые требуются в вашей среде, а затем отслеживать их в панели мониторинга обслуживания Windows 10.   
+Планы обслуживания используют только классификацию **Обновления** для Windows 10 и не используют накопительные пакеты обновления. Для этих обновлений по-прежнему нужно выполнить развертывание с помощью рабочего процесса обновлений программного обеспечения.  Взаимодействие с пользователем в плане обслуживания осуществляется аналогично обновлениям программного обеспечения, включая параметры, настраиваемые в плане обслуживания.  
 
 > [!NOTE]  
->  A partir do Configuration Manager versão 1602, pode gerir o comportamento de implementações de alto risco. Uma implementação de alto risco é uma implementação que é automaticamente instalada e que tem o potencial de causar resultados indesejados. Por exemplo, uma sequência de tarefas que tenha o objetivo **Obrigatório** que implemente o Windows 10 é considerada uma implementação de alto risco. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+>  Можно использовать последовательность задач, чтобы развернуть обновление для каждой сборки Windows 10, но это потребует больше ручной работы. Потребуется импортировать обновленные исходные файлы в виде пакета обновления операционной системы, а затем создать последовательность задач и развернуть ее на соответствующем наборе компьютеров. Тем не менее, последовательность задач предоставляет расширенные возможности настройки, например действия перед развертыванием и после развертывания.  
 
-#### <a name="to-create-a-windows-10-servicing-plan"></a>Para criar um plano de manutenção do Windows 10  
+ Базовый план обслуживания можно создать на панели мониторинга обслуживания Windows 10. Когда вы укажете имя, коллекцию (отображаются первые десять коллекций по размеру, наименьшая на первом месте), пакет развертывания (отображаются первые десять пакетов по дате последнего изменения) и состояние готовности, Configuration Manager создаст план обслуживания со значениями по умолчанию для других параметров. Для настройки всех этих параметров можно также запустить мастер создания плана обслуживания. Используйте следующую процедуру для создания плана обслуживания с помощью мастера.  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+> [!NOTE]  
+>  Начиная с Configuration Manager версии 1602 можно управлять поведением развертываний с высоким риском. Развертывание с высоким риском — это развертывание, которое устанавливается автоматически и потенциально может привести к нежелательным результатам. Например, последовательность задач с целью **Обязательно**, которая развертывает Windows 10, считается развертыванием с высоким риском. Дополнительные сведения см. в разделе [Параметры для управления развертываниями с высоким риском](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
-2.  Na área de trabalho Biblioteca de Software, expanda **Manutenção do Windows 10**e, em seguida, clique em **Planos de Manutenção**.  
+#### <a name="to-create-a-windows-10-servicing-plan"></a>Создание плана обслуживания Windows 10  
 
-3.  No separador **Home page** , no grupo **Criar** , clique em **Criar Plano de Manutenção**. O assistente Criar Plano de Manutenção abre.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-4.  Na página **Geral** , configure as seguintes definições:  
+2.  В рабочей области "Библиотека программного обеспечения" разверните узел **Обслуживание Windows 10**, а затем щелкните элемент **Планы обслуживания**.  
 
-    -   **Nome**: Especifique o nome para o plano de manutenção. O nome tem de ser exclusivo e deve descrever o objetivo da regra além de distingui-la de outras no site do Configuration Manager.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Create Servicing Plan**(Создать план обслуживания). Открывается мастер создания плана обслуживания.  
 
-    -   **Descrição**: Especifique uma descrição para o plano de manutenção. A descrição deve disponibilizar uma descrição geral do plano de manutenção e outras informações relevantes que ajudem a identificar e distinguir o plano dos restantes no site do Configuration Manager. O campo de descrição é opcional, tem um limite de 256 caracteres e está em branco por predefinição.  
+4.  На странице **Общие** настройте следующие параметры.  
 
-5.  Na página Plano de Manutenção, configure as seguintes definições:  
+    -   **Имя**: укажите имя плана обслуживания. Имя должно быть уникальным, отражать цель правила и отличать его от других правил на сайте Configuration Manager.  
 
-    -   **Coleção de destino**: Especifica a coleção de destino a ser utilizada para o plano de manutenção. Os membros da coleção recebem as atualizações do Windows 10 definidas no plano de manutenção.  
+    -   **Описание:**укажите описание плана обслуживания. Описание должно содержать краткую сводку о плане обслуживания и прочие важные сведения, помогающие найти этот план среди других на сайте Configuration Manager. Описание — необязательное поле, его длина не может превышать 256 символов, по умолчанию оно остается пустым.  
+
+5.  На странице "План обслуживания" настройте следующие параметры:  
+
+    -   **Целевая коллекция**: указывает целевую коллекцию для этого плана обслуживания. Члены коллекции получают обновления Windows 10, заданные в плане.  
 
         > [!NOTE]  
-        >  A partir do Configuration Manager versão 1602, ao implementar uma implementação de alto risco, como manutenção plano, o **selecionar coleção** janela apresenta apenas as coleções personalizadas que cumprem as definições de verificação de implementação que estão configuradas nas propriedades do site.
+        >  Начиная с Configuration Manager версии 1602 при развертывании с высоким риском, например развертывании плана обслуживания, в окне **Выбор коллекции** отображаются только пользовательские коллекции, которые соответствуют параметрам проверки развертывания, настроенным в свойствах сайта.
         >    
-        > As implementações de alto risco são sempre limitadas a coleções personalizadas, coleções criadas por si e à coleção incorporada **Computadores Desconhecidos** . Quando cria uma implementação de alto risco, não pode selecionar uma coleção incorporada, como **Todos os Sistemas**. Desmarque **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site** para ver todas as coleções personalizadas que incluem menos clientes do que o tamanho máximo configurado. Para obter mais informações, consulte [definições para gerir implementações de alto risco](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+        > Развертывания с высоким риском всегда ограничены пользовательскими коллекциями, создаваемыми вами коллекциями и встроенной коллекцией **Неизвестные компьютеры**. При создании развертывания с высоким риском нельзя выбрать встроенную коллекцию, например **Все системы**. Снимите флажок **Скрыть коллекции с количеством элементов больше, чем конфигурация минимального размера сайта** для просмотра всех пользовательских коллекций, в которых число клиентов меньше установленного предела. Дополнительные сведения см. в разделе [Параметры для управления развертываниями с высоким риском](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
         >  
-        > As definições de verificação da implementação são baseadas na associação atual da coleção. Após implementar o plano de manutenção, a associação da coleção não é reavaliada relativamente às definições de implementação de alto risco.  
+        > Параметры проверки развертывания основываются на текущем членстве в коллекции. После развертывания плана обслуживания членство в коллекции не анализируется повторно с учетом параметров развертывания с высоким риском.  
         >  
-        > Por exemplo, digamos que definiu **tamanho predefinido** a 100 e o **tamanho máximo** a 1000. Quando cria uma implementação de alto risco, a janela **Selecionar Coleção** só apresenta as coleções com menos de cem clientes. Se desmarcar a **ocultar coleções com um membro contagem superiores à configuração de tamanho mínimo do site** definição, a janela apresentará as coleções com menos de 1 000 clientes.  
+        > Например, предположим, что для параметра **Размер по умолчанию** установлено значение 100, а для параметра **Максимальный размер** — значение 1000. При создании развертывания с высоким риском в окне **Выбор коллекции** будут отображаться только те коллекции, которые содержат не более 100 клиентов. Если снять флажок **Скрыть коллекции с количеством элементов больше, чем конфигурация минимального размера сайта**, в окне будут отображаться коллекции, содержащие менее 1000 клиентов.  
         >
-        > Quando seleciona uma coleção que contém uma função do site, são aplicáveis as seguintes situações:    
+        > При выборе коллекции, содержащей роль сайта, применяется следующее правило.    
         >   
-        >    - Se a coleção contiver um servidor do sistema de sites e nas definições de verificação de implementação configurar o bloqueio das coleções com servidores do sistema de sites, ocorrerá um erro e não conseguirá continuar.    
-        >    - Se a coleção contiver um servidor do sistema de sites e nas definições de verificação da implementação configurar a apresentação de um aviso caso as coleções incluam servidores do sistema de sites, se a coleção ultrapassar o valor do tamanho predefinido ou se a coleção contiver um servidor, o Assistente de Implementação de Software apresentará um aviso de alto risco. Tem de aceitar criar uma implementação de alto risco e é criada uma mensagem de estado de auditoria.  
+        >    - Если коллекция содержит сервер системы сайта в параметрах проверки развертывания, которые вы настраиваете для блокировки коллекций с серверами системы сайта, то возникает ошибка, а продолжение работы невозможно.    
+        >    - Если коллекция содержит сервер системы сайта, а в параметрах проверки развертывания вы включаете предупреждение о том, что коллекции имеют серверы системы сайта, коллекция превышает размер по умолчанию или коллекция содержит сервер, то мастер развертывания программного обеспечения покажет предупреждение о высоком риске. Подтвердите его для создания развертывания с высоким риском, после чего будет создано сообщение о состоянии аудита.  
 
-6.  Na página Anel de Implementação, configure as seguintes definições:  
+6.  На странице "Deployment Ring" (Кольцо развертывания) настройте следующие параметры:  
 
-    -   **Especifique o estado de preparação do Windows ao qual este plano de manutenção deve ser aplicada**: Selecione um dos seguintes procedimentos:  
+    -   **Specify the Windows readiness state to which this servicing plan should apply**(Укажите состояние готовности Windows, к которому должен применяться этот план обслуживания): выберите одно из следующих значений:  
 
-        -   **Release Ready (Current Branch)**: No modelo de manutenção de CB, atualizações de funcionalidade estão disponíveis assim que a Microsoft disponibiliza-los.
+        -   **Release Ready (Current Branch)**. В модели обслуживания Current Branch обновления компонентов доступны сразу после их выпуска корпорацией Майкрософт.
 
-        -   **Pronto para empresas (Current Branch for Business)**: O ramo de manutenção CBB é normalmente utilizado para a implementação abrangente. Clientes Windows 10 no CBB manutenção sucursal recebem a mesma compilação do Windows 10 que as do CB manutenção ramo, apenas numa altura posterior.
+        -   **Business Ready (Current Branch for Business)**. Ветвь обслуживания Current Branch for Business обычно используется для масштабного развертывания. Клиенты Windows 10 в ветви обслуживания Current Branch for Business получают ту же сборку Windows 10, что и клиенты в ветви обслуживания Current Branch, но позднее.
 
-        Para obter mais informações sobre ramos de manutenção e o que é melhor para si, consulte o artigo [manutenção ramos](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
+        Дополнительные сведения о ветвях обслуживания и о том, как выбрать оптимальный вариант, см. в статье [Обзор модели "Windows как услуга"](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
 
-    -   **Quantos dias depois de a Microsoft ter publicado uma nova atualização gostaria de aguardar antes de implementar no seu ambiente**: O Configuration Manager avalia se pretende incluir uma atualização na implementação se a data atual for posterior à data de lançamento mais o número de dias que configurar para esta definição.
+    -   **Сколько дней после публикации корпорацией Майкрософт нового обновления вы хотели бы ждать до развертывания в вашей среде**. Configuration Manager определяет, следует ли включить обновление в развертывание, если текущая дата позднее даты выпуска на количество дней, указанное в этом параметре.
 
-    -   Antes do Configuration Manager versão 1602, clique em **pré-visualização** para ver as atualizações do Windows 10 associadas ao estado de preparação.  
+    -   Для Configuration Manager версии ниже 1602: щелкните **Предварительный просмотр** для просмотра обновлений Windows 10, связанных с состоянием готовности.  
 
-    Para obter mais informações, consulte [manutenção ramos](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
-7.  A partir do Configuration Manager versão 1602, na página atualizações, configure os critérios de pesquisa para filtrar as atualizações que serão adicionadas ao plano de serviço. Apenas as atualizações que cumprem os critérios especificados serão adicionadas à implementação associada.  
+    Дополнительные сведения см. в разделе [Ветви обслуживания](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
+7.  Для Configuration Manager версии не ниже 1602: на странице "Обновления" настройте критерии поиска, чтобы отфильтровать обновления, которые будут добавлены в план обслуживания. В соответствующее развертывание будут добавляться только обновления, соответствующие указанным условиям.  
 
-     Clique em **Pré-visualizar** para ver as atualizações que cumprem os critérios especificados.  
+     Щелкните **Предварительный просмотр** для просмотра обновлений, соответствующих указанным условиям.  
 
-8.  Na página Agenda de Implementação, configure as seguintes definições:  
+8.  На странице "Расписание развертывания" настройте следующие параметры.  
 
-    -   **Avaliação da agenda**: Especifique se o Configuration Manager avalia o tempo disponível e tempos de prazo de instalação utilizando a hora UTC ou na hora local do computador que executa a consola do Configuration Manager.  
+    -   **Оценка расписания**: укажите, как Configuration Manager следует оценивать доступное время и время установки (с помощью времени в формате UTC или местного времени на компьютере, на котором работает консоль Configuration Manager).  
 
         > [!NOTE]  
-        >  Quando selecionar a hora local e, em seguida, selecione **logo que possível** para o **hora de disponibilização do Software** ou **prazo de instalação**, a hora atual da execução de computador, a consola do Configuration Manager é utilizada para calcular quando estão disponíveis atualizações ou quando são instaladas num cliente. Se o cliente tiver um fuso horário diferente, estas ações irão ocorrer quando a hora do cliente corresponder à hora de avaliação.  
+        >  Если выбрать местное время, а затем **Как можно быстрее** для параметра **Доступное время программного обеспечения** или **Крайний срок установки**, текущее время на компьютере, где запущена консоль Configuration Manager, будет использоваться, чтобы узнать о доступности обновлений или их установке на клиенте. Если клиент находится в другом часовом поясе, эти действия произойдут, когда время клиента достигнет времени оценки.  
 
-    -   **Hora de disponibilização do software**: Selecione uma das seguintes definições para especificar quando as atualizações de software são disponibilizadas aos clientes:  
+    -   **Время доступности программного обеспечения**: выберите один из следующих параметров, чтобы указать, в какое время обновления программного обеспечения будут доступны клиентам:  
 
-        -   **Logo que possível**: Selecione esta definição para disponibilizar as atualizações de software que estão incluídas na implementação aos computadores cliente logo que possível. Quando criar a implementação com esta definição selecionada, o Configuration Manager atualiza a política de cliente. Em seguida, durante o ciclo seguinte de consulta da política de cliente, os clientes ficarão informados da implementação e poderão obter as atualizações que estiverem disponíveis para instalação.  
+        -   **Как можно скорее**: выберите этот параметр, чтобы обновления программного обеспечения становились доступными для развертывания на компьютерах клиентов как можно скорее. Если вы выбрали этот параметр при создании развертывания, то Configuration Manager обновляет клиентскую политику. Затем, при следующем цикле опроса клиентских политик, клиенты получают сведения о наличии развертывания и могут получить доступные для установки обновления.  
 
-        -   **Hora específica**: Selecione esta definição para disponibilizar as atualizações de software que estão incluídas na implementação aos computadores cliente numa hora e data específicas. Quando criar a implementação com esta definição ativada, o Configuration Manager atualiza a política de cliente. Em seguida, durante o ciclo de consulta seguinte da política de cliente, os clientes estarão informados da implementação. No entanto, as atualizações de software da implementação não ficarão disponíveis para instalação antes da data e hora configuradas.  
+        -   **Определенное время**: выберите этот параметр, чтобы обновления программного обеспечения становились доступными для развертывания на клиентах в определенный день и время. Если вы включили этот параметр при создании развертывания, то Configuration Manager обновляет клиентскую политику. Затем, при следующем цикле опроса клиентских политик, клиенты получают сведения о наличии развертывания. Однако обновления ПО в этом развертывании недоступны для установки на клиентах до наступления настроенного дня и времени.  
 
-    -   **Prazo de instalação**: Selecione uma das seguintes definições para especificar o prazo de instalação para as atualizações de software da implementação:  
+    -   **Крайний срок установки**: выберите один из следующих параметров, чтобы указать крайний срок установки для обновлений программного обеспечения в развертывании.  
 
-        -   **Logo que possível**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação logo que possível.  
+        -   **Как можно скорее**: выберите этот параметр, чтобы автоматически устанавливать обновления программного обеспечения в развертывании как можно скорее.  
 
-        -   **Hora específica**: Selecione esta definição para instalar automaticamente as atualizações de software na implementação numa hora e data específicas. O Configuration Manager determina o prazo de instalação de atualizações de software adicionando configurada **hora específica** intervalo para o **hora de disponibilização do Software**.  
+        -   **В заданное время**: выберите этот параметр, чтобы автоматически устанавливать обновления программного обеспечения в развертывании в определенный день и время. Configuration Manager определяет крайний срок установки обновлений ПО путем добавления настроенного интервала **Конкретное время** к значению параметра **Время доступности программного обеспечения**.  
 
             > [!NOTE]  
-            >  A hora real do prazo de instalação corresponde à hora apresentada acrescida de um período de tempo aleatório de até 2 horas. Desta forma, reduzirá o impacto potencial da instalação das atualizações na implementação ao mesmo tempo em todos os computadores cliente da coleção de destino.  
+            >  Фактический срок установки равен сумме отображаемого времени крайнего срока и произвольного отрезка времени длительностью до 2 часов. Это позволяет снизить нагрузку, которая возникла бы, если бы все клиентские компьютеры в коллекции назначения начали устанавливать обновления одновременно.  
             >   
-            >  Pode configurar a definição de cliente **Agente do Computador** **Desativar a aleatoriedade de prazos** para desativar o atraso da aleatoriedade da instalação para as atualizações necessárias. Para obter mais informações, veja [Agente do Computador](../../core/clients/deploy/about-client-settings.md#computer-agent).  
+            >  Можно настроить клиентский параметр **Агент компьютера**, присвоив ему значение **Запретить случайный выбор срока**, чтобы отключить случайный выбор срока задержки при установке обязательных обновлений. Дополнительные сведения см. в статье [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-9. Na página Experiência de Utilizador, configure as seguintes definições:  
+9. На странице "Взаимодействие с пользователем" настройте следующие параметры.  
 
-    -   **As notificações de utilizador**: Especifique se pretende apresentar a notificação de atualizações no Centro de Software no computador cliente à configurada **hora de disponibilização do Software** e se pretende apresentar as notificações de utilizador nos computadores cliente.  
+    -   **Уведомления пользователя**: укажите, следует ли отображать обновления в центре программного обеспечения на клиентских компьютерах в настроенное **Время доступности программного обеспечения**, а также следует ли отображать на клиентских компьютерах уведомления для пользователей.  
 
-    -   **Comportamento do prazo**: Especifique o comportamento a adotar quando é atingido o prazo para a implementação da atualização. Especifique se pretende instalar as atualizações na implementação. Especifique também se pretende reiniciar o sistema após a instalação da atualização, independentemente de uma janela de manutenção configurada. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Действие при достижении крайнего срока установки**: укажите, что должно происходить при достижении крайнего срока для развертывания обновлений. Укажите, следует ли устанавливать обновления в развертывании. Также укажите, следует ли выполнять перезапуск системы после установки обновлений, независимо от настроенного периода обслуживания. Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Comportamento de reinício do dispositivo**: Especifique se pretende suprimir um reinício do sistema em servidores e estações de trabalho após as atualizações são instaladas e é necessário reiniciar o sistema para concluir a instalação.  
+    -   **Действие при перезагрузке устройства**: укажите, следует ли блокировать перезапуск систем на серверах и рабочих станциях после установки обновлений, для завершения установки которых требуется перезапуск.  
 
-    -   **Para dispositivos Windows Embedded de processamento do filtro de escrita**: Ao implementar atualizações em dispositivos Windows Embedded que tenham o filtro de escrita ativado, pode especificar a instalação da atualização na sobreposição temporária e ou confirmar as alterações mais tarde ou por confirmar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no momento da instalação ou durante uma janela de manutenção, será necessário um reinício para que as alterações sejam mantidas no dispositivo.  
-
-        > [!NOTE]  
-        >  Ao implementar uma atualização num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada.  
-
-10. Na página Pacote de Implementação, selecione um pacote de implementação existente ou configure as seguintes definições para criar um novo pacote de implementação:  
-
-    1.  **Nome**: Especifique o nome do pacote de implementação. Tem de ser um nome exclusivo que descreva o conteúdo do pacote. Está limitado a 50 carateres.  
-
-    2.  **Descrição**: Especifique uma descrição que disponibilize informações sobre o pacote de implementação. A descrição está limitada a 127 caracteres.  
-
-    3.  **Origem do pacote**: Especifica a localização dos ficheiros de origem de atualização de software.  Escreva um caminho de rede para a localização de origem, como, por exemplo, **\\\server\sharename\path**ou clique em **Procurar** para procurar a localização de rede. Antes de continuar para a página seguinte, terá de criar a pasta partilhada para os ficheiros de origem do pacote de implementação.  
+    -   **Обработка фильтра записи для устройств Windows Embedded**: при развертывании обновлений на устройствах под управлением Windows Embedded, на которых включены фильтры записи, можно указать необходимость установки обновлений во временный оверлей, а затем применить изменения позже или же сделать это при наступлении крайнего срока установки или в течение периода обслуживания. При фиксации изменений по наступлении крайнего срока установки или в течение периода обслуживания требуется перезагрузка, и изменения сохраняются на устройстве.  
 
         > [!NOTE]  
-        >  A localização de origem do pacote de implementação que especificar não poderá ser utilizada por outro pacote de implementação de software.  
+        >  При развертывании обновления на устройство Windows Embedded убедитесь, что устройство входит в коллекцию, для которой настроен период обслуживания.  
+
+10. На странице "Пакет развертывания" выберите существующий пакет развертывания или настройте следующие параметры, чтобы создать новый пакет развертывания.  
+
+    1.  **Имя**: укажите имя пакета развертывания. Это имя должно быть уникальным и служить для описания содержимого пакета. Его длина ограничена 50 символами.  
+
+    2.  **Описание**: укажите описание, содержащее сведения о пакете развертывания. Его длина ограничена 127 символами.  
+
+    3.  **Исходные файлы пакета**: расположение исходных файлов обновления программного обеспечения.  Необходимо ввести сетевой путь к расположению источника, например **\\\сервер\имя_общей_папки\путь**, или нажать кнопку **Обзор**, чтобы найти сетевое расположение. Перед переходом на следующую страницу необходимо создать общую папку для исходных файлов пакета развертывания.  
+
+        > [!NOTE]  
+        >  Указанное расположение исходных файлов пакета развертывания не может быть использовано другим пакетом развертывания.  
 
         > [!IMPORTANT]  
-        >  Tanto a conta de computador do Fornecedor de SMS, como o utilizador que executar o assistente para transferir as atualizações de software, têm de ter permissões NTFS de **Escrita** na localização de transferência. Deverá restringir cuidadosamente o acesso à localização de transferência para reduzir o risco de adulteração dos ficheiros de origem de atualização de software por parte de atacantes.  
+        >  Учетной записи компьютера поставщика SMS и пользователю, работающему с мастером загрузки обновлений программного обеспечения, требуются разрешения NTFS на **Запись** для расположения загрузки. Необходимо тщательно ограничить доступ к расположению загрузки, чтобы снизить риск подмены злоумышленниками исходных файлов обновлений ПО.  
 
         > [!IMPORTANT]  
-        >  Pode alterar a localização de origem do pacote nas propriedades do pacote de implementação, após o Configuration Manager cria o pacote de implementação. Mas se o fizer, terá primeiro de copiar o conteúdo da origem inicial do pacote para a nova localização de origem do pacote.  
+        >  Местоположение источника пакета можно изменить в свойствах пакета развертывания после того, как Configuration Manager создаст пакет развертывания. Однако в этом случае необходимо сначала скопировать содержимое из исходного местоположения оригинального пакета в новое местоположение источника пакета.  
 
-    4.  **Prioridade de envio**: Especifique a prioridade de envio para o pacote de implementação. O Configuration Manager utiliza a prioridade de envio para o pacote de implementação quando enviar o pacote para pontos de distribuição. Pacotes de implementação são enviados por ordem de prioridade: Alta, média ou baixa. Os pacotes com prioridades idênticas são enviados pela ordem em que foram criados. Se não existirem tarefas pendentes, o pacote será processado de imediato, independentemente da sua prioridade.  
+    4.  **Приоритет передачи**: укажите приоритет передачи для пакета развертывания. Configuration Manager использует приоритет передачи для пакета развертывания при его передаче в точки распространения. Передача пакетов развертывания осуществляется в порядке приоритета: "Высокий", "Средний" и "Низкий". Пакеты с одинаковым приоритетом передаются в том порядке, в котором они были созданы. Если очередь пакетов отсутствует, обработка пакета выполняется незамедлительно, причем независимо от уровня приоритета.  
 
-11. Na página Pontos de Distribuição, especifique os pontos de distribuição ou grupos de pontos de distribuição que irão alojar os ficheiros de atualização. Para obter mais informações sobre pontos de distribuição, consulte [configurar um ponto de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs).
+11. На странице "Точки распространения" укажите точки распространения или группы точек распространения для размещения файлов обновления. Дополнительные сведения о точках распространения см. в разделе [Настройка точки распространения](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs).
 
     > [!NOTE]  
-    >  Esta página apenas está disponível ao criar um novo pacote de implementação da atualização de software.  
+    >  Этот страница доступна только при создании нового пакета развертывания обновлений программного обеспечения.  
 
-12. Na página Localização de Transferência, especifique se pretende transferir os ficheiros de atualização a partir da Internet ou da rede local. Configure as seguintes definições:  
+12. На странице "Расположение загрузки" укажите, следует ли загружать файлы обновления из Интернета или из локальной сети. Настройте следующие параметры.  
 
-    -   **Transferir atualizações de software a partir da Internet**: Selecione esta definição para transferir as atualizações a partir de uma localização especificada na Internet. Esta definição está ativada por predefinição.  
+    -   **Загрузить обновления программного обеспечения из Интернета**: выберите этот параметр, чтобы скачивать обновления из заданного расположения в Интернете. Этот параметр выбран по умолчанию.  
 
-    -   **Transferir atualizações de software a partir de uma localização na rede local**: Selecione esta definição para transferir as atualizações a partir de um diretório local ou uma pasta partilhada. Esta definição é útil se o computador que executa o assistente não tiver acesso à Internet. Qualquer computador que disponha de acesso à Internet poderá transferir provisoriamente as atualizações e armazená-las numa localização da rede local que esteja acessível ao computador que executa o assistente.  
+    -   **Загрузить обновления ПО из следующей папки в локальной сети**: выберите этот параметр, чтобы скачивать обновления из локальной папки или общей папки. Выберите этот параметр, если компьютер, на котором выполняется мастер, не имеет доступа к Интернету. Используя любой компьютер, подключенный к Интернету, можно скачать обновления и сохранить их в папке в локальной сети, доступной для компьютера, на котором запущен мастер.  
 
-13. Na página Seleção de Idioma, selecione os idiomas para os quais serão transferidas as atualizações selecionadas. As atualizações apenas são transferidas se estiverem disponíveis nos idiomas selecionados. As atualizações que não sejam específicas do idioma serão sempre transferidas. Por predefinição, o assistente seleciona os idiomas que tiver configurado nas propriedades do ponto de atualização de software. Terá de estar selecionado pelo menos um idioma para que possa prosseguir para a página seguinte. Se selecionar apenas idiomas que não sejam suportados por uma atualização, a transferência da atualização não será concluída com êxito.  
+13. На странице "Выбор языка" выберите языки, для которых следует загрузить выбранные обновления. Обновления загружаются только в том случае, если они доступны на выбранных языках. Обновления, не зависящие от языка, загружаются всегда. По умолчанию мастер выбирает языки, настроенные вами в свойствах точки обновления программного обеспечения. Перед переходом к следующей странице необходимо выбрать по крайней мере один язык. Если ни один из выбранных языков не поддерживается обновлением, оно не будет загружено.  
 
-14. Na página Resumo, reveja as definições e clique em **Seguinte** para criar o plano de manutenção.  
+14. На странице "Сводка" проверьте параметры и нажмите кнопку **Далее**, чтобы создать план обслуживания.  
 
- Depois de concluir o assistente, o plano de manutenção será executado. Irá adicionar as atualizações que cumpram os critérios especificados a um grupo de atualizações de software, transferir as atualizações para a biblioteca de conteúdos do servidor do site, distribuir as atualizações por pontos de distribuição configurados e, em seguida, implementar o grupo de atualizações de software nos clientes da coleção de destino.  
+ После завершения работы мастера запускается план обслуживания. Он добавляет обновления, удовлетворяющие указанным критериям, в группу обновлений ПО, скачивает обновления в библиотеку на сервере сайта, распространяет их среди настроенных точек распространения, а затем развертывает группу обновлений ПО на клиенты в целевой коллекции.  
 
-##  <a name="BKMK_ModifyServicingPlan"></a> Modificar um plano de manutenção  
-Depois de criar um plano de manutenção básico a partir do dashboard de manutenção do Windows 10 ou precisar de alterar as definições para um plano de manutenção existente, pode aceder às propriedades do plano de manutenção.
+##  <a name="BKMK_ModifyServicingPlan"></a> Изменение плана обслуживания  
+Если вам необходимо изменить параметры для базового плана обслуживания, созданного на панели мониторинга обслуживания Windows 10, или существующего плана обслуживания, можно открыть его свойства.
 
 > [!NOTE]
-> Pode configurar as definições nas propriedades do plano de manutenção que não estão disponíveis no assistente quando cria o plano de manutenção. O assistente utiliza as predefinições para as definições para o seguinte: transferir definições, as definições de implementação e alertas.  
+> В свойствах плана обслуживания можно настроить параметры, которые недоступны в мастере при создании плана обслуживания. В мастере используются значения по умолчанию для следующих параметров: параметры скачивания, параметры развертывания и предупреждения.  
 
-Utilize o procedimento seguinte para modificar as propriedades de um plano de manutenção.  
+Выполните следующую процедуру для изменения свойств плана обслуживания.  
 
-#### <a name="to-modify-the-properties-of-a-servicing-plan"></a>Para modificar as propriedades de um plano de manutenção  
+#### <a name="to-modify-the-properties-of-a-servicing-plan"></a>Изменение свойств плана обслуживания  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho Biblioteca de Software, expanda **Manutenção do Windows 10**, clique em **Planos de Manutenção**e, em seguida, selecione o plano de manutenção que pretende modificar.  
+2.  В рабочей области "Библиотека программного обеспечения" разверните узел **Обслуживание Windows 10**, щелкните **Планы обслуживания**, а затем выберите план обслуживания, который требуется изменить.  
 
-3.  No separador **Home page** , clique em **Propriedades** para abrir as propriedades do plano de manutenção selecionado.
+3.  На вкладке **Главная** щелкните **Свойства**, чтобы открыть окно свойств для выбранного плана обслуживания.
 
-    As seguintes definições estão disponíveis nas propriedades do plano manutenção que não foram configuradas no assistente:
+    В свойствах плана обслуживания доступны перечисленные ниже параметры, которые не были настроены в мастере.
 
-    **Definições de implementação**: No separador Definições de implementação, configure as seguintes definições:  
+    **Параметры развертывания**: на вкладке "Параметры развертывания" укажите следующие параметры.  
 
-    -   **Tipo de implementação**: Especifique o tipo de implementação para a implementação de atualização de software. Selecione **Necessário** para criar uma implementação de atualização de software obrigatória através da qual as atualizações de software são automaticamente instaladas nos clientes antes de um prazo de instalação configurado. Selecione **Disponível** para criar uma implementação de atualização de software opcional que estará disponível para ser instalada pelos utilizadores a partir do Centro de Software.  
+    -   **Тип развертывания**: выберите тип развертывания обновления программного обеспечения. Выберите **Обязательное**, чтобы создать обязательное обновление: в этом случае обновления программного обеспечения устанавливаются на клиенты автоматически к указанному сроку. Выберите **Доступное**, чтобы создать необязательное обновление, которое пользователи смогут устанавливать из центра программного обеспечения.  
 
         > [!IMPORTANT]  
-        >  Após criar a implementação de atualização de software, não poderá alterar o tipo de implementação mais tarde.  
+        >  Тип развертывания обновления невозможно изменить после его создания.  
 
         > [!NOTE]  
-        >  Um grupo de atualização de software implementado como **Obrigatório** será transferido em segundo plano e irá cumprir as definições de BITS, se estiverem configuradas.  
-        > No entanto, os grupos de atualização de software implementados como **Disponível** serão transferidos em primeiro plano e irão ignorar as definições de BITS.  
+        >  Группа обновлений программного обеспечения, развертывание которой является **обязательным**, будет загружена в фоновом режиме и станет поддерживать параметры BITS, если это задано в настройках.  
+        > Однако группы обновлений программного обеспечения, развернутые как **Доступные**, будут загружены на переднем плане и будут игнорировать параметры BITS.  
 
-    -   **Utilizar a reativação por LAN para reativar os clientes para as implementações necessárias**: Especifique se pretende ativar a reativação por LAN na data limite para o envio de pacotes de reativação para computadores que necessitem de uma ou mais atualizações de software na implementação. Todos os computadores que se encontrarem no modo de suspensão na data limite de instalação serão reativados de modo a dar início à instalação da atualização de software. Os clientes que se encontrem no modo de suspensão e que não necessitem de quaisquer atualizações de software no âmbito da implementação não serão iniciados. Por predefinição, esta definição não está ativada e só estará disponível se **Tipo de implementação** estiver definido como **Necessário**.  
+    -   **Использовать пробуждение по локальной сети, чтобы пробуждать клиенты для обязательного развертывания**: укажите, следует ли использовать режим пробуждения по локальной сети к крайнему сроку, чтобы отправлять пакеты пробуждения на компьютеры, для которых требуется одно или несколько обновлений программного обеспечения из данного развертывания. Любые компьютеры, находящиеся в спящем режиме на момент окончания крайнего срока, будут выведены из спящего режима, чтобы могла начаться установка программных обновлений. Если находящимся в спящем режиме клиентам не требуются никакие обновления программного обеспечения в ходе развертывания, то эти клиенты не запускаются. По умолчанию этот параметр отключен. Он доступен только в том случае, если для параметра **Тип развертывания** установлено значение **Обязательное**.  
 
         > [!WARNING]  
-        >  Para poder utilizar esta opção, os computadores e redes terão de estar configurados para Reativação por LAN.  
+        >  Для использования этой возможности необходимо включить поддержку пробуждения по локальной сети на компьютерах и в сетях.  
 
-    -   **Nível de detalhe**: Especifique o nível de detalhe para as mensagens de estado que são enviadas pelos computadores cliente.  
+    -   **Уровень детализации**: выберите уровень детализации для сообщений о состоянии, передаваемых клиентскими компьютерами.  
 
-    **Transferir definições**: No separador Definições de transferência, configure as seguintes definições:  
+    **Параметры загрузки**: на вкладке "Параметры загрузки" укажите следующие параметры.  
 
-    - Especifique se o cliente irá transferir e instalar as atualizações de software quando estiver ligado a uma rede lenta ou estiver a utilizar uma localização de conteúdos de contingência.  
+    - Если клиент подключен к медленной сети или использует резервное расположение содержимого, укажите, следует ли клиенту загружать и устанавливать обновления ПО.  
 
-    - Especifique se pretende que o cliente transfira e instale as atualizações de software a partir de um ponto de distribuição de contingência quando o conteúdo das atualizações de software não estiver disponível num ponto de distribuição preferencial.  
+    - Укажите, следует ли клиенту загружать и устанавливать обновления программного обеспечения с резервной точки распространения, когда содержимое для обновлений программного обеспечения недоступно на предпочитаемой точке распространения.  
 
-    -   **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Especifique se pretende ativar a utilização do BranchCache para as transferências de conteúdos. Para obter mais informações sobre o BranchCache, consulte [conceitos fundamentais da gestão de conteúdos](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+    -   **Разрешить клиентам использовать содержимое совместно с другими клиентами из той же подсети**: укажите, следует ли включить BranchCache для загрузки содержимого. Дополнительные сведения о BranchCache см. в статье [Основные принципы управления содержимым](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
 
-    -   Especifique se pretende que os clientes transferir software de atualizações do Microsoft Update caso as atualizações de software não estejam disponíveis nos pontos de distribuição.
+    -   Укажите, должны ли подключенные к интрасети клиенты скачивать обновления ПО из Центра обновления Майкрософт, если обновления ПО недоступны в точках распространения.
         > [!IMPORTANT]
-        > Não utilize esta definição para atualizações de manutenção do Windows 10. O Configuration Manager (pelo menos através de versão 1610) irá falhar transferir as atualizações de manutenção do Windows 10 do Microsoft Update.
+        > Не используйте этот параметр для служебных обновлений Windows 10. Configuration Manager (по меньшей мере до версии 1610 включительно) не сможет скачать служебные обновления Windows 10 из Центра обновления Майкрософт.
 
-    -   Especifique se pretende permitir que os clientes efetuem a transferência após um prazo de instalação se estiverem a utilizar ligações à Internet com tráfego limitado. Por vezes, os fornecedores de Internet cobram pela quantidade de dados que envia e recebe quando se encontra numa ligação à Internet com tráfego limitado.   
+    -   Укажите, следует ли разрешать клиентам загрузку после наступления крайнего срока установки, если клиенты используют интернет-соединения с поддержкой учета трафика. Иногда поставщики интернет-услуг взимают плату по объему передаваемых данных, если вы используете лимитное подключение к Интернету.   
 
-    **Alertas**: No separador alertas, configure o Configuration Manager e o System Center Operations Manager gerarão alertas para esta implementação. Só poderá configurar alertas quando o **Tipo de implementação** está definido como **Necessário** na página Definições de Implementação.  
+    **Оповещения**: на вкладке "Оповещения" укажите, как Configuration Manager и System Center Operations Manager будут создавать оповещения для этого развертывания. Можно настроить оповещения только в случае, если для параметра **Тип развертывания** на странице "Параметры развертывания" установлено значение **Обязательно**.  
 
     > [!NOTE]  
-    >  Pode rever os alertas de atualizações de software recentes a partir do nó **Atualizações de Software** da área de trabalho **Biblioteca de Software** .  
+    >  Можно просмотреть недавние предупреждения об обновлениях в узле **Обновления программного обеспечения** рабочей области **Библиотека программного обеспечения**.  

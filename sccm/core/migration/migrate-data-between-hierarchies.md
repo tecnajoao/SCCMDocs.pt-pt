@@ -1,6 +1,6 @@
 ---
-title: Migrar dados | Microsoft Docs
-description: Saiba como transferir os dados de uma hierarquia de origem para uma hierarquia de destino do System Center Configuration Manager.
+title: "Перенос данных | Документы Майкрософт"
+description: "Узнайте, как передать данные из исходной в конечную иерархию System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -17,95 +17,95 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: dface33392c2a2a662522656eabf0936b52b28fc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="migrate-data-between-hierarchies-in-system-center-configuration-manager"></a>Migrar dados entre hierarquias no System Center Configuration Manager
+# <a name="migrate-data-between-hierarchies-in-system-center-configuration-manager"></a>Перенос данных между иерархиями в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize a migração para transferir dados de uma hierarquia de origem suportada para a hierarquia de destino do System Center Configuration Manager.  Ao migrar dados de uma hierarquia de origem:  
+Используйте миграцию данных для их передачи из поддерживаемой исходной иерархии в конечную иерархию System Center Configuration Manager.  При переносе данных из исходной иерархии происходит следующее:  
 
--   Aceder a dados das bases de dados do site que identifica na infraestrutura de origem e, em seguida, transferir dados para o ambiente atual.  
+-   Осуществляется доступ к данным из баз данных сайта, указанных в исходной инфраструктуре, с последующей их передачей в текущую среду.  
 
--   A migração não altera os dados da hierarquia de origem, mas em vez disso, identifica os dados e armazena uma cópia na base de dados da hierarquia de destino.  
+-   Функция миграции не вносит изменения в данные в исходной иерархии, а обнаруживает данные и сохраняет их копию в базе данных конечной иерархии.  
 
-Considere os seguintes aspetos quando planear a estratégia de migração :  
+При планировании стратегии миграции необходимо учитывать следующее.  
 
--   Pode migrar uma infraestrutura existente do Configuration Manager 2007 SP2 para o System Center Configuration Manager.  
+-   Вы можете перенести существующую инфраструктуру Configuration Manager 2007 с пакетом обновления 2 (SP2) в System Center Configuration Manager.  
 
--   Pode migrar alguns ou todos os dados suportados de um site de origem.  
+-   Некоторые или все поддерживаемые данные можно перенести из исходного сайта.  
 
--   Pode migrar os dados de um único site de origem para vários sites diferentes da hierarquia de destino.  
+-   Можно выполнить перенос данных из одного исходного сайта в различные сайты конечной иерархии.  
 
--   Pode mover dados de vários sites de origem para um único site da hierarquia de destino.  
+-   Данные можно перемещать из нескольких исходных сайтов на один сайт в конечной иерархии.  
 
-##  <a name="BKMK_MigrationConcepts"></a> Conceitos de Migração  
- Poderá encontrar os seguintes conceitos e termos ao utilizar a migração.  
+##  <a name="BKMK_MigrationConcepts"></a> Основные понятия для миграции  
+ При выполнении миграции вам могут встретиться указанные ниже понятия и термины.  
 
-|Conceito ou termo|Mais informações|  
+|Понятие или термин|Дополнительные сведения|  
 |---------------------|----------------------|  
-|Hierarquia de origem|Uma hierarquia que executa uma versão suportada do Configuration Manager e tem de dados que pretende migrar. Quando configurar a migração, que identifica a hierarquia de origem ao especificar o site de nível superior da hierarquia de origem. Após ter especificado uma hierarquia de origem, o site de nível superior da hierarquia de destino recolhe dados da base de dados do site de origem designado para identificar os dados que pode migrar.<br /><br /> Para obter mais informações, consulte [hierarquias de origem](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Source_Hierarchies) no [planear uma estratégia de hierarquia de origem no System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
-|Sites de origem|Os sites da hierarquia de origem que contêm dados que pode migrar para a hierarquia de destino.<br /><br /> Para obter mais informações, consulte [sites de origem](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Source_Sites) no [planear uma estratégia de hierarquia de origem no System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
-|Hierarquia de destino|Uma hierarquia do System Center Configuration Manager onde é executada a migração para importar dados a partir de uma hierarquia de origem.|  
-|Recolha de dados|O processo contínuo de identificar informações numa hierarquia de origem que pode migrar para a sua hierarquia de destino. O Configuration Manager verifica a hierarquia de origem com base numa agenda para identificar quaisquer alterações às informações da hierarquia de origem que migrou anteriormente e que pode querer atualizar na hierarquia de destino.<br /><br /> Para obter mais informações, consulte [recolha de dados](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Data_Gathering) no [planear uma estratégia de hierarquia de origem no System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
-|Tarefas de migração|O processo de configuração de objetos específicos para migrar e, em seguida, a gestão da migração desses objetos para a hierarquia de destino.<br /><br /> Para obter mais informações, consulte [planear uma estratégia de tarefa de migração no System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md)|  
-|Migração de clientes|O processo de transferência de informações utilizadas pelos clientes da base de dados do site de origem para a base de dados da hierarquia de destino. Esta migração de dados é depois seguida por uma atualização do software de cliente dos dispositivos com a versão de software de cliente da hierarquia de destino.<br /><br /> Para obter mais informações, veja [Planear uma estratégia de migração de clientes no System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).|  
-|Pontos de distribuição partilhados|Os pontos de distribuição da hierarquia de origem que são partilhados com a hierarquia de destino durante o período de migração.<br /><br /> Durante o período de migração, os clientes atribuídos a sites da hierarquia de destino podem obter conteúdos dos pontos de distribuição partilhado.<br /><br /> Para obter mais informações, consulte [partilhar pontos de distribuição entre hierarquias de origem e destino](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) no [planear uma estratégia de migração de implementação de conteúdos no System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).|  
-|Monitorização da migração|O processo de monitorização de atividades de migração. Monitorizar o progresso da migração e o sucesso do **migração** no nó de **administração** área de trabalho.<br /><br /> Para obter mais informações, consulte [planear para monitorizar a atividade de migração no System Center Configuration Manager](../../core/migration/planning-to-monitor-migration-activity.md).|  
-|Parar a recolha de dados|O processo de interrupção da recolha de dados a partir de sites de origem. Quando já não tem dados para migrar de uma hierarquia de origem, ou se pretende colocar em pausa atividades relacionadas com a migração, pode configurar a hierarquia de destino para interromper a recolha de dados da hierarquia de origem.<br /><br /> Para obter mais informações, consulte [recolha de dados](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Data_Gathering) no [planear uma estratégia de hierarquia de origem no System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
-|Limpar dados de migração|O processo de conclusão da migração de uma hierarquia de origem através da remoção das informações sobre a migração da base de dados de hierarquias de destino.<br /><br /> Para obter mais informações, veja [Planear para concluir a migração no System Center Configuration Manager](../../core/migration/planning-to-complete-migration.md).|  
+|Исходная иерархия|Иерархия, работающая под управлением поддерживаемой версии Configuration Manager и содержащая данные, которые требуется перенести. При настройке миграции вы указываете исходную иерархию во время задания сайта верхнего уровня исходной иерархии. После выбора исходной иерархии сайт верхнего уровня конечной иерархии выполняет сбор данных из базы данных назначенного исходного сайта для определения данных, которые можно перенести.<br /><br /> Дополнительные сведения см. в подразделе [Исходные иерархии](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Source_Hierarchies) раздела [Планирование стратегии для исходных иерархий в System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
+|Исходные сайты|Сайты в исходной иерархии, содержащие данные, которые можно перенести в конечную иерархию.<br /><br /> Дополнительные сведения см. в подразделе [Исходные сайты](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Source_Sites) раздела [Планирование стратегии для исходных иерархий в System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
+|Конечная иерархия|Иерархия System Center Configuration Manager, где выполняется миграция для импорта данных из исходной иерархии.|  
+|Сбор данных|Текущий процесс идентификации данных в исходной иерархии, которые можно перенести в конечную иерархию. Configuration Manager по расписанию проверяет исходную иерархию, чтобы определить наличие изменений в данных, которые уже были перенесены и которые требуется обновить в конечной иерархии.<br /><br /> Дополнительные сведения см. в подразделе [Сбор данных](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Data_Gathering) раздела [Планирование стратегии для исходных иерархий в System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
+|Задания миграции|Процесс настройки определенных объектов для миграции и последующее управление миграцией таких объектов в конечную иерархию.<br /><br /> Дополнительные сведения см. в разделе [Планирование стратегии заданий миграции в System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).|  
+|Миграция клиентов|Процесс передачи данных, используемых клиентскими системами, из исходной базы данных исходного сайта в базу данных конечной иерархии. После этой миграции данных выполняется обновление клиентского программного обеспечения на устройствах до версии клиентского программного обеспечения из конечной иерархии.<br /><br /> Дополнительные сведения см. в разделе [Планирование стратегии миграции клиентов в System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).|  
+|Общие точки распространения|Точки распространения из исходной иерархии, которые используются совместно с конечной иерархией в течение периода миграции.<br /><br /> В ходе миграции клиенты, назначенные сайтам конечной иерархии, могут получать содержимое из общих точек распространения.<br /><br /> Дополнительные сведения см. в подразделе [Совместное использование точек распространения в исходной и конечной иерархии](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) раздела [Планирование стратегии миграции развертывания содержимого в System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).|  
+|Мониторинг миграции|Процесс отслеживания действий миграции. Мониторинг процесса и успешности миграции ведется в узле **Миграция** рабочей области **Администрирование**.<br /><br /> Дополнительные сведения см. в разделе [Планирование наблюдения за действиями миграции в System Center Configuration Manager](../../core/migration/planning-to-monitor-migration-activity.md).|  
+|Остановка сбора данных|Процесс остановки сбора данных из исходных сайтов. Если больше нет данных, которые требуется переносить из исходной иерархии, или если требуется временно прекратить действия, связанные с миграцией, можно настроить в конечной иерархии останов сбора данных из исходной иерархии.<br /><br /> Дополнительные сведения см. в подразделе [Сбор данных](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Data_Gathering) раздела [Планирование стратегии для исходных иерархий в System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
+|Очистка данных миграции|Процесс завершения миграции из исходной иерархии путем удаления сведений о миграции из базы данных конечных иерархий.<br /><br /> Дополнительные сведения см. в разделе [Планирование завершения миграции в System Center Configuration Manager](../../core/migration/planning-to-complete-migration.md).|  
 
-## <a name="typical-workflow-for-migration"></a>Fluxo de trabalho normal para migração  
-Para configurar um fluxo de trabalho para a migração:
+## <a name="typical-workflow-for-migration"></a>Типичный рабочий процесс для миграции  
+Чтобы настроить рабочий процесс для миграции, выполните указанные ниже действия.
 
-1.  Especifique uma hierarquia de origem suportada.  
+1.  Укажите поддерживаемую исходную иерархию.  
 
-2.  Configure a recolha de dados. Permite a recolha de dados do Configuration Manager para recolher informações sobre os dados que podem migrar da hierarquia de origem.  
+2.  Настройте сбор данных. Сбор данных позволяет Configuration Manager провести сбор информации о данных, которые могут быть перенесены из исходной иерархии.  
 
-     O Configuration Manager repete automaticamente o processo de recolha de dados de uma agenda simples enquanto não o interromper os processo de recolha de dados. Por predefinição, os processo de recolha de dados é repetido de quatro em quatro horas, para que o Configuration Manager possa identificar as alterações aos dados da hierarquia de origem que pode querer migrar. A recolha de dados também é necessária para partilhar pontos de distribuição entre a hierarquia de origem e a hierarquia de destino.  
+     Configuration Manager автоматически повторяет этот процесс для сбора данных по простому расписанию до тех пор, пока вы не остановите процесс сбора данных. По умолчанию процесс сбора данных повторяется каждые четыре часа, чтобы в Configuration Manager можно было выявить изменения в данных исходной иерархии, которые могут потребоваться при миграции. Сбор данных также необходим для передачи точек распространения из исходной иерархии в конечную.  
 
-3.  Crie tarefas de migração para migrar dados entre a hierarquia de origem e a hierarquia de destino.  
+3.  Создайте задания миграции для переноса данных между исходной и конечной иерархиями.  
 
-4.  É possível parar o o processo de recolha de dados em qualquer altura utilizando o comando **Parar a Recolha de Dados** . Quando parar a recolha de dados, o Configuration Manager já não identifica as alterações aos dados da hierarquia de origem e já não pode partilhar pontos de distribuição entre as hierarquias de origem e de destino. Normalmente, utiliza esta ação quando já não pretende migrar dados nem partilhar pontos de distribuição da hierarquia de origem.  
+4.  Сбор данных можно остановить в любой момент с помощью команды **Остановить сбор данных** . При этом Configuration Manager больше не идентифицирует изменения в данных исходной иерархии, и больше нельзя совместно использовать точки распространения в исходной и конечной иерархиях. Как правило, это действие выполняется, если вы больше не планируете переносить данных или совместно использовать точки распространения в исходной иерархии.  
 
-5.  Opcionalmente, após a interrupção da recolha de dados em todos os sites da hierarquia de origem, é possível limpar os dados de migração utilizando o comando **Limpar Dados de Migração** . Este comando elimina os dados históricos sobre a migração de uma hierarquia de origem a partir da base de dados da hierarquia de destino.  
+5.  При необходимости после остановки сбора данных на всех сайтах в исходной иерархии можно очистить перенесенные данные с помощью команды **Очистить данные переноса** . Эта команда удаляет журнальные данные о миграции из исходной иерархии в базе данных конечной иерархии.  
 
-Depois de migrar dados de uma hierarquia de origem do Configuration Manager que já não irá utilizar para gerir o ambiente, pode desativar essa hierarquia de origem e a infraestrutura.  
+После переноса данных из исходной иерархии Configuration Manager, которая больше не будет использоваться для управления средой, можно списать эту иерархию и инфраструктуру.  
 
-##  <a name="BKMK_MigrationScenarios"></a> Cenários de migração  
- O Configuration Manager suporta os seguintes cenários de migração.  
+##  <a name="BKMK_MigrationScenarios"></a> Сценарии миграции  
+ В Configuration Manager поддерживаются перечисленные ниже сценарии миграции.  
 
 > [!NOTE]  
->  A expansão de uma hierarquia que tenha um site autónomo numa hierarquia que tenha um site de administração central não está categorizada como uma migração. Para obter informações sobre expansão da hierarquia, consulte [expandir um site primário autónomo](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) no [utilize o Assistente de configuração para instalar sites](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
+>  Расширение иерархии, содержащей автономный сайт, в иерархию, которая содержит сайт центра администрирования, нельзя классифицировать как миграцию. Сведения о расширении иерархии см. в подразделе [Расширение автономного первичного сайта](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) раздела [Использование мастера установки для установки сайтов](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
 
-### <a name="migration-from-configuration-manager-2007-hierarchies"></a>Migração a partir de hierarquias do Configuration Manager 2007  
- Quando utilizar a migração para migrar os dados do Configuration Manager 2007, pode manter o investimento na infraestrutura de sites existente e obter os seguintes benefícios:  
+### <a name="migration-from-configuration-manager-2007-hierarchies"></a>Миграция из иерархий Configuration Manager 2007  
+ При использовании миграции для переноса данных из Configuration Manager 2007 можно сохранить инвестиции в существующую инфраструктуру сайта и получить указанные ниже преимущества.  
 
-|Benefícios|Mais informações|  
+|Преимущество|Дополнительные сведения|  
 |-------------|----------------------|  
-|Melhorias da base de dados do site|A base de dados do System Center Configuration Manager suporta Unicode completo.|  
-|Replicação da base de dados entre sites|Replicação no System Center Configuration Manager baseia-se no Microsoft SQL Server. Isto melhora o desempenho da transferência dos dados de site para site.|  
-|Gestão centrada no utilizador|Os utilizadores são o foco das tarefas de gestão no System Center Configuration Manager. Por exemplo, pode distribuir software por um utilizador mesmo que não saiba o nome do dispositivo desse utilizador. Além disso, o System Center Configuration Manager fornece aos utilizadores muito mais controlo sobre o tipo de software está instalado nos respetivos dispositivos e quando esse software foi instalado.|  
-|Simplificação da hierarquia|No System Center Configuration Manager, o tipo de site de administração central e as alterações ao comportamento dos sites primários e secundários permitem construir uma hierarquia de sites mais simples que utiliza menos largura de banda de rede e necessita de menos servidores.|  
-|Administração baseada em funções|Este modelo de segurança central no System Center Configuration Manager oferece uma segurança de toda a hierarquia e gestão que satisfaz as suas necessidades administrativas e empresariais.|  
+|Улучшения базы данных сайта|База данных System Center Configuration Manager поддерживает полную кодировку Юникода.|  
+|Репликация баз данных между сайтами|Репликация в System Center Configuration Manager основана на Microsoft SQL Server. Это повышает производительность межсайтовой передачи данных.|  
+|Ориентированное на пользователей управление|Задачи управления в System Center Configuration Manager ориентированы на пользователей. Например, можно передать программное обеспечение пользователю, даже не зная имени его устройства. Кроме того, System Center Configuration Manager предоставляет пользователям дополнительный контроль в плане выбора устанавливаемого на устройства ПО и времени его установки.|  
+|Упрощение иерархии|В System Center Configuration Manager сайт центра администрирования, а также изменения в режимах работы первичного и вторичного сайта позволяют создавать упрощенную иерархию сайтов, использующую меньше ресурсов сети и меньшее количество серверов.|  
+|Администрирование на основе ролей|Эта централизованная модель безопасности в System Center Configuration Manager обеспечивает функции управления и обеспечения безопасности для всей иерархии в соответствии с потребностями администрирования и бизнеса.|  
 
 > [!NOTE]  
->  Devido às alterações estruturais introduzidas inicialmente no System Center 2012 Configuration Manager, não é possível atualizar a infraestrutura do Configuration Manager 2007 para o System Center Configuration Manager. Atualização no local é suportada a partir do System Center 2012 Configuration Manager para o System Center Configuration Manager.  
+>  Из-за изменений, появившихся в System Center 2012 Configuration Manager, инфраструктуру Configuration Manager 2007 нельзя обновить до System Center Configuration Manager. Поддерживается обновление System Center 2012 Configuration Manager до System Center Configuration Manager на месте.  
 
-### <a name="migration-from-configuration-manager-2012-or-another-system-center-configuration-manager-hierarchy"></a>Migração a partir do Configuration Manager 2012 ou de outra hierarquia do System Center Configuration Manager  
- O processo de migração dos dados a partir de uma hierarquia do System Center 2012 Configuration Manager ou System Center Configuration Manager são o mesmo. Isto inclui migrar dados a partir de várias hierarquias de origem para uma única hierarquia de destino, como quando a sua empresa obtém recursos adicionais que já são geridos pelo Configuration Manager. Além disso, pode migrar dados de um ambiente de teste para o seu ambiente de produção do Configuration Manager. Isto permite-lhe manter o investimento no ambiente de teste do Configuration Manager.  
+### <a name="migration-from-configuration-manager-2012-or-another-system-center-configuration-manager-hierarchy"></a>Миграция с Configuration Manager 2012 или другой иерархии System Center Configuration Manager  
+ Процесс переноса данных из иерархии System Center 2012 Configuration Manager или System Center Configuration Manager аналогичен. Он включает в себя перенос данных из нескольких исходных иерархий в одну конечную, например, если ваша компания приобретает дополнительные ресурсы, которые уже управляются средствами Configuration Manager. Кроме того, можно выполнить перенос данных из тестовой среды в рабочую среду Configuration Manager. Это позволяет сохранить инвестиции в тестовую среду Configuration Manager.  
 
-## <a name="additional-topics-for-migration"></a>Tópicos adicionais para a migração:  
+## <a name="additional-topics-for-migration"></a>Дополнительные статьи о миграции:  
 
--   [Planear a migração para o System Center Configuration Manager](../../core/migration/planning-for-migration.md)  
+-   [Планирование миграции на System Center Configuration Manager](../../core/migration/planning-for-migration.md)  
 
--   [Configurar hierarquias de origem e sites de origem para migração para o System Center Configuration Manager](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md)  
+-   [Настройка исходных иерархий и исходных сайтов для миграции на System Center Configuration Manager](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md)  
 
--   [Operações de migração para o System Center Configuration Manager](../../core/migration/operations-for-migration.md)  
+-   [Операции для миграции на System Center Configuration Manager](../../core/migration/operations-for-migration.md)  
 
--   [Segurança e privacidade da migração para o System Center Configuration Manager](../../core/migration/security-and-privacy-for-migration.md)  
+-   [Безопасность и конфиденциальность при миграции на System Center Configuration Manager](../../core/migration/security-and-privacy-for-migration.md)  
 
-## <a name="see-also"></a>Consulte Também  
- [Começar a utilizar o System Center Configuration Manager](../../core/servers/deploy/start-using.md)
+## <a name="see-also"></a>См. также  
+ [Начало использования System Center Configuration Manager](../../core/servers/deploy/start-using.md)

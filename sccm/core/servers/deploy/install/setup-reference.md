@@ -1,6 +1,6 @@
 ---
-title: "Referência de configuração | Microsoft Docs"
-description: "Reveja esta referência para ajudar a preparar para instalar um site do Configuration Manager ou a hierarquia."
+title: "Справочник по установке | Документы Майкрософт"
+description: "Сведения в этом справочнике помогут вам подготовиться к установке сайта или иерархии Configuration Manager."
 ms.custom: na
 ms.date: 4/18/2017
 ms.prod: configuration-manager
@@ -16,62 +16,62 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 739461a6cca0fd67431093524c1e8158afd80d0f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="reference-for-system-center-configuration-manager-setup"></a>Referência para o Programa de Configuração do System Center Configuration Manager
+# <a name="reference-for-system-center-configuration-manager-setup"></a>Справочник по установке System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Configuração do System Center Configuration Manager fornece ligações para vários tópicos descritos detalhadamente nas secções seguintes. As informações aqui apresentadas podem ajudar a preparar para instalar um site do Configuration Manager ou a hierarquia e ajudar a preparar-se para algumas das decisões que deve tomar durante a instalação.  
+Программа установки System Center Configuration Manager предоставляет ссылки на несколько статей, сведения из которых подробно представлены в приведенных ниже разделах. Представленные здесь сведения могут помочь вам подготовиться к установке сайта или иерархии Configuration Manager и принять необходимые решения в процессе установки.  
 
 
-##  <a name="bkmk_start"></a> Antes de começar  
-Antes de instalar novos sites do Configuration Manager, certifique-se de que reviu as informações seguintes, que podem ajudar a definir o palco para uma estrutura de implementação efetuada com êxito:  
+##  <a name="bkmk_start"></a> Подготовка к работе  
+Прежде чем устанавливать новые сайты Configuration Manager, изучите следующие разделы, которые помогут вам успешно провести развертывание:  
 
--   [Noções básicas do System Center Configuration Manager](../../../../core/understand/fundamentals.md)  
--   [Planear a infraestrutura do System Center Configuration Manager](../../../plan-design/network/configure-firewalls-ports-domains.md)  
--   [Preparar a instalação de sites do System Center Configuration Manager](prepare-to-install-sites.md)  
+-   [Основные сведения о System Center Configuration Manager](../../../../core/understand/fundamentals.md)  
+-   [Планирование инфраструктуры System Center Configuration Manager](../../../plan-design/network/configure-firewalls-ports-domains.md)  
+-   [Подготовка к установке сайтов System Center Configuration Manager](prepare-to-install-sites.md)  
 
-##  <a name="bkmk_assess"></a> Avaliar a preparação do servidor  
-Antes de iniciar a instalação de um novo site, certifique-se de que o servidor do site e os servidores de sistema de sites remotos que pretende utilizar para o site (por exemplo, o servidor que aloja a base de dados do site) satisfazem todas as configurações de pré-requisitos. Estes tópicos na biblioteca de documentação podem ajudar:  
+##  <a name="bkmk_assess"></a> Оценка готовности сервера  
+Прежде чем приступить к установке нового сайта, убедитесь в том, что сервер сайта и удаленные серверы системы сайта, которые будут использоваться для сайта (например, сервер для размещения базы данных сайта), соответствуют всем необходимым конфигурациям. В этом вам помогут следующие статьи в библиотеке документации:  
 
--   [Configurações suportadas para o System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md)  
--   [Verificador de pré-requisitos](prerequisite-checker.md)  
+-   [Поддерживаемые конфигурации для System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md)  
+-   [Средство проверки готовности к установке](prerequisite-checker.md)  
 
-##  <a name="bkmk_Addclients"></a> Clientes de sistemas operativos adicionais  
-Pode transferir o software de cliente do Configuration Manager do Microsoft Download Center para os seguintes sistemas operativos:  
+##  <a name="bkmk_Addclients"></a> Клиенты для дополнительных операционных систем  
+В Центре загрузки Майкрософт для Configuration Manager можно скачать клиентское программное обеспечение для следующих операционных систем:  
 
 -   Mac (Apple)  
 -   UNIX  
 -   Linux  
 
-Utilize as seguintes ligações para transferir clientes para a versão do Configuration Manager utiliza:  
+Воспользуйтесь следующими ссылками, чтобы скачать клиенты для используемой версии Configuration Manager:  
 
--   Consulte [do Microsoft System Center Configuration Manager - clientes para sistemas operativos adicionais](http://www.microsoft.com/download/details.aspx?id=47719)  
+-   См. раздел [Microsoft System Center Configuration Manager — клиенты для дополнительных операционных систем](http://www.microsoft.com/download/details.aspx?id=47719).  
 
-##  <a name="bkmk_usage"></a> Níveis e definições de dados de utilização  
-Quando instalar o primeiro site do System Center Configuration Manager, Configuration Manager instala e automaticamente configura uma nova função de sistema de sites, o **ponto de ligação de serviço**, no servidor do site. O ponto de ligação de serviço tem estas predefinições:  
+##  <a name="bkmk_usage"></a> Уровни и параметры сбора данных об использовании  
+При установке первого сайта System Center Configuration Manager диспетчер Configuration Manager автоматически устанавливает и настраивает новую роль системы сайта на сервере сайта — **точку подключения службы**. Точка подключения службы имеет следующие параметры по умолчанию:  
 
--   **Online** modo (modo offline também está disponível)  
--   **Melhorado** nível de recolha de dados (dois outros dados níveis de recolha, Basic e completo, também estão disponíveis)  
+-   **оперативный** режим (также доступен автономный режим);  
+-   **расширенный** уровень сбора данных (также доступны два других уровня сбора данных: базовый и полный).  
 
-Quando a função de sistema de sites de ponto de ligação de serviço está online, a Microsoft pode recolher automaticamente informações de diagnóstico e utilização através da Internet. As informações recolhidas ajudam-nos a:  
+Если роль системы сайта "Точка подключения службы" находится в оперативном режиме, корпорация Майкрософт может автоматически собирать сведения о диагностике и использовании через Интернет. Собираемые сведения помогают нам:  
 
--   Identificar e resolver problemas  
--   Melhorar os nossos produtos e serviços  
--   Identificar as atualizações para o Configuration Manager que se aplicam à versão do Configuration Manager utilizada  
+-   выявлять и устранять проблемы;  
+-   совершенствовать наши продукты и услуги;  
+-   определять, какие обновления относятся к вашей версии Configuration Manager.  
 
-### <a name="levels-of-data-collection"></a>Níveis de recolha de dados  
-Recolha de dados incluem estas três níveis:
+### <a name="levels-of-data-collection"></a>Уровни сбора данных  
+Доступно три уровня сбора данных.
 
--   **Básico** inclui dados sobre configuração e atualização, como o número de sites e que funcionalidades do Configuration Manager estão ativadas. Não existem informações de identificação pessoal são transmitidas.  
+-   **Базовый** уровень включает сведения об установке и обновлении, например количество сайтов и включенные функции Configuration Manager. Личные сведения не передаются.  
 
--   **Melhorado** inclui os dados da definição de nível básico, e transmite dados sobre a hierarquia, a forma como cada funcionalidade é utilizada (frequência e duração) e modulação de informações de diagnóstico, como o estado de memória do seu servidor quando um sistema ou ocorrer falhas de aplicação. Não existem dados de identificação pessoal são transmitidos.  
+-   **Расширенный** уровень включает данные базового уровня, сведения об иерархии и использовании каждой функции (частота и длительность), а также расширенные диагностические данные, например состояние памяти сервера при отказе системы или приложения. Личные сведения не передаются.  
 
--   **Completo** inclui os dados as definições de nível básico e avançado e também informações de diagnóstico envia avançadas como instantâneos de memória e de ficheiros de sistema. Esta opção pode incluir informações identificativas, mas não as utilizaremos essas informações para identificar ou contactar o utilizador, ou para anúncios de destino para o utilizador.  
+-   **Полный** уровень включает данные базового и расширенного уровней, а также дополнительные диагностические сведения, например системные файлы и снимки памяти. Этот режим может включать личные сведения, но мы не будем использовать эту информацию для вашей идентификации, связи с вами или целенаправленной рекламы.  
 
-Para obter mais informações, incluindo divulgação dos detalhes recolhidos por cada nível, consulte [diagnósticos e dados de utilização para o System Center Configuration Manager](../../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
+Дополнительные сведения, включая раскрытие информации, собираемой на каждом уровне, см. в разделе [Данные о диагностике и использовании для System Center Configuration Manager](../../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
 
-Para ver o System Center Configuration Manager declaração de privacidade online, aceda a [http://go.microsoft.com/fwlink/?LinkID=626527](http://go.microsoft.com/fwlink/?LinkID=626527).
+Чтобы просмотреть Заявление о конфиденциальности System Center Configuration Manager в Интернете, перейдите на страницу [http://go.microsoft.com/fwlink/?LinkID=626527](http://go.microsoft.com/fwlink/?LinkID=626527).

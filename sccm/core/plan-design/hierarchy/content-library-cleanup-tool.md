@@ -1,6 +1,6 @@
 ---
-title: "A ferramenta de limpeza da biblioteca de conteúdos | Microsoft Docs"
-description: "Utilize a ferramenta de limpeza da biblioteca de conteúdos para remover o conteúdo órfão já não está associado a uma implementação do System Center Configuration Manager."
+title: "Средство очистки библиотеки содержимого | Документация Майкрософт"
+description: "Используйте средство очистки библиотеки содержимого для удаления содержимого, более не связанного с развертыванием System Center Configuration Manager."
 ms.custom: na
 ms.date: 4/7/2017
 ms.reviewer: na
@@ -16,63 +16,63 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 76e6772bdd5cbd32d525e728f6ebc988b045da78
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="the-content-library-cleanup-tool-for-system-center-configuration-manager"></a>A ferramenta de limpeza da biblioteca de conteúdos para o System Center Configuration Manager
+# <a name="the-content-library-cleanup-tool-for-system-center-configuration-manager"></a>Средство очистки библиотеки содержимого для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
- A partir da versão 1702, pode utilizar uma ferramenta de linha de comandos (**ContentLibraryCleanup.exe**) remover o conteúdo que é mais longo não associados a qualquer pacote ou aplicação a partir de um ponto de distribuição (órfão conteúdo). Esta ferramenta denomina-se a ferramenta de limpeza da biblioteca de conteúdos e substitui as versões anteriores das ferramentas semelhantes lançadas para produtos anteriores do Configuration Manager.  
+ Начиная с версии 1702 вы можете использовать средство командной строки (**ContentLibraryCleanup.exe**), чтобы удалять из точки распространения содержимое, которое больше не связано с пакетами или приложениями (утерянное содержимое). Это средство называется средством очистки библиотеки содержимого. Оно заменяет старые версии аналогичных средств, выпущенных для предыдущих версий Configuration Manager.  
 
-A ferramenta afeta apenas o conteúdo no ponto de distribuição que especificou quando executa a ferramenta. A ferramenta não é possível remover o conteúdo da biblioteca de conteúdos no servidor do site.
+Это средство влияет только на содержимое в точке распространения, которую вы указываете при запуске средства. Средство не удаляет содержимое из библиотеки содержимого, расположенной на сервере сайта.
 
-Pode encontrar **ContentLibraryCleanup.exe** no *%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* pasta no servidor do site num site de administração central ou site primário.
+Средство **ContentLibraryCleanup.exe** можно найти в папке *%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* на сервере центрального административного сайта или основного сайта.
 
-## <a name="requirements"></a>Requisitos  
- A ferramenta só pode executar em relação a um único ponto de distribuição de cada vez.  
- - Pode ser executado diretamente no computador que aloja o ponto de distribuição que pretende apagar ou remotamente a partir de outro servidor.
- - A conta de utilizador que executa a ferramenta tem de ter permissões de administração baseada em funções direta igual a um administrador total na hierarquia do Configuration Manager. A ferramenta não funciona quando a conta recebe estas permissões, como um membro de um grupo de segurança do Windows que tem as permissões de administrador global.
+## <a name="requirements"></a>Требования  
+ Средство нельзя запускать одновременно для нескольких точек распространения.  
+ - Его можно запускать непосредственно на компьютере, на котором размещается точка распространения, или удаленно с другого сервера.
+ - Учетная запись пользователя, используемая для запуска средства, должна иметь административные разрешения на основе ролей, эквивалентные правам полного администратора в иерархии Configuration Manager. Средство не будет работать, если требуемые разрешения предоставлены учетной записи пользователя как члену группы безопасности Windows с правами полного администратора.
 
-## <a name="modes-of-operation"></a>Modos de funcionamento
-Pode executar a ferramenta no seguintes dois modos. Recomendamos que execute a ferramenta numa *investiguem* modo, pelo que pode rever os resultados antes de executar a ferramenta *eliminar modo*:
-  1.    **Modo de investiguem**:   
-      Se não especificar o **/eliminar** comutador, a ferramenta é executado no modo de investiguem e identifica os conteúdos que serão eliminados do ponto de distribuição.
-   - Quando executado no modo a ferramenta não elimina quaisquer dados.
-   - Informações sobre o conteúdo que será eliminado são escritas no ficheiro de registo de ferramentas e não lhe para confirmar eliminação cada potencial.  
+## <a name="modes-of-operation"></a>Режимы работы
+Средство можно запустить в одном из двух режимов. Мы рекомендуем сначала выполнять средство в режиме *что, если* и изучать полученный файл журнала, и лишь затем запускать средство в *режиме удаления*.
+  1.    **Режим "что, если"**.   
+      Если вы не укажете параметр **/delete**, средство выполняется в режиме "что, если" и только обнаруживает содержимое, которое следует удалить из точки распространения.
+   - При работе в этом режиме средство не удаляет данные.
+   - Сведения о содержимом, которое подлежит удалению, записывается в файл журнала средства. Вы не будете получать запросы на подтверждение каждого потенциального удаления.  
       </br>   
 
-  2. **Eliminar modo**:   
-    Quando executa a ferramenta com o **/eliminar** comutador, a ferramenta é executada no modo de eliminação.
+  2. **Режим удаления**.   
+    Если вы запустите средство с параметром **/delete**, оно будет работать в режиме удаления.
 
-     - Quando são executados neste modo, o conteúdo órfão que se encontra no ponto de distribuição especificado pode ser eliminado da biblioteca de conteúdos do ponto de distribuição.
-     -  Antes de eliminar cada ficheiro, tem de confirmar que o ficheiro deve ser eliminado.  Pode selecionar, **Y** para Sim, **N** para não, ou **Sim para todas as** para ignorar avisos adicionais e eliminar todos os órfão conteúdo.  
+     - В этом режиме утерянное содержимое, обнаруженное в указанной точке распространения, будет удалено из библиотеки содержимого точки распространения.
+     -  Перед удалением каждого файла вам будет предложено подтвердить это удаление.  Вы можете выбрать **Y** для удаления, **N** для отмены или **Да для всех**, чтобы запросы больше не выводились и все потерянное содержимое удалялось автоматически.  
      </br>
 
-Quando a ferramenta é executada em qualquer modo, cria automaticamente um registo com um nome que inclui o modo da que ferramenta é executada, o nome do ponto de distribuição e a data e hora da operação. O ficheiro de registo abre automaticamente quando a ferramenta estiver concluída.
+При запуске средства в любом из режимов оно автоматически создает журнал с именем, которое содержит режим работы средства, имя точки распространения, дата и время операции. По завершении работы средства файл журнала открывается автоматически.
 
-Por predefinição, o ficheiro de registo é escrito na pasta temporária da conta de utilizador que executa a ferramenta, no computador onde a ferramenta é executada. Pode utilizar o **/iniciar sessão** comutador para redirecionar o ficheiro de registo para outra localização, incluindo uma partilha de rede.
+По умолчанию файл журнала записывается в папку temp того пользователя, от имени которого запущено средство, на том компьютере, где оно запущено. С помощью параметра **/log** вы можете перенаправить файл журнала в другое место, в том числе на общий сетевой ресурс.
 
 
-## <a name="run-the-tool"></a>Execute a ferramenta
-Para executar a ferramenta:
-1. Abra uma linha de comandos administrativa para uma pasta que contém **ContentLibraryCleanup.exe**.  
-2. Em seguida, introduza uma linha de comandos que inclui os comutadores de linha de comandos necessário e comutadores opcionais que pretende utilizar.
+## <a name="run-the-tool"></a>Запуск программы
+Вот как запустить средство:
+1. Откройте командную строку администратора и перейдите в папку, в которой содержится файл **ContentLibraryCleanup.exe**.  
+2. Затем введите команду, содержащую обязательные параметры командной строки, а также необходимые дополнительные параметры.
 
-**Problema de conhecido** quando a ferramenta é executada, poderá ser devolvido um erro semelhante ao seguinte, quando qualquer pacote de implementação falhou ou está em curso:
--  *System.InvalidOperationException: Nesta biblioteca de conteúdos não é possível limpar neste momento porque o pacote <packageID> não é completamente instalado.*
+**Известная проблема**. Если произошел сбой или продолжается выполнение любого пакета или развертывания, при запуске средства может появляться следующая ошибка:
+-  *System.InvalidOperationException: This content library cannot be cleaned up right now because package <packageID> is not fully installed.* (Невозможно очистить эту библиотеку содержимого, так как пакет <packageID> установлен не полностью.)
 
-**Solução:** Nenhuma. A ferramenta não é possível fiável identificar ficheiros órfãos quando o conteúdo está em curso ou falhou a implementação. Por conseguinte, a ferramenta não permitirá a limpar conteúdo até que este problema seja resolvido.
+**Инструкции по решению:** Нет. Средство не может надежно определять потерянные файлы, когда содержимое развертывается или развертывание завершилось сбоем. Поэтому средство не позволит очистить содержимое, пока эта проблема не будет решена.
 
-### <a name="command-line-switches"></a>Parâmetros da linha de comandos  
-Os seguintes parâmetros de linha de comandos podem ser utilizados por qualquer ordem.   
+### <a name="command-line-switches"></a>Параметры командной строки  
+Приведенные ниже параметры командной строки можно использовать в любом порядке.   
 
-|Parâmetro|Detalhes|
+|Переключение|Подробные сведения|
 |---------|-------|
-|**/DELETE**  |**Opcional** </br> Utilize este parâmetro se pretender eliminar o conteúdo do ponto de distribuição. Lhe for pedido antes do conteúdo é eliminado. </br></br> Quando este parâmetro não for utilizado, a ferramenta regista resultados sobre o conteúdo que será eliminado, mas não eliminar o conteúdo do ponto de distribuição. </br></br> Exemplo: ***ContentLibraryCleanup.exe /dp server1.contoso.com /delete*** |
-| **/q**       |**Opcional** </br> Este comutador este último executa a ferramenta de um modo silencioso que suprime todos os avisos (como os pedidos para eliminar conteúdo) e não automaticamente a abrir o ficheiro de registo. </br></br> Exemplo: ***ContentLibraryCleanup.exe /q /dp server1.contoso.com*** |
-| **/dp &lt;FQDN do ponto de distribuição >**  | **Necessário** </br> Especifique o nome de domínio completamente qualificado (FQDN) do ponto de distribuição que pretende apagar. </br></br> Exemplo:  ***ContentLibraryCleanup.exe /dp server1.contoso.com***|
-| **/PS &lt;site primário FQDN >**       | **Opcional** quando o conteúdo a partir de um ponto de distribuição num site primário de limpeza.</br>**Necessário** quando o conteúdo a partir de um ponto de distribuição num site secundário de limpeza. </br></br>A ferramenta estabelece ligação ao site primário principal para executar consultas no SMS_Provider. Estas permitem consultas a ferramenta de determinar o conteúdo que deve estar no ponto de distribuição, para que possa identificar o conteúdo que é órfã e pode ser removido. Esta ligação para o site primário principal tem de ser feita para pontos de distribuição num site secundário porque os detalhes necessários não estão disponíveis diretamente a partir do site secundário.</br></br> Especifique o FQDN do site primário que pertence o ponto de distribuição ou de principal primário principal quando o ponto de distribuição num site secundário. </br></br> Exemplo: ***ContentLibraryCleanup.exe /dp server1.contoso.com /ps siteserver1.contoso.com*** |
-| **/sc &lt;código do site principal >**  | **Opcional** quando o conteúdo a partir de um ponto de distribuição num site primário de limpeza.</br>**Necessário** quando o conteúdo a partir de um ponto de distribuição num site secundário de limpeza. </br></br> Especifique o código do site do site primário que pertence o ponto de distribuição ou do site primário principal quando o ponto de distribuição num site secundário.</br></br> Exemplo: ***ContentLibraryCleanup.exe /dp server1.contoso.com /sc ABC*** |
-| **/log<log file directory>**       |**Opcional** </br> Especifique a localização onde a ferramenta escreve o ficheiro de registo. Isto pode ser uma unidade local ou numa rede de partilha.</br></br> Quando este parâmetro não for utilizado, o ficheiro de registo é colocado na pasta temporária do utilizador, no computador onde a ferramenta é executada.</br></br> Exemplo de unidade local: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log C:\Users\Administrator\Desktop*** </br></br>Exemplo de partilha de rede: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log \\ &lt;partilhar >\&lt; pasta >***|
+|**/delete**  |**Необязательный** </br> Используйте этот параметр, если необходимо удалить содержимое из точки распространения. Перед удалением содержимого выводится запрос. </br></br> Если этот параметр не указан, средство будет записывать в журнал сведения о том, какое содержимое подлежит удалению, но не будет удалять данные из точки распространения. </br></br> Пример: ***ContentLibraryCleanup.exe /dp server1.contoso.com /delete*** |
+| **/q**       |**Необязательный** </br> Средство с этим параметром выполняется в "тихом" режиме, то есть подавляет все запросы (например, запросы на удаление содержимого) и не открывает файл журнала автоматически. </br></br> Пример: ***ContentLibraryCleanup.exe /q /dp server1.contoso.com*** |
+| **/dp &lt;полное доменное имя точки распространения>**  | **Обязательное** </br> Укажите полное доменное имя точки распространения, которую нужно очистить. </br></br> Пример: ***ContentLibraryCleanup.exe /dp server1.contoso.com***|
+| **/ps &lt;полное доменное имя первичного сайта>**       | **Необязательный** при очистке содержимого в точке распространения на первичном сайте.</br>**Обязательный** при очистке содержимого в точке распространения на вторичном сайте. </br></br>Средство подключается к родительскому первичному сайту для выполнения запросов к SMS_Provider. Эти запросы позволяют средству определить, какое содержимое должно присутствовать в точке распространения, для выявления потерянного содержимого, которое можно удалить. Это подключение к родительскому первичному сайту должно выполняться для точек распространения на вторичном сайте, так как нужные сведения не доступны непосредственно со вторичного сайта.</br></br> Укажите полное доменное имя основного сайта, к которому относится точка распространения, или родительского первичного сайта, если точка распространения находится на дополнительном сайте. </br></br> Пример: ***ContentLibraryCleanup.exe /dp server1.contoso.com /ps siteserver1.contoso.com*** |
+| **/sc &lt;код первичного сайта>**  | **Необязательный** при очистке содержимого в точке распространения на первичном сайте.</br>**Обязательный** при очистке содержимого в точке распространения на вторичном сайте. </br></br> Укажите код первичного сайта, к которому относится точка распространения, или код родительского первичного сайта, если точка распространения находится на вторичном сайте.</br></br> Пример: ***ContentLibraryCleanup.exe /dp server1.contoso.com /sc ABC*** |
+| **/log <log file directory>**       |**Необязательный** </br> Укажите расположение, в которое средство будет записывать файл журнала. Это может быть локальный диск или общий сетевой ресурс.</br></br> Если этот параметр не используется, файл журнала размещается в папке temp текущего пользователя на том компьютере, где выполняется средство.</br></br> Пример локального диска: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log C:\Users\Administrator\Desktop*** </br></br>Пример сетевой папки: ***ContentLibraryCleanup.exe /dp server1.contoso.com /log \\&lt;ресурс>\&lt;папка>***|

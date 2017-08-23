@@ -1,6 +1,6 @@
 ---
-title: "Criar um ponto de ligação de serviço com o System Center Configuration Manager | Microsoft Docs"
-description: "Crie um ponto de ligação de serviço com o System Center Configuration Manager."
+title: "Создание точки подключения службы с помощью System Center Configuration Manager | Документация Майкрософт"
+description: "Создание точки подключения службы с помощью System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,45 +17,45 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 9a21d02cb2a50162e5de50481f0f27f2dd7a616c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-service-connection-point-with-system-center-configuration-manager-and-microsoft-intune"></a>Criar um ponto de ligação de serviço com o System Center Configuration Manager e o Microsoft Intune
+# <a name="create-a-service-connection-point-with-system-center-configuration-manager-and-microsoft-intune"></a>Создание точки подключения службы с помощью System Center Configuration Manager и Microsoft Intune
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Quando tiver criado a sua subscrição, poderá instalar a função do sistema de sites do ponto de ligação de serviço que permite estabelecer ligação ao serviço Intune. Esta função do sistema de sites emitirá as definições e aplicações para o serviço Intune.
+После создания подписки можно установить роль системы сайта для точки подключения службы, позволяющую устанавливать соединение со службой Intune. Эта роль системы сайта будет передавать параметры и приложения в службу Intune.
 
- O ponto de ligação de serviço envia definições e informações de implementação de software do Configuration Manager e obtém mensagens de estado e de inventário de dispositivos móveis. O serviço do Configuration Manager atua como um gateway que comunica com dispositivos móveis e armazena as definições.
+ Точка подключения службы отправляет параметры и сведения о развертывании ПО в Configuration Manager и получает сообщения о состоянии и инвентаризации от мобильных устройств. Служба Configuration Manager действует как шлюз, который связывается с мобильными устройствами и сохраняет параметры.
 
 > [!NOTE]
->  A função do sistema de sites do ponto de ligação de serviço só pode ser instalada num site de administração central ou num site primário autónomo. O ponto de ligação de serviço deve ter acesso à Internet.
+>  Роль системы сайта для точки подключения службы может быть установлена только на сайте центра администрирования или автономном основном первичном сайте. Точка подключения службы должна иметь доступ к Интернету.
 
 
-## <a name="configure-the-service-connection-point-role"></a>Configurar a função de ponto de ligação de serviço
+## <a name="configure-the-service-connection-point-role"></a>Настройка роли точки подключения службы
 
-1.  Na consola do Configuration Manager, clique em **Administração**.
+1.  В консоли Configuration Manager щелкните **Администрирование**.
 
-2.  No **administração** área de trabalho, expanda **Sites**e, em seguida, clique em **servidores e funções de sistema de sites**.
+2.  В рабочей области **Администрирование** разверните узел **Сайты** и выберите **Серверы и роли системы сайта**.
 
-3.  Adicione a função **Ponto de ligação de serviço** a um servidor do sistema de sites novo ou existente através do passo associado:
+3.  Добавьте роль **Точка подключения службы** на новый или существующий сервер системы сайта, выполнив соответствующее действие.
 
-    -   Novo servidor do sistema de sites: No **home page** separador o **criar** , clique em **criar servidor do sistema de sites** para iniciar o assistente servidor criar de sistema de sites.
+    -   Новый сервер системы сайта: на вкладке **Главная** в группе **Создать** выберите **Создать сервер системы сайта** , чтобы запустить мастер создания сервера системы сайта.
 
-    -   Servidor de sistema de sites existente: Clique no servidor no qual pretende instalar a função de ponto de ligação de serviço. Em seguida, no separador **Home Page**, no grupo **Servidor**, clique em **Adicionar Funções do Sistema de Sites** para iniciar o Assistente para Adicionar Funções ao Sistema de Sites.
+    -   Существующий сервер системы сайта: выберите сервер, на котором нужно установить роль точки подключения службы. На вкладке **Главная** в группе **Сервер** щелкните **Добавить роли системы сайта** , чтобы запустить мастер добавления ролей системы сайта.
 
-4.  Na página **Seleção da Função do Sistema**, selecione **Ponto de ligação de serviço** e clique em **Seguinte**.
-![Criar um ponto de ligação de serviço](../media/mdm-service-connection-point.png)
+4.  На странице **Выбор системной роли** выберите пункт **Точка подключения службы**и нажмите кнопку **Далее**.
+![Создание точки подключения службы](../media/mdm-service-connection-point.png)
 
-* Conclua o assistente.
+* Завершите работу мастера.
 
-## <a name="how-does-the-service-connection-point-authenticate-with-the-microsoft-intune-service"></a>Como é que o ponto de ligação de serviço é autenticado com o serviço Microsoft Intune?
- O ponto de ligação de serviço expande o Configuration Manager ao estabelecer uma ligação para o serviço do Intune baseado na nuvem que gere dispositivos móveis através da Internet. O ponto de ligação de serviço efetua a autenticação com o serviço do Intune da seguinte forma:
+## <a name="how-does-the-service-connection-point-authenticate-with-the-microsoft-intune-service"></a>Как осуществляется проверка подлинности точки подключения службы с помощью службы Microsoft Intune?
+ Точка подключения службы расширяет возможности Configuration Manager с помощью подключения к облачной службе Intune, которая управляет мобильными устройствами через Интернет. Точка подключения службы выполняет проверку подлинности в службе Intune следующим образом.
 
-1.  Quando cria uma subscrição do Intune na consola do Configuration Manager, o administrador do Configuration Manager é autenticado ao ligar ao Azure Active Directory, que redireciona para o respetivo servidor ADFS para pedir o nome de utilizador e palavra-passe. Em seguida, o Intune envia um certificado ao inquilino.
+1.  При создании подписки Intune в консоли Configuration Manager проверка подлинности администратора Configuration Manager выполняется путем подключения к Azure Active Directory, который перенаправляет запрос на соответствующий сервер ADFS для запроса имени пользователя и пароля. Затем Intune отправляет сертификат клиенту.
 
-2.  O certificado do passo 1 é instalado na função do site do ponto de ligação de serviço e é utilizado para autenticar e autorizar toda a comunicação futura com o serviço Microsoft Intune.
+2.  Сертификат, полученный на шаге 1, устанавливается на роль сайта точки подключения службы и используется для проверки подлинности и авторизации всех последующих сеансов связи со службой Microsoft Intune.
 
 > [!div class="button"]
-[< Anterior passo](terms-and-conditions.md)[passo seguinte >  ](enable-platform-enrollment.md)
+[< Назад](terms-and-conditions.md) [Вперед >](enable-platform-enrollment.md)

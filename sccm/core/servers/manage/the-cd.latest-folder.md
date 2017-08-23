@@ -1,67 +1,63 @@
 ---
-title: CD. Pasta mais recente | Documentos do Microsoft
-description: "Saiba mais sobre o novo processo de atualização que fornece atualizações do produto a partir da consola do Configuration Manager."
+title: "Папка CD.Latest | Документация Майкрософт"
+description: "Ознакомьтесь с новым процессом обновления, позволяющим предоставлять обновления для продукта из консоли Configuration Manager."
 ms.custom: na
 ms.date: 05/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8db92d67-5d9c-4e9c-80d0-ae6fa0dd4817
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 90775fcf2549080a43e9c1606caa79d9eb90a89c
 ms.openlocfilehash: 5c39e09b44500fa2f356f83579bb2fb2c1d0e937
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>A pasta CD.Latest do System Center Configuration Manager
+# <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>Папка CD.Latest для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager apresenta um novo processo de atualização que fornece atualizações do produto a partir da consola do Configuration Manager. Para suportar este novo método de atualização do Configuration Manager, é criada uma nova pasta nomeada **CD. Mais recente** que contém uma cópia dos ficheiros de instalação do Configuration Manager para a versão atualizada do seu site.  
+В System Center Configuration Manager появился новый процесс обновления, позволяющий предоставлять обновления для продукта из консоли Configuration Manager. Чтобы обеспечить работу этого нового метода обновления Configuration Manager, создается папка **CD.Latest**, содержащая копию файлов установки Configuration Manager для обновленной версии сайта.  
 
-A partir da atualização 1606, a pasta CD.Latest contém uma pasta denominada **Redist** com os ficheiros redistribuíveis que o programa de configuração transfere e utiliza. Estes ficheiros correspondem à versão dos ficheiros do Configuration Manager localizados na pasta CD.Latest. Ao executar o programa de configuração a partir da pasta CD.Latest, tem de utilizar ficheiros que correspondem a essa versão do programa de configuração. Para tal, pode indicar ao programa de configuração para transferir ficheiros novos e atuais da Microsoft, ou indicar ao programa de configuração para utilizar os ficheiros da pasta Redist incluída na pasta CD.Latest.
+Начиная с обновления 1606, папка CD.Latest содержит папку с именем **Redist** , в которой содержатся распространяемые файлы, загружаемые и используемые программой установки. Эти файлы сопоставляются с версией файлов Configuration Manager, содержащихся в папке CD.Latest. При запуске программы установки из папки CD.Latest необходимо использовать файлы, соответствующие данной версии программы установки. Для этого можно задать для программы установки скачивание новых и текущих файлов из системы Майкрософт или прямо указать программе установки на необходимость использования файлов в папке Redist, входящей в папку CD.Latest.
 
-No entanto, o suporte de dados do plano base, como a versão de linha de base 1606 que lançado em Outubro de 2016, não inclui uma pasta de Redist. A pasta Redist não será criada até que instale uma atualização na consola. Entretanto, utilize a pasta de Redist que utilizou quando instalar sites a partir do suporte de dados de linha de base.  
+Однако базовый носитель, например версии 1606, выпущенной в октябре 2016 г., не содержит папку Redist. Папка Redist не будет создана, пока вы не установите обновление в консоли. Пока же вы можете использовать папку Redist, которую применяли при установке сайтов с базового носителя.  
 
 > [!TIP]
-> Se ainda não instalou a versão 1606, certifique-se de que os ficheiros redist utilizados são atuais. Se não tiver transferido ficheiros redist recentemente, planeie permitir que o programa de configuração o faça a partir da Microsoft.   
+> Если вы еще не установили версию 1606, необходимо убедиться, что используются актуальные распространяемые файлы. Если вы не выполняли скачивание распространяемых файлов в последнее время, рекомендуется разрешить программе установки загрузить файлы из системы Майкрософт.   
 
- Seguem-se alguns cenários que criam ou atualizam a pasta CD.Latest num site de administração central ou servidor de site primário:  
+ Ниже приведены сценарии, в которых создается или обновляется папка CD.Latest на сайте центра администрирования или сервере первичного сайта.  
 
--   Instalar uma atualização ou correção a partir da consola do Configuration Manager: A pasta é criada ou atualizada numa pasta de instalação do Configuration Manager.  
+-   Установка обновления или исправления из консоли Configuration Manager: эта папка создается или обновляется в папке установки Configuration Manager.  
 
--   Execute a tarefa de cópia de segurança incorporada do Configuration Manager: A pasta é criada ou atualizada sob a localização da pasta designada de cópia de segurança.  
+-   Запуск встроенной задачи резервного копирования Configuration Manager: эта папка создается или обновляется в указанной папке резервного копирования.  
 
--  A partir da versão 1606, CD. Pasta mais recente é criada quando instala um novo site com o plano base conteúdo multimédia (como versão 1606 ou 1702).
+-  Начиная с версии 1606 папка CD.Latest создается при установке нового сайта с помощью базового носителя (например, версия 1606 или 1702).
 
-Os ficheiros de origem da pasta CD.Latest são suportadas para o seguinte:  
+Исходные файлы из папки CD.Latest используются для следующего.  
 
-1.  **Cópia de segurança e recuperação:** Para recuperar um site, tem de utilizar os ficheiros de origem a partir de um CD. Pasta mais recente que corresponde ao seu site. Quando executa uma cópia de segurança do site utilizando a tarefa de cópia de segurança incorporada do site, o CD. Pasta mais recente é incluída como parte da cópia de segurança.
+1.  **Резервное копирование и восстановление**. Для восстановления сайта необходимо использовать исходные файлы из папки CD.Latest, которая соответствует вашему сайту. Если резервное копирование сайта выполняется с помощью встроенной задачи резервного копирования, для папки CD.Latest также создается резервная копия.
 
-    -   **Quando reinstala um site como parte de uma recuperação de site,** instala o site a partir da pasta CD.Latest incluída na sua cópia de segurança. Esta ação instala o site utilizando as versões de ficheiro que correspondem à sua cópia de segurança do site e à base de dados do site.  Se não tiver acesso CD correto. Versão mais recente da pasta, pode obter um CD. Pasta mais recente com as versões de ficheiro correto ao instalar um site num ambiente de laboratório e, em seguida, atualizar desse site para corresponder à versão que pretende recuperar.
+    -   **При переустановке сайта в ходе его восстановления** установка выполняется из папки CD.Latest, содержащейся в резервной копии. При этом используются версии файлов, которые соответствуют резервной копии сайта и базы данных сайта.  Если у вас нет доступа к нужной версии папки CD.Latest, папку CD.Latest с нужными версиями файлов можно получить при установке сайта в лабораторной среде и его последующем обновлении до версии, которую необходимо восстановить.
 
         > [!IMPORTANT]  
-        >  Se não tiver a pasta CD.Latest correta e o respetivo conteúdo disponível, não é possível recuperar um site e tem de ser reinstalado.  
+        >  Если у вас нет соответствующей папки CD.Latest и ее содержимое недоступно, вы не сможете восстановить сайт, и его потребуется переустановить.  
 
-    -   Se não tiver uma pasta CD.Latest, mas tiver um site primário subordinado ou um site de administração central em funcionamento, pode utilizar esse site como referência para uma recuperação do site.  
+    -   Если у вас нет папки CD.Latest, но имеется рабочий подчиненный первичный сайт или сайт центра администрирования, вы можете использовать его в качестве эталонного сайта для восстановления сайта.  
 
-2.  **Para instalar um site primário subordinado:** Quando pretende instalar um novo site primário subordinado abaixo de um site de administração central que tem instalado um ou mais atualizações na consola, tem de utilizar o programa de configuração e os ficheiros de origem a partir do CD. Pasta mais recente a partir do site de administração central. Quando a Configuração é executada a partir de uma cópia da pasta CD.Latest a partir do site de administração central, utiliza ficheiros de origem de instalação que correspondem à versão do site de administração central. Para mais informações consulte [Utilizar o Assistente de Configuração para instalar sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
+2.  **Установка дочернего первичного сайта** . Когда требуется установить новый дочерний первичный сайт на сайте центра администрирования, на котором установлено одно или несколько обновлений через консоль, необходимо использовать программу установки и исходные файлы из папки CD.Latest на сайте центра администрирования. Когда запускается копия программы установки из папки CD.Latest с сайта центра администрирования, она использует установочные файлы, соответствующие версии сайта центра администрирования. Дополнительные сведения см. в разделе [Использование мастера установки для установки сайтов](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
 
-3.  **Para expandir um site primário autónomo:** Quando está a expandir um site primário autónomo ao instalar um novo site de administração central, tem de utilizar o programa de configuração e os ficheiros de origem a partir do CD. Pasta mais recente do site primário para instalar o novo site de administração central. Quando executa a partir de uma cópia da pasta CD.Latest a partir do site primário, utiliza ficheiros de origem de instalação que correspondem à versão do site primário. Para obter mais informações, consulte [Expandir um site primário autónomo](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand)) no tópico [Utilizar o Assistente de Configuração para instalar sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md)
+3.  **Расширение автономного первичного сайта** . При расширении автономного первичного сайта с помощью установки нового сайта центра администрирования необходимо использовать программу установки и исходные файлы из папки CD.Latest с первичного сайта. При запуске копии программы установки из папки CD.Latest с первичного сайта используются установочные исходные файлы, соответствующие версии первичного сайта. Дополнительные сведения см. в подразделе [Развертывание автономного первичного сайта](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) раздела [Установка сайтов с помощью мастера установки](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).
 
 > [!IMPORTANT]  
->  Os ficheiros de origem CD.Latest atualizados não são suportados para:  
+>  Обновленные исходные файлы в папке CD.Lates не используются для следующего.  
 >   
->  -   Instalar um novo site para uma nova hierarquia  
->  -   Atualizar um site do Microsoft System Center 2012 Configuration Manager para System Center Configuration Manager
-
+>  -   Установка нового сайта для новой иерархии.  
+>  -   Обновление сайта Microsoft System Center 2012 Configuration Manager до System Center Configuration Manager

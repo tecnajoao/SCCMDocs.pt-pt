@@ -1,6 +1,6 @@
 ---
-title: "Configurar a segurança no System Center Configuration Manager | Microsoft Docs"
-description: "Configure opções relacionadas com segurança para o System Center Configuration Manager."
+title: "Настройка безопасности в System Center Configuration Manager | Документы Майкрософт"
+description: "Настройка параметров безопасности в System Center Configuration Manager"
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -16,113 +16,113 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0034381a7a388ddc3eda5e774f3c63d741336301
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-security-in-system-center-configuration-manager"></a>Configurar a segurança no System Center Configuration Manager
+# <a name="configure-security-in-system-center-configuration-manager"></a>Настройка безопасности в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as informações neste artigo para o ajudar a configurar opções relacionadas com segurança para o System Center Configuration Manager.  
+Этот раздел содержит сведения о настройке компонентов и функций, связанных с обеспечением безопасности в System Center Configuration Manager.  
 
-##  <a name="BKMK_ConfigureClientPKI"></a> Configurar definições para certificados PKI de cliente  
-Se pretender utilizar certificados da infraestrutura de chaves públicas (PKI) para ligações de cliente aos sistemas de sites que utilizam os Serviços de Informação Internet (IIS), utilize o seguinte procedimento para configurar as definições destes certificados.  
+##  <a name="BKMK_ConfigureClientPKI"></a> Настройка параметров для PKI-сертификатов клиентов  
+Если вы хотите использовать сертификаты инфраструктуры открытых ключей (PKI) для подключений клиентов к системам сайта со службами IIS, выполните следующую процедуру по настройке параметров для этих сертификатов.  
 
-#### <a name="to-configure-client-pki-certificate-settings"></a>Para configurar as definições de certificados PKI de cliente  
+#### <a name="to-configure-client-pki-certificate-settings"></a>Настройка параметров PKI-сертификатов клиентов  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **configuração do Site**, escolha **Sites**e, em seguida, selecione o site primário a configurar.  
+2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**, выберите узел **Сайты**, а затем первичный сайт для настройки.  
 
-3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**e, em seguida, escolha o **comunicação com o computador cliente** separador.  
+3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**, а затем откройте вкладку **Взаимодействие с клиентскими компьютерами**.  
 
-    Este separador apenas está disponível num site primário. Se o separador **Comunicação com o Computador Cliente** não for apresentado, verifique se não se encontra ligado a um site de administração central ou a um site secundário.  
+    Эта вкладка доступна только на первичном сайте. Если вы не видите вкладку **Взаимодействие с клиентскими компьютерами** , убедитесь, что вы не подключились к сайту центра администрирования или вторичному сайту.  
 
-4.  Escolha **apenas HTTPS** quando quiser que os clientes atribuídos ao site utilizem sempre um certificado PKI de cliente ao estabelecerem ligações aos sistemas de sites que utilizam IIS. Em alternativa, escolha **HTTPS ou HTTP** quando não precisar que os clientes utilizem certificados PKI.  
+4.  Чтобы назначенные сайту клиенты при подключении к системам сайта со службами IIS всегда использовали PKI-сертификат клиента, выберите **Только HTTPS**. Если клиенты не должны использовать PKI-сертификаты, выберите **HTTPS или HTTP**.  
 
-5.  Se tiver escolhido **HTTPS ou HTTP**, escolha **utilizar um certificado cliente PKI (capacidade de autenticação de cliente) se estiver disponível** quando pretender utilizar um certificado PKI de cliente para ligações HTTP. O cliente utiliza este certificado em vez de um certificado autoassinado para se autenticar perante os sistemas de site. Esta opção é automaticamente escolhida se escolher **apenas HTTPS**.  
+5.  Если выбран вариант **HTTPS или HTTP**, выберите параметр **Использовать сертификат PKI клиента (функция проверки подлинности клиента) при его наличии**, чтобы использовать PKI-сертификат клиента для подключений по протоколу HTTP. Клиент использует этот сертификат вместо самозаверяющего сертификата для собственной проверки подлинности при обращении к системам сайта. При выборе варианта **Только HTTPS** этот параметр устанавливается автоматически.  
 
-    Quando os clientes são detetados como estando na Internet ou estão configurados para gestão de clientes apenas na Internet, utilizam sempre um certificado PKI de cliente.  
+    Клиенты, которые находятся в Интернете или настроены только для управления через Интернет, всегда используют PKI-сертификат клиента.  
 
-6.  Escolha **modificar** para configurar o seu método de seleção de clientes preferido para quando mais do que uma válido certificado PKI de cliente estiver disponível num cliente e, em seguida, escolha **OK**.  
+6.  Чтобы настроить нужный метод выбора клиентов при наличии на клиенте нескольких допустимых PKI-сертификатов клиентов, нажмите кнопку **Изменить**, а затем — кнопку **ОК**.  
 
-    Para obter mais informações sobre o método de seleção de certificados de cliente, consulte [planear a seleção de certificado de cliente PKI](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForClientCertificateSelection).  
+    Дополнительные сведения о процессе выбора сертификата клиента см. в разделе [Планирование выбора PKI-сертификата клиента](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForClientCertificateSelection).  
 
-7.  Selecione ou desmarque a caixa de verificação para que os clientes verifiquem a lista de Revogação de Certificados (CRL).  
+7.  Установите или снимите флажок параметра проверки клиентами списка отзыва сертификатов (CRL).  
 
-    Para mais informações sobre CRL a verificação de clientes, consulte [planear a revogação de certificados PKI](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs).  
+    Дополнительные сведения о проверке списка отзыва сертификатов клиентами см. в разделе [Планирование отзыва PKI-сертификата](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs).  
 
-8.  Se tiver de especificar certificados de autoridade (AC) de certificação de raiz fidedigna para os clientes, escolha **definir**, importe os ficheiros de certificado de AC de raiz e, em seguida, escolha **OK**.  
+8.  Чтобы указать сертификаты доверенного корневого центра сертификации (ЦС) для клиентов, щелкните **Установить**, импортируйте файлы сертификатов корневого ЦС, а затем нажмите кнопку **ОК**.  
 
-    Para obter mais informações sobre esta definição, consulte [planear os certificados PKI de raiz fidedigna e a lista de emissores de certificados](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRootCAs).  
+    Дополнительные сведения об этом параметре см. в разделе [Планирование доверенных корневых PKI-сертификатов и списка издателей сертификатов](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRootCAs).  
 
-9. Escolha **OK** para fechar a caixa de diálogo de propriedades para o site.  
+9. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно свойств сайта.  
 
-Repita este procedimento para todos os sites primários da hierarquia.  
+Повторите эту процедуру для всех первичных сайтов в иерархии.  
 
-##  <a name="BKMK_ConfigureSigningEncryption"></a>Configurar a assinatura e encriptação  
-Configure as definições de assinatura e encriptação mais seguras para os sistemas de site que todos os clientes do site possam suportar. Estas definições são especialmente importantes quando permitir que os clientes comuniquem com os sistemas de site utilizando certificados autoassinados através de HTTP.  
+##  <a name="BKMK_ConfigureSigningEncryption"></a> Настройка подписывания и шифрования  
+Настройте наиболее безопасные параметры подписывания и шифрования для систем сайта, которые могут поддерживаться всеми клиентами сайта. Эти параметры особенно важны при взаимодействии клиентов с системами по протоколу HTTP с помощью самозаверяющих сертификатов.  
 
-#### <a name="to-configure-signing-and-encryption-for-a-site"></a>Para configurar a assinatura e encriptação para um site  
+#### <a name="to-configure-signing-and-encryption-for-a-site"></a>Настройка подписывания и шифрования для сайта  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **configuração do Site**, escolha **Sites**e, em seguida, selecione o site primário a configurar.  
+2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**, выберите узел **Сайты**, а затем первичный сайт для настройки.  
 
-3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**e, em seguida, escolha o **assinatura e encriptação** separador.  
+3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**, а затем откройте вкладку **Подписывание и шифрование**.  
 
-    Este separador apenas está disponível num site primário. Se o separador **Assinatura e Encriptação** não for apresentado, verifique se não se encontra ligado a um site de administração central ou a um site secundário.  
+    Эта вкладка доступна только на первичном сайте. Если вы не видите вкладку **Подписывание и шифрование** , убедитесь, что вы не подключились к сайту центра администрирования или вторичному сайту.  
 
-4.  Configurar as opções de assinatura e encriptação pretendidas e, em seguida, escolha **OK**.  
+4.  Настройте необходимые параметры подписывания и шифрования, а затем нажмите кнопку **ОК**.  
 
     > [!WARNING]  
-    >  Não escolher **exigir SHA-256** sem verificar primeiro se todos os clientes que possam ser atribuídos ao site podem suportar este algoritmo hash ou têm um certificado de autenticação de cliente PKI válido. Poderá ter de instalar atualizações ou correções nos clientes para suportarem SHA-256. Por exemplo, os computadores com o Windows Server 2003 SP2 têm de instalar uma correção que é mencionada no [artigo KB 938397](http://go.microsoft.com/fwlink/p/?LinkId=226666).  
+    >  Прежде чем выбрать параметр **Требовать алгоритм SHA-256**, проверьте, все ли клиенты, которые могут быть назначены сайту, поддерживают этот алгоритм хэширования или имеют допустимые PKI-сертификаты проверки подлинности клиента. Может потребоваться установка обновлений или исправлений на клиентах для поддержки алгоритма SHA-256. Например, на компьютерах под управлением Windows Server 2003 SP2 необходимо установить исправление, описанное в [статье базы знаний 938397](http://go.microsoft.com/fwlink/p/?LinkId=226666).  
     >   
-    >  Se escolher esta opção e os clientes não puderem suportar SHA-256 e utilizarem certificados autoassinados, o Configuration Manager rejeita-los. Neste cenário, o componente SMS_MP_CONTROL_MANAGER regista o ID de mensagem 5443.  
+    >  Если этот параметр выбран, а клиенты не поддерживают алгоритм SHA-256 и используют самозаверяющие сертификаты, Configuration Manager отклоняет их. В этом случае компонент SMS_MP_CONTROL_MANAGER записывает в журнал ИД сообщения 5443.  
 
-5.  Escolha **OK** para fechar o **propriedades** caixa de diálogo para o site.  
+5.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Свойства** сайта.  
 
-Repita este procedimento para todos os sites primários da hierarquia.  
+Повторите эту процедуру для всех первичных сайтов в иерархии.  
 
-##  <a name="BKMK_ConfigureRBA"></a> Configurar a administração baseada em funções  
-A administração baseada em funções combina funções de segurança, âmbitos de segurança e coleções atribuídas para definir o âmbito administrativo de cada utilizador administrativo. Um âmbito administrativo inclui os objetos que um utilizador administrativo pode ver na consola do Configuration Manager e as tarefas relacionadas com esses objetos que o utilizador administrativo tem permissão para efetuar. As configurações de administração baseadas em funções são aplicadas em cada site de uma hierarquia.  
+##  <a name="BKMK_ConfigureRBA"></a> Настройка ролевого администрирования  
+Ролевое администрирование использует сочетание ролей безопасности, областей безопасности и назначенных коллекций для определения административной области для каждого пользователя. В административную область входят объекты, которые пользователь может просматривать в консоли Configuration Manager, и задачи, связанные с теми объектами, на выполнение которых у пользователя есть разрешение. Конфигурации ролевого администрирования применяются к каждому сайту в иерархии.  
 
-As hiperligações seguintes são as secções relevantes do [configurar a administração baseada em funções para o System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md) artigo:  
+Ниже приведены ссылки на соответствующие разделы из раздела [Настройка ролевого администрирования для System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
--   [Criar funções de segurança personalizadas](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole)  
+-   [Создание настраиваемых ролей безопасности](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole)  
 
--   [Configurar funções de segurança](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole)  
+-   [Настройка ролей безопасности](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole)  
 
--   [Configurar âmbitos de segurança para um objeto](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope)  
+-   [Настройка областей безопасности для объекта](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope)  
 
--   [Configurar coleções para gerir a segurança](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl)  
+-   [Настройка коллекций для управления безопасностью](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl)  
 
--   [Criar um novo utilizador administrativo](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_Create_AdminUser)  
+-   [Создание нового пользователя с правами администратора](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_Create_AdminUser)  
 
--   [Modificar o âmbito administrativo de um utilizador administrativo](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ModAdminUser)  
+-   [Изменение административной области пользователя с правами администратора](../../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ModAdminUser)  
 
 > [!IMPORTANT]  
->  O seu próprio âmbito administrativo define os objetos e definições que pode atribuir ao configurar a administração baseada em funções para outro utilizador administrativo. Para obter informações sobre o planeamento da administração baseada em funções, consulte [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md).  
+>  Ваша собственная административная область определяет объекты и параметры, которые вы можете назначить во время настройки ролевого администрирования для другого пользователя. Сведения о планировании ролевого администрирования см. в разделе [Основы ролевого администрирования для System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md).  
 
-##  <a name="BKMK_ManageAccounts"></a> Gerir contas utilizadas pelo Configuration Manager  
-O Configuration Manager suporta contas do Windows para muitas tarefas diferentes e utiliza.  
+##  <a name="BKMK_ManageAccounts"></a> Управление учетными записями, используемыми Configuration Manager  
+Configuration Manager поддерживает использование учетных записей Windows для выполнения различных задач и операций.  
 
-Utilize o procedimento seguinte para contas de vista que estão configuradas para diferentes tarefas e para gerir a palavra-passe utilizadas pelo Configuration Manager para cada conta.  
+Ниже приведена процедура, которую можно использовать, чтобы просмотреть учетные записи, настроенные для различных задач. Кроме того, в процедуре описывается управление паролями, используемыми Configuration Manager для каждой учетной записи.  
 
-#### <a name="to-manage-accounts-that-are-used-by-configuration-manager"></a>Para gerir contas utilizadas pelo Configuration Manager  
+#### <a name="to-manage-accounts-that-are-used-by-configuration-manager"></a>Управление учетными записями, используемыми Configuration Manager  
 
-1.  Na consola do Configuration Manager, escolha **administração**.  
+1.  В консоли Configuration Manager выберите элемент **Администрирование**.  
 
-2.  No **administração** área de trabalho, expanda **segurança**e, em seguida, escolha **contas** para ver as contas que estão configuradas para o Configuration Manager.  
+2.  В рабочей области **Администрирование** разверните узел **Безопасность**, а затем выберите элемент **Учетные записи**, чтобы просмотреть учетные записи, настроенные для Configuration Manager.  
 
-3.  Para alterar a palavra-passe para uma conta que está configurada para o Configuration Manager, selecione a conta.  
+3.  Чтобы изменить пароль для учетной записи, которая настроена для Configuration Manager, выберите учетную запись.  
 
-4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
 
-5.  Escolha **definir** para abrir o **conta de utilizador do Windows** diálogo caixa e especifique a palavra-passe para o Configuration Manager para utilizar para a conta de novo.  
+5.  Нажмите кнопку **Установить**, чтобы открыть диалоговое окно **Учетная запись пользователя Windows**, и укажите новый пароль, который Configuration Manager будет использовать для этой учетной записи.  
 
     > [!NOTE]  
-    >  A palavra-passe que especificar tem de corresponder à palavra-passe especificada para a conta em Utilizadores e Computadores do Active Directory.  
+    >  Указываемый пароль должен совпадать с паролем, указанным для учетной записи в оснастке "Пользователи и компьютеры Active Directory".  
 
-6.  Escolha **OK** para concluir o procedimento.  
+6.  Нажмите кнопку **OK**, чтобы завершить процедуру.  

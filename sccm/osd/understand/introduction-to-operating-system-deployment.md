@@ -1,6 +1,6 @@
 ---
-title: "Introdução à implementação do sistema de operativo | Microsoft Docs"
-description: Compreenda os conceitos antes de implementar sistemas operativos no ambiente do Configuration Manager.
+title: "Общие сведения о развертывании операционной системы | Документы Майкрософт"
+description: "Ознакомьтесь с основными понятиями, прежде чем приступать к развертыванию операционных систем в среде Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,118 +16,118 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 2baa6b7dbd66ab41bc9b67e8f43c313be233153c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-operating-system-deployment-in-system-center-configuration-manager"></a>Introdução à implementação do sistema operativo no System Center Configuration Manager
+# <a name="introduction-to-operating-system-deployment-in-system-center-configuration-manager"></a>Общие сведения о развертывании операционной системы в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode utilizar o Configuration Manager para implementar sistemas operativos de diversas formas diferentes. Utilize as informações nesta secção para compreender melhor como implementar sistemas operativos e automatizar tarefas. 
+Configuration Manager можно использовать для развертывания операционных систем разными способами. Используйте сведения в этом разделе, чтобы понять, как осуществить развертывание операционных систем и автоматизацию задач. 
 
-##  <a name="BKMK_OSDeploymentProcess"></a> Processo de implementação do sistema operativo  
- Configuration Manager fornece vários métodos que pode utilizar para implementar um sistema operativo. Existem várias ações que deverá efetuar, independentemente do método de implementação que utilizar:  
+##  <a name="BKMK_OSDeploymentProcess"></a> Процесс развертывания операционной системы  
+ Configuration Manager обеспечивает несколько способов развертывания операционной системы. Независимо от используемого метода развертывания потребуется выполнить несколько обязательных действий:  
 
--   Identificar os controladores de dispositivo do Windows necessários para executar a imagem de arranque ou a imagem do sistema operativo que tem de implementar.  
+-   определение драйверов устройств Windows, необходимых для запуска развертываемого образа загрузки или образа операционной системы;  
 
--   Identificar a imagem de arranque que pretende utilizar para iniciar o computador de destino.  
+-   определение загрузочного образа, который требуется использовать для запуска конечного компьютера  
 
--   Utilizar uma sequência de tarefas para capturar uma imagem do sistema operativo que pretende implementar. Em alternativa, pode utilizar uma imagem predefinida do sistema operativo.  
+-   использование последовательности задач для записи образа операционной системы, который требуется развернуть; кроме того, можно использовать образ операционной системы по умолчанию;  
 
--   Distribuir a imagem de arranque, a imagem de sistema operativo e qualquer conteúdo relacionado a um ponto de distribuição.  
+-   передача загрузочного образа, образа операционной системы и другого связанного содержимого на точку распространения;  
 
--   Criar uma sequência de tarefas com os passos para implementar a imagem de arranque e a imagem do sistema operativo.  
+-   создание последовательности задач с шагами для развертывания образа загрузки и образа операционной системы;  
 
--   Implementar a sequência de tarefas numa coleção de computadores.  
+-   развертывание последовательности задач в коллекции компьютеров;  
 
--   Monitorizar a implementação.  
+-   мониторинг развертывания.  
 
-##  <a name="BKMK_OSDScenarios"></a> Cenários de implementação do sistema  
- Existem vários cenários de implementação do sistema operativo no Configuration Manager que pode escolher consoante o seu ambiente e o objetivo da instalação do sistema operativo.  Por exemplo, pode particionar e formatar um computador existente com uma nova versão do Windows ou atualizar o Windows para a versão mais recente. Para ajudar a determinar o método de implementação que satisfaça as suas necessidades, reveja [cenários para implementar sistemas operativos empresariais](../deploy-use/scenarios-to-deploy-enterprise-operating-systems.md).  Pode escolher de entre os seguintes cenários de implementação do sistema operativo:  
+##  <a name="BKMK_OSDScenarios"></a> Сценарии развертывания операционной системы  
+ Существует множество сценариев развертывания операционной системы в Configuration Manager, которые можно выбрать в зависимости от среды и цели установки операционной системы.  Можно, например, секционировать и отформатировать существующий компьютер с использованием новой версии Windows или обновить Windows до более последней версии. Для определения метода развертывания, соответствующего вашим потребностям, см. статью [Сценарии развертывания операционных систем предприятия](../deploy-use/scenarios-to-deploy-enterprise-operating-systems.md).  Вы можете выбирать следующие сценарии развертывания операционной системы:  
 
--   [Atualize o Windows para a versão mais recente](../deploy-use/upgrade-windows-to-the-latest-version.md)  
+-   [Обновление Windows до последней версии](../deploy-use/upgrade-windows-to-the-latest-version.md)  
 
--   [Atualizar um computador existente com uma nova versão do Windows](../deploy-use/refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Обновление существующего компьютера до новой версии Windows](../deploy-use/refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Instalar uma nova versão do Windows num novo computador (bare-metal)](../deploy-use/install-new-windows-version-new-computer-bare-metal.md)  
+-   [Установка новой версии Windows на новом компьютере (без операционной системы)](../deploy-use/install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Substituir um computador existente e transferir definições](../deploy-use/replace-an-existing-computer-and-transfer-settings.md)  
+-   [Замена существующего компьютера и перенос параметров](../deploy-use/replace-an-existing-computer-and-transfer-settings.md)  
 
-##  <a name="BKMK_OSDMethods"></a> Métodos para implementar sistemas operativos  
- Existem vários métodos que pode utilizar para implementar sistemas operativos em computadores de cliente do Configuration Manager.  
+##  <a name="BKMK_OSDMethods"></a> Методы, используемые для развертывания операционной системы  
+ Предусмотрено несколько способов развертывания операционных систем на клиентских компьютерах Configuration Manager.  
 
--   **Implementações iniciadas por PXE**: As implementações iniciadas por PXE permitem aos computadores cliente pedir uma implementação através da rede. Neste método de implementação, a imagem de sistema operativo e uma imagem de arranque do Windows PE são enviadas para um ponto de distribuição configurado para aceitar pedidos de arranque PXE. Para obter mais informações, veja [Utilizar o PXE para implementar o Windows na rede com o System Center Configuration Manager](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+-   **Развертывания, инициированные PXE**. Развертывания, инициированные PXE, позволяют клиентским компьютерам запрашивать развертывание по сети. Этот метод развертывания подразумевает отправку образа операционной системы и загрузочного образа среды предустановки Windows на точку распространения, поддерживающую прием запросов на загрузку PXE. Дополнительные сведения см. в статье [Использование PXE для развертывания Windows по сети с помощью System Center Configuration Manager](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
--   **Disponibilizar sistemas operativos no Centro de Software**: Pode implementar um sistema operativo e disponibilizá-lo no Centro de Software. Clientes do Configuration Manager podem iniciar a instalação de sistema operativo a partir do Centro de Software. Para obter mais informações, consulte [substituir um computador existente e transferir definições](../deploy-use/replace-an-existing-computer-and-transfer-settings.md).  
+-   **Make operating systems available in Software Center**(Сделать операционные системы доступными в центре программного обеспечения). Можно развернуть операционную систему и сделать ее доступной в центре программного обеспечения. Клиенты Configuration Manager могут запускать установку операционной системы из центра программного обеспечения. Дополнительные сведения см. в статье [Замена существующего компьютера и перенос параметров](../deploy-use/replace-an-existing-computer-and-transfer-settings.md).  
 
--   **As implementações multicast**: As implementações multicast conservam a largura de banda de rede ao enviarem dados simultaneamente para vários clientes em vez de enviarem uma cópia dos dados para cada cliente através de uma ligação separada. Neste método de implementação, a imagem de sistema operativo é enviada para um ponto de distribuição. Este, por sua vez, implementa a imagem quando os computadores cliente pedem a implementação. Para obter mais informações, consulte [utilizar multicast para implementar o Windows através da rede](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+-   **Многоадресные развертывания**. Многоадресные развертывания экономят пропускную способность сети за счет одновременной отправки данных нескольким клиентам, а не отправки копии данных каждому клиенту по отдельному каналу. Этот метод развертывания подразумевает, что образ операционной системы отправляется в точку распространения. Она в свою очередь выполняет одновременное развертывание образа при получении соответствующего запроса от клиентов. Дополнительные сведения см. в разделе [Использование многоадресной рассылки для развертывания Windows по сети](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
--   **Implementações de suportes de dados**: Implementações de suportes de dados permitem-lhe implementar o sistema operativo quando iniciar o computador de destino. Quando o computador de destino é iniciado, obtém a sequência de tarefas, a imagem do sistema operativo e outro conteúdo necessário a partir da rede. Como esse conteúdo não está incluído no suporte de dados, pode atualizar o conteúdo sem ter de recriar o suporte de dados. Para obter mais informações, consulte [criar suportes de dados](../deploy-use/create-bootable-media.md).  
+-   **Развертывания с загрузочного носителя**. Развертывания с загрузочного носителя позволяют выполнять развертывания операционной системы при запуске конечного компьютера. При запуске конечного компьютера он получает последовательность задач, образ операционной системы и прочее необходимое содержимое из сети. Поскольку контент не размещается на носителе, его можно обновить без повторного создания носителя. Дополнительные сведения см. в статье [Создание загрузочного носителя](../deploy-use/create-bootable-media.md).  
 
--   **Implementações de suportes de dados autónomos**: As implementações com suportes de dados autónomos permitem implementar sistemas operativos nas seguintes condições:  
+-   **Развертывания с автономного носителя**. Развертывания с автономного носителя позволяют выполнять развертывание операционной системы в следующих ситуациях:  
 
-    -   Em ambientes onde não é prático copiar uma imagem de sistema operativo ou outros pacotes grandes através da rede.  
+    -   в средах, где копирование образа операционной системы или других крупных пакетов по сети, является непрактичным;  
 
-    -   Em ambientes sem conectividade de rede ou uma conectividade de rede com largura de banda reduzida.  
+    -   в средах без подключения к сети или с низкой пропускной способностью сети.  
 
-     Para obter mais informações, consulte [criar suportes de dados autónomos](../deploy-use/create-stand-alone-media.md).  
+     Дополнительные сведения см. в статье [Создание автономного носителя](../deploy-use/create-stand-alone-media.md).  
 
--   **Pré-configurados implementações de suportes de dados**: Implementações de suportes de dados pré-configurados permitem implementar um sistema operativo num computador que não esteja totalmente aprovisionado. Suporte de dados pré-configurado é um ficheiro de formato WIM (Windows Imaging) que pode ser instalado num computador bare-metal pelo fabricante ou num centro de transição empresarial que não está ligado ao ambiente do Configuration Manager.  
+-   **Развертывания с предварительно подготовленного носителя**. Развертывания с предварительно подготовленного носителя позволяют выполнять развертывание операционной системы на компьютере, подготовка которого еще не завершена. Предварительно подготовленный носитель представляет собой WIM-файл, который может быть установлен на компьютер без операционной системы производителем или в центре подготовки организации без подключения к среде Configuration Manager.  
 
-     Mais tarde no ambiente do Configuration Manager, o computador é iniciado utilizando a imagem de arranque fornecida pelo suporte de dados e, em seguida, liga ao ponto de gestão do site para sequências de tarefas disponíveis que concluam o processo de transferência. Este método de implementação pode reduzir o tráfego de rede porque a imagem de arranque e a imagem do sistema operativo já estão no computador de destino. Pode especificar aplicações, pacotes e pacotes de controladores para incluir no suporte de dados pré-configurado. Para obter mais informações, consulte [criar suportes de dados pré-configurados](../deploy-use/create-prestaged-media.md).  
+     Затем в среде Configuration Manager с помощью загрузочного образа, расположенного на носителе, компьютер подключится к точке управления сайта, чтобы получить доступные последовательности задач, которые завершат процесс скачивания. Этот метод развертывания позволяет сократить уровень трафика в сети, так как загрузочный образ и образ операционной системы уже находятся на конечном компьютере. Вы можете указать приложения, пакеты и пакеты драйверов, включаемые в предварительно подготовленный носитель. Дополнительные сведения см. в разделе [Создание предварительно подготовленного носителя](../deploy-use/create-prestaged-media.md).  
 
-##  <a name="BKMK_BootImages"></a> Imagens de arranque  
- Uma imagem de arranque no Configuration Manager é uma imagem do Windows PE (WinPE) que é utilizada durante a implementação do sistema operativo. As imagens de arranque são utilizadas para iniciar um computador no WinPE, que é um sistema operativo minimalista com componentes e serviços limitados que preparam o computador de destino para a instalação do Windows. Configuration Manager fornece duas imagens de arranque: Uma para suportar plataformas x86 e outra para suportar x64 plataformas. Estas são consideradas imagens de arranque predefinidas. Imagens de arranque que criar e adicionar ao Configuration Manager são consideradas imagens personalizadas. Imagens de arranque predefinidas podem ser substituídas automaticamente quando atualizar o Configuration Manager. Para obter mais informações sobre imagens de arranque, veja [Gerir imagens de arranque](../get-started/manage-boot-images.md).  
+##  <a name="BKMK_BootImages"></a> загрузочные образы,  
+ Образ загрузки в Configuration Manager представляет собой образ среды предустановки Windows (WinPE), используемый во время развертывания операционной системы. Образы загрузки используются для запуска компьютера в среде WinPE — миниатюрной операционной системе с ограниченным набором компонентов и служб, которые подготавливают конечный компьютер к установке Windows. Configuration Manager предоставляет два образа загрузки: один для поддержки 32-разрядных (x86) платформ, а второй — для 64-разрядных (x64) платформ. Они считаются образами загрузки по умолчанию. Образы загрузки, которые вы создаете и добавляете в Configuration Manager, считаются пользовательскими. Образы загрузки по умолчанию могут быть автоматически заменены при обновлении Configuration Manager. Дополнительные сведения о загрузочных образах см. в разделе [Управление загрузочными образами](../get-started/manage-boot-images.md).  
 
-##  <a name="BKMK_OSImages"></a> Imagens de sistema operativo  
- As imagens de sistema operativo no Configuration Manager são armazenadas no formato de ficheiro Windows Imaging (WIM) e representam uma coleção comprimida de ficheiros e pastas de referência que são necessários para instalar e configurar com êxito um sistema operativo num computador. Para todos os cenários de implementação do sistema operativo, tem de selecionar uma imagem do sistema operativo. Pode utilizar a imagem predefinida do sistema operativo ou compilar a imagem do sistema operativo a partir de um computador de referência que configurar. Para obter mais informações, consulte [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
+##  <a name="BKMK_OSImages"></a> Образы операционной системы  
+ Образы операционных систем в Configuration Manager — это WIM-файлы, которые представляют собой сжатые наборы эталонных файлов и папок, необходимых для успешной установки и настройки операционной системы на компьютере. Для всех сценариев развертывания операционной системы необходимо выбрать образ операционной системы. Вы можете использовать образ операционной системы по умолчанию или создать такой образ на настроенном компьютере-образце. Дополнительные сведения см. в разделе [Управление образами операционных систем](../get-started/manage-operating-system-images.md).  
 
-##  <a name="BKMK_OSUpgradePackages"></a> Pacotes de atualização do sistema operativo  
- Os pacotes de atualização do sistema operativo são utilizados para atualizar um sistema operativo e são implementações do sistema operativo iniciadas pela configuração. Importar pacotes de atualização do sistema operativo ao Configuration Manager a partir de um DVD ou ficheiro ISO instalado. Para obter mais informações, consulte [gerir pacotes de atualização do sistema operativo](../get-started/manage-operating-system-upgrade-packages.md).  
+##  <a name="BKMK_OSUpgradePackages"></a> пакеты обновления операционной системы;  
+ Пакеты обновления операционной системы используются для обновления операционной системы и представляют собой развертывания операционных систем, запускаемые программой установки. Пакеты обновления операционной системы импортируются в Configuration Manager с DVD-диска или подключенного ISO-файла. Дополнительные сведения см. в разделе [Управление пакетами обновления операционной системы](../get-started/manage-operating-system-upgrade-packages.md).  
 
-##  <a name="BKMK_OSDMedia"></a> Métodos para implementar sistemas operativos  
- Pode criar vários tipos de suportes de dados que podem ser utilizados para implementar sistemas operativos. Isto inclui suportes de dados de captura, que são utilizados para capturar imagens de sistema operativo, e suportes de dados de arranque pré-configurados e autónomos, que são utilizados para implementar um sistema operativo. Utilizando suportes de dados, pode implementar sistemas operativos em computadores que não tenham uma ligação de rede ou que tenham uma ligação de largura de banda reduzida ao site do Configuration Manager. Para obter mais informações sobre como utilizar suportes de dados, consulte [criar suportes de dados de sequência de tarefas](../deploy-use/create-task-sequence-media.md).  
+##  <a name="BKMK_OSDMedia"></a> Носители, используемые для развертывания операционной системы  
+ Для развертывания операционных систем можно создавать различные типы носителей. К ним относятся носители для записи, которые используются для записи образов операционных систем, а также автономные, предварительно подготовленные и загрузочные носители, которые используются для развертывания операционной системы. Используя носитель, можно выполнить развертывание операционных систем на компьютерах, не подключенных к сети, или в случае низкой пропускной способности подключения к сайту Configuration Manager. Дополнительные сведения об использовании носителей см. в разделе [Создание носителя последовательности задач](../deploy-use/create-task-sequence-media.md).  
 
-##  <a name="BKMK_DeviceDrivers"></a> Controladores de dispositivo  
- Pode instalar controladores de dispositivo em computadores de destino sem os incluir na imagem do sistema operativo que está a ser implementada. Configuration Manager fornece um catálogo de controladores que contém referências a todos os controladores de dispositivo que importar para o Configuration Manager. O catálogo de controladores está localizado no **biblioteca de Software** área de trabalho e é composta por dois nós: **Controladores** e **pacotes de controladores**. O nó **Controladores** lista todos os controladores que importou para o catálogo de controladores. Pode utilizar este nó para saber os detalhes de cada controlador importado, para alterar o pacote de controladores ou a imagem de arranque a que um controlador pertence, para ativar ou desativar um controlador, etc. Para obter mais informações, consulte [gerir controladores](../get-started/manage-drivers.md).  
+##  <a name="BKMK_DeviceDrivers"></a> Драйверы устройств  
+ Драйверы устройств можно установить на конечных компьютерах, не включая их в развертываемый образ операционной системы. Configuration Manager предоставляет каталог драйверов, содержащий ссылки на все драйверы устройств, импортируемые в Configuration Manager. Каталог драйверов размещается в рабочей области **Библиотека программного обеспечения** и состоит из двух узлов: **Драйверы** и **Пакеты драйверов**. Узел **Драйверы** содержит список всех драйверов, импортированных в каталог драйверов. Этот узел можно использовать для поиска сведений обо всех импортированных драйверах, для изменения принадлежности драйвера пакету драйверов или загрузочному образу, включения и отключения драйвера и выполнения других действий. Дополнительные сведения см. в разделе [Управление драйверами](../get-started/manage-drivers.md).  
 
-##  <a name="BKMK_OSDUserState"></a> Guardar e restaurar estado do utilizador  
- Quando implementa sistemas operativos, pode guardar o estado de utilizador do computador de destino, implementar o sistema operativo e, em seguida, restaurar o estado de utilizador, após a implementação do sistema operativo. Este processo é normalmente utilizado quando instalar o sistema operativo num computador cliente do Configuration Manager.  
+##  <a name="BKMK_OSDUserState"></a> Сохранение и восстановление пользовательской среды  
+ При развертывании операционной системы можно сохранить пользовательскую среду конечного компьютера, выполнить развертывание операционной системы, а затем восстановить пользовательскую среду в новой ОС. Эта процедура, как правило, используется при установке операционной системы на клиентском компьютере Configuration Manager.  
 
- As informações de estado de utilizador são capturadas e restauradas utilizando sequências de tarefas. Quando as informações de estado de utilizador são capturadas, podem ser armazenadas de uma das seguintes formas:  
+ Данные о пользовательской среде собираются и сохраняются с помощью последовательностей задач. Собранные данные о пользовательской среде можно сохранить одним из следующих способов.  
 
--   Pode armazenar os dados de estado de utilizador remotamente através da configuração de um ponto de migração de estado. A sequência de tarefas de captura envia os dados para o ponto de migração de estado. Em seguida, depois de o sistema operativo ser implementado, a sequência de tarefas de restauro obtém os dados e restaura o estado de utilizador no computador de destino.  
+-   Данные пользовательской среды можно сохранить удаленно, настроив точку миграции состояния. Последовательность задач записи отправляет данные на точку миграции состояния. Затем после развертывания операционной системы последовательность задач восстановления получает данные и восстанавливает пользовательскую среду на конечном компьютере.  
 
--   Pode armazenar os dados de estado de utilizador localmente numa localização específica. Neste cenário, a sequência de tarefas de captura copia os dados de utilizador para uma localização específica no computador de destino. Em seguida, depois de o sistema operativo ser implementado, a sequência de tarefas de restauro obtém os dados de utilizador dessa localização.  
+-   Данные пользовательской среды можно сохранить локально, указав конкретное расположение. В этом случае последовательность задач записи копирует данные пользователя в определенное расположение на конечном компьютере. После развертывания операционной системы последовательность задач восстановления получает данные пользователя из этого расположения.  
 
--   Pode especificar ligações fixas que podem ser utilizadas para restaurar os dados de utilizador na localização original. Neste cenário, os dados de estado de utilizador permanecem na unidade quando o sistema operativo anterior é removido. Em seguida, depois de o sistema operativo ser implementado, a sequência de tarefas de restauro utiliza as ligações fixas para restaurar os dados de estado de utilizador na localização original.  
+-   Можно указать жесткие связи, которые будут использоваться для восстановления данных пользователей в исходное расположение. В этом случае данные пользовательской среды остаются на диске, тогда как старая операционная система с него удаляется. После развертывания новой операционной системы последовательность задач восстановления использует жесткие связи для восстановления данных пользовательской среды в исходное расположение.  
 
- Para obter mais informações [gerir o estado do utilizador](../get-started/manage-user-state.md).  
+ Дополнительные сведения см. в разделе [Управление пользовательской средой](../get-started/manage-user-state.md).  
 
-##  <a name="BKMK_UnknownComputer"></a> Implementar em computadores desconhecidos  
- Pode implementar um sistema operativo em computadores que não são geridos pelo Configuration Manager. Não há nenhum registo destes computadores na base de dados do Configuration Manager. Estes computadores são designados por computadores desconhecidos. Os computadores desconhecidos incluem o seguinte:  
+##  <a name="BKMK_UnknownComputer"></a> Развертывание на неизвестные компьютеры  
+ Операционные системы можно развертывать на компьютерах, не управляемых средствами Configuration Manager. База данных Configuration Manager не содержит записей об этих компьютерах. Такие компьютеры называются неизвестными. К неизвестным компьютерам относятся следующие:  
 
--   Um computador em que o cliente do Configuration Manager não está instalado  
+-   компьютеры, на которых не установлен клиент Configuration Manager;  
 
--   Um computador que não é importado para o Configuration Manager  
+-   компьютеры, которые не импортированы в Configuration Manager;  
 
--   Um computador que não é detetado pelo Configuration Manager  
+-   компьютеры, которые не обнаружены Configuration Manager.  
 
- Para obter mais informações, consulte [preparar implementações de computadores desconhecidos](../get-started/prepare-for-unknown-computer-deployments.md).  
+ Дополнительные сведения см. в разделе [Подготовка развертываний на неизвестные компьютеры](../get-started/prepare-for-unknown-computer-deployments.md).  
 
-##  <a name="BKMK_UDA"></a> Associar utilizadores a um computador  
- Quando implementa um sistema operativo, pode associar utilizadores ao computador de destino para suportar ações de afinidade dispositivo/utilizador. Quando associa um utilizador ao computador de destino, posteriormente, o utilizador administrativo poderá efetuar ações em qualquer computador que esteja associado a esse utilizador, como implementar uma aplicação no computador de um utilizador específico. No entanto, quando implementa um sistema operativo, não é possível implementar o sistema operativo no computador de um utilizador específico. Para obter mais informações, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
+##  <a name="BKMK_UDA"></a> Сопоставление пользователей с компьютером  
+ При развертывании операционной системы можно связать пользователей с конечными компьютерами, чтобы обеспечить поддержку сопоставления пользователей и устройств. Связывая пользователя с конечным компьютером, администратор может впоследствии выполнять действия, выбирая компьютер, связанный с данным пользователем, например, развертывать приложение на компьютере для определенного пользователя. Однако в случае развертывания операционной системы нельзя развернуть ее на компьютере для конкретного пользователя. Дополнительные сведения см. в разделе [Связывание пользователей с конечным компьютером](../get-started/associate-users-with-a-destination-computer.md).  
 
-##  <a name="BKMK_TaskSequences"></a> Utilizar sequências de tarefas para automatizar passos  
- Pode criar sequências de tarefas para executar uma variedade de tarefas no ambiente do Configuration Manager. As ações da sequência de tarefas são definidas nos passos individuais da sequência. Quando a sequência de tarefas é executada, as ações de cada passo são efetuadas ao nível da linha de comandos, sem necessidade de intervenção do utilizador. Pode utilizar sequências de tarefas para o seguinte:  
+##  <a name="BKMK_TaskSequences"></a> Использование последовательностей задач для автоматизации шагов  
+ Можно создавать последовательности задач, выполняющие различные задачи в среде Configuration Manager. Действия последовательности задач определяются в отдельных шагах последовательности. При выполнении последовательности задач действия каждого шага выполняются на уровне командной строки без необходимости участия пользователя. Последовательности задач можно использовать в следующих целях:  
 
--   [Criar uma sequência de tarefas para instalar um sistema operativo](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md)  
+-   [Создание последовательности задач для установки операционной системы](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md)  
 
--   [Criar uma sequência de tarefas de implementações não pertencentes ao sistema operativo](../deploy-use/create-a-task-sequence-for-non-operating-system-deployments.md)  
+-   [Создание последовательности задач для развертывания операционных систем](../deploy-use/create-a-task-sequence-for-non-operating-system-deployments.md)  
 
--   [Criar uma sequência de tarefas para capturar um sistema operativo](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md)  
+-   [Создание последовательности задач для записи операционной системы](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md)  
 
--   [Criar uma sequência de tarefas para capturar e restaurar o estado do utilizador](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md)  
+-   [Создание последовательности задач для записи и восстановления пользовательского состояния](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md)  
 
--   [Criar uma sequência de tarefas personalizada](../deploy-use/create-a-custom-task-sequence.md)  
+-   [Создание настраиваемой последовательности задач](../deploy-use/create-a-custom-task-sequence.md)  

@@ -1,6 +1,6 @@
 ---
-title: "Os pré-requisitos de implementação de cliente do Windows | Microsoft Docs"
-description: "Saiba os pré-requisitos para implementar clientes em computadores Windows no System Center Configuration Manager."
+title: "Необходимые условия для развертывания клиента Windows | Документация Майкрософт"
+description: "Ознакомьтесь с необходимыми условиями для развертывания клиентов на компьютерах с Windows в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,221 +17,221 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 6636ce4d929326fad0210407d7634ea585eb0a2d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-deploying-clients-to-windows-computers-in-system-center-configuration-manager"></a>Pré-requisitos para implementar clientes em computadores Windows no System Center Configuration Manager
+# <a name="prerequisites-for-deploying-clients-to-windows-computers-in-system-center-configuration-manager"></a>Необходимые условия для развертывания клиентов на компьютерах с Windows в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Implementar clientes do Configuration Manager no seu ambiente tem as seguintes dependências externas e dependências de produto. Além disso, cada método de implementação de clientes tem as suas próprias dependências, que deverão ser satisfeitas para que as instalações de clientes tenham êxito.  
+Развертыванию клиентов Configuration Manager в среде организации свойственны перечисленные ниже внешние зависимости и зависимости в пределах продукта. Кроме того, каждый метод развертывания клиентов имеет собственные зависимости, которые необходимо принимать во внимание при установке клиентов.  
 
-  Certifique-se que reveja também [configurações suportadas para o System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md) para confirmar que os dispositivos satisfazem os requisitos mínimos de hardware e sistema operativo do cliente do Configuration Manager.  
+  Кроме того, обязательно изучите раздел [Поддерживаемые конфигурации для System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md), чтобы убедиться в соответствии устройств минимальным требованиям к оборудованию и операционной системе, предъявляемым клиентом Configuration Manager.  
 
- Para obter informações sobre os pré-requisitos do cliente do Configuration Manager para Linux e UNIX, consulte [planear a implementação do cliente para computadores Linux e UNIX no System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md).  
-
-> [!NOTE]  
->  Os números de versão do software apresentados neste artigo listam apenas os números de versão mínima necessários.  
-
-##  <a name="BKMK_prereqs_computers"></a>Pré-requisitos para clientes de computador  
- Utilize as seguintes informações para determinar os pré-requisitos de instalação nos computadores cliente do Configuration Manager.  
-
-### <a name="dependencies-external-to-configuration-manager"></a>Dependências Externas ao Configuration Manager  
-
-|||  
-|-|-|  
-|Windows Installer versão 3.1.4000.2435|Necessário para suportar a utilização de ficheiros de atualização do Windows Installer (.msp) para pacotes e atualizações de software.|  
-|[KB2552033](http://go.microsoft.com/fwlink/p/?LinkId=240048)|Instale esta correção nos servidores do site com o Windows Server 2008 R2 quando a instalação push do cliente estiver ativada.|  
-|Serviço de Transferência Inteligente em Segundo Plano Microsoft (BITS) versão 2.5|Necessário para permitir transferências de dados otimizadas entre o computador cliente e os sistemas de sites do Configuration Manager. O BITS não é transferido automaticamente durante a instalação do cliente. Quando o BITS é instalado, normalmente é necessário reiniciar o computador para concluir a instalação.<br /><br /> A maioria dos sistemas operativos incluem o BITS caso contrário (por exemplo, Windows Server 2003 R2 SP2), deve instalar o BITS antes de instalar o cliente do Configuration Manager.|  
-|Programador de Tarefas Microsoft|Ative este serviço no cliente para a instalação de cliente que pretende concluir.|  
-
-### <a name="dependencies-external-to-configuration-manager-and-automatically-downloaded-during-installation"></a>Dependências Externas do Configuration Manager Automaticamente Transferidas Durante a Instalação  
- O cliente do Configuration Manager tem algumas dependências externas potenciais. Estas dependências dependem do sistema operativo e do software instalado no computador cliente.  
-
- Se estas dependências forem necessárias para concluir a instalação do cliente, serão automaticamente instaladas com o software de cliente.  
-
-|||  
-|-|-|  
-|Windows Update Agent versão 7.0.6000.363|Necessário para o Windows suportar a deteção e implementação de atualizações.|  
-|Microsoft Core XML Services (MSXML) versão 6.20.5002 ou posterior|Necessário para suportar o processamento de documentos XML no Windows.|  
-|Compressão de Diferencial Remota da Microsoft (RDC)|Necessário para otimizar a transmissão de dados através da rede.|  
-|Microsoft Visual C++ 2013 Redistributable versão 12.0.21005.1|Necessário para suportar operações de cliente. Quando esta atualização é instalada em computadores cliente, poderá ser necessário reiniciar o computador para concluir a instalação.|  
-|Microsoft Visual C++ 2005 Redistributable versão 8.0.50727.42|Para a versão 1606 e anterior, necessária para suportar operações do Microsoft SQL Server Compact.|  
-|APIs Windows Imaging 6.0.6001.18000|Necessário para permitir que o Configuration Manager para gerir ficheiros de imagem (. wim) do Windows.|  
-|Microsoft Policy Platform 1.2.3514.0|Necessário para permitir aos clientes avaliar as definições de compatibilidade.|  
-|Microsoft Silverlight 5.1.41212.0 (a partir do Configuration Manager versão 1602)|Necessário para suportar a experiência de utilizador do Web site do Catálogo de Aplicações.|  
-|Microsoft .NET Framework versão 4.5.2|Necessário para suportar operações de cliente. Instalado automaticamente no computador cliente se não tiver o Microsoft .NET Framework versão 4.5 ou posterior instalado. Para obter mais informações, veja [Detalhes adicionais sobre o Microsoft .NET Framework versão 4.5.2](#dotNet).|  
-|Componentes do Microsoft SQL Server Compact 3.5 SP2|Necessários para armazenar informações relacionadas com operações de cliente.|  
-|Componentes do Microsoft Windows Imaging|Requeridos pelo Microsoft .NET Framework 4.0 para Windows Server 2003 ou Windows XP SP2 para computadores de 64 bits.|
-|Cliente de software de PC do Microsoft Intune|Não é possível executar o cliente de software de PC do Intune e o cliente do Configuration Manager no mesmo computador. Certifique-se de que o cliente do Intune é removido antes de instalar o cliente do Configuration Manager.|
-
-####  <a name="dotNet"></a>Detalhes adicionais sobre o Microsoft .NET Framework versão 4.5.2  
+ Сведения о требованиях клиента Configuration Manager для Linux и UNIX см. в разделе [Планирование развертывания клиентов на компьютерах Linux и UNIX в System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md).  
 
 > [!NOTE]  
->  Em 12 de janeiro de 2016, o suporte para o .NET 4.0, 4.5 e 4.5.1 expirou. Para obter mais informações, veja [FAQ sobre a Política de Ciclo de Vida do Suporte Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update), em support.microsoft.com.  
+>  Указанные в данной статье номера версий программного обеспечения являются минимальными требованиями.  
 
- Pode ser necessário um reinício para concluir a instalação do Microsoft .NET Framework versão 4.5.2. O utilizador irá ver a notificação **Reinício necessário** no tabuleiro do sistema.  Cenários comuns que necessitam que os computadores cliente sejam reiniciados:  
+##  <a name="BKMK_prereqs_computers"></a> Необходимые условия для клиентов на компьютерах  
+ Используйте приведенные ниже сведения, чтобы определить необходимые условия для установки клиента Configuration Manager на компьютерах.  
 
--   Serviços ou aplicações .NET estão em execução no computador.  
-
--   Uma ou mais atualizações de software necessárias para a instalação do .NET estão em falta.  
-
--   Um reinício do computador está pendente desde a instalação anterior de atualizações do software .NET Framework.  
-
- Após a instalação do .NET Framework 4.5.2, poderão ser instaladas posteriormente atualizações adicionais ao mesmo, que podem necessitar de reinícios adicionais do computador.  
-
-### <a name="configuration-manager-dependencies"></a>Dependências do Configuration Manager  
- Para obter mais informações sobre as seguintes funções do sistema de sites, veja [Determinar as funções do sistema de sites para clientes do System Center Configuration Manager](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md)  
+### <a name="dependencies-external-to-configuration-manager"></a>Внешние зависимости Configuration Manager  
 
 |||  
 |-|-|  
-|Ponto de gestão|Embora um ponto de gestão não é necessário para implementar o cliente do Configuration Manager, tem de ter um ponto de gestão para transferir informações entre computadores cliente e servidores do Configuration Manager. Sem um ponto de gestão, não é possível gerir computadores cliente.|  
-|Ponto de distribuição|O ponto de distribuição é uma função do sistema de sites opcional mas recomendada para implementação de cliente. Todos os pontos de distribuição alojam os ficheiros de origem do cliente, o que permite aos computadores encontrarem o ponto de distribuição mais próximo para transferirem os ficheiros de origem do cliente durante a implementação de cliente. Se o site não possuir um ponto de distribuição, os computadores transferirão os ficheiros de origem do cliente a partir do respetivo ponto de gestão.|  
-|Ponto de estado de contingência|O ponto de estado de contingência é uma função do sistema de sites opcional mas recomendada para implementação de cliente. O ponto de estado de contingência controla a implementação de cliente, permitindo aos computadores do site do Configuration Manager para enviar mensagens de estado quando não conseguirem comunicar com um ponto de gestão.|  
-|Ponto do Reporting Services|O ponto do Reporting Services é uma função do sistema de sites opcional mas recomendada, que permite apresentar relatórios relacionados com a implementação e gestão de clientes. Para obter mais informações, veja [Relatórios no System Center Configuration Manager](../../../core/servers/manage/reporting.md).|  
+|Установщик Windows, версия 3.1.4000.2435|Необходим для использования файлов обновления установщика Windows (MSP) для пакетов и обновлений программного обеспечения.|  
+|[KB2552033](http://go.microsoft.com/fwlink/p/?LinkId=240048)|Установите исправление на серверах сайтов с Windows Server 2008 R2 при включенной принудительной установке клиента.|  
+|Фоновая интеллектуальная служба передачи Microsoft (BITS), версия 2.5|Необходима для регулируемой передачи данных между клиентским компьютером и системами сайта Configuration Manager. Служба BITS не загружается автоматически во время установки клиента. При установке на клиентских компьютерах службы BITS обычно требуется перезагрузка.<br /><br /> Большинство операционных систем включают BITS, но если это не так (например, в Windows Server 2003 R2 с пакетом обновления 2 (SP2)), необходимо установить BITS перед установкой клиента Configuration Manager.|  
+|Планировщик задач Microsoft|Включите эту службу на клиенте, чтобы выполнить установку клиента.|  
 
-### <a name="installation-method-dependencies"></a>Dependências do Método de Instalação  
- Os pré-requisitos seguintes são específicos para os vários métodos de instalação de cliente.  
+### <a name="dependencies-external-to-configuration-manager-and-automatically-downloaded-during-installation"></a>Внешние зависимости Configuration Manager, автоматически загружаемые в ходе установки  
+ Клиент Configuration Manager может иметь некоторые внешние зависимости. Их наличие определяется тем, какая операционная система используется на клиентском компьютере и какое программное обеспечение на нем установлено.  
 
--   Instalação push do cliente  
+ Если эти зависимости необходимы для завершения установки клиента, они автоматически устанавливаются вместе с программным обеспечением клиента.  
 
-    -   As contas de instalação push do cliente servem para ligar a computadores para instalação do cliente, sendo especificadas no separador **Contas** da caixa de diálogo **Propriedades da Instalação Push do Cliente**. A conta tem de ser membro do grupo de administradores local no computador de destino.  
+|||  
+|-|-|  
+|Агент обновления Windows, версия 7.0.6000.363|Требуется для поддержки операционной системой обнаружения и развертывания обновлений.|  
+|Службы Microsoft Core XML Services (MSXML) версии 6.20.5002 или более поздней версии|Необходимы для поддержки обработки XML-документов в Windows.|  
+|Библиотека удаленного разностного сжатия Microsoft (RDC)|Необходима для оптимизации передачи данных по сети.|  
+|Распространяемый пакет Microsoft Visual C++ 2013 версии 12.0.21005.1|Требуется для поддержки операций клиента. При установке этого обновления на клиентских компьютерах для завершения установки может потребоваться перезагрузка.|  
+|Распространяемый пакет Microsoft Visual C++ 2005 версии 8.0.50727.42|В версии 1606 и более ранних требуется для поддержки операций Microsoft SQL Server Compact.|  
+|API-интерфейсы Windows Imaging 6.0.6001.18000|Необходимы для того, чтобы система Configuration Manager управляла файлами образа Windows (WIM).|  
+|Microsoft Policy Platform 1.2.3514.0|Требуется, чтобы клиенты могли оценить параметры соответствия.|  
+|Microsoft Silverlight 5.1.41212.0 (начиная с версии Configuration Manager 1602)|Требуется для поддержки взаимодействия пользователя с веб-сайтом каталога приложений.|  
+|Платформа Microsoft .NET Framework версии 4.5.2|Требуется для поддержки операций клиента. Автоматически устанавливается на клиентском компьютере, если на нем не установлена платформа Microsoft .NET Framework 4.5 или более поздней версии. См. статью [Дополнительные сведения о платформе Microsoft .NET Framework версии 4.5.2](#dotNet).|  
+|Компоненты Microsoft SQL Server Compact 3.5 SP2|Требуется для хранения информации, относящейся к операциям клиента.|  
+|Компоненты Microsoft Windows Imaging|Требуется для Microsoft .NET Framework 4.0 в Windows Server 2003 или Windows XP с пакетом обновления 2 (SP2) для 64-разрядных компьютеров.|
+|Клиентское программное обеспечение Microsoft Intune для компьютеров|Клиентское программное обеспечение Intune для компьютеров и клиент Configuration Manager не могут работать на одном и том же компьютере. Перед установкой клиента Configuration Manager клиент Intune нужно удалить.|
 
-         Se não especificar uma conta de instalação push do cliente, será utilizada a conta de computador do servidor de site.  
+####  <a name="dotNet"></a> Дополнительные сведения о платформе Microsoft .NET Framework версии 4.5.2  
 
-    -   Computador no qual está a instalar o cliente terá ter sido detetado pelo menos um método de deteção do Configuration Manager.  
+> [!NOTE]  
+>  С 12 января 2016 года прекращается поддержка .NET 4.0, 4.5 и 4.5.1. Дополнительные сведения см. в статье [Часто задаваемые вопросы о политике поддержки жизненного цикла Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) на сайте support.microsoft.com.  
 
-    -   O computador tem uma partilha ADMIN$.  
+ Для завершения установки платформы Microsoft .NET Framework версии 4.5.2 может требоваться перезапуск системы. Пользователь увидит уведомление **Требуется перезапуск** в области уведомлений.  Общие сценарии, требующие перезапуска клиентских компьютеров:  
 
-    -   **Ativar a instalação de push de cliente para os recursos atribuídos** tem de ser selecionada no **propriedades de instalação Push do cliente** caixa de diálogo, se pretender emitir automaticamente o cliente do Configuration Manager para detetar recursos.  
+-   На компьютере выполняются приложения или службы .NET.  
 
-    -   O computador cliente terá de conseguir contactar um ponto de distribuição ou um ponto de gestão para transferir os ficheiros de suporte.  
+-   Отсутствует одно или несколько обновлений программного обеспечения, необходимых для установки .NET.  
 
-     Tem de ter as permissões de segurança seguintes para instalar o cliente do Configuration Manager utilizando push de cliente:  
+-   Компьютер ожидает перезапуска после предыдущей установки обновлений программного обеспечения .NET Framework.  
 
-    -   Para configurar a conta de instalação Push do cliente: **Modificar** e permissão de leitura para o **Site** objeto.  
+ После установки платформы .NET Framework 4.5.2 могут устанавливаться дополнительные обновления, что потребует дополнительных перезагрузок компьютера.  
 
-    -   Para utilizar o push de cliente para instalar o cliente em coleções, dispositivos e consultas: **Modificar recurso** e **leitura** permissão para o objeto coleção.  
+### <a name="configuration-manager-dependencies"></a>Зависимости Configuration Manager  
+ Дополнительные сведения о следующих ролях системы сайта см. в статье [Определение ролей систем сайта для клиентов System Center Configuration Manager](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
 
-     A função de segurança **Administrador de Infraestrutura** inclui as permissões necessárias para gerir a instalação push do cliente.  
+|||  
+|-|-|  
+|Точка управления.|Несмотря на то, что точка управления не требуется для развертывания клиента Configuration Manager, необходима точка управления для передачи информации между клиентскими компьютерами и серверами Configuration Manager. Без точки управления управлять клиентскими компьютерами невозможно.|  
+|Точка распространения.|Точка распространения — необязательная, но рекомендуемая роль системы сайта для развертывания клиентов. Все точки распределения хранят исходные файлы клиента, которые позволяют компьютерам найти ближайшую точку распределения, с которой исходные файлы могут загружаться во время развертывания клиентов. Если сайт не содержит точек распространения, компьютеры загружают клиентские исходные файлы из точки управления.|  
+|Резервная точка состояния.|Резервная точка состояния — необязательная, но рекомендуемая роль системы сайта для развертывания клиентов. Резервная точка состояния отслеживает развертывание клиентов и позволяет компьютерам на сайте Configuration Manager отправлять сообщения о состоянии, когда они не могут установить связь с точкой управления.|  
+|Точка служб отчетов|Точка служб отчетов не является обязательной. Тем не менее, рекомендуется использовать эту роль системы сайтов для отображения отчетов, связанных с развертыванием клиента и его управлением. Дополнительные сведения см. в статье [Ведение отчетов в System Center Configuration Manager](../../../core/servers/manage/reporting.md).|  
 
--   Instalação baseada em pontos de atualizações de software  
+### <a name="installation-method-dependencies"></a>Зависимости, связанные с конкретными методами установки  
+ Ниже перечислены необходимые условия, характерные для различных методов установки клиента.  
 
-    -   Se o esquema do Active Directory não tiver sido expandido ou estiver a instalar clientes de outra floresta, as propriedades de instalação de CCMSetup.exe terão de ser aprovisionadas no registo do computador utilizando a Política de Grupo. Para obter mais informações, veja [Como Aprovisionar as Propriedades de Instalação de Cliente (Instalação de Cliente Baseada em Política de Grupo e em Atualização de Software)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
+-   Принудительная установка клиента  
 
-    -   O cliente do Configuration Manager tem de ser publicado para o ponto de atualização de software.  
+    -   Учетные записи принудительной установки клиенты используются для подключения к компьютерам с целью установки клиента и указаны на вкладке **Учетные записи** диалогового окна **Свойства принудительной установки клиента** . Учетная запись принудительной установки клиента должна быть членом локальной группы администраторов на конечном компьютере.  
 
-    -   O computador cliente terá de conseguir contactar um ponto de distribuição ou um ponto de gestão para poder transferir os ficheiros de suporte.  
+         Если не указать учетную запись принудительной установки клиента, будет использоваться учетная запись сервера.  
 
-     Para as permissões de segurança necessárias para gerir atualizações de software do Configuration Manager, consulte [pré-requisitos para atualizações de software no System Center Configuration Manager](../../../sum/plan-design/prerequisites-for-software-updates.md).  
+    -   Компьютер, на котором устанавливается клиент, должен быть обнаружен по крайней мере одним методом обнаружения Configuration Manager.  
 
--   Instalação baseada na Política de Grupo  
+    -   Компьютер имеет общий ресурс ADMIN$.  
 
-    -   Se o esquema do Active Directory não tiver sido expandido ou estiver a instalar clientes de outra floresta, as propriedades de instalação de CCMSetup.exe terão de ser aprovisionadas no registo do computador utilizando a Política de Grupo. Para obter mais informações, veja [Como Aprovisionar as Propriedades de Instalação de Cliente (Instalação de Cliente Baseada em Política de Grupo e em Atualização de Software)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
+    -   Если вы хотите автоматически выполнить принудительную установку клиента Configuration Manager на обнаруженных ресурсах, в диалоговом окне **Свойства принудительной установки клиента** установите флажок **Включить принудительную установку клиента для назначенных ресурсов**.  
 
-    -   O computador cliente terá de conseguir contactar um ponto de gestão para transferir os ficheiros de suporte.  
+    -   Клиентский компьютер должен иметь возможность установить связь с точкой распространения или точкой управления для загрузки вспомогательных файлов.  
 
--   Instalação baseada no script de início de sessão  
+     Чтобы установить клиент Configuration Manager посредством принудительной установки, необходимо иметь указанные ниже разрешения безопасности.  
 
-     O computador cliente terá de conseguir contactar um ponto de distribuição ou um ponto de gestão para poder transferir os ficheiros de suporte, a menos que, na linha de comandos, tenha especificado CCMSetup.exe com a propriedade da linha de comandos **ccmsetup /source**.  
+    -   Настройка учетной записи для принудительной установки клиента: разрешения **Изменение** и "Чтение" для объекта **Сайт** .  
 
--   Instalação manual  
+    -   Использование принудительной установки клиента для его установки в коллекции, на устройства и в запросы: разрешения **Изменение ресурса** и **Чтение** для объекта "Коллекция".  
 
-     O computador cliente terá de conseguir contactar um ponto de distribuição ou um ponto de gestão para poder transferir os ficheiros de suporte, a menos que, na linha de comandos, tenha especificado CCMSetup.exe com a propriedade da linha de comandos **ccmsetup /source**.  
+     Роль безопасности **Администратор инфраструктуры** включает разрешения, необходимые для управления принудительной установкой клиента.  
 
--   Instalação do computador do grupo de trabalho  
+-   Установка через точку обновления программного обеспечения  
 
-     Para poder aceder aos recursos no domínio do servidor de site do Configuration Manager, a conta de acesso de rede tem de ser configurada para o site.  
+    -   Если схема Active Directory не расширена, или установка клиентов проводится из другого леса, в реестре компьютера посредством групповой политики должны быть предварительно указаны свойства установки CCMSetup.exe. Дополнительные сведения см. в статье  [How to Provision Client Installation Properties (Group Policy and Software Update-Based Client Installation)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
 
-     Para obter mais informações sobre como configurar a conta de acesso de rede, consulte o [conceitos fundamentais da gestão de conteúdos no System Center Configuration Manager](../../plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+    -   Клиент Configuration Manager должен быть опубликован в точке обновления программного обеспечения.  
 
--   Instalação baseada em distribuição de software (apenas para atualizações)  
+    -   Клиентский компьютер должен иметь возможность установить связь с точкой распространения или точкой управления для загрузки вспомогательных файлов.  
 
-    -   Se o esquema do Active Directory não tiver sido expandido ou estiver a instalar clientes de outra floresta, as propriedades de instalação de CCMSetup.exe terão de ser aprovisionadas no registo do computador utilizando a Política de Grupo. Para obter mais informações, veja [Como Aprovisionar as Propriedades de Instalação de Cliente (Instalação de Cliente Baseada em Política de Grupo e em Atualização de Software)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
+     Сведения о разрешениях безопасности, необходимых для управления обновлениями программного обеспечения Configuration Manager, см. в разделе [Необходимые условия для обновлений программного обеспечения в System Center Configuration Manager](../../../sum/plan-design/prerequisites-for-software-updates.md).  
 
-    -   O computador cliente terá de conseguir contactar um ponto de distribuição ou um ponto de gestão para transferir os ficheiros de suporte.  
+-   Установка с использованием групповой политики  
 
-     Para as permissões de segurança necessárias para atualizar o cliente do Configuration Manager utilizando a gestão de aplicações, consulte [segurança e privacidade para gestão de aplicações](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
+    -   Если схема Active Directory не расширена, или установка клиентов проводится из другого леса, в реестре компьютера посредством групповой политики должны быть предварительно указаны свойства установки CCMSetup.exe. Дополнительные сведения см. в статье  [How to Provision Client Installation Properties (Group Policy and Software Update-Based Client Installation)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
 
--   Atualizações automáticas de clientes  
+    -   Клиентский компьютер должен иметь возможность установить связь с точкой управления для загрузки вспомогательных файлов.  
 
-     Terá de ser membro da função de segurança **Administrador Total** para configurar atualizações automáticas de clientes.  
+-   Установка с использованием сценария входа  
 
-### <a name="firewall-requirements"></a>Requisitos de Firewall  
- Se houver uma firewall entre os servidores do sistema de sites e os computadores onde pretende instalar o cliente do Configuration Manager, veja [Firewall do Windows e definições de porta para clientes no System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
+     Клиентский компьютер должен иметь возможность установить связь с точкой распространения или точкой управления для скачивания вспомогательных файлов, если вы не выполнили в командной строке команду CCMSetup.exe с параметром **ccmsetup /source**.  
 
-##  <a name="BKMK_prereqs_mobiledevices"></a>Pré-requisitos para clientes de dispositivos móveis  
- Utilize as seguintes informações para determinar os pré-requisitos para quando instalar o cliente do Configuration Manager em dispositivos móveis e utilizar o Configuration Manager para os inscrever.  
+-   Установка вручную  
 
-### <a name="dependencies-external-to-configuration-manager"></a>Dependências Externas ao Configuration Manager  
+     Клиентский компьютер должен иметь возможность установить связь с точкой распространения или точкой управления для скачивания вспомогательных файлов, если вы не выполнили в командной строке команду CCMSetup.exe с параметром **ccmsetup /source**.  
 
--   Uma autoridade de certificação (AC) empresarial da Microsoft com modelos de certificado para implementar e gerir os certificados necessários para dispositivos móveis.  
+-   Установка компьютера рабочей группы  
 
-     A AC emissora terá de aprovar automaticamente os pedidos de certificados dos utilizadores de dispositivos móveis durante o processo de inscrição.  
+     Чтобы получить доступ к ресурсам домена сервера сайта Configuration Manager, для этого сайта необходимо настроить учетную запись сетевого доступа.  
 
-     Para obter mais informações sobre os requisitos de certificado, veja [Segurança e privacidade para perfis de certificado no System Center Configuration Manager](../../../protect/plan-design/security-and-privacy-for-certificate-profiles.md).  
+     Дополнительные сведения о настройке учетной записи доступа к сети см. в разделе [Основные принципы управления содержимым в System Center Configuration Manager](../../plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   Um grupo de segurança que contenha os utilizadores que podem inscrever os respetivos dispositivos móveis.  
+-   Установка посредством распространения программного обеспечения (только для обновлений)  
 
-     Este grupo de segurança é utilizado para configurar o modelo de certificado que é utilizado durante a inscrição de dispositivos móveis.  
+    -   Если схема Active Directory не расширена, или установка клиентов проводится из другого леса, в реестре компьютера посредством групповой политики должны быть предварительно указаны свойства установки CCMSetup.exe. Дополнительные сведения см. в статье [How to Provision Client Installation Properties (Group Policy and Software Update-Based Client Installation)](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Provision).  
 
--   Opcional, mas recomendado: um alias de DNS (registo CNAME) com o nome **ConfigMgrEnroll** configurado para o nome do servidor do sistema de sites onde será instalado o ponto proxy de registo.  
+    -   Клиентский компьютер должен иметь возможность установить связь с точкой распространения или точкой управления для загрузки вспомогательных файлов.  
 
-     Este DNS alias é necessário para suportar a deteção automática para o serviço de inscrição: Se não configurar este registo DNS, os utilizadores devem especificar manualmente o nome de servidor do sistema de sites do ponto de proxy de registo como parte do processo de inscrição.  
+     Сведения о разрешениях безопасности, необходимых для обновления клиента Configuration Manager с помощью компонента управления приложениями, см. в разделе [Безопасность и конфиденциальность управления приложениями](../../../apps/plan-design/security-and-privacy-for-application-management.md).  
 
--   Dependências da função do sistema de sites para os computadores que executarão o ponto de registo e as funções do sistema de sites do ponto proxy de registo.  
+-   Автоматическое обновление клиента  
 
-     Veja [Sistemas operativos suportados para servidores do sistema de sites](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md).  
+     Чтобы настраивать автоматическое обновление клиента, необходимо быть участником роли безопасности **Полный администратор** .  
 
-### <a name="configuration-manager-dependencies"></a>Dependências do Configuration Manager  
- Para obter mais informações sobre as seguintes funções do sistema de sites, veja [Determinar as funções do sistema de sites para clientes do System Center Configuration Manager](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
+### <a name="firewall-requirements"></a>Требования к брандмауэру  
+ Если между серверами системы сайта и компьютерами, на которые устанавливается клиент Configuration Manager, имеется брандмауэр, ознакомьтесь с дополнительными сведениями в разделе [Параметры брандмауэра Windows и портов для клиентов в System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
--   Ponto de gestão que é configurado para ligações de cliente HTTPS e ativado para dispositivos móveis  
+##  <a name="BKMK_prereqs_mobiledevices"></a> Необходимые условия для клиентов на мобильных устройствах  
+ Используйте приведенные ниже сведения, чтобы определить необходимые условия для установки клиента Configuration Manager на мобильных устройствах и их регистрации в Configuration Manager.  
 
-     Um ponto de gestão é sempre necessário para instalar o cliente do Configuration Manager em dispositivos móveis. Além dos requisitos de configuração de HTTPS e da ativação para dispositivos móveis, o ponto de gestão terá de estar configurado com um FQDN de Internet e aceitar ligações de cliente a partir da Internet.  
+### <a name="dependencies-external-to-configuration-manager"></a>Внешние зависимости Configuration Manager  
 
--   Ponto de registo e ponto proxy de registo  
+-   Для установки сертификатов, необходимых для мобильных устройств, а также управления этими сертификатами необходим центр сертификации предприятия Майкрософт (ЦС) с шаблонами сертификатов.  
 
-     Um ponto proxy de registo gere os pedidos de inscrição de dispositivos móveis e o ponto de registo conclui o processo de inscrição. O ponto de registo terá de estar na mesma floresta do Active Directory que o servidor de site, mas o ponto proxy de registo poderá estar noutra floresta.  
+     ЦС, выдающий сертификат, должен автоматически утверждать запросы сертификатов от пользователей мобильных устройств во время регистрации.  
 
--   Definições de cliente para a inscrição de dispositivos móveis  
+     Дополнительные сведения о требованиях к сертификатам см. в статье [Безопасность и конфиденциальность профилей сертификатов в System Center Configuration Manager](../../../protect/plan-design/security-and-privacy-for-certificate-profiles.md).  
 
-     Configure as definições de cliente para permitir que os utilizadores inscrevam dispositivos móveis e configurem pelo menos um perfil de inscrição.  
+-   Группа безопасности с пользователями, которые могут регистрировать свои мобильные устройства.  
 
--   Ponto do Reporting Services  
+     Эта группа безопасности используется для настройки шаблона сертификата, используемого во время регистрации мобильных устройств.  
 
-     O ponto do Reporting Services é uma função do sistema de sites opcional mas recomendada, que permite apresentar relatórios relacionados com a inscrição de dispositivos móveis e a gestão de clientes.  
+-   Необязательно, но рекомендуется: псевдоним DNS (запись CNAME) с именем **ConfigMgrEnroll** , настроенный в качестве имени сервера системы сайта, на котором будет установлена прокси-точка регистрации.  
 
-     Para obter mais informações, veja [Relatórios no System Center Configuration Manager](../../../core/servers/manage/reporting.md).  
+     Этот псевдоним DNS требуется для обеспечения работы автоматического обнаружения в службе регистрации: если не настроить эту запись DNS, пользователям при выполнении процесса регистрации придется вручную указывать имя сервера системы сайта, на котором находится прокси-точка регистрации.  
 
--   Para configurar a inscrição de dispositivos móveis, terá de possuir as seguintes permissões de segurança:  
+-   Зависимости ролей систем сайта для компьютеров, на которых будут выполняться роли системы сайта "точка регистрации" и "прокси-точка регистрации".  
 
-    -   Para adicionar, modificar e eliminar as funções de sistema de sites de inscrição: **Modificar** permissão para o **Site** objeto.  
+     См. статью [Supported operating systems for site system servers](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md) (Поддерживаемые операционные системы для серверов системы сайта).  
 
-    -   Para configurar as definições de cliente para inscrição: Predefinições de cliente necessitam **modificar** permissão para o **Site** objetos e definições personalizadas de cliente requerem **agente do cliente** permissões.  
+### <a name="configuration-manager-dependencies"></a>Зависимости Configuration Manager  
+ Дополнительные сведения о следующих ролях системы сайта см. в статье [Определение ролей систем сайта для клиентов System Center Configuration Manager](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md).  
 
-     A função de segurança **Administrador Total** inclui as permissões necessárias para configurar as funções do sistema de sites de inscrição.  
+-   Точка управления, настроенная для подключений клиентов по протоколу HTTPS и поддерживающая мобильные устройства  
 
-     Para gerir os dispositivos móveis inscritos, terá de possuir as seguintes permissões de segurança:  
+     При установке клиента Configuration Manager на мобильных устройствах всегда требуется точка управления. Помимо требований к настройке HTTPS и поддержки мобильных устройств, для точки управления необходимо настроить полное доменное имя в Интернете, и она должна принимать подключения из Интернета.  
 
-    -   Para apagar ou extinguir um dispositivo móvel: **Eliminar recurso** para o **coleção** objeto.  
+-   Точка регистрации и прокси-точка регистрации  
 
-    -   Para cancelar a eliminação ou extinção de comando: **Eliminar recurso** para o **coleção** objeto.  
+     Прокси-точка регистрации управляет запросами регистрации от мобильных устройств, а точка регистрации выполняет процесс регистрации. Точка регистрации должна находиться в том лесу Active Directory, в котором расположен сервер сайта, а прокси-точка регистрации может находиться в другом лесу.  
 
-    -   Para permitir e bloquear dispositivos móveis: **Modificar recurso** para o **coleção** objeto.  
+-   Параметры клиента для регистрации мобильного устройства  
 
-    -   Bloqueio a remoto ou reposição do código de acesso num dispositivo móvel: **Modificar** recurso para o **coleção** objeto.  
+     Настройте параметры клиента так, чтобы разрешить пользователям регистрировать мобильные устройства, и создайте как минимум один профиль регистрации.  
 
-     A função de segurança **Administrador de Operações** inclui as permissões necessárias para gerir dispositivos móveis.  
+-   Точка служб отчетов  
 
-     Para obter mais informações sobre como configurar permissões de segurança, veja [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md) e  [Configurar a administração baseada em funções para o System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
+     Точка служб отчетов не является обязательной. Тем не менее, рекомендуется использовать эту роль системы сайта для отображения отчетов, связанных с регистрацией мобильных устройств и управлением клиентом.  
 
-### <a name="firewall-requirements"></a>Requisitos de Firewall  
- Os dispositivos de rede intervenientes, tais como routers e firewalls, e a Firewall do Windows, se for caso disso, têm de permitir o tráfego associado ao registo do dispositivo móvel:  
+     Дополнительные сведения см. в статье [Ведение отчетов в System Center Configuration Manager](../../../core/servers/manage/reporting.md).  
 
--   Entre os dispositivos móveis e o ponto de proxy de inscrição: HTTPS (por predefinição, TCP 443)  
+-   Чтобы настроить регистрацию мобильных устройств, необходимо иметь следующие разрешения безопасности.  
 
--   Entre o ponto de proxy de inscrição e o ponto de inscrição: HTTPS (por predefinição, TCP 443)  
+    -   Добавление, изменение и удаление ролей систем сайта, связанных с регистрацией: разрешение **Изменение** для объекта **Сайт** .  
 
- Se utilizar um servidor Web proxy, este tem de ser configurado para túnel SSL; o protocolo de bridge SSL não é suportado para dispositivos móveis.  
+    -   Настройка параметров клиента для регистрации: для параметров клиента, используемых по умолчанию, требуется разрешение **Изменение** для объекта **Сайт** , а для настраиваемых параметров необходимы разрешения **Агент клиента**  .  
+
+     Роль безопасности **Полный администратор** имеет необходимые разрешения для настройки ролей систем сайта, связанных с регистрацией.  
+
+     Для управления зарегистрированными мобильными устройствами необходимо иметь следующие разрешения безопасности.  
+
+    -   Очистка или снятие с учета мобильного устройства: разрешение **Удалить ресурс** для объекта **Коллекция** .  
+
+    -   Отмена команды очистки или снятия с учета: разрешение **Удалить ресурс** для объекта **Коллекция** .  
+
+    -   Разрешение и блокировка мобильных устройств: разрешение **Изменить ресурс** для объекта **Коллекция** .  
+
+    -   Удаленная блокировка или сброс секретного кода на мобильном устройстве: разрешение **Изменить ресурс** для объекта **Коллекция** .  
+
+     Роль безопасности **Менеджер по эксплуатации** имеет разрешения, необходимые для управления мобильными устройствами.  
+
+     Дополнительные сведения о настройке разрешений системы безопасности см. в статьях [Fundamentals of role-based administration for System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md) и  [Configure role-based administration for System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
+
+### <a name="firewall-requirements"></a>Требования к брандмауэру  
+ Промежуточные сетевые устройства, такие как маршрутизаторы и брандмауэры, а также брандмауэр Windows (если имеется), должны пропускать сетевой трафик, связанный с регистрацией мобильных устройств.  
+
+-   Между мобильными устройствами и прокси-точкой регистрации: HTTPS (по умолчанию TCP 443)  
+
+-   Между прокси-точкой регистрации и точкой регистрации: HTTPS (по умолчанию TCP 443)  
+
+ Если используется прокси-сервер в Интернете, на нем необходимо настроить туннелирование SSL. Мосты SSL не поддерживаются для мобильных устройств.  

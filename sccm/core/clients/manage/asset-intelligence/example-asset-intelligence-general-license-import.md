@@ -1,6 +1,6 @@
 ---
-title: "Ficheiro de importação de licença geral de Asset Intelligence de exemplo | Microsoft Docs"
-description: "Utilize um ficheiro de licença geral do Asset Intelligence de exemplo para importar licenças de software no System Center Configuration Manager."
+title: "Пример файла импорта общего списка лицензий аналитики активов | Документы Майкрософт"
+description: "Этот пример файла общего списка лицензий аналитики активов может помочь вам в импорте лицензий программного обеспечения в System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,25 +17,25 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 400afbe8c09b80985187a34b0dd0f3f8581c7d4e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-asset-intelligence-general-license-import-file-in-system-center-configuration-manager"></a>Ficheiro de importação de licença geral do exemplo do Asset Intelligence no System Center Configuration Manager
+# <a name="example-asset-intelligence-general-license-import-file-in-system-center-configuration-manager"></a>Пример файла импорта общего списка лицензий аналитики активов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-As informações de exemplo constantes neste tópico podem ser utilizadas para criar um ficheiro de licença de software geral de exemplo para importar licenças de software para o catálogo do Asset Intelligence através do Assistente Importar Licenças de Software. Pode copiar e colar a tabela seguinte para uma nova folha de cálculo do Microsoft Excel e guardá-la com uma extensão de nome de ficheiro .csv para ser utilizada como um ficheiro de importação de licença de software geral de exemplo para fins de teste. Ao criar o ficheiro de importação de licença, todos os campos de cabeçalho são necessários, embora apenas os valores de dados Nome, Fabricante, Versão e QuantidadeEfetiva sejam necessários na folha de cálculo. Para obter mais informações sobre como importar licenças de software para o catálogo do Asset Intelligence, consulte [configurar do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+Сведения в примерах этого раздела можно использовать для создания образца файла общего списка лицензий на программное обеспечение для импорта лицензий на программное обеспечения в каталог аналитики активов с помощью мастера импорта лицензий. Следующую таблицу можно скопировать и вставить в новый файл Microsoft Excel, а затем сохранить файл с расширением CSV для использования в качестве образца общего файла импорта лицензий на программное обеспечение для тестирования. При создании файла импорта лицензии все поля заголовков являются обязательными. К обязательным значениям данных относятся: "Имя", "Издатель", "Версия" и "Фактическое количество". Дополнительные сведения об импорте лицензий программного обеспечения в каталог аналитики активов см. в разделе [Настройка аналитики активов в System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
-|Nome|Fabricante|Versão|Linguagem|QuantidadeEfetiva|NúmeroDePO|NomeDoRevendedor|DataDeCompra|SuporteAdquirido|DataDeExpiraçãoDoSuporte|Comentários|  
+|Имя|Издатель|Версия|Язык|EffectiveQuantity|PONumber|ResellerName|DateOfPurchase|SupportPurchased|SupportExpirationDate|Комментарии|  
 |----------|---------------|-------------|--------------|-----------------------|--------------|------------------|--------------------|----------------------|---------------------------|--------------|  
-|Título de software 1|Fabricante de software|1.01|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
-|Título de software 2|Fabricante de software|1.02|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
-|Título de software 3|Fabricante de software|1.03|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
-|Título de software 4|Fabricante de software|1.04|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
-|Título de software 5|Fabricante de software|1.05|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
-|Título de software 6|Fabricante de software|1.06|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
-|Título de software 7|Fabricante de software|1.07|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
-|Título de software 8|Fabricante de software|1.08|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
-|Título de software 9|Fabricante de software|1.09|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
-|Título de software 10|Fabricante de software|1.10|Inglês|1|Número de compra|Nome do revendedor|10/10/2010|0|10/10/2012|Comentário|  
+|Название программного обеспечения 1|Издатель программного обеспечения|1.01|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  
+|Наименование программного обеспечения 2|Издатель программного обеспечения|1.02|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  
+|Наименование программного обеспечения 3|Издатель программного обеспечения|1.03|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  
+|Наименование программного обеспечения 4|Издатель программного обеспечения|1.04|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  
+|Наименование программного обеспечения 5|Издатель программного обеспечения|1.05|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  
+|Наименование программного обеспечения 6|Издатель программного обеспечения|1.06|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  
+|Наименование программного обеспечения 7|Издатель программного обеспечения|1.07|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  
+|Наименование программного обеспечения 8|Издатель программного обеспечения|1.08|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  
+|Наименование программного обеспечения 9|Издатель программного обеспечения|1.09|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  
+|Название программного обеспечения 10|Издатель программного обеспечения|1.10|Английский|1|Номер покупки|Имя торгового посредника|10/10/2010|0|10/10/2012|Комментарий|  

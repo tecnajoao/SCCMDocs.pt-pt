@@ -1,6 +1,6 @@
 ---
-title: "Substituir um computador existente e transferir definições | Microsoft Docs"
-description: "No Configuration Manager, escolha entre os métodos de implementação, tais como suportes de dados, multicast ou centro de Software, para substituir um computador existente com um novo computador."
+title: "Замена существующего компьютера и перенос параметров | Документы Майкрософт"
+description: "В Configuration Manager можно выбрать метод развертывания, например загрузочный носитель, многоадресную рассылку или центр программного обеспечения, для замены существующего компьютера новым."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,69 +16,69 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 243433980e1720fd468d52a4a61f2c3a8e3659b5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Substituir um computador existente e transferir definições com o System Center Configuration Manager
+# <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Замена существующего компьютера и перенос параметров с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico fornece geral passos no System Center Configuration Manager, para substituir um computador existente com um novo computador. Para este cenário, pode escolher de entre vários métodos de implementação diferentes, como suporte de dados de arranque, multicast ou Centro de Software. Também pode optar por instalar um ponto de migração de estado para armazenar definições e, em seguida, restaurá-lo para o novo sistema operativo após a respetiva instalação. Se não souber de que este é o cenário de implementação do sistema operativo correto para si, consulte [cenários para implementar sistemas operativos empresariais](scenarios-to-deploy-enterprise-operating-systems.md).  
+Этот раздел содержит общие шаги в System Center Configuration Manager по замене существующего компьютера на новый. В этом сценарии можно выбирать из множества различных способов развертывания, таких как загрузочный носитель, многоадресная рассылка или центр программного обеспечения. Можно также установить точку миграции состояния для хранения параметров и затем восстановить их в новой ОС после ее установки. Если вы не уверены, что этот сценарий развертывания операционной системы вам подходит, см. раздел [Сценарии развертывания операционных систем предприятия](scenarios-to-deploy-enterprise-operating-systems.md).  
 
- Utilize as secções seguintes para atualizar um computador existente com uma nova versão do Windows.  
+ Используйте сведения в следующих разделах для обновления существующего компьютера до новой версии Windows.  
 
-##  <a name="BKMK_Plan"></a> Planearear  
+##  <a name="BKMK_Plan"></a> План  
 
--   **Planear e implementar requisitos de infraestrutura**  
+-   **Планирование и реализация требований к инфраструктуре**  
 
-     Existem vários requisitos de infraestrutura que tem de ser implementados antes de poder implementar sistemas operativos, tais como o Windows ADK, a ferramenta de migração de estado de utilizador (USMT), serviços de implementação do Windows (WDS), suportadas configurações de disco rígido, etc. Para obter mais informações, consulte [requisitos de infraestrutura de implementação do sistema operativo](../plan-design/infrastructure-requirements-for-operating-system-deployment.md)  
+     Существует ряд требований к инфраструктуре, которые должны быть выполнены перед развертыванием операционных систем, например наличие Windows ADK, средства миграции пользовательской среды (USMT), служб развертывания Windows (WDS), поддерживаемых конфигураций жестких дисков и т. д. Дополнительные сведения см. в разделе [Требования к инфраструктуре для развертывания операционной системы](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
--   **Instalar um ponto de migração de estado (necessário apenas se transferir definições)**  
+-   **Установка точки миграции состояния (требуется только при переносе параметров)**  
 
-     Quando pretender capturar definições do computador existente e, em seguida, restaurá-las para o novo sistema operativo, tem de instalar um ponto de migração de estado. Para obter mais informações, consulte [ponto de migração de estado](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
+     Если вы собираетесь сохранить параметры с существующего компьютера, а затем восстановить их в новой операционной системе, необходимо установить точку миграции состояния. Дополнительные сведения см. в разделе [Точка миграции состояния](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
-##  <a name="BKMK_Configure"></a> Configurar  
+##  <a name="BKMK_Configure"></a> Настройка  
 
-1.  **Preparar uma imagem de arranque**  
+1.  **Подготовка загрузочного образа**  
 
-     As imagens de arranque iniciam um computador com ambiente Windows PE (um sistema operativo mínimo com componentes e serviços limitados) que, em seguida, pode instalar o sistema operativo Windows completo no computador. Quando implementar sistemas operativos, tem de selecionar uma imagem de arranque para utilizar e distribuir a imagem por um ponto de distribuição. Utilize o seguinte procedimento para preparar a imagem de arranque:  
+     Образы загрузки запускают компьютер в среде Windows PE (минимальная операционная система с ограниченным набором компонентов и служб), в которой потом можно установить полную операционную систему Windows на компьютере. При развертывании операционных систем необходимо выбрать образ загрузки и распространить его в точку распространения. Используйте следующие сведения для подготовки образа:  
 
-    -   Para obter mais informações sobre imagens de arranque, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
+    -   Дополнительные сведения об образах загрузки см. в разделе [Управление загрузочными образами](../get-started/manage-boot-images.md).  
 
-    -   Para obter mais informações sobre como personalizar uma imagem de arranque, consulte [personalizar imagens de arranque](../get-started/customize-boot-images.md).  
+    -   Дополнительные сведения о настройке образа загрузки см. в разделе [Настройка загрузочных образов](../get-started/customize-boot-images.md).  
 
-    -   Distribua a imagem de arranque por pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Распространите загрузочный образ в точки распространения. Дополнительные сведения см. в разделе [Распространение содержимого](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-2.  **Preparar uma imagem do sistema operativo**  
+2.  **Подготовка образа операционной системы**  
 
-     A imagem do sistema operativo contém os ficheiros necessários para instalar o sistema operativo no computador de destino. Utilize o seguinte procedimento para preparar a imagem do sistema operativo:  
+     Образ операционной системы содержит файлы, необходимые для установки операционной системы на конечный компьютер. Используйте следующие сведения для подготовки образа операционной системы:  
 
-    -   Para obter mais informações sobre como criar uma imagem do sistema operativo, consulte [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
+    -   Дополнительные сведения о создании образа операционной системы см. в разделе [Управление образами операционных систем](../get-started/manage-operating-system-images.md).  
 
-    -   Distribua a imagem do sistema operativo por pontos de distribuição. Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Распространите образ в точки распространения. Дополнительные сведения см. в разделе [Распространение содержимого](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-3.  **Criar uma sequência de tarefas para implementar sistemas operativos na rede**  
+3.  **Создание последовательности задач для развертывания операционных систем по сети**  
 
-     Utilize uma sequência de tarefas para automatizar a instalação do sistema operativo na rede. Utilize os passos em [criar uma sequência de tarefas para instalar um sistema operativo](create-a-task-sequence-to-install-an-operating-system.md) para criar a sequência de tarefas para implementar o sistema operativo. Consoante o método de implementação que escolher, poderão existir outras considerações relativamente à sequência de tarefas.  
+     Используйте последовательности задач для автоматизации установки операционной системы по сети. Инструкции по созданию последовательности задач для развертывания операционной системы см. в разделе [Создание последовательности задач для установки операционной системы](create-a-task-sequence-to-install-an-operating-system.md). В зависимости от выбранного метода развертывания могут потребоваться и другие действия для последовательности задач.  
 
     > [!NOTE]  
-    >  Neste cenário, se capturar e restaurar as definições de utilizador e os ficheiros, pode optar por utilizar um ponto de migração de estado ou guarde os ficheiros localmente. Para obter mais informações, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
+    >  В этом сценарии при сохранении и восстановлении параметров и файлов пользователей можно использовать точку миграции состояния или сохранить данные локально. Дополнительные сведения см. в разделе [Управление пользовательской средой](../get-started/manage-user-state.md).  
 
-##  <a name="BKMK_Deploy"></a> Implementar  
+##  <a name="BKMK_Deploy"></a> Развернуть  
 
--   Utilize um dos seguintes métodos de implementação para implementar o sistema operativo:  
+-   Используйте один из следующих методов для развертывания операционной системы:  
 
-    -   [Utilizar o Centro de Software para implementar o Windows através da rede](use-software-center-to-deploy-windows-over-the-network.md)  
+    -   [Использование центра программного обеспечения для развертывания Windows по сети](use-software-center-to-deploy-windows-over-the-network.md)  
 
-    -   [Utilizar suportes de dados de arranque para implementar o Windows na rede](use-bootable-media-to-deploy-windows-over-the-network.md)  
+    -   [Использование загрузочного носителя для развертывания Windows по сети](use-bootable-media-to-deploy-windows-over-the-network.md)  
 
-    -   [Utilizar multicast para implementar o Windows na rede](use-multicast-to-deploy-windows-over-the-network.md)  
+    -   [Использование многоадресной рассылки для развертывания Windows по сети](use-multicast-to-deploy-windows-over-the-network.md)  
 
-    -   [Criar uma imagem para um OEM de fábrica ou um depósito local](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+    -   [Создание образа для изготовителей оборудования в фабрике или локальном хранилище](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
-## <a name="monitor"></a>Monitor  
+## <a name="monitor"></a>Монитор  
 
--   **Monitorizar a implementação da sequência de tarefas**  
+-   **Мониторинг развертывания последовательности задач**  
 
-     Para monitorizar a implementação de sequência de tarefas para instalar o sistema operativo, consulte [monitorizar implementações do sistema operativo](monitor-operating-system-deployments.md).  
+     Сведения о мониторинге развертывания последовательности задач для установки операционной системы см. в разделе [Мониторинг развертываний операционных систем](monitor-operating-system-deployments.md).  

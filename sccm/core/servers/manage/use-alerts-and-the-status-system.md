@@ -1,6 +1,6 @@
 ---
-title: Alertas e o sistema de estado | Microsoft Docs
-description: "Configurar alertas e utilizar o sistema de estado para manter-se informado sobre o estado da implementação do Configuration Manager."
+title: "Оповещения и система состояния | Документы Майкрософт"
+description: "Настройте оповещения и используйте систему состояния, чтобы оставаться в курсе состояния вашего развертывания Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,296 +16,296 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: ed692bdea055775890535d2666f09ba5f5c7c4e1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Utilizar alertas e o sistema de estado para o System Center Configuration Manager
+# <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Использование оповещений и системы состояния для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Configurar alertas e utilizar o sistema de estado incorporado para manter-se informado sobre o estado da implementação do System Center Configuration Manager.  
+Настройте оповещения и используйте встроенную систему состояния, чтобы оставаться в курсе состояния вашего развертывания System Center Configuration Manager.  
 
 
-##  <a name="bkmk_Status"></a> Sistema de estado  
- Todos os componentes do site principal geram mensagens de estado que fornecem comentários sobre as operações de site e de hierarquia.    Estas informações podem mantê-lo informado sobre o estado de funcionamento dos diferentes processos do site. Pode otimizar o sistema de alerta para ignorar o ruído de problemas conhecidos, ao aumentar a visibilidade inicial para outros problemas que poderão requerer a sua atenção.  
+##  <a name="bkmk_Status"></a> Система состояния  
+ Все основные компоненты сайта создают сообщения о состоянии с информацией об операциях сайта и иерархии.    Эти сведения будут информировать вас о работоспособности различных процессов сайта. Вы можете настроить систему предупреждений таким образом, чтобы игнорировать шум по возможным известным проблемам, увеличивая раннюю видимость других проблем, которые потребуют вашего внимания.  
 
- Por predefinição, o sistema de estado do Configuration Manager funciona sem configuração, utilizando as definições adequadas para a maior parte dos ambientes. No entanto, é possível configurar o seguinte:  
+ По умолчанию система состояния Configuration Manager не требует настройки и функционирует с параметрами, подходящими для большинства сред. Однако можно настроить следующие параметры.  
 
--   **Summarizers de estado:** Pode editar o estado alterar summarizers em cada site para controlar a frequência das mensagens de estado que geram um indicador de estado para os quatro summarizers seguintes:  
+-   **Средства формирования сводных данных состояния.** Вы можете изменить средства формирования сводных данных о состоянии на каждом сайте, чтобы контролировать частоту сообщений о состоянии, которые генерируют изменение индикатора состояния для следующих четырех средств:  
 
-    -   Summarizer de Implementação da Aplicação  
+    -   Средство формирования сводных данных о развертывании приложений  
 
-    -   Summarizer de Estatísticas da Aplicação  
+    -   Средство формирования сводных данных о статистике приложений  
 
-    -   Status Summarizer de Componentes  
+    -   Средство формирования сводных данных о состоянии компонентов  
 
-    -   Summarizer de Estado do Sistema de Sites  
+    -   Средство формирования сводных данных о состоянии системы сайта  
 
--   **Regras de filtro de estado:** Pode criar novas regras de Filtro Estado, modificar a prioridade de regras, desativar ou ativar regras e eliminar regras não utilizadas em cada site.  
+-   **Правила фильтрации состояний.** Вы можете создать новые правила фильтрации сообщений о состоянии, изменить приоритет правил, отключить или включить правила, а также удалить неиспользуемые правила для каждого сайта.  
 
     > [!NOTE]  
-    >  As regras do filtro de estado não suportam a utilização de variáveis de ambiente para executar comandos externos.  
+    >  Правила фильтрации состояния не поддерживают использование переменных среды для выполнения внешних команд.  
 
--   **Relatórios de Estado:** Pode configurar o servidor e relatórios de componente de cliente para modificar a forma como as mensagens de estado são comunicadas ao sistema de estado do Configuration Manager e especificam para onde são enviadas mensagens de estado.  
+-   **Отчеты о состоянии.** Вы можете настроить систему отчетности сервера и клиента и изменить то, каким образом сообщения о состоянии передаются в систему состояния Configuration Manager, а также указать, куда должны отправляться сообщения о состоянии.  
 
     > [!WARNING]  
-    >  Uma vez que as predefinições dos relatórios são adequadas para a maior parte dos ambientes, altere-as com cuidado. Quando aumenta o nível dos relatórios ao escolher a todos os detalhes de estado, pode aumentar a quantidade de mensagens de estado para ser de relatório de estado processados que aumenta a carga de processamento no site do Configuration Manager. Se diminuir o nível dos relatórios de estado, poderá limitar a utilidade dos summarizers de estado.  
+    >  Так как параметры отчетов, используемые по умолчанию, подходят для большинства случаев, будьте внимательны при их изменении. При повышении уровня отчетов о состоянии с включением всех сведений о состоянии в отчет может значительно вырасти количество сообщений о состоянии, подлежащих обработке, что, в свою очередь, повысит нагрузку на сайт Configuration Manager. Уменьшение уровеня отчетов о состоянии может отрицательно сказаться на эффективности средств формирования сводных данных о состоянии.  
 
-Uma vez que o sistema de estado mantém configurações separadas para cada site, é necessário editar cada site individualmente.  
+Так как система состояния предусматривает отдельную конфигурацию для каждого сайта, необходимо настроить систему состояний отдельно для каждого сайта.  
 
-###  <a name="bkmk_configstatus"></a> Procedimentos para configurar o sistema de estado  
+###  <a name="bkmk_configstatus"></a> Процедуры для настройки системы состояния  
 
-##### <a name="to-configure-status-summarizers"></a>Para configurar summarizers de estado  
+##### <a name="to-configure-status-summarizers"></a>Чтобы настроить средства формирования сводных данных о состоянии, выполните следующие действия.  
 
-1.  Na consola do Configuration Manager, navegue para **administração** > **configuração do Site** >**Sites**e, em seguida, selecione o site para o qual pretende configurar o sistema de estado.  
+1.  В консоли Configuration Manager перейдите к рабочей области **Администрирование** > **Конфигурация сайта** >**Сайты** и выберите сайт, для которого требуется настроить систему состояний.  
 
-2.  No separador **Home Page** , no grupo **Definições** , clique em **Summarizers de Estado**.  
+2.  На вкладке **Главная** в группе **Параметры** щелкните элемент **Средства формирования сводных данных по сообщениям о состоянии**.  
 
-3.  Na caixa de diálogo **Summarizers de Estado** , selecione o summarizer que pretende configurar e clique em **Editar** para abrir as propriedades desse summarizer. Se estiver a editar os summarizers Implementação da Aplicação ou Estatísticas da Aplicação, avance para o passo 5. Se estiver a editar o Estado do Componente, avance para o passo 6. Se estiver a editar o summarizer Estado do Sistema de Sites, avance para o passo 7.  
+3.  В диалоговом окне **Средства формирования сводных данных по сообщениям о состоянии** выберите средство, которое требуется настроить, после чего нажмите **Изменить** , чтобы открыть свойства этого средства. Если вы изменяете средство формирования сводных данных о развертывании приложения или статистических данных о приложении, перейдите к шагу 5. Если вы изменяете состояние компонента, перейдите к шагу 6. Если вы изменяете средство формирования сводных данных состояния системы сайта, перейдите к шагу 7.  
 
-4.  Utilize os passos seguintes depois de abrir a página de propriedades do Summarizer de Implementação da Aplicação ou do Summarizer de Estatísticas da Aplicação:  
+4.  Открыв страницу свойств средства "Развертывание приложений" или "Статистика приложений", выполните следующие шаги.  
 
-    1.  No separador **Geral** da página de propriedades dos summarizers, configure os intervalos de resumo e clique em **OK** para fechar a página de propriedades.  
+    1.  На вкладке **Общие** страницы свойств средства настройте интервалы формирования сводных данных и нажмите кнопку **ОК** , чтобы закрыть страницу свойств.  
 
-    2.  Clique em **OK** para fechar a caixa de diálogo **Resumidores de Estado** e concluir este procedimento.  
+    2.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Средства формирования сводных данных по сообщениям о состоянии** и завершить процедуру.  
 
-5.  Utilize os passos seguintes depois de abrir as páginas de propriedades do Summarizer de Estado do Componente:  
+5.  Открыв страницы свойств средства "Состояние компонентов", выполните следующие шаги.  
 
-    1.  No **geral** separador da página de propriedades dos summarizers, configure os valores replicação e de limiar.  
+    1.  На вкладке **Общие** страницы свойств средства настройте значения параметров репликации и порогового периода.  
 
-    2.  No separador **Limiares** , selecione o **Tipo de mensagem** que pretende configurar e clique no nome de um componente na lista **Limiares** .  
+    2.  На вкладке **Пороги** выберите требуемый **Тип сообщения** и щелкните имя компонента в списке **Пороги** .  
 
-    3.  Na caixa de diálogo **Propriedades do Limiar de Estado** , edite os valores dos limiares de aviso e crítico e, em seguida, clique em **OK**.  
+    3.  В диалоговом окне **Свойства порога состояния** измените значения порогов предупреждения и критической ситуации, после чего нажмите кнопку **ОК**.  
 
-    4.  Repita os passos 6.b e 6.c conforme necessário e, quando tiver terminado, clique em **OK** para fechar as propriedades do summarizer.  
+    4.  При необходимости повторите шаги 6.b и 6.c и по окончании работы нажмите кнопку **ОК** , чтобы закрыть свойства средства формирования сводных данных по сообщениям о состоянии.  
 
-    5.  Clique em **OK** para fechar a caixa de diálogo **Resumidores de Estado** e concluir este procedimento.  
+    5.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Средства формирования сводных данных по сообщениям о состоянии** и завершить процедуру.  
 
-6.  Utilize os passos seguintes depois de abrir as páginas de propriedades do Summarizer de Estado do Sistema de Sites:  
+6.  Открыв страницы свойств средства "Состояние системы сайта", выполните следующие шаги.  
 
-    1.  No **geral** separador da página de propriedades dos summarizers, configure os valores de replicação e de agendamento.  
+    1.  На вкладке **Общие** страницы свойств средства настройте значения параметров репликации и расписания.  
 
-    2.  No separador **Limiares** , especifique os valores dos **Limiares predefinidos** para configurar limiares predefinidos para a apresentação dos estados críticos e de aviso.  
+    2.  На вкладке **Пороги** укажите значения параметра **Пороги по умолчанию** , чтобы задать пороговые значения, используемые по умолчанию, для отображения состояний предупреждения и критической ситуации.  
 
-    3.  Para editar os valores de **Objetos de armazenamento**específicos, selecione o objeto na lista **Limiares específicos** e, em seguida, clique no botão **Propriedades** para aceder e editar os limiares de aviso e crítico dos objetos de armazenamento. Clique em **OK** para fechar as propriedades dos objetos de armazenamento.  
+    3.  Чтобы изменить значения для определенных **объектов хранилища**, выберите объект в списке **Особые пороги** и нажмите кнопку **Свойства** , чтобы открыть и изменить пороги отображения предупреждений и сообщений о критической ситуации. Нажмите кнопку **ОК** , чтобы закрыть свойства объектов хранилища.  
 
-    4.  Para criar um novo objeto de armazenamento, clique no botão **Criar Objeto** e especifique os valores dos objetos de armazenamento. Clique em **OK** para fechar as propriedades dos objetos.  
+    4.  Чтобы создать новый объект хранилища, нажмите кнопку **Создать объект** и укажите значения для объекта хранилища. Нажмите кнопку **ОК** , чтобы закрыть свойства объектов.  
 
-    5.  Para eliminar um objeto de armazenamento, selecione o objeto e clique no botão **Eliminar** .  
+    5.  Чтобы удалить объект хранилища, выберите объект и нажмите кнопку **Удалить** .  
 
-    6.  Repita os passos 7 7 conforme necessário. Quando tiver terminado, clique em **OK** para fechar as propriedades do summarizer.  
+    6.  При необходимости повторите шаги с 7.b по 7.e. Выполнив необходимые действия, нажмите кнопку **ОК** , чтобы закрыть свойства средства формирования сводных данных по сообщениям о состоянии.  
 
-    7.  Clique em **OK** para fechar a caixa de diálogo **Resumidores de Estado** e concluir este procedimento.  
+    7.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Средства формирования сводных данных по сообщениям о состоянии** и завершить процедуру.  
 
-##### <a name="to-create-a-status-filter-rule"></a>Para criar uma regra do filtro de estado  
+##### <a name="to-create-a-status-filter-rule"></a>Чтобы создать правило фильтрации сообщений о состоянии, выполните следующие действия.  
 
-1.  Na consola do Configuration Manager, navegue para **administração** > **configuração do Site** >**Sites**e, em seguida, selecione o site onde pretende configurar o sistema de estado.  
+1.  В консоли Configuration Manager перейдите к рабочей области **Администрирование** > **Конфигурация сайта** >**Сайты** и выберите сайт, для которого требуется настроить систему состояния.  
 
-2.  No separador **Home Page** , no grupo **Definições** , clique em **Regras do Filtro de Estado**. É aberta a caixa de diálogo **Regras do Filtro de Estado** .  
+2.  На вкладке **Главная** в группе **Параметры** щелкните элемент **Правила фильтрации сообщений о состоянии**. Откроется диалоговое окно **Правила фильтрации сообщений о состоянии** .  
 
-3.  Clique em **Criar**.  
+3.  Нажмите кнопку **Создать**.  
 
-4.  No **Assistente de Criação de Regra de Filtro de Estado**, na página **Geral** , especifique um nome para a nova regra do filtro de estado e os critérios de correspondência de mensagens para a regra e, em seguida, clique em **Seguinte**.  
+4.  В **мастере создания правил фильтрации сообщений о состоянии**на странице **Общие** укажите имя нового правила фильтрации сообщений о состоянии и критерий соответствия сообщений, после чего нажмите кнопку **Далее**.  
 
-5.  Na página **Ações** , especifique as ações a executar quando uma mensagem de estado corresponde à regra de filtro e clique em **Seguinte**.  
+5.  На странице **Действия** укажите действия, которые должны выполняться при обнаружении соответствующего сообщения о состоянии, и нажмите кнопку **Далее**.  
 
-6.  Na página **Resumo** , reveja os detalhes da nova regra e, em seguida, conclua o assistente.  
+6.  На странице **Сводка** просмотрите подробные сведения о новом правиле, после чего завершите работу мастера.  
 
     > [!NOTE]  
-    >  Apenas o Configuration Manager requer que a nova regra de filtro de estado tem um nome. Se a regra for criada mas não forem especificados quaisquer critérios para processar mensagens de estado, a regra do filtro de estado não terá qualquer efeito. Este comportamento permite criar e organizar regras antes de configurar os critérios do filtro de estado para cada regra.  
+    >  Единственным обязательным требованием Configuration Manager к новому правилу фильтрации сообщений о состоянии является наличие у правила имени. Если правило создано, но для него не указан критерий обработки сообщений о состоянии, правило не будет работать. Это позволяет создавать и упорядочивать правила перед настройкой критериев фильтрации сообщений о состоянии для каждого правила.  
 
-##### <a name="to-modify-or-delete-a-status-filter-rule"></a>Para modificar ou eliminar uma regra do filtro de estado  
+##### <a name="to-modify-or-delete-a-status-filter-rule"></a>Изменение и удаление правила фильтрации сообщений о состоянии  
 
-1.  Na consola do Configuration Manager, navegue para **administração** > **configuração do Site** >**Sites**e, em seguida, selecione o site onde pretende configurar o sistema de estado.  
+1.  В консоли Configuration Manager перейдите к рабочей области **Администрирование** > **Конфигурация сайта** >**Сайты** и выберите сайт, для которого требуется настроить систему состояния.  
 
-2.  No separador **Home Page** , no grupo **Definições** , clique em **Regras do Filtro de Estado**.  
+2.  На вкладке **Главная** в группе **Параметры** щелкните элемент **Правила фильтрации сообщений о состоянии**.  
 
-3.  Na caixa de diálogo **Regras do Filtro de Estado** , selecione a regra que pretende modificar e execute uma das seguintes ações:  
+3.  В диалоговом окне **Правила фильтрации сообщений о состоянии** выберите правило, которое требуется изменить, после чего выполните одно из следующих действий.  
 
-    -   Clique em **Aumentar Prioridade** ou em **Diminuir Prioridade** para alterar a ordem de processamento da regra do filtro de estado. Em seguida, selecione outra ação ou vá para o passo 8 deste procedimento para concluir esta tarefa.  
+    -   Щелкните **Увеличить приоритет** или **Уменьшить приоритет** , чтобы изменить очередность обработки элементов правилом фильтрации. Затем выберите другое действие или перейдите к шагу 8 этой процедуры, чтобы завершить выполнение задачи.  
 
-    -   Clique em **Desativar** ou em **Ativar** para alterar o estado da regra. Depois de alterar o estado da regra, selecione outra ação ou vá para o passo 8 deste procedimento para concluir esta tarefa.  
+    -   Нажмите **Отключить** или **Включить** , чтобы изменить состояние правила. После изменения состояния правила выберите другое действие или перейдите к шагу 8 этой процедуры, чтобы завершить выполнение задачи.  
 
-    -   Clique em **Eliminar** se pretender eliminar a regra do filtro de estado deste site e, em seguida, clique em **Sim** para confirmar a ação. Depois de eliminar uma regra, selecione outra ação ou vá para o passo 8 deste procedimento para concluir esta tarefa.  
+    -   Нажмите кнопку **Удалить** , чтобы удалить правило фильтрации сообщений о состоянии с данного сайта, после чего нажмите кнопку **Да** , чтобы подтвердить действие. После удаления правила выберите другое действие или перейдите к шагу 8 этой процедуры, чтобы завершить выполнение задачи.  
 
-    -   Clique em **Editar** se pretender alterar os critérios para a regra da mensagem de estado e avance para o passo 5 deste procedimento.  
+    -   Щелкните **Изменить** , чтобы изменить критерии правила сообщений о состоянии, и перейдите к шагу 5 этой процедуры.  
 
-4.  No separador **Geral** da caixa de diálogo das propriedades da regra do filtro de estado, modifique a regra e os critérios de correspondência de mensagens.  
+4.  На вкладке **Общие** диалогового окна свойств правила фильтрации сообщений о состоянии измените правило и критерий соответствия сообщений.  
 
-5.  No separador **Ações** , modifique as ações a executar quando uma mensagem de estado corresponde à regra de filtro.  
+5.  На вкладке **Действия** измените действия, которые должны выполняться при обнаружении соответствующего сообщения о состоянии.  
 
-6.  Clique em **OK** para guardar as alterações.  
+6.  Нажмите кнопку **ОК** , чтобы сохранить изменения.  
 
-7.  Clique em **OK** para fechar a caixa de diálogo **Regras do Filtro de Estado** .  
+7.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Правила фильтрации сообщений о состоянии** .  
 
-##### <a name="to-configure-status-reporting"></a>Para configurar relatórios de estado  
+##### <a name="to-configure-status-reporting"></a>Настройка отчетов о состоянии  
 
-1.  Na consola do Configuration Manager, navegue para **administração** > **configuração do Site** > **Sites**e, em seguida, selecione o site onde pretende configurar o sistema de estado.  
+1.  В консоли Configuration Manager перейдите к рабочей области **Администрирование** > **Конфигурация сайта** > **Сайты** и выберите сайт, для которого требуется настроить систему состояния.  
 
-2.  No separador **Home Page** , no grupo **Definições** , clique em **Configurar Componentes do Site**e selecione **Relatórios de Estado**.  
+2.  На вкладке **Главная** в группе **Параметры** выберите **Настройка компонентов сайта**и **Отчеты о состоянии**.  
 
-3.  Na caixa de diálogo **Propriedades do Componente de Relatórios de Estado** , especifique as mensagens de estado do componente de servidor e de cliente que pretende comunicar ou registar:  
+3.  В диалоговом окне **Свойства компонента формирования отчетов о состоянии** укажите сообщения о состоянии серверных и клиентских компонентов, которые требуется отображать или заносить в журнал.  
 
-    1.  Configurar **relatório** para enviar mensagens de estado para o sistema de mensagens de estado do Configuration Manager.  
+    1.  Настройте для **отчета** отправку сообщений о состоянии в систему сообщений о состоянии Configuration Manager.  
 
-    2.  Configurar **Registo** para escrever o tipo e a gravidade das mensagens de estado para o registo de eventos do Windows.  
+    2.  Настройте **Журнал** на запись типа и степени важности сообщений о состоянии в журнал событий Windows.  
 
-4.  Clique em **OK**.  
+4.  Нажмите кнопку **ОК**.  
 
-###  <a name="BKMK_MonitorSystemStatus"></a> Monitorizar o estado do sistema do Configuration Manager  
- **Estado do sistema** no Configuration Manager fornece uma descrição geral das operações gerais de sites e site de operações do servidor da sua hierarquia. Pode revelar problemas operacionais para servidores do sistema de sites ou componentes e pode utilizar o estado do sistema para rever detalhes específicos de diferentes operações do Configuration Manager. Monitorizar o estado do sistema de **estado do sistema** o nó do **monitorização** área de trabalho na consola do Configuration Manager.  
+###  <a name="BKMK_MonitorSystemStatus"></a> Мониторинг системы состояния Configuration Manager  
+ **Состояние системы** в Configuration Manager позволяет получить общие сведения об основных операциях сайтов и операциях серверов сайтов в иерархии. Оно выявляет эксплуатационные проблемы на серверах или в компонентах системы сайта, поэтому состояние системы можно использовать для просмотра конкретных данных по различным операциям Configuration Manager. Мониторинг состояния системы выполняется из узла **Состояние системы** рабочей области **Мониторинг** в консоли Configuration Manager.  
 
- A maioria das funções de sistema de sites do Configuration Manager e componentes geram mensagens de estado. Os detalhes das mensagens de estado são registados no registo operacional de cada cliente, mas também são enviados para a base de dados do site, onde são resumidos e apresentados num rollup geral do estado de funcionamento de cada componente ou sistema de sites. Estes rollups de mensagens de estado fornecem detalhes de informações de operações regulares, avisos e detalhes de erros. Pode configurar os limiares em que os avisos ou erros são ativados e otimizar o sistema para assegurar que a informação de rollup ignora problemas conhecidos que não sejam relevantes para si e chama a atenção para problemas graves nos servidores ou para operações de componentes que pretenda investigar.  
+ Большинство ролей и компонентов системы сайта Configuration Manager создают сообщения о состоянии. Сведения в сообщениях о состоянии заносятся в журнал операций каждого компонента, а также отправляются в базу данных, где из них составляется сводка данных о работоспособности каждого компонента или системы сайта. Такие сводки сообщений о состоянии содержат подробные сведения о регулярных операциях, предупреждениях и ошибках. Можно настроить пороговые значения, при которых вызываются предупреждения и сообщения об ошибках, а также настроить систему на игнорирование известных проблем, не связанных с текущей ситуацией, в сводных данных, при изучении текущих проблем на серверах или для выполнения операций компонентов, которые требуется исследовать.  
 
- O estado do sistema é replicado para outros sites numa hierarquia como dados do site, não como dados globais. Isto significa que só pode ver o estado para o site ao qual se liga a consola do Configuration Manager e todos os sites subordinados abaixo desse site. Por conseguinte, considere ligar a consola do Configuration Manager para o site de nível superior da hierarquia quando visualizar o estado do sistema.  
+ Состояние системы реплицируется на другие сайты в иерархии в виде данных сайта, а не глобальных данных. Это означает, что может отображаться только состояние сайта, к которому подключается консоль Configuration Manager, а также состояние всех дочерних сайтов этого сайта. Следовательно, рекомендуется подключить консоль Configuration Manager к сайту верхнего уровня в иерархии при просмотре состояния системы.  
 
- Utilize a tabela seguinte para identificar as diferentes vistas de estado do sistema e quando utilizar cada uma delas.  
+ Используйте следующую таблицу для определения различных представлений состояния системы, а также того, когда каждое из них следует использовать.  
 
-|Nó|Mais informações|  
+|Узел|Дополнительные сведения|  
 |----------|----------------------|  
-|Estado do Site|Utilize este nó para ver um rollup do estado de cada sistema de sites para rever o estado de funcionamento de cada servidor do sistema de sites. O estado de funcionamento do sistema de sites é determinado por limiares configurados para cada site no **Summarizer de Estado do Sistema de Sites**.<br /><br /> É possível ver as mensagens de estado de cada sistema de sites, definir limiares para mensagens de estado e gerir a operação dos componentes nos sistemas de sites através do **Gestor do Serviço do Configuration Manager**.|  
-|Estado do Componente|Utilize este nó para ver um rollup do Estado de cada componente do Configuration Manager para rever o estado de funcionamento operacional do componente. O estado de funcionamento do componente do site é determinado por limiares configurados para cada site no **Summarizer de Estado do Componente**.<br /><br /> É possível ver as mensagens de estado de cada componente, definir limiares para mensagens de estado e gerir a operação de componentes através do **Gestor do Serviço do Configuration Manager**.|  
-|Registos em Conflito|Utilize este nó para ver mensagens de estado sobre clientes que poderão ter registos em conflito.<br /><br /> O Configuration Manager utiliza o ID de hardware para tentar identificar clientes que possam ser duplicados e alertá-lo para os registos em conflito. Por exemplo, se tiver de reinstalar um computador, o ID de hardware será o mesmo, mas o GUID que o Configuration Manager utiliza poderá ter sido alterado.|  
-|Consultas de Mensagens de Estado|Utilize este nó para consultar mensagens de estado de eventos específicos e detalhes relacionados. É possível utilizar consultas de mensagens de estado para localizar as mensagens de estado relacionadas com eventos específicos.<br /><br /> Muitas vezes, pode utilizar consultas de mensagens de estado para identificar quando um componente específico, a operação ou o objecto do Gestor de configuração foi modificado e a conta que foi utilizada para efetuar a modificação. Por exemplo, pode executar a consulta incorporada para **Coleções Criadas, Modificadas ou Eliminadas** para identificar quando uma coleção específica foi criada e a conta de utilizador utilizada para criar a coleção.|  
+|Состояние сайта|Этот узел предназначен для отображения сводки состояния каждой системы сайта с целью ознакомления с данными о работоспособности для каждого сервера системы сайта. Работоспособность системы сайта определяется пороговыми значениями, настраиваемыми для каждого сайта в **Средстве формирования сводных данных об изменении состояния системы**.<br /><br /> Можно просматривать сообщения о состоянии для каждой системы сайта, настраивать пороговые значения для сообщений о состоянии, а также управлять работой компонентов на системах сайтов, используя **Configuration Manager Service Manager**.|  
+|Состояние компонента|Этот узел предназначен для отображения сводных данных по состоянию каждого компонента Configuration Manager с целью определения работоспособности компонента. Работоспособность компонента определяется пороговыми значениями, настраиваемыми для каждого сайта в **Средстве формирования сводных данных о состоянии компонентов**.<br /><br /> Можно просматривать сообщения о состоянии для каждого компонента, настраивать пороговые значения для сообщений о состоянии, а также управлять работой компонентов, используя **Configuration Manager Service Manager**.|  
+|Конфликтующие записи|Этот узел используется для просмотра сообщений о состоянии для клиентов, которые могут иметь конфликтующие записи.<br /><br /> Configuration Manager пытается определить дубликаты клиентов по идентификатору оборудования и сообщает о наличии конфликтующих записей. Например, если необходимо переустановить компьютер, идентификатор оборудования останется прежним, но GUID, используемый Configuration Manager, может измениться.|  
+|Запросы сообщений о состоянии|Используйте этот узел для запроса сообщений о состоянии для определенных событий и связанных подробностей. С помощью запросов сообщений о состоянии можно найти сообщения о состоянии, связанные с определенными событиями.<br /><br /> Часто с помощью запросов сообщений о состоянии можно выяснить, когда был изменен определенный компонент, операция или объект Configuration Manager, а также учетную запись, которая использовалась для внесения изменения. Например, можно выполнить встроенный запрос **Созданные, измененные или удаленные коллекции** , чтобы определить, когда была создана определенная коллекция, и какая при этом использовалась учетная запись пользователя.|  
 
-####  <a name="bkmk_managestatus"></a> Gerir o estado do site e o estado do componente  
- Utilize as informações seguintes para gerir o estado do site e o estado do componente:  
+####  <a name="bkmk_managestatus"></a> Управление состоянием сайта и состоянием компонента  
+ Используйте следующие сведения для управления состоянием сайта и компонента.  
 
--   Para configurar limiares para o sistema de estado, consulte [Procedimentos para configurar o sistema de estado](#bkmk_configstatus).  
+-   Для настройки пороговых значений для состояния системы см. раздел [Процедуры для настройки системы состояния](#bkmk_configstatus).  
 
--   Para gerir componentes individuais no Configuration Manager, utilize o **do serviço do Configuration Manager**.  
+-   Для управления отдельными компонентами в Configuration Manager используйте **Configuration Manager Service Manager**.  
 
-####  <a name="bkmk_view"></a> Ver mensagens de estado  
- É possível ver as mensagens de estado para componentes e servidores de sistema de sites individuais.  
+####  <a name="bkmk_view"></a> Просмотр сообщений о состоянии  
+ Сообщения о состоянии можно просматривать для отдельных серверов систем сайта и компонентов  
 
- Para ver mensagens de estado na consola do Configuration Manager, selecione um componente ou servidor do sistema de site específico e, em seguida, clique em **Mostrar mensagens**. Ao visualizar mensagens, é possível selecionar a visualização de tipos de mensagens específicos ou mensagens de um período de tempo específico, bem como filtrar os resultados com base em detalhes das mensagens de estado.  
+ Для просмотра сообщений о состоянии в консоли Configuration Manager выберите определенный сервер или компонент системы сайта, после чего нажмите кнопку **Показать сообщения**. При просмотре сообщений можно выбирать определенные типы сообщений, а также сообщения за определенный период времени. Кроме того, можно применять фильтры к результатам для просмотра определенных сообщений о состоянии.  
 
-##  <a name="bkmk_Alerts"></a> Alertas  
- O Configuration Manager alertas são geradas por algumas operações quando ocorre uma condição específica.  
+##  <a name="bkmk_Alerts"></a> Предупреждения  
+ Оповещения Configuration Manager генерируются некоторыми операциями при выполнении определенного условия.  
 
--   Normalmente, os alertas são gerados quando ocorre um erro que é necessário resolver  
+-   Как правило, предупреждения создаются, когда возникает ошибка, которую необходимо исправить.  
 
--   Os alertas podem também ser gerados para o avisar de que existe uma condição, para que possa continuar a monitorizar a situação  
+-   Кроме того, оповещения могут генерироваться с целью информирования о существовании условия для дальнейшего мониторинга ситуации.  
 
--   Alguns alertas são configurados por si, tais como alertas para o Endpoint Protection e o estado do cliente , enquanto outros alertas são configuradas automaticamente  
+-   Некоторые оповещения настраиваете вы, например оповещения о состоянии Endpoint Protection и клиента, другие оповещения будут настроены автоматически.  
 
--   Pode configurar subscrições de alertas, que podem então enviar detalhes por e-mail, melhorando a deteção de problemas chave  
+-   Вы можете настроить подписки для оповещений, которые затем могут отправить подробности по электронной почте, увеличивая осведомленность о ключевых проблемах.  
 
- Utilize a tabela seguinte para obter informações sobre como configurar alertas e subscrições de alertas no Configuration Manager:  
+ В таблице ниже приведены сведения о настройке оповещений и подписок на оповещения в Configuration Manager.  
 
 
-|Ação|Mais Informações|  
+|Действие|Дополнительные сведения|  
 |------------|----------------------|  
-|Configurar alertas de Endpoint Protection para uma coleção|Consulte **como configurar alertas para o Endpoint Protection no Configuration Manager** no [configurar o Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)|  
-|Configurar alertas de estado do cliente para uma coleção|Consulte [como configurar o estado do cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).|  
-|Gerir alertas do Configuration Manager|Consulte a secção [Management tasks for alerts](#BKMK_Manage) deste tópico.|  
-|Configurar subscrições de e-mail para alertas|Consulte a secção [Management tasks for alerts](#BKMK_Manage) deste tópico.|  
-|Monitorizar alertas|Consulte a secção [Monitorizar alertas](#BKMK_MonitorAlerts)|  
+|Настройка оповещений Endpoint Protection для коллекции|См. подраздел **Настройка оповещений для Endpoint Protection в Configuration Manager** раздела [Настройка Endpoint Protection в System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md).|  
+|Настройка оповещений о состоянии клиента для коллекции|См. раздел [Настройка состояния клиента в System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).|  
+|Управление оповещениями Configuration Manager|См. раздел [Management tasks for alerts](#BKMK_Manage) этой темы.|  
+|Настройка подписок электронной почты для оповещений|См. раздел [Management tasks for alerts](#BKMK_Manage) этой темы.|  
+|Мониторинг оповещений|См. раздел [Мониторинг оповещений](#BKMK_MonitorAlerts)|  
 
 ###  <a name="BKMK_Manage"></a> Management tasks for alerts  
 
-##### <a name="to-manage-general-alerts"></a>Para gerir alertas gerais  
+##### <a name="to-manage-general-alerts"></a>Управление общими оповещениями  
 
-1.  Na consola do Configuration Manager, navegue para **monitorização** > **alertas**e, em seguida, selecione uma tarefa de gestão.  
+1.  В консоли Configuration Manager перейдите к рабочей области **Наблюдение** > **Оповещения**, а затем выберите задачу управления.  
 
-  Utilize a tabela seguinte para obter mais informações sobre as tarefas de gestão que podem necessitar de algumas informações antes de as selecionar.  
+  Для получения дополнительных сведений о задачах управления, которые могут требовать указания некоторой информации перед их выбором, используйте следующую таблицу.  
 
-|Tarefa de gestão|Detalhes|  
+|Задача управления|Подробные сведения|  
     |---------------------|-------------|  
-    |**Configure**|Abre o  *&lt;nome do alerta*\>**propriedades** caixa de diálogo onde pode modificar o nome, a gravidade e os limiares do alerta selecionado. Se alterar a gravidade do alerta, esta configuração afeta a forma como os alertas são apresentados na consola do Configuration Manager.|  
-    |**Editar Comentário**|Introduza um comentário para os alertas selecionados. Estes comentários são apresentados com o alerta na consola do Configuration Manager.|  
-    |**Adiar**|Suspende a monitorização do alerta até que a data especificada seja atingida. Nessa altura, o estado do alerta é atualizado.<br /><br /> Só é possível adiar um alerta quando o mesmo está ativado.|  
-    |**Criar subscrição**|Abre a caixa de diálogo **Nova Subscrição** , onde pode criar uma subscrição de e-mail para o alerta selecionado.|  
+    |**Настройте**|Откроется диалоговое окно *&lt;имя оповещения*\>**Свойства**, где вы можете изменить имя, серьезность и пороговые значения для выбранного оповещения. При изменении серьезности оповещения эта конфигурация повлияет на способ отображения оповещений в консоли Configuration Manager.|  
+    |**Изменить комментарий**|Введите комментарий для выбранных оповещений. Эти комментарии отображаются с оповещением в консоли Configuration Manager.|  
+    |**Отложить**|Приостанавливает мониторинг оповещения до наступления указанной даты. После ее наступления состояние оповещения обновляется.<br /><br /> Вы можете отложить оповещение только тогда, когда оно активно.|  
+    |**Создать подписку**|Открывает диалоговое окно **Новая подписка** , где вы можете создавать подписки электронной почты для выбранного оповещения.|  
 
-##### <a name="to-configure-endpoint-protection-alerts-for-a-collection"></a>Para configurar alertas do Endpoint Protection para uma coleção  
+##### <a name="to-configure-endpoint-protection-alerts-for-a-collection"></a>Настройка оповещений Endpoint Protection для коллекции  
 
-1.  pendente  
+1.  Ожидание  
 
-##### <a name="to-configure-client-status-alerts-for-a-collection"></a>Para configurar alertas de estado do cliente para uma coleção  
+##### <a name="to-configure-client-status-alerts-for-a-collection"></a>Настройка оповещений о состоянии клиента для коллекции  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** >   **coleções de dispositivos**.  
+1.  В консоли Configuration Manager выберите **Активы и соответствие** >   **Коллекции устройств**.  
 
-2.  Na lista **Coleções de Dispositivos** , selecione a coleção para a qual pretende configurar alertas e, no separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
-
-    > [!NOTE]  
-    >  Não é possível configurar alertas de coleções de utilizadores.  
-
-3.  No **alertas** separador do  *&lt;nome da coleção*\>**propriedades** caixa de diálogo, clique em **adicionar**.  
+2.  В списке **Коллекции устройств** выберите коллекцию, для которой требуется настроить оповещения, затем на вкладке **Главная** в группе **Свойства** щелкните элемент **Свойства**.  
 
     > [!NOTE]  
-    >  O separador **Alertas** só está visível se a função de segurança a que o utilizador está associado tiver permissões para alertas.  
+    >  Для коллекций пользователей оповещения настроить нельзя.  
 
-4.  Na caixa de diálogo **Adicionar Novos Alertas da Coleção** , escolha os alertas que pretende que sejam gerados quando os limites do estado do cliente são inferiores a um valor específico e, em seguida, clique em **OK**.  
-
-5.  Na lista **Condições** do separador **Alertas** , selecione cada um dos alertas do estado do cliente e especifique as informações seguintes.  
-
-    -   **Nome do alerta** - aceite o nome predefinido ou introduza um novo nome para o alerta.  
-
-    -   **Gravidade do alerta** – na lista pendente, escolha o nível de alerta que será apresentado na consola do Configuration Manager.  
-
-    -   **Emitir um alerta** -especifique a percentagem de limiar do alerta.  
-
-6.  Clique em **OK** para fechar o  *&lt;nome da coleção*\>**propriedades** caixa de diálogo.  
-
-##### <a name="to-configure-email-notification-for-alerts"></a>Para configurar notificações por e-mail para os alertas  
-
-1.  Na consola do Configuration Manager, navegue para **monitorização** > **alertas** > **subscrições**.  
-
-2.  No separador **Home Page** , no grupo **Criar** , clique em **Configurar Notificação por Correio Eletrónico**.  
-
-3.  Na caixa de diálogo **Propriedades do Componente de Notificação por E-mail** , especifique as seguintes informações:  
-
-    -   **Ativar notificação por e-mail para alertas**: Selecione esta caixa de verificação para ativar o Configuration Manager para utilizar um servidor SMTP para enviar alertas por e-mail.  
-
-    -   **FQDN ou endereço IP do servidor SMTP para enviar alertas por e-mail**: Introduza o nome de domínio completamente qualificado (FQDN) ou endereço IP e a porta SMTP do servidor de e-mail que pretende utilizar para estes alertas.  
-
-    -   **Conta de ligação do servidor SMTP**: Especifique o método de autenticação para o Configuration Manager para utilizar para ligar ao servidor de e-mail.  
-
-    -   **Endereço do remetente para enviar alertas por e-mail**: Especifique o endereço de e-mail a partir da qual são enviados e-mails de alerta.  
-
-    -   **Testar servidor SMTP**: Envia um e-mail de teste para o endereço de e-mail especificado no **endereço do remetente para enviar alertas por e-mail**.  
-
-4.  Clique em **OK** para guardar as definições e fechar a caixa de diálogo **Propriedades dos Componentes das Definições de E-mail** .  
-
-##### <a name="to-subscribe-to-email-alerts"></a>Para subscrever alertas por e-mail  
-
-1.  Na consola do Configuration Manager, navegue para **monitorização** > **alertas**.  
-
-2.  Selecione um alerta e, em seguida, no separador **Home Page** , no grupo **Subscrição** , clique em **Criar subscrição**.  
-
-3.  Na caixa de diálogo **Nova Subscrição** , especifique as seguintes informações:  
-
-    -   **Nome**: Introduza um nome para identificar a subscrição de correio eletrónico. Pode utilizar até 255 carateres.  
-
-    -   **Endereço de correio eletrónico**: Introduza os endereços de e-mail que pretende que o alerta seja enviado. Pode separar os vários endereços de e-mail com ponto e vírgula.  
-
-    -   **Idioma do e-mail**: Na lista, especifique o idioma do e-mail.  
-
-4.  Clique em **OK** para fechar a caixa de diálogo **Nova Subscrição** e para criar a subscrição de e-mail.  
+3.  На вкладке **Оповещения** в диалоговом окне *&lt;Свойства*\>**имя коллекции** нажмите кнопку **Добавить**.  
 
     > [!NOTE]  
-    >  Pode eliminar e editar subscrições na área de trabalho **Monitorização** , expandindo o nó **Alertas** e, em seguida, clique no nó **Subscrições** .  
+    >  Вкладка **Оповещения** отображается только в том случае, если роль безопасности, с которой вы связаны, имеет разрешения на получение оповещений.  
 
-###  <a name="BKMK_MonitorAlerts"></a> Monitorizar alertas  
- Para ver alertas, utilize o nó **Alertas** da área de trabalho **Monitorização** . Os alertas têm um dos seguintes estados de alerta:  
+4.  В диалоговом окне **Добавить новые оповещения коллекций** выберите оповещения, которые должны генерироваться, если пороговые значения состояния клиентов падают ниже определенной величины. Затем нажмите кнопку **ОК**.  
 
--   **Nunca ativado**: A condição do alerta não foi cumprida.  
+5.  В списке **Условия** на вкладке **Оповещения** выберите каждое оповещение о состоянии клиента и затем укажите следующие сведения.  
 
--   **Active Directory**: A condição do alerta foi cumprida.  
+    -   **Имя оповещения** — примите имя по умолчанию или введите новое имя оповещения.  
 
--   **Cancelado**: A condição de um alerta ativo já não for cumprida. Este estado indica que a condição que causou o alerta está agora resolvida.  
+    -   **Серьезность предупреждения** — в раскрывающемся списке выберите уровень оповещения, который будет отображаться в консоли Configuration Manager.  
 
--   **Adiada**: Um utilizador administrativo configurou o Configuration Manager para avaliar o estado do alerta posteriormente.  
+    -   **Отображать оповещение** — укажите пороговое значение для оповещения (в процентах).  
 
--   **Desativado**: O alerta foi desativado por um utilizador administrativo. Quando um alerta está neste estado, o Configuration Manager atualiza o alerta mesmo que o estado do alerta se altere.  
+6.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *&lt;Свойства*\>**имя коллекции**.  
 
- Pode efetuar uma das seguintes ações quando o Configuration Manager gera um alerta:  
+##### <a name="to-configure-email-notification-for-alerts"></a>Настройка отправки уведомлений в случае вывода оповещений.  
 
--   Resolver a condição que causou o alerta, por exemplo, resolver um problema de rede ou um problema de configuração que gerou o alerta. Depois do Configuration Manager detetar que já não existe o problema, o estado de alerta alterado para **Cancelar**.  
+1.  В консоли Configuration Manager последовательно выберите **Наблюдение** > **Оповещения** > **Подписки**.  
 
--   Se o alerta é um problema conhecido, pode adiar o alerta durante um período de tempo específico. Nessa altura, o Configuration Manager atualiza o alerta para o estado atual.  
+2.  На вкладке **Главная** в группе **Создать** щелкните элемент **Настройка уведомлений по электронной почте**.  
 
-     Apenas é possível adiar um alerta quando está ativo.  
+3.  В диалоговом окне **Свойства компонента уведомлений по электронной почте** укажите следующие параметры.  
 
--   Pode editar o **Comentário** de um alerta para que outros utilizadores administrativos possam ver que tem conhecimento do alerta. Por exemplo, pode identificar no comentário a forma de resolver a condição, fornecer informações sobre o estado atual da condição ou explicar por que motivo adiou o alerta.  
+    -   **Включить уведомление по электронной почте для оповещений**: установите этот флажок, чтобы разрешить Configuration Manager использовать сервер SMTP для отправки оповещений по электронной почте.  
+
+    -   **Полное доменное имя или IP-адрес SMTP-сервера для отправки оповещений по электронной почте:**введите полное доменное имя или IP-адрес и номер порта SMTP для сервера электронной почты, который предполагается использовать для отправки оповещений.  
+
+    -   **Учетная запись подключения SMTP-сервера**: укажите метод проверки подлинности, который Configuration Manager будет использовать для подключения к серверу электронной почты.  
+
+    -   **Адрес электронной почты отправителя оповещений:**укажите адрес электронной почты, с которого будут отправляться оповещения.  
+
+    -   **Проверить SMTP-сервер**: отправка тестового сообщения на адрес электронной почты, указанный в поле **Адрес электронной почты отправителя оповещений**.  
+
+4.  Нажмите кнопку **ОК** , чтобы сохранить параметры и закрыть диалоговое окно **Свойства компонента уведомлений по электронной почте** .  
+
+##### <a name="to-subscribe-to-email-alerts"></a>Подписка на оповещения по электронной почте  
+
+1.  В консоли Configuration Manager последовательно выберите **Наблюдение** > **Оповещения**.  
+
+2.  Выберите оповещение, затем на вкладке **Главная** в группе **Подписка** щелкните элемент **Создать подписку**.  
+
+3.  В диалоговом окне **Новая подписка** укажите следующие сведения.  
+
+    -   **Имя:**введите имя для идентификации подписки электронной почты. Можно использовать не более 255 символов.  
+
+    -   **Адрес электронной почты:**введите адреса электронной почты, на которые будут отправляться оповещения. Несколько адресов электронной почты можно разделить точкой с запятой.  
+
+    -   **Язык электронной почты:**в списке выберите язык для сообщений электронной почты.  
+
+4.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Новая подписка** и создать подписку электронной почты.  
+
+    > [!NOTE]  
+    >  Чтобы удалить или изменить подписки, в рабочей области **Мониторинг** разверните узел **Оповещения** , а затем щелкните узел **Подписки** .  
+
+###  <a name="BKMK_MonitorAlerts"></a> Мониторинг оповещений  
+ Можно просматривать предупреждения в узле **Оповещения** в рабочей области **Мониторинг** . Предупреждения имеют одно из следующих состояний:  
+
+-   **Никогда не активировалось:**условие предупреждения не было выполнено.  
+
+-   **Активно:**условие предупреждения выполнено.  
+
+-   **Отменено:**условие активного предупреждения больше не выполняется. Это состояние указывает, что условие, вызвавшее предупреждение, уже устранено.  
+
+-   **Отложено**: пользователь с правами администратора настроил Configuration Manager для проверки состояния оповещения в более позднее время.  
+
+-   **Отключено:**это предупреждение было отключено пользователем с правами администратора. Когда оповещение находится в этом состоянии, Configuration Manager не обновляет оповещение даже при изменении его состояния.  
+
+ Когда Configuration Manager создает оповещение, можно выполнить одно из следующих действий:  
+
+-   Устранить условие, которое вызвало предупреждение, например, устранить неполадку в сети или неполадку конфигурации. Когда Configuration Manager обнаружит, что неполадка отсутствует, состояние оповещения изменится на **Отмена**.  
+
+-   Если оповещение вызвано известной неполадкой, можно отложить оповещение на определенное время. Configuration Manager в указанное время обновит оповещение, установив его текущее состояние.  
+
+     Оповещение можно отложить только тогда, когда оно активно.  
+
+-   Можно изменить поле **Комментарий** оповещения, чтобы другие пользователи знали о том, что оповещение было получено. Например, в комментарии можно указать, как решить проблему, предоставить информацию о текущем положении дел или пояснить, почему оповещение было отложено.  

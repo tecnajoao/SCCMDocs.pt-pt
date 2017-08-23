@@ -1,6 +1,6 @@
 ---
-title: Suporte internacional | Microsoft Docs
-description: "Configure o System Center Configuration Manager para estar em conformidade com requisitos internacionais específicos."
+title: "Международная поддержка | Документы Майкрософт"
+description: "Настройка System Center Configuration Manager в соответствии с определенными международными требованиями."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,28 +17,28 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 3bab51be96445f766e8f5bbf54eee854e5d09cee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="international-support-in-system-center-configuration-manager"></a>Suporte internacional no System Center Configuration Manager
+# <a name="international-support-in-system-center-configuration-manager"></a>Международная поддержка в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-As secções seguintes fornecem detalhes técnicos para ajudar a tornar o System Center Configuration Manager em conformidade com requisitos internacionais específicos.  
+В следующих разделах приводятся технические сведения, помогающие привести System Center Configuration Manager в соответствие с определенными международными требованиями.  
 
-## <a name="gb18030-requirements"></a>Requisitos da GB18030  
- O Configuration Manager cumprem as normas definidas na GB18030 para que possa utilizar o Configuration Manager na China. Uma implementação do Configuration Manager tem de ter as seguintes configurações para satisfazer os requisitos da GB18030:  
+## <a name="gb18030-requirements"></a>Требования GB18030  
+ Configuration Manager отвечает стандартам, установленным в GB18030, поэтому Configuration Manager можно использовать в Китае. Для соответствия требованиям GB18030 при развертывании Configuration Manager должны использоваться следующие конфигурации.  
 
--   Cada computador do servidor do site e o computador SQL Server que utiliza com o Configuration Manager tem de utilizar um sistema operativo chinês.  
+-   На каждом компьютере сервера сайта и компьютере с SQL Server, используемом с Configuration Manager, должна быть установлена операционная система на китайском языке.  
 
--   Cada base de dados do site e cada instância do SQL Server da hierarquia deve utilizar o mesmo agrupamento, e tem de ser um dos seguintes:  
+-   В базе данных каждого сайта и в каждом экземпляре SQL Server в иерархии должна использоваться одна и та же сортировка, а именно:  
 
     -   Chinese_Simplified_Pinyin_100_CI_AI  
 
     -   Chinese_Simplified_Stroke_Order_100_CI_AI  
 
     > [!NOTE]  
-    >  Estes agrupamentos de base de dados são uma exceção aos requisitos que são apresentados nos [suporte para versões do SQL Server para o System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+    >  Такие параметры сортировки являются исключением из требований, описанных в статье [Поддержка версий SQL Server в System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
--   Tem de colocar um ficheiro com o nome **GB18030.SMS** na pasta raiz do volume do sistema de cada computador do servidor do site da hierarquia. Este ficheiro não contém quaisquer dados e pode ser um ficheiro de texto vazio com um nome que satisfaça este requisito.  
+-   Необходимо разместить файл с именем **GB18030.SMS** в корневой папке системного тома на каждом компьютере сервера сайта в иерархии. Этот файл не содержит данных и может представлять собой пустой текстовый файл с именем, соответствующим данному требованию.  

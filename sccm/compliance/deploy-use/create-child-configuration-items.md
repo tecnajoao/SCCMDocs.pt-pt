@@ -1,6 +1,6 @@
 ---
-title: "Criar itens de configuração subordinados | Microsoft Docs"
-description: "Crie configuração itens subordinados no System Center Configuration Manager."
+title: "Создание дочерних элементов конфигурации | Документы Майкрософт"
+description: "Создание дочерних элементов конфигурации в System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,28 +17,28 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 33d4a2d5a09af74e1d76ac9b34a42b749f5bf7ef
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-child-configuration-items-in-system-center-configuration-manager"></a>Como criar subordinados itens de configuração no System Center Configuration Manager
+# <a name="how-to-create-child-configuration-items-in-system-center-configuration-manager"></a>Создание дочерних элементов конфигурации в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Itens de configuração subordinados no System Center Configuration Manager são cópias de itens de configuração que mantêm uma relação com o item de configuração original em que estes herdam a configuração original do item de configuração principal.  
+Дочерние элементы конфигурации в System Center Configuration Manager являются копиями элементов конфигурации, которые сохраняют связь с исходным элементом конфигурации; поэтому они наследуют исходную конфигурацию родительских элементов.  
 
-Ao visualizar as propriedades de um item de configuração subordinado na consola do Configuration Manager, não é possível editar os objetos herdados e as definições com os respetivos critérios de validação. No entanto, pode adicionar e, em seguida, editar os critérios de validação adicionais para o item de configuração subordinado e também pode adicionar novos objetos e definições ao item de configuração subordinado.
-O objetivo habitual da criação e edição de um item de configuração subordinado é otimizar o item de configuração original para satisfazer os seus requisitos empresariais.  
+В разделе свойств дочернего элемента конфигурации в консоли Configuration Manager наследуемые объекты и параметры с условиями проверки можно только просматривать, но не редактировать. Однако можно добавлять и затем редактировать дополнительные условия проверки для дочернего элемента конфигурации, а также добавлять новые объекты и параметры в дочерний элемент конфигурации.
+Создание и редактирование дочерних элементов конфигурации связано с уточнением параметров исходного элемента в соответствии с бизнес-потребностями.  
 
 > [!NOTE]  
->  Só pode criar itens de configuração subordinados a partir de itens de configuração do tipo **Windows Desktops and Servers (personalizado)**.  
+>  Вы можете создавать дочерние элементы конфигурации только из элементов конфигурации типа **настольные системы и серверы Windows (пользовательский)**.  
 
-## <a name="to-create-a-child-configuration-item"></a>Para criar um item de configuração subordinado  
+## <a name="to-create-a-child-configuration-item"></a>Создание дочернего элемента конфигурации  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **itens de configuração**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Элементы конфигурации**.  
 
-3.  Na lista **Itens de Configuração** , selecione o item de configuração para o qual pretende criar um item de configuração subordinado e, em seguida, no separador **Início** , no grupo **Item de Configuração** , clique em **Criar Item de Configuração Subordinado**.  
+3.  В списке **Элементы конфигурации** выберите элемент конфигурации, для которого требуется создать дочерний элемент, а затем на вкладке **Главная** в группе **Элемент конфигурации** щелкните пункт **Создать дочерний элемент конфигурации**.  
 
-4.  Na página **Geral** página do **Assistente de Criação de Item de Configuração Subordinado**, pode escolher uma revisão específica do item de configuração principal para utilizar para criar o item subordinado. Os outros passos deste assistente são idênticos aos passos que utiliza para criar um item de configuração padrão. Para obter mais informações, consulte [como criar itens de configuração personalizados para computadores de secretária e servidor Windows](../../compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client.md).  
+4.  На странице **Общие** **мастера создания дочернего элемента конфигурации**можно выбрать конкретную редакцию родительского элемента, на основе которой будет создан дочерний элемент. Прочие этапы мастера аналогичны обычной процедуре создания стандартного элемента конфигурации. Дополнительные сведения см. в статье [Создание пользовательских элементов конфигурации для настольных систем и серверов Windows](../../compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client.md).  
 
-5.  Conclua o assistente. O novo item de configuração subordinado é apresentado na lista **Itens de Configuração** .  
+5.  Завершите работу мастера. Новый дочерний элемент конфигурации отображается в списке **Элементы конфигурации** .  

@@ -1,6 +1,6 @@
 ---
-title: Preparar para instalar sites | Microsoft Docs
-description: "Se estiver a planear instalar vários sites do Configuration Manager, estas informações para ajudar a poupar tempo e para evitar erros de leitura."
+title: "Подготовка к установке сайтов | Документы Майкрософт"
+description: "Если вы планируете установить несколько сайтов Configuration Manager, эти сведения помогут вам сэкономить время и избежать ошибок."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -16,77 +16,77 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 829f2d44a9b8d203a5b753ebb6d8f759b1a05111
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Preparar a instalação de sites do System Center Configuration Manager
+# <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Подготовка к установке сайтов System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Para preparar para uma implementação com êxito de um ou mais sites do System Center Configuration Manager, se familiarize com os detalhes deste artigo. Estes passos podem poupar tempo durante a instalação de vários sites e ajudar a evitar missteps que poderão resultar na necessidade de reinstalar um ou mais sites.
+Чтобы подготовиться к успешному развертыванию одного или нескольких сайтов System Center Configuration Manager, ознакомьтесь со сведениями в этом разделе. Эти инструкции могут помочь вам сэкономить время при установке нескольких сайтов и избежать ошибок, из-за которых может потребоваться переустановить один или несколько сайтов.
 
 > [!TIP]
-> Ao gerir o site do System Center Configuration Manager e a infraestrutura de hierarquia, os termos de licenciamento *atualizar*, *atualizar*, e *instalar* são utilizados para descrever três conceitos diferentes. Para saber como cada termo é utilizado, consulte [sobre a atualização, atualização e instalação](/sccm/core/understand/upgrade-update-install).
+> При управлении инфраструктурой иерархий и сайтов System Center Configuration Manager термины *модернизация*, *обновление* и *установка* обозначают три разных понятия. Сведения о значении каждого термина см. в разделе [Переход, обновление и установка](/sccm/core/understand/upgrade-update-install).
 
-## <a name="bkmk_options"></a>Opções para a instalação de diferentes tipos de sites
-Quando instala um novo site do Configuration Manager, a versão dos ficheiros de origem que pode utilizar depende da versão de sites que já estão a ser a hierarquia (se aplicável). Os métodos de instalação que pode utilizar dependem do tipo de site que pretende instalar.  
+## <a name="bkmk_options"></a> Варианты установки различных типов сайтов
+При установке нового сайта Configuration Manager версия исходных файлов, которую можно использовать, зависит от версии уже имеющихся в иерархии сайтов (если таковые есть). Доступные способы установки зависят от типа сайта, который нужно установить.  
 
-Antes de instalar um site, certifique-se ter planeou a sua hierarquia e que compreende o tipo de site que pretende instalar. Para obter mais informações, consulte [estruturar uma hierarquia de sites](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).
-
-
-### <a name="first-site"></a>Primeiro site
-O primeiro site que instalar numa hierarquia será um site primário autónomo ou um site de administração central.
-
-**Suporte de instalação**: Para instalar um site de administração central ou um site primário autónomo como o primeiro site numa nova hierarquia, deve [utilizar uma versão de linha de base](../../../../core/servers/manage/updates.md#bkmk_Baselines) do Configuration Manager. Não instalar o primeiro site numa nova hierarquia utilizando ficheiros de origem atualizados a partir de [CD. Pasta mais recente](../../../../core/servers/manage/the-cd.latest-folder.md) de qualquer site.
-
-**Método de instalação**: Pode instalar o tipo de site utilizando o [Assistente de configuração do Configuration Manager](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md), ou pode configurar um script para utilizar com um [convertidos em script de instalação da linha de comandos](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).
+Перед установкой сайтов обязательно спланируйте иерархию и определите тип сайта, который нужно установить. Дополнительные сведения см. в разделе [Разработка иерархии сайтов](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).
 
 
-### <a name="additional-sites"></a>Sites adicionais
-Após a instalação de site inicial, pode adicionar mais sites em qualquer altura. Tem as seguintes opções para adicionar sites (até [suportado limites](../../../../core/plan-design/configs/size-and-scale-numbers.md)):
+### <a name="first-site"></a>Первый сайт
+Первый сайт, устанавливаемый для иерархии, должен быть автономным первичным сайтом или сайтом центра администрирования.
 
-|Site tiver|Tipo de site adicionais que pode instalar|
+**Установочный носитель**. Чтобы установить сайт центра администрирования или автономный первичный сайт в качестве первого сайта в новой иерархии, необходимо [использовать базовую версию](../../../../core/servers/manage/updates.md#bkmk_Baselines) Configuration Manager. Не устанавливайте первый сайт новой иерархии с помощью обновленных исходных файлов из [папки CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) любого сайта.
+
+**Способ установки**. Вы можете установить сайт любого типа с помощью [мастера установки Configuration Manager](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) или настроить скрипт для [установки из командной строки](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).
+
+
+### <a name="additional-sites"></a>Дополнительные сайты
+После установки первого сайта можно в любой момент добавить дополнительные сайты. Имеются следующие варианты добавления сайтов (до [поддерживаемого максимального числа](../../../../core/plan-design/configs/size-and-scale-numbers.md)):
+
+|Имеющийся сайт|дополнительные сайты, которые можно установить;|
 |---|---|
-|Site de administração central|Site principal subordinado|
-|Site principal subordinado|Site Secundário|
-|Site primário autónomo|Site secundário (pode expandir o site primário, que converte o site primário autónomo a um site primário subordinado)|
+|Сайт центра администрирования|Дочерний первичный сайт|
+|Дочерний первичный сайт|Вторичный сайт|
+|Автономный первичный сайт|вторичные сайты (развертывание первичного сайта, преобразующее автономный первичный сайт в дочерний первичный сайт).|
 
-**Suporte de instalação**: Quando instala um site de administração central para expandir um site primário autónomo ou, se instalar um novo site primário subordinado numa hierarquia existente, tem de utilizar suportes de dados de instalação (que contém ficheiros de origem) que corresponde à versão do site existente ou sites.
+**Установочный носитель**. При установке сайта центра администрирования для развертывания на автономном первичном сайте или установке нового дочернего первичного сайта в существующей иерархии необходимо использовать установочный носитель (содержащий исходные файлы), соответствующий версии существующего сайта или сайтов.
 
 > [!IMPORTANT]
-> Se instalou atualizações na consola que alteraram a versão dos sites anteriormente instalados, não utilize o suporte de dados de instalação original. Em alternativa, utilize ficheiros de origem nesse cenário, o [CD. Pasta mais recente](../../../../core/servers/manage/the-cd.latest-folder.md) de um site atualizado. O Configuration Manager requer a utilização de ficheiros de origem que corresponde à versão do site existente que o novo site irá ligar ao.
+> Если вы установили обновления в консоли, которые изменили версию ранее установленных сайтов, не применяйте исходный установочный носитель. В этом случае вместо него используйте исходные файлы из [папки CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) обновленного сайта. Configuration Manager требует использовать исходные файлы, соответствующие версии существующего сайта, к которому будет подключаться новый сайт.
 
-Um site secundário tem de ser instalado a partir da consola do Configuration Manager. Desta forma, os sites secundários são sempre instalados através da utilização de ficheiros de origem do site primário principal.
+Для установки вторичного сайта следует использовать консоль Configuration Manager. Таким образом, вторичные сайты всегда устанавливаются с помощью исходных файлов с родительского первичного сайта.
 
-**Método de instalação**: O método utilizado para instalar sites adicionais depende do tipo de site que pretende instalar.
--   **Adicionar um site de administração central**:  Pode utilizar o Assistente de configuração do Configuration Manager ou uma linha de comandos de script para instalar o novo site de administração central como site principal para o site primário autónomo existente. Para obter mais informações, consulte [expandir um site primário autónomo](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand).
--   **Adicionar um site primário subordinado**:  Pode utilizar o Assistente de configuração do Configuration Manager ou uma instalação de linha de comandos para adicionar um site primário subordinado abaixo de um site de administração central.
--   **Adicionar um site secundário**:  Utilize a consola do Configuration Manager para instalar um site secundário como site subordinado abaixo de um site primário. Outros métodos não são suportados para adicionar os sites secundários.
+**Способ установки**. Используемый способ установки дополнительных сайтов зависит от типа сайта, который нужно установить.
+-   **Добавление сайта центра администрирования**. Вы можете использовать мастер установки Configuration Manager или скрипт командной строки для установки нового сайта центра администрирования в качестве родительского сайта для существующего автономного первичного сайта. Дополнительные сведения см. в разделе [Расширение автономного первичного сайта](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand).
+-   **Добавление дочернего первичного сайта**. Вы можете использовать мастер установки Configuration Manager или установку из командной строки для добавления дочернего первичного сайта для сайта центра администрирования.
+-   **Добавление вторичного сайта**. Используйте консоль Configuration Manager для установки вторичного сайта в качестве дочернего для первичного сайта. Другие способы не поддерживаются для добавления вторичных сайтов.
 
-## <a name="bkmk_tasks"></a>Tarefas comuns para concluir antes de iniciar uma instalação
--   **Compreender a topologia da hierarquia que irá utilizar para a implementação**    
-Para obter mais informações, consulte [estruturar uma hierarquia de sites para o System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).  
+## <a name="bkmk_tasks"></a> Стандартные задачи, выполняемые перед началом установки
+-   **Необходимо понимать, какую именно топологию иерархии вы будете использовать для развертывания.**    
+Дополнительные сведения см. в разделе [Разработка иерархии сайтов для System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).  
 
--   **Preparar e configurar servidores individuais para satisfazer os pré-requisitos e as configurações suportadas para utilização com o Configuration Manager**         
-Para obter mais informações, veja [Pré-requisitos de site e sistema de sites](../../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+-   **Подготовьте и настройте отдельные серверы, чтобы выполнить предварительные требования и реализовать поддерживаемые конфигурации для Configuration Manager.**         
+Дополнительные сведения см. в разделе [Необходимые компоненты для сайта и системы сайта](../../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
--   **Instalar e configurar o SQL Server para alojar a base de dados do site**     
-Para obter mais informações, consulte [suporte para versões do SQL Server para o System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+-   **Установите и настройте SQL Server для размещения базы данных сайта.**     
+Дополнительные сведения см. в статье [Поддержка версий SQL Server в System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
--   **Preparar o ambiente de rede para suportar o Configuration Manager**      
-Para obter mais informações, consulte [configurar firewalls, portas e domínios para se preparar para o Configuration Manager](../../../../core/plan-design/network/configure-firewalls-ports-domains.md).  
+-   **Подготовьте сетевую среду для поддержки Configuration Manager.**      
+Дополнительные сведения см. в разделе [Настройка брандмауэров, портов и доменов для подготовке к Configuration Manager](../../../../core/plan-design/network/configure-firewalls-ports-domains.md).  
 
-- **Se pretender utilizar uma infraestrutura de chaves públicas (PKI), prepare a sua infraestrutura e certificados**      
-Para obter mais informações, consulte [requisitos de certificado PKI para o Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).
+- **При использовании инфраструктуры открытых ключей (PKI) подготовьте инфраструктуру и сертификаты.**      
+Дополнительные сведения см. в статье [Требования к PKI-сертификатам для Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).
 
--   **Instalar as atualizações de segurança mais recentes em computadores que irá utilizar como servidores do site ou servidores do sistema de sites e, quando for necessário, reiniciá-las**
+-   **Установите последние обновления для системы безопасности на компьютеры, которые будут использоваться в качестве серверов сайта или серверов системы сайта, и при необходимости перезапустите эти компьютеры.**
 
-## <a name="bkmk_sitecodes"></a>Sobre os nomes de site e códigos de site
-Códigos de site e os nomes de site são utilizados para identificar e gerir os sites numa hierarquia do Configuration Manager. Na consola do Configuration Manager, o código do site e o nome de site são apresentados no &lt; *código do site*\> - &lt;*nome do site* \> formato. Todos os códigos de site que utiliza na sua hierarquia tem de ser exclusivo. Se o esquema do Active Directory é expandido para o Configuration Manager e os sites estiverem a publicar dados, os códigos de site utilizados numa floresta do Active Directory tem de ser exclusivos, mesmo que se estão a ser utilizadas numa hierarquia do Configuration Manager diferente ou se que tenham sido utilizados em instalações anteriores do Configuration Manager. Lembre-se de que planeia cuidadosamente os códigos de site e os nomes de site antes de implementar a hierarquia.
+## <a name="bkmk_sitecodes"></a> Сведения об именах и кодах сайтов
+Для идентификации сайтов и управления ими в иерархии Configuration Manager используются коды сайтов и имена сайтов. В консоли Configuration Manager код и имя сайта отображаются в формате &lt;*код_сайта*\> - &lt;*имя_сайта*\>. Каждый код сайта, используемый в иерархии, должен быть уникальным. Если схема Active Directory расширена для Configuration Manager и сайты публикуют данные, коды сайтов, используемые в лесу Active Directory, должны быть уникальными, даже если они используются в другой иерархии Configuration Manager или если они использовались в более ранних установках Configuration Manager. Следует особо тщательно планировать коды сайтов и имена сайтов перед развертыванием иерархии.
 
-### <a name="specify-a-site-code-and-site-name"></a>Especifique um código de site e o nome do site
-Quando executar a configuração do Configuration Manager, lhe for pedido um código de site e o nome do site para o site de administração central e para cada site primário e a instalação do site secundário. Um código de site deve identificar de forma exclusiva cada site na hierarquia. Como o código do site é utilizado em nomes de pastas, nunca utilize os seguintes nomes para o código de site, que incluem nomes reservados para o Configuration Manager e o Windows:
+### <a name="specify-a-site-code-and-site-name"></a>Указание кода сайта и имени сайта
+Во время работы программы установки Configuration Manager выводится запрос кода и имени сайта для сайта центра администрирования, а также для каждой установки первичного и вторичного сайта. Код сайта должен уникальным образом идентифицировать каждый сайт в иерархии. Так как код сайта применяется в именах папок, не используйте для кода сайта зарезервированные имена Configuration Manager и зарезервированные имена Windows, включая следующие:
   -  AUX
   -  CON
   -  NUL
@@ -94,46 +94,46 @@ Quando executar a configuração do Configuration Manager, lhe for pedido um có
   -  SMS
 
 > [!NOTE]
-> Configuração do Configuration Manager verifica se um código de site já não está a ser utilizado.
+> Программа установки Configuration Manager не проверяет, используется ли уже код сайта.
 
-Introduza o código do site para um site quando estiver a executar o programa de configuração do Configuration Manager, tem de introduzir três carateres alfanuméricos. Apenas as letras *A* através de *Z* e os números *0* através de *9*, qualquer combinação, são permitidas em códigos de site. A sequência de letras ou números não tem efeito na comunicação entre sites. Por exemplo, não é necessário para o nome de um site primário *ABC* e um site secundário *DEF*.
+Чтобы ввести код сайта во время работы программы установки Configuration Manager, следует указать три буквы или цифры. При указании кодов сайтов допустимо использовать только буквы от *A* до *Z*, цифры от *0* до *9*, а также их сочетания. Последовательность букв или цифр не влияет на соединение между сайтами. Например, нет необходимости называть первичный сайт *ABC*, а вторичный — *DEF*.
 
-O nome do site é um identificador de nome amigável para o site. Só pode utilizar os carateres *A* através de *Z*, *um* através de *z*, *0* através de *9*e o hífen (*-*) em nomes de site.
+Имя сайта – это идентификатор сайта в виде понятного имени. В именах сайтов следует использовать только стандартные символы от *A* до *Z*, от *a* до *z*, от *0* до *9* и дефис (*-*).
 
 > [!IMPORTANT]
-> Não é suportada uma alteração do código do site ou o nome de site após a instalação do site.
+> Изменение кода сайта или имя сайта после установки сайта не поддерживается.
 
-### <a name="reuse-a-site-code"></a>Reutilizar um código de site
-Códigos de site não não possível utilizar mais do que uma vez numa hierarquia do Configuration Manager para um site de administração central ou para um site primário, mesmo que o original site e o código de site tem sido desinstalados. Se reutilizar um código de site, o risco de ter conflitos de ID de objeto na sua hierarquia. Pode reutilizar o código do site para um site secundário se esse site secundário e o código do site já não estão em utilização na sua hierarquia do Configuration Manager ou na floresta do Active Directory.
+### <a name="reuse-a-site-code"></a>Повторное использование кода сайта
+Код сайта нельзя использовать более одного раза в Configuration Manager для сайта центра администрирования или первичного сайта, даже если исходный сайт с этим кодом был удален. При повторном использовании кода сайта возникает риск конфликтов идентификаторов объектов в иерархии. Вы можете повторно использовать код сайта для вторичного сайта, если он больше не применяется в иерархии Configuration Manager или в лесу Active Directory.
 
-## <a name="limits-and-restrictions-for-installed-sites"></a>Limites e restrições para os sites instalados
-Antes de instalar um site, é importante compreender as seguintes limitações que se aplicam a sites e hierarquias de sites:
--   Depois de executar o programa de configuração, não é possível alterar as seguintes propriedades do site sem desinstalar o site e, em seguida, reinstalá-lo ao utilizar os novos valores:  
-  -   Diretório de instalação de ficheiros de programa  
-  -   Código do site  
-  -   Descrição do site  
--   Quando a hierarquia inclui um site de administração central:  
-  -   O Configuration Manager não suporta a mover de um site primário subordinado fora de uma hierarquia para criar um site primário autónomo ou ligue-o para uma hierarquia diferente. Em vez disso, desinstale o site primário subordinado e, em seguida, reinstalá-la como um novo site primário autónomo ou como um site subordinado do site de administração central de uma hierarquia diferente.  
+## <a name="limits-and-restrictions-for-installed-sites"></a>Пределы и ограничения для установленных сайтов
+Прежде чем устанавливать сайты, необходимо учесть приведенные ниже ограничения, связанные с сайтами и их иерархиями.
+-   После завершения установки следующие свойства сайта нельзя изменить без удаления сайта и переустановки его с новыми значениями.  
+  -   Каталог установки файлов программы  
+  -   Код сайта  
+  -   Описание сайта  
+-   Если иерархия содержит сайт центра администрирования:  
+  -   Configuration Manager не поддерживает перемещение подчиненного первичного сайта из иерархии для создания автономного первичного сайта или для подключения к другой иерархии. Вместо этого следует удалить дочерний первичный сайт, а затем повторно установить его в качестве нового автономного первичного сайта или дочернего сайта для сайта центра администрирования в другой иерархии.  
 
 
-## <a name="bkmk_optionalsteps"></a>Passos opcionais antes de executar o programa de configuração
-**Executar manualmente [dispositivo de transferência da configuração](../../../../core/servers/deploy/install/setup-downloader.md)**
+## <a name="bkmk_optionalsteps"></a> Дополнительные шаги перед запуском программы установки
+**Запуск вручную [загрузчика установки](../../../../core/servers/deploy/install/setup-downloader.md)**
 
-Para transferir os ficheiros de configuração atualizados para o Configuration Manager, pode executar o programa de configuração. Se o computador onde irá executar a configuração não está ligado à Internet ou se pretende instalar vários servidores de site, considere utilizar o dispositivo de transferência da configuração para transferir as atualizações necessárias para a configuração. Segue-se informações adicionais:
--  Por predefinição, o programa de configuração estabelece ligação à Internet para transferir ficheiros de configuração atualizados.
--  Por predefinição, os ficheiros são armazenados na pasta Redist.
--  Pode direcionar a configuração para uma localização na sua rede onde tenha anteriormente armazenado uma cópia destes ficheiros.
+Вы можете запустить загрузчик программы установки, чтобы скачать обновленные файлы установки для Configuration Manager. Когда компьютер, где будет выполняться программа установки, не подключен к Интернету или предполагается установка на нескольких серверах сайта, рассмотрите возможность использования загрузчика для скачивания необходимых обновлений для файлов установки. Дополнительные сведения
+-  По умолчанию программа установки подключается к Интернету для скачивания обновленных файлов установки.
+-  По умолчанию эти файлы сохраняются в папке с именем Redist.
+-  Вы можете указать программе установки расположение в сети, где ранее были сохранены копии этих файлов.
 
-**Executar manualmente [Verificador de pré-requisitos](../../../../core/servers/deploy/install/prerequisite-checker.md)**
+**Запуск вручную [средства проверки готовности](../../../../core/servers/deploy/install/prerequisite-checker.md)**
 
-Para identificar e corrigir problemas antes de executar a configuração para instalar um site e antes de instalar uma função de sistema de sites num servidor, pode executar o Verificador de pré-requisitos. Verificador de pré-requisitos ajuda a garantir que o computador cumpre os requisitos para alojar o site ou função do sistema de sites. Segue-se informações adicionais:
- -  Por predefinição, a configuração executa o Verificador de pré-requisitos.
- -  Se existirem erros, o programa de configuração para até o problema ser corrigido.
+Перед запуском программы установки для установки сайта и перед установкой роли системы сайта на сервере вы можете запустить средство проверки готовности для выявления и исправления проблем. Средство проверки готовности проверяет соответствие компьютера требованиям, предъявляемым для размещения сайта или роли системы сайта. Дополнительные сведения
+ -  По умолчанию программа установки запускает средство проверки готовности.
+ -  В случае возникновения ошибок программа установки останавливает работу до устранения проблем.
 
-**Identifique portas opcionais**
+**Определение дополнительных портов**
 
-Pode identificar portas opcionais para sistemas de sites e clientes para utilizarem. Segue-se informações adicionais:
- -  Por predefinição, clientes e sistemas de sites utilizam portas predefinidas para comunicar.
- -  Durante a configuração, pode configurar portas alternativas.
+Определите дополнительные порты, которые вы можете использовать для систем сайта и клиентов. Дополнительные сведения
+ -  По умолчанию системы сайта и клиенты используют предварительно определенные порты для связи.
+ -  Во время установки можно настроить другие порты.
 
- Para obter mais informações, consulte [portas utilizadas no System Center Configuration Manager](../../../../core/plan-design/hierarchy/ports.md).
+ Дополнительные сведения см. в разделе [Порты, используемые в System Center Configuration Manager](../../../../core/plan-design/hierarchy/ports.md).

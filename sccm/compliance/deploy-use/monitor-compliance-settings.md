@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar as definições de compatibilidade | Microsoft Docs"
-description: "Utilize um ou mais dos procedimentos neste tópico para apresentar o estado de compatibilidade da linha de base de configuração."
+title: "Мониторинг параметров соответствия требованиям | Документы Майкрософт"
+description: "Выполните одну или несколько процедур из этого раздела, чтобы отобразить состояние соответствия для конфигурационной базы."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,95 +17,95 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 75cd7e811262633d81d978265f21ec7ed3b61a58
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-compliance-settings-in-system-center-configuration-manager"></a>Monitorizar as definições de compatibilidade no System Center Configuration Manager
+# <a name="monitor-compliance-settings-in-system-center-configuration-manager"></a>Мониторинг параметров соответствия требованиям в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Depois de implementar linhas de base de configuração de System Center Configuration Manager para dispositivos na sua hierarquia, pode utilizar um ou mais dos procedimentos neste tópico para apresentar o estado de compatibilidade da linha de base de configuração:
+После развертывания конфигурационных баз System Center Configuration Manager на устройствах в иерархии можно использовать одну из описанных ниже процедур для вывода сведений о состоянии соответствия конфигурационной базы.
 
 > [!NOTE]  
->  Os campos de critérios de validação nos relatórios de definições de compatibilidade (o equivalente no relatório do lado do cliente **Restrições**) apresentam o Service Modeling Language (SML). Isto pode dificultar para administradores que tenham criado o item de configuração na consola do Configuration Manager para compreender quais são os critérios de validação se não tiverem conhecimento do SML. Neste caso, utilize o **monitorização** área de trabalho na consola do Configuration Manager para ver as propriedades do item de configuração e os respetivos critérios de validação.  
+>  В полях условий проверки отчетов о параметрах соответствия (соответствующим полем в отчетах на стороне клиента является поле **Ограничения**) сведения отображаются на языке SML. Соответственно, администраторам, незнакомым с языком SML, которые создали элемент конфигурации в консоли Configuration Manager, будет трудно понять содержимое условий проверки. В таком случае для просмотра свойств элемента конфигурации и условий проверки можно использовать рабочую область **Наблюдение** в консоли Configuration Manager.  
 
-##  <a name="view-compliance-results-in-the-configuration-manager-console"></a>Ver os resultados de compatibilidade na consola do Configuration Manager  
- Utilize este procedimento para ver detalhes sobre a compatibilidade das linhas de base de configuração implementadas na consola do Configuration Manager.  
+##  <a name="view-compliance-results-in-the-configuration-manager-console"></a>Просмотр результатов проверки на соответствие в консоли Configuration Manager  
+ Ниже приведена процедура просмотра сведений о соответствии для развернутых конфигурационных баз в консоли Configuration Manager.  
 
-### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Ver os resultados de compatibilidade na consola do Configuration Manager  
+### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Просмотр результатов проверки на соответствие в консоли Configuration Manager  
 
-1.  Na consola do Configuration Manager, clique em **monitorização** > **implementações**.  
+1.  В консоли Configuration Manager щелкните **Наблюдение** > **Развертывания**.  
 
-3.  Na lista **Implementações** , selecione a implementação de linha de base de configuração cujas informações de compatibilidade pretende rever.  
+3.  В списке **Развертывания** выберите развертывание конфигурационной базы, для которого требуется просмотреть сведения о соответствии.  
 
-4.  Poderá rever as informações de resumo sobre a compatibilidade da implementação da linha de base de configuração na página principal. Para ver informações mais detalhadas, selecione a implementação de linha de base de configuração e, no separador **Home Page** , no grupo **Implementação** , clique em **Ver Estado** para abrir a página **Estado da Implementação** .  
+4.  Сводные сведения о соответствии развертывания конфигурационной базы можно просмотреть на главной странице. Для просмотра подробных сведений выберите развертывание конфигурационной базы, а затем на вкладке **Главная** в группе **Развертывание** щелкните **Просмотр состояния** , чтобы открыть страницу **Состояние развертывания** .  
 
-     A página **Estado da Implementação** contém os seguintes separadores:  
+     Страница **Состояние развертывания** содержит следующие вкладки.  
 
-    -   **Em conformidade**: Apresenta a compatibilidade da linha de base de configuração com base no número de ativos afetados. Pode clicar numa regra para criar um nó temporário sob o nó **Utilizadores** ou **Dispositivos** na área de trabalho **Ativos e Conformidade** , que contém todos os utilizadores ou dispositivos em conformidade com esta regra. O painel **Detalhes do Ativo** apresenta os utilizadores ou os dispositivos conformes com a linha de base de configuração. Faça duplo clique num utilizador ou num dispositivo na lista para visualizar informações adicionais.  
+    -   **Соответствует**: содержит сведения о соответствии конфигурационной базы в зависимости от числа затронутых активов. Вы можете щелкнуть правило, чтобы создать временный узел в узле **Пользователи** или **Устройства** , находящемся в рабочей области **Активы и соответствие** . Этот узел будет включать всех пользователей и устройства, которые удовлетворяют данному правилу. В области **Сведения об активе** отображаются пользователи или устройства, соответствующие шаблону конфигурации. Чтобы просмотреть дополнительные сведения, дважды щелкните пользователя или устройство в списке.  
 
         > [!IMPORTANT]  
-        >  Uma regra de item de configuração não é avaliada se não for detetada ou não é aplicável num dispositivo cliente; No entanto, a regra será devolvida como compatível.  
+        >  Правило элемента конфигурации не оценивается, если оно не обнаружено или не применимо на устройстве клиента; однако это правило отображается как соответствующее.  
 
-    -   **Erro**: Mostra uma lista de todos os erros para a implementação de linha de base de configuração selecionada com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário sob o nó **Utilizadores** ou **Dispositivos** na área de trabalho **Ativos e Compatibilidade** que contém todos os utilizadores ou dispositivos que geraram erros com esta regra. Quando seleciona um utilizador ou dispositivo, o painel **Detalhes do Ativo** apresenta os utilizadores ou os dispositivos que são afetados pelo problema selecionado. Faça duplo clique num utilizador ou num dispositivo na lista para visualizar informações adicionais sobre o problema.  
+    -   **Ошибка**: содержит список всех ошибок для выбранного развертывания конфигурационной базы в зависимости от числа затронутых активов. Можно щелкнуть правило, чтобы создать временный узел в узле **Пользователи** или **Устройства** рабочей области **Активы и соответствие** . Этот узел будет включать всех пользователей и устройства, которые содержат ошибки, связанные с этим правилом. При выборе ошибки в области **Сведения об активе** отображаются пользователи или устройства, затронутые выбранной проблемой. Чтобы просмотреть дополнительные сведения о проблеме, дважды щелкните пользователя или устройство в списке.  
 
-    -   **Não conformes**: Mostra uma lista de todas as regras não compatíveis na linha de base de configuração com base no número de ativos afetados. Pode clicar numa regra para criar um nó temporário sob o nó **Utilizadores** ou **Dispositivos** na área de trabalho **Ativos e Conformidade** que contém todos os utilizadores ou dispositivos não conformes com esta regra. Quando seleciona um utilizador ou dispositivo, o painel **Detalhes do Ativo** apresenta os utilizadores ou os dispositivos que são afetados pelo problema selecionado. Faça duplo clique num utilizador ou num dispositivo na lista para visualizar mais informações sobre o problema.  
+    -   **Не соответствует**: содержит список всех несоответствующих правил в конфигурационной базе в зависимости от числа затронутых активов. Можно щелкнуть правило, чтобы создать временный узел в узле **Пользователи** или **Устройства** рабочей области **Активы и соответствие** . Этот узел будет включать всех пользователей и устройства, которые не соответствуют данному правилу. При выборе ошибки в области **Сведения об активе** отображаются пользователи или устройства, затронутые выбранной проблемой. Чтобы вывести дополнительные сведения о проблеме, дважды щелкните пользователя или устройство в списке.  
 
-    -   **Desconhecido**: Mostra uma lista de todos os utilizadores e dispositivos que não comunicaram compatibilidade para a implementação de linha de base de configuração selecionado, juntamente com o estado atual do cliente dos dispositivos.  
+    -   **Неизвестно**: содержит список всех пользователей и устройств, не передавших данные о соответствии для выбранного развертывания конфигурационной базы, а также сведения о текущем состоянии клиента устройств.  
 
-5.  Na página **Estado da Implementação** , poderá rever informações detalhadas sobre a compatibilidade da linha de base de configuração implementada. É criado um nó temporário no nó **Implementações** que o ajuda a localizar novamente estas informações de forma rápida.  
+5.  На странице **Состояние развертывания** можно просмотреть подробные сведения о соответствии развертывания шаблона конфигурации. В узле **Развертывания** создается временный узел, который упрощает повторный поиск этих сведений.  
 
-##  <a name="view-compliance-results-by-using-reports"></a>Ver resultados de compatibilidade através de relatórios  
- As definições de compatibilidade no Configuration Manager inclui um número de relatórios incorporados que permitem monitorizar informações sobre itens de configuração, linhas de base de configuração e implementações. Estes relatórios têm a categoria de relatório de **Gestão de Compatibilidade e Definições**.  
+##  <a name="view-compliance-results-by-using-reports"></a>Просмотр результатов проверки на соответствие с помощью отчетов  
+ Параметры соответствия в Configuration Manager включают несколько встроенных отчетов, которые позволяют отслеживать сведения об элементах конфигурации, конфигурационных базах и развертываниях. Такие отчеты относятся к категории **Управление соответствием и параметрами**.  
 
 > [!IMPORTANT]  
->  Deverá utilizar um caráter universal (**%**) ao utilizar os parâmetros **Filtro do dispositivo** e Filtro do utilizador nos relatórios de definições de compatibilidade.  
+>  При использовании параметров**%**Фильтр устройств **и "Фильтр пользователей" в отчетах о параметрах соответствия необходимо использовать подстановочный знак (** ).  
 
- Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md)  
+ Дополнительные сведения о настройке отчетов в Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
-##  <a name="view-compliance-results-on-a-configuration-manager-windows-client-computer"></a>Ver resultados de compatibilidade num computador cliente Windows do Configuration Manager
+##  <a name="view-compliance-results-on-a-configuration-manager-windows-client-computer"></a>Просмотр результатов проверки на соответствие на клиентском компьютере Windows Configuration Manager
 
 > [!NOTE]  
->  Não é possível ver informações no cliente Windows do Configuration Manager, se tiver iniciado sessão com uma conta de convidado de domínio.    
+>  Если вход в систему выполнен с гостевой учетной записью домена, вы не сможете просматривать сведения в клиенте Windows Configuration Manager.    
 
-1.  Navegue para **Configuration Manager** no Painel de Controlo do computador cliente e faça duplo clique no mesmo para abrir as respetivas propriedades.  
+1.  Перейдите к пункту **Configuration Manager** панели управления клиентского компьютера и дважды щелкните его, чтобы открыть окно свойств.  
 
-2.  Clique no separador **Configurações** e veja a lista de linhas de base de configuração implementadas.  
+2.  Перейдите на вкладку **Конфигурации** и просмотрите список развернутых шаблонов конфигурации.  
 
-3.  Veja o **Estado de Conformidade** para cada linha de base da configuração:  
+3.  Просмотрите сведения в разделе **Состояние соответствия** для каждого шаблона конфигурации.  
 
     > [!IMPORTANT]  
-    >  Os resultados da avaliação são colocados em cache no cliente por 15 minutos. Se iniciar uma reavaliação dentro do período de 15 minutos, os resultados de compatibilidade desta cache são devolvidos, em vez de ser efetuada uma nova avaliação. Por conseguinte, se fizer uma alteração ao cliente que possa afetar os resultados da avaliação de compatibilidade, aguarde até que os 15 minutos tenham decorrido antes de iniciar uma reavaliação.  
+    >  Результаты оценки помещаются в кэш на клиенте на 15 минут. Если запустить повторную проверку в течение такого 15-минутного периода, используются не новые значения оценки, а результаты, возвращенные из кэша. Таким образом, при внесении на клиенте изменения, влияющего на результаты проверки соответствия, необходимо подождать 15 минут, прежде чем запускать повторную оценку.  
 
-    -   **Em conformidade**: O computador cliente está em conformidade com a linha de base de configuração avaliada.  
+    -   **Соответствует**: клиентский компьютер соответствует проверенной конфигурационной базе.  
 
-    -   **Não conformes**: O computador cliente não está em conformidade com a linha de base de configuração avaliada.  
+    -   **Не соответствует**: клиентский компьютер не соответствует проверенной конфигурационной базе.  
 
-    -   **Desconhecido**: O computador cliente ainda não avaliou a linha de base de configuração. Se pretender iniciar a avaliação fora da agenda de avaliação de compatibilidade, selecione as linhas de base de configuração a avaliar e, em seguida, clique em **Avaliar**.  
+    -   **Неизвестно**: клиентский компьютер еще не выполнил оценку конфигурационной базы. Чтобы запустить оценку помимо расписания оценки соответствия, выберите нужные шаблоны конфигурации и нажмите кнопку **Оценить**.  
 
         > [!NOTE]  
-        >  Se tiver credenciais de administrador local no computador cliente, pode ver detalhes de cada linha de base de configuração avaliada para determinar qual o item de configuração que está a comunicar um estado não compatível. Para tal, selecione a linha de base de configuração e, em seguida, clique em **Ver Relatório**.  
+        >  При наличии прав локального администратора на клиентском компьютере можно также просмотреть сведения о каждой проверенной конфигурационной базе, чтобы определить, какой именно элемент конфигурации передает состояние несоответствия. Для этого выберите шаблон конфигурации и нажмите кнопку **Просмотреть отчет**.  
 
-4.  Clique em **OK**.  
+4.  Нажмите кнопку **ОК**.  
 
-##  <a name="create-collections-based-on-configuration-baseline-compliance"></a>Criar coleções baseadas em compatibilidade da linha de base de configuração  
- Utilize o procedimento seguinte para criar uma coleção do Configuration Manager baseada em dispositivos com uma compatibilidade especificada. Pode criar coleções baseadas nos seguintes estados de conformidade:  
+##  <a name="create-collections-based-on-configuration-baseline-compliance"></a>Создание коллекций на основе соответствия конфигурационным базам  
+ Ниже приведена процедура создания коллекции Configuration Manager на основе устройств с заданным уровнем соответствия. Можно создавать коллекции, основанные на следующих состояниях соответствия:  
 
--   **Compatibilidade:**  
+-   **Соответствует**  
 
--   **Erro**  
+-   **Ошибка**  
 
 -   **Non-compliant**  
 
--   **Desconhecido**  
+-   **Неизвестно**  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **linhas de base de configuração**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Шаблоны базовой конфигурации**.  
 
-3.  Na lista **Linhas de Base de Configuração** , selecione a linha de base de configuração a partir da qual pretende criar uma coleção.  
+3.  В списке **Шаблоны базовой конфигурации** выберите конфигурационную базу, на основе которой требуется создать коллекцию.  
 
-4.  No separador **Implementação** , no **Grupo de Implementação**, clique em **Criar Nova Coleção** e, em seguida, na lista pendente, selecione o nível de compatibilidade para o qual pretende criar uma coleção.  
+4.  На вкладке **Развертывание** в группе **Развертывание**щелкните **Создать коллекцию** , затем в раскрывающемся списке выберите уровень соответствия, для которого требуется создать коллекцию.  
 
-5.  É aberta opção **Assistente de Criação de Coleção de Utilizadores** ou **Assistente de Criação de Coleção de Dispositivos** , dependendo de o item de configuração ser implementado em utilizadores ou em dispositivos. O assistente é preenchido automaticamente com os valores corretos para criar a coleção; no entanto, pode editar esses valores.  
+5.  Откроется окно **мастера создания коллекций пользователей** или **мастера создания коллекций устройств** в зависимости от того, развернут ли элемент конфигурации для пользователей или устройств. Создавая коллекцию, мастер автоматически заполняет поля правильными значениями, однако эти значения можно редактировать.  
 
-6.  Após concluir o assistente, a coleção é apresentada no nó **Coleções de Utilizadores** ou **Coleções de Dispositivos** , na área de trabalho **Recursos e Compatibilidade** .  
+6.  После завершения работы мастера коллекция появляется в узле **Коллекции пользователей** или **Коллекции устройств** рабочей области **Активы и соответствие** .  

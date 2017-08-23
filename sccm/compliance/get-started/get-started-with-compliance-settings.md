@@ -1,6 +1,6 @@
 ---
-title: "Introdução às definições de compatibilidade | Microsoft Docs"
-description: "Saiba como as definições de compatibilidade funcionam no System Center Configuration Manager. Também saber mais sobre conceitos principais que terá de conhecer."
+title: "Приступая к работе с параметрами соответствия | Документы Майкрософт"
+description: "Узнайте, как параметры соответствия используются в System Center Configuration Manager. Также приводятся сведения об основных концепциях."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,69 +16,69 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: f16c87dfd0c4f80d96aedf7f5f7497f2bbd4752a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="get-started-with-compliance-settings-in-system-center-configuration-manager"></a>Introdução às definições de compatibilidade no System Center Configuration Manager
+# <a name="get-started-with-compliance-settings-in-system-center-configuration-manager"></a>Приступая к работе с параметрами соответствия в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Antes de começar a criar itens de configuração do System Center Configuration Manager, deve rever este tópico para compreender como funcionam as definições de compatibilidade e para saber mais sobre os conceitos principais que terá de conhecer.  
+Перед созданием элементов конфигурации System Center Configuration Manager необходимо ознакомиться с этим разделом, чтобы узнать, как работают параметры соответствия, и ознакомиться с ключевыми принципами.  
 
-## <a name="how-compliance-settings-works"></a>Como funcionam as definições de compatibilidade  
- As definições de compatibilidade permitem-lhe gerir a configuração e conformidade de servidores, computadores portáteis, computadores de secretária e dispositivos móveis na sua organização.  
+## <a name="how-compliance-settings-works"></a>Как работают параметры соответствия  
+ Параметры соответствия позволяют управлять конфигурацией и соответствием требованиям на серверах, ноутбуках, настольных компьютерах и мобильных устройствах в организации.  
 
- Os itens de configuração enquadram-se em duas categorias principais:  
+ Элементы конфигурации делятся на две основные категории:  
 
--   **Definições para dispositivos que são geridos com o cliente do Configuration Manager** - normalmente, dispositivos nos quais instalou software de cliente do Configuration Manager permitem-lhe gerir o dispositivo.  
+-   **Параметры устройств, управляемых с помощью клиента Configuration Manager** — обычно это устройства, на которых установлено клиентское программное обеспечение Configuration Manager, позволяющее управлять устройством.  
 
--   **Definições para dispositivos que são geridos sem o cliente do Configuration Manager** - normalmente, dispositivos que são geridos com o Microsoft Intune ou com a gestão de dispositivos no local do Configuration Manager.  
+-   **Параметры устройств, управление которыми осуществляется без клиента Configuration Manager** — обычно это устройства, управляемые с помощью Microsoft Intune или с помощью локального управления устройствами Configuration Manager.  
 
-## <a name="what-devices-are-supported"></a>Quais são os dispositivos suportados?  
+## <a name="what-devices-are-supported"></a>Какие устройства поддерживаются?  
 
 
-|Tipo de Dispositivo|Mais informações|  
+|Тип устройства|Дополнительные сведения|  
 |------------|----------------------|  
-|PCs Windows (com o cliente do Configuration Manager)|Permite criar itens de configuração personalizados que permitem avaliar itens, como chaves de registo, ficheiros e atributos do Active Directory.<br /><br /> Ao utilizar o tipo de item de configuração do Windows 10, selecione as definições que pretende numa lista predefinida.|  
-|PCs Windows (inscritos com o Microsoft Intune)|Selecione as definições que pretende numa lista predefinida.|  
-|dispositivos iOS (inscritos com o Microsoft Intune)|Selecione as definições que pretende numa lista predefinida.|  
-|Dispositivos Android (inscritos com o Microsoft Intune)|Selecione as definições que pretende numa lista predefinida.|  
-|Dispositivos Windows Phone (inscritos com o Microsoft Intune)|Selecione as definições que pretende numa lista predefinida.|  
-|Computadores MAC (com o cliente do Configuration Manager)|Permite criar itens de configuração personalizados que permitem avaliar itens, como os valores de preferência (lista de propriedades) do Mac OS X e os resultados devolvidos por um script.|  
-|Computadores MAC (inscritos com o Microsoft Intune)|Selecione as definições que pretende numa lista predefinida.|  
+|Компьютеры Windows (с клиентом Configuration Manager)|Позволяет создавать пользовательские элементы конфигурации, которые позволяют оценить такие элементы, как разделы реестра, файлы и атрибуты Active Directory.<br /><br /> При использовании типа элемента конфигурации Windows 10 вы выберете нужные параметры из заданного списка.|  
+|Компьютеры Windows (зарегистрированные в Microsoft Intune)|Выберите нужные настройки из заданного списка.|  
+|Устройства iOS (зарегистрированные в Microsoft Intune)|Выберите нужные настройки из заданного списка.|  
+|Устройства Android (зарегистрированные в Microsoft Intune)|Выберите нужные настройки из заданного списка.|  
+|Устройства Windows Phone (зарегистрированные в Microsoft Intune)|Выберите нужные настройки из заданного списка.|  
+|Компьютеры Mac (с клиентом Configuration Manager)|Позволяет создавать пользовательские элементы конфигурации, которые позволяют оценить такие элементы, как пользовательские настройки (список свойств) Mac OS X. Значения возвращаются с помощью сценария.|  
+|Компьютеры Mac (зарегистрированные в Microsoft Intune)|Выберите нужные настройки из заданного списка.|  
 
-## <a name="what-is-a-configuration-item"></a>O que é um item de configuração?  
- Um item de configuração pode ser considerado como um contentor que armazena as seguintes informações (as informações que configurar irão depender do tipo de item de configuração):  
+## <a name="what-is-a-configuration-item"></a>Что такое элемент конфигурации?  
+ Элемент конфигурации можно рассматривать как контейнер, который хранит следующие сведения (настраиваемые параметры зависят от типа элемента конфигурации):  
 
--   **Informações de método de deteção** (para itens de configuração do Windows que contêm apenas as definições da aplicação) - permite detetar se uma aplicação é instalada através da deteção do ficheiro de instalador do Windows para a aplicação ou através de um script personalizado.  
+-   **Сведения о методе обнаружения** (для элементов конфигурации Windows, которые содержат только настройки приложения) — позволяет обнаруживать наличие установленного приложения с помощью обнаружения файла установщика Windows для этого приложения или с помощью пользовательского скрипта.  
 
--   **Definições** - as definições representam as condições empresariais ou técnicas utilizadas para avaliar a compatibilidade nos dispositivos cliente. Pode configurar uma nova definição ou navegar para uma definição existente num computador de referência.  
+-   **Настройки** — настройки представляют собой бизнес- или технические условия, которые используются для оценки соответствия требованиям на клиентских устройствах. Можно настроить новый параметр или выбрать существующий параметр на эталонном компьютере.  
 
--   **Regras de compatibilidade** - as regras de compatibilidade especificam as condições que definem a compatibilidade da definição de um item de configuração. Antes de poder ser avaliada a compatibilidade de uma definição, tem de ter, pelo menos, uma regra de compatibilidade. Algumas definições de script permitem remediar os valores considerados não conformes. Pode criar novas regras ou navegar para uma definição existente em qualquer item de configuração para selecionar regras no mesmo.  
+-   **Правила соответствия** — правила соответствия указывают условия, определяющие соответствие настройки элемента конфигурации требованиям. Перед тем как оценить параметр на соответствие требованиям, необходимо создать по крайней мере одно правило соответствия. Некоторые настройки позволяют исправлять значения, признанные несоответствующими. Вы можете создать новые правила или перейти к существующему параметру в любом элементе конфигурации, чтобы выбрать правила в нем.  
 
--   **Plataformas suportadas** - são as plataformas dos dispositivos onde define que a compatibilidade do item de configuração será avaliada. Se implementar um item de configuração num dispositivo que não esteja na lista de plataformas suportadas, a compatibilidade não será avaliada.  
+-   **Поддерживаемые платформы** — это определяемые вами платформы устройств, на которых будет оцениваться соответствие элемента конфигурации. При развертывании элемента конфигурации для устройства, которое не входит в список поддерживаемых платформ, этот элемент не будет вычисляться для соответствия.  
 
-## <a name="what-is-a-configuration-baseline"></a>O que é uma linha de base da configuração?  
- A compatibilidade é avaliada através da definição de uma linha de base da configuração, que contém os itens de configuração que pretende avaliar e as definições e regras que descrevem o nível de compatibilidade necessário. Pode importar estes dados de configuração da web no Microsoft System Center Configuration Manager pacotes de configuração como melhores práticas que são definidas pela Microsoft e outros fornecedores, no Configuration Manager e que, em seguida, importar para o Configuration Manager. Em alternativa, pode criar novos itens de configuração e linhas de base da configuração.  
+## <a name="what-is-a-configuration-baseline"></a>Что такое конфигурационная база?  
+ Соответствие требованиям оценивается путем определения конфигурационной базы, содержащей элементы конфигурации, которые требуется оценить, а также параметры и правила, описывающие необходимый уровень соответствия. Эти данные конфигурации можно импортировать из Интернета в пакеты конфигурации Microsoft System Center Configuration Manager в качестве рекомендаций, определяемых корпорацией Майкрософт и другими поставщиками, в Configuration Manager, которые затем импортируются в Configuration Manager. Или можно создать новые элементы конфигурации и конфигурационные базы.  
 
- Depois de uma linha de base da configuração estar definida, pode implementá-la em utilizadores e dispositivos através de coleções e avaliar as definições de compatibilidade com base num agendamento. Os dispositivos podem ter várias linhas base de configuração implementadas nos respetivos computadores. Isto permite um elevado nível de controlo.  
+ После определения конфигурационной базы ее можно развернуть для пользователей и устройств в коллекциях, а также оценивать соответствие ее параметров по расписанию. Устройства могут иметь несколько конфигурационных баз, развернутых на них. Это обеспечивает высокий уровень контроля.  
 
- Os dispositivos cliente avaliam a compatibilidade em relação a cada linha de base da configuração implementada e comunicam imediatamente os resultados ao site, utilizando mensagens de estado. Se um dispositivo cliente não estiver atualmente ligado à rede, mas tiver transferido os itens de configuração que são referenciados numa linha de base de configuração implementada, a compatibilidade da linha de base da configuração é avaliada. As informações de compatibilidade são enviadas no restabelecimento de ligação.  
+ Клиентские устройства оценивают соответствие по каждому развернутому шаблону конфигурации и незамедлительно отправляют результаты на сайт с помощью сообщений о состоянии. Если клиентское устройство не подключено к сети, но скачало элементы конфигурации, на которые ссылается развернутая конфигурационная база, то оценивается соответствие конфигурационной базы. Сведения о соответствии отправляются получателю при повторном подключении.  
 
- Pode monitorizar os resultados da compatibilidade da avaliação da linha de base de configuração a **implementações** no nó de **monitorização** área de trabalho na consola do Configuration Manager para visualizar as causas mais comuns de incompatibilidade, erros e o número de utilizadores e dispositivos que são afetados. Também pode executar relatórios de definições de conformidade para localizar detalhes adicionais, como os dispositivos que estão em conformidade ou não conformes, e o elemento de linha de base da configuração que está a tornar um computador não conforme. Pode também ver resultados da avaliação de compatibilidade dos computadores Windows com o software de cliente do Configuration Manager utilizando o **configurações** separador **do Configuration Manager** no painel de controlo.  
+ Вы можете отслеживать результаты оценки соответствия с помощью конфигурационной базы, выбрав узел **Развертывания** в рабочей области **Наблюдение** консоли Configuration Manager для просмотра наиболее распространенных причин несоответствия, ошибок, а также числа затронутых пользователей и устройств. Кроме того, вы можете формировать отчеты по параметрам соответствия требованиям для поиска дополнительных сведений, например о том, какие устройства совместимы, а какие нет и какой элемент конфигурационной базы вызывает несовместимость компьютера. Результаты оценки соответствия с компьютеров Windows, на которых запущена клиентская программа Configuration Manager, можно просмотреть на вкладке **Конфигурации** в компоненте **Configuration Manager** на панели управления.  
 
-## <a name="user-data-and-profiles-configuration-items"></a>Itens de configuração de dados e perfis de utilizador  
- Itens de configuração de perfis e dados de utilizador contêm definições que controlam a forma como os utilizadores na sua hierarquia gerem o redirecionamento de pastas, ficheiros offline e perfis itinerantes em computadores que executam o Windows 8 e posterior. Pode implementá-las em coleções de utilizadores e, em seguida, monitorizar a compatibilidade do **monitorização** nós da consola do Configuration Manager. Ao contrário de outros itens de configuração, estes não são adicionados às linhas de base de configuração antes de implementá-los. Pode implementá-los diretamente com a caixa de diálogo **Implementar Item de Configuração de Dados e Perfis de Utilizador** .  
+## <a name="user-data-and-profiles-configuration-items"></a>Элементы конфигурации данных и профилей пользователя  
+ Элементы конфигурации данных и профилей пользователей содержат параметры, регулирующие возможности пользователей вашей иерархии по управлению перенаправлением папок, автономными файлами и переносимыми профилями на компьютерах с ОС Windows 8 и более поздних версий. Эти параметры можно развернуть для коллекций пользователей, чтобы затем отслеживать их соответствие с помощью узла **Наблюдение** в консоли Configuration Manager. В отличие от других элементов конфигурации они не добавляются к конфигурационной базе перед развертыванием. В диалоговом окне **Развертывание элементов конфигурации данных и профилей пользователя** их можно развернуть напрямую.  
 
- Para obter mais informações, consulte [criar itens de configuração de perfis e dados de utilizador](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
+ Дополнительные сведения см. в разделе [Создание элемента конфигурации данных и профилей пользователя](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
 
-## <a name="remote-connection-profiles"></a>Perfis de ligação remota  
- Os perfis de ligação remota fornecem um conjunto de ferramentas e recursos para o ajudar a criar, implementar e monitorizar as definições de ligação remota para dispositivos na sua organização. Ao implementar essas definições, minimiza o esforço de que os utilizadores finais necessitam para ligarem aos seus computadores na rede da empresa.  
+## <a name="remote-connection-profiles"></a>Профили удаленного подключения  
+ Профили удаленного подключения включают набор средств и ресурсов, которые позволяют создавать, развертывать и отслеживать параметры удаленного подключения на устройствах в организации. Развертывание этих параметров упрощает подключение пользователей к их компьютерам в корпоративной сети.  
 
-Para obter mais informações, consulte [criar perfis de ligação remota](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
+Подробные сведения см.в разделе [Создание профилей удаленного подключения](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
 
-## <a name="windows-edition-upgrade"></a>Atualização de edição do Windows
-A política de atualização de edição permite atualizar automaticamente dispositivos que executem determinadas versões do Windows 10 para uma edição mais recente, fornecendo um novo ficheiro de chave ou de licença de produto.
+## <a name="windows-edition-upgrade"></a>Обновление выпусков Windows
+Политика обновления выпусков позволяет автоматически обновлять устройства с определенными версиями Windows 10 до более нового выпуска путем указания ключа продукта или файла лицензии.
 
-Para obter mais informações, consulte [dispositivos de atualizar o Windows com a edição de atualização de política](/sccm/compliance/deploy-use/upgrade-windows-version)
+Подробные сведения см. в разделе [Обновление устройств Windows с помощью политики обновления выпусков](/sccm/compliance/deploy-use/upgrade-windows-version).

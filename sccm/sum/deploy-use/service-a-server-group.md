@@ -1,6 +1,6 @@
 ---
-title: "Serviço de um grupo de servidor | Microsoft Docs"
-description: "A consola do System Center Configuration Manager disponibiliza alertas e Estados para monitorizar as atualizações e conformidade."
+title: "Обслуживание группы серверов | Документы Майкрософт"
+description: "На консоли System Center Configuration Manager отображаются оповещения и сведения о состоянии, необходимые для отслеживания обновлений и соответствия требованиям."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,50 +13,50 @@ ms.technology: configmgr-sum
 ms.assetid: 304a83ea-0f72-437d-9688-2e6e0c7526dd
 ms.openlocfilehash: ae09a02dd5d67113b9a7e2ce146c844efa4caf55
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
 >[!IMPORTANT]
->Esta é uma funcionalidade de pré-lançamento disponível no Configuration Manager versão 1606 e versão 1610. As funcionalidades de pré-lançamento estão incluídas no produto para um teste antecipado num ambiente de produção, mas devem não ser consideradas prontas para produção. Tem de ativar esta funcionalidade para que fique disponível. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+>Эта функция предварительного выпуска в Configuration Manager версий 1606 и 1610. Функции предварительной версии включены в продукт для раннего тестирования в рабочей среде, но не следует считать их готовыми к работе. Чтобы эти функции были доступны, необходимо включить их. Дополнительные сведения см. в статье [Использование функций предварительной версии из обновлений](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
 
-# <a name="service-a-server-group"></a>Fazer manutenção a um grupo de servidores
+# <a name="service-a-server-group"></a>Обслуживание группы серверов
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Começando no System Center Configuration Manager versão 1606, pode configurar definições de grupo do servidor para uma coleção para definir quantos, que percentagem ou a ordem pela qual os computadores na coleção irão instalar atualizações de software. Também pode configurar scripts do PowerShell de pré-implementação e pós-implementação para executar ações personalizadas.
+Начиная с System Center Configuration Manager версии 1606, можно настраивать параметры группы серверов для коллекции, чтобы определить количество, процент или порядок установки обновлений ПО на компьютеры в коллекции. Можно также настроить выполняемые перед развертыванием и после него скрипты PowerShell для реализации настраиваемых действий.
 
-Quando implementa atualizações de software para uma coleção que tenha as definições de grupo do servidor configuradas, o Configuration Manager determina quantos computadores na coleção pode instalar as atualizações de software em qualquer momento e disponibiliza o mesmo número de bloqueios de implementação. Apenas os computadores que obter um bloqueio de implementação irão iniciar a instalação da atualização de software. Quando estiver disponível um bloqueio de implementação, um computador obtém o bloqueio de implementação, instala as atualizações de software e, em seguida, liberta o bloqueio de implementação quando a instalação de atualizações de software estiver concluída com êxito. Em seguida, o bloqueio de implementação fica disponível para outros computadores. Se um computador não é possível libertar um bloqueio de implementação, pode de versão manualmente todos os bloqueios de implementação de grupo de servidor para a coleção.
+При развертывании обновлений программного обеспечения для коллекции, в которой настроены параметры группы серверов, Configuration Manager определяет, на какое количество компьютеров в коллекции могут быть установлены обновления программного обеспечения в определенный момент времени, и предоставляет доступ к такому же количеству блокировок развертывания. Установка обновления программного обеспечения начнется только на компьютерах с блокировкой развертывания. Если блокировка развертывания доступна, компьютер получает ее, устанавливает обновления программного обеспечения, а затем после успешного завершения установки снимает блокировку развертывания. После этого блокировка развертывания становится доступной для других компьютеров. Если компьютеру не удается снять блокировку развертывания, можно вручную снять все блокировки развертываний группы серверов для коллекции.
 
 >[!IMPORTANT]
->Todos os computadores na coleção devem ser atribuídos ao mesmo site.
+>Все компьютеры в коллекции должны быть назначены одному сайту.
 
-#### <a name="to-create-a-collection-for-a-server-group"></a>Para criar uma coleção para um grupo de servidores  
-As definições do grupo de servidor são configuradas nas propriedades de uma coleção de dispositivos. Um grupo de servidores de serviço, todos os membros da coleção devem ser atribuídos ao mesmo site. Utilize os seguintes passos para criar uma coleção e configurar as definições de grupo do servidor:
-1.  [Criar uma coleção de dispositivos](../../core/clients/manage/collections/create-collections.md) que contenha os computadores no grupo de servidor.  
+#### <a name="to-create-a-collection-for-a-server-group"></a>Создание коллекции для группы серверов  
+Параметры группы серверов настраиваются в окне свойств коллекции устройств. Для обслуживания группы серверов все члены коллекции должны быть назначены одному сайту. Следующие шаги предназначены для создания коллекции и настройки параметров группы серверов.
+1.  [Создайте коллекцию устройств](../../core/clients/manage/collections/create-collections.md), содержащую компьютеры в группе серверов.  
 
-2.  No **ativos e compatibilidade** área de trabalho, clique em **coleções de dispositivos**, faça duplo clique na coleção que contém os computadores no grupo de servidor e, em seguida, clique em **propriedades**.  
+2.  В рабочей области **Активы и соответствие** выберите **Коллекции устройств**, щелкните правой кнопкой мыши коллекцию, содержащую компьютеры в группе серверов, и выберите пункт **Свойства**.  
 
-3.  No **geral** separador, selecione **todos os dispositivos fazem parte do mesmo grupo de servidor**e, em seguida, clique em **definições**.  
+3.  На вкладке **Общие** выберите **Все устройства относятся к одной группе серверов**, а затем щелкните **Параметры**.  
 
-4.  No **as definições do grupo de servidor** página, especifique uma das seguintes definições:  
+4.  На странице **Параметры группы серверов** укажите один из следующих параметров.  
 
-    -   **Permitir que uma percentagem das máquinas seja atualizada ao mesmo tempo**: Especifica que apenas determinada percentagem de clientes são atualizadas ao mesmo tempo. Se, por exemplo, a coleção tem 10 clientes, e a coleção é configurada para atualização 30% de clientes ao mesmo tempo, em seguida, apenas 3 clientes irão instalar atualizações de software em qualquer momento.  
+    -   **Разрешить одновременное обновление определенного процента компьютеров**. Указывает, что одновременно обновляться может только определенный процент клиентов. Если, например, в коллекцию входит 10 клиентов и она настроена для одновременного обновления 30 % клиентов, то в один момент времени устанавливать обновления программного обеспечения смогут только 3 клиента.  
 
-    -   **Permitir que um número de máquinas seja atualizada ao mesmo tempo**: Especifica que apenas um determinado número de clientes é atualizado ao mesmo tempo.  
+    -   **Разрешить одновременное обновление определенного числа компьютеров**. Указывает, что одновременно обновляться может только определенное количество клиентов.  
 
-    -   **Especifique a sequência de manutenção**: Especifica que os clientes na coleção será atualizado um de cada vez na sequência que configurar. Um cliente apenas irá instalar atualizações de software depois do cliente que está à frente das-la na lista concluiu a instalação respetivas atualizações de software.  
+    -   **Указать последовательность обслуживания**. Указывает, что клиенты в коллекции будут обновляться поочередно, согласно настроенной последовательности. Клиент начнет установку обновлений программного обеспечения только после того, как клиент выше его в списке закончит устанавливать свои обновления.  
 
-5.  Especifique se pretende utilizar um script de pré-implementação (drenagem do nó) ou um script de pós-implementação (retoma do nó).  
+5.  Укажите, следует ли использовать сценарий, выполняемый перед развертыванием (очистка узла), или сценарий, выполняемый после развертывания (возобновление работы узла).  
 
     > [!WARNING]
-    > Scripts personalizados não são assinados pela Microsoft. É da responsabilidade do cliente para manter a integridade destes scripts.
+    > Пользовательские скрипты не подписываются корпорацией Майкрософт. За обеспечение целостности этих скриптов отвечаете вы.
 
     > [!TIP]  
-    > Seguem-se exemplos que pode utilizar no teste de pré-implementação e pós-implementação scripts que escrevem a hora atual para um ficheiro de texto:  
+    > Ниже приведены примеры того, как можно использовать при тестировании сценарии, выполняемые до и после развертывания, которые записывают текущее время в текстовый файл.  
     >   
-    >  **Pré-implementação**  
+    >  **Перед развертыванием**  
     >   
     >  `#Start`  
     >   
@@ -66,7 +66,7 @@ As definições do grupo de servidor são configuradas nas propriedades de uma c
     >   
     >  `Out-File C:\temp\start.txt`  
     >   
-    >  **Pós-implementação**  
+    >  **После развертывания**  
     >   
     >  `#End`  
     >   
@@ -76,15 +76,15 @@ As definições do grupo de servidor são configuradas nas propriedades de uma c
     >   
     >  `Out-File C:\temp\end.txt`  
 
-## <a name="deploy-software-updates-to-the-server-group-and-monitor-status"></a>Implementar atualizações de software para o estado do monitor e o grupo de servidor  
-Implementar atualizações de software para a coleção de grupo de servidor utilizando o processo de implementação típica. Depois de implementar as atualizações de software, pode monitorizar a implementação de atualização de software na consola do Configuration Manager.
-1.  [Implementar atualizações de software](manually-deploy-software-updates.md) na coleção de grupo do servidor.   
+## <a name="deploy-software-updates-to-the-server-group-and-monitor-status"></a>Развертывание обновлений программного обеспечения в группе серверов и отслеживание состояния  
+Развертывание обновлений программного обеспечения в коллекцию группы серверов выполняется в ходе обычного процесса развертывания. После развертывания обновлений программного обеспечения можно отслеживать развертывание обновлений в консоли Configuration Manager.
+1.  [Разверните обновления программного обеспечения](manually-deploy-software-updates.md) в коллекции группы серверов.   
 
-2.  [Monitorizar a implementação de atualização de software](monitor-software-updates.md). Para além do padrão para a implementação de atualizações de software, as vistas de monitorização de **à espera de bloqueio** estado é apresentado quando um cliente está a aguardar a ativar instalar as atualizações de software. Pode rever o ficheiro UpdatesDeployment.log para mais informações.
+2.  [Осуществляйте мониторинг развертывания обновлений программного обеспечения](monitor-software-updates.md). Помимо стандартных представлений мониторинга развертывания обновлений программного обеспечения отображается состояние **Ожидание блокировки**, если клиент ожидает своей очереди на установку обновлений программного обеспечения. Дополнительные сведения можно найти в файле UpdatesDeployment.log.
 
 
-## <a name="clear-the-deployment-locks-for-computers-in-a-server-group"></a>Limpar os bloqueios de implementação para computadores num grupo de servidor  
-Quando um computador falhar ao libertar um bloqueio de implementação, pode de versão manualmente todos os bloqueios de implementação de grupo de servidor para a coleção. Limpar bloqueios apenas quando uma implementação é bloqueada a atualizar os computadores na coleção e não existirem computadores continuam não compatíveis.  
-1.  No **ativos e compatibilidade** área de trabalho, clique em **coleções de dispositivos**e clique na coleção para limpar os bloqueios de implementação.  
+## <a name="clear-the-deployment-locks-for-computers-in-a-server-group"></a>Снятие блокировки развертывания для компьютеров в группе серверов  
+Если компьютеру не удается снять блокировку развертывания, можно вручную снять все блокировки развертываний группы серверов для коллекции. Блокировки следует снимать только в том случае, если развертывание замерло в состоянии обновления компьютеров в коллекции и существуют компьютеры, которые по-прежнему не соответствуют требованиям.  
+1.  В рабочей области **Активы и соответствие** щелкните узел **Коллекции устройств**, а затем выберите коллекцию, для которой следует снять блокировки развертывания.  
 
-2.  No **home page** separador o **implementação** , clique em **bloqueia de implementação de grupo de servidor limpar**. Quando os clientes não tem conseguido instalar as atualizações de software e estão a impedir outros clientes instalar as atualizações de software, os bloqueios de implementação podem ser eliminados manualmente.  
+2.  На вкладке **Главная** в группе **Развертывания** щелкните **Снять блокировки развертывания для группы серверов**. Если клиентам не удалось установить обновления программного обеспечения и они препятствуют установке обновлений для других клиентов, можно вручную снять блокировки развертывания.  

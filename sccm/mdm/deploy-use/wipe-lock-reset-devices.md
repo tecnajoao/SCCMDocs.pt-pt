@@ -1,6 +1,6 @@
 ---
-title: "Proteger dados através de eliminação remota, bloqueio ou reposição utilizando o System Center Configuration Manager do código de acesso | Microsoft Docs"
-description: "Proteger os dados de dispositivo com a eliminação completa, a eliminação seletiva, bloqueio remoto ou reposição utilizando o System Center Configuration Manager do código de acesso."
+title: "Защита данных с помощью функций удаленной очистки, блокировки или сброса секретного кода с помощью System Center Configuration Manager | Microsoft Docs"
+description: "Защита данных с помощью функций полной очистки, выборочной очистки, удаленной блокировки или сброса секретного кода с помощью System Center Configuration Manager"
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -17,211 +17,211 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 351fdc6328dd0859d60e00b128963df738e69f81
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Proteger dados através de eliminação remota, bloqueio ou reposição utilizando o System Center Configuration Manager do código de acesso
+# <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Защита данных с помощью функций удаленной очистки, блокировки или сброса секретного кода с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager fornece funcionalidades de eliminação seletiva, eliminação completa, bloqueio remoto e reposição do código de acesso. Os dispositivos móveis podem armazenar dados empresariais confidenciais e fornecer acesso a muitos recursos da empresa. Para ajudar a proteger os dispositivos, pode emitir:  
+System Center Configuration Manager предоставляет возможности выборочной очистки, полной очистки, удаленной блокировки и сброса секретного кода. Мобильные устройства могут хранить конфиденциальные данные предприятия и предоставлять доступ к различным корпоративным ресурсам. Чтобы защитить устройства, можно выполнить следующие задачи:  
 
-- Uma eliminação completa para restaurar o dispositivo para as respetivas definições de fábrica.  
+- полная очистка для восстановления заводских настроек;  
 
-- Uma eliminação seletiva para remover apenas os dados da empresa.  
+- выборочная очистка для удаления только корпоративных данных;  
 
-- Um bloqueio remoto para ajudar a proteger o dispositivo em caso de perda.  
+- удаленная блокировка для защиты устройства, которое может быть потеряно;  
 
-- Uma reposição do código de acesso do dispositivo.  
+- сброс секретного кода.  
 
-## <a name="full-wipe"></a>Eliminação completa  
-Pode emitir um comando de eliminação para um dispositivo quando precisa de proteger um dispositivo perdido ou quando extingue um dispositivo de utilização ativa.  
+## <a name="full-wipe"></a>полная очистка;  
+Команда очистки выдается для защиты потерянного устройства или в случае вывода устройства из эксплуатации.  
 
-Emita uma **eliminação completa** para um dispositivo para restaurar o mesmo para as respetivas predefinições de fábrica. Esta ação remove todos os dados e definições da empresa e do utilizador. Pode efetuar uma eliminação completa nos dispositivos Windows Phone, iOS, Android e Windows 10.  
+**Полная очистка** применяется для восстановления заводских настроек устройства. При этом удаляются все данные и настройки компании и пользователя. Вы можете выполнить полную очистку на устройствах Windows Phone, iOS, Android и Windows 10.  
 
 > [!NOTE]
-> Apagar dispositivos Windows 10 em versões anteriores à versão 1511 com menos de 4 GB de RAM tenha de deixar o dispositivo não responde. [Saiba mais](https://technet.microsoft.com/library/mt592024.aspx#full-wipe-disables-windows-10-devices-with-less-than-4-gb-ram).
+> Очистка устройств Windows 10 с версиями, более ранними, чем 1511, и с объемом ОЗУ меньше 4 ГБ может привести к тому, что устройство перестанет отвечать. [Дополнительные сведения](https://technet.microsoft.com/library/mt592024.aspx#full-wipe-disables-windows-10-devices-with-less-than-4-gb-ram).
 
-#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Para iniciar uma eliminação remota de dados a partir da consola do Configuration Manager  
+#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Удаленная очистка из консоли Configuration Manager  
 
-1. Na consola do Configuration Manager, escolha **ativos e compatibilidade** e escolha **dispositivos**. Em alternativa, pode escolher **coleções de dispositivos** e selecione uma coleção.  
+1. В консоли Configuration Manager последовательно выберите **Активы и соответствие****Устройства**. Кроме того, можно щелкнуть элемент **Коллекции устройств** и выбрать коллекцию.  
 
-2. Selecione o dispositivo que pretende extinguir/eliminar.  
+2. Выберите устройство, которое требуется очистить или прекратить использовать.  
 
-3. Escolha **ações do dispositivo remoto** no **grupo de dispositivos**e, em seguida, escolha **extinguir/limpar**.  
+3. Выберите **Действия удаленного устройства** в **группе устройств**, а затем — **Снять с учета или очистить**.  
 
-## <a name="selective-wipe"></a>Eliminação seletiva  
-Emita uma **eliminação seletiva** para um dispositivo para remover apenas os dados da empresa. A tabela seguinte descreve, por plataforma, que dados são removidos e o efeito nos dados que permanecem no dispositivo após uma eliminação seletiva.  
+## <a name="selective-wipe"></a>Выборочная очистка  
+**Выборочная очистка** применяется для удаления только корпоративных данных. В следующей таблице представлено описание удаляемых данных и воздействие на данные, оставшиеся на устройстве после выборочной очистки.  
 
 **iOS**  
 
-|Conteúdo removido quando estiver a extinguir um dispositivo|iOS|  
+|Содержимое, удаляемое при снятии устройства с учета|iOS|  
 |--------------------------------------------|---------|  
-|Aplicações da empresa e dados associados instalados utilizando o Configuration Manager e o Intune|As aplicações são desinstaladas. Os dados da aplicação da empresa são removidos.|  
-|Perfis de VPN e de Wi-Fi|Removidos.|  
-|Certificados|Removidos e revogados.|  
-|Definições|Removidas, exceto para: **Permitir chamadas em roaming**, **permitir roaming de dados**, e **permitir sincronização automática em roaming**.|  
-|Agente de gestão|O perfil de gestão é removido.|  
-|Perfis de e-mail|Para perfis de e-mail configurados pelo Intune, a conta de e-mail e o e-mail são removidos.|  
+|Приложения компании и связанные данные, установленные с помощью Configuration Manager и Intune|Удаляются приложения. Удаляются данные приложений компании.|  
+|Профили Wi-Fi и VPN|Удаляются.|  
+|Сертификаты|Удаляются и отзываются.|  
+|Параметры|Удаляются, за исключением: **Разрешить голосовой роуминг**, **Разрешить передачу данных в роуминге** и **Разрешить автоматическую синхронизацию в роуминге**.|  
+|Агент управления|Профиль управления удаляется.|  
+|Профили электронной почты|Для профилей электронной почты, настроенных с помощью Intune, учетная запись и адрес электронной почты удаляются.|  
 
-**Android e Android Samsung KNOX Standard**  
+**Android и Android Samsung KNOX Standard**  
 
-|Conteúdo removido quando estiver a extinguir um dispositivo|Android|Samsung KNOX Standard|  
+|Содержимое, удаляемое при снятии устройства с учета|Android|Samsung KNOX Standard|  
 |--------------------------------------------|-------------|------------------|  
-|Aplicações da empresa e dados associados instalados utilizando o Configuration Manager e o Intune|As aplicações e os dados permanecem instalados.|As aplicações são desinstaladas.|  
-|Perfis de VPN e de Wi-Fi|Removidos.|Removidos.|  
-|Certificados|Revogados.|Revogados.|  
-|Definições|Os requisitos são removidos.|Os requisitos são removidos.|  
-|Agente de gestão|O privilégio de Administrador de Dispositivos é revogado.|O privilégio de Administrador de Dispositivos é revogado.|  
-|Perfis de e-mail|Não aplicável.|Para perfis de e-mail configurados pelo Intune, a conta de e-mail e o e-mail são removidos.|  
+|Приложения компании и связанные данные, установленные с помощью Configuration Manager и Intune|Приложения и данные остаются.|Удаляются приложения.|  
+|Профили Wi-Fi и VPN|Удаляются.|Удаляются.|  
+|Сертификаты|Отзываются.|Отзываются.|  
+|Параметры|Требования удаляются.|Требования удаляются.|  
+|Агент управления|Права администратора устройств аннулируются.|Права администратора устройств аннулируются.|  
+|Профили электронной почты|Неприменимо.|Для профилей электронной почты, настроенных с помощью Intune, учетная запись и адрес электронной почты удаляются.|  
 
 **Android for Work**
 
-Fazer uma eliminação seletiva num Android para dispositivos de trabalho remove o perfil de trabalho, juntamente com todos os dados, aplicações e definições no perfil de trabalho nesse dispositivo. Ter extinguido o dispositivo da gestão com o Configuration Manager e o Intune. Eliminação completa não é suportada para Android para o trabalho.
+При выборочной очистке на устройстве Android for Work удаляется рабочий профиль со всеми данными, приложениями и параметрами на этом устройстве. После этой операции устройство больше не будет управляться с помощью Configuration Manager и Intune. Полная очистка в Android for Work не поддерживается.
 
- **Windows 10, Windows 8.1, Windows RT 8.1 e Windows RT**  
+ **Windows 10, Windows 8.1, Windows RT 8.1 и Windows RT**  
 
-|Conteúdo removido quando estiver a extinguir um dispositivo|Windows 10, Windows 8.1 e Windows RT 8.1|  
+|Содержимое, удаляемое при снятии устройства с учета|Windows 10, Windows 8.1 и Windows RT 8.1|  
 |---------------------------------|-------------|
-|Aplicações da empresa e dados associados instalados utilizando o Configuration Manager e o Intune|As aplicações são desinstaladas e as chaves de sideload são removidas. Aplicações que utilizam a eliminação seletiva do Windows terão a chave de encriptação revogada e dados deixarão de estar acessíveis.|  
-|Perfis de VPN e de Wi-Fi|Removidos.|  
-|Certificados|Removidos e revogados.|  
-|Definições|Os requisitos são removidos.|
-|Agente de gestão|Não aplicável. Agente de gestão está incorporado.|  
-|Perfis de e-mail|Mensagem de e-mail que tenha o EFS ativado for removida, que inclui a aplicação correio para Windows e-mail e anexos.|  
+|Приложения компании и связанные данные, установленные с помощью Configuration Manager и Intune|Удаляются приложения и ключи загрузки неопубликованных приложений. Для приложений, которые используют выборочную очистку Windows, отзывается ключ шифрования и данные перестают быть доступны.|  
+|Профили Wi-Fi и VPN|Удаляются.|  
+|Сертификаты|Удаляются и отзываются.|  
+|Параметры|Требования удаляются.|
+|Агент управления|Неприменимо. Агент управления является встроенным средством.|  
+|Профили электронной почты|Программа электронной почты с поддержкой файловой системы EFS удаляется, включая приложение "Почта" для электронной почты Windows и вложений.|  
 
- **Windows 10 Mobile, Windows Phone 8.0 e Windows Phone 8.1**
+ **Windows 10 Mobile, Windows Phone 8.0 и Windows Phone 8.1**
 
-|Conteúdo removido quando estiver a extinguir um dispositivo|Windows 10 Mobile, Windows Phone 8 e Windows Phone 8.1|  
+|Содержимое, удаляемое при снятии устройства с учета|Windows 10 Mobile, Windows Phone 8 и Windows Phone 8.1|  
 |-|-|
-|Aplicações da empresa e dados associados instalados utilizando o Configuration Manager e o Intune|As aplicações são desinstaladas. Os dados da aplicação da empresa são removidos.|  
-|Perfis de VPN e de Wi-Fi|Removido para Windows 10 Mobile e Windows Phone 8.1.|  
-|Certificados|Removido no Windows Phone 8.1.|  
-|Agente de gestão|Não aplicável. Agente de gestão está incorporado.|  
-|Perfis de e-mail|Remover (exceto o Windows Phone 8.0).|  
+|Приложения компании и связанные данные, установленные с помощью Configuration Manager и Intune|Удаляются приложения. Удаляются данные приложений компании.|  
+|Профили Wi-Fi и VPN|Удалено для Windows 10 Mobile и Windows Phone 8.1.|  
+|Сертификаты|Удалено для Windows Phone 8.1.|  
+|Агент управления|Неприменимо. Агент управления является встроенным средством.|  
+|Профили электронной почты|Удалено (за исключением Windows Phone 8.0).|  
 
-As seguintes definições também são removidas dos dispositivos Windows 10 Mobile e Windows Phone 8.1:  
+Следующие параметры также удаляются с устройств Windows 10 Mobile и Windows Phone 8.1:  
 
-- **Exigir uma palavra-passe para desbloquear dispositivos móveis**  
-- **Permitir palavras-passe simples**  
-- **Comprimento mínimo da palavra-passe**  
-- **Tipo de palavra-passe obrigatório**
-- **Expiração da palavra-passe (dias)**  
-- **Memorizar histórico de palavra-passe**  
-- **Número de falhas de início de sessão repetidas permitidas antes do dispositivo ser apagado**  
-- **Minutos de inatividade antes da palavra-passe é exigida**  
-- **Tipo de palavra-passe obrigatório – número mínimo de conjuntos de carateres**  
-- **Permitir câmara**
-- **Encriptação obrigatória no dispositivo móvel**  
-- **Permitir armazenamento amovível**  
-- **Permitir browser**  
-- **Permitir loja de aplicações**  
-- **Permitir captura de ecrã**  
-- **Permitir geolocalização**  
-- **Permitir conta Microsoft**  
-- **Permitir copiar e colar**  
-- **Permitir tethering Wi-Fi**  
-- **Permitir ligação automática a hotspots Wi-Fi**  
-- **Permitir relatórios de hotspots Wi-Fi**  
-- **Permitir a reposição de fábrica**
-- **Permitir Bluetooth**  
-- **Permitir NFC**
-- **Permitir Wi-Fi**
+- **Требовать пароль для разблокировки мобильных устройств**  
+- **Разрешить простые пароли**  
+- **Минимальная длина пароля**  
+- **Требуемый тип пароля**
+- **Срок действия пароля (дней)**  
+- **Запоминать историю паролей**  
+- **Число разрешенных неудачных попыток входа перед очисткой устройства**  
+- **Минут бездействия до требования пароля**  
+- **Требуемый тип пароля — минимальное число наборов символов**  
+- **Разрешить камеру**
+- **Требовать шифрование на мобильном устройстве**  
+- **Разрешить съемные носители**  
+- **Разрешить веб-браузер**  
+- **Разрешить использование магазина приложений**  
+- **Разрешить снимок экрана**  
+- **Разрешить геолокацию**  
+- **Разрешить учетную запись Майкрософт**  
+- **Разрешить копирование и вставку**  
+- **Разрешить модем Wi-Fi**  
+- **Разрешить автоматическое подключение к бесплатным хот-спотам Wi-Fi**  
+- **Разрешить отчеты хот-спотов Wi-Fi**  
+- **Разрешить восстановление заводских настроек**
+- **Разрешить Bluetooth**  
+- **Разрешить NFC**
+- **Разрешить Wi-Fi**
 
-#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Para iniciar uma eliminação remota de dados a partir da consola do Configuration Manager  
+#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Удаленная очистка из консоли Configuration Manager  
 
-1. Na consola do Configuration Manager, escolha **ativos e compatibilidade** e escolha **dispositivos**. Em alternativa, pode escolher **coleções de dispositivos** e selecione uma coleção.  
+1. В консоли Configuration Manager последовательно выберите **Активы и соответствие****Устройства**. Кроме того, можно щелкнуть элемент **Коллекции устройств** и выбрать коллекцию.  
 
-2. Selecione o dispositivo que pretende extinguir/eliminar.  
+2. Выберите устройство, которое требуется очистить или прекратить использовать.  
 
-3. Escolha **ações do dispositivo remoto** no **grupo de dispositivos**e, em seguida, escolha **extinguir/limpar**.  
+3. Выберите **Действия удаленного устройства** в **группе устройств**, а затем — **Снять с учета или очистить**.  
 
-## <a name="wiping-efs-enabled-content"></a>Apagar conteúdo com o EFS ativado  
-Windows 8.1 e Windows RT 8.1 suportam eliminação seletiva de conteúdo encriptado Encrypting File System EFS. As seguintes informações aplicam-se a uma eliminação seletiva de conteúdo com o EFS ativado:  
+## <a name="wiping-efs-enabled-content"></a>Очистка содержимого с поддержкой EFS  
+Windows 8.1 и Windows RT 8.1 поддерживают выборочную очистку содержимого, зашифрованного с помощью EFS. Для выборочной очистки содержимого с поддержкой EFS справедливо следующее.  
 
-- Apenas as aplicações e dados que estão protegidos pelo EFS através do mesmo domínio de Internet que a conta do Intune são apagados seletivamente. Para mais informações, consulte o artigo [Eliminação Seletiva do Windows para a Gestão de Dados de Dispositivos](http://technet.microsoft.com/library/dn486874.aspx).  
+- Выборочно удаляются только приложения и данные, защищенные EFS, использующие тот же домен Интернета, что и учетная запись Intune. Дополнительные сведения см. в разделе [Выборочная очистка Windows для управления данными устройства](http://technet.microsoft.com/library/dn486874.aspx).  
 
-- Se quaisquer alterações efetuadas ao domínio associado ao EFS, as alterações podem demorar até 48 horas antes das aplicações e dados que utilizam o novo domínio poderem ser apagados seletivamente.  
+- При наличии каких-либо изменений, выполненных в домене, связанном с EFS, может пройти до 48 часов, прежде чем приложения и данные, использующие этот новый домен, можно будет выборочно удалить.  
 
-- Cada domínio registado com o Intune é o domínio que será apagado.  
+- Каждый домен, зарегистрированный в Intune, это домен, который будет удален.  
 
-Os dados e aplicações que EFS seletivo apagar atualmente suporta são:  
+Данные и приложения, для которых в настоящее время поддерживается выборочная очистка EFS:  
 
-- Aplicação correio para Windows.  
+- приложение "Почта" для Windows;  
 
-- Pastas de trabalho.
+- рабочие папки;
 
-- Ficheiros e pastas encriptados pelo EFS. Para mais informações, consulte o artigo [Melhores práticas para o Sistema de Encriptação de Ficheiros](http://support.microsoft.com/kb/223316).  
+- файлы и папки, зашифрованные с помощью EFS; дополнительные сведения см. в статье [Рекомендации по использованию шифрованной файловой системы](http://support.microsoft.com/kb/223316).  
 
-### <a name="best-practices-for-selective-wipe"></a>Melhores práticas para limpeza seletiva  
+### <a name="best-practices-for-selective-wipe"></a>Рекомендации по выборочной очистке  
 
-- Para um apagar e-mails com êxito, configure perfis de e-mail para iOS e dispositivos Windows Phone 8.1.  
+- Для успешной очистки электронной почты настройте профили электронной почты для устройств iOS и Windows Phone 8.1.  
 
-- Para um apagar aplicações com êxito, certifique-se de que as aplicações são distribuídas através da gestão de aplicações de dispositivos móveis.  
+- Для успешной очистки приложений убедитесь, что эти приложения распространяются через управление приложениями мобильных устройств.  
 
-- Para iOS, configure a definição **permitir cópia de segurança para iCloud** para **não permitir** para que os utilizadores não é possível restaurar conteúdo com o iCloud.  
+- Для устройств iOS установите для параметра **Разрешить резервное копирование в iCloud** значение **Запретить**, чтобы пользователи не могли восстановить содержимое с помощью iCloud.  
 
-- Se uma conta tiver sido desativada, em seguida, após um ano, Intune será extinguir a conta e uma eliminação seletiva será efetuada.  
+- Если учетная запись отключена, то через год эта учетная запись будет списана Intune и будет выполнена выборочная очистка.  
 
-##  <a name="passcode-reset"></a>Repor código de acesso  
-Se um utilizador se esquecer do respetivo código de acesso, pode ajudá-lo ao remover o código de acesso de um dispositivo ou ao aplicar um novo código de acesso temporário num dispositivo. A tabela seguinte lista como a reposição de código de acesso funciona em diferentes plataformas móveis.  
+##  <a name="passcode-reset"></a>Сброс секретного кода  
+Секретный код, забытый пользователем, можно удалить с устройства. Или можно применить новый временный секретный код. В следующей таблице описывается действие сброса секретного кода на различных мобильных платформах.  
 
-|Plataforma|Repor código de acesso|  
+|Платформа|Сброс секретного кода|  
 |--------------|--------------------|  
-|iOS|Suportado para a eliminação do código de acesso de um dispositivo. Não cria um novo código de acesso temporário.|
-|MacOS| Não suportada.|
-|Android|Suportado, e um código de acesso temporário é criado.|
-|Android for Work | Não suportada.|
-|PCs Windows 10|Não suportada.|  
-|Windows 10 mobile|Suportado, excluir o Azure AD dispositivos associados a um.|
-|Windows Phone 8.1|Suportado.|  
-|Windows RT 8.1 |Não suportada.|  
-|PCs Windows 8.1 |Não suportada.|  
+|iOS|Поддерживается для очистка секретного кода с устройства. Не создает новый временный секретный код.|
+|MacOS| Не поддерживается.|
+|Android|Поддерживается; создается временный секретный код.|
+|Android for Work | Не поддерживается.|
+|Компьютеры Windows 10|Не поддерживается.|  
+|Windows 10 Mobile|Поддерживается, за исключением устройств, присоединенных к Azure AD.|
+|Windows Phone 8.1|Поддерживается.|  
+|Windows RT 8.1 |Не поддерживается.|  
+|Компьютеры Windows 8.1 |Не поддерживается.|  
 
-#### <a name="to-reset-the-passcode-on-a-mobile-device-remotely-in-configuration-manager"></a>Para repor o código de acesso remotamente num dispositivo móvel no Configuration Manager  
+#### <a name="to-reset-the-passcode-on-a-mobile-device-remotely-in-configuration-manager"></a>Удаленный сброс секретного кода на мобильном устройстве в Configuration Manager  
 
-1. Na consola do Configuration Manager, escolha **ativos e compatibilidade** e escolha **dispositivos**. Em alternativa, pode escolher **coleções de dispositivos** e selecione uma coleção.  
+1. В консоли Configuration Manager последовательно выберите **Активы и соответствие****Устройства**. Кроме того, можно щелкнуть элемент **Коллекции устройств** и выбрать коллекцию.  
 
-2. Selecione o dispositivo ou dispositivos em que pretende repor o código de acesso.  
+2. Выберите устройство или устройства, на которых необходимо сбросить секретный код.  
 
-3. Escolha **ações do dispositivo remoto** no **grupo de dispositivos**e, em seguida, escolha **repor código de acesso**.  
+3. Выберите **Действия удаленного устройства** в **группе устройств**, а затем — **Сброс секретного кода**.  
 
-#### <a name="to-show-the-state-of-the-passcode-reset"></a>Para mostrar o estado da reposição do código de acesso  
+#### <a name="to-show-the-state-of-the-passcode-reset"></a>Отображение состояния сброса секретного кода  
 
-1. Na consola do Configuration Manager, escolha **ativos e compatibilidade** e escolha **dispositivos**. Em alternativa, pode escolher **coleções de dispositivos** e selecione uma coleção.  
+1. В консоли Configuration Manager последовательно выберите **Активы и соответствие****Устройства**. Кроме того, можно щелкнуть элемент **Коллекции устройств** и выбрать коллекцию.  
 
-2. Selecione o dispositivo ou dispositivos em que pretende mostrar o estado da reposição do código de acesso.  
+2. Выберите устройство или устройства, на которых необходимо узнать состояние сброса секретного кода.  
 
-3. Escolha **ações do dispositivo remoto** no **grupo de dispositivos**e, em seguida, escolha **Mostrar estado do código de acesso**.  
+3. Выберите **Действия удаленного устройства** в **группе устройств**, а затем — **Показать состояние секретного кода**.  
 
-## <a name="remote-lock"></a>Bloqueio remoto  
-Se um utilizador perder o respetivo dispositivo, pode bloquear o dispositivo remotamente. A tabela seguinte indica como o bloqueio remoto funciona em diferentes plataformas móveis.  
+## <a name="remote-lock"></a>удаленная блокировка;  
+В случае потери устройства пользователь может выполнить его удаленную блокировку. В следующей таблице описывается действие удаленной блокировки на различных мобильных платформах.  
 
-|Plataforma|Bloqueio remoto|  
+|Платформа|удаленная блокировка;|  
 |--------------|-----------------|  
-|iOS|Suportado.|  
-|Android|Suportado.|  
-|Windows 10|De momento, não é suportado.|  
-|Windows Phone 8 e Windows Phone 8.1|Suportado.|  
-|Windows RT 8.1 |Suportado se o utilizador atual do dispositivo for o mesmo utilizador que inscreveu o dispositivo.|  
-|Windows 8,1|Suportado se o utilizador atual do dispositivo for o mesmo utilizador que inscreveu o dispositivo.|  
+|iOS|Поддерживается.|  
+|Android|Поддерживается.|  
+|Windows 10|В настоящее время не поддерживается.|  
+|Windows Phone 8 и Windows Phone 8.1|Поддерживается.|  
+|Windows RT 8.1 |Поддерживается, если текущий пользователь устройства является пользователем, зарегистрировавшим устройство.|  
+|Windows 8.1|Поддерживается, если текущий пользователь устройства является пользователем, зарегистрировавшим устройство.|  
 
-#### <a name="to-lock-a-mobile-device-remotely-through-the-configuration-manager-console"></a>Para bloquear um dispositivo móvel remotamente através da consola do Configuration Manager  
+#### <a name="to-lock-a-mobile-device-remotely-through-the-configuration-manager-console"></a>Удаленная блокировка мобильного устройства в консоли Configuration Manager  
 
-1. Na consola do Configuration Manager, escolha **ativos e compatibilidade** e escolha **dispositivos**. Em alternativa, pode escolher **coleções de dispositivos** e selecione uma coleção.  
+1. В консоли Configuration Manager последовательно выберите **Активы и соответствие****Устройства**. Кроме того, можно щелкнуть элемент **Коллекции устройств** и выбрать коллекцию.  
 
-2. Selecione o dispositivo ou dispositivos a bloquear.  
+2. Выберите одно или несколько устройств для блокировки.  
 
-3. Escolha **ações do dispositivo remoto** no **grupo de dispositivos**e, em seguida, escolha **bloqueio remoto**.  
+3. Выберите **Действия удаленного устройства** в **группе устройств**, а затем — **Удаленная блокировка**.  
 
-#### <a name="to-show-the-state-of-the-remote-lock"></a>Para mostrar o estado do bloqueio remoto  
+#### <a name="to-show-the-state-of-the-remote-lock"></a>Отображение состояния удаленной блокировки  
 
-1. Na consola do Configuration Manager, escolha **ativos e compatibilidade** e escolha **dispositivos**. Em alternativa, pode escolher **coleções de dispositivos** e selecione uma coleção.  
+1. В консоли Configuration Manager последовательно выберите **Активы и соответствие****Устройства**. Кроме того, можно щелкнуть элемент **Коллекции устройств** и выбрать коллекцию.  
 
-2. Selecione o dispositivo em que pretende mostrar o estado do bloqueio remoto.  
+2. Выберите устройство, для которого необходимо узнать состояние удаленной блокировки.  
 
-3. Escolha **ações do dispositivo remoto** no **grupo de dispositivos**e, em seguida, escolha **Mostrar estado do bloqueio remoto**.  
+3. Выберите **Действия удаленного устройства** в **группе устройств**, а затем — **Показать состояние удаленной блокировки**.  
 
-### <a name="see-also"></a>Consulte também  
-[Windows Selective Wipe para gestão de dados do dispositivo](http://technet.microsoft.com/library/dn486874.aspx)   
+### <a name="see-also"></a>См. также  
+[Выборочная очистка Windows для управления данными устройства](http://technet.microsoft.com/library/dn486874.aspx)   

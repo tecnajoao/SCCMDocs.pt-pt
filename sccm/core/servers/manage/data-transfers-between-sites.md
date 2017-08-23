@@ -1,6 +1,6 @@
 ---
-title: "Transferências de dados | Microsoft Docs"
-description: "Saiba como o Configuration Manager move dados entre sites e como pode gerir a transferência dos dados através da rede."
+title: "Передача данных | Документы Майкрософт"
+description: "Сведения о том, как Configuration Manager перемещает данные между сайтами и как можно управлять передачей данных по сети."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,191 +16,191 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: bf0fdc8d4b4a72760b2cfb91231378a17df01594
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="data-transfers-between-sites-in-system-center-configuration-manager"></a>Transferência de dados entre sites no System Center Configuration Manager
+# <a name="data-transfers-between-sites-in-system-center-configuration-manager"></a>Передача данных между сайтами в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-O System Center Configuration Manager utiliza **replicação baseada em ficheiros** e **replicação de base de dados** para transferir tipos diferentes de informações entre sites. Saiba mais sobre como o Configuration Manager move dados entre sites e como pode gerir a transferência de dados através da rede.  
+System Center Configuration Manager использует **файловую репликацию** и **репликацию базы данных** для передачи разных типов данных между сайтами. Сведения о том, как Configuration Manager перемещает данные между сайтами и как можно управлять передачей данных по сети.  
 
 
 ## <a name="bkmk_fileroute"></a> File-based replication  
-O Configuration Manager utiliza a replicação baseada em ficheiros para transferir dados baseados em ficheiros entre sites na hierarquia. Estes dados incluem aplicações e pacotes que pretende implementar em pontos de distribuição em sites subordinados e registos de dados de deteção não processados que são transferidos para sites principais e, em seguida, processados.  
+Configuration Manager использует файловую репликацию для передачи файловых данных между сайтами. Эти данные включают приложения и пакеты, которые требуется развернуть в точках распространения на дочерних сайтах, и необработанные записи данных обнаружения, которые передаются на родительские сайты для обработки.  
 
-Comunicação baseada em ficheiros entre sites utiliza o **Server Message Block** protocolo SMB () na porta de TCP/IP 445. Pode especificar o modo de impulso e de limitação de largura de banda para controlar a quantidade de dados transferidos através da rede e pode utilizar as agendas para controlar quando enviar dados através da rede.  
+Для файлового взаимодействия между сайтами используется протокол **SMB** с портом TCP/IP 445. Можно задать регулирование полосы пропускания и импульсный режим для контроля объема данных, передаваемых по сети, и использовать расписания для управления отправкой данных по сети.  
 
-### <a name="bkmk_routes"></a> Rotas de replicação de ficheiros  
-As seguintes informações podem ajudar a configurar e utilizar rotas de replicação de ficheiros.  
+### <a name="bkmk_routes"></a> Маршруты репликации файлов  
+Ниже приведены сведения о настройке и использовании маршрутов репликации файлов.  
 
-#### <a name="file-replication-route"></a>Rota de replicação de ficheiros
+#### <a name="file-replication-route"></a>Маршрут репликации файлов
 
-Cada rota de replicação de ficheiros identifica um site de destino para os quais podem ser transferidos dados baseados em ficheiros. Cada site suporta uma rota de replicação de ficheiros a um site de destino específico.  
+Каждый маршрут репликации файлов определяет конечный сайт, на который передаются файловые данные. Каждый сайт поддерживает один маршрут репликации файлов для конкретного конечного сайта.  
 
-Pode alterar as seguintes definições para rotas de replicação de ficheiros:  
+Можно изменить следующие параметры маршрутов репликации файлов.  
 
--  **Conta de replicação de ficheiros**. Esta conta liga-se ao site de destino e escreve dados desse site **SMS_Site** partilhar. Os dados escritos nesta partilha são processados pelo site recetor. Por predefinição, quando um site é adicionado à hierarquia, o Configuration Manager atribui a conta de computador do novo site servidor do site como essa conta de replicação de ficheiros de sites. Esta conta é então adicionada ao site de destino **SMS_SiteToSiteConnection_&lt;Sitecode\>**  grupo, um grupo local no computador que concede acesso à partilha SMS_Site. Pode alterar esta conta para uma conta de utilizador do Windows. Se alterar a conta, certifique-se de que adiciona a nova conta para o site de destino **SMS_SiteToSiteConnection_&lt;Sitecode\>**  grupo.  
+-  **Учетная запись репликации файлов**. Эта учетная запись используется для подключения к конечному сайту и для записи данных в общий ресурс **SMS_Site** сайта. Записанные в этот ресурс данные обрабатываются получающим сайтом. По умолчанию при добавлении сайта в иерархию Configuration Manager назначает ему в качестве учетной записи репликации файлов учетную запись компьютера, служащего сервером новых сайтов. Эта учетная запись добавляется в группу **SMS_SiteToSiteConnection_&lt;код_сайта\>** конечного сайта. Она является локальной на компьютере, предоставляющем доступ к общей папке SMS_Site. Эту учетную запись можно изменить на учетную запись пользователя Windows. При изменении учетной записи добавьте новую учетную запись в группу **SMS_SiteToSiteConnection_&lt;код_сайта\>** конечного сайта.  
 
     > [!NOTE]  
-    >  Os sites secundários utilizam sempre a conta de computador do servidor do site secundário como a **Conta de Replicação de Ficheiros**.  
+    >  Вторичные сайты всегда используют учетную запись компьютера сервера вторичных сайтов со значением **Учетная запись репликации файлов**.  
 
--  **Agenda**. Pode definir o agendamento de cada rota de replicação de ficheiros restringir o tipo de dados e de tempo quando podem ser transferidos dados para o site de destino.  
--  **Limites de velocidade**. Pode especificar limites de velocidade para cada rota de replicação de ficheiros controlar a largura de banda de rede que é utilizada quando o site transfere dados para o site de destino:  
+-  **Расписание**. Для каждого маршрута репликации файлов можно создать расписание с целью ограничения типа данных и времени передачи данных на конечный сайт.  
+-  **Пределы скорости**. Для каждого маршрута репликации файлов можно указать пределы скорости передачи, что позволяет регулировать пропускную способность сети, используемую сайтом при передаче данных на конечный сайт.  
 
-    -  Utilize o **Modo de impulsos** para especificar o tamanho dos blocos de dados que são enviados para o site de destino. Também pode especificar um atraso de tempo entre o envio de cada bloco de dados. Utilize esta opção quando tiver de enviar dados através de uma ligação de rede muito pouca largura de banda para o site de destino. Por exemplo, poderá ter limitações para enviar 1 KB de dados a cada cinco segundos, mas não 1 KB a cada três segundos, independentemente da velocidade da ligação ou da respetiva utilização num determinado momento.
-    -  Utilize **Limitado a velocidades máximas de transferência por hora** para que um site envie dados para um site de destino utilizando apenas a percentagem de tempo especificada. Quando utilizar esta opção, o Configuration Manager não identifica a largura de banda disponível da rede, mas em vez disso, divide o tempo que pode enviar dados em frações de tempo. Em seguida, os dados são enviados num curto bloco de tempo, o que é seguido de blocos de tempo quando não são enviados dados. Por exemplo, se a velocidade máxima for definida como **50%**, Configuration Manager transmite dados durante um período de tempo seguido por um período de tempo quando não são enviados dados igual. A quantidade real de dados ou o tamanho do bloco de dados, não é gerido. Em vez disso, apenas é gerida a quantidade de tempo durante a qual são enviados dados.  
+    -  Чтобы указать размер блоков данных, отправляемых на конечный сайт, используйте параметр **Импульсный режим** . Можно также задать значение задержки между отправками каждого блока данных. Этот параметр используется при отправке данных на конечный сайт по очень медленному сетевому каналу. Например, независимо от скорости канала или интенсивности его использования в данный момент могут существовать ограничения на отправку 1 КБ данных каждые пять секунд, но не каждые три секунды.
+    -  Параметр **Ограничено указанной максимальной скоростью передачи в час** предназначен для отправки данных с сайта на конечный сайт с использованием только указанного процента времени. В этом случае Configuration Manager не определяет доступную пропускную способность сети, а делит время отправки данных на отдельные периоды. После этого в течение короткого промежутка времени выполняется отправка данных, за которой следуют паузы. Например, если в качестве максимальной скорости задано **50 %**, Configuration Manager передает данные в течение определенного времени, за которым следует точно такой же период, когда данные не отправляются. Управление фактическим объемом данных или размером блока данных не осуществляется. Управляемым является только период времени, в течение которого идет отправка данных.  
 
         > [!CAUTION]  
-        > Por predefinição, um site pode utilizar até três **envios simultâneos** para transferir dados para um site de destino. Quando são ativados limites de velocidade numa rota de replicação de dados, o número de **envios simultâneos** para enviar dados para esse site é limitado a um. Isto aplica-se mesmo quando o **Limite de largura de banda disponível (%)** é definido como **100%**. Por exemplo, se utilizar as predefinições para o remetente, esta reduz a taxa de transferência para o site de destino para um terço da capacidade predefinida.  
+        > По умолчанию для передачи данных на конечный сайт можно использовать до трех **одновременных отправок** . Если для маршрута репликации файлов включены ограничения скорости, доступна только одна **одновременная отправка** для передачи данных. Это действует и в случае, если параметру **Ограничить доступную полосу пропускания (%)** задано значение **100%**. Использование заданных по умолчанию параметров для отправителя позволяет сократить скорость передачи на конечный сайт до трети от пропускной способности по умолчанию.  
 
--  É possível configurar uma rota de replicação de ficheiros entre dois sites secundários para encaminhar conteúdo baseado em ficheiros entre esses sites.  
+-  Маршрут репликации файлов между двумя вторичными сайтами можно настроить для маршрутизации файлового содержимого между ними.  
 
-Para gerir um rota de replicação de ficheiros, o **administração** área de trabalho, expanda o **configuração da hierarquia** nó e, em seguida, selecione **replicação de ficheiros**.  
+Для управления маршрутом репликации файлов в рабочей области **Администрирование** разверните узел **Конфигурация иерархии** и выберите **Репликация файлов**.  
 
-#### <a name="sender"></a>Remetente
+#### <a name="sender"></a>Отправитель
 
-Cada site tem um remetente. O remetente gere a ligação de rede de um site para um site de destino e pode estabelecer ligações a múltiplos sites ao mesmo tempo. Para ligar a um site, o remetente utiliza a rota de replicação de ficheiros para o site para identificar a conta utilizada para estabelecer a ligação de rede. O remetente também utiliza esta conta para escrever dados na partilha SMS_Site desse site de destino.  
+На каждом сайте есть один отправитель. Отправитель управляет сетевым подключением одного сайта к конечному сайту и может устанавливать подключения к нескольким сайтам одновременно. Чтобы подключиться к сайту, отправитель использует маршрут репликации файлов к сайту для определения учетной записи, которую необходимо использовать для сетевого подключения. Отправитель также использует эту учетную запись для записи данных в общую папку SMS_Site конечного сайта.  
 
-Por predefinição, o remetente escreve dados num site de destino através de múltiplos **envios simultâneos**, normalmente referidos como threads. Cada envio simultâneo, ou thread, pode transferir um objeto baseado em ficheiros diferente para o site de destino. Por predefinição, quando o remetente começa a enviar um objeto, continua a escrever blocos de dados nesse objeto até que todo o objeto seja enviado. Depois de terem sido enviados todos os dados de um objeto, pode começar a ser enviado um novo objeto nesse thread.  
+По умолчанию отправитель записывает данные на конечный сайт с помощью нескольких **одновременных отправок**, которые обычно называются потоком. В составе каждой одновременной отправки или потока на конечный сайт могут передаваться различные файловые объекты. По умолчанию, когда отправитель начинает отправлять объект, он продолжает записывать для него блоки данных вплоть до полной отправки. После отправки всех данных для этого объекта можно приступить к отправке нового объекта в том же потоке.  
 
-Pode alterar as seguintes definições para um remetente:  
+Можно настроить следующие параметры для отправителя.  
 
--  **Envios simultâneos**. Por predefinição, cada site utiliza cinco envios simultâneos, estando três disponíveis para utilização quando são enviados dados para qualquer site de destino. Quando aumenta este número, pode aumentar o débito de dados entre sites, porque o Configuration Manager pode Transfira mais ficheiros ao mesmo tempo. Aumentar este número também aumenta a necessidade de largura de banda de rede entre sites.  
+-  **Максимальное число одновременных отправок**. По умолчанию каждый сайт использует пять одновременных отправок, причем три доступны для использования при отправке данных на любой конечный сайт. Увеличение этого числа приведет к увеличению скорости обмена данными между сайтами, так как Configuration Manager сможет передавать больше файлов одновременно. Увеличение этого числа также приводит к увеличению потребляемой пропускной способности сети между сайтами.  
 
--  **Definições de repetição**. Por predefinição, cada site tentará novamente uma ligação problemática duas vezes, com um atraso de um minuto entre tentativas de ligação. Pode modificar o número de tentativas de ligação efetuada pelo site e o intervalo de tempo entre tentativas.  
+-  **Параметры повтора**. По умолчанию каждый сайт два раза повторяет подключение с минутной задержкой между попытками. Число попыток подключений сайта и время ожидания между попытками можно изменить.  
 
-Para gerir o remetente de um site, o **administração** área de trabalho, expanda o **configuração do Site** nó, selecione o **Sites** nó e, em seguida, selecione **propriedades** para o site que pretende gerir. Selecione o **remetente** separador para alterar as definições do remetente.  
+Чтобы начать управление отправителем для сайта, в рабочей области **Администрирование** разверните узел **Конфигурация сайта**, затем разверните узел **Сайты** и нажмите кнопку **Свойства** для сайта, которым требуется управлять. Откройте вкладку **Отправитель** , чтобы изменить параметры отправителя.  
 
 ## <a name="bkmk_dbrep"></a> Database replication  
-Replicação de base de dados do Configuration Manager utiliza o SQL Server para transferir dados e intercalar as alterações efetuadas numa base de dados do site com as informações armazenadas na base de dados de outros sites na hierarquia. Tenha em atenção o seguinte sobre a replicação de base de dados:
+Для передачи данных и объединения изменений, внесенных в базу данных сайта, со сведениями, хранящимися в базе данных на других сайтах иерархии, репликация базы данных Configuration Manager использует SQL Server. Обратите внимание на следующие особенности репликации базы данных.
 
--  Todos os sites partilhem as mesmas informações.  
--  Quando instala um site numa hierarquia, replicação de base de dados é automaticamente estabelecida entre o novo local e o respetivo site principal designado.  
--  Quando a instalação do site é concluída, a replicação de base de dados é iniciada automaticamente.  
+-  Все сайты совместно используют одни и те же данные.  
+-  Во время установки сайта в иерархии происходит автоматическая настройка репликации базы данных между новым сайтом и его родительским сайтом.  
+-  По завершении установки сайта репликация базы данных запускается автоматически.  
 
-Quando adiciona um novo site para uma hierarquia, o Configuration Manager cria uma base de dados genérica no novo site. Em seguida, o site principal cria um instantâneo dos dados relevantes na respetiva base de dados e, em seguida, transfere o instantâneo para o novo site através da replicação baseada em ficheiros. O novo site utiliza, em seguida, o programa cópia do SQL Server em massa (BCP) para carregar as informações na respetiva cópia local da base de dados do Configuration Manager. Após o carregamento do instantâneo, cada site efetua a replicação de base de dados com outro site.  
+При добавлении нового узла в иерархию Configuration Manager создает универсальную базу данных на этом новом сайте. Затем родительский сайт создает снимок релевантных данных в своей базе данных и передает этот снимок на новый сайт с помощью репликации файлов. После этого новый сайт использует программу массового копирования (BCP) SQL Server для загрузки данных в свою локальную копию базы данных Configuration Manager. По завершении загрузки моментального снимка каждый сайт выполняет репликацию базы данных на другой сайт.  
 
-Para replicar dados entre sites, o Configuration Manager utiliza o seu próprio serviço de replicação de base de dados. O serviço de replicação de base de dados utiliza o registo para monitorizar a base de dados do local site para que as alterações de alterações do SQL Server e, em seguida, replica as alterações para outros sites utilizando o SQL Server Service Broker (SSB). Por predefinição, este processo utiliza a porta de TCP/IP 4022.  
+Для репликации данных между сайтами Configuration Manager использует собственную службу репликации базы данных. Служба репликации базы данных использует функцию отслеживания изменений SQL Server для мониторинга изменений локальной базы данных сайта, а затем с помощью SQL Server Service Broker (SSB) реплицирует эти изменения на другие сайты. По умолчанию в этом процессе используется порт TCP/IP 4022.  
 
-O Configuration Manager agrupa dados que replicam através da replicação de base de dados em grupos de replicação diferentes. Tenha em atenção o seguinte sobre grupos de replicação:
+Configuration Manager группирует данные, реплицируемые с помощью репликации базы данных, в различные группы репликации. Обратите внимание на следующие особенности групп репликации.
 
--  Cada grupo de replicação tem uma agenda de replicação separada e fixa que determina a frequência com que as alterações dos dados no grupo são replicadas para outros sites.  
+-  Каждая группа репликации имеет отдельное, фиксированное расписание репликации, которое определяет частоту репликации изменений данных группы на другие сайты.  
 
-     Por exemplo, uma alteração para uma configuração de administração baseada em funções replica rapidamente para outros sites para assegurar que estas alterações são impostas assim que possível. Entretanto, uma alteração de configuração de prioridade inferior, tal como um pedido para instalar um novo site secundário, replica com menos urgência. Pode demorar alguns minutos para um novo pedido de site para chegar ao site primário de destino.  
+     Например, изменение конфигурации ролевого администрирования быстро реплицируется на другие сайты, чтобы как можно раньше вступить в силу. В то же время изменение конфигурации с более низким приоритетом, например запрос на установку нового вторичного сайта, реплицируется не так быстро. Поэтому запрос на установку нового сайта поступает на конечный первичный сайт только через несколько минут.  
 
--   Pode modificar as seguintes definições para a replicação de base de dados:  
+-   Вы можете изменить следующие параметры для репликации базы данных.  
 
-    -  **Ligações de replicação de base de dados**. Controlar quando tráfego específico atravessa a rede.  
-    -  **Vistas distribuídas**. Alterar as definições para ligações de replicação através do qual os pedidos efetuados num site de administração central para dados de site selecionados podem aceder a esses dados de site diretamente a partir da base de dados de um site primário subordinado.  
-    -  **As agendas**. Especifique quando é utilizada uma ligação de replicação e, quando são replicados diferentes tipos de dados do site.  
-    -  **Resumo**. Alterar as definições de resumo de dados sobre o tráfego de rede que atravessa as ligações de replicação. Resumo ocorre a cada 15 minutos, por predefinição e é utilizado em relatórios para replicação de base de dados.  
-    -  **Limiares de replicação de base de dados**. Definem quando as ligações são comunicadas como degradadas ou falhadas. Também pode configurar quando o Configuration Manager gera alertas sobre ligações de replicação que têm um Estado degradado ou falhado.  
+    -  **Каналы репликации базы данных**. Позволяют управлять временем передачи конкретного трафика по сети.  
+    -  **Распределенные представления**. Измените параметры для каналов репликации, которые позволяют запросам данных выбранного сайта, создаваемых на сайте центра администрирования, обращаться к данным этого сайта непосредственно из базы данных дочернего первичного сайта.  
+    -  **Расписания**. Укажите время использования канала репликации и задайте время репликации других типов данных сайта.  
+    -  **Сводки**. Измените параметры формирования сводных данных о сетевом трафике, проходящем по каналам репликации. Формирование сводных данных происходит каждые 15 минут по умолчанию и используется для репликации базы данных в отчетах.  
+    -  **Пороговые значения репликации базы данных**. Определяют, когда отправляются сообщения о снижении работоспособности или отказе каналов репликации. Кроме того, вы можете настроить отправку оповещений из Configuration Manager о наличии каналов репликации в состоянии сниженной работоспособности или отказа.  
 
-O Configuration Manager classifica os dados que replica através da replicação de base de dados como **dados globais** ou **dados do site**. Quando ocorre a replicação da base de dados, as alterações aos dados globais e aos dados de site são transferidas através da ligação da replicação de base de dados. Podem replicar dados globais para um site principal ou subordinado. Dados do site são replicados apenas para um site principal. Um terceiro tipo de dados, os dados locais, não são replicados para outros sites. Dados locais são informações que não são necessárias para outros sites. Tenha em atenção o seguinte sobre tipos de dados:  
+Configuration Manager классифицирует данные, реплицируемые с помощью репликации базы данных, на **глобальные данные** и **данные сайта**. При выполнении репликации базы данных изменения глобальных данных и данных сайтов передаются с помощью канала репликации базы данных. Глобальные данные могут реплицироваться на родительский или дочерний сайт. Данные сайта реплицируются только на родительский сайт. Третий тип данных, называемый локальными данными, не реплицируется на другие сайты. В локальные данные входят сведения, которые не требуются для других сайтов. Обратите внимание на следующие особенности типов данных.  
 
--  **Dados globais**. Dados globais referem-se a objetos criados pelo administrador que são replicados para todos os sites na hierarquia, apesar dos sites secundários receberem apenas um subconjunto dos dados globais, como dados de global proxy. Dados globais incluem implementações de software, atualizações de software, definições de coleção e âmbitos de segurança da administração baseada em funções. Os administradores podem criar dados globais em sites de administração central e sites primários.  
--  **Dados do site**. Dados do site refere-se a informações operacionais que sites primários do Configuration Manager e os clientes que criar relatório aos sites primários. Os dados do site replicam para o site de administração central, mas não para outros sites primários. Dados do site incluem dados de inventário de hardware, mensagens de estado, alertas e os resultados de coleções baseadas em consulta. Dados do site só são visualizáveis no site de administração central e no site primário onde os dados têm origem. Os dados do site apenas podem ser modificados no site primário onde foram criados.  
+-  **Глобальные данные**. Глобальные данные относятся к созданным администратором объектам, которые реплицируются на все сайты иерархии, однако вторичные сайты получают только подмножество глобальных данных, таких как глобальные прокси-данные. Глобальными данными являются развертывания и обновления программного обеспечения, определения коллекций, области безопасности с ролевым администрированием. Администраторы могут создавать глобальные данные на сайтах центра администрирования и первичных сайтах.  
+-  **Данные сайта**. Данные сайта являются операционными сведениями, создаваемыми первичными сайтами Configuration Manager и клиентами, которые формируют отчеты для первичных сайтов. Данные сайта реплицируются на сайт центра администрирования, но не на другие первичные сайты. К данным сайта относятся данные инвентаризации оборудования, сообщения о состоянии, оповещения и результаты правил коллекций на основе запросов. Данные сайта можно просмотреть только на сайте центра администрирования и на первичном сайте, из которого исходят эти данные. Данные сайта можно изменять только на первичном сайте, где эти данные были созданы.  
 
-     Todos os dados de site são replicados para o site de administração central. O site de administração central efetua a administração e relatórios para a hierarquia completa do site.  
+     Данные сайта реплицируются на сайт центра администрирования. Сайт центра администрирования выполняет администрирование и создание отчетов для всей иерархии.  
 
-As secções seguintes detalhe as definições que podem ser alteradas para gerir a replicação de base de dados.  
+В следующих разделах приведены сведения о настройках, которые вы можете выполнить для управления репликацией базы данных.  
 
-### <a name="bkmk_Dblinks"></a> Ligações de replicação de base de dados  
-Quando instala um novo site numa hierarquia, o Configuration Manager cria automaticamente uma ligação de replicação de base de dados entre o site principal e o novo site. É criada uma única ligação para ligar os dois sites.  
+### <a name="bkmk_Dblinks"></a> Каналы репликации базы данных  
+В ходе установки нового сайта в иерархии Configuration Manager автоматически создает канал репликации базы данных между родительским сайтом и новым сайтом. Для соединения двух сайтов создается одиночный канал.  
 
-Pode alterar as definições para cada ligação de replicação de base de dados para ajudar a controlar a transferência de dados através da ligação de replicação. Cada ligação de replicação suporta configurações separadas. Os controlos para ligações de replicação de base de dados incluem o seguinte:  
+Можно изменить параметры для каждого канала репликации, что помогает управлять передачей данных по каналу репликации. Каждый канал репликации поддерживает отдельные конфигурации. Существуют следующие элементы управления каналами репликации базы данных.  
 
--  Pare a replicação dos dados de site selecionados de um site primário para o site de administração central, pelo que o site de administração central pode aceder estes dados diretamente a partir da base de dados do site primário.  
--  Agende dados de site selecionados para transferir a partir de um site primário subordinado para o site de administração central.
--  Defina as definições que determinam quando uma ligação de replicação de base de dados tem um Estado degradado ou falhado.
--  Especifique quando aumentar alertas para uma ligação de replicação falhada.
--  Especifique a frequência do Configuration Manager resume os dados sobre o tráfego de replicação que utiliza a ligação de replicação. Estes dados são utilizados em relatórios.
+-  Остановите репликацию данных выбранного сайта с первичного сайта на сайт центра администрирования, чтобы разрешать сайту центра администрирования прямой доступ к этим данным из базы данных первичного сайта.  
+-  Запланируйте передачу данных выбранного сайта с дочернего первичного сайта на сайт центра администрирования.
+-  Задайте параметры, определяющие состояние канала репликации базы данных: снижение работоспособности или отказ.
+-  Задайте время отображения оповещений об отказе канала репликации.
+-  Укажите периодичность, с которой Configuration Manager будет формировать сводку данных о трафике репликации для канала. Эти данные используются в отчетах.
 
-Para configurar uma ligação de replicação de base de dados, na consola do Configuration Manager, no **replicação de base de dados** nó, edite as propriedades da ligação. Este nó aparece no **monitorização** área de trabalho e no **administração** área de trabalho, no **configuração da hierarquia** nó. Pode editar uma ligação de replicação a partir do site principal ou do site subordinado da ligação de replicação.  
-
-> [!TIP]  
-> Pode editar ligações de replicação de base de dados a partir do nó **Replicação de Base de Dados** em qualquer uma das áreas de trabalho. No entanto, quando utiliza o **replicação de base de dados** no nó de **monitorização** área de trabalho, também pode ver o estado de replicação de base de dados para ligações de replicação e aceder à ferramenta Analisador da ligação de replicação para o ajudar a investigar problemas com a replicação de base de dados.  
-
-Para obter informações sobre como configurar ligações de replicação, veja [Controlos de Replicação de Base de Dados de Site](#BKMK_DBRepControls). Para obter mais informações sobre como monitorizar a replicação, consulte [como monitorizar o estado de replicação e ligações de replicação de base de dados](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) no [monitorizar a infraestrutura hierarquia e replicação no System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) tópico.  
-
-Utilize as informações nas secções seguintes para ajudar a planear para ligações de replicação de base de dados.  
-
-### <a name="bkmk_distviews"></a> Vistas distribuídas  
-Através de vistas distribuídas, os pedidos efetuados num site de administração central para selecionar acesso a dados do site esses dados de site diretamente a partir da base de dados de um site primário subordinado. O acesso direto substitui a necessidade de replicar os dados de site do site primário para o site de administração central. Dado que cada ligação de replicação é independente de outras ligações de replicação, pode utilizar as vistas distribuídas apenas ligações de replicação que escolher. Não é possível utilizar as vistas distribuídas entre um site primário e um site secundário.  
-
-As vistas distribuídas podem fornecer as seguintes vantagens:  
-
--  Reduzir a carga de CPU para processar alterações de base de dados no site de administração central e sites primários
--  Reduzir a quantidade de dados transferidos através da rede para o site de administração central
--  Melhorar o desempenho do SQL server que aloja a base de dados do site de administração central
--  Reduzir o espaço em disco utilizado pela base de dados no site de administração central
-
-Considere utilizar as vistas distribuídas quando um site primário em perto do site de administração central na rede, e os dois sites estão sempre ativos e sempre ligados. Isto acontece porque as vistas distribuídas substituem a replicação dos dados selecionados entre os sites com ligações diretas entre os SQL servers em cada site. Uma ligação direta é estabelecida sempre que é efetuado um pedido para estes dados no site de administração central. Normalmente, os pedidos de dados, que pode ativar para vistas distribuídas são efetuados quando executa relatórios ou consultas, quando visualiza informações no Explorador de recursos e a avaliação de coleção para coleções que incluem regras baseadas nos dados de site.  
-
-Por predefinição, as vistas distribuídas estão desativadas para cada ligação de replicação. Quando ativar as vistas distribuídas para uma ligação de replicação, seleciona os dados do site não irão replicar para o site de administração central longo dessa ligação. O site de administração central acede estes dados diretamente a partir da base de dados do site primário subordinado que partilha a ligação. Pode configurar os seguintes tipos de dados de site para vistas distribuídas:  
-
--  Dados de inventário de hardware a partir de clientes
--  Dados de inventário de software e medição de clientes
--  Mensagens de estado de clientes, do site primário e de todos os sites secundários
-
-Operacionalmente, as vistas distribuídas são invisíveis ao utilizador administrativo que visualiza dados na consola do Configuration Manager ou em relatórios. Quando é efetuado um pedido de dados que estão ativados para vistas distribuídas, o SQL server que aloja a base de dados para o site de administração central diretamente acede ao SQL server do site primário subordinado para obter as informações. Por exemplo, utilize uma consola do Configuration Manager no site de administração central para pedir informações sobre o inventário de hardware a partir de dois sites e apenas um site tem inventário de hardware ativado para uma vista distribuída. As informações de inventário para clientes a partir do site que não está configurado para vistas distribuídas são obtidas da base de dados no site de administração central. As informações de inventário para clientes do site que está configurado para vistas distribuídas são acedidas a partir da base de dados do site primário subordinado. Estas informações aparecem na consola do Configuration Manager ou num relatório sem identificar a origem.  
-
-Desde que a ligação de replicação possua um tipo de dados ativado para vistas distribuídas, o site primário subordinado não replicar os dados para o site de administração central. Assim que desativa as vistas distribuídas para um tipo de dados, o subordinado primário site retoma a replicação dos dados para o site de administração central como parte da replicação de dados normal. No entanto, antes destes dados ficarem disponíveis no site de administração central, os grupos de replicação tem estes dados têm de ser reinicializados entre o site primário e site de administração central. Da mesma forma, depois de desinstalar um site primário que possui as vistas distribuídas ativadas, o site de administração central tem de concluir a reinicialização dos respetivos dados para poder aceder a dados que estavam ativados para vistas distribuídas no site de administração central.  
-
-> [!IMPORTANT]  
-> Quando utiliza vistas distribuídas em qualquer ligação de replicação na hierarquia do site, tem de desativar as vistas distribuídas para todas as ligações de replicação antes de desinstalar qualquer site primário. Para obter mais informações, veja [Desinstalar um site primário configurado com vistas distribuídas](../../../core/servers/deploy/install/uninstall-sites-and-hierarchies.md#BKMK_UninstallPrimaryDistViews).  
-
-#### <a name="prerequisites-and-limitations-for-distributed-views"></a>Pré-requisitos e limitações das vistas distribuídas  
-
--  Pode utilizar vistas distribuídas apenas nas ligações de replicação entre um site de administração central e um site primário.
-- O site de administração central tem de utilizar uma edição Enterprise do SQL Server. O site primário não tem este requisito.
--  O site de administração central pode ter apenas uma instância do fornecedor de SMS instalado e essa instância tem de estar instalada no servidor de base de dados do site. Isto é necessário para suportar a autenticação Kerberos necessária para que o SQL server no site de administração central pode aceder ao SQL server no site primário subordinado. Não existem limites para o fornecedor de SMS no site primário subordinado.
--  O site de administração central só pode ter um ponto do SQL Server Reporting Services instalado e este tem de estar localizado no servidor da base de dados do site. Isto é necessário para suportar a autenticação Kerberos necessária para ativar o SQL server no site de administração central para aceder ao SQL server no site primário subordinado.
--  A base de dados do site não pode estar alojada num cluster do SQL Server.
--  A base de dados do site não pode ser alojada num grupo de disponibilidade SQL Server Always On.
--  A conta de computador do servidor da base de dados do site de administração central necessita de permissões de leitura para a base de dados do site primário.
-
-> [!IMPORTANT]  
->  As vistas distribuídas e agendas de dados podem são mutuamente exclusivas definições para uma ligação de replicação de base de dados.  
-
-### <a name="BKMK_schedules"></a> Agendar transferências de dados de site em ligações de replicação de base de dados  
-Para ajudar a controlar a largura de banda de rede que é utilizada para replicar dados de site de um site primário subordinado para o respetivo site de administração central, pode agendar quando é utilizada uma ligação de replicação e especificar quando são replicados diferentes tipos de dados. Pode controlar quando as mensagens de estado, os dados de inventário e de medição são replicados pelo site primário. As ligações de replicação de base de dados de sites secundários não suportam agendas para dados de sites. Não é possível agendar a transferência de dados globais.  
-
-Quando configura uma agenda de ligação de replicação de base de dados, pode restringir a transferência de dados de site selecionados do site primário para o site de administração central e pode configurar diferentes horas para replicar diferentes tipos de dados de site.  
-
-> [!IMPORTANT]  
-> As vistas distribuídas e agendas de replicação dos dados são configurações mutuamente exclusivas para uma ligação de replicação de base de dados.  
-
-### <a name="BKMK_SummarizeDBReplication"></a> Resumo do tráfego de replicação de base de dados  
-Cada site resume periodicamente os dados sobre o tráfego de rede que atravessa as ligações de replicação de base de dados para o site. Dados resumidos são utilizados em relatórios para replicação de base de dados. Ambos os sites numa ligação de replicação resumem o tráfego de rede que atravessa a ligação de replicação. O resumo de dados é efetuado pelo SQL Server que aloja a base de dados do site. Depois de dados são resumidos, as informações são replicadas para outros sites como dados globais.  
-
-Por predefinição, o resumo ocorre a cada 15 minutos. Para modificar a frequência do resumo para o tráfego de rede, nas propriedades de ligação de replicação de base de dados, edite o **intervalo de resumo**. A frequência do resumo afeta as informações visualizadas em relatórios sobre a replicação de base de dados. Pode escolher um intervalo de entre 5 minutos e 60 minutos. Quando aumenta a frequência do resumo, aumenta a carga de processamento no SQL server em cada site na ligação de replicação.  
-
-### <a name="BKMK_DBRepThresholds"></a>Limiares de replicação de base de dados  
-Os limiares de replicação de base de dados definem quando o estado de uma ligação de replicação de base de dados é comunicado como degradado ou falhado. Por predefinição, uma ligação é definida para o estado degradado quando qualquer grupo de replicação de uma falha ao concluir a replicação para um período de ocorrem consecutivamente 12 tentativas. A ligação é definida para o estado de falha quando qualquer grupo de replicação não consegue replicar ocorrem consecutivamente 24 tentativas.  
-
-Pode especificar valores personalizados a otimizar quando o Configuration Manager apresenta uma ligação de replicação como degradada ou falhada. Adjusting quando os relatórios do Configuration Manager em cada Estado para as ligações de replicação de base de dados pode ajudá-lo com precisão monitorizar o estado de funcionamento da replicação de base de dados em todas as ligações de replicação de base de dados.  
-
-Porque é possível que alguns ou grupos de replicação falhar a enquanto outros grupos de replicação continuam a replicar com êxito, planeie a revisão do Estado de replicação de uma ligação de replicação quando esta pela primeira vez, comunica um Estado degradado. Se ocorrerem atrasos recorrentes em grupos de replicação específicos e estes atrasos não apresentarem um problema ou sempre que a ligação de rede entre os sites tiver pouca largura de banda disponível, considere modificar os valores de tentativa do estado degradado ou falhado da ligação. Quando aumenta o número de tentativas antes da ligação está definida como degradado ou falhado, pode eliminar os avisos falsos para problemas conhecidos e controlar com mais exatidão o estado da ligação.  
-
-Além disso, considere o intervalo de sincronização de replicação para cada grupo de replicação para compreender com que frequência ocorre a replicação desse grupo. Para ver o **intervalo de sincronização** para grupos de replicação, no **monitorização** área de trabalho, no **replicação de base de dados** nó, selecione o **detalhes da replicação** separador de uma ligação de replicação.  
-
-Para obter mais informações sobre como monitorizar a replicação de base de dados, incluindo como ver o estado de replicação, consulte [como monitorizar o estado de replicação e ligações de replicação de base de dados](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) no [monitorizar a infraestrutura hierarquia e replicação no System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) tópico.  
-
-Para obter informações sobre como configurar limiares de replicação de base de dados, consulte [controlos de replicação de base de dados do Site](#BKMK_DBRepControls).  
-
-## <a name="BKMK_DBRepControls"></a> Controlos de replicação de base de dados do site  
-Pode alterar as definições para cada base de dados do site para ajudar a controlar a largura de banda de rede utilizada para replicação de base de dados. As definições são aplicadas apenas a base de dados do site em que configura as definições. As definições são sempre utilizadas quando o site replica dados através da replicação de base de dados para outro site.  
-
-Seguem-se os controlos de replicação que pode modificar para cada base de dados do site:  
-
--  Altere a porta do SSB.  
--  Configure o período de tempo de espera antes de falhas de replicação acionam o site reinicialize a respetiva cópia da base de dados do site.  
--  Configure uma base de dados de sites para comprimir os dados que este replica por replicação da base de dados. Os dados são comprimidos apenas para transferência entre sites e não para armazenamento na base de dados de sites de qualquer um dos sites.  
-
-Para alterar as definições para os controlos de replicação para uma base de dados do site, na consola do Configuration Manager, no **replicação de base de dados** nó, edite as propriedades da base de dados do site. Este nó aparece por baixo do nó **Configuração da Hierarquia** , na área de trabalho **Administração** , e também aparece na área de trabalho **Monitorização**. Para editar as propriedades da base de dados do site, selecione a ligação de replicação entre os sites e, em seguida, abra **propriedades de base de dados principal** ou **propriedades de base de dados subordinada**.  
+Чтобы настроить канал репликации базы данных, необходимо изменить свойства канала в консоли Configuration Manager в узле **Репликация базы данных**. Этот узел присутствует как в рабочей области **Мониторинг**, так и в узле **Конфигурация иерархии** рабочей области **Администрирование**. Канал репликации можно изменить в родительском или дочернем сайте этого канала.  
 
 > [!TIP]  
-> Pode configurar os controlos de replicação de base de dados no nó **Replicação de Base de Dados** em ambas as áreas de trabalho. No entanto, quando utiliza o **replicação de base de dados** no nó de **monitorização** área de trabalho, também pode ver o estado de replicação de base de dados para uma ligação de replicação e aceder à ferramenta Analisador da ligação de replicação para o ajudar a investigar problemas com a replicação.  
+> Каналы репликации базы данных можно изменять в узле **Репликация базы данных** любой из указанных рабочих областей. Но при использовании узла **Репликация базы данных** в рабочей области **Мониторинг** канала репликации также можно просмотреть в состоянии репликации базы данных. Кроме того, можно использовать Анализатор канала репликации для изучения проблем репликации базы данных.  
+
+Сведения о настройке каналов репликации см. в статье [Элементы управления репликацией базы данных сайта](#BKMK_DBRepControls). Дополнительные сведения о мониторинге репликации см. в разделе [Как отслеживать состояние репликации и связи репликации базы данных](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) статьи [Мониторинг иерархии и инфраструктуры репликации в System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
+
+Воспользуйтесь сведениями в следующих разделах для планирования создаваемых каналов репликации базы данных.  
+
+### <a name="bkmk_distviews"></a> Распределенные представления  
+Распределенные представления позволяют обеспечить для запросов данных выбранного сайта, создаваемых на сайте центра администрирования, доступ к данным этого сайта непосредственно из базы данных дочернего первичного сайта. Прямой доступ устраняет необходимость в репликации запрашиваемых данных с первичного сайта на сайт центра администрирования. Так как все каналы репликации независимы друг от друга, распределенные представления можно включить только для выбранных каналов репликации. Распределенные представления нельзя использовать при взаимодействии между первичным и вторичным сайтом.  
+
+Распределенные представления способны предоставлять следующие преимущества:  
+
+-  Уменьшение нагрузки на ЦП при обработке изменений баз данных сайта центра администрирования и первичных сайтов.
+-  Уменьшение объема данных, передаваемых по сети сайту центра администрирования.
+-  Повышение производительности SQL Server, на котором размещается база данных сайтов центра администрирования.
+-  Сокращение места на диске, используемого базой данной сайта центра администрирования.
+
+Распределенные представления рекомендуется использовать в тех случаях, когда первичный сайт расположен в сети непосредственной близости от сайта центра администрирования, а также если оба сайта всегда активны и подключены к сети. Это связано с тем, что при распределенных представлениях вместо репликации выбранных данных между сайтами используются прямые соединения между серверами SQL Server на каждом сайте. Прямые соединения устанавливаются каждый раз, когда сайт центра администрирования отправляет запрос на получение данных. Как правило, запросы на получение данных, которые пользователь может включить в распределенные представления, приходят при создании отчетов или выполнении запросов, при просмотре информации в обозревателе ресурсов и в ходе оценки тех коллекций, которые содержат правила, основанные на данных сайта.  
+
+По умолчанию распределенные представления отключены для каждого канала репликации. При включении распределенных представлений для канала репликации необходимо выбрать данные сайта, которые не будут реплицироваться на сайт центра администрирования с помощью этого канала. В таком случае сайт центра администрирования получает доступ к этим данным напрямую из базы данных дочернего первичного сайта, использующего этот же канал. Для распределенных представлений можно настроить следующие типы данных сайтов:  
+
+-  Данные по инвентаризации оборудования, получаемые от клиентов.
+-  Данные инвентаризации программного обеспечения и контроля использования, получаемые от клиентов.
+-  Получаемые от клиентов сообщения о состоянии первичного сайта и всех вторичных сайтов.
+
+С операционной точки зрения распределенные представления невидимы для пользователя с правами администратора, просматривающего данные в консоли Configuration Manager или в отчетах. При запросе данных, разрешенных для отображения в распределенных представлениях, сервер SQL Server с размещенной на нем базой данных сайта центра администрирования напрямую соединяется с сервером SQL Server дочернего первичного сайта для получения этих данных. Например, с помощью консоли Configuration Manager на сайте центра администрирования пользователь запрашивает с двух сайтов информацию об инвентаризации оборудования, причем только у одного из этих сайтов инвентаризация оборудования разрешена для использования в распределенном представлении. Информация об инвентаризации по клиентам сайта, на котором не настроены распределенные представления, извлекается из базы данных сайта центра администрирования. Информация об инвентаризации по клиентам, сайты которых настроены для поддержки распределенных представлений, извлекается из базы данных дочернего первичного сайта. Эта информация появляется в консоли Configuration Manager или в отчете безотносительно ее источника.  
+
+Если для канала репликации разрешено использование конкретного типа данных в распределенных представлениях, дочерний первичный сайт не реплицирует эти данные на сайт центра администрирования. После отключения распределенных представлений для конкретных типов данных дочерний первичный сайт возобновляет репликацию этих данных на сайт центра администрирования, которая выполняется в ходе обычной репликации данных. Но прежде чем эти данные окажутся доступными на сайте центра администрирования, группы репликации, содержащие эти данные, должны выполнить повторную инициализацию для поддержки взаимодействия между первичным сайтом и сайтом центра администрирования. То же самое происходит и в том случае, если пользователь удаляет первичный сайт, для которого включены распределенные представления. Сайт центра администрирования должен завершить повторную инициализацию своих данных, прежде чем пользователь получит доступ к тем данным, которые были разрешены для использования в распределенных представлениях на сайте центра администрирования.  
+
+> [!IMPORTANT]  
+> При использовании распределенных представлений совместно с любым каналом репликации в иерархии сайтов необходимо отключить распределенные представления для всех каналов репликации перед удалением любых первичных сайтов. Дополнительные сведения см. в статье [Uninstall a primary site that is configured with distributed views](../../../core/servers/deploy/install/uninstall-sites-and-hierarchies.md#BKMK_UninstallPrimaryDistViews).  
+
+#### <a name="prerequisites-and-limitations-for-distributed-views"></a>Предварительные условия и ограничения для распределенных представлений  
+
+-  Распределенные представления поддерживаются только для каналов репликации между сайтом центра администрирования и первичным сайтом.
+- Сайт центра администрирования должен использовать выпуск SQL Server Enterprise. К первичному сайту это требование не относится.
+-  Сайт центра администрирования может иметь только один установленный экземпляр поставщика SMS, причем этот экземпляр должен быть установлен на сервере базы данных сайта. Это требуется для поддержки проверки подлинности Kerberos, которая необходима для того, чтобы сервер SQL Server центра администрирования имел доступ к серверу SQL Server на дочернем первичном сайте. На поставщика SMS, работающего на дочернем первичном сайте, не распространяются никакие ограничения.
+-  Сайт центра администрирования может иметь только одну установленную точку SQL Server Reporting Services, которая должна находиться на сервере базы данных сайта. Это требуется для поддержки проверки подлинности Kerberos, которая необходима для того, чтобы сервер SQL Server центра администрирования имел доступ к серверу SQL Server на дочернем первичном сайте.
+-  База данных сайта не может размещаться на кластере SQL Server.
+-  База данных сайта не может быть размещена в группе доступности SQL Server AlwaysOn.
+-  Учетная запись компьютера на сервере базы данных, расположенном на сайте центра администрирования, требует разрешения Read для доступа к базе данных сайта на первичном сайте.
+
+> [!IMPORTANT]  
+>  Распределенные представления и расписания репликации данных являются взаимоисключающими для канала репликации баз данных.  
+
+### <a name="BKMK_schedules"></a> Составление расписаний передачи данных сайта с помощью каналов репликации баз данных  
+Можно составить расписание использования канала репликации, а также указать время репликации других типов данных сайта. Это поможет регулировать пропускную способность сети, используемую для репликации данных с первичного дочернего сайта на сайт центра администрирования. Можно управлять временем репликации сообщений о состоянии, инвентаризации и данных учета на первичном сайте. Каналы репликации баз данных ссылок из вторичных сайтов не поддерживают расписания для данных сайта. Не удается запланировать перенос глобальных данных.  
+
+При настройке расписания для канала репликации базы данных можно ограничить передачу выбранных данных сайта с первичного сайта на сайт центра администрирования, а также настроить различное время репликации для разных типов данных.  
+
+> [!IMPORTANT]  
+> Распределенные представления и расписания репликации данных являются взаимоисключающими конфигурациями для канала репликации баз данных.  
+
+### <a name="BKMK_SummarizeDBReplication"></a> Формирование сводных данных по трафику репликации баз данных  
+Каждый сайт периодически формирует сводные данные о сетевом трафике, проходящем по каналам репликации баз данных. Эти сводные данные используются для составления отчетов о репликации базы данных. Оба сайта в канале репликации формируют сводные данные обо всем сетевом трафике, который проходит через канал репликации. Формирование сводных данных производится с помощью сервера SQL Server, на котором размещена база данных сайта. После формирования сводных данных эта информация реплицируется на другие сайты в качестве глобальных данных.  
+
+По умолчанию формирование сводных данных происходит каждые 15 минут. Частоту формирования сводных данных о сетевом трафике можно изменить, отредактировав параметр **Интервал формирования сводных данных** в свойствах канала репликации баз данных. Частота формирования сводных данных влияет на информацию, доступную для просмотра в отчетах о репликации баз данных. Этот интервал можно устанавливать в пределах от 5 минут до 60 минут. Увеличение частоты формирования сводных данных приводит к увеличению вычислительной нагрузки на сервер SQL Server на каждом сайте канала репликации.  
+
+### <a name="BKMK_DBRepThresholds"></a> Пороговые значения репликации базы данных  
+Пороговые значения репликации базы данных определяют состояние канала репликации базы данных: сниженная работоспособность или отказ. По умолчанию сниженная работоспособность канала фиксируется при невозможности любой из групп репликации завершить репликацию после 12 последовательных попыток. Отказ фиксируется при невозможности любой из групп репликации завершить репликацию после 24 последовательных попыток.  
+
+Вы можете указать настраиваемые значения для точной настройки параметров, при достижении которых Configuration Manager сообщает о снижении работоспособности или отказе канала репликации. Изменение пороговых значений при каждом сообщении от Configuration Manager о состоянии каналов обеспечивает точный мониторинг репликации баз данных с помощью каналов репликации.  
+
+Так как одна или несколько групп репликации могут столкнуться со сбоем репликации, в то время как другие группы репликации завершат ее успешно, запланируйте просмотр состояния репликации или канала репликации при получении первых сообщений о снижении работоспособности или отказе. Если для отдельных групп репликации наблюдаются повторяющиеся задержки, не создающие затруднений, или если сетевое соединение между сайтами имеет низкую пропускную способность, то изучите возможность изменения значений повтора отправки данных для канала, который имеет сниженную работоспособность или сообщает об отказе. Увеличив число попыток повторной отправки данных до того, как сетевое соединение сообщит о сниженной работоспособности или отказе, можно устранить ложные предупреждения об известных проблемах и точнее отслеживать состояние сетевого соединения.  
+
+Также необходимо изучить возможность изменения интервала синхронизации репликации для каждой из групп репликации, чтобы оценить частоту выполнения репликации для этих групп. **Интервал синхронизации** для групп репликации можно просмотреть на вкладке **Подробности репликации** канала репликации в узле **Репликация баз данных**, который относится к рабочей области **Мониторинг**.  
+
+Дополнительные сведения о мониторинге репликации см. в разделе [Как отслеживать состояние репликации и связи репликации базы данных](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) статьи [Мониторинг иерархии и инфраструктуры в System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
+
+Сведения о настройке пороговых значений репликации баз данных см. в статье [Элементы управления репликацией базы данных сайта](#BKMK_DBRepControls).  
+
+## <a name="BKMK_DBRepControls"></a> Элементы управления репликацией базы данных сайта  
+Можно изменить параметры базы данных каждого сайта, чтобы упростить регулировку пропускной способности сети, используемой для репликации баз данных. Параметры применяются только к базе данных сайта, где их можно настроить. Они используются всегда, когда сайт реплицирует любые данные на другой сайт с помощью репликации баз данных.  
+
+Следующие элементы управления репликацией доступны для каждой базы данных сайта.  
+
+-  Изменение порта SSB.  
+-  Настройка периода ожидания, после истечения которого сбои репликации вызывают повторную инициализацию сайтом своей копии базы данных сайта.  
+-  Настройте базу данных сайта для сжатия данных, которые она передает в ходе репликации базы данных. Данные сжимаются только для передачи между сайтами, а не для хранения в базе данных какого-либо сайта.  
+
+Чтобы изменить параметры для элементов управления репликацией базы данных сайта, необходимо изменить свойства базы данных сайта в узле **Репликация баз данных** консоли Configuration Manager. Этот узел расположен ниже узла **Конфигурация иерархии** в рабочей области **Администрирование** , а также отображается в **рабочей области "Мониторинг"**. Чтобы изменить свойства базы данных сайта, выберите канал репликации между сайтами, а затем откройте окно **Свойства родительской базы данных** или **Свойства дочерней базы данных**.  
+
+> [!TIP]  
+> Элементы управления репликацией базы данных можно настроить в узле **Репликация базы данных** в любой из этих рабочих областей. Но при использовании узла **Репликация базы данных** в рабочей области **Мониторинг** можно также просмотреть состояние репликации баз данных для конкретного канала репликации, а также воспользоваться средством Replication Link Analyzer для изучения проблем репликации.  

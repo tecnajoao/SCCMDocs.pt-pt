@@ -1,6 +1,6 @@
 ---
-title: "Configurar definições de cliente | Microsoft Docs"
-description: "Selecione as definições de cliente no System Center Configuration Manager."
+title: "Настройка параметров клиента | Microsoft Docs"
+description: "Выбор параметров клиента в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,66 +16,66 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 478d562bfb7fdb3921a4278741ff096e81e6092a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Como configurar as definições de cliente no System Center Configuration Manager
+# <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Настройка параметров клиента в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode gerir todas as definições do cliente no System Center Configuration Manager, do **administração** > **as definições de cliente**. Modifique as predefinições quando pretender configurar definições para todos os utilizadores e dispositivos da hierarquia que não têm definições personalizadas aplicadas. Se pretender aplicar definições diferentes apenas nalguns utilizadores ou dispositivos, crie definições personalizadas e implemente-as nas coleções.  
+Управление всеми параметрами клиента в System Center Configuration Manager осуществляется в разделе **Администрирование** > **Параметры клиента**. Параметры по умолчанию следует изменять в том случае, если требуется настроить параметры для всех пользователей и устройств в иерархии, к которым не применены настраиваемые параметры. Чтобы применить различные параметры лишь к некоторым пользователям или устройствам, создайте настраиваемые параметры и выполните их развертывание в коллекциях.  
 
-Para obter informações sobre cada definição do cliente, consulte [sobre definições de cliente no System Center Configuration Manager](../../../core/clients/deploy/about-client-settings.md).
+Дополнительные сведения о каждом параметре клиента см. в статье [О параметрах клиентов в System Center Configuration Manager](../../../core/clients/deploy/about-client-settings.md).
 
 > [!NOTE]  
->  Também pode utilizar itens de configuração a fim de gerir os clientes para avaliar, controlar e retificar a compatibilidade de configuração dos dispositivos. Para obter mais informações, consulte [garantir a compatibilidade do dispositivo com o System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
+>  Также можно использовать элементы конфигурации для управления клиентами с целью оценки, отслеживания и исправления соответствия конфигурации устройств. Дополнительные сведения см. в статье [Обеспечение соответствия устройств с помощью System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
 
-##  <a name="configure-the-default-client-settings"></a>Configurar as predefinições de cliente    
+##  <a name="configure-the-default-client-settings"></a>Настройка параметров клиентов по умолчанию    
 
-1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente** > **predefinições de cliente**.  
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** > **Параметры клиента по умолчанию**.  
 
-3.  No **home page** separador, escolha **propriedades**.  
+3.  На вкладке **Главная** выберите **Свойства**.  
 
-4.  Veja e configure as definições do cliente de cada grupo de definições do painel de navegação.  
+4.  Просмотрите и настройте параметры клиента в каждой группе параметров в области навигации.  
 
- Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [iniciar a obtenção da política para um cliente do Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) no [como gerir clientes no System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
+ Заданные параметры будут применены к клиентским компьютерам при следующей загрузке политики клиента. Сведения о запуске получения политики для отдельного клиента см. в разделе [Запуск получения политики для клиента Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) статьи [Управление клиентами в System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
 
-##  <a name="create-and-deploy-custom-client-settings"></a>Criar e implementar definições personalizadas de cliente  
-Quando implementar estas definições personalizadas, elas substituirão as predefinições do cliente. Antes de iniciar este procedimento, certifique-se de que tem uma coleção com os utilizadores ou dispositivos que necessitam destas definições personalizadas de cliente.  
+##  <a name="create-and-deploy-custom-client-settings"></a>Создание и развертывание настраиваемых параметров клиентов  
+При развертывании такие настраиваемые параметры переопределяют параметры по умолчанию, установленные для клиентов. Перед началом этой процедуры убедитесь в наличии коллекции, содержащей пользователей или устройства, которые требуют применения настраиваемых параметров клиента.  
 
-1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente**.  
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar definições personalizadas do cliente**e, em seguida, escolha o:  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать пользовательские параметры клиента**, а затем выберите один из следующих вариантов:  
 
-    -   **Criar Definições Personalizadas do Dispositivo Cliente**  
+    -   **Создание настраиваемых параметров клиента для устройств**  
 
-    -   **Criar Definições Personalizadas do Utilizador Cliente**  
+    -   **Создание настраиваемых параметров клиента для пользователей**  
 
-4.  Especifique uma descrição exclusiva de nome e a opção.  
+4.  Укажите уникальное название и описание параметров.  
 
-5.  Selecione um ou mais das caixas de verificação que apresentem um grupo de definições.  
+5.  Установите один флажок (или несколько), соответствующий группам параметров.  
 
-6.  Escolha a cada grupo de definições no painel de navegação e configurar as definições disponíveis, em seguida, clique em **OK**.   
+6.  Выберите каждую из групп параметров в области навигации, настройте доступные параметры, а затем нажмите кнопку **ОК**.   
 
-8.  Selecione a definição que criou de cliente personalizado. No **home page** separador o **as definições de cliente** grupo, escolha **implementar**.  
+8.  Выберите созданный настраиваемый параметр для клиентов. На вкладке **Главная** в группе **Параметры клиентов** выберите **Развернуть**.  
 
-9. No **selecionar coleção** , seleccione a colecção apropriada e, em seguida, escolha **OK**. Pode verificar a coleção selecionada clicando no separador **Implementações** do painel de detalhes.  
+9. В диалоговом окне **Выбор коллекции** выберите нужную коллекцию и нажмите кнопку **ОК**. Открыв вкладку **Развертывания** в области сведений, можно проверить выбранную коллекцию.  
 
-10. Veja a ordem da definição personalizada do cliente que acabou de criar. Quando tem várias definições personalizadas de cliente, estas são aplicadas de acordo com o seu número de ordem. Se existirem conflitos, a definição que tiver o menor número de ordem substitui as outras definições. Para alterar o número de ordem, no **home page** separador o **as definições de cliente** grupo, escolha **Mover Item para cima** ou **Mover Item para baixo**.  
+10. Проверьте порядковый номер настраиваемого параметра клиента, который был только что создан. Если имеется несколько наборов пользовательских параметров клиента, они применяются в соответствии с порядковым номером. При возникновении конфликтов параметр с меньшим порядковым номером переопределяют остальные параметры. Чтобы изменить порядковый номер, на вкладке **Главная** в группе **Параметры клиентов** выберите **Переместить элемент вверх** или **Переместить элемент вниз**.  
 
- Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [iniciar a obtenção da política para um cliente do Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) no [como gerir clientes no System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
+ Заданные параметры будут применены к клиентским компьютерам при следующей загрузке политики клиента. Сведения о запуске получения политики для отдельного клиента см. в разделе [Запуск получения политики для клиента Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) статьи [Управление клиентами в System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
 
-##  <a name="view-client-settings"></a>Ver definições de cliente  
- Quando tiverem sido implementadas várias definições do cliente no mesmo dispositivo, utilizador ou grupo de utilizadores, a atribuição de prioridades e a combinação de definições podem ser complexas. Para ver as definições de cliente:  
+##  <a name="view-client-settings"></a>Просмотр параметров клиента  
+ Если несколько параметров клиента развернуты на одном устройстве, для одного пользователя или группы пользователей, определить приоритетов и комбинирование параметров могут быть сложными. Просмотр параметров клиента  
 
-1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **dispositivos** > **utilizadores** ou **coleções de utilizadores**.  
+1.  В консоли Configuration Manager выберите **Активы и соответствие** > **Устройства** > **Пользователи** или **Коллекции пользователей**.  
 
-3.  Selecione um dispositivo, um utilizador ou um grupo de utilizadores e, no grupo **Definições do Cliente** , selecione **Definições de Cliente Resultantes**.  
+3.  Выберите устройство, пользователя или группа пользователей и в группе **Параметры клиента** выберите **Результирующие параметры клиента**.  
 
-4.  Selecione uma definição no painel esquerdo do cliente e as definições são apresentadas. Nesta vista, as definições são só de leitura. 
+4.  Выберите параметр клиентов в левой панели, и на экране будут отображены соответствующие параметры. В этом представлении параметры доступны только для чтения. 
 
     > [!NOTE]  
-    >  Para ver as definições de cliente, tem de ter acesso de leitura para as definições de cliente.  
+    >  Для просмотра параметров клиентов необходимы права доступа на чтение к параметрам клиента.  
 
     

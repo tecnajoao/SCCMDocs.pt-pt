@@ -1,6 +1,6 @@
 ---
-title: Gerir imagens de arranque - Configuration Manager | Microsoft Docs
-description: "No Configuration Manager, saiba como gerir as imagens de arranque do Windows PE que utilizar durante a implementação do sistema operativo."
+title: "Управление образами загрузки в Configuration Manager | Документы Майкрософт"
+description: "Сведения об управлении в Configuration Manager загрузочными образами среды предустановки Windows, используемыми во время развертывания операционной системы."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,254 +17,254 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: cc678c1133b1944f55bcad309cf9ede9f0660b57
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-boot-images-with-system-center-configuration-manager"></a>Gerir imagens de arranque com o System Center Configuration Manager
+# <a name="manage-boot-images-with-system-center-configuration-manager"></a>Управление образами загрузки для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Uma imagem de arranque no Configuration Manager é uma [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) imagem que é utilizada durante a implementação do sistema operativo. As imagens de arranque são utilizadas para iniciar um computador no WinPE, que é um sistema operativo minimalista com componentes e serviços limitados que preparam o computador de destino para a instalação do Windows.  Utilize as secções seguintes para gerir imagens de arranque.
+Образ загрузки в Configuration Manager представляет собой образ [среды предустановки Windows (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx), используемый во время развертывания операционной системы. Образы загрузки используются для запуска компьютера в среде WinPE — миниатюрной операционной системе с ограниченным набором компонентов и служб, которые подготавливают конечный компьютер к установке Windows.  Управление загрузочными образами описано в следующих разделах.
 
-## <a name="BKMK_BootImageDefault"></a>Imagens de arranque predefinidas
-Configuration Manager fornece duas imagens de arranque predefinidas: Uma para suportar plataformas x86 e outra para suportar x64 plataformas. Estas imagens estão armazenadas em: \\ \\ *servername*> \SMS_ <*sitecode*> \osd\boot\\<*x64*> ou <*i386*>. Imagens de arranque predefinidas são atualizadas ou regeneradas consoante a ação que efetuar.
+## <a name="BKMK_BootImageDefault"></a> Образы загрузки по умолчанию
+Configuration Manager предоставляет два образа загрузки по умолчанию: один для поддержки 32-разрядных (x86) платформ, а второй — для 64-разрядных (x64) платформ. Эти образы хранятся по следующему пути: \\\\*имя_сервера*>\SMS_<*код_сайта*>\osd\boot\\<*x64*> или <*i386*>. Образы загрузки по умолчанию обновляются или создаются повторно в зависимости от выполняемого вами действия.
 
-Considere o seguinte para qualquer uma das ações descritas nas secções seguintes:
-- Os objetos do controlador de origem tem de ser válidos, incluindo os ficheiros de origem do controlador ou os controladores não será adicionado às imagens de arranque no site.
-- Imagens de arranque que não são baseadas nas imagens de arranque predefinidas, mesmo que utilizem a mesma versão do Windows PE, não serão modificadas.
-- Necessitará de redistribuir as imagens de arranque modificado para pontos de distribuição.
-- Tem de recriar qualquer suporte de dados que utiliza as imagens de arranque modificadas.
-- Se não pretender que as imagens de arranque personalizadas/predefinidas atualizadas automaticamente, não armazene-os na localização predefinida.
+Для любых действий, описанных в следующих разделах, обратите внимание на следующее.
+- Исходные объекты драйверов должны быть допустимыми, включая исходные файлы драйверов, иначе драйверы не будут добавлены в образы загрузки на сайте.
+- Образы загрузки, которые основаны не на образах по умолчанию, не изменяются, даже если они используют ту же версию среды Windows PE.
+- Вам нужно распространить измененные образы загрузки в точки распространения.
+- Вам нужно повторно создать все носители, использующие измененные образы загрузки.
+- Если вы не хотите, чтобы ваши настроенные образы загрузки и образы загрузки по умолчанию обновлялись автоматически, не сохраняйте их в расположении по умолчанию.
 
 > [!NOTE]
-> A ferramenta de registo de rastreio do Configuration Manager é adicionada a todas as imagens de arranque que adiciona à **biblioteca de Software**. Quando estiver no Windows PE, pode iniciar a ferramenta de registo de rastreio do Configuration Manager escrevendo **CMTrace** numa linha de comandos.  
+> Средство журнала трассировки Configuration Manager добавляется во все образы загрузки, добавляемые в **библиотеку программного обеспечения**. В среде Windows PE вы можете запустить средство журнала трассировки Configuration Manager, введя **CMTrace** в командной строке.  
 
-### <a name="use-updates-and-servicing-to-install-the-latest-version-of-configuration-manager"></a>Utilização de atualizações e manutenção para instalar a versão mais recente do Configuration Manager
-A partir da versão 1702, quando atualizar a versão do Windows ADK e, em seguida, utilizar as atualizações e manutenção para instalar a versão mais recente do Configuration Manager, Configuration Manager gera de novo as imagens de arranque predefinidas. Isto inclui a nova versão do PE de janela do Windows ADK atualizado, a nova versão do cliente do Configuration Manager, controladores, personalizações, etc. Imagens de arranque personalizadas não são modificadas.
+### <a name="use-updates-and-servicing-to-install-the-latest-version-of-configuration-manager"></a>Использование обновлений и обслуживания для установки последней версии Configuration Manager
+Начиная с версии 1702, если вы обновляете версию Windows ADK и затем устанавливаете последнюю версию Configuration Manager с помощью обновления и установки, Configuration Manager обновляет образы загрузки по умолчанию. Сюда входит новая версия среды Windows PE из обновленного набора Windows ADK, новая версия клиента Configuration Manager, драйверы, настройки и т. д. Пользовательские образы загрузки не изменяются.
 
-Antes de versão 1702, Configuration Manager atualiza a imagem de arranque (boot.wim) existente com os componentes de cliente, controladores, personalizações, etc., mas não irá utilizar a versão mais recente do Windows PE do Windows ADK. Tem de modificar manualmente a imagem de arranque para utilizar a nova versão do Windows ADK.
+При использовании версии, предшествующей 1702, Configuration Manager обновляет существующий образ загрузки (boot.wim) с клиентскими компонентами, драйверами, настройками и т. д., но не использует последнюю версию среды Windows PE из набора Windows ADK. Вам нужно вручную изменить образ загрузки, чтобы использовать новую версию Windows ADK.
 
-### <a name="upgrade-from-configuration-manager-2012-to-configuration-manager-current-branch-cb"></a>Atualização do Configuration Manager 2012 para o Configuration Manager atual Branch (CB)
-Quando a atualização do Configuration Manager 2012 para CB do Configuration Manager, utilizando o processo de configuração, do Configuration Manager irá regenerar as imagens de arranque predefinidas. Isto inclui a nova versão do PE de janela do Windows ADK atualizado, a nova versão do cliente do Configuration Manager, e todas as personalizações permanecem inalteradas. Imagens de arranque personalizadas não são modificadas.
+### <a name="upgrade-from-configuration-manager-2012-to-configuration-manager-current-branch-cb"></a>Миграция с Configuration Manager 2012 на Configuration Manager Current Branch (CB)
+При обновлении Configuration Manager 2012 до Configuration Manager CB с помощью программы установки Configuration Manager повторно создает образы загрузки по умолчанию. Сюда входит новая версия среды Windows PE из обновленного набора Windows ADK, новая версия клиента Configuration Manager, а все настройки остаются неизменными. Пользовательские загрузочные образы не изменяются.
 
-### <a name="update-distribution-points-with-the-boot-image"></a>Atualizar pontos de distribuição com a imagem de arranque
-Quando utiliza o **atualizar pontos de distribuição** ação o **imagens de arranque** nó na consola do Configuration Manager, Configuration Manager atualiza as imagens de arranque predefinido com os componentes de cliente, controladores, personalizações, etc.    
+### <a name="update-distribution-points-with-the-boot-image"></a>Обновление точек распространения с использованием образа загрузки
+Когда вы используете действие **Обновить точки распространения** из узла **Загрузочные образы** в консоли Configuration Manager, это средство дополняет образы загрузки по умолчанию клиентскими компонентами, драйверами, настройками и т. д.    
 
-A partir do Configuration Manager versão 1706, pode optar por recarregar a versão mais recente do Windows PE (a partir do diretório de instalação do Windows ADK) na imagem de arranque. O **geral** página do assistente atualizar pontos de distribuição fornece informações sobre a versão do Windows ADK instalada no servidor do site, a versão do Windows ADK partir do qual o Windows PE foi utilizado na imagem de arranque e a versão do cliente do Configuration Manager. Pode utilizar estas informações para ajudar a decidir se pretende recarregar a imagem de arranque. Além disso, uma nova coluna (**versão de cliente**) foi adicionado ao ver as imagens de arranque no **imagens de arranque** nó para saber qual a versão do cliente do Configuration Manager utiliza de cada imagem de arranque.    
+Начиная с Configuration Manager версии 1706 вы можете заново сохранить в образ загрузки последнюю версию Windows PE (из каталога установки Windows ADK). На странице **Общие** мастера обновления точек распространения предоставлены сведения о версии Windows ADK, установленной на сервере сайта, о версии Windows ADK, из которой в загрузочном образе использовался экземпляр Windows PE, а также о версии клиента Configuration Manager. Эти сведения помогут вам решить, следует ли повторно использовать загрузочный образ. Кроме того, добавлен новый столбец (**Версия клиента**), доступный при просмотре загрузочных образов на узле **Загрузочные образы** и отображающий версию клиента Configuration Manager, используемую для каждого загрузочного образа.    
 
-Imagens de arranque personalizadas não são modificadas.
+Пользовательские загрузочные образы не изменяются.
 
-##  <a name="BKMK_BootImageCustom"></a>Personalizar uma imagem de arranque  
- Pode personalizar uma imagem de arranque, ou [modificar uma imagem de arranque](#BKMK_ModifyBootImages), da consola do Configuration Manager quando se basear numa versão do Windows PE da versão suportada do Windows ADK. Quando um site é atualizado com uma nova versão e uma nova versão do Windows ADK estiver instalada, as imagens de arranque personalizadas (que não estejam na localização das imagens de arranque predefinidas) não são atualizadas com a nova versão do Windows ADK. Quando isso acontece, já não será possível personalizar as imagens de arranque na consola do Configuration Manager. No entanto, estas continuarão a funcionar como antes da atualização.  
+##  <a name="BKMK_BootImageCustom"></a> Настройка образа загрузки  
+ Настроить или [изменить загрузочный образ](#BKMK_ModifyBootImages) можно из Configuration Manager, если этот образ основан на версии среды предустановки Windows из поддерживаемой версии Windows ADK. Когда сайт обновляется до новой версии и устанавливается новая версия Windows ADK, пользовательские образы загрузки (находящиеся не в расположении образов загрузки по умолчанию) не обновляются до новой версии Windows ADK. В этом случае вы больше не сможете настраивать образы загрузки в консоли Configuration Manager. Тем не менее они по-прежнему будут работать, как и до обновления.  
 
- Quando uma imagem de arranque é baseada numa versão diferente do Windows ADK instalado num site, deve personalizar as imagens de arranque através de outro método, como a ferramenta de linha de comandos Gestão e Atualização de Imagens de Implementação (DISM) que faz parte do Windows AIK e do Windows ADK. Para obter mais informações, consulte [personalizar imagens de arranque](customize-boot-images.md).  
+ Если образ загрузки основан на версии Windows ADK, отличной от установленной на сайте, для настройки образов загрузки необходимо использовать другой подход, например программу командной строки "Система обслуживания образов развертывания и управления ими (DISM)", которая входит в состав Windows AIK и Windows ADK. Дополнительные сведения см. в статье [Настройка загрузочных образов](customize-boot-images.md).  
 
-##  <a name="BKMK_AddBootImages"></a>Adicionar uma imagem de arranque  
+##  <a name="BKMK_AddBootImages"></a> Добавление образа загрузки  
 
- Durante a instalação de site do Configuration Manager adiciona automaticamente imagens de arranque baseadas numa versão do WinPE da versão suportada do Windows ADK. Dependendo da versão do Configuration Manager, poderá conseguir adicionar imagens de arranque baseadas numa versão do WinPE diferente da versão suportada do Windows ADK.  Ocorre um erro quando tenta adicionar uma imagem de arranque que contém uma versão não suportada do WinPE.  
+ Во время установки сайта Configuration Manager автоматически добавляет загрузочные образы на основе версии WinPE из поддерживаемой версии Windows ADK. В зависимости от версии Configuration Manager может поддерживаться возможность добавления загрузочных образов на основе другой версии WinPE из поддерживаемой версии Windows ADK.  При попытке добавления загрузочного образа, который содержит неподдерживаемую версию WinPE, произойдет ошибка.  
 
- O seguinte fornece a versão suportada do Windows ADK, a versão do Windows PE nas quais se baseia a imagem de arranque que pode ser personalizada a partir da consola do Configuration Manager e as versões do Windows PE na qual se baseia a imagem de arranque que pode personalizar com o DISM e depois adicione a imagem para o Configuration Manager.  
+ Ниже приведены поддерживаемая версия Windows ADK, версия среды предустановки Windows, используемая как основа образа загрузки, который может быть настроен в консоли Configuration Manager, и версии среды предустановки Windows, используемые как основа образов загрузки, которые могут быть настроены с помощью DISM, а затем добавлены в указанную версию Configuration Manager.  
 
--   **Versão do Windows ADK**  
+-   **Версия Windows ADK**  
 
-     Windows ADK para Windows 10  
+     Windows ADK для Windows 10  
 
--   **Versões do Windows PE para imagens de arranque personalizáveis a partir da consola do Configuration Manager**  
+-   **Версии среды предустановки Windows для загрузочных образов с возможностью настройки в консоли Configuration Manager**  
 
      Windows PE 10  
 
--   **Versões do Windows PE para imagens de arranque não podem ser personalizadas na consola do Configuration Manager**  
+-   **Поддерживаемые версии среды предустановки Windows для загрузочных образов без возможности настройки в консоли Configuration Manager**  
 
-     Windows PE 3.1<sup>1</sup> e Windows PE 5  
+     Среда предустановки Windows 3.1<sup>1</sup> и среда предустановки Windows 5  
 
-     <sup>1</sup> só é possível adicionar uma imagem de arranque para o Configuration Manager quando se baseia no Windows PE 3.1. Instale o Suplemento do Windows AIK para o Windows 7 SP1 para atualizar o Windows AIK para o Windows 7 (baseado no Windows PE 3) com o Suplemento do Windows AIK para Windows 7 SP1 (baseado no Windows PE 3.1). Poderá transferir o Suplemento do Windows AIK para Windows 7 SP1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> Образ загрузки можно добавить в Configuration Manager, только если он был создан на основе среды предустановки Windows 3.1. Установите дополнительный компонент Windows AIK для Windows 7 с пакетом обновления 1 (SP1), чтобы обновить Windows AIK для Windows 7 (на основе среды предустановки Windows 3) с помощью дополнительного компонента Windows AIK для Windows 7 с пакетом обновления 1 (SP1) (на основе среды предустановки Windows 3.1). Дополнительный компонент Windows AIK для Windows 7 с пакетом обновления 1 (SP1) можно загрузить из [Центра загрузки Майкрософт](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Por exemplo, quando tiver do Configuration Manager, pode personalizar imagens de arranque do Windows ADK para Windows 10 (baseado no Windows PE 10) na consola do Configuration Manager. No entanto, embora as imagens de arranque baseadas no Windows PE 5 sejam suportadas, tem de personalizá-las a partir de um computador diferente e utilizar a versão do DISM que é instalada com o Windows ADK para Windows 8. Em seguida, pode adicionar a imagem de arranque à consola do Configuration Manager. Para obter mais informações sobre os passos para personalizar uma imagem de arranque (adicionar componentes e controladores opcionais), ativar suporte de comando para a imagem de arranque, adicionar a imagem de arranque à consola do Configuration Manager e atualizar pontos de distribuição com a imagem de arranque, consulte [personalizar imagens de arranque](customize-boot-images.md).
+     Например, если используется Configuration Manager, загрузочные образы из Windows ADK для Windows 10 (на основе среды предустановки Windows 10) можно настраивать в консоли Configuration Manager. Однако несмотря на то что загрузочные образы на основе Windows PE 5 поддерживаются, их необходимо настраивать с другого компьютера и использовать версию DISM, установленную вместе с Windows ADK для Windows 8. После этого загрузочный образ можно будет добавить в консоль Configuration Manager. Дополнительные сведения о настройке образа загрузки (добавлении дополнительных компонентов и драйверов), включении поддержки команд для образа загрузки, добавлении образа загрузки в консоль Configuration Manager и обновлении точек распространения с учетом образа загрузки см. в разделе [Настройка загрузочных образов](customize-boot-images.md).
 
- Utilize o procedimento seguinte para adicionar manualmente uma imagem de arranque.  
+ Ниже приведена процедура добавления загрузочного образа вручную.  
 
-#### <a name="to-add-a-boot-image"></a>Para adicionar uma imagem de arranque  
+#### <a name="to-add-a-boot-image"></a>Добавление загрузочного образа  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Arranque**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите **Загрузочные образы**.  
 
-3.  No separador **Home Page**, no grupo **Criar**, clique em **Adicionar Imagem de Arranque** para iniciar o Assistente Adicionar Imagem de Arranque.  
+3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Добавить загрузочный образ** , чтобы запустить мастер добавления загрузочного образа.  
 
-4.  Na página **Origem de Dados**, especifique as seguintes opções e clique em **Seguinte**.  
+4.  На странице **Источник данных** настройте следующие параметры, затем нажмите кнопку **Далее**.  
 
-    -   Na caixa **Caminho**, especifique o caminho do ficheiro WIM da imagem de arranque.  
+    -   В поле **Путь** укажите путь к WIM-файлу загрузочного образа.  
 
-         O caminho especificado tem de ser um caminho de rede válido no formato UNC. For example: \\\\<*servername*\\<*sharename*>\\<*bootimagename*>.wim.  
+         Указанный путь должен быть допустимым сетевым путем в формате UNC. Например: \\\\<*имя_сервера*\\<*имя_общей_папки*>\\<*имя_образа_загрузки*>.wim.  
 
-    -   Selecione a imagem de arranque na lista pendente **Imagem de Arranque**. Se o ficheiro WIM contiver várias imagens de arranque, selecione a imagem adequada.  
+    -   В раскрывающемся списке **Загрузочный образ** выберите загрузочный образ. Если в WIM-файле содержится несколько загрузочных образов, выберите соответствующий образ.  
 
-5.  Na página **Geral**, especifique as seguintes opções e clique em **Seguinte**.  
+5.  На странице **Общие**  укажите следующие параметры и нажмите кнопку **Далее**.  
 
-    -   Na caixa **Nome**, especifique um nome exclusivo para a imagem de arranque.  
+    -   В поле **Имя** введите уникальное имя загрузочного образа.  
 
-    -   Na caixa **Versão**, especifique um número de versão para a imagem de arranque.  
+    -   В поле **Версия** введите номер версии загрузочного образа.  
 
-    -   Na caixa **Comentário**, insira uma breve descrição do modo como a imagem de arranque é utilizada.  
+    -   В поле **Комментарий** введите краткое описание порядка использования загрузочного образа.  
 
-6.  Conclua o assistente.  
+6.  Завершите работу мастера.  
 
- A imagem de arranque é agora listada no **imagem de arranque** nós da consola do Configuration Manager. No entanto, para poder utilizar a imagem de arranque para implementar um sistema operativo, tem de distribuir a imagem de arranque aos pontos de distribuição, grupos de pontos de distribuição ou coleções associadas a grupos de pontos de distribuição.  
-
-> [!NOTE]  
->  Quando seleciona o **imagem de arranque** nó na consola do Configuration Manager, o **tamanho (KB)** coluna apresenta o tamanho descomprimido de cada imagem de arranque. No entanto, quando o Configuration Manager envia uma imagem de arranque através da rede, envia uma cópia comprimida da imagem, que é normalmente muito menor do que o tamanho listado no **tamanho (KB)** coluna.  
-
-##  <a name="BKMK_DistributeBootImages"></a>Distribuir imagens de arranque para um ponto de distribuição  
- As imagens de arranque são distribuídas para pontos de distribuição da mesma forma que são distribuídos outros conteúdos. Na maioria dos casos, terá de distribuir a imagem de arranque para, pelo menos, um ponto de distribuição antes de implementar um sistema operativo e antes de criar suportes de dados.  
+ Загрузочный образ будет добавлен в узел **Загрузочный образ** консоли Configuration Manager. Однако прежде чем загрузочный образ можно будет использовать для развертывания операционной системы, его необходимо распространить в точки распространения, группы точек распространения или коллекции, которые связаны с группами точек распространения.  
 
 > [!NOTE]  
->  Para utilizar o PXE para implementar um sistema operativo, considere o seguinte antes de distribuir a imagem de arranque:  
+>  При выборе узла **Загрузочный образ** в консоли Configuration Manager в столбце **Размер (КБ)** отображается размер каждого загрузочного образа без сжатия. Однако при отправке загрузочного образа по сети Configuration Manager использует его сжатую копию, размер которой обычно гораздо меньше, чем тот, который указан в столбце **Размер (КБ)**.  
+
+##  <a name="BKMK_DistributeBootImages"></a> Распространение образов загрузки на точки распространения  
+ Распространение загрузочных образов на точки распространения ничем не отличается от распространения другого содержимого. В большинстве случаев необходимо распространить загрузочный образ по крайней мере на одну точку распространения перед развертыванием операционной системы и созданием носителя.  
+
+> [!NOTE]  
+>  Чтобы использовать PXE для развертывания операционной системы, сделайте следующее перед распространением загрузочного образа:  
 >   
->  -   O ponto de distribuição tem de ser configurado para aceitar pedidos PXE.  
-> -   Tem de distribuir uma imagem de arranque preparada para PXE x86 e x64 para, pelo menos, um ponto de distribuição preparado para PXE.  
-> -   As imagens de arranque para o Configuration Manager distribui o **RemoteInstall** pasta no ponto de distribuição com PXE ativado.  
+>  -   Точку распространения необходимо настроить для приема PXE-запросов.  
+> -   Образы в версиях для x86 и x64 необходимо распространить по крайней мере на одну точку распространения с поддержкой PXE.  
+> -   Configuration Manager передает образы загрузки в папку **RemoteInstall** точки распространения с поддержкой PXE.  
 >   
->  Para obter mais informações sobre como utilizar o PXE para implementar sistemas operativos, consulte [utilizar o PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+>  Дополнительные сведения об использовании PXE для развертывания операционных систем см. в статье [Использование PXE для развертывания Windows по сети](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
- Para obter os passos para distribuir uma imagem de arranque, veja [Distribuir conteúdo](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).  
+ Процедуры по распространению образа загрузки описаны в статье [Распространение содержимого](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).  
 
-##  <a name="BKMK_ModifyBootImages"></a>Modificar uma imagem de arranque  
- Pode adicionar ou remover controladores de dispositivo da imagem ou editar as propriedades associadas à imagem de arranque. Os controladores de dispositivo que adicionar ou remover podem incluir controladores de placas de rede ou de dispositivos de armazenamento de massa. Ao modificar imagens de arranque, considere os seguintes fatores:  
+##  <a name="BKMK_ModifyBootImages"></a> Изменение образа загрузки  
+ Можно добавлять или удалять драйверы устройств в образ и изменять свойства, связанные с загрузочным образом. Добавляемыми или удаляемыми драйверами устройств могут быть и драйверы сетевых адаптеров или запоминающих устройств. При изменении загрузочных образов следует учитывать следующие факторы:  
 
--   Tem de importar e ativar os controladores de dispositivos no catálogo de controladores de dispositivos antes de poder adicioná-los à imagem de arranque.  
+-   Необходимо импортировать и включить драйверы устройств в каталог драйверов устройств, прежде чем добавлять их в загрузочный образ.  
 
--   Quando modifica uma imagem de arranque, esta não altera nenhum dos pacotes associados aos quais a imagem de arranque faz referência.  
+-   При изменении загрузочного образа никакие связанные пакеты, на которые он ссылается, не изменяются.  
 
--   Depois de alterar uma imagem de arranque, tem de **atualizar** a imagem de arranque nos pontos de distribuição que já têm a imagem de arranque, para que esteja disponível a versão mais atual da imagem de arranque. Para obter mais informações, veja [Gerir conteúdo que distribuiu](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_manage).  
+-   После внесения изменений в загрузочный образ необходимо **обновить** образ в точках распространения, на которых уже есть этот образ, чтобы везде была доступна последняя версия образа. Дополнительные сведения см. в статье [Управление распространенным содержимым](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_manage).  
 
- Utilize o procedimento seguinte para modificar uma imagem de arranque.  
+ Чтобы изменить загрузочный образ, выполните следующие действия.  
 
-#### <a name="to-modify-the-properties-of-a-boot-image"></a>Para modificar as propriedades de uma imagem de arranque  
+#### <a name="to-modify-the-properties-of-a-boot-image"></a>Изменение свойств загрузочного образа  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Arranque**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите **Загрузочные образы**.  
 
-3.  Selecione a imagem de arranque que pretende modificar.  
+3.  Выберите загрузочный образ, свойства которого требуется изменить.  
 
-4.  No separador **Home Page**, no grupo **Propriedades**, clique em **Propriedades** para abrir a caixa de diálogo **Propriedades** da imagem de arranque.  
+4.  На вкладке **Главная** в группе **Свойства** щелкните **Свойства** , чтобы открыть диалоговое окно **Свойства** для загрузочного образа.  
 
-5.  Defina qualquer uma das seguintes definições para alterar o comportamento da imagem de arranque:  
+5.  Настройте следующие параметры, чтобы изменить поведение загрузочного образа.  
 
-    -   No separador **Imagens**, se tiver alterado as propriedades da imagem de arranque com uma ferramenta externa, clique em **Recarregar**.  
+    -   Если изменения в свойства загрузочного образа вносились с помощью внешнего средства, на вкладке **Образы** нажмите кнопку **Перезагрузить**.  
 
-    -   No separador **Controladores**, adicione os controladores de dispositivo Windows que são precisos para iniciar o WinPE. Quando adicionar controladores de dispositivo, considere o seguinte:  
+    -   На вкладке **Драйверы** добавьте драйверы устройств Windows, необходимые для загрузки WinPE. При добавлении драйверов устройств учтите следующие аспекты.  
 
-        -   Selecione **Ocultar controladores que não correspondem à arquitetura da imagem de arranque** para apresentar apenas os controladores para a arquitetura da imagem de arranque. A arquitetura baseia-se na arquitetura reportada no .INF do fabricante.  
+        -   Выберите **Скрыть драйверы, которые не соответствуют архитектуре загрузочного образа**, чтобы отображались только драйверы, соответствующие архитектуре загрузочного образа. Архитектура основана на архитектуре, указанной в INF-файле производителя.  
 
-        -   Selecione **Ocultar controladores fora da classe de armazenamento ou de rede (para imagens de arranque)** para apresentar apenas controladores de armazenamento e de rede, e ocultar outros controladores que normalmente não são necessários para imagens de arranque, como um controlador de vídeo ou controlador de modem.  
+        -   Выберите **Скрыть драйверы, которых нет в хранилище или классе сети (для загрузочных образов)** , чтобы отображались только драйверы запоминающих устройств и сетевые драйверы. Прочие драйверы, которые обычно не требуются для загрузочных образов (например, видеодрайверы или драйверы модемов), будут скрыты.  
 
-        -   Selecione **Ocultar controladores que não estejam assinados digitalmente** para ocultar os controladores que não estão assinados digitalmente.  
+        -   Выберите **Скрыть драйверы без цифровой подписи** , чтобы скрыть драйверы, не имеющие цифровой подписи.  
 
-        -   Como melhor prática, adicione apenas Controladores de NIC e de Armazenamento de Massa à imagem de arranque, a não ser que seja necessário incluir outros controladores no WinPE.  
+        -   В загрузочные образы рекомендуется добавлять только драйверы для сетевых карт и запоминающих устройств, если наличие других драйверов в составе WinPE не является обязательным.  
 
-        -   Uma vez que o WinPE é fornecido com muitos controladores incorporados, adicione apenas Controladores de NIC e de Armazenamento de Massa que não sejam fornecidos pelo WinPE.  
+        -   Поскольку WinPE по умолчанию содержит большое число встроенных драйверов, добавляйте только те драйверы для сетевых карт и запоминающих устройств, которые не предоставляются ею.  
 
-        -   Certifique-se de que os controladores que adiciona à imagem de arranque correspondem à arquitetura da imagem de arranque.  
+        -   Убедитесь, что добавляемые в образ загрузки драйверы соответствуют архитектуре этого образа.  
 
         > [!NOTE]  
-        >  Tem de importar controladores de dispositivo para o catálogo de controladores antes de os adicionar a uma imagem de arranque. Para obter informações sobre como importar controladores de dispositivo, consulte [gerir controladores](manage-drivers.md).  
+        >  Драйверы устройств необходимо импортировать в каталог драйверов, прежде чем их можно будет добавить в загрузочный образ. Дополнительные сведения об импорте драйверов устройств см. в статье [Управление драйверами](manage-drivers.md).  
 
-    -   No separador **Personalização**, selecione qualquer uma das seguintes definições:  
+    -   На вкладке **Настройка** выберите любой из приведенных ниже параметров.  
 
-        -   Selecione a caixa de verificação **Ativar Comando de Pré-início** para especificar a execução de um comando antes da execução da sequência de tarefas. Quando os comandos de pré-início são ativados, pode especificar a linha de comandos que é executada, se são necessários ficheiros de suporte para executar o comando e a localização de origem desses ficheiros de suporte.  
+        -   Установите флажок **Включить команду, выполняемую перед запуском** , чтобы указать команду, которая будет выполняться перед запуском последовательности задач. Если выполняемые перед запуском команды включены, можно затем указать командную строку для запуска, выбрать, требуются ли файлы поддержки для запуска команды, и указать исходное расположение таких файлов поддержки.  
 
             > [!WARNING]  
-            >  Tem de adicionar **cmd /c** ao início da linha de comandos. Se não especificar **cmd /c**, o comando não será fechado depois de ser executado. A implementação continua a aguardar que o comando seja concluído e não irá iniciar quaisquer outros comandos ou ações configurados.  
+            >  Необходимо добавить **cmd /c** в начало командной строки. Если не указать **cmd /c**, окно ввода команд не будет закрыто после выполнения. Процесс развертывания продолжит ожидать завершения команды и не выполнит никаких прочих настроенных команд или действий.  
 
             > [!TIP]  
-            >  Durante a criação de suportes de dados de sequência de tarefas, a sequência de tarefas escreve o ID de pacote e da linha de comandos, incluindo o valor das eventuais variáveis de sequência de tarefas, para o ficheiro de registo CreateTSMedia.log no computador que executa a consola do Configuration Manager de Pré-início. Poderá consultar este ficheiro de registo para verificar o valor das variáveis da sequência de tarefas.  
+            >  Во время создания носителя с его файлами последовательность задач записывает ИД пакета и командную строку, выполняемую перед запуском, включая значения всех переменных последовательности задач, в файл журнала CreateTSMedia.log на компьютере, на котором запущена консоль Configuration Manager. В этом файле журнала можно проверить значения переменных последовательности задач.  
 
-        -   Configure as definições de **Fundo do Windows PE** para especificar se pretende utilizar o fundo predefinido do WinPE ou um fundo personalizado.  
+        -   Настройте параметры **Фон среды предустановки Windows** , чтобы указать, требуется ли использовать стандартный фон WinPE или настраиваемый фон.  
 
-        -   Selecione **Ativar suporte de comando (apenas teste)** para abrir uma linha de comandos com a tecla **F8** quando a imagem de arranque estiver a ser implementada. Isto é útil para resolução de problemas quando estiver a testar a implementação. Não é aconselhada a utilização desta definição numa implementação de produção.  
+        -   Выберите **Включить поддержку командной строки (только для проверки)** , чтобы при развертывании загрузочного образа можно было открывать командную строку с помощью клавиши **F8** . Эта возможность может потребоваться при устранении неполадок, когда выполняется тестирование развертывания. Использование этого параметра в рабочей среде не рекомендуется.  
 
-        -   Configure o espaço scratch do Windows PE, que é armazenamento temporário (unidade de RAM) utilizado pelo WinPE. Por exemplo, quando uma aplicação é executada no WinPE e tem de escrever ficheiros temporários, o WinPE redireciona os ficheiros para o espaço scratch na memória, para simular a presença de um disco rígido. Por predefinição, o WinPE atribui 32 megabytes (MB) de memória gravável.  
+        -   Настройте рабочее пространство для Windows PE, которое будет временным хранилищем (ОЗУ-диском) в WinPE. Например, когда приложение запускается в среде WinPE и записывает временные файлы, WinPE перенаправляет их в пространство в памяти для имитации присутствия на жестком диске. По умолчанию WinPE выделяет 32 мегабайта (МБ) записываемой памяти.  
 
-    -   No separador **Origem de Dados**, atualize qualquer uma das seguintes definições:  
+    -   На вкладке **Источник данных** измените любые из приведенных ниже параметров.  
 
-        -   Defina **Caminho da imagem** e **Índice de imagens** para alterar o ficheiro de origem da imagem de arranque.  
+        -   Задайте значения в полях **Путь к образу** и **Индекс образа** , чтобы изменить исходный файл загрузочного образа.  
 
-        -   Selecione **Atualizar pontos de distribuição com base num agendamento**, para criar um agendamento para a atualização do pacote de imagem de arranque.  
+        -   Установите флажок **Обновлять точки распространения по расписанию** , чтобы создать расписание для обновления загрузочного образа.  
 
-        -   Selecione **Manter conteúdo na cache do cliente** se não pretender que o conteúdo deste pacote seja eliminado da cache do cliente por antiguidade para disponibilizar espaço para outro conteúdo.  
+        -   Выберите **Хранить содержимое в клиентском кэше** , чтобы запретить удаление содержимого пакета из клиентского кэша при необходимости освободить место для другого содержимого.  
 
-        -   Selecione **Ativar replicação de diferencial binário** para especificar que apenas os ficheiros alterados serão distribuídos quando o pacote de imagem de arranque for atualizado no ponto de distribuição. Esta definição minimiza o tráfego de rede entre sites, especialmente quando o pacote de imagem de arranque for grande e as alterações forem relativamente pequenas.  
+        -   Выберите **Использовать двоичную дифференциальную репликацию** , чтобы указать, что в случае обновления пакета загрузочного образа на точке распространения необходимо распространять только измененные файлы. Использование этого параметра позволяет свести к минимум трафик между сайтами, особенно если пакет загрузочного образа большой, а изменения относительно незначительны.  
 
-        -   Selecione **Implementar esta imagem de arranque a partir do ponto de distribuição ativado por PXE** se a imagem de arranque for utilizada numa implementação com PXE ativado.  
-
-            > [!NOTE]  
-            >  Para obter mais informações, consulte [utilizar o PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
-
-    -   No separador **Acesso a Dados**, selecione qualquer uma das seguintes definições:  
-
-        -   Configure as **Definições de partilha de pacote** se pretender que os clientes instalem o conteúdo deste pacote a partir da rede.  
-
-        -   Definir o **definições de atualização do pacote** para especificar como pretende que o Configuration Manager para desligar os utilizadores a partir do ponto de distribuição. O Configuration Manager poderá ser incapaz de atualizar a imagem de arranque quando os utilizadores estão ligados ao ponto de distribuição.  
-
-    -   No separador **Definições de Distribuição**, selecione qualquer uma das seguintes definições:  
-
-        -   No **prioridade de distribuição** lista, especifique o nível de prioridade que pretende que o Configuration Manager para utilizar quando forem distribuídos vários pacotes ao mesmo ponto de distribuição.  
-
-        -   Selecione **Distribuir o conteúdo do pacote pelos pontos de distribuição preferenciais** se pretender ativar a distribuição de conteúdo a pedido para pontos de distribuição preferenciais. Quando esta definição está ativada, o ponto de gestão distribui o conteúdo por todos os pontos de distribuição preferenciais quando um cliente solicita o conteúdo do pacote e o conteúdo não está disponível em nenhum desses pontos de distribuição.  
-
-        -   Configure as **Definições pré-configuradas de ponto de distribuição** para especificar como pretende que a imagem de arranque seja distribuída pelos pontos de distribuição ativados para conteúdo pré-configurado.  
+        -   Выберите **Раз. загрузочный образ из точки распр., поддерживающей PXE**, если образ загрузки используется для развертывания с поддержкой PXE.  
 
             > [!NOTE]  
-            >  Para obter mais informações sobre conteúdo pré-configurado, veja [Pré-configurar conteúdo](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).  
+            >  Дополнительные сведения см. в статье [Использование PXE для развертывания Windows по сети](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
-    -   No separador **Localizações de Conteúdo**, selecione o ponto de distribuição ou o grupo de pontos de distribuição e execute qualquer uma das seguintes ações:  
+    -   На вкладке **Доступ к данным** выберите любой из приведенных ниже параметров.  
 
-        -   Clique em **Redistribuir** para distribuir novamente a imagem de arranque para o ponto de distribuição ou grupo de pontos de distribuição selecionado.  
+        -   Настройте **параметры общей сетевой папки пакета** , если требуется, чтобы клиенты устанавливали содержимое пакета из сети.  
 
-        -   Clique em **Validar** para verificar a integridade do pacote de imagem de arranque no ponto de distribuição ou grupo de pontos de distribuição selecionado.  
+        -   Задайте **Параметры обновления пакета**, чтобы указать, каким образом Configuration Manager должен отключать пользователей от точки распространения. Обновление загрузочного образа может завершиться ошибкой, если пользователи подключены к точке распространения.  
 
-    -   No **componentes opcionais** separador, especifique os componentes que são adicionados ao Windows PE para utilização com o Configuration Manager. Para mais informações sobre os componentes opcionais disponíveis, consulte [WinPE: Adicionar pacotes (referência de componentes opcionais)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx).  
+    -   На вкладке **Параметры распространения** выберите любой из приведенных ниже параметров.  
 
-    -   No separador **Segurança**, selecione um utilizador administrativo e altere as operações que este pode realizar.  
+        -   В списке **Приоритет распространения** укажите уровень приоритета, который Configuration Manager будет использовать при передаче нескольких пакетов на одну точку распространения.  
 
-6.  Depois de configurar as propriedades, clique em **OK**.  
+        -   Выберите **Распространять содержимое этого пакета в предпочтительные точки распространения** , чтобы включить передачу содержимого в предпочтительные точки распространения по запросу. При включении этого параметра точка управления передает содержимое на все предпочтительные точки распространения, когда клиент запрашивает содержимое пакета, и это содержимое недоступно на всех предпочтительных точках распространения.  
 
-##  <a name="BKMK_BootImagePXE"></a>Configurar uma imagem de arranque para implementar a partir de um ponto de distribuição com PXE ativado  
- Antes de poder utilizar uma imagem de arranque para uma implementação de sistema operativo PXE, tem de configurar a imagem de arranque para implementar a partir de um ponto de distribuição ativado por PXE.  
+        -   Настройте **параметры предварительно подготовленной точки распространения** , чтобы указать способ передачи загрузочного образа на точки распространения, включенные для предварительно подготовленного содержимого.  
 
-#### <a name="to-configure-a-boot-image-to-deploy-from-a-pxe-enabled-distribution-point"></a>Para configurar uma imagem de arranque para implementar a partir de um ponto de distribuição ativado por PXE  
+            > [!NOTE]  
+            >  Дополнительные сведения о предварительно подготовленном содержимом см. в статье [Предварительная подготовка содержимого](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+    -   На вкладке **Расположения содержимого** выберите точку распространения или группу точек распространения и выполните любые из приведенных ниже действий.  
 
-2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Arranque**.  
+        -   Нажмите кнопку **Повторить** , чтобы повторно передать загрузочный образ на выбранную точку распространения или в группу точек распространения.  
 
-3.  Selecione a imagem de arranque que pretende modificar.  
+        -   Нажмите кнопку **Проверить** , чтобы проверить целостность пакета загрузочного образа на выбранной точке распространения или в группе точек распространения.  
 
-4.  No separador **Home Page**, no grupo **Propriedades**, clique em **Propriedades** para abrir a caixa de diálogo **Propriedades** da imagem de arranque.  
+    -   На вкладке **Необязательные компоненты** укажите компоненты, добавленные в среду предустановки Windows, для использования с Configuration Manager. Дополнительные сведения о доступных дополнительных компонентах см. в разделе [WinPE: добавление пакетов (Справочник по дополнительным компонентам)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx).  
 
-5.  No separador **Origem de Dados**, selecione **Implementar esta imagem de arranque a partir do ponto de distribuição ativado por PXE**.  
+    -   На вкладке **Безопасность** выберите администратора и внесите изменения в набор доступных для него действий.  
+
+6.  Завершив настройку свойств, нажмите кнопку **ОК**.  
+
+##  <a name="BKMK_BootImagePXE"></a> Настройка образа загрузки для развертывания из точки распространения с поддержкой PXE  
+ Перед использованием образа загрузки для развертывания операционных систем по протоколу PXE необходимо настроить этот образ на развертывание из точки распространения с поддержкой PXE.  
+
+#### <a name="to-configure-a-boot-image-to-deploy-from-a-pxe-enabled-distribution-point"></a>Настройка образа загрузки для развертывания из точки распространения с поддержкой PXE  
+
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите **Загрузочные образы**.  
+
+3.  Выберите загрузочный образ, свойства которого требуется изменить.  
+
+4.  На вкладке **Главная** в группе **Свойства** щелкните **Свойства** , чтобы открыть диалоговое окно **Свойства** для загрузочного образа.  
+
+5.  На вкладке **Источник данных** выберите **Раз. загрузочный образ из точки распр., поддерживающей PXE**.  
 
     > [!NOTE]  
-    >  Para obter mais informações, consulte [utilizar o PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+    >  Дополнительные сведения см. в статье [Использование PXE для развертывания Windows по сети](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
-6.  Depois de configurar as propriedades, clique em **OK**.  
+6.  Завершив настройку свойств, нажмите кнопку **ОК**.  
 
-##  <a name="BKMK_BootImageLanguage"></a>Configurar vários idiomas para implementação de imagem de arranque  
- As imagens de arranque são independentes de idiomas. Isso permite utilizar uma imagem de arranque que apresentará o texto da sequência de tarefas em vários idiomas no WinPE, se incluir o suporte de idioma apropriado dos Componentes Opcionais do Windows PE e definir a variável de sequência de tarefas apropriada para indicar o idioma que pode ser visualizado. O idioma do sistema operativo que implementar é independente do idioma que será apresentado no WinPE, independentemente da versão do Configuration Manager. O idioma que é apresentado ao utilizador é determinado do seguinte modo:  
+##  <a name="BKMK_BootImageLanguage"></a> Настройка нескольких языков для развертывания образа загрузки  
+ Загрузочные образы не зависят от языка. Это позволяет использовать один загрузочный образ, в котором последовательность задач будет отображать текст на нескольких языках в среде WinPE, если указать соответствующую языковую поддержку с дополнительными компонентами Windows PE и задать соответствующую переменную последовательности задач как true, чтобы указать, какой язык может быть отображен. Язык развертываемой операционной системы не зависит от языка, который будет отображаться в среде WinPE, независимо от версии Configuration Manager. Язык, который видит пользователь, определяется следующим образом:  
 
--   Quando um utilizador executa a sequência de tarefas a partir de um sistema operativo existente, o Configuration Manager utiliza automaticamente o idioma configurado para o utilizador. Quando a sequência de tarefas é executada automaticamente em resultado de um prazo de implementação obrigatório, o Configuration Manager utiliza o idioma do sistema operativo.  
+-   Когда пользователь запускает последовательность задач из существующей операционной системы, в Configuration Manager автоматически будет использован язык, настроенный для пользователя. Когда последовательность задач автоматически запускается принудительно в результате наступления срока развертывания, Configuration Manager использует язык операционной системы.  
 
--   Para implementações do sistema operativo que utilizam o PXE ou suporte de dados, pode definir o valor do ID de idioma na variável SMSTSLanguageFolder como parte de um comando de pré-início. Quando o computador inicia o WinPE, as mensagens são apresentadas no idioma que especificou na variável. Se ocorrer um erro ao aceder ao ficheiro de recursos do idioma na pasta especificada ou se não tiver definido a variável, as mensagens serão apresentadas no idioma do WinPE.  
+-   При развертывании операционной системы с использованием PXE или носителя можно задать код языка в переменной SMSTSLanguageFolder в составе команды предварительного запуска. При запуске компьютера в среде WinPE сообщения отображаются на языке, указанном в переменной. Если при доступе к файлу языкового ресурса в указанной папке происходит ошибка или вы не установите переменные, сообщения отображаются на языке WinPE.  
 
     > [!NOTE]  
-    >  Quando o suporte de dados estiver protegido por uma palavra-passe, o texto que solicita ao utilizador a palavra-passe é sempre apresentado no idioma do WinPE.  
+    >  Когда носитель защищен паролем, подсказка, запрашивающая у пользователя пароль, всегда отображается на языке WinPE.  
 
- Utilize o procedimento seguinte para definir o idioma do WinPE para implementações do sistema operativo iniciadas por PXE ou suportes de dados.  
+ Используйте следующую процедуру для установки языка WinPE для развертывания операционных систем с помощью PXE или носителей.  
 
-#### <a name="to-set-the-windows-pe-language-for-a-pxe-or-media-initiated-operating-system-deployment"></a>Para definir o idioma do Windows PE para uma implementação do sistema operativo iniciada por suportes de dados ou por PXE  
+#### <a name="to-set-the-windows-pe-language-for-a-pxe-or-media-initiated-operating-system-deployment"></a>Установка языка Windows PE для развертывания операционных систем с помощью PXE или носителей  
 
-1.  Certifique-se de que o ficheiro de recursos da sequência de tarefas adequado (tsres.dll) está na pasta de idioma correspondente do servidor do site antes de atualizar a imagem de arranque. Por exemplo, o ficheiro de recursos em inglês encontra-se na seguinte localização:  <*ConfigMgrInstallationFolder*>\OSD\bin\x64\00000409\tsres.dll.  
+1.  Убедитесь, что соответствующий файл ресурсов последовательности задач (tsres.dll) находится в соответствующей языковой папке на сервере сайта, перед обновлением загрузочного образа. Например, файл ресурсов для английского языка находится в следующем расположении: <*папка_установки_ConfigMgr*>\OSD\bin\x64\00000409\tsres.dll.  
 
-2.  Como parte do comando de pré-início, defina a variável de ambiente SMSTSLanguageFolder no ID de idioma apropriado. O ID de idioma deve ser especificado utilizando o formato decimal e não o hexadecimal. Por exemplo, para definir o ID de idioma do inglês, especifique o valor decimal 1033 em vez do valor hexadecimal 00000409 utilizado para o nome da pasta.  
+2.  В составе команды перед запуском задайте переменную среды SMSTSLanguageFolder, равную коду языка. Код языка должен быть указан с помощью десятичной, а не шестнадцатеричной записи. Например, чтобы установить английский язык, нужно указать десятичное значение 1033 вместо шестнадцатеричного значения 00000409, используемого в имени папки.  

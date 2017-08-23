@@ -1,6 +1,6 @@
 ---
-title: Criar suporte de dados de captura - Configuration Manager | Microsoft Docs
-description: "Utilize o assistente suporte de dados de criação de sequência de tarefas para criar suportes de dados de captura no Configuration Manager para capturar uma imagem de sistema operativo a partir de um computador de referência."
+title: "Создание носителя для снятия образа в Configuration Manager | Документы Майкрософт"
+description: "Мастер создания носителя последовательности задач служит для создания носителя для снятия образа в Configuration Manager, чтобы записать образ операционной системы с компьютера-образца."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,65 +17,65 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 5acf800ff5aebd849e294393337755145a60cca5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-capture-media-with-system-center-configuration-manager"></a>Criar suportes de dados de captura com o System Center Configuration Manager
+# <a name="create-capture-media-with-system-center-configuration-manager"></a>Создание носителя для снятия образа с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Suporte de dados de captura no Configuration Manager permite-lhe capturar uma imagem de sistema operativo a partir de um computador de referência. Utilize suportes de dados de captura para o seguinte cenário:  
+Носитель для снятия образа в Configuration Manager позволяет создавать образ операционной системы на основе компьютера-образца. Используйте носитель для снятия образа в следующем сценарии:  
 
--   [Criar uma sequência de tarefas para capturar um sistemas operativos](create-a-task-sequence-to-capture-an-operating-system.md)  
+-   [Создание последовательности задач для записи операционной системы](create-a-task-sequence-to-capture-an-operating-system.md)  
 
-##  <a name="BKMK_CreateCaptureMedia"></a> Como Criar Suportes de Dados de Captura  
- Utilize suportes de dados de captura para capturar uma imagem do sistema operativo a partir de um computador de referência. O suporte de dados de captura contém a imagem de arranque que inicia o computador de referência e a sequência de tarefas que captura a imagem do sistema operativo.
+##  <a name="BKMK_CreateCaptureMedia"></a> Создание носителя для снятия образа  
+ Чтобы создать образ операционной системы на основе эталонного компьютера, используйте носитель для снятия образа. Носитель для снятия образа содержит загрузочный образ, который запускает эталонный компьютер и выполняет последовательность задач, создающую образ операционной системы.
 
-Os suportes de dados de captura são criados utilizando o Assistente de Criação de Suporte de Dados da Sequência de Tarefas. Antes de executar o assistente, certifique-se de que são respeitadas as seguintes condições:  
+Носитель для снятия образа создается с помощью мастера создания носителя с последовательностью задач. Перед запуском этого мастера убедитесь в том, что выполняются следующие условия.  
 
-|Tarefa|Descrição|  
+|Задача|Описание|  
 |----------|-----------------|  
-|Imagem de arranque|Considere o seguinte sobre a imagem de arranque que irá utilizar na sequência de tarefas para capturar o sistema operativo:<br /><br /> -A arquitetura da imagem de arranque tem de ser adequada à arquitetura do computador de destino. Por exemplo, um computador de destino x64 pode efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. No entanto, um computador de destino x86 só pode efetuar o arranque e a execução de uma imagem de arranque x86.<br />-Certifique-se de que a imagem de arranque contém os controladores de armazenamento em massa e de rede que são necessárias para aprovisionar o computador de destino.|  
-|Distribuir todo o conteúdo associado à sequência de tarefas|Tem de distribuir todo o conteúdo exigido pela sequência de tarefas por, pelo menos, um ponto de distribuição. Isto inclui a imagem de arranque, a imagem do sistema operativo e outros ficheiros associados. O assistente recolhe as informações a partir do ponto de distribuição, ao criar o suporte de dados autónomo. Tem de ter direitos de acesso de **Leitura** à biblioteca de conteúdos desse ponto de distribuição.  Para obter mais informações, consulte [distribuir conteúdo](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).|  
-|Preparar a pen USB amovível|Para uma pen USB amovível:<br /><br /> Se planear utilizar uma pen USB amovível, a pen USB tem de estar ligada ao computador em que o assistente é executado e ser detetável pelo Windows como um dispositivo amovível. Quando cria o suporte de dados, o assistente escreve diretamente na pen USB.|  
-|Criar uma pasta de saída|Para um conjunto de CD/DVD:<br /><br /> Antes de executar o Assistente de Criação de Suporte de Dados da Sequência de Tarefas para criar suportes de dados para um conjunto de CDs ou DVDs, tem de criar uma pasta para os ficheiros de saída criados pelo assistente. O suporte de dados criado para um conjunto de CDs ou DVDs é escrito em formato de ficheiros .iso diretamente na pasta.|  
+|Образ загрузки|Примите во внимание следующие особенности, связанные с загрузочным образом, который будет использоваться в последовательности задач для захвата операционной системы.<br /><br /> — Архитектура загрузочного образа должна соответствовать архитектуре конечного компьютера. Например, конечный компьютер с 64-разрядной операционной системой может загружать и выполнять загрузочный образ с архитектурой x86 или x64. Однако конечный компьютер с архитектурой x86 может загружать и выполнять только 32-разрядный загрузочный образ (x86).<br />— Убедитесь, что загрузочный образ содержит драйверы для сетевых карт и запоминающих устройств, необходимые для подготовки конечного компьютера.|  
+|Распространение всего содержимого, связанного с последовательностью задач|Все содержимое, необходимое для последовательности задач, необходимо распространить по меньшей мере в одну точку распространения. Сюда входит загрузочный образ, образ операционной системы и другие связанные файлы. Мастер получает сведения из точки распространения, а затем создает автономный носитель. Необходимо обладать доступом с правами на **чтение** к библиотеке содержимого на точке распространения.  Дополнительные сведения см. в разделе [Распространение содержимого](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).|  
+|Подготовка съемного USB-накопителя|Для съемного USB-накопителя<br /><br /> Если вы планируете использовать съемный USB-накопитель, он должен быть подключен к компьютеру, на котором запускается мастер, и определяться операционной системой Windows как съемное устройство. При создании носителя мастер осуществляет запись непосредственно на USB-накопитель.|  
+|Создание папки для выходных данных|Для набора компакт- или DVD-дисков<br /><br /> Перед запуском мастера создания носителя с последовательностью задач для создания компакт- или DVD-диска необходимо создать папку для файлов выходных данных мастера. Образ, создаваемый для компакт- или DVD-диска, записывается в виде ISO-файлов непосредственно в эту папку.|  
 
- Utilize o procedimento seguinte para criar suportes de dados de captura.  
+ Для создания носителя для снятия образа используйте следующую процедуру.  
 
-#### <a name="to-create-capture-media"></a>Para criar suportes de dados de captura  
+#### <a name="to-create-capture-media"></a>Создание носителя для снятия образа  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Suportes de Dados da Sequência de Tarefas** para iniciar o Assistente de Criação de Suporte de Dados da Sequência de Tarefas.  
+3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать носитель с файлом последовательности задач** , чтобы запустить мастер создания носителя с последовательностью задач.  
 
-4.  Na página **Selecione o Tipo de Suporte de Dados** , selecione **Suporte de dados de captura**e clique em **Seguinte**.  
+4.  На странице **Выбор типа носителя** выберите **Носитель для снятия образа**и нажмите кнопку **Далее**.  
 
-5.  Na página **Tipo de Suporte de Dados** , especifique se o suporte de dados é uma pen USB ou um conjunto de CD/DVD e, em seguida, clique para configurar o seguinte:  
+5.  На странице **Тип носителя** укажите, является ли носитель устройством флеш-памяти или набором компакт- или DVD-дисков, а затем щелкните, чтобы настроить следующее.  
 
-    -   Se selecionar **Pen USB**, especifique a unidade onde pretende armazenar o conteúdo.  
+    -   При выборе варианта **USB-устройство флеш-памяти**необходимо указать диск, на котором должно быть сохранено содержимое.  
 
-    -   Se selecionar **Conjunto CD/DVD**, especifique a capacidade do suporte de dados e o nome e caminho dos ficheiros de saída. O assistente escreve os ficheiros de saída nesta localização. Por exemplo:  **\\\servername\folder\outputfile.iso**  
+    -   При выборе варианта **CD или DVD диск**необходимо указать емкость этого носителя, имя и путь к выходным файлам. Мастер запишет выходные файлы в это расположение. Например: **\\имя_сервера\папка\выходной_файл.iso**.  
 
-         Se a capacidade do suporte de dados for demasiado pequena para armazenar todo o conteúdo, serão criados vários ficheiros e tem de armazenar o conteúdo em vários CDs ou DVDs. Quando vários suportes de dados é necessária, o Configuration Manager adiciona um número sequencial ao nome de cada ficheiro de saída criado. Além disso, se implementar uma aplicação juntamente com o sistema operativo e a aplicação não couber num único suporte de dados, o Configuration Manager armazenará a aplicação em vários suportes de dados. Quando o suporte de dados autónomo for executado, o Configuration Manager pede ao utilizador o suporte de dados seguinte em que a aplicação se encontra armazenada.  
+         Если емкости носителя не хватает для хранения всего содержимого, создаются несколько файлов и содержимое сохраняется на нескольких компакт- или DVD-дисках. Если требуется несколько носителей, Configuration Manager добавляет порядковый номер к имени каждого выходного файла при их создании. Кроме того, если при развертывании приложения вместе с операционной системой приложение не может поместиться на один носитель, Configuration Manager сохраняет приложение на нескольких носителях. При запуске автономного носителя Configuration Manager запрашивает у пользователя следующий носитель, на котором хранится приложение.  
 
         > [!IMPORTANT]  
-        >  Se selecionar uma imagem .iso existente, o Assistente de Criação de Suporte de Dados da Sequência de Tarefas elimina essa imagem da unidade ou partilha logo que avança para a página seguinte do assistente. A imagem existente será eliminada, mesmo que em seguida cancele o assistente.  
+        >  При выборе существующего ISO-образа мастер создания носителя с последовательностью задач удаляет этот образ с диска или из общей папки при переходе к следующей странице мастера. Существующий образ будет удален даже при отмене работы мастера.  
 
-     Clique em **Seguinte**.  
+     Нажмите кнопку **Далее**.  
 
-6.  Na página **Imagem de arranque** , especifique as seguintes informações e clique em **Seguinte**.  
+6.  На странице **Загрузочный образ** укажите следующие сведения, затем нажмите кнопку **Далее**.  
 
     > [!IMPORTANT]  
-    >  A arquitetura da imagem de arranque especificada tem de ser adequada à arquitetura do computador de referência. Por exemplo, um computador de referência x64 poderá efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. Mas um computador de referência x86 só poderá efetuar o arranque e a execução de uma imagem de arranque x86.  
+    >  Архитектура указанного загрузочного образа должна соответствовать архитектуре эталонного компьютера. Например, на 64-разрядном (x64) эталонном компьютере могут использоваться как 32-разрядные (x86), так и 64-разрядные загрузочные образы. Однако на 32-разрядном эталонном компьютере могут использоваться только 32-разрядные загрузочные образы.  
 
-    -   Na caixa **Imagem de arranque** , especifique a imagem de arranque que inicia o computador de referência.  
+    -   В поле **Загрузочный образ** укажите загрузочный образ для запуска эталонного компьютера.  
 
-    -   Na caixa **Ponto de distribuição** , especifique o ponto de distribuição onde reside a imagem de arranque. O assistente obtém a imagem de arranque do ponto de distribuição e escreve-a no suporte de dados.  
+    -   В поле **Точка распространения** укажите точку распространения, в которой находится загрузочный образ. Мастер получает загрузочный образ с точки распространения и записывает его на носитель.  
 
         > [!NOTE]  
-        >  Tem de ter direitos de acesso de Leitura para a biblioteca de conteúdos do ponto de distribuição.  
+        >  Необходимо обладать доступом с правами на чтение к библиотеке содержимого на точке распространения.  
 
-7.  Conclua o assistente.  
+7.  Завершите работу мастера.  

@@ -1,6 +1,6 @@
 ---
-title: Definir limites | Microsoft Docs
-description: "Compreenda como definem localizações de rede na sua intranet que pode conter dispositivos que pretende gerir."
+title: "Определение границ | Документация Майкрософт"
+description: "Узнайте, как определять сетевые расположения в интрасети, содержащие устройства, которыми вы хотите управлять."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -16,71 +16,71 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: bed70809008fde5e2b0215f4dce049402edf83ba
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="define-network-locations-as-boundaries-for-system-center-configuration-manager"></a>Definir localizações de rede como limites para o System Center Configuration Manager
+# <a name="define-network-locations-as-boundaries-for-system-center-configuration-manager"></a>Определение сетевых расположений в качестве границ для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Limites de Gestor de configuração são localizações na sua rede que contém dispositivos que pretende gerir. O limite de que um dispositivo estiver numa é equivalente ao site do Active Directory ou o endereço IP de rede que é identificado pelo cliente Configuratoin Manager que está instalado no dispositivo.
- - Pode criar manualmente limites individuais. No entanto, o Configuration Manager não suporta a introdução direta de uma super-rede como um limite. Em vez disso, utilize o tipo de limite de intervalo de endereços IP.
- - Pode configurar o [deteção de floresta do Active Directory](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutForest) método para detetar automaticamente e criar limites para cada sub-rede IP e Site do Active Directory que Deteta. Quando a deteção de floresta do Active Directory identifica uma super-rede atribuída a um site do Active Directory, o Configuration Manager converte a Super-rede num limite de intervalo de endereços IP.  
+Границы Configuration Manager представляют собой сетевые расположения, содержащие устройства, которыми вы хотите управлять. Граница, в которую входит устройство, аналогична концепции сайта в Active Directory и выполняет роль сетевого IP-адреса, который определяется клиентом Configuration Manager, установленным на устройстве.
+ - Вы можете вручную создавать отдельные границы. Однако Configuration Manager не поддерживает прямой ввод суперсети в качестве границы. Вместо этого используйте тип границы диапазона IP-адресов.
+ - Вы можете применить метод [обнаружения в лесах Active Directory](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutForest), который автоматически обнаруживает IP-подсети и сайты Active Directory, а также создает для них границы. Когда обнаружение Active Directory выявляет суперсеть, назначенную в сайт Active Directory, Configuration Manager преобразует ее в границу диапазона IP-адресов.  
 
-Não é invulgar para um dispositivo utilizar um endereço IP que não tem conhecimento de administrador do Configuration Manager. Quando a localização de rede de um dispositivo está em dúvida, confirme que o dispositivo relata como localização, utilizando o **IPCONFIG** comando no dispositivo.  
+Часто бывает так, что устройство использует IP-адрес, о котором не знает администратор Configuration Manager. Если у вас есть сомнения по поводу сетевого расположения устройства, изучите информацию о расположении, которую передает само устройство, выполнив на нем команду **IPCONFIG**.  
 
-Quando cria um limite, este recebe automaticamente um nome baseado no tipo e no âmbito do limite. Não é possível modificar este nome. Em vez disso, pode especificar uma descrição para ajudar a identificar o limite na consola do Configuration Manager.  
+При создании границы ей автоматически присваивается имя на основании типа и области действия границы. Данное имя изменить невозможно. Вместо этого вы можете указать описание границы, которое позволит опознать границу в консоли Configuration Manager.  
 
-Cada limite está disponível para utilização por todos os sites na sua hierarquia. Depois de ter sido criado um limite, pode modificar as suas propriedades para fazer o seguinte:  
--   Adicionar o limite a um ou mais grupos de limites.  
--   Alterar o tipo ou o âmbito do limite.  
--   Consulte o separador **Sistemas de Sites** dos limites para verificar que servidores do sistema de sites (pontos de distribuição, pontos de migração de estado e pontos de gestão) estão associados ao limite.  
+Каждая граница доступна для использования любым сайтом в иерархии. После создания границы вы можете настроить ее свойства, выполнив следующие действия.  
+-   Добавление границы в одну или несколько групп границ.  
+-   Изменение типа или области действия границы.  
+-   Просмотрите вкладку **Системы сайта** в свойствах границ, чтобы выяснить, какие серверы системы сайта (точки распространения, точки миграции состояния и точки управления) связаны с границей.  
 
-## <a name="to-create-a-boundary"></a>Para criar um limite  
+## <a name="to-create-a-boundary"></a>Создание границы  
 
-1.  Na consola do Configuration Manager, clique em **administração** > **configuração da hierarquia** > **limites**  
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация иерархии** > **Границы**.  
 
-2.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Boundary**.  
+2.  На вкладке **Главная** в группе **Создать** щелкните **Создать Boundary.**  
 
-3.  No separador **Geral** da caixa de diálogo Criar Limites, é possível especificar uma **Descrição** para identificar o limite através de um nome amigável ou de uma referência.  
+3.  На вкладке **Общие** диалогового окна создания границы можно ввести **Описание** границы, которое может представлять собой понятное имя границы или краткие сведения о ней.  
 
-4.  Selecione um **Tipo** para este limite:  
+4.  Выберите **Тип** этой границы.  
 
-    -   Se selecionar **Sub-rede IP**, tem de especificar um **ID de Sub-rede** para este limite.  
+    -   При выборе параметра **IP-подсеть**следует также указать **Идентификатор подсети** для этой границы.  
         > [!TIP]  
-        >  Pode especificar a **Rede** e a **Máscara de sub-rede** para que o **ID de Sub-rede** seja especificado automaticamente. Ao guardar o limite, apenas é guardado o valor do ID de Sub-rede.  
+        >  Вы можете указать значения параметров **Сеть** и **Маска подсети** , чтобы автоматически определить **Идентификатор подсети** . При сохранении границы сохраняется только значение идентификатора подсети.  
 
-    -   Se selecionar **site do Active Directory**, tem de especificar ou **Procurar** um site do Active Directory na floresta local do servidor do site.  
+    -   При выборе параметра **Сайт Active Directory**следует указать сайт Active Directory в локальном лесу сервера сайта (вручную или с помощью кнопки **Обзор** ).  
 
         > [!IMPORTANT]  
-        >  Quando especifica um site do Active Directory para um limite, o limite inclui cada Sub-rede de IP que é membro desse site do Active Directory. Se a configuração do site Active Directory for alterada no Active Directory, as localizações de rede incluídas neste limite também são alteradas.  
+        >  При указании сайта Active Directory для границы в нее включаются все IP-подсети, входящие в этот сайт Active Directory. При изменении настроек сайта Active Directory через Active Directory также изменяются сетевые расположения, включенные в эту границу.  
 
-    -   Se selecionar **prefixo IPv6**, tem de especificar um **Prefixo** no formato de prefixo IPv6.  
+    -   При выборе параметра **Префикс IPv6**следует указать **Префикс** в формате префикса IPv6.  
 
-    -   Se selecionar **Intervalo de endereços IP**, tem de especificar um **Endereço IP inicial** e um **Endereço IP final** que incluam parte de uma Sub-rede de IP ou várias Sub-redes IP.    
+    -   При выборе **Диапазона IP-адресов**следует указать **Начальный IP-адрес** и **Конечный IP-адрес** , охватывающие часть IP-подсети или включающие несколько IP-подсетей.    
 
-5.  Clique em **OK** para guardar o novo limite.  
+5.  Нажмите кнопку **ОК** , чтобы сохранить новую границу.  
 
-## <a name="to-configure-a-boundary"></a>Para configurar um limite  
+## <a name="to-configure-a-boundary"></a>Настройка границы  
 
-1.  Na consola do Configuration Manager, clique em **administração** > **configuração da hierarquia** > **limites**  
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Конфигурация иерархии** > **Границы**.  
 
-2.  Selecione o limite que pretende modificar.  
+2.  Выберите границу, которую требуется изменить.  
 
-3.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
 
-4.  Na caixa de diálogo **Propriedades** do limite, selecione o separador **Geral** para editar a **Descrição** ou o **Tipo** do limite. Também pode alterar o âmbito de um limite, editando as suas localizações de rede. Por exemplo, para o limite de um site do Active Directory, pode especificar um novo nome de site do Active Directory.  
+4.  В диалоговом окне **Свойства** границы откройте вкладку **Общие** , чтобы изменить **Описание** или **Тип** границы. Также можно изменить область действия границы, изменив ее сетевые расположения. Например, для границы сайта Active Directory можно указать новое имя сайта Active Directory.  
 
-5.  Selecione o separador **Sistemas de Sites** para visualizar os sistemas de sites associados a este limite. Não é possível alterar esta configuração a partir das propriedades de um limite.  
+5.  Выберите вкладку **Системы сайта** и просмотрите системы сайта, которые связаны с этой границей. Эти настройки нельзя изменить в окне свойств границы.  
 
     > [!TIP]  
-    >  Para que um servidor do sistema de sites seja apresentado como um sistema de sites para um limite, o servidor do sistema de sites tem de estar associado como um servidor do sistema de sites a, pelo menos, um grupo de limites que inclua este limite. Isto é configurado no separador **Referências** de um grupo de limites.  
+    >  Чтобы сервер системы сайта отображался для границы как система сайта, необходимо, чтобы сервер системы сайта был связан как сервер системы сайта хотя бы для одной группы границ, содержащей данную границу. Это настраивается на вкладке **Ссылки** группы границ.  
 
-6.  Selecione o separador **Grupos de Limites** para modificar a associação do grupo de limites para este limite:  
+6.  Откройте вкладку **Группы границ** , чтобы изменить членство этой границы в группах границ.  
 
-    -   Para adicionar este limite a um ou mais grupos de limites, clique em **Adicionar**, selecione a caixa de verificação de um ou mais grupos de limites e clique em **OK**.  
+    -   Чтобы добавить границу в одну или несколько групп границ, нажмите кнопку **Добавить**, установите флажок для одной или нескольких групп границ, после чего нажмите кнопку **ОК**.  
 
-    -   Para remover este limite de um grupo de limites, selecione o grupo de limites e clique em **Remover**.  
+    -   Чтобы удалить эту границу из группы границ, выберите группу границ и нажмите **Удалить**.  
 
-7.  Clique em **OK** para fechar as propriedades do limite e guardar a configuração.  
+7.  Нажмите кнопку **ОК** , чтобы закрыть свойства границы и сохранить конфигурацию.  

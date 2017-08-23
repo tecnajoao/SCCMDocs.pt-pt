@@ -1,6 +1,6 @@
 ---
-title: "Funcionalidades de pré-lançamento | Microsoft Docs"
-description: "As funcionalidades de pré-lançamento no System Center Configuration Manager"
+title: "Функции предварительной версии | Документация Майкрософт"
+description: "Функции предварительной версии в System Center Configuration Manager"
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -16,45 +16,45 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 7b594daeed81ef2d991ad06489f9184a69804117
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="pre-release-features-in-system-center-configuration-manager"></a>As funcionalidades de pré-lançamento no System Center Configuration Manager
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+# <a name="pre-release-features-in-system-center-configuration-manager"></a>Функции предварительной версии в System Center Configuration Manager
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Funcionalidades de pré-lançamento são funcionalidades que estão no ramo atual para um teste antecipado num ambiente de produção. Estas funcionalidades são totalmente suportadas, mas ainda estão em desenvolvimento Active Directory e poderão receber alterações até que mudam fora da categoria da versão de pré-lançamento.
+Функции предварительной версии — это функции в Current Branch для раннего тестирования в рабочей среде. Хотя эти функции полностью поддерживаются, они по-прежнему находятся в процессе активной разработки. Следовательно, они могут подлежать изменениям, пока не будут перемещены из категории предварительной версии.
 
- Antes de poder utilizar as funcionalidades de pré-lançamento, tem de dar consentimento para utilizar as funcionalidades de pré-lançamento da consola do Configuration Manager para poder selecionar e ativar a sua utilização.  
+ Прежде чем можно будет выбрать и разрешить использование функций предварительной версии, необходимо предоставить согласие на их использование в консоли Configuration Manager.  
 
-Dar consentimento é uma ação única por hierarquia não pode ser anulada. Depois de dar consentimento, não é possível ativar novas funcionalidades de pré-lançamento incluídas com atualizações. Depois de ativar uma funcionalidade de pré-lançamento, não pode desativá-la.
+Предоставление согласия — это однократное действие для каждой иерархии, которое нельзя отменить. Пока вы не предоставите согласие, вы не сможете включить новые функции предварительной версии, входящие в состав обновлений. Включенную функцию предварительной версии нельзя отключить.
 
-Para dar consentimento, na consola do aceda a **administração** > **configuração do Site** > **Sites**e, em seguida, escolha **definições de hierarquia**. No **geral** separador, escolha **consentimento para utilizar as funcionalidades de pré-lançamento**.
+Чтобы предоставить согласие, в консоли выберите **Администрирование** > **Конфигурация сайта** > **Сайты**, а затем **Параметры иерархии**. На вкладке **Общие** выберите **Согласиться на использование предварительной версии компонентов**.
 
  > [!NOTE]
- > Se tiver ativado as funcionalidades de pré-lançamento da atualização 1602 antes de instalar uma versão de atualização posterior, essas funcionalidades estão ativadas para utilização, mesmo se não de dar consentimento para utilizar as funcionalidades de pré-lançamento.
+ > Если вы включали функции предварительной версии из обновления 1602, перед установкой более поздней версии эти функции остаются доступными для использования, даже если вы не предоставите согласие на использование функций предварительной версии.
 
-Quando instala uma atualização que inclui funcionalidades de pré-lançamento, estas funcionalidades são visíveis nas atualizações e manutenção assistente com as funcionalidades regulares incluídas na atualização:
-  - **Se a que atribuiu consentimento:** Pode ativar as funcionalidades de pré-lançamento de atualizações e manutenção assistente quando estiver a instalar a atualização. Para fazê-lo, selecione as funcionalidades de pré-lançamento tal como faria com qualquer outra funcionalidade.     
+Если вы устанавливаете обновление, которое содержит функции предварительной версии, эти функции отображаются в мастере обслуживания и обновления вместе с обычными функциями, входящими в обновление.
+  - **Если вы предоставили согласие**. Функции предварительной версии можно включить из мастера обслуживания и обновления при установке обновления. Для этого выберите предварительные функции, как и любые другие компоненты.     
 
-    Opcionalmente, pode aguardar para ativar uma funcionalidade de pré-lançamento mais tarde a partir de **administração** > **atualizações e manutenção** > **funcionalidades** nó da consola. No **funcionalidades** escolher a funcionalidade de nós e, em seguida, escolha **ativar**. Esta opção fica a cinzento até dar consentimento. (Antes da versão 1702, atualizações e manutenção estava **administração** > **serviços em nuvem**.)
-  -   **Se não atribuiu consentimento:** Quando estiver a instalar uma atualização, as funcionalidades de pré-lançamento estão visíveis no Assistente de manutenção e as atualizações, mas estão desativadas e não podem ser ativadas. Após a atualização é instalada, pode ver estas funcionalidades no **funcionalidades** nós. No entanto, não é possível ativá-los até depois de que atribuiu consentimento **definições de hierarquia**.
+    При необходимости функции предварительной версии можно включить позже. Для этого перейдите в консоли в узел **Администрирование** > **Обновления и обслуживание** > **Компоненты**. В узле **Компоненты** выберите функцию, а затем параметр **Включить**. Этот параметр будет недоступен, если вы не предоставили свое согласие на использование функций предварительной версии. (До версии 1702 раздел "Обновления и обслуживание" находился в узле **Администрирование** > **Облачные службы**.)
+  -   **Если вы не предоставили согласие**. При установке обновления функции предварительной версии отображаются в мастере обслуживания и обновлений, но они неактивны и их нельзя включить. После установки обновления эти функции можно просмотреть в узле **Функции**. Но их нельзя включить, пока вы не предоставите согласие в разделе **Параметры иерархии**.
 
-Se forneceu consentimento num site primário autónomo e, em seguida, expanda a hierarquia ao instalar um novo site de administração central, tem de dar consentimento novamente no site de administração central.
+Если вы дали согласие на автономном первичном сайте, а затем расширили иерархию, установив новый сайт центра администрирования, то необходимо снова дать согласие на сайте центра администрирования.
 
- Quando ativa uma funcionalidade de pré-lançamento, o Gestor da hierarquia do Configuration Manager (HMAN) tem de processar a alteração para que essa funcionalidade fica disponível. O processamento da alteração, muitas vezes, é imediato, mas pode demorar até 30 minutos a concluir, consoante o ciclo de processamento de HMAN. Após a alteração é processada, tem de reiniciar a consola antes de poder visualizar a nova IU relacionados com essa funcionalidade.
+ При включении функции предварительного выпуска диспетчер иерархии Configuration Manager (HMAN) должен обработать данное изменение, прежде чем эта функция станет доступной. Обработка изменения часто производится немедленно, но в зависимости от цикла обработки HMAN это может занять до 30 минут. После обработки изменения нужно перезапустить консоль, чтобы отобразить новый пользовательский интерфейс, связанный с этой функцией.
 
-**As seguintes funcionalidades de pré-lançamento estão disponíveis:**
+**Доступны указанные ниже компоненты предварительной версии.**
 
- |Funcionalidade          |Adicionado como versão de pré-lançamento | Adicionado como uma funcionalidade completa|  
+ |Компонент          |Добавлен как предварительный компонент | Добавлен как полнофункциональный компонент|  
 |------------------|---------------------|---------------------|
-| Criar e executar scripts do PowerShell a partir da consola do Configuration Manager |  [Versão 1706](/sccm/apps/deploy-use/create-deploy-scripts)|![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Gestão de proteção de dispositivos com o Configuration Manager |  [Versão 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Verifique a existência de executar ficheiros executáveis antes de instalar uma aplicação  |   [Versão 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Ponto de serviço do armazém de dados  |  [Versão 1702](/sccm/core/servers/manage/data-warehouse) |[Versão 1706](/sccm/core/servers/manage/data-warehouse)|
-| Cache ponto a ponto de distribuição de conteúdo para clientes |  [Versão 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Gateway de gestão de nuvem |  [Versão 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Dashboard de origens de dados de cliente |  [Versão 1610](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Conector do Microsoft Operations Management Suite  | [Versão 1606](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md) |![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-| Manutenção de uma coleção com suporte para clusters (serviço de um grupo de servidor)| [Versão 1602](../../../core/get-started/capabilities-in-technical-preview-1605.md#BKMK_ServerGroups)|![Ainda não](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
-|Acesso condicional para PCs geridos pelo System Center Configuration Manager | [Versão 1602](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md)     | [Versão 1702](/sccm/mdm/deploy-use/manage-access-to-services)                     |
+| Создание и запуск скриптов PowerShell из консоли Configuration Manager |  [Версия 1706](/sccm/apps/deploy-use/create-deploy-scripts)|![Еще нет](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Управление Device Guard с помощью Configuration Manager |  [Версия 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|![Еще нет](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Проверка на наличие запущенных исполняемых файлов перед установкой приложения  |   [Версия 1702](/sccm/apps/deploy-use/deploy-applications#how-to-check-for-running-executable-files-before-installing-an-application) |![Еще нет](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Точка обслуживания хранилища данных  |  [Версия 1702](/sccm/core/servers/manage/data-warehouse) |[Версия 1706](/sccm/core/servers/manage/data-warehouse)|
+| Одноранговый кэш для распространения содержимого на клиентах |  [Версия 1610](/sccm/core/plan-design/hierarchy/client-peer-cache) |![Еще нет](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Шлюз управления облаком |  [Версия 1610](/sccm/core/clients/manage/plan-cloud-management-gateway) |![Еще нет](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Панель мониторинга "Клиентские источники данных" |  [Версия 1610](/sccm/core/servers/deploy/configure/monitor-content-you-have-distributed#client-data-sources-dashboard) |![Еще нет](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Соединитель Microsoft Operations Management Suite  | [Версия 1606](../../../core/clients/manage/sync-data-microsoft-operations-management-suite.md) |![Еще нет](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+| Обслуживание кластерной коллекции (группы серверов)| [Версия 1602](../../../core/get-started/capabilities-in-technical-preview-1605.md#BKMK_ServerGroups)|![Еще нет](media/83c5d168-8faf-4e8e-920b-528e3c43ffd4.gif)|
+|Условный доступ для ПК, управляемых System Center Configuration Manager | [Версия 1602](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md)     | [Версия 1702](/sccm/mdm/deploy-use/manage-access-to-services)                     |

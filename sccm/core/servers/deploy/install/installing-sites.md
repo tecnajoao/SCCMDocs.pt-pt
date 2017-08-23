@@ -1,6 +1,6 @@
 ---
-title: "Recursos de instalação do site | Microsoft Docs"
-description: "Reveja uma lista de tópicos que o ajudam a instalar o System Center Configuration Manager ou adicionar sites à sua hierarquia."
+title: "Ресурсы по установке сайтов | Документы Майкрософт"
+description: "Список разделов, которые помогут вам установить System Center Configuration Manager или добавить сайты в иерархию."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -17,36 +17,36 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 75511c744d7d2bae960273c845ce68f06a82b697
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Recursos para a instalação de sites do System Center Configuration Manager
+# <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Ресурсы для установки сайтов System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Os tópicos seguintes podem ajudar a instalar o System Center Configuration Manager ou adicionar sites à sua hierarquia existente do Configuration Manager.
+Приведенные ниже разделы могут помочь вам установить System Center Configuration Manager или добавить сайты в существующую иерархию Configuration Manager.
 
-- [Preparar a instalação de sites](prepare-to-install-sites.md)
+- [Подготовка к установке сайтов](prepare-to-install-sites.md)
 
-  Este tópico oferece informações essenciais, que podem ajudar a instalar um site para uma hierarquia de nova ou existente. Incluem informações quando escolher origem não predefinidas de ficheiros, limitações que se aplicam a todos os sites e ações opcionais que pode tomar para ajudar a simplificar as tarefas quando instala mais do que um site.
+  Этот раздел содержит важные сведения, которые помогут вам установить сайт в новой или существующей иерархии. К ним относятся: перечень ситуаций, когда необходимо использовать нестандартные исходные файлы, ограничения, которые применяются ко всем сайтам, а также дополнительные действия, которые помогут упростить задачи при установке нескольких сайтов.
 
-- [Pré-requisitos para instalar sites](prerequisites-for-installing-sites.md)
+- [Необходимые условия для установки сайтов](prerequisites-for-installing-sites.md)
 
-  Saiba mais sobre as permissões que da conta tem de ter para instalar um site e pré-requisitos relacionados para cada tipo de site que pode instalar e direitos de utilizador.
+  Сведения о правах и разрешениях пользователя, необходимых учетной записи для установки сайта, а также другие обязательные условия для каждого устанавливаемого типа сайта.
 
-- [Instalar sites utilizando o Assistente de configuração](use-the-setup-wizard-to-install-sites.md)
+- [Установка сайтов с помощью мастера установки](use-the-setup-wizard-to-install-sites.md)
 
-  Este tópico explica como o Assistente de instalação do site. Fornece detalhes sobre as opções que não podem ser encriptados na interface de utilizador do assistente.  
+  В этом разделе рассматривается процедура работы с мастером установки сайтов. В нем приводятся подробные сведения о параметрах в пользовательском интерфейсе мастера, назначение которых может быть непонятным.  
 
-- [Instalar sites utilizando uma linha de comandos e scripts](use-a-command-line-to-install-sites.md)
+- [Установка сайтов с помощью командной строки и скрипта](use-a-command-line-to-install-sites.md)
 
-  Saber como obter um script de instalação de site e como utilizá-la para automática de site é instalado.
+  Сведения о получении скрипта установки сайта и его использовании для автоматической установки сайта.
 
-- [Instalar a consola do Configuration Manager](install-consoles.md)
+- [Установка консоли Configuration Manager](install-consoles.md)
 
-  Este tópico contém orientações sobre como instalar a consola do Configuration Manager num computador em que não está a instalar um site.
+  В этом разделе содержится руководство по установке консоли Configuration Manager на компьютере, на котором не устанавливается сайт.
 
-- [Atualizar uma instalação de avaliação para uma instalação completa](upgrade-an-evaluation-install-to-a-full-install.md)
+- [Обновление установленной ознакомительной версии до полной версии](upgrade-an-evaluation-install-to-a-full-install.md)
 
-  Leia este tópico quando estiver pronto para atualizar o site de avaliação para um site totalmente licenciada do Configuration Manager.
+  Прочитайте этот раздел, когда будете готовы обновить ознакомительную версию сайта до полностью лицензированного сайта Configuration Manager.

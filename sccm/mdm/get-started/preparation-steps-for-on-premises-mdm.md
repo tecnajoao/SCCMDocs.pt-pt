@@ -1,6 +1,6 @@
 ---
-title: "Passos de preparação | Microsoft Docs"
-description: "Prepare para gerir dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager."
+title: "Шаги подготовки | Документация Майкрософт"
+description: "Подготовьтесь к управлению устройствами с помощью локального управления мобильными устройствами в System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,30 +16,30 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 85bdadaaaeed9a42cfa5165d2b9f0f3ef434dc03
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="preparation-steps-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Passos de preparação para Gestão de Dispositivos Móveis no Local do System Center Configuration Manager
+# <a name="preparation-steps-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Шаги подготовки к локальному управлению мобильными устройствами в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Gerir dispositivos com o System Center Configuration Manager no\-no local requer a gestão de dispositivos móveis a infraestrutura do Configuration Manager para configurar para que as funções do sistema de sites necessárias (ponto proxy de registo, ponto de registo, ponto de gestão de dispositivos e ponto de distribuição) possam comunicar através de um canal fidedigno com os dispositivos móveis para serem geridos.  
+Для управления устройствами с помощью локального управления мобильными устройствами System Center Configuration Manager требуется настроить инфраструктуру Configuration Manager, чтобы необходимые роли системы сайта (прокси-точка регистрации, точка регистрации, точка управления устройствами и точки распространения) могли взаимодействовать через надежный канал с управляемыми мобильными устройствами.  
 
- As seguintes tarefas de alto nível são necessários para preparar o sistema do Configuration Manager no\-no local a gestão de dispositivos móveis:  
+ Чтобы подготовить систему Configuration Manager для локального управления мобильными устройствами, необходимо выполнить указанные ниже общие задачи.  
 
--   [Configurar uma subscrição do Microsoft Intune para gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md)  
+-   [Настройка подписки Microsoft Intune для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md)  
 
-     Nesta tarefa, inscreva-se para o Microsoft Intune e, em seguida, adicione a subscrição para o Configuration Manager através da consola do Configuration Manager. Este passo é necessário apenas para efeitos de licenciamento. Intune não é utilizado para gerir os dispositivos ou armazenar informações de gestão. Toda a coordenação e gestão de dispositivos é com enterprise da sua organização através da infraestrutura do Configuration Manager no local.  
+     В рамках этой задачи вы регистрируетесь в Microsoft Intune, а затем добавляете подписку в Configuration Manager с помощью консоли Configuration Manager. Этот шаг необходим только с точки зрения лицензирования. Intune не используется для управления устройствами или хранения данных управления. Все операции по координации устройств и управлению ими осуществляются в корпоративной среде вашей организации с помощью локальной инфраструктуры Configuration Manager.  
 
--   [Instalar funções do sistema de sites para gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md)  
+-   [Установка ролей системы сайта для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md)  
 
-     Nesta tarefa, instalar e configurar as funções de sistema de sites necessárias para gerir dispositivos com a infraestrutura do Configuration Manager no local. No\-local minimamente gestão de dispositivos móveis requer o ponto proxy de registo, ponto de registo, ponto de gestão de dispositivos e pontos de distribuição funções do sistema de sites.  
+     В этой задаче вы устанавливаете и настраиваете роли системы сайта, необходимые для управления устройствами с помощью локальной инфраструктуры Configuration Manager. Для локального управления мобильными устройствами требуются по меньшей мере следующие роли системы сайта: прокси-точка регистрации, точка регистрации, точка управления устройствами и точка распространения.  
 
--   [Configurar certificados para comunicações fidedignas para a gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md)  
+-   [Настройка сертификатов для доверенного взаимодействия для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md)  
 
-     Nesta tarefa, configurar a infraestrutura do Configuration Manager no local para permitir comunicações fidedignas (HTTPS) entre os dispositivos geridos e os servidores que alojam as funções do sistema de sites necessárias.  
+     В этой задаче вы настраиваете локальную инфраструктуру Configuration Manager, позволяющую осуществлять доверенное взаимодействие (HTTPS) между управляемыми устройствами и серверами, на которых размещены нужные роли системы сайта.  
 
--   [Configurar a inscrição de dispositivos para gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
+-   [Настройка регистрации устройств для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
 
-     Nesta tarefa, vai conceder permissão aos utilizadores para inscrever computadores e dispositivos e vai instalar o certificado de raiz fidedigna nos dispositivos (normalmente, aqueles que não estejam associados ao domínio) para permitir ligações HTTPS aos servidores do sistema de sites.  
+     В этой задаче вы предоставляете пользователям разрешение на регистрацию компьютеров и устройств, а также устанавливаете доверенный корневой сертификат на устройствах (которые обычно не присоединены к домену), чтобы разрешить подключения по протоколу HTTPS к серверам системы сайта.  

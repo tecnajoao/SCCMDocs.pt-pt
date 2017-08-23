@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar clientes - utilização Windows Analytics com o Configuration Manager | Microsoft Docs"
-description: "A análise do Windows é um conjunto de soluções que são executados no Operations Management Suite que lhe permitem que desenhar informações valiosas para o estado atual do seu ambiente, tirando partido os dados de telemetria do Windows são reportados pelos dispositivos no seu ambiente."
+title: "Мониторинг клиентов — использование Windows Analytics совместно с Configuration Manager | Документация Майкрософт"
+description: "Windows Analytics — это набор решений, работающих под управлением Operations Management Suite, которые предоставляют ценные сведения о текущем состоянии среды на основе данных телеметрии Windows, полученных от размещенных в этой среде устройств."
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
@@ -16,49 +16,49 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: adabe8f475eb12dd44005ec07344e8565be20582
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-windows-analytics-with-configuration-manager"></a>Utilize a análise do Windows com o Configuration Manager
+# <a name="use-windows-analytics-with-configuration-manager"></a>Использование Windows Analytics совместно с Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-[Análise de Windows](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics) é um conjunto de soluções que são executados no [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview). As soluções permitem-lhe conhecimentos aprofundados de formulário para o estado atual do seu ambiente. Dispositivos no seu ambiente reportam dados de telemetria do Windows. Estes dados podem ser acedidos e analisados através de soluções no [portal web do Operations Management Suite](https://mms.microsoft.com). Em case de [atualizar preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics) os dados podem também ser disponibilizados diretamente no nó de monitorização da consola do Configuration Manager através da ligação de preparação de atualização para o Configuration Manager.
+[Windows Analytics](https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics) — это набор решений, которые работают под управлением [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview). Эти решения предоставляют сведения о текущем состоянии среды. Устройства в вашей среде передают данные телеметрии Windows. Эти данные можно просматривать и анализировать с помощью решений на веб-портале [Operations Management Suite](https://mms.microsoft.com). Если вы используете решение [Проверка готовности к обновлению](/sccm/core/clients/manage/upgrade/upgrade-analytics), данные можно использовать еще и в узле мониторинга в консоли Configuration Manager, если это решение к Configuration Manager.
 
-Os dados de telemetria do Windows utilizados pelo Windows Analytics não são transferidos diretamente para o servidor de site do Configuration Manager. Computadores cliente enviarem dados de telemetria do Windows para o serviço de telemetria. Os dados relevantes, em seguida, são transferidos para soluções de análise do Windows alojadas de uma das áreas de trabalho OMS da sua organização. O Configuration Manager poderá, então, a direcioná-lo ou dados relevantes no portal web com ligações no contexto diretamente apresenta os dados que faz parte das soluções que ligou ao Configuration Manager. Também diretamente pode consultar os dados a partir do portal web operação Management Suite.
+Данные телеметрии Windows, используемые в Windows Analytics, не передаются напрямую на сервер сайта Configuration Manager. Клиентские компьютеры отправляют данные телеметрии Windows через службу телеметрии. Затем необходимые данные передаются в аналитические решения Windows, размещенные в одной из рабочих областей OMS, используемых в организации. Configuration Manager может предоставить вам на веб-портале контекстные ссылки на соответствующие данные или отобразить эти данные напрямую, если они являются частью решений, подключенных к Configuration Manager. Также вы можете напрямую обращаться к данным через веб-портал Operation Management Suite.
 
 >[!Important]
->[Dados de diagnóstico e utilização do Configuration Manager](../../plan-design/diagnostics/diagnostics-and-usage-data.md), que é comunicada para a Microsoft do servidor do site do Configuration Manager, é completamente independente da análise do Windows e a telemetria do Windows.
+>[Данные Configuration Manager по диагностике и использованию](../../plan-design/diagnostics/diagnostics-and-usage-data.md), которые передаются в корпорацию Майкрософт с сервера сайта Configuration Manager, никак не связаны с Windows Analytics и телеметрией Windows.
 
-## <a name="configure-clients-to-report-data-to-windows-analytics"></a>Configurar clientes para dados de relatório para análise do Windows
+## <a name="configure-clients-to-report-data-to-windows-analytics"></a>Настройка клиентов для передачи данных в Windows Analytics
 
-Para que os dispositivos de cliente para o relatório de dados para análise do Windows, dispositivos tem de ser configurados com um ID de comerciais chave associado a área de trabalho do Operations Management Suite que aloja os dados de análise do Windows para a sua organização. Os dispositivos também tem de ser configurados para telemetria de relatório, um nível de telemetria adequado para a solução específica ou soluções que pretende utilizar. 
+Чтобы клиентские устройства передавали данные в Windows Analytics, каждому из них необходимо предоставить ключ коммерческого идентификатора, связанный с рабочей областью Operations Management Suite, в которой размещается Windows Analytics для вашей организации. Также для устройств нужно настроить уровень данных телеметрии, соответствующий конкретному решению или решениям, которые вы хотите использовать. 
 
-### <a name="configure-windows-analytics-client-settings"></a>Configurar definições de cliente Windows Analytics
-Para configurar a análise do Windows, na consola do Configuration Manager escolha **administração** > **as definições de cliente**, faça duplo clique em **criar definições personalizadas do dispositivo cliente**e, em seguida, verifique **Windows Analytics**.  
+### <a name="configure-windows-analytics-client-settings"></a>Настройка параметров клиента Windows Analytics
+Чтобы настроить Windows Analytics, в консоли Configuration Manager выберите пункт **Администрирование** > **Параметры клиента**, дважды щелкните элемент **Создать пользовательские параметры клиента устройства** и выберите **Windows Analytics**.  
 
-Depois de navegar para o **Windows Analytics** separador Definições, configure o seguinte:
-  -  **ID comercial**  
-A chave de ID comercial mapeia informações dos dispositivos que gere para a área de trabalho do OMS que aloja os dados de análise do Windows da sua organização. Se já tiver configurado uma chave de ID comercial para utilização com a preparação de atualização, utilize esse ID. Se ainda não tiver uma chave de ID comercial, consulte [gerar a chave de ID comercial]( https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started#generate-your-commercial-id-key).
+Затем перейдите к вкладке с параметрами **Windows Analytics** и настройте следующее:
+  -  **Коммерческий идентификатор**  
+Ключ коммерческого идентификатора сопоставляет сведения с управляемых устройств с рабочей областью OMS, в которой размещаются корпоративные данные Windows Analytics. Если вы уже настроили ключ коммерческого идентификатора для использования с функцией проверки готовности к обновлению, выберите его. Если у вас еще нет ключа коммерческого идентификатора, см. инструкции по [его созданию]( https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started#generate-your-commercial-id-key).
 
-  -  **Nível de telemetria para dispositivos Windows 10**   
-Para obter informações sobre o que é recolhido por cada nível de telemetria do Windows 10, consulte [telemetria de configurar o Windows na sua organização](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization#telemetry-levels).
+  -  **Уровень телеметрии для устройств Windows 10**   
+Сведения о том, какие данные собираются на каждом уровне телеметрии Windows 10, см. в статье о [настройке телеметрии Windows в организации](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization#telemetry-levels).
 
-  -  **Escolher coleção de dados comerciais em dispositivos Windows 7, 8 e 8.1**   
-Para informações sobre os dados recolhidos a partir destes sistemas operativos quando que optar ativamente por participar sessão, consulte Transferir o [eventos de telemetria appraiser Windows 7, Windows 8 e Windows 8.1 e campos](https://go.microsoft.com/fwlink/?LinkID=822965) ficheiro pdf da Microsoft.
+  -  **Согласие на сбор коммерческих данных на устройствах под управлением Windows 7, 8 и 8.1**   
+Сведения о данных, собираемых в этих операционных системах после вашего согласия, см. в PDF-файле [Windows 7, Windows 8, and Windows 8.1 appraiser telemetry events and fields](https://go.microsoft.com/fwlink/?LinkID=822965) (Поля и события по оценке телеметрии для Windows 7, Windows 8 и Windows 8.1) от корпорации Майкрософт.
 
-  -  **Configurar o Internet explorar a recolha de dados**  
-Em dispositivos com Windows 8.1 ou anteriores, Internet Explorer dados coleção pode permitir que a preparação de atualização detetar incompatibilidades de aplicação web que podem impedir uma atualização sem problemas para o Windows 10. Recolha de dados do Internet Explorer, pode ser ativada num por base de zona de internet. Para obter mais informações sobre as zonas de internet, consulte [sobre zonas de segurança do URL](https://msdn.microsoft.com/library/ms537183(v=vs.85).aspx).
+  -  **Настройка сбора данных Internet Explore**  
+На устройствах под управлением Windows 8.1 или более ранних версий вы можете разрешить сбор данных в Internet Explorer, который позволит решению "Проверка готовности к обновлению" выявить несовместимости веб-приложений, которые могут помешать обновлению до Windows 10. Сбор данных Internet Explorer можно включить для каждой зоны Интернета. Дополнительные сведения о зонах Интернета см. в статье [о зонах безопасности URL-адресов](https://msdn.microsoft.com/library/ms537183(v=vs.85).aspx).
 
-## <a name="use-upgrade-readiness-to-identify-windows-10-compatibility-issues"></a>Utilize atualizar preparação para identificar problemas de compatibilidade do Windows 10
+## <a name="use-upgrade-readiness-to-identify-windows-10-compatibility-issues"></a>Использование решения "Проверка готовности к обновлению" для выявления проблем совместимости с Windows 10
 
-Preparação de atualização (anteriormente, análise de atualização) permite-lhe analisar a preparação do dispositivo e a compatibilidade com o Windows 10. Esta avaliação permite smoother atualizações. Depois de ligar o Configuration Manager a preparação de atualização, pode aceder a estes dados de compatibilidade da atualização do cliente diretamente na consola do Configuration Manager. Em seguida, poderá nos dispositivos de destino para a atualização ou correção da lista de dispositivos.
+Решение "Проверка готовности к обновлению" (ранее называлось Upgrade Analytics) позволяет анализировать готовность устройства и его совместимость с Windows 10. Эта оценка помогает избежать проблем при обновлении Когда вы подключите Configuration Manager к решению "Проверка готовности к обновлению", данные о совместимости будут передаваться прямо в консоль Configuration Manager. После этого вы сможете назначать устройства из списка устройств для обновления или исправления.
 
-Para obter mais detalhes e informações sobre como configurar e ligar a preparação de atualização, consulte [atualizar preparação](../../clients/manage/upgrade/upgrade-analytics.md).
+Дополнительные сведения и сведения о настройке и подключении этих систем см. в руководстве по [интеграции решения "Проверка готовности к обновлению" с System Center Configuration Manager](../../clients/manage/upgrade/upgrade-analytics.md).
 
-## <a name="use-windows-analytics-to-identify-gaps-in-windows-information-protection-policies"></a>Utilize a análise do Windows para identificar lacunas nas políticas de proteção de informações do Windows
+## <a name="use-windows-analytics-to-identify-gaps-in-windows-information-protection-policies"></a>Использование Windows Analytics для выявления недостатков в политиках Windows Information Protection
 
-Dispositivos do Windows 10 versão 1703 e posterior que estão configurados com um [Windows Information Protection](https://docs.microsoft.com/en-us/windows/threat-protection/windows-information-protection/protect-enterprise-data-using-wip) telemetria de relatório de política (WIP) em aplicações que aceder a dados empresariais no seu ambiente, mas que não são contabilizados nas regras de aplicação de política WIP. Estes são potencialmente aplicações que os utilizadores no seu ambiente tem de permanecer produtivo, mas que estão a ser bloqueou o acesso, para que os dados de conhecimento que estão a aceder a dados empresariais podem ser úteis para a manutenção das políticas de proteção de informações do Windows no Configuration Manager. 
+Устройства под управлением Windows 10 версии 1703 или более поздней, для которых настроена политика [Windows Information Protection](https://docs.microsoft.com/en-us/windows/threat-protection/windows-information-protection/protect-enterprise-data-using-wip) (WIP), передают данные телеметрии о приложениях, имеющих доступ к корпоративным данным в вашей среде, но не учтенных в правилах применения политики WIP. Возможно, эти приложения нужны пользователям вашей среды для эффективного выполнения своих задач, но доступ для них заблокирован. Понимание того, что этим приложениям нужен доступ к корпоративным данным, будет полезным при обслуживании политик Windows Information Protection в Configuration Manager. 
 
-Estes dados de proteção de informações do Windows podem ser acedidos utilizando este [consulta Operations Management Suite](https://go.microsoft.com/fwlink/?linkid=849952).
+Эти данные Windows Information Protection можно получить с помощью [запроса Operations Management Suite](https://go.microsoft.com/fwlink/?linkid=849952).

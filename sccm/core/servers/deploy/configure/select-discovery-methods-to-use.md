@@ -1,6 +1,6 @@
 ---
-title: "Selecionar os métodos de deteção para o Configuration Manager | Microsoft Docs"
-description: "Reveja as considerações para métodos a utilizar e, em que sites executá-los."
+title: "Выбор методов обнаружения для Configuration Manager | Документы Майкрософт"
+description: "Ознакомьтесь с рекомендациями по выбору методов и сайтам, на которых их следует использовать."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,113 +16,113 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 4b6be888be2ad6c1f5e7c0be33d9830bb870114e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="select-discovery-methods-to-use-for-system-center-configuration-manager"></a>Selecione os métodos de deteção a utilizar para o System Center Configuration Manager
+# <a name="select-discovery-methods-to-use-for-system-center-configuration-manager"></a>Выбор методов обнаружения для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Com êxito e eficiente utilizar deteção para o System Center Configuration Manager, tem de considerar os métodos a utilizar e, em que sites executá-los.  
+Чтобы успешно и эффективно использовать обнаружение в System Center Configuration Manager, необходимо учитывать особенности различных методов и то, на каких сайтах их следует применять.  
 
- Porque a deteção pode gerar um grande volume de tráfego de rede e os registos de dados resultantes de deteção (DDR) podem utilizar recursos significativos de CPU durante o processamento, utilize apenas os métodos de deteção necessários para atingir os seus objetivos. Pode utilizar apenas um ou dois métodos de deteção e, posteriormente, ativar métodos adicionais de forma controlada para expandir o nível de deteção no seu ambiente. As informações neste tópico podem ajudar a tomar decisões informadas.  
+ Так как при обнаружении может создаваться большой объем сетевого трафика и обработка результирующих записей данных обнаружения может значительно нагружать процессор, используйте только те методы обнаружения, которые необходимы для достижения ваших целей. Для начала можно задействовать всего один или два метода, а затем контролируемым образом включать другие методы, чтобы расширить возможности обнаружения в данной среде. Сведения в этом разделе могут помочь вам принять обоснованное решение.  
 
- Para obter informações sobre os diferentes métodos de deteção, consulte [sobre métodos de deteção para o System Center Configuration Manager](../../../../core/servers/deploy/configure/about-discovery-methods.md).  
+ Сведения о различных методах обнаружения см. в разделе [Сведения о методах обнаружения для System Center Configuration Manager](../../../../core/servers/deploy/configure/about-discovery-methods.md).  
 
-## <a name="select-methods-to-discover-different-things"></a>Selecionar métodos para detetar diversos elementos  
- Para detetar recursos de utilizador ou de possíveis computadores de cliente do Configuration Manager, tem de ativar os métodos de deteção adequados. Pode utilizar diferentes combinações de métodos de deteção para localizar recursos diferentes e para detetar informações adicionais sobre esses recursos. Os métodos de deteção que utilizar determinam o tipo de recursos que são detetados e os serviços do Configuration Manager e os agentes são utilizados no processo de deteção. Também determinam o tipo de informações sobre os recursos que pode detetar.  
+## <a name="select-methods-to-discover-different-things"></a>Выбор методов для обнаружения различных объектов  
+ Для поиска потенциальных клиентских компьютеров Configuration Manager или пользовательских ресурсов необходимо включить соответствующие методы обнаружения. Разные сочетания методов обнаружения позволяют находить разные ресурсы и получать дополнительные сведения о них. Используемые методы обнаружения определяют тип обнаруживаемых ресурсов, а также перечень служб и агентов Configuration Manager, которые используются в процессе обнаружения. Кроме того, они определяют, какого рода сведения о ресурсах могут обнаруживаться.  
 
-### <a name="discover-computers"></a>Detetar computadores   
-Quando pretender detetar computadores, pode utilizar **deteção de sistema do Active Directory** ou **deteção de rede**.  
+### <a name="discover-computers"></a>Обнаружить компьютеры   
+Если требуется обнаруживать компьютеры, можно использовать **обнаружение систем Active Directory** или **обнаружение сетевых ресурсов**.  
 
- Por exemplo, se pretender detetar recursos que podem instalar o cliente de Configuration Manager antes de utilizar a instalação de push de cliente, poderá executar a deteção de sistema do Active Directory. Utilizar este método, não apenas detetar os recursos, mas também detetar informações de informações básicas mesmo expandidas informações de serviços de domínio do Active Directory. Estas informações poderão ser úteis na criação de consultas complexas e coleções a utilizar para a atribuição de definições de cliente ou implementação de conteúdos.
+ Например, если стоит задача найти ресурсы, на которых можно установить клиент Configuration Manager, прежде чем выполнять его принудительную установку, можно запустить обнаружение систем Active Directory. Этот метод позволяет не только обнаружить сам ресурс, но и получить основные сведения о нем, а также дополнительные сведения, предоставляемые доменными службами Active Directory. Эти сведения могут пригодиться при построении сложных запросов и коллекций, которые используются для назначения параметров клиента и развертывания содержимого.
 
-Em alternativa, pode executar a deteção de rede e utilizar as opções para detetar o sistema operativo de recursos (necessários para utilizar posteriormente a instalação push do cliente). Deteção de rede fornece informações sobre a topologia de rede que não é possível obter com outros métodos de deteção. Este método não, no entanto, fornece quaisquer informações sobre o ambiente do Active Directory.
+С другой стороны, можно запустить обнаружение сетевых ресурсов, настроив его параметры для обнаружения операционной системы ресурсов (это необходимо для дальнейшей принудительной установки клиента). Метод обнаружения сетевых ресурсов предоставляет сведения о топологии сети, которые нельзя получить с помощью других методов обнаружения. Но он не дает никакой информации о среде Active Directory.
 
- Também é um método chamado **deteção de Heartbeat**. É possível utilizar apenas a deteção de Heartbeat para forçar a deteção de clientes que tenha instalado com métodos diferentes da instalação push do cliente. No entanto, ao contrário de outros métodos de deteção, deteção de Heartbeat não consegue detetar computadores que não tenham um cliente ativo do Configuration Manager. Devolve um conjunto limitado de informações, que se destina a manter um registo de base de dados existente, em vez de ser a base desse registo. As informações submetidas pela deteção de Heartbeat poderão não ser suficientes para criar consultas complexas ou coleções.  
+ Существует также метод, называемый **Heartbeat-обнаружение**. Можно отдельно использовать Heartbeat-обнаружение для поиска клиентов, установленных не по принудительному методу, а как-либо иначе. Но, в отличие от других методов, Heartbeat-обнаружение не позволяет находить компьютеры, на которых отсутствует активный клиент Configuration Manager. Он возвращает ограниченный набор информации, предназначенный для ведения уже имеющейся записи в базе данных, а не для создания такой записи с нуля. Сведения, полученные в ходе Heartbeat-обнаружения, могут оказаться недостаточными для построения сложных запросов или коллекций.  
 
- Se utilizar **deteção de grupo do Active Directory** para detetar a associação de um grupo, pode detetar informações limitadas do sistema ou o computador. Isto não substitui uma deteção completa de computadores, mas pode fornecer informações básicas. Estas informações são insuficientes para instalação push do cliente.  
+ Если вы используете **обнаружение групп Active Directory** для определения членства в конкретной группе, в процессе такого обнаружения может возвращаться ограниченная информация о системах или компьютерах. Это не заменяет полноценного обнаружения компьютеров, но дает возможность получить основные сведения. Этих сведений недостаточно для принудительной установки клиента.  
 
-### <a name="discover-users"></a>Detetar utilizadores   
-Quando pretender detetar informações sobre utilizadores, utilize **deteção de utilizador do Active Directory**. Semelhante à deteção de sistema do Active Directory, este método Deteta utilizadores do Active Directory. Inclui informações básicas, além de informações expandidas do Active Directory. Pode utilizar estas informações para criar consultas complexas e coleções semelhantes de computadores.  
+### <a name="discover-users"></a>Обнаружение пользователей   
+Если требуется получать информацию о пользователях, можно использовать **обнаружение пользователей Active Directory**. Подобно обнаружению систем Active Directory, этот метод позволяет находить пользователей в Active Directory. Он содержит базовые сведения, а также расширенные сведения из Active Directory. По этим сведениям можно строить сложные запросы и коллекции, сходные с теми, которые строятся для компьютеров.  
 
-### <a name="discover-group-information"></a>Detetar informações de grupo   
-Quando pretender detetar informações sobre grupos e associações a grupos, utilize **deteção de grupo do Active Directory**. Este método de deteção cria registos de recursos para grupos de segurança.  
+### <a name="discover-group-information"></a>Обнаружение групп   
+Если требуется получать информацию о группах и членстве в них, можно использовать **обнаружение групп Active Directory**. При обнаружении по этому методу создаются записи о ресурсах для групп безопасности.  
 
- Pode utilizar este método para procurar um grupo específico do Active Directory para identificar os membros desse grupo, para além dos grupos aninhados que existam nesse grupo. Também pode utilizar este método para procurar uma localização do Active Directory para grupos e pesquisar recursivamente cada contentor subordinado dessa localização nos serviços de domínio do Active Directory.  
+ Можно использовать этот метод для поиска членов конкретной группы Active Directory, а также вложенных в нее групп (если такие есть). Кроме того, с его помощью можно искать группы в заданном местоположении Active Directory и выполнять рекурсивный поиск в каждом дочернем контейнере этого местоположения в доменных службах Active Directory.  
 
- Este método de deteção também pode procurar as associações de grupos de distribuição. Isto pode identificar as relações de grupo de utilizadores e computadores.  
+ Этот метод также позволяет находить членов распределенных групп. Таким образом можно определять членство в группах как пользователей, так и компьютеров.  
 
- Quando Deteta um grupo, também pode detetar informações limitadas sobre os seus membros. Isto não substitui os Active Directory sistema ou utilizador métodos de deteção, embora. -Geralmente é insuficiente para criar consultas complexas e coleções ou servir como a base de uma instalação de push de cliente.  
+ При обнаружении группы можно получать ограниченные сведения о ее членах. Этот метод не заменяет методы обнаружения систем или пользователей Active Directory. Он обычно не дает достаточно информации для построения сложных запросов и коллекции, а также для принудительной установки клиента.  
 
-### <a name="discover-infrastructure"></a>Detetar a infraestrutura   
-Existem dois métodos que pode utilizar para detetar infraestruturas de rede, **deteção de floresta do Active Directory** e **deteção de rede**.  
+### <a name="discover-infrastructure"></a>Обнаружение инфраструктуры   
+Для обнаружения инфраструктуры можно использовать два метода: **обнаружение в лесах Active Directory** и **обнаружение сетевых ресурсов**.  
 
- Utilize a deteção de floresta do Active Directory para procurar uma floresta do Active Directory para obter informações sobre sub-redes e configurações de site do Active Directory. Estas configurações podem, em seguida, ser automaticamente introduzidas para o Configuration Manager como localizações limite.  
+ Обнаружение в лесах Active Directory позволяет искать в лесу Active Directory информацию о подсетях и конфигурациях сайтов Active Directory. Эти конфигурации затем можно автоматически вводить в Configuration Manager как граничные местоположения.  
 
- Quando pretender detetar a topologia da rede, utilize a deteção de rede. Enquanto outros métodos de deteção devolvem informações relacionadas com serviços de domínio do Active Directory e podem identificar a localização de rede atual de um cliente, não fornecem informações de infraestrutura com base na topologia de router da sua rede e sub-redes.  
+ Если требуется определить топологию сети, используйте обнаружение сетевых ресурсов. Хотя при обнаружении по другим методам возвращаются сведения, относящиеся к доменным службам Active Directory, и может определяться текущее сетевое местоположение клиента, эти методы не дают информации об инфраструктуре сети в терминах подсетей и топологии маршрутизации.  
 
-##  <a name="bkmk_shared"></a>Dados de deteção são partilhados entre sites  
- Depois do Configuration Manager adiciona dados de deteção para uma base de dados, rapidamente é partilhado entre todos os sites na hierarquia. Porque é, geralmente, qualquer benefício em detetar as mesmas informações em vários sites na hierarquia, considere criar uma instância de cada método de deteção que utilizar para executar num único site. É uma boa ideia para fazê-lo em vez de executar várias instâncias de um único método em sites diferentes.  
+##  <a name="bkmk_shared"></a> Данные обнаружения являются общими для сайтов  
+ После добавления данных обнаружения в базу данных диспетчером Configuration Manager они быстро распространяются между всеми сайтами в иерархии. Так как обнаружение одной и той же информации на множестве сайтов в иерархии, как правило, не приносит какой-либо пользы, рекомендуется использовать единственный экземпляр каждого применяемого метода обнаружения на одном сайте. Это рекомендуется сделать вместо выполнения нескольких экземпляров одного и того же метода на различных сайтах.  
 
- No entanto, em alguns ambientes poderá ser útil atribuir o mesmo método de deteção para ser executada em vários sites, cada um com uma configuração e agenda separadas. Por exemplo, quando utilizar a deteção de rede, pode querer direcionar a cada site para detetar a sua rede local, em vez de tentar detetar todas as localizações de rede através de uma WAN.
+ Однако в некоторых средах выполнение одного и того же метода обнаружения на нескольких сайтах может оказаться полезным, если на каждом сайте используется отдельное расписание и конфигурация. Например, при использовании обнаружения сетевых ресурсов может потребоваться настроить каждый сайт для обнаружения локальной сети вместо попытки выполнять обнаружение всех сетевых расположений в глобальной сети.
 
-Se configurar várias instâncias dos mesmos métodos de deteção a executar em sites diferentes, planeie cuidadosamente a configuração de cada site. Pretende para evitar que dois ou mais sites detetem os mesmos recursos da sua rede ou do Active Directory. Esta situação pode consumir largura de banda de rede adicionais e criar DDR duplicados.
+Если настраивается выполнение нескольких экземпляров одного и того же метода обнаружения на различных сайтах, следует внимательно определить конфигурацию каждого из них. Это необходимо, чтобы предотвратить обнаружение одних и тех же ресурсов в сети или Active Directory двумя или более сайтами. Такое обнаружение может потреблять дополнительную пропускную способность сети и приводить к созданию дубликатов записей DDR.
 
-A tabela seguinte identifica os sites em que pode configurar os diferentes métodos de deteção.  
+В следующей таблице приведены сведения о том, на каких сайтах можно настроить различные методы обнаружения.  
 
-|Método de deteção|Localizações suportadas|  
+|Метод обнаружения|Поддерживаемые расположения|  
 |----------------------|-------------------------|  
-|Deteção de Florestas do Active Directory|Site de administração central<br /><br /> Site primário|  
-|Deteção de Grupos do Active Directory|Site primário|  
-|Deteção de Sistemas do Active Directory|Site primário|  
-|Deteção de Utilizadores do Active Directory|Site primário|  
-|Deteção de heartbeat<sup>1</sup>|Site primário|  
-|Deteção de Redes|Site primário<br /><br /> Site Secundário|  
+|Обнаружение лесов Active Directory|Сайт центра администрирования<br /><br /> Первичный сайт|  
+|Обнаружение групп Active Directory|Первичный сайт|  
+|Обнаружение систем Active Directory|Первичный сайт|  
+|обнаружение пользователей Active Directory|Первичный сайт|  
+|Heartbeat-обнаружение<sup>1</sup>|Первичный сайт|  
+|Обнаружение сети|Первичный сайт<br /><br /> Вторичный сайт|  
 
- <sup>1</sup> sites secundários não é possível configurar a deteção de Heartbeat mas podem receber o DDR de Heartbeat de um cliente.  
+ <sup>1</sup> Вторичные сайты не могут настраивать Heartbeat-обнаружение, но могут принимать записи Heartbeat DDR от клиента.  
 
- Quando os sites secundários executam a deteção de rede ou recebem o DDR de deteção de Heartbeat, transferem o DDR através da replicação baseada em ficheiros para o respetivo site primário principal. Isto acontece porque os sites primários apenas e sites de administração central podem processar DDR. Para obter mais informações sobre como os DDR é processados, consulte [sobre registos de dados de deteção](../../../../core/servers/deploy/configure/run-discovery.md#BKMK_DDRs).  
+ Если на вторичном сайте выполняется служба сетевого обнаружения или принимаются записи DDR heartbeat-обнаружения, происходит передача DDR посредством репликации на основе файлов на родительский первичный сайт. Дело в том, что обрабатывать записи данных обнаружения могут только первичные сайты центра администрирования. Дополнительные сведения об обработке записей данных обнаружения см. в разделе [Сведения о записях данных обнаружения](../../../../core/servers/deploy/configure/run-discovery.md#BKMK_DDRs).  
 
-## <a name="considerations-for-different-discovery-methods"></a>Considerações para diferentes métodos de deteção  
- Porque cada ambiente de rede e de servidor do site for diferente, é uma boa ideia para limitar as configurações iniciais para a deteção. Em seguida, monitorize atentamente a cada servidor do site para a respetiva capacidade de processar os dados de deteção que são gerados.  
+## <a name="considerations-for-different-discovery-methods"></a>Рекомендации по использованию различных методов обнаружения  
+ Каждый сервер сайта и сетевая среда имеют свои особенности, поэтому следует ограничить первоначальную настройку обнаружения. Также нужно детально отслеживать возможность обработки данных обнаружения каждым сервером сайта.  
 
-Quando utiliza um **do Active Directory** método de deteção de sistemas, utilizadores ou grupos:  
+При использовании обнаружения **Active Directory** для систем, пользователей или групп  
 
--   Execute a deteção num site que tenha uma ligação de rede rápida aos controladores de domínio.  
+-   Обнаружение следует выполнять на сайте, имеющем быстрое сетевое соединение с контроллерами домена.  
 
--   Considere a topologia de replicação do Active Directory para garantir a deteção pode aceder às informações mais recentes.  
+-   Используйте такую топологию репликации Active Directory, чтобы обеспечить возможность доступа службы обнаружения к самой последней информации.  
 
--   Considere o âmbito da configuração da deteção e limitar a deteção para apenas as localizações do Active Directory e os grupos que tiver de detetar.  
+-   Определите область действия конфигурации обнаружения и разрешите обнаружение только в тех местах и группах Active Directory, для которых должно выполняться обнаружение.  
 
-Se utilizar **deteção de rede**:  
+Если используется **сетевое обнаружение**  
 
--   Utilize uma configuração inicial limitada para identificar a topografia de rede.  
+-   Используйте ограниченную первоначальную конфигурацию, чтобы определить топографию сети.  
 
--   Depois de identificar a topografia de rede, configure a deteção de rede para executar em sites específicos que são centrais as áreas de rede que pretende detetar mais detalhadamente.  
+-   После определения сетевой топографии следует настроить службу сетевого обнаружения на работу на определенных сайтах, являющихся центральными в тех областях, для которых требуется выполнить более полное обнаружение.  
 
-Porque **deteção de Heartbeat** não é executado num site específico, não é necessário considerá-la no planeamento geral para onde pretende executar a deteção.  
+Так как **Heartbeat-обнаружение** не выполняется на определенном сайте, необязательно учитывать его при общем планировании мест выполнения обнаружения.  
 
-##  <a name="bkmk_best"></a>Melhores práticas de deteção  
-Para obter os melhores resultados com deteção, recomendamos o seguinte:
+##  <a name="bkmk_best"></a> Рекомендации по обнаружению  
+Для получения наилучших результатов при обнаружении рекомендуется выполнять следующие условия.
 
- - **Execute a deteção de sistema do Active Directory e deteção de utilizador do Active Directory antes de executar a deteção de grupo do Active Directory.**  
+ - **Запускайте обнаружение систем Active Directory и обнаружение пользователей Active Directory перед обнаружением групп Active Directory.**  
 
- Quando a deteção de grupo do Active Directory identifica um computador ou o utilizador não detetado anteriormente como membro de um grupo, tenta detetar detalhes básicos para o utilizador ou computador. Porque a deteção de grupo do Active Directory não está otimizada para este tipo de deteção, este processo pode causar que seja executado lentamente. Além disso, a deteção de grupo do Active Directory identifica apenas as informações básicas sobre os utilizadores e computadores que Deteta e não criar um utilizador completo ou registo de deteção do computador. Quando executar a deteção de sistema do Active Directory e deteção de utilizador do Active Directory, os atributos do Active Directory adicionais para cada tipo de objeto estão disponíveis. Como resultado, deteção de grupo do Active Directory é executada de forma mais eficiente.  
+ Если обнаружение групп Active Directory выявляет ранее не найденного пользователя или компьютер, входящие в группу, то оно пытается обнаружить основные сведения об обнаруженном объекте. Так как обнаружение групп Active Directory не оптимизировано для этого вида обнаружения, этот процесс может привести к замедлению обнаружения. Кроме того, обнаружение Active Directory выявляет только основные сведения о пользователях и компьютерах, а не создает полные записи обнаружения о них. При запуске обнаружения систем Active Directory и обнаружения пользователей Active Directory доступны дополнительные атрибуты Active Directory для обоих типов объектов. Поэтому обнаружение групп Active Directory работает более эффективно.  
 
-- **Ao configurar a deteção de grupo do Active Directory, especifique apenas os grupos que utiliza com o Configuration Manager.**  
+- **При настройка обнаружения групп Active Directory указывайте только группы, используемые в Configuration Manager.**  
 
- Para ajudar a controlar a utilização de recursos pela deteção de grupo do Active Directory, especifique apenas os grupos que utiliza com o Configuration Manager. Isto acontece porque a deteção de grupo do Active Directory procurar recursivamente cada grupo que Deteta os utilizadores, computadores e grupos aninhados. A pesquisa de cada grupo aninhado pode expandir o âmbito da deteção de grupo do Active Directory e reduzir o desempenho. Além disso, quando configurar a deteção de diferenças para deteção de grupo do Active Directory, o método de deteção monitoriza a cada grupo de alterações. Esta reduz ainda mais o desempenho quando o método tem de procurar grupos desnecessários.  
+ Для контроля ресурсов, применяемых обнаружением групп Active Directory, указывайте только группы, используемые в Configuration Manager. Причина в том, что в ходе выполнения обнаружения групп Active Directory ведется рекурсивный поиск пользователей, компьютеров и вложенных групп в каждой обнаруженной группе. Поиск вложенных групп может увеличить область обнаружения групп Active Directory и снизить производительность. Кроме того, если для обнаружения групп Active Directory используется обнаружение изменений, метод обнаружения наблюдает за изменениями в каждой группе. Это дополнительно снижает производительность, если методу приходится вести поиск в ненужных группах.  
 
-- **Configure métodos de deteção com um intervalo maior entre deteções completas e um período mais frequente de deteção de diferenças.**  
+- **Настройте методы обнаружения с более долгосрочными интервалами между полными обнаружениями и более частыми периодами обнаружения изменений.**  
 
- Dado que a deteção de diferenças utiliza menos recursos do que um ciclo de deteção completa e pode identificar recursos novos ou modificados no Active Directory, pode reduzir a frequência dos ciclos de deteção completa para serem realizadas semanalmente (ou menos). A deteção de diferenças para deteção de sistema do Active Directory, a deteção de utilizador do Active Directory e a deteção de grupo do Active Directory identifica quase todas as alterações de objetos do Active Directory e pode manter os dados de deteção exatos de recursos.  
+ Так как обнаружение изменений использует меньше ресурсов, чем полное обнаружение, и может определять новые или измененные ресурсы в Active Directory, можно уменьшить частоту полных циклов обнаружения для запуска еженедельно (или реже). Обнаружение изменений для обнаружения систем Active Directory, обнаружения пользователей Active Directory и обнаружения групп Active Directory идентифицирует почти все изменения объектов Active Directory и может поддерживать точные данные обнаружения для ресурсов.  
 
-- **Execute métodos de deteção do Active Directory num site primário que tenha uma localização de rede que esteja mais próxima para o seu controlador de domínio do Active Directory.**  
+- **Запускайте методы обнаружения Active Directory на первичном сайте, расположение которого в сети наиболее близко к контроллеру домена Active Directory.**  
 
- Para melhorar o desempenho de deteção do Active Directory, o respetivo detetar uma boa ideia para ser executada num site primário que tem uma ligação de rede rápida aos controladores de domínio. Se executar o mesmo método de deteção do Active Directory em vários sites, configure cada método de deteção para evitar sobreposições. Ao contrário decorridos desde as versões do Configuration Manager, dados de deteção são partilhados entre sites. Por conseguinte, não é necessário detetar as mesmas informações em vários sites. Para obter mais informações, consulte [dados de deteção são partilhados entre sites](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md#bkmk_shared).  
+ Чтобы повысить производительность обнаружения Active Directory, рекомендуется запускать обнаружение на первичном сайте, имеющем быстрое сетевое подключение к контроллерам домена. Если один и тот же метод обнаружения Active Directory запускается на нескольких сайтах, настройте каждый метод обнаружения, чтобы избежать накладок. В отличие от предшествующих версий Configuration Manager, данные обнаружения будут у сайтов общими. Следовательно, нет необходимости обнаружения одной и той же информации на нескольких сайтах. Дополнительные сведения см. в разделе [Данные обнаружения являются общими для сайтов](../../../../core/servers/deploy/configure/select-discovery-methods-to-use.md#bkmk_shared).  
 
-- **Execute a deteção de floresta do Active Directory apenas num site quando planear criar automaticamente limites a partir dos dados de deteção.**  
+- **Выполняйте обнаружение лесов Active Directory только на одном сайте, если планируете автоматически создавать границы по данным обнаружения.**  
 
- Se executar a deteção de floresta do Active Directory em mais do que um site numa hierarquia, é uma boa ideia ative apenas as opções criar automaticamente limites num único site. Isto acontece porque quando a deteção de floresta do Active Directory é executada em cada site e cria limites, o Configuration Manager não conseguir intercalar esses limites um único objeto de limites. Quando configura a deteção de floresta do Active Directory para criar automaticamente limites em vários sites, pode ocorrer objetos de limites duplicado na consola do Configuration Manager.  
+ При выполнении обнаружения лесов Active Directory в нескольких сайтах иерархии рекомендуется включать автоматическое создание границ только на одном сайте. Это происходит потому, что при обнаружении лесов Active Directory на каждом сайте с созданием границ Configuration Manager не может объединить границы в один объект. При настройке обнаружения лесов Active Directory с автоматическим созданием границ на нескольких сайтах в результате могут появиться дублированные объекты границ в консоли Configuration Manager.  

@@ -1,6 +1,6 @@
 ---
-title: "Localizar um nome de família de pacotes (PFN) para VPN por aplicação | Microsoft Docs"
-description: "Saiba mais sobre as duas formas de localizar um nome de família de pacotes, para que possa configurar uma VPN por aplicação."
+title: "Поиск имени семейства пакетов для VPN для каждого приложения | Документы Майкрософт"
+description: "Сведения о двух способах поиска имени семейства пакетов (PFN) для настройки VPN для каждого приложения."
 ms.custom: na
 ms.date: 10/06/2016
 ms.reviewer: na
@@ -16,35 +16,35 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: ce50645155ecb14a82d8b982aa69c0f87dd15fbf
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="find-a-package-family-name-pfn-for-per-app-vpn"></a>Localizar um nome de família de pacotes (PFN) para VPN por aplicação
+# <a name="find-a-package-family-name-pfn-for-per-app-vpn"></a>Поиск имени семейства пакетов для VPN для каждого приложения
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Existem duas formas de localizar um PFN para que possa configurar uma VPN por aplicação.
+Существует два способа поиска PFN-имени для настройки VPN для каждого приложения.
 
-## <a name="find-a-pfn-for-an-app-thats-installed-on-a-windows-10-computer"></a>Localize um PFN para uma aplicação que está instalada num computador Windows 10
+## <a name="find-a-pfn-for-an-app-thats-installed-on-a-windows-10-computer"></a>Поиск PFN-имени для приложения, установленного на компьютере Windows 10
 
-Se a aplicação estiver a trabalhar com já estiver instalada num computador Windows 10, pode utilizar o [Get-AppxPackage](https://technet.microsoft.com/library/hh856044.aspx) cmdlet do PowerShell para obter o PFN.
+Если вы работаете с приложением, которое уже установлено на компьютере Windows 10, для получения PFN-имени можно использовать командлет PowerShell [Get-AppxPackage](https://technet.microsoft.com/library/hh856044.aspx).
 
-A sintaxe de Get-AppxPackage é:
+Ниже приведен синтаксис командлета Get-AppxPackage.
 
 ` Parameter Set: __AllParameterSets`
 ` Get-AppxPackage [[-Name] <String> ] [[-Publisher] <String> ] [-AllUsers] [-User <String> ] [ <CommonParameters>]`
 
 > [!NOTE]
-> Poderá ter de executar o PowerShell como administrador para obter o PFN
+> Для получения PFN-имени может потребоваться запустить PowerShell от имени администратора.
 
-Por exemplo, para obter informações sobre todas as aplicações universais instaladas no computador, utilize `Get-AppxPackage`.
+Например, для получения сведений обо всех универсальных приложениях, установленных на компьютере, используйте команду `Get-AppxPackage`.
 
-Para obter informações sobre uma aplicação sabe o nome de, ou parte do nome, utilize `Get-AppxPackage *<app_name>`. Tenha em atenção a utilização do caráter universal, particularmente útil se não tiver a certeza do nome completo da aplicação. Por exemplo, para obter as informações para o OneNote, utilize `Get-AppxPackage *OneNote`.
+Чтобы получить сведения о приложении, имя или часть имени которого вам известны, используйте команду `Get-AppxPackage *<app_name>`. Обратите внимание на использование подстановочных знаков, которые особенно удобны, если вы не знаете полного имени приложения. Например, для получения сведений о OneNote используйте команду `Get-AppxPackage *OneNote`.
 
 
-Eis as informações obtidas para o OneNote:
+Ниже приведена информация, полученная для OneNote.
 
 `Name                   : Microsoft.Office.OneNote`
 
@@ -70,14 +70,14 @@ Eis as informações obtidas para o OneNote:
 
 
 
-## <a name="find-a-pfn-if-the-app-is-not-installed-on-a-computer"></a>Localize um PFN se a aplicação não estiver instalada num computador
+## <a name="find-a-pfn-if-the-app-is-not-installed-on-a-computer"></a>Поиск PFN-имени для приложения, не установленного на компьютере
 
-1.  Aceda a https://www.microsoft.com/en-us/store/apps
-2.  Introduza o nome da aplicação na barra de procura. No nosso exemplo, procure OneNote.
-3.  Clique na ligação para a aplicação. Tenha em atenção que o URL a que acede tem uma série de letras no final. No nosso exemplo, o URL tem este aspeto:`https://www.microsoft.com/en-us/store/apps/onenote/9wzdncrfhvjl`
-4.  Noutro separador, cole o seguinte URL, `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/<app id>/applockerdata`, substituindo `<app id>` com o id da aplicação obtida https://www.microsoft.com/en-us/store/apps - a série de letras no final do URL no passo 3. No nosso exemplo, o exemplo do OneNote, teria de colar: `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/9wzdncrfhvjl/applockerdata`.
+1.  Перейдите на страницу https://www.microsoft.com/en-us/store/apps.
+2.  Введите имя приложения в строке поиска. Мы выполняем поиск OneNote.
+3.  Щелкните ссылку на приложение. Обратите внимание, что в конце URL-адреса содержится последовательность букв. В нашем примере URL-адрес выглядит так: `https://www.microsoft.com/en-us/store/apps/onenote/9wzdncrfhvjl`
+4.  В другой вкладке вставьте следующий URL-адрес, `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/<app id>/applockerdata`, заменив `<app id>` идентификатором приложения, полученным на странице https://www.microsoft.com/en-us/store/apps (последовательность букв в конце URL-адреса на шаге 3). В нашем примере OneNote вставьте: `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/9wzdncrfhvjl/applockerdata`.
 
-No Edge, são apresentadas as informações que pretende; no Internet Explorer, clique em **abra** para ver as informações. O valor PFN é atribuído na primeira linha. Eis o aspeto dos resultados para o nosso exemplo:
+В Edge будут выведены нужные сведения; в браузере Internet Explorer для просмотра сведений нажмите кнопку **Открыть**. Значение PFN указано в первой строке. Ниже приведены результаты для нашего примера:
 
 
 `{`

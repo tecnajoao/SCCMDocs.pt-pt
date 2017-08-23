@@ -1,75 +1,71 @@
 ---
-title: Atualizar a ferramenta de registo | Documentos do Microsoft
-description: "Saiba quando e como utilizar a ferramenta de registo de atualização para importar manualmente uma atualização para a consola do Configuration Manager."
+title: "Средство регистрации обновлений | Документация Майкрософт"
+description: "Узнайте, когда и как использовать инструмент регистрации обновлений для импорта обновления в консоль Configuration Manager вручную."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cc13635-85d6-4b07-a3ec-c42188bc5c74
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: 35a4c201f73469fdfaa5bb8629e91886f7ae8751
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-the-update-registration-tool-to-import-hotfixes-to-system-center-configuration-manager"></a>Utilizar a Ferramenta de Registo de Atualização para importar correções para o System Center Configuration Manager
+# <a name="use-the-update-registration-tool-to-import-hotfixes-to-system-center-configuration-manager"></a>Импорт исправлений в System Center Configuration Manager с помощью инструмента регистрации обновлений
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Algumas atualizações do Configuration Manager não estão disponíveis a partir do serviço de nuvem Microsoft e só são obtidas fora de banda. Um exemplo é uma correção de versão limitada para resolver um problema específico.   
-Quando tem de instalar uma versão de fora de banda e o nome de ficheiro de atualização ou correção termina com a extensão **update.exe**, utilizar o **ferramenta de atualização de registo** importar manualmente a atualização para a consola do Configuration Manager. A ferramenta permite extrair e transferir o pacote de atualização para o servidor do site e registar a atualização na consola do Configuration Manager.  
+Некоторые обновления для Configuration Manager недоступны в облачной службе Майкрософт и предоставляются только по внештатному каналу. Примером является ограниченный выпуск исправления для устранения конкретной проблемы.   
+Когда необходимо установить внештатный выпуск, и файл обновления или исправления имеет расширение **.update.exe**, можно использовать **инструмент регистрации обновлений**, чтобы вручную импортировать обновление в консоль Configuration Manager. Этот инструмент дает возможность извлечь и передать пакет обновления на сервер сайта, а также зарегистрировать обновление в консоли Configuration Manager.  
 
- Se o ficheiro de correção tem o **.exe** extensão de ficheiro (não **update.exe**), consulte o artigo [utilizar o instalador de correção para instalar atualizações para o System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md)  
+ Если у **EXE**-файла исправления расширение имени файла не **update.exe**, см. раздел [Использование установщика исправлений для установки обновлений для System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md).  
 
 > [!NOTE]  
->  Este tópico fornece orientações gerais sobre como instalar correções que atualizam o System Center Configuration Manager. Para obter detalhes sobre uma correção específica ou a atualização, consulte o artigo de Base de dados de conhecimento (BDC) correspondente em Microsoft Support.  
+>  В этом разделе приведены общие рекомендации по установке исправлений, которые обновляют System Center Configuration Manager. Дополнительные сведения о конкретных исправлениях или обновлениях содержатся в соответствующих статьях базы знаний (KB) на сайте службы поддержки Майкрософт.  
 
- **Pré-requisitos para utilizar a ferramenta de registo de atualização:**  
+ **Необходимые условия для использования инструмента регистрации обновлений.**  
 
--   Apenas fora de banda de atualizações que terminam com a **. update.exe** extensão pode ser instalada utilizando esta ferramenta  
+-   С помощью этого инструмента можно устанавливать только внештатные обновления с расширением **.update.exe**.  
 
--   A ferramenta é autónomo com as atualizações individuais que obter diretamente da Microsoft  
+-   Этот инструмент включается в состав отдельных обновлений, получаемых непосредственно от корпорации Майкрософт.  
 
--   A ferramenta não tem uma dependência sobre o modo do ponto de ligação de serviço  
+-   Данный инструмент не зависит от режима точки подключения службы.  
 
--   A ferramenta deve ser executada no computador que aloja o ponto de ligação de serviço  
+-   Его нужно запускать на компьютере, где размещается точка подключения службы.  
 
--   O computador onde a ferramenta é executada (o computador de ponto de serviço do ligação) tem de ter o 4,52 Framework .NET instalado  
+-   На компьютере, на котором запускается инструмент (компьютер точки подключения службы), должна быть установлена платформа Framework .NET 4.52.  
 
--   A conta que utiliza para executar a ferramenta tem de ter **administrador local** permissões no computador que aloja o ponto de ligação de serviço (onde a ferramenta é executada)  
+-   Учетная запись, используемая для запуска средства, должна иметь разрешения **локального администратора** на том компьютере, на котором размещается точка подключения службы, где запускается это средство.  
 
--   A conta que utiliza para executar a ferramenta tem de ter **escrever** permissões para a seguinte pasta no computador que aloja o ponto de ligação de serviço:  **&lt;Diretório de instalação do ConfigMgr\>\EasySetupPayload\offline**  
+-   У учетной записи, используемой для запуска инструмента, должны быть разрешения на **запись** в следующую папку на компьютере, на котором размещается точка подключения службы: **&lt;каталог_установки_ConfigMgr\>\EasySetupPayload\offline**.  
 
-### <a name="to-use-the-update-registration-tool"></a>Utilizar a ferramenta de registo de atualização  
+### <a name="to-use-the-update-registration-tool"></a>Использование инструмента регистрации обновлений  
 
-1.  No computador que aloja o ponto de ligação de serviço:  
+1.  На компьютере, где размещается точка подключения службы, выполните следующие действия:  
 
-    -   Abra uma linha de comandos com privilégios administrativos e, em seguida, altere os diretórios para a localização que contém  **&lt;produto\>-&lt;versão do produto\>-&lt;ID do artigo KB\>-ConfigMgr.Update.exe**  
+    -   Откройте командную строку с привилегиями администратора, а затем перейдите к папке, содержащей файл **&lt;продукт\>-&lt;версия_продукта\>-&lt;ИД_статьи_базы_знаний\>-ConfigMgr.Update.exe**.  
 
-2.  Execute o seguinte comando para iniciar a ferramenta de registo de atualização:  
+2.  Выполните следующую команду, чтобы запустить инструмент регистрации обновлений.  
 
-    -   **&lt;Produto\>-&lt;versão do produto\>-&lt;ID do artigo KB\>-ConfigMgr.Update.exe**  
+    -   **&lt;Продукт\>-&lt;версия_продукта\>-&lt;ИД_статьи_базы_знаний\>-ConfigMgr.Update.exe**  
 
-    Depois de a correção ser registada, é apresentada como uma nova atualização na consola no prazo de 24 horas.  Pode acelerar o processo:
+    В течение 24 часов после регистрации исправление появится в виде нового обновления в консоли.  Этот процесс можно ускорить:
 
-    - Abra a consola do Configuration Manager e aceda ao **administração** > **atualizações e a manutenção**e, em seguida, clique em **procurar atualizações**. (Antes da versão 1702, atualizações e a manutenção foi em **administração** > **serviços em nuvem**.) 
+    - Откройте консоль Configuration Manager, последовательно выберите **Администрирование** > **Обновления и обслуживание** и щелкните **Проверить обновления**. (До версии 1702 раздел "Обновления и обслуживание" находился в узле **Администрирование** > **Облачные службы**.) 
 
-    A ferramenta de registo de atualização regista as ações num ficheiro .log no computador local. O ficheiro de registo tem o mesmo nome do ficheiro de .exe correção e é escrito para o **%SystemRoot%/Temp** pasta.  
+    Инструмент регистрации обновлений записывает свои действия в файл журнала на локальном компьютере. Имя этого файла журнала совпадает с именем EXE-файла исправления, а сам файл хранится в папке **%SystemRoot%/Temp**.  
 
-     Depois de a atualização ser registada, pode fechar a ferramenta de registo de atualização.  
+     После регистрации обновления инструмент регистрации обновлений можно закрыть.  
 
-3.  Abra a consola do Configuration Manager e navegue para **administração** > **atualizações e a manutenção**. As correções importadas estão agora disponíveis para instalação. (Antes da versão 1702, atualizações e a manutenção foi em **administração** > **serviços em nuvem**.)
+3.  Откройте консоль Configuration Manager и последовательно выберите **Администрирование** > **Обновления и обслуживание**. Теперь импортированные обновления доступны для установки. (До версии 1702 раздел "Обновления и обслуживание" находился в узле **Администрирование** > **Облачные службы**.)
 
- Para obter informações sobre a instalação de atualizações, consulte o artigo [instalar as atualizações na consola do System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md)  
-
+ Дополнительные сведения см. в статье [Установка обновлений в консоли для System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  

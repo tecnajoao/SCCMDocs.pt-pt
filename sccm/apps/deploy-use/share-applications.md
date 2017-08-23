@@ -1,6 +1,6 @@
 ---
-title: "Partilha de aplicações do System Center Configuration Manager | Microsoft Docs"
-description: "Partilhe uma ligação para uma aplicação no Centro de Software no System Center Configuration Manager."
+title: "Предоставление общего доступа к приложениям из System Center Configuration Manager | Документация Майкрософт"
+description: "Предоставьте общий доступ к ссылке на приложение в центре программного обеспечения в System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
@@ -17,17 +17,17 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 9e6b32caa6c5f27f3b535b224c2a9fe31905547f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="share-an-application-from-software-center"></a>Partilhar uma aplicação a partir do Centro de Software
+# <a name="share-an-application-from-software-center"></a>Предоставление общего доступа к приложению из центра программного обеспечения
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*<!-- 1706 -->
+*Применимо к: System Center Configuration Manager (Current Branch)* <!-- 1706 -->
 
-Pode copiar uma hiperligação para uma aplicação no Centro de Software utilizando o ![partilha](media/share15.png)**partilha** botão na vista de detalhes da aplicação. Apenas pode partilhar hiperligações para aplicações. Se a aplicação ficar indisponível, a hiperligação abre uma janela com uma mensagem de indisponibilidade de aplicações.
+Можно скопировать гиперссылку на приложение в центре программного обеспечения с помощью кнопки ![Общий доступ](media/share15.png)  **Общий доступ** в представлении сведений о приложении. Вы можете предоставлять общий доступ только к гиперссылкам на приложения. Если приложение становится недоступным, гиперссылка открывает окно с сообщением о том, что приложение недоступно.
 
-1. Escolha **aplicações**e, em seguida, escolha a aplicação.
-2. Clique em de ![partilha](media/share15.png) **partilha** botão.
-3. Clique em **cópia** na janela.
-4. Cole o URL de uma mensagem de e-mail para partilhar a aplicação.
+1. Выберите элемент **Приложения**, а затем выберите приложение.
+2. Нажмите кнопку ![Общий доступ](media/share15.png) **Общий доступ**.
+3. Нажмите в окне кнопку **Копировать**.
+4. Вставьте URL-адрес в сообщение электронной почты, чтобы предоставить общий доступ к приложению.

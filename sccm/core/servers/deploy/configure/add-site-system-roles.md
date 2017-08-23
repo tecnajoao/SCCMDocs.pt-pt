@@ -1,6 +1,6 @@
 ---
-title: "Adicionar funções do sistema de site | Microsoft Docs"
-description: "Compreenda as funções de sistema de sites do Configuration Manager e como adicioná-las para expandir a funcionalidade e a capacidade do seu site."
+title: "Добавление ролей системы сайта | Документы Майкрософт"
+description: "Сведения о ролях системы сайта Configuration Manager и их добавлении для расширения функциональных возможностей и емкости сайта."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -17,35 +17,35 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 1ad4abf1f06ed24bd1d505648280b5e5d80220c7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="add-site-system-roles-for-system-center-configuration-manager"></a>Adicionar funções do sistema de sites para o System Center Configuration Manager
+# <a name="add-site-system-roles-for-system-center-configuration-manager"></a>Добавление ролей системы сайта для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Cada site do System Center Configuration Manager suporta várias funções de sistema de sites. Cada função expande a funcionalidade e a capacidade do seu site para fornecer serviços para o site e para gerir dispositivos e utilizadores. Cada função do sistema de sites num servidor do sistema de sites tem de ser do mesmo site.   
+Каждый сайт System Center Configuration Manager поддерживает несколько ролей системы сайта. Каждая роль расширяет функциональность и возможности вашего сайта по предоставлению служб, а также управлению устройствами и пользователями. Каждая роль системы сайта на сервере системы сайта должна быть с того же сайта.   
 
-O Configuration Manager não suporta funções do sistema de sites para múltiplos sites num servidor de sistema de site único.  
+В Configuration Manager не поддерживается установка ролей нескольких сайтов на одном сервере системы сайта.  
 
 > [!TIP]  
->  Se não estiver familiarizado com os princípios básicos sobre funções de sistema de sites ou a diferença entre o servidor do site, servidores do sistema de sites e funções de sistema de sites, consulte [Noções básicas do System Center Configuration Manager](../../../../core/understand/fundamentals.md).  
+>  Если вы не знакомы с основами использования ролей системы сайта или не знаете различия между сервером сайта, серверами системы сайта и ролями системы сайта, см. раздел [Основные сведения о System Center Configuration Manager](../../../../core/understand/fundamentals.md).  
 
- Os seguintes tópicos indicam em pormenor os procedimentos e detalhes relacionados para instalar funções do sistema do site:  
+ В следующих разделах подробно описаны процедуры и приведены дополнительные сведения для установки ролей системы сайта.  
 
--   [Instalar funções do sistema de site para o System Center Configuration Manager](../../../../core/servers/deploy/configure/install-site-system-roles.md)  
+-   [Установка ролей системы сайта для System Center Configuration Manager](../../../../core/servers/deploy/configure/install-site-system-roles.md)  
 
-     Este tópico fornece orientações básicas sobre como utilizar os dois assistentes na consola que pode utilizar para instalar novas funções do sistema de sites.  
+     Этот раздел содержит основные рекомендации по работе с двумя мастерами в консоли, которые можно использовать для установки новых ролей системы сайта.  
 
--   [Instalar pontos de distribuição baseado na nuvem no Microsoft Azure para o System Center Configuration Manager](../../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md)  
+-   [Установка облачных точек распространения в Microsoft Azure для System Center Configuration Manager](../../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md)  
 
-    Quando pretender utilizar o Microsoft Azure para alojar conteúdo que implementar em clientes, as informações neste tópico irão ajudar a configurar os ficheiros de certificado necessário para permitir que o Configuration Manager comunicar com e utilizar a sua subscrição do Microsoft Azure. Além disso, terá de configurar a resolução de nome para permitir que os seus clientes para localizar pontos de distribuição baseado na nuvem.  
+    Если вы хотите использовать Microsoft Azure, чтобы разместить содержимое для развертывания на клиентах, информация в этом разделе поможет вам настроить необходимые файлы сертификатов, чтобы позволить Configuration Manager обмениваться данными с вашей подпиской Microsoft Azure и использовать ее. Кроме того, понадобится настроить разрешение имен, чтобы клиенты могли находить облачные точки распространения.  
 
--   [Instalar funções do sistema de sites para gestão de dispositivos móveis no local no System Center Configuration Manager](../../../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md)  
+-   [Установка ролей системы сайта для локального управления мобильными устройствами в System Center Configuration Manager](../../../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md)  
 
-     Este tópico ajuda-o a configurar com êxito as funções de sistema de sites para suportar a gestão de dispositivos modernos utilizando o MDM do Configuration Manager no local.  
+     Этот раздел поможет вам успешно настроить роли системы сайта, чтобы обеспечить управление современными устройствами с помощью локального управления мобильными устройствами Configuration Manager.  
 
--   [Opções de configuração para funções do sistema de sites para o System Center Configuration Manager](../../../../core/servers/deploy/configure/configuration-options-for-site-system-roles.md)  
+-   [Параметры конфигурации для ролей системы сайта для System Center Configuration Manager](../../../../core/servers/deploy/configure/configuration-options-for-site-system-roles.md)  
 
-     Algumas funções do sistema de site suportam configurações que necessitam de que mais detalhes que a interface de utilizador podem explicar. Este tópico fornece os detalhes.  
+     Некоторые роли системы сайта поддерживают конфигурации, которые требуют больше информации, чем может быть описано в пользовательском интерфейсе. Эта информация представлена в данном разделе.  

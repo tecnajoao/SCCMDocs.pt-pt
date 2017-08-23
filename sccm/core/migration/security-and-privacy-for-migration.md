@@ -1,6 +1,6 @@
 ---
-title: "Migração de segurança e privacidade | Microsoft Docs"
-description: "Obter melhores práticas de segurança e informações de privacidade da migração para o seu ambiente do System Center Configuration Manager."
+title: "Безопасность и конфиденциальность миграции | Документы Майкрософт"
+description: "Рекомендации по обеспечению безопасности и сведения о конфиденциальности для миграции в среде System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,49 +17,49 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8aa6971d75924ab5bcacd70c330913097ecf8717
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-migration-to-system-center-configuration-manager"></a>Segurança e privacidade da migração para o System Center Configuration Manager
+# <a name="security-and-privacy-for-migration-to-system-center-configuration-manager"></a>Безопасность и конфиденциальность при миграции на System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico contém melhores práticas de segurança e informações de privacidade da migração para o seu ambiente do System Center Configuration Manager.  
+Этот раздел содержит рекомендации по обеспечению безопасности и сведения о конфиденциальности для переноса данных в среду System Center Configuration Manager.  
 
-## <a name="security-best-practices-for-migration"></a>Melhores práticas de segurança para a migração  
- Utilize a seguinte melhor prática de segurança para a migração.  
+## <a name="security-best-practices-for-migration"></a>Рекомендации по обеспечению безопасности во время миграции  
+ Примите во внимание следующие рекомендации по обеспечению безопасности при миграции.  
 
-|Procedimento recomendado de segurança|Mais informações|  
+|Рекомендация по безопасности|Дополнительные сведения|  
 |----------------------------|----------------------|  
-|Utilize a conta de computador para a conta de fornecedor de SMS de Site de origem e a conta de servidor de SQL de Site de origem, em vez de uma conta de utilizador.|Se tiver de utilizar uma conta de utilizador para a migração, remova os detalhes da conta quando a migração está concluída.|  
-|Utilize o IPsec quando migrar o conteúdo a partir de um ponto de distribuição num site de origem para um ponto de distribuição do site de destino.|Apesar do conteúdo migrado é protegido por hash para detetar a adulteração, se os dados forem modificados durante a transferência, a migração irá falhar.|  
-|Restrinja e monitorize os utilizadores administrativos que podem criar tarefas de migração.|A integridade da base de dados da hierarquia de destino depende da integridade dos dados que o utilizador administrativo escolhe para importar a partir da hierarquia de origem. Além disso, este utilizador administrativo pode ler todos os dados da hierarquia de origem.|  
+|В качестве учетной записи поставщика SMS исходного сайта и учетной записи SQL Server исходного сайта используйте учетную запись компьютера, а не пользователя.|Если для миграции необходимо использовать учетную запись пользователя, удалите учетные данные после завершения миграции.|  
+|При миграции контента из точки распространения в исходном сайте в точку распространения в конечном сайте используйте протокол IPsec.|Хотя переносимое содержимое хэшируется, чтобы выявить искажение, однако при изменении данных во время передачи, происходит сбой миграции.|  
+|Ограничьте доступ и отслеживайте действия пользователей, которые могут создавать задания миграции.|Целостность базы данных в конечной иерархии зависит от целостности данных, которые администратор выбирает для импорта из исходной иерархии. Кроме того, администратор может считывать все данные из исходной иерархии.|  
 
-### <a name="security-issues-for-migration"></a>Problemas de segurança para a migração  
-Migração tem os seguintes problemas de segurança:  
+### <a name="security-issues-for-migration"></a>Проблемы безопасности при миграции  
+Проблемы безопасности при выполнении миграции.  
 
--   Clientes que estejam bloqueados a partir de um site de origem podem ser atribuído com sucesso à hierarquia de destino antes do respetivo registo de cliente é migrado.  
+-   Клиенты, доступ которых к исходному сайту заблокирован, могут быть успешно назначены в конечную иерархию, прежде чем будет выполнена миграция их записи клиента.  
 
-     Apesar do Configuration Manager mantém o estado bloqueado dos clientes migrados, o cliente pode atribuído com sucesso à hierarquia de destino se a atribuição ocorrer antes de concluída a migração do registo de cliente.  
+     Хотя Configuration Manager сохраняет статус блокировки для переносимого клиента, клиент может быть успешно назначен в конечную иерархию, если назначение происходит до завершения миграции записи клиента.  
 
--   Mensagens de auditoria não são migradas.  
+-   Сообщения аудита не переносятся.  
 
-Quando migrar dados a partir de um site de origem para um site de destino, perderá todas as informações de auditorias da hierarquia de origem.  
+При переносе данных из исходного сайта в конечный будут потеряны все данные аудита из исходной иерархии.  
 
-## <a name="privacy-information-for-migration"></a>Informações de privacidade para a migração  
- A migração Deteta informações a partir de bases de dados do site identificadas numa infraestrutura de origem e armazena estes dados para a base de dados da hierarquia de destino. As informações que o System Center Configuration Manager pode detetar a partir de um site de origem ou uma hierarquia dependem das funcionalidades que foram ativadas no ambiente de origem, bem como as operações de gestão que foram efetuadas nesse ambiente de origem.  
+## <a name="privacy-information-for-migration"></a>Сведения о конфиденциальности при миграции  
+ Функция миграции обнаруживает данные из баз данных сайта, указанных в исходной инфраструктуре, и сохраняет их в базе данных конечной иерархии. Информация, которую System Center Configuration Manager может обнаружить в исходном сайте или иерархии, зависит от функций, которые были включены в исходной среде, а также операций управления, которые были выполнены в этой среде.  
 
- Para obter mais informações sobre segurança e informações de privacidade, consulte um dos seguintes tópicos:  
+ Дополнительные сведения о безопасности и конфиденциальности см. один из следующих разделов.  
 
--   Para obter mais informações sobre as informações de privacidade para o Configuration Manager 2007, consulte [segurança e privacidade para o Configuration Manager 2007](http://go.microsoft.com/fwlink/p/?LinkId=216450) na biblioteca de documentação do Configuration Manager 2007.  
+-   Дополнительные сведения о конфиденциальности для Configuration Manager 2007 см. в статье [Обеспечение безопасности и конфиденциальности в Configuration Manager 2007](http://go.microsoft.com/fwlink/p/?LinkId=216450) библиотеки документации Configuration Manager 2007.  
 
--   Para obter mais informações sobre as informações de privacidade do System Center 2012 Configuration Manager, consulte [segurança e privacidade do System Center 2012 Configuration Manager](https://technet.microsoft.com/library/gg682033.aspx) na biblioteca de documentação do System Center 2012 Configuration Manager.  
+-   Дополнительные сведения о конфиденциальности для System Center 2012 Configuration Manager см. в статье [Обеспечение безопасности и конфиденциальности в System Center 2012 Configuration Manager](https://technet.microsoft.com/library/gg682033.aspx) библиотеки документации System Center 2012 Configuration Manager.  
 
--   Para obter mais informações sobre as informações de privacidade do System Center Configuration Manager, consulte [segurança e privacidade para o System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
+-   Дополнительные сведения о конфиденциальности для System Center Configuration Manager см. в статье [Обеспечение безопасности и конфиденциальности в System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
 
-Pode migrar alguns ou todos os dados suportados de um site de origem para uma hierarquia de destino.  
+Можно переносить некоторые или все поддерживаемые данные из исходного сайта в конечную иерархию.  
 
-A migração não está ativada por predefinição e requer vários passos de configuração. Informações de migração não são enviadas à Microsoft.  
+Миграция не включена по умолчанию и требует выполнения нескольких этапов настройки. Сведения о миграции не передаются в корпорацию Майкрософт.  
 
-Antes de migrar dados de uma hierarquia de origem, considere os requisitos de privacidade.  
+Перед переносом данных из исходной иерархии оцените свои требования к конфиденциальности.  

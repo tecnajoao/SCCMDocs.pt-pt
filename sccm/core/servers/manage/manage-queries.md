@@ -1,6 +1,6 @@
 ---
-title: Gerir consultas | Microsoft Docs
-description: "Saiba como gerir as suas consultas. Inclui uma tabela de referência detalhada."
+title: "Управление запросами | Документы Майкрософт"
+description: "Сведения об управлении запросами. Содержит подробную справочную таблицу."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,29 +17,29 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 738dcf0b52f18b38b732bf8ca5d7a87369b1c468
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-manage-queries-in-system-center-configuration-manager"></a>Como gerir consultas no System Center Configuration Manager
+# <a name="how-to-manage-queries-in-system-center-configuration-manager"></a>Управление запросами в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as informações neste tópico para o ajudar a gerir consultas no System Center Configuration Manager.  
+Используйте сведения в это статье для управления запросами в System Center Configuration Manager.  
 
- Para obter informações sobre como criar consultas, consulte [como criar consultas no System Center Configuration Manager](../../../core/servers/manage/create-queries.md).  
+ Сведения о том, как создавать запросы, см. в статье [Создание запросов в System Center Configuration Manager](../../../core/servers/manage/create-queries.md).  
 
-## <a name="how-to-manage-queries"></a>Como gerir consultas  
- Na área de trabalho **Monitorização** , selecione **Consultas**, selecione a consulta que pretende gerir e, em seguida, selecione uma tarefa de gestão.  
+## <a name="how-to-manage-queries"></a>Управление запросами  
+ В рабочей области **Мониторинг** последовательно выберите **Запросы**, запрос для управления и задачу управления.  
 
- Utilize a tabela seguinte para obter mais informações sobre as tarefas de gestão que podem necessitar de algumas informações antes de as selecionar.  
+ Для получения дополнительных сведений о задачах управления, которые могут требовать указания некоторой информации перед их выбором, используйте следующую таблицу.  
 
-|Tarefa de gestão|Detalhes|Mais informações|  
+|Задача управления|Подробные сведения|Дополнительные сведения|  
 |---------------------|-------------|----------------------|  
-|**Executar**|Executa a consulta selecionada e apresenta os resultados na consola do Configuration Manager.|Não existem informações adicionais.|  
-|**Instalar Cliente**|Abre o **Assistente de instalação de cliente** que lhe permite instalar o cliente do Configuration Manager nos computadores devolvidos pela consulta selecionada.<br /><br /> Esta opção não está disponível para consultas que devolvem dispositivos móveis, utilizadores ou grupos de utilizadores.|Para obter mais informações sobre como instalar clientes do Configuration Manager utilizando push de cliente, consulte [implementar clientes em computadores Windows](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).|  
-|**Exportarar**|Abre o **Assistente Exportar Objetos** que permite exportar esta consulta para um ficheiro de formato MOF (Managed Object Format) que pode, em seguida, ser importado noutro site.|Não existem informações adicionais.|  
-|**Moverr**|Abre a caixa de diálogo **Mover Itens Selecionados** , na qual pode mover a consulta selecionada para uma pasta que criou anteriormente sob o nó **Consultas** .|Não existem informações adicionais.|  
+|**Выполнить**|Выполнение выбранного запроса и отображение результатов на консоли Configuration Manager.|Дополнительные сведения отсутствуют.|  
+|**Установить клиент**|Открытие компонента **Мастер установки клиента**, который позволяет установить клиент Configuration Manager на компьютерах, возвращенных при выполнении выбранного запроса.<br /><br /> Этот параметр недоступен для запросов, возвращающих мобильные устройства, пользователей или группы пользователей.|Дополнительные сведения об установке клиентов Configuration Manager с помощью принудительной установки см. в статье [Развертывание клиентов на компьютерах Windows](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).|  
+|**Экспортировать**|Открытие компонента **Мастер экспорта объектов** , который позволяет экспортировать этот запрос в MOF-файл, затем импортируемый на другой сайт.|Дополнительные сведения отсутствуют.|  
+|**Переместить**|Открытие диалогового окна **Переместить выбранные элементы** , в котором можно переместить выбранный запрос в папку, ранее созданную в узле **Запросы** .|Дополнительные сведения отсутствуют.|  
 
-## <a name="see-also"></a>Consulte Também  
- [Operações e manutenção de consultas no System Center Configuration Manager](../../../core/servers/manage/operations-and-maintenance-for-queries.md)
+## <a name="see-also"></a>См. также  
+ [Использование и обслуживание запросов в System Center Configuration Manager](../../../core/servers/manage/operations-and-maintenance-for-queries.md)

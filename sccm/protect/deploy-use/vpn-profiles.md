@@ -1,6 +1,6 @@
 ---
-title: Perfis VPN no System Center Configuration Manager | Microsoft Docs
-description: "Saiba como utilizar perfis VPN no System Center Configuration Manager para implementar definições VPN em utilizadores da sua organização."
+title: "Профили VPN в System Center Configuration Manager | Документы Майкрософт"
+description: "Узнайте, как использовать профили VPN в System Center Configuration Manager, чтобы развернуть параметры VPN для пользователей в вашей организации."
 ms.custom: na
 ms.date: 11/27/2016
 ms.prod: configuration-manager
@@ -17,44 +17,44 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: e07a80c1a59043b74cda7219f78c5fef66989ba8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="vpn-profiles-in-system-center-configuration-manager"></a>Perfis VPN no System Center Configuration Manager
+# <a name="vpn-profiles-in-system-center-configuration-manager"></a>Профили VPN в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Utilize perfis VPN no System Center Configuration Manager (também conhecido como do ConfigMgr ou SCCM) para implementar definições VPN em utilizadores da sua organização. Ao implementar estas definições, estará a minimizar o esforço do utilizador final para se ligar aos recursos na rede da empresa.  
+Используйте профили VPN в System Center Configuration Manager (SCCM), чтобы развернуть параметры VPN для пользователей в вашей организации. Развертывание этих параметров упрощает для конечного пользователя подключение к ресурсам в локальной сети.  
 
- Por exemplo, pretende aprovisionar todos os dispositivos que executam o sistema operativo do Windows RT com as definições necessárias para ligar a uma partilha de ficheiros na rede empresarial. Pode criar um perfil da VPN com as definições necessárias para ligar à rede empresarial e, em seguida, implementar este perfil em todos os utilizadores com dispositivos que executam o Windows RT na sua hierarquia. Os utilizadores de dispositivos Windows RT veem a ligação VPN na lista de redes disponíveis e podem ligar a esta rede com esforços mínimos.  
+ Например, если нужно подготовить все устройства, запущенные в операционной системе Windows RT с параметрами, необходимыми для подключения к общей папке в корпоративной сети. Можно создать профиль VPN, содержащий параметры, необходимые для подключения к корпоративной сети, а затем развернуть этот профиль для всех пользователей с устройствами под управлением Windows RT в иерархии. Пользователи устройств Windows RT увидят VPN-подключение в списке доступных сетей и смогут подключаться к этой сети с минимальными усилиями.  
 
- Quando cria um perfil da VPN, pode incluir um vasto leque de definições de segurança, incluindo certificados para validação do servidor e autenticação de cliente que foram aprovisionados através da utilização de perfis de certificado do System Center Configuration Manager. Para obter mais informações sobre perfis de certificado, veja [Perfis de certificado no System Center Configuration Manager](introduction-to-certificate-profiles.md).  
+ При создании профиля VPN можно использовать широкий спектр параметров безопасности, включая сертификаты для проверки сервера и проверки подлинности клиента, наличие которых обеспечивается с помощью профилей сертификатов в System Center Configuration Manager. Дополнительные сведения о профилях сертификатов см. в разделе [Профили сертификатов в System Center Configuration Manager](introduction-to-certificate-profiles.md).  
 
- As secções abaixo explicam o que pode configurar com perfis da VPN se estiver a utilizar o Gestor de configuração de dispositivos.
+ В следующих разделах описывается, какие устройства можно настроить с помощью профилей VPN при использовании Configuration Manager.
 
- Consulte [perfis VPN em dispositivos móveis](/sccm/mdm/deploy-use/create-vpn-profiles) para rever os dispositivos que pode configurar quando utilizar o Configuration Manager com o Microsoft Intune.  
+ Сведения о том, где просмотреть устройства, которые можно настроить при использовании Configuration Manager в Microsoft Intune, см. в статье [Профили VPN на мобильных устройствах в System Center Configuration Manager](/sccm/mdm/deploy-use/create-vpn-profiles).  
 
-## <a name="vpn-profiles-when-using-configuration-manager"></a>Perfis VPN, ao utilizar o Gestor de configuração  
- A tabela seguinte descreve os perfis VPN, pode configurar para várias plataformas de dispositivos.  
+## <a name="vpn-profiles-when-using-configuration-manager"></a>Профили VPN при использовании Configuration Manager  
+ В приведенной ниже таблице описываются профили VPN, которые можно настроить для различных платформ устройств.  
 
-|Tipo de ligação|Windows 8,1|Windows RT|Windows RT 8.1|Windows 10|  
+|Тип подключения|Windows 8.1|Windows RT|Windows RT 8.1|Windows 10|  
 |---------------------|-----------------|----------------|--------------------|----------------|  
-|**Cisco AnyConnect**|Não|Não|Não|Não|  
-|**Pulse Secure**|Sim|Não|Sim|Sim|  
-|**F5 Edge Client**|Sim|Não|Sim|Sim|  
-|**Dell SonicWALL Mobile Connect**|Sim|Não|Sim|Sim|  
-|**VPN móvel do ponto de verificação**|Sim|Não|Sim|Sim|  
-|**Microsoft SSL (SSTP)**|Sim|Sim|Sim|Não|  
-|**Microsoft Automatic**|Sim|Sim|Sim|Não|  
-|**IKEv2**|Sim|Sim|Sim|Não|  
-|**PPTP**|Sim|Sim|Sim|Não|  
-|**L2TP**|Sim|Sim|Sim|Não|  
+|**Cisco AnyConnect**|Нет|Нет|Нет|Нет|  
+|**Pulse Secure**|Да|Нет|Да|Да|  
+|**F5 Edge Client**|Да|Нет|Да|Да|  
+|**Dell SonicWALL Mobile Connect**|Да|Нет|Да|Да|  
+|**Check Point Mobile VPN**|Да|Нет|Да|Да|  
+|**Microsoft SSL (SSTP)**|Да|Да|Да|Нет|  
+|**Microsoft Automatic**|Да|Да|Да|Нет|  
+|**IKEv2**|Да|Да|Да|Нет|  
+|**PPTP**|Да|Да|Да|Нет|  
+|**L2TP**|Да|Да|Да|Нет|  
 
-### <a name="next-steps"></a>Passos seguintes  
- Utilize os tópicos seguintes para o ajudar a planear, configurar, operar e manter perfis VPN no Configuration Manager.  
+### <a name="next-steps"></a>Дальнейшие действия  
+ Приведенные ниже разделы содержат справочные сведения о планировании, настройке, использовании и обслуживании профилей VPN в Configuration Manager.  
 
--   [Pré-requisitos para perfis VPN no System Center Configuration Manager](../plan-design/prerequisites-for-wifi-vpn-profiles.md)  
+-   [Необходимые условия для профилей VPN в System Center Configuration Manager](../plan-design/prerequisites-for-wifi-vpn-profiles.md)  
 
--   [Segurança e privacidade para perfis VPN no System Center Configuration Manager](../plan-design/security-and-privacy-for-wifi-vpn-profiles.md)
+-   [Безопасность и конфиденциальность профилей VPN в System Center Configuration Manager](../plan-design/security-and-privacy-for-wifi-vpn-profiles.md)

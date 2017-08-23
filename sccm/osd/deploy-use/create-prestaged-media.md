@@ -1,6 +1,6 @@
 ---
-title: Criar suportes de dados com o System Center Configuration Manager | Microsoft Docs
-description: "Crie suportes de dados no System Center Configuration Manager, para simplificar a implementação do Windows em vários cenários."
+title: "Создание предварительно подготовленного носителя с помощью System Center Configuration Manager | Документы Майкрософт"
+description: "Создайте предварительно подготовленный носитель в System Center Configuration Manager, чтобы упростить развертывание Windows в ряде сценариев."
 ms.custom: na
 ms.date: 04/11/2017
 ms.prod: configuration-manager
@@ -16,129 +16,129 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 33abf3853d912d423e427db4d35fb4a16167164e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-prestaged-media-with-system-center-configuration-manager"></a>Criar suportes de dados com o System Center Configuration Manager
+# <a name="create-prestaged-media-with-system-center-configuration-manager"></a>Создание предварительно подготовленного носителя с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Suporte de dados pré-configurado no System Center Configuration Manager é um ficheiro de formato WIM (Windows Imaging) que pode ser instalado num computador bare-metal pelo fabricante ou num centro de transição empresarial que não está ligado ao ambiente do Configuration Manager.  
-O suporte de dados pré-configurado contém a imagem de arranque utilizada para iniciar o computador de destino e a imagem de sistema operativo aplicada no computador de destino. Também pode especificar aplicações, pacotes e pacotes de controladores para incluir como parte do suporte de dados pré-configurado. A sequência de tarefas que implementa o sistema operativo não está incluída no suporte de dados. O suporte de dados pré-configurado é aplicado no disco rígido do computador novo antes do seu envio para o utilizador final. Utilize suportes de dados pré-configurados para os seguintes cenários de implementação do sistema operativo:  
+Предварительно подготовленный носитель в System Center Configuration Manager представляет собой WIM-файл, который может быть установлен на компьютере без операционной системы производителем или в центре подготовки организации без подключения к среде Configuration Manager.  
+Предварительно подготовленный носитель содержит загрузочный образ, используемый для запуска конечного компьютера, и образ операционной системы, который применяется к конечному компьютеру. Вы также можете указать приложения, пакеты и пакеты драйверов, включаемые в состав предварительно подготовленного носителя. Последовательность задач, развертывающая операционную систему, не содержится на носителе. Предварительно подготовленный носитель применяется к жесткому диску компьютера перед тем, как компьютер будет отправлен конечному пользователю. Используйте предварительно подготовленный носитель в следующих сценариях развертывания операционной системы.  
 
--   [Criar uma imagem para um OEM de fábrica ou um depósito local](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+-   [Создание образа для изготовителей оборудования в фабрике или локальном хранилище](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
--   [Instalar uma nova versão do Windows num novo computador (bare-metal)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Установка новой версии Windows на новом компьютере (без операционной системы)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Implementar o Windows to Go](deploy-windows-to-go.md)  
+-   [Развертывание Windows to Go](deploy-windows-to-go.md)  
 
- Quando o computador é iniciado pela primeira vez após a aplicação do suporte de dados pré-configurado, o computador inicia o Windows PE e estabelece ligação a um ponto de gestão para localizar a sequência de tarefas que conclui o processo de implementação do sistema operativo. Pode especificar aplicações, pacotes e pacotes de controladores para incluir como parte do suporte de dados pré-configurado. Quando implementa uma sequência de tarefas que utiliza suportes de dados pré-configurados, o assistente verifica primeiro a presença de conteúdo válido na cache local da sequência de tarefas e, se o conteúdo não puder ser localizado ou tiver sido revisto, o assistente transfere-o a partir do ponto de distribuição.  
+ Когда компьютер запускается в первый раз после применения предварительно подготовленного носителя, он загружает среду предустановки Windows (Windows PE) и подключается к точке управления, чтобы найти последовательность задач, завершающую процесс развертывания операционной системы. Вы можете указать приложения, пакеты и пакеты драйверов, включаемые в состав предварительно подготовленного носителя. При развертывании последовательности задач с использованием предварительно подготовленного носителя мастер сначала проверяет локальный кэш последовательности задач на наличие допустимого контента. Если контент не найден или был изменен, он загружается с точки распространения.  
 
-##  <a name="BKMK_CreatePrestagedMedia"></a> Como Criar Suportes de Dados Pré-configurados  
- Antes de criar suportes de dados pré-configurados através do Assistente de Criação de Suporte de Dados da Sequência de Tarefas, certifique-se de que todas as condições seguintes são preenchidas:  
+##  <a name="BKMK_CreatePrestagedMedia"></a> Создание предварительно подготовленного носителя  
+ Перед созданием предварительно подготовленного носителя с помощью мастера создания носителя последовательности задач убедитесь, что выполнены следующие условия.  
 
-|Tarefa|Descrição|  
+|Задача|Описание|  
 |----------|-----------------|  
-|Imagem de arranque|Considere o seguinte sobre a imagem de arranque que irá utilizar na sequência de tarefas para implementar o sistema operativo:<br /><br /> -A arquitetura da imagem de arranque tem de ser adequada à arquitetura do computador de destino. Por exemplo, um computador de destino x64 pode efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. No entanto, um computador de destino x86 só pode efetuar o arranque e a execução de uma imagem de arranque x86.<br />-Certifique-se de que a imagem de arranque contém os controladores de armazenamento em massa e de rede que são necessárias para aprovisionar o computador de destino.|  
-|Criar uma sequência de tarefas para implementar um sistema operativo|Como parte do suporte de dados pré-configurado, tem de especificar a sequência de tarefas para implementar o sistema operativo.<br /><br /> -Para obter os passos criar uma nova sequência de tarefas, consulte [criar uma sequência de tarefas para instalar um sistema operativo](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />-Para mais informações sobre sequências de tarefas, consulte [gerir sequências de tarefas para automatizar tarefas](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
-|Distribuir todo o conteúdo associado à sequência de tarefas|Tem de distribuir todo o conteúdo exigido pela sequência de tarefas por, pelo menos, um ponto de distribuição. Isto inclui a imagem de arranque, a imagem do sistema operativo e outros ficheiros associados. O assistente recolhe as informações a partir do ponto de distribuição, ao criar o suporte de dados autónomo. Tem de ter direitos de acesso de **Leitura** à biblioteca de conteúdos desse ponto de distribuição.  Para obter mais informações, consulte [sobre a biblioteca de conteúdos](../../core/plan-design/hierarchy/the-content-library.md).|  
-|Disco rígido no computador de destino|O disco rígido do computador de destino terá de ser formatado antes de o suporte de dados pré-configurado ser preparado no disco rígido do computador. Se o disco rígido não estiver formatado quando o suporte de dados for aplicado, a sequência de tarefas que implementa o sistema operativo falhará ao tentar iniciar o computador de destino.|  
+|Образ загрузки|Примите во внимание следующие особенности, связанные с загрузочным образом, который будет использоваться в последовательности задач для развертывания операционной системы.<br /><br /> — Архитектура загрузочного образа должна соответствовать архитектуре конечного компьютера. Например, конечный компьютер с 64-разрядной операционной системой может загружать и выполнять загрузочный образ с архитектурой x86 или x64. Однако конечный компьютер с архитектурой x86 может загружать и выполнять только 32-разрядный загрузочный образ (x86).<br />— Убедитесь, что загрузочный образ содержит драйверы для сетевых карт и запоминающих устройств, необходимые для подготовки конечного компьютера.|  
+|Создание последовательности задач для развертывания операционной системы|В рамках данного предварительно подготовленного носителя необходимо указать последовательность задач для развертывания операционной системы.<br /><br /> — Инструкции по созданию последовательности задач см. в разделе [Создание последовательности задач для установки операционной системы](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />— Дополнительные сведения о последовательностях задач см. в разделе [Управление последовательностями задач для их автоматизации](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
+|Распространение всего содержимого, связанного с последовательностью задач|Все содержимое, необходимое для последовательности задач, необходимо распространить по меньшей мере в одну точку распространения. Сюда входит загрузочный образ, образ операционной системы и другие связанные файлы. Мастер получает сведения из точки распространения, а затем создает автономный носитель. Необходимо обладать доступом с правами на **чтение** к библиотеке содержимого на точке распространения.  Подробные сведения см. в разделе [Сведения о библиотеке содержимого](../../core/plan-design/hierarchy/the-content-library.md).|  
+|Жесткий диск конечного компьютера|Прежде чем помещать предварительно подготовленный носитель на промежуточное хранение на жесткий диск конечного компьютера, этот диск необходимо отформатировать. Если жесткий диск не отформатировать, то при применении носителя произойдет сбой последовательности задач, развертывающей операционную систему, когда она попытается запустить конечный компьютер.|  
 
 > [!NOTE]  
->  O assistente suporte de dados de criação de sequência de tarefas define a seguinte condição variável de sequência de tarefas no suporte de dados: **smstsmediatype = OEMMedia**. Pode utilizar esta condição na sua sequência de tarefas.  
+>  Мастер создания носителя с последовательностью задач задает следующее условие переменной последовательности задач на носителе: **_SMSTSMediaType = OEMMedia**. Это условие вы можете использовать в последовательности задач.  
 
- Utilize o procedimento seguinte para criar suportes de dados pré-configurados.  
+ Ниже приведена процедура создания предварительно подготовленного носителя.  
 
-#### <a name="to-create-prestaged-media"></a>Para criar um suporte de dados pré-configurado  
+#### <a name="to-create-prestaged-media"></a>Создание предварительно подготовленного носителя  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Suportes de Dados da Sequência de Tarefas** para iniciar o Assistente de Criação de Suporte de Dados da Sequência de Tarefas.  
+3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать носитель с файлом последовательности задач** , чтобы запустить мастер создания носителя с последовательностью задач.  
 
-4.  Na página **Selecione o Tipo de Suporte de Dados** , especifique as informações seguintes e clique em **Seguinte**.  
+4.  На странице **Выбор типа носителя** укажите следующие сведения, затем нажмите кнопку **Далее**.  
 
-    -   Selecione **Suporte de dados pré-configurado**.  
+    -   Выберите **Предварительно подготовленный носитель**.  
 
-    -   Opcionalmente, se pretender permitir a implementação do sistema operativo sem exigir a intervenção do utilizador, selecione **Permitir a implementação do sistema operativo autónoma**. Ao selecionar esta opção, não serão solicitadas ao utilizador informações para a configuração de rede nem para sequências de tarefas opcionais. No entanto, continua a ser solicitada uma palavra-passe ao utilizador se o suporte de dados estiver configurado com proteção por palavra-passe.  
+    -   Дополнительно, если требуется разрешить развертывание операционной системы без взаимодействия с пользователем, установите флажок **Разрешить автоматическое развертывание операционной системы**. Если установить этот флажок, пользователю не будет предлагаться ввести сведения о конфигурации сети или указать дополнительные последовательности задач. Тем не менее, пользователю может потребоваться ввести пароль, если носитель защищен паролем.  
 
-5.  Na página **Gestão de Suporte de Dados** , especifique as informações seguintes e clique em **Seguinte**.  
+5.  На странице **Управление носителями** укажите следующие сведения и нажмите кнопку **Далее**.  
 
-    -   Selecione **Suporte de dados dinâmico** se pretender permitir que um ponto de gestão redirecione o suporte de dados para outro ponto de gestão, com base na localização do cliente nos limites do site.  
+    -   Выберите **Динамический носитель** , если требуется разрешить точке управления перенаправлять носитель на другую точку управления (в зависимости от расположения клиента в границах сайта).  
 
-    -   Selecione **Suporte de dados baseado no site** se pretender que o suporte de dados entre em contacto apenas com o ponto de gestão especificado.  
+    -   Выберите **Носитель на основе сайта** , если требуется, чтобы носитель связывался только с указанной точкой управления.  
 
-6.  Na página **Propriedades do Suporte de Dados**  , especifique as informações seguintes e, em seguida, clique em **Seguinte**.  
+6.  На странице **Свойства носителя**  укажите следующие сведения и нажмите кнопку **Далее**.  
 
-    -   **Criado pelo**: Especifique quem criou o suporte de dados.  
+    -   **Создано**: укажите лицо, создавшее носитель.  
 
-    -   **Versão**: Especifique o número de versão do suporte de dados.  
+    -   **Версия**: укажите номер версии носителя.  
 
-    -   **Comentário**: Especifique uma descrição exclusiva da que é utilizado o suporte de dados.  
+    -   **Комментарий**: введите уникальное описание для назначения носителя.  
 
-    -   **Ficheiro de multimédia**: Especifique o nome e caminho dos ficheiros de saída. O assistente escreve os ficheiros de saída nesta localização. Por exemplo:  **\\\servername\folder\outputfile.wim**  
+    -   **Файл мультимедиа**: укажите имена выходных файлов и путь к ним. Мастер запишет выходные файлы в это расположение. Пример: **\\\servername\folder\outputfile.wim**  
 
-7.  Na página **Segurança** , especifique as seguintes informações e clique em **Seguinte**.  
+7.  На странице **Безопасность** укажите следующие сведения и нажмите кнопку **Далее**.  
 
-    -   Selecione o **ativar suporte para computadores desconhecidos** caixa de verificação para permitir que o suporte de dados implementar um sistema operativo num computador que não seja gerido pelo Configuration Manager. Não há nenhum registo destes computadores na base de dados do Configuration Manager.  Para obter mais informações, consulte [preparar implementações de computadores desconhecidos](../get-started/prepare-for-unknown-computer-deployments.md).  
+    -   Установите флажок **Включить поддержку неизвестных компьютеров**, чтобы разрешить развертывание операционной системы с носителя на компьютер, который не находится под управлением Configuration Manager. База данных Configuration Manager не содержит записей об этих компьютерах.  Дополнительные сведения см. в разделе [Подготовка развертываний на неизвестные компьютеры](../get-started/prepare-for-unknown-computer-deployments.md).  
 
-    -   Selecione a caixa de verificação **Proteger suporte de dados com uma palavra-passe** e introduza uma palavra-passe segura para ajudar a proteger o suporte de dados contra acesso não autorizado. Quando especificar uma palavra-passe, o utilizador terá de fornecer essa palavra-passe para utilizar o suporte de dados pré-configurado.  
+    -   Чтобы защитить носитель от несанкционированного доступа, установите флажок **Защитить носитель паролем** и введите надежный пароль. Если вы укажете пароль, пользователь должен будет ввести его, чтобы воспользоваться предварительно подготовленным носителем.  
 
         > [!IMPORTANT]  
-        >  Como procedimento de segurança recomendado, atribua sempre uma palavra-passe para ajudar a proteger o suporte de dados pré-configurado.  
+        >  Для обеспечения дополнительной безопасности следует всегда назначать пароль, чтобы защитить содержимое предварительно подготовленного носителя.  
 
-    -   Para comunicações HTTP, selecione **Criar um certificado de suporte de dados autoassinado**e especifique as datas de início e de expiração do certificado.  
+    -   Если для обмена данными используется протокол HTTP, установите переключатель **Создать самоподписанный сертификат носителя**, а затем укажите дату начала и окончания срока действия сертификата.  
 
-    -   Para comunicações HTTPS, selecione **Importar certificado PKI**e especifique o certificado a importar e a respetiva palavra-passe.  
+    -   Для HTTPS-подключений выберите вариант **Импортировать сертификат PKI**, а затем укажите импортируемый сертификат и пароль для него.  
 
-         Para mais informações sobre este certificado de cliente que é utilizado para imagens de arranque, consulte [requisitos dos certificados PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
+         Дополнительные сведения о сертификатах клиентов, которые используются для образов загрузки, см. в разделе [Требования к PKI-сертификатам](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Afinidade dispositivo / utilizador**: Para suportar a gestão centrada no utilizador no Configuration Manager, especifique como pretende que o suporte de dados associe utilizadores ao computador de destino. Para obter mais informações sobre como implementação de sistemas operativos suporta a afinidade dispositivo / utilizador, consulte [associar utilizadores um computador de destino](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Сопоставление пользователей и устройств**. Чтобы включить поддержку управления, ориентированного на пользователей в Configuration Manager, укажите способ, который будет использоваться носителем для связывания пользователей с конечным компьютером. Дополнительные сведения о поддержке сопоставления пользователей и устройств при развертывании операционных систем см. в разделе [Связывание пользователей с конечным компьютером](../get-started/associate-users-with-a-destination-computer.md).  
 
-        -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação automática** se pretender que o suporte de dados associe automaticamente utilizadores ao computador de destino. Esta funcionalidade baseia-se nas ações da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino quando implementa o sistema operativo no computador de destino.  
+        -   Выберите **Разрешить сопоставление пользователей и устройств (утверждение предоставляется автоматически)** , чтобы носитель выполнял автоматическое связывание пользователей с конечным компьютером. Эта функция основана на действиях последовательности задач, развертывающей операционную систему. В этом сценарии последовательность задач при развертывании операционной системы на конечном компьютере создает отношение между указанными пользователями и конечным компьютером.  
 
-        -   Especifique **Permitir afinidade dispositivo/utilizador com aprovação pendente pelo administrador** se pretender que o suporte de dados associe utilizadores ao computador de destino após concessão da aprovação. Esta funcionalidade baseia-se no âmbito da sequência de tarefas que implementa o sistema operativo. Neste cenário, a sequência de tarefas cria uma relação entre os utilizadores especificados e o computador de destino, mas aguarda a aprovação de um utilizador administrativo antes da implementação do sistema operativo.  
+        -   Установите флажок **Разрешить сопоставление пользователей и устройств (требуется утверждение администратором)** , если требуется связать пользователей с конечным компьютером после получения утверждения. Эта функция основана на области последовательности задач, развертывающей операционную систему. В этом сценарии последовательность задач создает отношение между указанными пользователями и конечным компьютером, однако, прежде чем развертывать операционную систему, дожидается утверждения администратора.  
 
-        -   Especifique **Não permitir afinidade dispositivo/utilizador** se não pretender que o suporte de dados associe utilizadores ao computador de destino. Neste cenário, a sequência de tarefas não associa utilizadores ao computador de destino durante a implementação do sistema operativo.  
+        -   Выберите вариант **Запретить сопоставление пользователей и устройств** , если не требуется, чтобы носитель связывал пользователей с конечным компьютером. В этом случае последовательность задач не связывает пользователей с конечным компьютером при развертывании операционной системы.  
 
-8.  Na página **Sequência de Tarefas** , especifique a sequência de tarefas que será executada no computador de destino. O conteúdo referenciado pela sequência de tarefas é apresentado em **Esta sequência de tarefas referencia o seguinte conteúdo**. Verifique o conteúdo e, em seguida, clique em **Seguinte**.  
+8.  На странице **Последовательность задач** укажите последовательность, которая будет выполняться на конечном компьютере. Содержимое, на которое ссылается последовательность задач, отображается в области **Эта последовательность задач ссылается на следующее содержимое**. Проверьте содержимое и нажмите кнопку **Далее**.  
 
-9. Na página **Imagem de arranque** , especifique as seguintes informações e clique em **Seguinte**.  
+9. На странице **Загрузочный образ** укажите следующие сведения, затем нажмите кнопку **Далее**.  
 
     > [!IMPORTANT]  
-    >  A arquitetura da imagem de arranque que é distribuída deve ser adaptada à arquitetura do computador de destino. Por exemplo, um computador de destino x64 pode efetuar o arranque e a execução de uma imagem de arranque x86 ou x64. No entanto, um computador de destino x86 só pode efetuar o arranque e a execução de uma imagem de arranque x86.  
+    >  Архитектура распространяемого загрузочного образа должна соответствовать архитектуре конечного компьютера. Например, конечный компьютер с 64-разрядной операционной системой может загружать и выполнять загрузочный образ с архитектурой x86 или x64. Однако конечный компьютер с архитектурой x86 может загружать и выполнять только 32-разрядный загрузочный образ (x86).  
 
-    -   Na caixa **Imagem de arranque** , especifique a imagem de arranque que inicia o computador de destino. Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
+    -   В поле **Загрузочный образ** укажите загрузочный образ для запуска конечного компьютера. Дополнительные сведения см. в разделе [Управление загрузочными образами](../get-started/manage-boot-images.md).  
 
-    -   Na caixa **Ponto de distribuição** , especifique o ponto de distribuição onde reside a imagem de arranque. O assistente obtém a imagem de arranque do ponto de distribuição e escreve-a no suporte de dados.  
+    -   В поле **Точка распространения** укажите точку распространения, в которой находится загрузочный образ. Мастер получает загрузочный образ с точки распространения и записывает его на носитель.  
 
         > [!NOTE]  
-        >  Tem de ter direitos de acesso de **Leitura** para a biblioteca de conteúdos do ponto de distribuição. Para obter mais informações, consulte [sobre a biblioteca de conteúdos](../../core/plan-design/hierarchy/the-content-library.md).  
+        >  Необходимо обладать доступом с правами на **чтение** к библиотеке содержимого на точке распространения. Дополнительные сведения см. в разделе [Сведения о библиотеке содержимого](../../core/plan-design/hierarchy/the-content-library.md).  
 
-    -   Se tiver selecionado **Suporte de dados baseado no site** na página **Gestão de Suporte de Dados** do assistente, na caixa **Ponto de gestão** , especifique um ponto de gestão de um site primário.  
+    -   Если на странице **Управление носителями** мастера выбран вариант **Носитель на основе сайта** , в поле **Точка управления** укажите точку управления с первичного сайта.  
 
-    -   Se tiver selecionado **Suporte de dados dinâmico** na página **Gestão de Suporte de Dados** do assistente, na caixa **Pontos de gestão associados** , especifique os pontos de gestão do site primário a utilizar e uma ordem de prioridades para as comunicações iniciais.  
+    -   Если на странице **Управление носителями** мастера выбран вариант **Динамический носитель** , в поле **Связанные точки управления** укажите точки управления первичного сайта, которые предполагается использовать, и приоритет при первом соединении.  
 
-10. Na página **Imagens** , especifique as seguintes informações e clique em **Seguinte**.  
+10. На странице **Образы** укажите следующие сведения и нажмите кнопку **Далее**.  
 
-    -   Na caixa **Pacote de imagem** , especifique a imagem do sistema operativo. Para obter mais informações, consulte [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
+    -   В поле **Пакет образа** укажите образ операционной системы. Дополнительные сведения см. в разделе [Управление образами операционных систем](../get-started/manage-operating-system-images.md).  
 
-    -   Se o pacote contiver várias imagens de sistema operativo, na caixa **Índice de imagens** especifique a imagem a implementar.  
+    -   Если пакет содержит несколько образов операционных систем, в поле **Индекс образа** укажите развертываемый образ.  
 
-    -   Na caixa **Ponto de distribuição** , especifique o ponto de distribuição onde reside o pacote da imagem do sistema operativo. O assistente obtém a imagem do sistema operativo a partir do ponto de distribuição e escreve-a no suporte de dados.  
+    -   В поле **Точка распространения** укажите точку распространения, на которой размещается пакет образа операционной системы. Мастер получает образ операционной системы с точки распространения и записывает его на носитель.  
 
-11. Na página **Personalização** , especifique as seguintes informações e clique em **Seguinte**.  
+11. На странице **Настройка** укажите следующие данные, затем нажмите кнопку **Далее**.  
 
-    -   Especifique as variáveis utilizadas pela sequência de tarefas para implementar o sistema operativo.  
+    -   Укажите переменные, которые используются последовательностью задач для развертывания операционной системы.  
 
-    -   Especifique os comandos de pré-início que pretende executar antes da execução da sequência de tarefas. Os comandos de pré-início são um script ou um ficheiro executável que pode interagir com o utilizador no Windows PE antes da execução da sequência de tarefas para instalar o sistema operativo. Para obter mais informações sobre os comandos de Pré-início para suportes de dados, consulte o [comandos para suporte de dados de sequência de tarefas de Pré-início](../understand/prestart-commands-for-task-sequence-media.md).  
+    -   Укажите выполняемые перед запуском команды, которые будут выполняться перед запуском последовательности задач. Выполняемые перед запуском команды являются сценариями или исполняемыми файлами, которые могут взаимодействовать с пользователем в среде предустановки Windows перед запуском последовательности задач для установки операционной системы. Дополнительные сведения о командах перед запуском для носителя см. в разделе [Команды перед запуском для носителя с последовательностью задач](../understand/prestart-commands-for-task-sequence-media.md).  
 
         > [!TIP]  
-        >  Durante a criação de suportes de dados de sequência de tarefas, a sequência de tarefas escreve o ID de pacote e da linha de comandos, incluindo o valor das eventuais variáveis de sequência de tarefas, para o ficheiro de registo CreateTSMedia.log no computador que executa a consola do Configuration Manager de Pré-início. Poderá consultar este ficheiro de registo para verificar o valor das variáveis da sequência de tarefas.  
+        >  Во время создания носителя последовательность задач записывает ИД пакета и командную строку, выполняемую перед запуском, включая значения всех переменных последовательности задач, в файл журнала CreateTSMedia.log на компьютере, на котором запущена консоль Configuration Manager. В этом файле журнала можно проверить значения переменных последовательности задач.  
 
-12. Conclua o assistente.  
+12. Завершите работу мастера.  
 
-## <a name="next-steps"></a>Passos seguintes
-[Cenários para implementar sistemas operativos empresariais](scenarios-to-deploy-enterprise-operating-systems.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Сценарии развертывания операционных систем предприятия](scenarios-to-deploy-enterprise-operating-systems.md)

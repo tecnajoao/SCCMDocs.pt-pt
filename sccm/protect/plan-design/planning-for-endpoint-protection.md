@@ -1,5 +1,5 @@
 ---
-title: Planear para o Endpoint Protection | Microsoft Docs
+title: "Планирование Endpoint Protection | Документы Майкрософт"
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
@@ -15,103 +15,103 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 6c4273dae99ec8db2cf827f463b973e876d0d35b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-endpoint-protection-in-system-center-configuration-manager"></a>Planear o Endpoint Protection no System Center Configuration Manager
+# <a name="planning-for-endpoint-protection-in-system-center-configuration-manager"></a>Планирование для Endpoint Protection в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Endpoint Protection no System Center Configuration Manager permite-lhe gerir políticas antimalware e de segurança da Firewall do Windows para computadores cliente na sua hierarquia do Configuration Manager.  
-
-> [!IMPORTANT]  
->  Tem de estar licenciados para utilizar o Endpoint Protection para gerir clientes na sua hierarquia do Configuration Manager.  
-
-Quando utilizar o Endpoint Protection com o Configuration Manager, tem as seguintes vantagens:  
-
--   Configurar políticas antimalware, definições de Firewall do Windows e gerir o Windows Defender Advanced Threat Protection em grupos selecionados de computadores  
-
--   Utilize o Gestor de configuração de atualizações de software para transferir os ficheiros de definição de antimalware mais recentes para manter os computadores cliente atualizados  
-
--   Enviar notificações por e-mail, utilizar a monitorização na consola e ver relatórios para manter os utilizadores administrativos informados quando for detetado software maligno em computadores cliente  
-
-Computadores Windows 10 não requerem qualquer cliente adicional para gestão do endpoint protection. No Windows 8.1 e anteriores computadores, o Endpoint Protection instala o próprio cliente, para além do cliente do Configuration Manager. O cliente do Endpoint Protection tem as seguintes capacidades:  
-
--   Deteção e remediação de software maligno e spyware  
-
--   Deteção e remediação de rootkit  
-
--   Avaliação de vulnerabilidades críticas e atualizações automáticas de definições e de motor  
-
--   Deteção de vulnerabilidades de rede através do Sistema de Inspeção de Rede  
-
--   Integração com o serviço de proteção de nuvem para reportar software maligno à Microsoft. Ao aderir a este serviço, o Windows Defender ou o cliente do Endpoint Protection pode transferir as definições mais recentes do Centro de proteção contra software maligno quando é detetado software maligno não identificado num computador.  
-
-> [!NOTE]  
->  O cliente do Endpoint Protection pode ser instalado num servidor que executa o Hyper-V e máquinas virtuais de convidados com sistemas operativos suportados. Para impedir a utilização excessiva da CPU, as ações do Endpoint Protection tem um atraso aleatório, incorporado para serviços não são executados em simultâneo.  
-
-  Além disso, o Endpoint Protection no Configuration Manager permite-lhe gerir as definições da Firewall do Windows na consola do Configuration Manager.  
-
- [Cenário de exemplo: Utilizar o System Center Endpoint Protection para proteger os computadores contra software maligno no System Center Configuration Manager](../deploy-use/scenarios-endpoint-protection.md) mostra como poderia configurar e gerir o Endpoint Protection e Firewall do Windows.  
-
-## <a name="managing-malware-with-endpoint-protection"></a>Gerir o Software Maligno com o Endpoint Protection  
-
-Endpoint Protection no Configuration Manager permite-lhe criar políticas de antimalware que contêm definições para configurações de cliente do Endpoint Protection. Em seguida, pode implementar estas políticas antimalware nos computadores cliente e monitorizá-las no **estado do Endpoint Protection** no nó de **monitorização** área de trabalho, ou utilizando relatórios do Configuration Manager.  
-
- Informações adicionais:  
-
--   [Criar e implementar políticas antimalware do Endpoint Protection no System Center Configuration Manager](../deploy-use/endpoint-antimalware-policies.md) - criar, implementar e monitorizar políticas antimalware com uma lista das definições que pode configurar  
-
--   [Monitorizar o Endpoint Protection no System Center Configuration Manager](../deploy-use/monitor-endpoint-protection.md) -monitorizar relatórios de atividade, computadores cliente infetados e muito mais.   
-
--   [Gerir políticas antimalware e definições do Endpoint Protection no System Center Configuration Manager de firewall](../deploy-use/endpoint-antimalware-firewall.md) -é possível alterar a prioridade de política para [antimalware](../deploy-use/endpoint-antimalware-firewall.md#manage-antimalware-policies) ou [firewall](../deploy-use/endpoint-antimalware-firewall.md#manage-windows-firewall-policies), [remediar o software maligno encontrado nos computadores cliente](../deploy-use/endpoint-antimalware-firewall.md#remediate-detected-malware)e outras tarefas
-
-## <a name="managing-windows-firewall-with-endpoint-protection"></a>Gerir a Firewall do Windows com o Endpoint Protection  
- Endpoint Protection no Configuration Manager disponibiliza gestão básica da Firewall do Windows nos computadores cliente. Para cada perfil de rede, pode configurar as seguintes definições:  
-
--   Ativar ou desativar a Firewall do Windows.  
-
--   Bloquear as ligações recebidas, incluindo as que se encontram na lista de programas permitidos.  
-
--   Notificar o utilizador quando a Firewall do Windows bloquear um programa novo.  
-
-> [!NOTE]  
->  O Endpoint Protection suporta apenas a gestão da Firewall do Windows.  
-
-  Para obter mais informações sobre como criar e implementar políticas de Firewall do Windows para o Endpoint Protection, consulte [como criar e implementar políticas de Firewall do Windows para o Endpoint Protection no System Center Configuration Manager](../deploy-use/create-windows-firewall-policies.md).  
-
-## <a name="windows-defender-advanced-threat-protection"></a>O Windows Defender Advanced Threat Protection
-
-A partir da versão 1606 do Configuration Manager (ramo atual), Endpoint Protection pode ajudar a gerir e monitorizar o Windows Defender Advanced Threat Protection (ATP). Windows Defender ATP é um novo serviço que o irão ajudar as empresas para detetar, analisar e responder a ataques avançados nas respetivas redes. Consulte [o Windows Defender Advanced Threat Protection](../deploy-use/windows-defender-advanced-threat-protection.md).
-
-## <a name="endpoint-protection-workflow"></a>Fluxo de Trabalho do Endpoint Protection  
- Utilize o diagrama a seguir para ajudar a compreender o fluxo de trabalho para implementar o Endpoint Protection na sua hierarquia do Configuration Manager.  
-
- ![Fluxo de Trabalho do Endpoint Protection](../media/Endpoint-Protection-Workflow.gif)
-
-## <a name="endpoint-protection-client-for-mac-computers-and-linux-servers"></a>Cliente do Endpoint Protection para Computadores Mac e Servidores Linux  
- O System Center inclui um cliente do Endpoint Protection para Linux e para computadores Mac. Estes clientes não são fornecidos com o Configuration Manager; em vez disso, tem de transferir os seguintes produtos a partir de [Microsoft Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter/default.aspx).  
+Endpoint Protection в System Center Configuration Manager позволяет управлять политиками защиты от вредоносных программ и параметрами безопасности брандмауэра Windows для клиентских компьютеров в иерархии Configuration Manager.  
 
 > [!IMPORTANT]  
->  Tem de ser um cliente de Licenciamento em Volume da Microsoft para transferir os ficheiros de instalação do Endpoint Protection para Linux e Mac.  
+>  Чтобы использовать Endpoint Protection для управления клиентами в иерархии Configuration Manager, необходима лицензия.  
 
- Estes produtos não podem ser geridos a partir da consola do Configuration Manager. No entanto, um pacote de gestão do System Center Operations Manager é fornecido com os ficheiros de instalação, permitindo gerir o cliente para Linux ao utilizar o Operations Manager.  
+Совместное использование Endpoint Protection и Configuration Manager обеспечивает следующие преимущества:  
 
- Para mais informações sobre como instalar e gerir os clientes do Endpoint Protection para computadores Linux e Mac, utilize a documentação que acompanha estes produtos, que está localizada na pasta **Documentação** .
+-   Настройка политик защиты от вредоносных программ, параметров брандмауэра Windows и управление Advanced Threat Protection в Защитнике Windows для выбранных групп компьютеров.  
 
-## <a name="best-practices-for-endpoint-protection-in-configuration-manager"></a>Exemplos de Melhores Práticas para o Endpoint Protection no Configuration Manager  
- Utilize as seguintes melhores práticas no Endpoint Protection do System Center 2012 Configuration Manager.  
+-   Использование обновлений программного обеспечения Configuration Manager для загрузки актуальных файлов определений вредоносных программ на клиентские компьютеры.  
 
-### <a name="configure-custom-client-settings-for-endpoint-protection"></a>Configurar definições personalizadas de cliente do Endpoint Protection  
- Ao configurar as definições de cliente do Endpoint Protection, utilize as predefinições de cliente porque estas aplicam definições a todos os computadores na sua hierarquia. Em vez disso, configure definições de cliente personalizadas e atribua estas definições a coleções de computadores na sua hierarquia.  
+-   Отправка уведомлений по электронной почте, использование средств мониторинга в консоли и просмотр отчетов, чтобы информировать пользователей с правами администратора об обнаружении вредоносных программ на клиентских компьютерах  
 
- Ao configurar definições de cliente personalizadas, pode:  
+Компьютеры с Windows 10 не требуют дополнительного клиента для управления Endpoint Protection. На компьютерах с Windows 8.1 и более ранними версиями Endpoint Protection устанавливает собственный клиент в дополнение к клиенту Configuration Manager. Возможности клиента Endpoint Protection:  
 
--   Personalizar as definições de antimalware e de segurança para diferentes partes da organização.  
--   Teste os efeitos da execução do Endpoint Protection num pequeno grupo de computadores antes de implementar em toda a hierarquia.  
--   Adicione mais clientes à coleção ao longo do tempo para fasear a implementação do cliente Endpoint Protection.  
+-   обнаружение и исправление вредоносных программ и шпионского программного обеспечения;  
 
-### <a name="distributing-definition-updates-by-using-software-updates"></a>Distribuir atualizações de definições ao utilizar atualizações de software  
- Se estiver a utilizar as atualizações de software do Configuration Manager para distribuir atualizações de definições, considere colocar as atualizações de definições num pacote que não contenha outras atualizações de software. Esta opção mantém o tamanho do pacote de atualizações de definições mais pequeno, permitindo-lhe replicar para pontos de distribuição mais rapidamente.
+-   обнаружение и исправление пакетов программ rootkit;  
+
+-   оценка критических уязвимостей и автоматическое обновление определений и антивирусного модуля;  
+
+-   обнаружение уязвимости сети с помощью системы проверки сети;  
+
+-   интеграция со службой Cloud Protection Service для передачи сведений о вредоносных программах в Майкрософт. При подключении этой службы клиент Endpoint Protection или Защитник Windows, обнаружив на компьютере неопознанную вредоносную программу, может скачивать новейшие определения из Центра по защите от вредоносных программ.  
+
+> [!NOTE]  
+>  Клиент Endpoint Protection можно установить на сервере под управлением Hyper-V и на гостевых виртуальных машинах с поддерживаемыми операционными системами. Во избежание чрезмерного использования ресурсов ЦП действия Endpoint Protection имеют встроенную случайную задержку, чтобы службы не запускались одновременно.  
+
+  Кроме того, Endpoint Protection в Configuration Manager позволяет управлять параметрами брандмауэра Windows в консоли Configuration Manager.  
+
+ В разделе [Пример сценария: использование System Center Endpoint Protection для защиты компьютеров от вредоносных программ в System Center Configuration Manager](../deploy-use/scenarios-endpoint-protection.md) показано, как можно настроить Endpoint Protection и брандмауэр Windows, а также управлять ими.  
+
+## <a name="managing-malware-with-endpoint-protection"></a>Защита от вредоносных программ с помощью Endpoint Protection  
+
+Endpoint Protection в Configuration Manager позволяет создавать политики защиты от вредоносных программ, содержащие параметры для конфигураций клиента Endpoint Protection. Созданные политики защиты от вредоносных программ можно развертывать на клиентских компьютерах и отслеживать их применение в узле **Состояние Endpoint Protection** рабочей области **Наблюдение** (или с помощью отчетов Configuration Manager).  
+
+ Дополнительные сведения:  
+
+-   [Создание и развертывание политик защиты от вредоносных программ для Endpoint Protection в System Center Configuration Manager](../deploy-use/endpoint-antimalware-policies.md) — сведения о создании, развертывании и мониторинге политик защиты от вредоносных программ со списком параметров, которые можно настраивать.  
+
+-   [Мониторинг Endpoint Protection в System Center Configuration Manager](../deploy-use/monitor-endpoint-protection.md) — отчеты о действиях мониторинга, сведения о зараженных клиентских компьютерах и другие возможности.   
+
+-   [Управление политиками защиты от вредоносных программ и параметрами брандмауэра для Endpoint Protection в System Center Configuration Manager](../deploy-use/endpoint-antimalware-firewall.md) — сведения об изменении приоритета политики для задач [защиты от вредоносных программ](../deploy-use/endpoint-antimalware-firewall.md#manage-antimalware-policies), [брандмауэра](../deploy-use/endpoint-antimalware-firewall.md#manage-windows-firewall-policies), [устранения вредоносных программ, найденных на клиентских компьютерах](../deploy-use/endpoint-antimalware-firewall.md#remediate-detected-malware), и других задач.
+
+## <a name="managing-windows-firewall-with-endpoint-protection"></a>Управление брандмауэром Windows с помощью Endpoint Protection  
+ Endpoint Protection в Configuration Manager позволяет управлять основными параметрами брандмауэра Windows на клиентских компьютерах. Для каждого сетевого профиля можно настроить следующие параметры:  
+
+-   включение и отключение брандмауэра Windows;  
+
+-   блокирование входящих подключений, включая указанные в списке разрешенных программ;  
+
+-   уведомление пользователя о блокировании брандмауэром Windows новой программы.  
+
+> [!NOTE]  
+>  Endpoint Protection поддерживает управление только брандмауэром Windows.  
+
+  Дополнительные сведения о создании и развертывании политик брандмауэра Windows для Endpoint Protection см. в разделе [Создание и развертывание политик брандмауэра Windows для Endpoint Protection в System Center Configuration Manager](../deploy-use/create-windows-firewall-policies.md).  
+
+## <a name="windows-defender-advanced-threat-protection"></a>Advanced Threat Protection в Защитнике Windows
+
+Начиная с Configuration Manager версии 1606 (Current Branch) Endpoint Protection помогает отслеживать службу Advanced Threat Protection (ATP) в Защитнике Windows и управлять ею. ATP в Защитнике Windows представляет собой новую службу, с помощью которой предприятия могут обнаруживать, исследовать атаки повышенной сложности и реагировать на них в своих сетях. См. раздел [Advanced Threat Protection в Защитнике Windows](../deploy-use/windows-defender-advanced-threat-protection.md).
+
+## <a name="endpoint-protection-workflow"></a>Рабочий процесс Endpoint Protection  
+ Приведенная ниже схема поможет вам понять рабочий процесс для внедрения Endpoint Protection в вашей иерархии Configuration Manager.  
+
+ ![Рабочий процесс Endpoint Protection](../media/Endpoint-Protection-Workflow.gif)
+
+## <a name="endpoint-protection-client-for-mac-computers-and-linux-servers"></a>Клиент Endpoint Protection для компьютеров Mac и серверов Linux  
+ System Center включает в себя клиент Endpoint Protection для Linux и компьютеров Mac. Эти клиенты не поставляются с Configuration Manager; вместо этого необходимо скачать следующие продукты с сайта [Microsoft Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter/default.aspx).  
+
+> [!IMPORTANT]  
+>  Для загрузки файлов установки Endpoint Protection для Linux и Mac вы должны быть клиентом корпоративного лицензирования Майкрософт.  
+
+ Этими продуктами нельзя управлять из консоли Configuration Manager. Тем не менее пакет управления System Center Operations Manager поставляется с файлами установки, что позволяет управлять клиентом для Linux с помощью Operations Manager.  
+
+ Дополнительные сведения о том, как устанавливать и управлять клиентами Endpoint Protection для компьютеров Linux и Mac, см. в документации, поставляемой с этими продуктами, которая находится в папке **Документация** .
+
+## <a name="best-practices-for-endpoint-protection-in-configuration-manager"></a>Рекомендации по использованию Endpoint Protection in Configuration Manager  
+ Следуйте данным рекомендациям, связанным с компонентом Endpoint Protection в System Center 2012 Configuration Manager.  
+
+### <a name="configure-custom-client-settings-for-endpoint-protection"></a>Задание значений настраиваемых параметров клиентов для Endpoint Protection.  
+ При настройке параметров клиента для Endpoint Protection не следует использовать параметры по умолчанию, так как они будут применены ко всем компьютерам в иерархии. Вместо этого необходимо указать настраиваемые параметры клиента и назначить их коллекциям компьютеров в иерархии.  
+
+ Настройка собственных параметров клиента позволяет решать следующие задачи:  
+
+-   настраивать параметры безопасности и защиты от вредоносных программ для разных групп компьютеров организации;  
+-   тестировать влияние использования Endpoint Protection в небольших группах компьютеров перед развертыванием для всей иерархии;  
+-   со временем добавлять другие клиенты в коллекцию для поэтапного развертывания клиента Endpoint Protection.  
+
+### <a name="distributing-definition-updates-by-using-software-updates"></a>Распространения обновлений определений с помощью обновления программного обеспечения  
+ Если вы используете обновления программного обеспечения Configuration Manager для распространения обновлений определений, рассмотрите возможность размещения обновлений определений в пакете, который не содержит других обновлений ПО. Это означает, что размер пакета для обновления определения меньше позволит реплицировать на точки распространения быстрее.

@@ -1,6 +1,6 @@
 ---
-title: "Termos e condições no System Center Configuration Manager | Microsoft Docs"
-description: "Implemente termos e condições para grupos de utilizadores no System Center Configuration Manager."
+title: "Условия в System Center Configuration Manager | Документы Майкрософт"
+description: "Развертывание условий для групп пользователей в System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,108 +16,108 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 20be68496099a67ad2d475067f073da2cef16c86
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Adicionar os termos e condições com o System Center Configuration Manager
+# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Добавление условий с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode implementar o System Center Configuration Manager termos e condições para grupos de utilizadores para explicar como a inscrição, o acesso a recursos de trabalho e a utilização do Portal da empresa afetam os dispositivos e utilizadores. Os utilizadores têm de aceitar os termos e condições antes de poderem utilizar o Portal da Empresa para inscrever e aceder ao seu trabalho.  
+Можно развернуть условия System Center Configuration Manager для групп пользователей, чтобы объяснить, как регистрация устройств, доступ к рабочим ресурсам и применение корпоративного портала влияют на устройства и пользователей. Пользователи должны сначала принять эти условия, чтобы в дальнейшем использовать корпоративный портал для регистрации и доступа к своей работе.  
 
- ## <a name="working-with-terms-and-conditions-policies-in-system-center-configuration-manager"></a>Trabalhar com políticas de termos e condições no System Center Configuration Manager  
- Pode criar e implementar vários conjuntos de termos e condições. Pode também produzir versões dos mesmos termos e condições em idiomas diferentes e, em seguida, implementá-los nos grupos adequados.  
+ ## <a name="working-with-terms-and-conditions-policies-in-system-center-configuration-manager"></a>Работа с политиками условий в System Center Configuration Manager  
+ Вы можете создать и развернуть несколько наборов условий. Также можно создать несколько версий одних и тех условий на разных языках, а затем развернуть их в соответствующих группах.  
 
-## <a name="to-create-a-terms-and-conditions"></a>Para criar termos e condições  
+## <a name="to-create-a-terms-and-conditions"></a>Создание условий  
 
-1.  Na consola do Configuration Manager, aceda a **Recursos e Compatibilidade** > **Descrição Geral** > **Definições de Compatibilidade** > **Termos e Condições**.  
+1.  В консоли Configuration Manager выберите **Активы и соответствие** > **Обзор** > **Параметры соответствия** > **Условия**.  
 
-2.  Clique em **Criar Termos e Condições** para criar novos termos e condições.  
+2.  Щелкните **Создать условия** для создания новых условий.  
 
-3.  Na página **Geral** , especifique as seguintes informações:  
+3.  На странице **Общие** укажите перечисленные ниже сведения.  
 
-    -   **Nome** -um nome exclusivo apresentado na consola do Configuration Manager  
+    -   **Имя** — уникальное имя, отображаемое в консоли Configuration Manager.  
 
-    -   **Descrição** - detalhes que o ajudam a identificar os termos e condições na consola do Configuration Manager  
+    -   **Описание** — подробные сведения, помогающие определить условия в консоли Configuration Manager.  
 
-     Em seguida, clique em **Seguinte**.  
+     Нажмите кнопку **Далее**.  
 
-4.  Na página **Termos** , especifique as seguintes informações:  
+4.  На странице **Условия** укажите перечисленные ниже сведения.  
 
-    -   **Título** - O título apresentado aos utilizadores no Portal da Empresa  
+    -   **Заголовок** — заголовок, отображаемый пользователям на корпоративном портале.  
 
-    -   **Texto para os termos** - os termos e condições apresentados aos utilizadores no Portal da Empresa  
+    -   **Текст условий** — условия, отображаемые пользователям на корпоративном портале  
 
-    -   **Texto a explicar o que significa se o utilizador aceita** - marca os utilizadores que veem a aceitação. **Exemplo**: "Concordo com os termos e condições."  
+    -   **Текст, разъясняющий, что значит согласие пользователя** — метка, отображаемая пользователям, которая относится к принятию условий. **Пример**: "Я принимаю условия".  
 
-     Em seguida, clique em **Seguinte**.  
+     Нажмите кнопку **Далее**.  
 
-5.  Conclua o assistente para criar os novos termos e condições. Os novos termos e condições são apresentados no nó Termos e Condições da área de trabalho Recursos e Compatibilidade.  
+5.  Следуйте указаниям мастера, чтобы создать условия. Новые условия отображаются в узле "Условия" рабочей области "Активы и соответствие".  
 
-## <a name="to-deploy-a-terms-and-conditions"></a>Para implementar termos e condições  
+## <a name="to-deploy-a-terms-and-conditions"></a>Развертывание условий  
 
-1.  Na consola do Configuration Manager, aceda a **Recursos e Compatibilidade** > **Descrição Geral** > **Definições de Compatibilidade** > **Termos e Condições**.  
+1.  В консоли Configuration Manager выберите **Активы и соответствие** > **Обзор** > **Параметры соответствия** > **Условия**.  
 
-2.  Na lista **Termos e Condições** , selecione o item que pretende implementar e, em seguida, clique em **Implementar**.  
+2.  В списке **Условия** выберите элемент, который нужно развернуть, и щелкните **Развернуть**.  
 
-3.  **Navegue** para a **Coleção** na qual quer implementar os termos e condições e, em seguida, clique em **OK**.  
+3.  Используйте**Обзор** для поиска **коллекции** , в которой вы хотите развернуть условия, а затем нажмите кнопку **ОК**.  
 
-     Quando os dispositivos abrangidos acederem à aplicação Portal da Empresa, são apresentados os termos e condições implementados. Os utilizadores têm de aceitar estes termos antes de terem acesso aos recursos da empresa.  
+     При доступе целевых устройств к корпоративному порталу отображаются развернутые условия. Чтобы получить доступ к корпоративным ресурсам, пользователи должны сначала принять эти условия.  
 
     > [!NOTE]  
-    >  Se implementar um conjunto de termos em várias coleções de utilizadores ao qual pertence um utilizador, esse utilizador verá várias cópias de termos idênticos quando abrir o Portal da Empresa. Uma vez que os utilizadores só podem aceitar ou recusar todos os termos, não existe perigo de cair num estado de aceitação ambígua, em que o utilizador aceitou e rejeitou os termos. O relatório de aceitação dos Termos e Condições incluirá apenas uma linha para cada conjunto de termos para cada utilizador, pelo que não existe nenhum erro no relatório.  
+    >  При развертывании набора условий в нескольких коллекциях пользователей, к которым принадлежит пользователь, при открытии корпоративного портала этот пользователь увидит несколько копий идентичных условий. Поскольку пользователи могут принять или отклонить только все условия сразу, существует опасность возникновения неоднозначного состояния, когда пользователь как принял, так и отклонил условия. Отчет о принятии условий будет содержать только одну строку для каждого набора условий на каждого пользователя, то есть не будет содержать ошибок.  
 
-## <a name="to-monitor-terms-and-conditions"></a>Monitorizar termos e condições  
+## <a name="to-monitor-terms-and-conditions"></a>Мониторинг условий  
 
-1.  Pode monitorizar implementações de termos e condições na consola do Configuration Manager. Na consola do Configuration Manager, vá para **Monitorização** > **Descrição Geral** > **Implementações**.  
+1.  В консоли Configuration Manager можно отслеживать развертывание условий. В консоли Configuration Manager выберите **Мониторинг** > **Обзор** > **Развертывания**.  
 
-2.  Selecione a implementação de termos e condições na lista de implementações.  
+2.  Выберите развертывание условий из списка развертываний.  
 
-     A área de resumo irá apresentar as estatísticas seguintes:  
+     В области сводки отобразится следующая статистика:  
 
-    -   **Compatível** - os utilizadores aceitaram a versão mais recente dos termos e condições  
+    -   **Соответствует** — пользователи приняли последнюю версию условий.  
 
-    -   **Erro**  
+    -   **Ошибка**  
 
-    -   **Não compatível** - os utilizadores aceitaram uma versão dos termos e condições, mas não a versão mais recente  
+    -   **Не соответствует** — пользователи приняли условия, но не последнюю версию.  
 
-    -   **Desconhecido** - os utilizadores nunca aceitaram os termos e condições, incluindo as pessoas sem um dispositivo inscrito  
+    -   **Неизвестно** — пользователи не приняли никаких условий, включая пользователей без зарегистрированных устройств.  
 
-3.  Selecione uma implementação de termos e condições e, em seguida, selecione **Executar Resumo** para ver o estado de implementação de utilizadores individuais.  
+3.  Выберите развертывание условий, затем выберите **Сформировать сводку** , чтобы просмотреть состояние развертывания отдельных пользователей.  
 
-     No ecrã Estado de Implementação pode selecionar os separadores de estado para ver os utilizadores com esse estado. Pode clicar em **Executar Resumo** para atualizar os dados em toda a hierarquia. Clique em **Atualizar** para atualizar os dados na consola  
+     На экране состояния развертываний можно выбрать вкладки состояния, чтобы просмотреть пользователей с определенным состоянием. Чтобы обновить данные во всей иерархии, выберите команду **Сформировать сводку** . Нажмите кнопку **Обновить** для обновления данных в консоли.  
 
-## <a name="to-view--a-terms-and-conditions-report"></a>Visualizar um relatório de termos e condições  
+## <a name="to-view--a-terms-and-conditions-report"></a>Просмотр отчетов об условиях  
 
-1.  Na consola do Configuration Manager, vá para **Monitorização** > **Descrição Geral** > **Relatórios** > **Relatório**.  
+1.  В консоли Configuration Manager выберите **Мониторинг** > **Обзор** > **Отчеты** > **Отчет**.  
 
-2.  Selecione **Aceitação dos Termos e Condições** e, em seguida, clique em **Executar**. É aberto o relatório de aceitação dos termos e condições. O relatório apresenta cada utilizador a quem os termos e condições foram implementados. Os campos incluem:  
+2.  Выберите **Принятие условий** и нажмите кнопку **Выполнить**. Открывается отчет о принятии условий. В отчете отображаются все пользователи, для которых было выполнено развертывание условий. Отчет имеет следующие поля:  
 
-    -   Nome dos termos e condições  
+    -   Имя условий  
 
-    -   Nome de utilizador  
+    -   Имя пользователя  
 
-    -   Versão aceite  
+    -   Принятая версия  
 
-    -   Data aceite  
+    -   Дата принятия  
 
-    -   Aceite mais recente  
+    -   Последние принятые  
 
-## <a name="updates-and-version-control-for-terms-and-conditions"></a>Atualizações e controlo de versão para termos e condições  
- Quando editar termos e condições existentes, pode escolher o comportamento quando implementar os termos e condições. Utilize o procedimento seguinte para ajudar a atualizar os termos e condições existentes.  
+## <a name="updates-and-version-control-for-terms-and-conditions"></a>Обновления и управление версиями для условий  
+ При изменении существующих условий можно выбрать поведение в ходе развертывания условий. Для обновления существующих условий используйте следующую процедуру.  
 
-### <a name="how-to-work-with-multiple-versions-of-terms-and-conditions"></a>Como trabalhar com várias versões de termos e condições  
+### <a name="how-to-work-with-multiple-versions-of-terms-and-conditions"></a>Работа с несколькими версиями условий  
 
-1.  Na consola do Configuration Manager, aceda a **Recursos e Compatibilidade** > **Descrição Geral** > **Definições de Compatibilidade** > **Termos e Condições**.  
+1.  В консоли Configuration Manager выберите **Активы и соответствие** > **Обзор** > **Параметры соответствия** > **Условия**.  
 
-2.  Selecione a instância de termos e condições que pretende editar e, em seguida, faça duplo clique para abri-la.  
+2.  Выберите экземпляр условий, который требуется изменить, и откройте его с помощью двойного щелчка.  
 
-3.  Pode modificar o conteúdo na página **Geral** ou **Termos** para fazer edições necessárias.  
+3.  Вы можете отредактировать содержимое на странице **Общие** или **Условия** для внесения необходимых изменений.  
 
-4.  Na página **Termos** , pode especificar se esta nova versão necessita que todos os utilizadores aceitem os termos e condições ou apenas os novos utilizadores irão ver a nova versão.  
+4.  На странице **Условия** укажите, требуется ли для этой новой версии, чтобы условия приняли все пользователи, или новую версию увидят только новые пользователи.  
 
-     Recomendamos que aumente o número da versão e solicite a aceitação sempre que efetuar alterações significativas aos termos e condições. Mantenha o número da versão atual se, por exemplo, estiver a corrigir erros de digitação ou a alterar a formatação.
+     Мы рекомендуем увеличивать номер версии и требовать принимать условия при каждом внесении существенных изменений в условия. При исправлении опечаток или, например, изменении форматирования, не изменяйте номер текущей версии.
 
 > [!div class="button"]
-[< Anterior passo](configure-intune-subscription.md)[passo seguinte >  ](create-service-connection-point.md)
+[< Назад](configure-intune-subscription.md) [Вперед >](create-service-connection-point.md)

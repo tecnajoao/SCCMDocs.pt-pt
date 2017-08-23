@@ -1,6 +1,6 @@
 ---
-title: Implementar Wi-Fi, VPN, e-mail e perfis de certificado | Microsoft Docs
-description: Saiba como implementar Wi-Fi, VPN, e-mail e perfis de certificado no System Center Configuration Manager.
+title: "Развертывание профилей Wi-Fi, VPN, электронной почты и сертификатов | Документы Майкрософт"
+description: "Узнайте, как развернуть профили Wi-Fi, VPN, электронной почты и сертификатов в System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,59 +16,59 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 70372d5df13034b48f3e43b766776442f1be5823
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-profiles-in-system-center-configuration-manager"></a>Implementar perfis no System Center Configuration Manager
+# <a name="deploy-profiles-in-system-center-configuration-manager"></a>Развертывание профилей в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Perfis devem ser implementados numa ou mais coleções para que poderem ser utilizados.  
+Профили должны быть развернуты в одной или нескольких коллекциях, прежде чем их можно будет использовать.  
 
- Utilize o **implementar perfil Wi-Fi**, **implementar perfil VPN**, **implementar perfil do Exchange ActiveSync**, ou **implementar perfil de certificado** caixa de diálogo para configurar a implementação destes perfis. Como parte da configuração, pode define a coleção à qual o perfil é ser implementado e especificar com que frequência o perfil é avaliado relativamente a compatibilidade.  
+ Чтобы настроить развертывание профилей, используйте диалоговое окно **Развернуть профиль Wi-Fi**, **Развернуть профиль VPN**, **Развернуть профиль Exchange ActiveSync** или **Развернуть профиль сертификата**. Настройка включает определение коллекции, в которой будет развернут профиль, и указание частоты проверки профиля на соответствие.  
 
 > [!NOTE]  
->  Se implementar vários perfis de acesso a recursos da empresa para o mesmo utilizador, ocorre o seguinte comportamento:  
+>  При развертывании нескольких профилей доступа к ресурсам организации для одного и того же пользователя происходит следующее.  
 >   
->  -   Se uma definição em conflito contiver um valor opcional, este não será enviado para o dispositivo.  
-> -   Se uma definição em conflito contiver um valor obrigatório, o valor predefinido será enviado para o dispositivo. Se não existir um valor predefinido, todo o perfil de acesso a recursos da empresa irá falhar. Por exemplo, se implementar dois perfis de e-mail no mesmo utilizador e os valores especificados para **Anfitrião do Exchange ActiveSync** ou **Endereço de e-mail** forem diferentes, ambos os perfis de e-mail irão falhar, uma vez que são definições obrigatórias.  
+>  -   Если конфликтующий параметр содержит необязательное значение, он не будет отправлен на устройство.  
+> -   Если конфликтующий параметр содержит обязательное значение,на устройство будет отправлено значение по умолчанию. Если значение по умолчанию отсутствует, произойдет сбой всего профиля доступа к ресурсам организации. Например, если вы развертываете два профиля электронной для одного пользователя, и значения, указанные для **узла Exchange ActiveSync** или **адреса электронной почты** различаются, то произойдет сбой обоих профилей электронной почты, так как это обязательные параметры.  
 
-> -   Para poder implementar perfis de certificado, primeiro é necessário configurar a infraestrutura e criar perfis de certificado. Para obter mais informações, consulte os tópicos seguintes:  
+> -   Перед развертыванием профилей сертификатов сначала необходимо настроить инфраструктуру и создать профили сертификатов. Дополнительные сведения см. в следующих разделах:  
 >   
->  -   [Configurar a infraestrutura de certificado no System Center Configuration Manager](certificate-infrastructure.md)  
-> -   [Como criar perfis de certificado no System Center Configuration Manager](create-certificate-profiles.md)    
+>  -   [Настройка инфраструктуры сертификатов в System Center Configuration Manager](certificate-infrastructure.md)  
+> -   [Создание профилей сертификатов в System Center Configuration Manager](create-certificate-profiles.md)    
 
 > [!IMPORTANT]  
->  Quando uma implementação de perfil VPN é removida, não é removido dos dispositivos cliente. Se pretender remover o perfil dos dispositivos, tem de removê-lo manualmente.
+>  При удалении развертывания профиля VPN оно не удаляется с клиентских устройств. Для удаления профиля c устройств его необходимо удалить вручную.
 >   
 
-## <a name="deploying--profiles"></a>Implementação de perfis  
+## <a name="deploying--profiles"></a>Развертывание профилей  
 
 
-1.  Na consola do System Center Configuration Manager, escolha **ativos e compatibilidade**.  
+1.  В консоли System Center Configuration Manager выберите элемент **Активы и соответствие**.  
 
-2.  No **ativos e compatibilidade** área de trabalho, expanda **as definições de compatibilidade**, expanda **acesso a recursos da empresa**e, em seguida, escolha o tipo de perfil adequado, tais como **perfis Wi-Fi**.  
+2.  В рабочей области **Активы и соответствие** разверните узлы **Параметры соответствия** и **Доступ к ресурсам компании**, а затем выберите нужный тип профиля, например **Профили Wi-Fi**.  
 
-3.  Na lista de perfis, selecione o perfil que pretende implementar, e, em seguida, no **home page** separador o **implementação** , clique em **implementar**.  
+3.  В списке профилей выберите профиль, который необходимо развернуть, а затем на вкладке **Главная** в группе **Развертывание** щелкните элемент **Развернуть**.  
 
-4.  Na caixa de diálogo de perfil a implementar, especifique as seguintes informações:  
+4.  В диалоговом окне развертывания профиля укажите приведенные ниже сведения.  
 
-    -   **Coleção** -clique em **procurar** para selecionar a coleção onde pretende implementar o perfil.  
+    -   **Коллекция**. Нажмите кнопку **Обзор**, чтобы выбрать коллекцию, в которой необходимо развернуть профиль.  
 
-    -   **Gerar um alerta** -ative esta opção para configurar um alerta que é gerado se a compatibilidade do perfil é inferior a uma percentagem especificada por uma data e hora especificadas. Também pode especificar se pretende que seja enviado um alerta para o System Center Operations Manager.  
+    -   **Создать оповещение**. Включите этот параметр, чтобы настроить оповещение, которое создается, если соответствие профиля меньше заданного процентного значения в указанную дату и время. Также можно указать, требуется ли отправлять оповещение в System Center Operations Manager.  
 
-    -   -   **Atraso aleatório (horas)**: (Apenas para perfis de certificado que contêm as definições de Simple Certificate Enrollment Protocol) Especifica uma janela de atraso para evitar processamento excessivo no serviço de inscrição de dispositivos de rede. O valor predefinido é **64** horas.  
+    -   -   **Произвольная задержка (ч)** (только для профилей сертификатов, которые содержат параметры протокола SCEP). Указывает период задержки во избежание перегрузки службы регистрации сертификатов для сетевых устройств. Значение по умолчанию: **64** часа.  
 
-    -   **Especifique o agendamento de avaliação de compatibilidade para este <type> perfil** -especifique o agendamento através do qual o perfil implementado é avaliado nos computadores cliente. O agendamento pode ser simples ou personalizado.  
+    -   **Укажите расписание проверки соответствия для этого профиля <type>**. Укажите расписание проверки развернутого профиля на клиентских компьютерах. Это может быть простое или настраиваемое расписание.  
 
         > [!NOTE]  
-        >  O perfil é avaliado por computadores cliente quando o utilizador inicia sessão.  
+        >  Проверка профиля выполняется клиентскими компьютерами при входе пользователя в систему.  
 
-5.  Clique em **OK** para fechar a caixa de diálogo e criar a implementação.
+5.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно и создать развертывание.
 
-### <a name="see-also"></a>Consulte também  
+### <a name="see-also"></a>См. также  
 
-[Como monitorizar Wi-Fi, VPN e perfis de e-mail no System Center Configuration Manager](monitor-wifi-email-vpn-profiles.md)
+[Мониторинг профилей Wi-Fi, VPN и электронной почты в System Center Configuration Manager](monitor-wifi-email-vpn-profiles.md)
 
-[Como monitorizar perfis de certificado no System Center Configuration Manager](monitor-certificate-profiles.md)
+[Мониторинг профилей сертификатов в System Center Configuration Manager](monitor-certificate-profiles.md)

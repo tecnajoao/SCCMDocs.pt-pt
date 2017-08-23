@@ -1,6 +1,6 @@
 ---
-title: "Inventário de software para dispositivos móveis inscritos com o Microsoft Intune | Microsoft Docs"
-description: "Inventário de software para dispositivos móveis inscritos com o Microsoft Intune."
+title: "Инвентаризация программного обеспечения для мобильных устройств, зарегистрированных с помощью Microsoft Intune | Документация Майкрософт"
+description: "Инвентаризация программного обеспечения для мобильных устройств, зарегистрированных с помощью Microsoft Intune."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,28 +17,28 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 2ed79d02535768de136947e4a5b63ad186d9a3cd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="software-inventory-for-mobile-devices-enrolled-with-microsoft-intune"></a>Inventário de software para dispositivos móveis inscritos no Microsoft Intune
+# <a name="software-inventory-for-mobile-devices-enrolled-with-microsoft-intune"></a>Инвентаризация программного обеспечения для мобильных устройств, зарегистрированных с помощью Microsoft Intune
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
- Pode recolher inventário para as aplicações instaladas em dispositivos móveis. As aplicações que são colocadas no inventários irão depender se o dispositivo é empresarial ou pessoal. Para dispositivos pessoais, as únicas aplicações que são colocadas em inventário são as aplicações que são geridas pelo Microsoft Intune.  
+ Вы можете собирать данные инвентаризации по приложениям, установленным на мобильных устройствах. Перечень приложений будет зависеть от типа владения устройством — принадлежащее компании или личное. В случае если устройство является личным, процесс инвентаризации проходят только приложения, которыми управляет Microsoft Intune.  
 
 > [!NOTE]  
->  Inventário nas aplicações instaladas em dispositivos móveis é recolhido como parte do [inventário de hardware](mobile-device-hardware-inventory-hybrid.md) processo.  
+>  Данные инвентаризации по приложениям, установленным на мобильных устройствах, собираются в рамках процесса [инвентаризации оборудования](mobile-device-hardware-inventory-hybrid.md).  
 
- Seguem-se as aplicações que são colocadas em inventário para dispositivos de propriedade pessoal ou pertencendo à empresa.  
+ Ниже указано, какие приложения включаются в данные инвентаризации для личных устройств или устройств, принадлежащих компании.  
 
-|Plataforma|Em Dispositivos Pessoais|Para Dispositivos Pertencentes à Empresa|  
+|Платформа|Для личных устройств|Для устройств, принадлежащих компании|  
 |--------------|---------------------------------|--------------------------------|  
-|Windows 10 (sem o cliente do Configuration Manager)|Apenas aplicações geridas|Apenas aplicações geridas|
-|Windows 8.1 (sem o cliente do Configuration Manager)|Apenas aplicações geridas|Apenas aplicações geridas|  
-|Windows Phone 8|Apenas aplicações geridas|Apenas aplicações geridas|  
-|Windows RT|Apenas aplicações geridas|Apenas aplicações geridas|  
-|iOS|Apenas aplicações geridas|Todas as aplicações instaladas no dispositivo|  
-|Android|Apenas aplicações geridas|Todas as aplicações instaladas no dispositivo|  
+|Windows 10 (без клиента Configuration Manager)|Только управляемые приложения|Только управляемые приложения|
+|Windows 8.1 (без клиента Configuration Manager)|Только управляемые приложения|Только управляемые приложения|  
+|Windows Phone 8|Только управляемые приложения|Только управляемые приложения|  
+|Windows RT|Только управляемые приложения|Только управляемые приложения|  
+|iOS|Только управляемые приложения|Все приложения, установленные на устройстве|  
+|Android|Только управляемые приложения|Все приложения, установленные на устройстве|  
 
-Consulte [introdução ao inventário de software](../../core/clients/manage/inventory/introduction-to-software-inventory.md) e [como configurar inventário de software ](../../core/clients/manage/inventory/configure-software-inventory.md) para obter informações detalhadas sobre como utilizar o inventário de software para recolher informações de ficheiros nos dispositivos cliente.
+Подробные сведения об использовании инвентаризации программного обеспечения для сбора информации о файлах на клиентских устройствах см. в статьях [Общие сведения об инвентаризации программного обеспечения в System Center Configuration Manager](../../core/clients/manage/inventory/introduction-to-software-inventory.md) и [Настройка инвентаризации программного обеспечения в System Center Configuration Manager](../../core/clients/manage/inventory/configure-software-inventory.md).

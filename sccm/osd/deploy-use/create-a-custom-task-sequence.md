@@ -1,6 +1,6 @@
 ---
-title: "Criar uma sequência de tarefas personalizada | Microsoft Docs"
-description: "Edite uma sequência de tarefas personalizada no System Center Configuration Manager, para adicionar passos à sequência de tarefas."
+title: "Создание настраиваемой последовательности задач | Документы Майкрософт"
+description: "Вы можете изменить настраиваемую последовательность задач в System Center Configuration Manager, чтобы добавить в нее дополнительные шаги."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,38 +17,38 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 03c844084c72fc52806123d9f4c11a410a3ec775
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-custom-task-sequence-with-system-center-configuration-manager"></a>Criar uma sequência de tarefas personalizada com o System Center Configuration Manager
+# <a name="create-a-custom-task-sequence-with-system-center-configuration-manager"></a>Создание настраиваемой последовательности задач в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Quando criar uma sequência de tarefas personalizada no System Center Configuration Manager, contém passos de sequência de tarefas. Depois de criar a sequência de tarefas, terá de editá-la e adicionar os passos de sequência de tarefas de que precisa.  
+При создании настраиваемой последовательности задач в System Center Configuration Manager она не содержит шаги. После создания последовательности необходимо изменить ее и добавить требуемые шаги.  
 
-##  <a name="BKMK_CustomTS"></a> Criar uma sequência de tarefas personalizada  
- Utilize o procedimento seguinte para criar uma sequência de tarefas personalizada.  
+##  <a name="BKMK_CustomTS"></a> Создание настраиваемой последовательности задач  
+ Чтобы создать настраиваемую последовательность задач, воспользуйтесь описанной ниже процедурой.  
 
-#### <a name="to-create-a-custom-task-sequence"></a>Para criar uma sequência de tarefas personalizada  
+#### <a name="to-create-a-custom-task-sequence"></a>Создание настраиваемой последовательности задач  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
+3.  В группе **Создать** вкладки **Главная** выберите команду **Создать последовательность задач** , чтобы запустить мастер создания последовательности задач.  
 
-4.  Na página **Criar uma Nova Sequência de Tarefas** , selecione **Criar uma nova sequência de tarefas personalizada**.  
+4.  На странице **Создание новой последовательности задач** выберите команду **Создание новой последовательности задач**.  
 
-5.  Na página **Informações da Sequência de Tarefas** , especifique um nome para a sequência de tarefas, uma descrição da sequência de tarefas e uma imagem de arranque opcional para a sequência de tarefas utilizar e, em seguida, conclua o assistente.  
+5.  На странице **Сведения о последовательности задач** укажите имя последовательности задач, описание последовательности задач и дополнительный загрузочный образ, используемый последовательностью задач, а затем завершите работу мастера.  
 
- Depois de concluir o Assistente de criação de sequência de tarefas, o Configuration Manager adiciona a sequência de tarefas personalizada para o **sequências de tarefas** nós. Pode agora editar esta sequência de tarefas para lhe adicionar passos de sequência de tarefas.  
+ После завершения работы мастера создания последовательности задач Configuration Manager добавляет настраиваемую последовательность задач в узел **Последовательности задач**. Теперь последовательность задач можно отредактировать, добавив в нее шаги последовательности задач.  
 
- Para obter uma lista dos passos de sequência de tarefas disponíveis, consulte [passos de sequência de tarefas](../understand/task-sequence-steps.md).  
+ Список доступных шагов последовательности задач см. в статье [Шаги последовательности задач](../understand/task-sequence-steps.md).  
 
- Para obter mais informações sobre como editar uma sequência de tarefas, consulte [editar uma sequência de tarefas](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+ Дополнительные сведения об изменении последовательности задач см. в статье [Изменение последовательности задач](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
 
- Mais frequentemente irá utilizar as sequências de tarefas para automatizar as tarefas de implementação do sistema operativo, mas pode criar uma sequência de tarefas personalizada para automatizar uma variedade de tarefas. Para obter mais informações, consulte [criar uma sequência de tarefas para implementações do sistema de operativo](create-a-task-sequence-for-non-operating-system-deployments.md).  
+ Чаще всего последовательности задач используются для автоматизации задач развертывания операционной системы, однако можно создать настраиваемую последовательность для автоматизации различных задач. Дополнительные сведения см. в статье [Создание последовательности задач для развертывания операционных систем](create-a-task-sequence-for-non-operating-system-deployments.md).  
 
- ## <a name="next-steps"></a>Passos seguintes
- [Implementar a sequência de tarefas](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS)
+ ## <a name="next-steps"></a>Дальнейшие действия
+ [Развертывание последовательности задач](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS)

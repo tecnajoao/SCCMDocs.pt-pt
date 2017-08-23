@@ -1,6 +1,6 @@
 ---
-title: "Planear e configurar a gestão de aplicações | Microsoft Docs"
-description: "Implementar e configurar as dependências necessárias para implementar aplicações no System Center Configuration Manager."
+title: "Планирование и настройка управления приложениями | Документы Майкрософт"
+description: "Внедрите и настройте необходимые зависимости для развертывания приложений в System Center Configuration Manager."
 ms.custom: na
 ms.date: 02/09/2017
 ms.prod: configuration-manager
@@ -16,211 +16,211 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 46cc3fcfd9516cf1c124e24b50d0aac0cb0025dc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-and-configure-application-management-in-system-center-configuration-manager"></a>Planear e configurar a gestão de aplicações no System Center Configuration Manager
+# <a name="plan-for-and-configure-application-management-in-system-center-configuration-manager"></a>Планирование и настройка управления приложениями в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as informações neste artigo para o ajudar a implementar as dependências necessárias para implementar aplicações no System Center Configuration Manager.  
+Используйте сведения в этом разделе, чтобы внедрить необходимые зависимости для развертывания приложений в System Center Configuration Manager.  
 
-## <a name="dependencies-external-to-configuration-manager"></a>Dependências externas ao Configuration Manager  
+## <a name="dependencies-external-to-configuration-manager"></a>Внешние зависимости Configuration Manager  
 
-|Dependência|Mais informações|  
+|Зависимость|Дополнительные сведения|  
 |------------------|----------------------|  
-|Os Serviços de Informação Internet (IIS) são necessários nos servidores do sistema de sites que executam o ponto de sites do Catálogo de Aplicações, o ponto de serviço Web do Catálogo de Aplicações, o ponto de gestão e o ponto de distribuição.|Para obter mais informações sobre este requisito, consulte [configurações suportadas](../../core/plan-design/configs/supported-configurations.md).|  
-|Dispositivos móveis que são inscritos pelo Configuration Manager|Quando as aplicações de assinar com código para implementá-las em dispositivos móveis, não utilize um certificado que foi gerado utilizando um modelo da versão 3 (**Windows Server 2008, Enterprise Edition**). Este modelo de certificado cria um certificado que não é compatível com aplicações do Configuration Manager para dispositivos móveis.<br /><br /> Se utilizar o Active Directory Certificate Services para aplicações de assinar com código para aplicações para dispositivos móveis, não utilize um modelo de certificado da versão 3.|  
-|Os clientes devem ser configurados para auditar eventos de início de sessão, se pretender criar automaticamente afinidades de dispositivo do utilizador.|O cliente do Configuration Manager lê os eventos de início de sessão do tipo **êxito** do registo de eventos de segurança de PCs para determinar afinidades dispositivo / utilizador automáticas.  Estes eventos estão ativados pelas políticas de dois auditoria seguintes: "<br>**Auditar eventos de início de sessão de conta**<br>**Auditar eventos de início de sessão**<br>Para criar automaticamente relações entre utilizadores e dispositivos, certifique-se de que estas duas definições estão ativadas nos computadores cliente. Pode utilizar a Política de Grupo do Windows para configurar estas definições.|  
+|Службы IIS требуются на серверах системы сайта, на которых есть точка веб-сайта каталога приложений, точка веб-службы каталога приложений, точка управления и точка распространения.|Дополнительные сведения об этом требовании см. в разделе [Поддерживаемые конфигурации](../../core/plan-design/configs/supported-configurations.md).|  
+|мобильные устройства, зарегистрированные Configuration Manager;|Если вы подписываете код приложения для развертывания на мобильных устройствах, не используйте сертификат, созданный на основе шаблона версии 3 (**Windows Server 2008, выпуск Enterprise**). На основе этого шаблона создаются сертификаты, не совместимые с приложениями Configuration Manager для мобильных устройств.<br /><br /> Если используются службы сертификатов Active Directory для подписания кода приложений для мобильных устройств, не следует использовать версию 3 шаблона сертификатов.|  
+|Для клиентов должен быть настроен аудит событий входа в систему, если требуется автоматически создавать сопоставления пользователей и устройств.|Клиент Configuration Manager считывает события входа в систему с типом **Успешно** из журналов событий безопасности на ПК для определения автоматических сопоставлений пользователей и устройств.  Эти события включаются с помощью следующих двух политик аудита:<br>**Аудит событий входа в учетную запись**<br>**Аудит событий входа в систему**<br>Для автоматического создания отношений между пользователями и устройствами убедитесь, что эти два параметра включены на клиентских компьютерах. Эти параметры можно настроить с помощью групповой политики Windows.|  
 
-## <a name="configuration-manager-dependencies"></a>Dependências do Configuration Manager   
+## <a name="configuration-manager-dependencies"></a>Зависимости Configuration Manager   
 
-|Dependência|Mais informações|  
+|Зависимость|Дополнительные сведения|  
 |------------------|----------------------|  
-|Ponto de gestão|Os clientes contactar um ponto de gestão para transferir a política de cliente, para localizar os conteúdos e para estabelecer ligação ao catálogo de aplicações.<br /><br /> Se os clientes não conseguirem aceder a um ponto de gestão, não poderão utilizar o Catálogo de Aplicações.|  
-|Ponto de distribuição|Antes da implementação das aplicações nos clientes, tem de ter pelo menos um ponto de distribuição na hierarquia. Por predefinição, durante uma instalação padrão, o servidor do site tem uma função de site do ponto de distribuição ativada. O número e a localização dos pontos de distribuição varia consoante os requisitos específicos da sua empresa.<br /><br /> Para obter mais informações sobre como instalar pontos de distribuição e gerir conteúdo, consulte [gerir a infraestrutura de conteúdo e conteúda](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).|  
-|Definições do cliente|Muitas definições de cliente controlam a forma como as aplicações são instaladas no cliente e o utilizador experiência no cliente. Estas definições do cliente incluem o seguinte:<br /><br /><ul><li>Agente do computador</li><li>Reinício do computador</li><li>Implementação de software</li><li>Afinidade de dispositivo e utilizador</li></ul> Para obter mais informações sobre estas definições de cliente, consulte [sobre definições de cliente](../../core/clients/deploy/about-client-settings.md).<br /><br /> Para sobre como configurar definições de cliente, consulte [como configurar as definições de cliente](../../core/clients/deploy/configure-client-settings.md).|  
-|Para o Catálogo de Aplicações:<br /><br /> Contas de utilizador detetadas|O Configuration Manager primeiro tem de detetar utilizadores, para que poderem ver e solicitar aplicações a partir do catálogo de aplicações. Para obter mais informações, consulte [executar a deteção](/sccm/core/servers/deploy/configure/run-discovery).|  
-|Cliente de App-V 4.6 SP1 ou posterior para executar aplicações virtuais|Para poder criar aplicações virtuais no Configuration Manager, computadores cliente tem de ter o App-V 4.6 SP1 cliente ou posterior instalado.<br /><br /> Tem também de atualizar o cliente de App-V com a correção descrita na Base de dados de conhecimento [artigo 2645225](http://go.microsoft.com/fwlink/p/?LinkId=237322) antes de poder implementar aplicações virtuais.|  
-|Ponto de serviço Web do Catálogo de Aplicações|O ponto de serviço Web do Catálogo de Aplicações é uma função do sistema de sites que fornece informações sobre software disponível na Biblioteca de Software para o Web site do Catálogo de Aplicações.<br /><br /> Para obter mais informações sobre como configurar esta função de sistema de sites, consulte [configurar o Centro de Software e o catálogo de aplicações (apenas PCs Windows)](/sccm/apps/plan-design/plan-for-and-configure-application-management#configure-software-center-and-the-application-catalog-windows-pcs-only) neste artigo.|  
-|Ponto de site do Catálogo de Aplicações|O ponto do Web site do Catálogo de Aplicações é uma função do sistema de sites que fornece aos utilizadores uma lista de software disponível.<br /><br /> Para obter mais informações sobre como configurar esta função de sistema de sites, consulte [configurar o Centro de Software e o catálogo de aplicações (apenas PCs Windows)](/sccm/apps/plan-design/plan-for-and-configure-application-management#configure-software-center-and-the-application-catalog-windows-pcs-only) neste artigo.|  
-|Ponto do Reporting Services|Para poder utilizar os relatórios no Configuration Manager para gestão de aplicações, tem primeiro de instalar e configurar um ponto do Reporting Services.<br /><br /> Para obter mais informações, veja [Relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).|  
-|Permissões de segurança para gestão de aplicações|Tem de ter as seguintes permissões de segurança para gerir aplicações.<br /><br /> O **autor da aplicação** função de segurança inclui as permissões listadas anteriormente que são necessárias para criar, alterar e extinguir aplicações no Configuration Manager.<br /><br /> **Para implementar aplicações:**<br /><br /> O **Gestor de implementação de aplicação** função de segurança inclui as permissões listadas anteriormente que são necessários para implementar aplicações no Configuration Manager.<br /><br /> O **administrador da aplicação** função de segurança tem todas as permissões de ambas as **autor da aplicação** e o **Gestor de implementação de aplicação** funções de segurança.<br /><br /> Para obter mais informações, consulte [configurar a administração baseada em funções](../../core/servers/deploy/configure/configure-role-based-administration.md).|  
+|Точка управления.|Клиенты связываются с точкой управления, чтобы скачать клиентскую политику, найти контент и подключиться к каталогу приложений.<br /><br /> Если точка управления недоступна клиентам, они не могут использовать Каталог приложений.|  
+|Точка распространения.|Для развертывания приложений на клиентах необходимо, чтобы в иерархии существовала хотя бы одна точка распространения. Во время стандартной установки роль точки распространения по умолчанию включена на сервере сайта. Количество и расположение точек распространения зависит от особенностей вашего предприятия.<br /><br /> Дополнительные сведения об установке точек распространения и управлении содержимым см. в разделе [Управление содержимым и инфраструктурой содержимого](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).|  
+|Параметры клиента|Многие клиентские параметры управляют тем, как приложения устанавливаются на клиенте, и взаимодействием пользователя с клиентом. Сюда, в частности, входит следующее.<br /><br /><ul><li>Агент компьютера</li><li>Перезагрузка компьютера</li><li>Развертывание программного обеспечения</li><li>Сопоставление пользователей и устройств</li></ul> Дополнительные сведения о этих параметрах клиентов см. в разделе [О параметрах клиентов](../../core/clients/deploy/about-client-settings.md).<br /><br /> Сведения о настройке параметров клиента см. в разделе [Настройка параметров клиента](../../core/clients/deploy/configure-client-settings.md).|  
+|Для каталога приложений.<br /><br /> Обнаруженные учетные записи пользователей|Чтобы пользователи могли просматривать и запрашивать приложения из каталога приложений, они должны сначала быть обнаружены в Configuration Manager. Дополнительные сведения см. в разделе [Запуск обнаружения](/sccm/core/servers/deploy/configure/run-discovery).|  
+|Клиент App-V 4.6 с пакетом обновления 1 (SP1) или более поздней версии для запуска виртуальных приложений|Для создания виртуальных приложений в Configuration Manager на клиентских компьютерах должен быть установлен клиент App-V 4.6 с пакетом обновления 1 (SP1) или более поздней версии.<br /><br /> Кроме того, для развертывания виртуальных приложений необходимо обновить клиент App-V, установив исправление, описанное в [статье 2645225](http://go.microsoft.com/fwlink/p/?LinkId=237322) базы знаний.|  
+|Точка веб-службы каталога приложений|Точка веб-службы каталога приложений — это роль системы сайта, которая предоставляет информацию о доступном программном обеспечении из библиотеки для веб-сайта каталога приложения.<br /><br /> Дополнительные сведения о настройке этой роли системы сайта см. в подразделе [Настройка центра программного обеспечения и каталога приложений (только для компьютеров Windows)](/sccm/apps/plan-design/plan-for-and-configure-application-management#configure-software-center-and-the-application-catalog-windows-pcs-only) этого раздела.|  
+|Точка веб-сайта каталога приложений.|Точка веб-сайта каталога приложений — это роль системы сайта, которая обеспечивает доступ к списку доступного ПО.<br /><br /> Дополнительные сведения о настройке этой роли системы сайта см. в подразделе [Настройка центра программного обеспечения и каталога приложений (только для компьютеров Windows)](/sccm/apps/plan-design/plan-for-and-configure-application-management#configure-software-center-and-the-application-catalog-windows-pcs-only) этого раздела.|  
+|Точка служб отчетов|Для использования отчетов Configuration Manager при управлении приложениями необходимо установить и настроить точку служб отчетов.<br /><br /> Дополнительные сведения см. в статье [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).|  
+|Разрешения безопасности для управления приложениями.|Необходимо иметь следующие разрешения безопасности, чтобы управлять приложениями.<br /><br /> Роль безопасности **Автор приложения** включает эти разрешения. Они необходимы для создания, изменения и прекращения использования приложений в Configuration Manager.<br /><br /> **Развертывание приложений**<br /><br /> Эти разрешения, необходимые для развертывания приложений в Configuration Manager, включены в роль безопасности **Менеджер развертывания приложений**.<br /><br /> Роль безопасности **Администратор приложения** имеет все разрешения ролей безопасности **Автор приложения** и **Менеджер по развертыванию приложений**.<br /><br /> Дополнительные сведения см. в разделе [Настройка ролевого администрирования](../../core/servers/deploy/configure/configure-role-based-administration.md).|  
 
-##  <a name="configure-software-center-and-the-application-catalog-windows-pcs-only"></a>Configurar o Centro de Software e o Catálogo de Aplicações (apenas PCs Windows)  
+##  <a name="configure-software-center-and-the-application-catalog-windows-pcs-only"></a>Настройка центра программного обеспечения и каталога приложений (только для компьютеров Windows)  
 
- No System Center Configuration Manager, tem agora duas opções para os utilizadores alterar as definições, procurar as aplicações e instalar aplicações:  
+ В System Center Configuration Manager пользователям теперь доступно два варианта изменения параметров, поиска и установки приложений.  
 
--   **O novo Centro de Software** -novo Centro de Software tem um aspeto Moderno. As aplicações que eram apenas no catálogo de aplicações dependente do Silverlight (aplicações disponíveis ao utilizador) agora apresentadas no Centro de Software no **aplicações** separador. O catálogo de aplicações ainda podem ser acedido utilizando a hiperligação sob o **estado da instalação** separador do Centro de Software.  
+-   **Новый центр программного обеспечения** — центр программного обеспечения получил новый, современный интерфейс. Приложения, которые ранее отображались только в каталоге приложений, зависимом от Silverlight (приложения, доступные для пользователя), теперь доступны в центре программного обеспечения на вкладке **Приложения**. Каталог приложений по-прежнему доступен по ссылке на вкладке **Состояние установки** центра программного обеспечения.  
 
-     Para configurar clientes para que utilizem o novo Centro de Software, ative a definição de cliente **Agente do Computador** > **Utilizar o novo Centro de Software**.  
+     Можно настроить клиенты на использование нового центра программного обеспечения, включив параметр клиента **Агент компьютера** > **Использовать новый центр программного обеспечения**.  
 
     > [!IMPORTANT]  
-    >  Apesar de já não precisam de estabelecer ligação ao catálogo de aplicações, tem ainda de configurar o ponto de Web site do catálogo de aplicações e o ponto de serviço web do catálogo de aplicações conforme especificado na secção seguinte.  
+    >  Хотя вам больше не нужно подключаться к каталогу приложений, необходимо все равно настроить точку веб-сайта каталога приложений и точку веб-службы каталога приложений, как описано в следующем разделе.  
 
--   **O Centro de Software anterior e o Catálogo de Aplicações** - Por predefinição, os utilizadores continuam a ligar-se à versão anterior do Centro de Software e a ligar-se ao Catálogo de Aplicações (é necessário um browser com capacidade para Silverlight) para procurar as aplicações disponíveis.  
+-   **Предыдущий центр программного обеспечения и каталог приложений** — по умолчанию пользователи продолжают подключаться к предыдущей версии центра программного обеспечения и каталогу приложений (требуется веб-браузер с поддержкой Silverlight) для просмотра доступных приложений.  
 
- Independentemente da versão optar por utilizar, o Centro de Software é instalado automaticamente quando instala o cliente do Configuration Manager em Windows PCs.  
+ Какую бы версию вы ни выбрали, центр программного обеспечения устанавливается автоматически при установке клиента System Center Configuration Manager на компьютеры с ОС Windows.  
 
     > [!TIP]  
-    >  A versão do Centro de Software que os utilizadores visualizam baseia-se nas definições de cliente do Configuration Manager. Isto dá-lhe a flexibilidade para a versão que está a ser utilizada com base nas definições de cliente personalizadas que implementa para uma coleção de controlo. 
+    >  Версия центра программного обеспечения, доступная пользователям, зависит от параметров клиента Configuration Manager. Это позволяет гибко управлять используемой версией с помощью настраиваемых параметров клиента, развертываемых в коллекции. 
 
     > [!IMPORTANT]
-    > Nos próximos meses, iremos irá remover a versão anterior do Centro de Software e já não estarão disponível para utilização.
-    > Para configurar clientes para que utilizem o novo Centro de Software, ative a definição de cliente **Agente do Computador** > **Utilizar o novo Centro de Software**. 
+    > В ближайшие месяцы мы удалим предыдущую версию Центра программного обеспечения, и она больше не будет доступна для использования.
+    > Можно настроить клиенты на использование нового центра программного обеспечения, включив параметр клиента **Агент компьютера** > **Использовать новый центр программного обеспечения**. 
 
-## <a name="steps-to-install-and-configure-the-application-catalog-and-software-center"></a>Passos para instalar e configurar o Catálogo de Aplicações e o Centro de Software  
+## <a name="steps-to-install-and-configure-the-application-catalog-and-software-center"></a>Этапы установки и настройки каталога приложений и центра программного обеспечения  
 
 > [!IMPORTANT]  
->  Antes de efetuar estes passos, certifique-se de que cumpriu todos os pré-requisitos listados anteriormente.  
+>  Перед выполнением этих действий убедитесь в том, что соблюдены все указанные выше необходимые условия.  
 
-|Passos|Detalhes|Mais informações|  
+|Шаги|Подробные сведения|Дополнительные сведения|  
 |-----------|-------------|----------------------|  
-|**Passo 1:** Se pretender utilizar ligações HTTPS, certifique-se de que implementou um certificado de servidor web nos servidores do sistema de sites.|Implemente um certificado do servidor Web nos servidores do sistema de sites que executarão o ponto do Web site do Catálogo de Aplicações e o ponto de serviço Web do Catálogo de Aplicações.<br /><br /> Além disso, se pretender que os clientes para utilizarem o catálogo de aplicações da Internet, implemente um certificado de servidor web para o servidor do sistema de sites de ponto de gestão, pelo menos, um e configurá-la para ligações de cliente a partir da Internet.|Para mais informações sobre os requisitos de certificados, consulte [requisitos dos certificados PKI](../../core/plan-design/network/pki-certificate-requirements.md).|  
-|**Passo 2:** Se irá utilizar um certificado PKI de cliente para ligações a pontos de gestão, implemente um certificado de autenticação de cliente para computadores cliente.|Embora os clientes não utilizam um certificado PKI de cliente para estabelecer ligação ao catálogo de aplicações, precisam de estabelecer ligação ao ponto de gestão antes de poderem utilizar o catálogo de aplicações. Tem de implementar um certificado de autenticação de cliente nos computadores cliente nos seguintes cenários:<br /><br /><ul><li>Todos os pontos de gestão na intranet aceitam apenas ligações de cliente HTTPS.</li><li>Os clientes estabelecerão ligação ao catálogo de aplicações da Internet.</li></ul>|Para mais informações sobre os requisitos de certificados, consulte [requisitos dos certificados PKI](../../core/plan-design/network/pki-certificate-requirements.md).|  
-|**Passo 3:** Instalar e configurar o ponto de serviço web do catálogo de aplicações e o Web site do catálogo de aplicações.|Tem de instalar ambas as funções de sistema de sites no mesmo site. Não necessita de as instalar no mesmo servidor do sistema de sites nem na mesma floresta do Active Directory. No entanto, o ponto de serviço web do catálogo de aplicações tem de ser na mesma floresta que a base de dados do site.|Para mais informações sobre o posicionamento de funções de sistema de sites, consulte [planear servidores de sistema de sites e funções de sistema de sites](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).<br /><br /> Para configurar o ponto de serviço web do catálogo de aplicações e o ponto de Web site do catálogo de aplicações, consulte **passo 3: Instalar e configurar as funções de sistema de sites do catálogo de aplicações**.|  
-|**Passo 4:** Configure definições de cliente para o catálogo de aplicações e o Centro de Software.|Se pretender que todos os utilizadores tenham a mesma definição, configure as predefinições do cliente. Caso contrário, configure definições do cliente personalizadas para coleções específicas.|Para obter mais informações sobre definições de cliente, consulte [sobre definições de cliente](../../core/clients/deploy/about-client-settings.md).<br /><br /> Para obter mais informações sobre como configurar estas definições de cliente, consulte **passo 4: Configurar as definições de cliente para o catálogo de aplicações e o Centro de Software**.|  
-|**Passo 5:** Certifique-se de que o catálogo de aplicações está operacional.|Pode utilizar o catálogo de aplicações diretamente a partir de um browser ou a partir do Centro de Software.|Consulte **passo 5: Verifique se o catálogo de aplicações está operacional**.|  
+|**Шаг 1.** Если будут использоваться HTTPS-подключения, убедитесь, что вы выполнили развертывание сертификата веб-сервера на серверах систем сайта.|Выполните развертывание веб-сервера на серверах систем сайта, на которых будет работать точка веб-сайта каталога приложений и точка веб-службы каталога приложений.<br /><br /> Кроме того, если требуется, чтобы клиенты могли использовать каталог приложений из Интернета, следует развернуть сертификат веб-сервера как минимум на одном сервере системы сайта с точкой управления и настроить его для подключения клиентов из Интернета.|Дополнительные сведения о требованиях к сертификатам см. в разделе [Требования к PKI-сертификатам](../../core/plan-design/network/pki-certificate-requirements.md).|  
+|**Шаг 2.** Если для подключения к точкам управления будет использоваться PKI-сертификат клиента, выполните развертывание сертификата проверки подлинности клиента на клиентских компьютерах.|Несмотря на то, что для подключения клиентов к каталогу приложений сертификат клиента PKI не используется, для работы с каталогом приложений клиенты должны подключаться к точке управления. Необходимо выполнить развертывание сертификата проверки подлинности клиента на клиентских компьютерах в следующих случаях.<br /><br /><ul><li>Все точки управления в интрасети принимают подключения клиентов только по протоколу HTTPS.</li><li>Клиенты будут подключаться к каталогу приложений из Интернета.</li></ul>|Дополнительные сведения о требованиях к сертификатам см. в разделе [Требования к PKI-сертификатам](../../core/plan-design/network/pki-certificate-requirements.md).|  
+|**Шаг 3.** Установка и настройка точки веб-службы каталога приложений и точки веб-сайта каталога приложений.|Обе роли системы необходимо установить на одном сайте. Нет необходимости устанавливать их на одном и том же сервере системы сайта или в одном лесу Active Directory. Однако точка веб-службы каталога приложений должна находиться в одном лесу с базой данных сайта.|Дополнительные сведения о размещении ролей системы сайта см. в разделе [Планирование серверов системы сайта и ролей системы сайта](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).<br /><br /> Чтобы настроить точку веб-службы каталога приложений и точку веб-сайта каталога приложений, обратитесь к процедуре **Шаг 3. Установка и настройка ролей систем сайта каталога приложений**.|  
+|**Шаг 4.** Настройка параметров клиента для каталога приложений и центра программного обеспечения.|Установите параметры клиента, используемые по умолчанию, чтобы у всех пользователей были одинаковые настройки. Вместо этого можно настроить пользовательские параметры клиента для конкретных коллекций.|Дополнительные сведения о параметрах клиентов см. в разделе [О параметрах клиентов](../../core/clients/deploy/about-client-settings.md).<br /><br /> Дополнительные сведения о настройке этих параметров клиента см. в процедуре **Шаг 4. Настройка параметров клиента для каталога приложений и центра программного обеспечения**.|  
+|**Шаг 5.** Проверка работоспособности каталога приложений.|Каталог приложений можно использовать непосредственно в браузере или в центре программного обеспечения.|См. процедуру **Шаг 5. Проверка работоспособности каталога приложений**.|  
 
-## <a name="supplemental-procedures-to-install-and-configure-the-application-catalog-and-software-center"></a>Procedimentos suplementares para instalar e configurar o Catálogo de Aplicações e o Centro de Software  
- Utilize as informações seguintes quando os passos da tabela anterior exigirem procedimentos adicionais.  
+## <a name="supplemental-procedures-to-install-and-configure-the-application-catalog-and-software-center"></a>Дополнительные процедуры, связанные с установкой и настройкой каталога приложений и центра программного обеспечения  
+ Используйте следующие сведения, если для выполнения действий, перечисленных в таблице выше, требуются дополнительные процедуры.  
 
-###  <a name="step-3-install-and-configure-the-application-catalog-site-system-roles"></a>Passo 3: Instalar e configurar as funções de sistema de sites do catálogo de aplicações  
- Estes procedimentos configuram as funções do sistema de sites do Catálogo de Aplicações. Escolha um dos dois procedimentos seguintes, dependendo se irá instalar um servidor de sistema de sites novo ou utilizar um servidor de sistema de sites existente:  
+###  <a name="step-3-install-and-configure-the-application-catalog-site-system-roles"></a>Шаг 3. Установка и настройка ролей систем сайта каталога приложений  
+ Указанные процедуры обеспечивают настройку ролей систем сайта для каталога приложений. В зависимости от того, требуется ли установить новый сервер системы сайта или использовать существующий сервер, выберите одну из двух приведенных ниже процедур.  
 
 > [!NOTE]  
->  Não é possível instalar o Catálogo de Aplicações num site secundário ou num site de administração central.  
+>  Каталог приложений не может быть установлен на вторичном сайте или сайте центра администрирования.  
 
-####  <a name="to-install-and-configure-the-application-catalog-site-systems-new-site-system-server"></a>Para instalar e configurar os sistemas de sites do catálogo de aplicações: Novo servidor do sistema de sites  
+####  <a name="to-install-and-configure-the-application-catalog-site-systems-new-site-system-server"></a>Установка и настройка систем сайта каталога приложений: новый сервер системы сайта  
 
-1.  Na consola do Configuration Manager, escolha **administração** > **configuração do Site** > **servidores e funções de sistema de sites**.  
+1.  В консоли Configuration Manager перейдите в раздел **Администрирование** > **Конфигурация сайта** > **Серверы и роли системы сайта**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar servidor do sistema de sites**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать сервер системы сайта**.  
 
-4.  No **geral** página, especifique as definições gerais para o sistema de sites e, em seguida, escolha **seguinte**.  
-
-    > [!TIP]  
-    >  Se pretender que os computadores cliente para utilizar o catálogo de aplicações através da Internet, especifique Internet totalmente qualificado (FQDN) do nome de domínio.  
-
-5.  No **seleção da função do sistema** página, selecione **ponto de serviço web do catálogo de aplicações** e **ponto de Web site do catálogo de aplicações** da lista de funções disponíveis e, em seguida, escolha **seguinte**.  
-
-6.  Conclua o assistente.  
-
-####  <a name="to-install-and-configure-the-application-catalog-site-systems-existing-site-system-server"></a>Para instalar e configurar os sistemas de sites do catálogo de aplicações: Servidor do sistema de sites existente  
-
-1.  Na consola do Configuration Manager, escolha **administração** > **configuração do Site** > **servidores e funções de sistema de sites**e, em seguida, selecione o servidor a utilizar para o catálogo de aplicações.  
-
-3.  No **home page** separador o **servidor** grupo, escolha **adicionar funções do sistema de sites**.  
-
-4.  No **geral** página, especifique as definições gerais para o sistema de sites e, em seguida, escolha **seguinte**.  
+4.  На странице **Общие** укажите общие параметры для системы сайта и нажмите кнопку **Далее**.  
 
     > [!TIP]  
-    >  Se pretender que os computadores cliente para utilizar o catálogo de aplicações através da Internet, especifique Internet totalmente qualificado (FQDN) do nome de domínio.  
+    >  Чтобы каталог приложений был доступен клиентским компьютерам через Интернет, укажите его полное доменное имя в Интернете.  
 
-5.  No **seleção da função do sistema** página, selecione **ponto de serviço web do catálogo de aplicações** e **ponto de Web site do catálogo de aplicações** da lista de funções disponíveis e, em seguida, escolha **seguinte**.  
+5.  На странице **Выбор системной роли** выберите **Точка веб-службы каталога приложений** и **Точка веб-сайта каталога приложений** в списке доступных ролей, а затем нажмите кнопку **Далее**.  
 
-6.  Conclua o assistente.  
+6.  Завершите мастер.  
 
-7. Verifique a instalação destas funções do sistema de sites utilizando as mensagens de estado e revendo os ficheiros de registo:  
+####  <a name="to-install-and-configure-the-application-catalog-site-systems-existing-site-system-server"></a>Установка и настройка систем сайта каталога приложений: существующий сервер системы сайта  
 
-    Mensagens de estado: Utilize os componentes **SMS_PORTALWEB_CONTROL_MANAGER** e **SMS_AWEBSVC_CONTROL_MANAGER**.  
+1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация сайта** > **Серверы и роли системы сайта**, а затем выберите сервер, который требуется использовать для каталога приложений.  
 
-    Por exemplo, ID de estado **1015** para **SMS_PORTALWEB_CONTROL_MANAGER** confirma que o Gestor de componentes do Site instalou com êxito o ponto de Web site do catálogo de aplicações.  
+3.  На вкладке **Главная** в группе **Сервер** выберите команду **Добавить роли системы сайта**.  
 
-    Ficheiros de registo: Procurar **SMSAWEBSVCSetup.log** e **SMSPORTALWEBSetup.log**.  
+4.  На странице **Общие** укажите общие параметры для системы сайта и нажмите кнопку **Далее**.  
 
-    Para obter mais informações, procure o **awebsvcMSI.log** e **portlwebMSI.log** ficheiros de registo.  
+    > [!TIP]  
+    >  Чтобы каталог приложений был доступен клиентским компьютерам через Интернет, укажите его полное доменное имя в Интернете.  
 
-###  <a name="step-4-configure-the-client-settings-for-the-application-catalog-and-software-center"></a>Passo 4: Configurar as definições de cliente para o catálogo de aplicações e o Centro de Software  
- Este procedimento configura as predefinições de cliente do Catálogo de Aplicações e do Centro de Software que serão aplicadas em todos os dispositivos da hierarquia. Se pretender que estas definições se apliquem apenas a alguns dispositivos, pode criar uma definição de cliente personalizada e implementá-la para uma coleção que tenha os dispositivos que terão definições específicas. Para obter mais informações sobre como criar uma definição de dispositivo personalizada, consulte o [como criar e implementar definições personalizadas do cliente](../../core/clients/deploy/configure-client-settings.md#create-and-deploy-custom-client-settings) secção o [como configurar as definições de cliente no System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md) artigo.  
+5.  На странице **Выбор системной роли** выберите **Точка веб-службы каталога приложений** и **Точка веб-сайта каталога приложений** в списке доступных ролей, а затем нажмите кнопку **Далее**.  
 
-1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente** > **predefinições de cliente**.  
+6.  Завершите мастер.  
 
-3.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+7. Проверьте, установлены ли указанные роли системы сайта, просмотрев сообщения о состоянии и файлы журнала.  
 
-4.  Reveja e configure as definições relacionadas com as notificações do utilizador, o Catálogo de Aplicações e o Centro de Software. Por exemplo:  
+    Сообщения о состоянии Используйте компоненты **SMS_PORTALWEB_CONTROL_MANAGER** и **SMS_AWEBSVC_CONTROL_MANAGER**.  
 
-    1.  Grupo**Agente do Computador** :  
+    Например, идентификатор состояния **1015** для **SMS_PORTALWEB_CONTROL_MANAGER** означает, что диспетчер компонентов сайта успешно установил точку веб-сайта каталога приложений.  
 
-        -   **Ponto de Web sites Predefinido do Catálogo de Aplicações**  
+    Файлы журналов. Файлы журналов – **SMSAWEBSVCSetup.log** и **SMSPORTALWEBSetup.log**.  
 
-        -   **Adicionar Web site predefinido do Catálogo de Aplicações à zona de sites fidedignos do Internet Explorer**  
+    Дополнительные сведения см. в файлах журнала **awebsvcMSI.log** и **portlwebMSI.log**.  
 
-        -   **Nome da organização apresentada no Centro de Software**  
+###  <a name="step-4-configure-the-client-settings-for-the-application-catalog-and-software-center"></a>Шаг 4. Настройка параметров клиента для каталога приложений и центра программного обеспечения  
+ В ходе этой процедуры настраиваются и применяются ко всем устройствам иерархии параметры клиентов, используемые по умолчанию для каталога приложений и центра программного обеспечения. Если требуется, чтобы эти параметры применялись только к некоторым устройствам, создайте настраиваемый параметр для клиента и разверните его в коллекции с устройствами, для которых будут использоваться определенные параметры. Дополнительные сведения о создании настраиваемого параметра устройства см. в подразделе [Создание и развертывание настраиваемых параметров клиента](../../core/clients/deploy/configure-client-settings.md#create-and-deploy-custom-client-settings) раздела [Настройка параметров клиента в System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
+
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** > **Параметры клиента по умолчанию**.  
+
+3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
+
+4.  Просмотрите и настройте параметры, связанные с оповещением пользователей, каталогом приложений и центром программного обеспечения. Пример.  
+
+    1.  Группа**Агент компьютера** .  
+
+        -   **Точка веб-сайта каталога приложений по умолчанию**  
+
+        -   **Добавьте веб-сайт каталога приложений, используемый по умолчанию, в зону надежных узлов в Internet Explorer.**  
+
+        -   **Название организации, отображаемое в центре программного обеспечения**  
 
             > [!TIP]  
-            >  Para especificar o nome da organização que é apresentado no catálogo de aplicações e configurar o tema do Web site, utilize o **personalização** separador nas propriedades do Web site de catálogo de aplicações.  
+            >  Чтобы указать имя организации, которое отображается в каталоге приложений, и настроить тему веб-сайта, используйте вкладку **Настройка** в свойствах веб-сайта каталога приложений.  
 
-        -   **Utilizar o novo Centro de Software** -definido como **Sim** se pretender utilizar o novo Centro de Software, que permite aos utilizadores procurar e instalar as aplicações disponíveis sem a necessidade de aceder ao catálogo de aplicações (o que necessita de um browser com capacidade para Silverlight web).  
+        -   **Используйте новый Центр программного обеспечения** — выберите **Да**, если хотите использовать новый центр программного обеспечения, который позволяет пользователям искать и устанавливать доступные приложения без необходимости доступа к каталогу приложения (для чего требуется браузер, поддерживающий Silverlight).  
 
-        -   **Permissões de instalação**  
+        -   **Установка разрешений**  
 
-        -   **Mostrar notificações para novas implementações**  
+        -   **Показывать уведомления для новых развертываний**  
 
-    2.  Grupo**Gestão de Energia** :  
+    2.  Группа**Управление питанием** .  
 
-        -   **Permitir aos utilizadores excluir o respetivo dispositivo da gestão de energia**  
+        -   **Разрешить пользователям исключать их устройства из политики управления питанием**  
 
-    3.  Grupo**Ferramentas Remotas** :  
+    3.  Группа**Средства удаленного управления** .  
 
-        -   **Os utilizadores podem alterar as definições de política ou de notificação no Centro de Software**  
+        -   **В центре программного обеспечения пользователи могут изменять политику или параметры уведомления**  
 
-    4.  Grupo**Afinidade de Dispositivo e Utilizador** :  
+    4.  Группа**Сопоставление пользователей и устройств** .  
 
-        -   **Permitir ao utilizador a definição dos seus dispositivos primários**  
+        -   **Предоставьте пользователям возможность выбора первичных устройств**  
 
     > [!NOTE]  
-    >  Para obter mais informações sobre as definições de cliente, consulte [sobre definições de cliente no System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
+    >  Дополнительные сведения о параметрах клиентов см. в разделе [О параметрах клиентов в System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
 
-5.  Escolha **OK** para fechar o **predefinições de cliente** caixa de diálogo.  
+5.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Параметры клиента по умолчанию**.  
 
- Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, consulte [como gerir clientes](../../core/clients/manage/manage-clients.md).
+ Заданные параметры будут применены к клиентским компьютерам при следующей загрузке политики клиента. Сведения об инициации получения политик для отдельного клиента см. в разделе [Управление клиентами](../../core/clients/manage/manage-clients.md).
 
-#### <a name="how-to-customize-software-center-branding"></a>Como personalizar a imagem corporativa do Centro de Software
+#### <a name="how-to-customize-software-center-branding"></a>Настройка фирменной символики в центре программного обеспечения
 
-Uma imagem corporativa personalizado para o Centro de Software é aplicada, de acordo com as seguintes regras:
+Настраиваемая фирменная символика для центра программного обеспечения применяется согласно указанным далее правилам.
 
-1. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações não está instalada, em seguida, o Centro de Software apresentará o nome da organização especificado no **agente do computador** definição de cliente **nome da organização** apresentada no Centro de Software. Para obter instruções, consulte [como configurar as definições de cliente](https://docs.microsoft.com/en-us/sccm/core/clients/deploy/configure-client-settings).
-2. Se a função de servidor de sites do ponto de Web site do catálogo de aplicações estiver instalada, em seguida, o Centro de Software apresentará o nome da organização e a cor especificados nas propriedades de função do servidor de ponto de sites catálogo de aplicações Web site. Para obter mais informações, consulte [opções de configuração para o ponto de Web site do catálogo de aplicações](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#BKMK_ApplicationCatalog_Website).
-3. Se uma subscrição do Microsoft Intune estiver configurada e ligada ao Configuration Manager, em seguida, o Centro de Software apresentará o nome da organização, o logótipo de cor e da empresa especificados nas propriedades de subscrição do Intune. Para obter mais informações, veja [Configurar a Subscrição do Microsoft Intune](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
+1. Если роль сервера сайта "Точка веб-сайта каталога приложений" не установлена, то в центре программного обеспечения будет отображаться название организации, указанное в параметре клиента **Агент компьютера** > **Название организации, которое отображается в центре программного обеспечения**. Инструкции см. в статье [Настройка параметров клиента](https://docs.microsoft.com/en-us/sccm/core/clients/deploy/configure-client-settings).
+2. Если роль сервера сайта "Точка веб-сайта каталога приложений" установлена, то в центре программного обеспечения отобразятся те название организации и цвет, которые указаны в свойствах роли сервера сайта "Точка веб-сайта каталога приложений". Дополнительные сведения см. в статье [Параметры конфигурации для точки веб-сайта каталога приложений](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#BKMK_ApplicationCatalog_Website).
+3. Если подписка Microsoft Intune настроена и подключена к среде Configuration Manager, то в центре программного обеспечения будут отображаться название организации, цвет и логотип компании, указанные в свойствах подписки Intune. Дополнительные сведения см. в разделе [Configuring the Microsoft Intune subscription](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription).
 
 > [!IMPORTANT]  
->  Imagem corporativa do Centro de software está sincronizada com o serviço do Intune a cada 14 dias, por isso, poderá haver um atraso antes das alterações efetuadas no Intune são apresentadas no Configuration Manager.
+>  Фирменная символика центра программного обеспечения синхронизируется со службой Intune каждые 14 дней, поэтому изменения, внесенные в Intune, могут отображаться в Configuration Manager с задержкой.
 
-###  <a name="step-5-verify-that-the-application-catalog-is-operational"></a>Passo 5: Verifique se o catálogo de aplicações está operacional  
- Utilize os procedimentos seguintes para verificar se o Catálogo de Aplicações está operacional. Pode utilizar o catálogo de aplicações diretamente a partir de um browser ou a partir do Centro de Software.  
+###  <a name="step-5-verify-that-the-application-catalog-is-operational"></a>Шаг 5. Проверка работоспособности каталога приложений  
+ С помощью следующих процедур можно проверить работоспособность каталога приложений. Каталог приложений можно использовать непосредственно в браузере или в центре программного обеспечения.  
 
 > [!NOTE]  
->  O catálogo de aplicações requer o Microsoft Silverlight, o que é instalado automaticamente como um pré-requisito de cliente do Configuration Manager. Se utilizar o catálogo de aplicações diretamente a partir de um browser utilizando um computador que não tenham o cliente de Configuration Manager instalado, verifique primeiro se o Microsoft Silverlight está instalado no computador.  
+>  Для работы каталога приложений требуется технология Microsoft Silverlight, автоматически устанавливаемая как необходимый компонент для клиента Configuration Manager. Перед открытием каталога приложений непосредственно в браузере на компьютере, на котором не установлен клиент Configuration Manager, следует убедиться в том, что на нем установлена технология Microsoft Silverlight.  
 
 > [!TIP]  
->  Os pré-requisitos em falta são uma das principais razões para o catálogo de aplicações funcionar incorretamente após a instalação. Confirme os pré-requisitos das funções do sistema de sites do Catálogo de Aplicações. Pode fazê-lo utilizando o [configurações suportadas](../../core/plan-design/configs/supported-configurations.md) artigo.  
+>  Отсутствующие необходимые компоненты являются наиболее типичной причиной неправильной работы каталога приложений после установки. Проверьте соблюдение предварительных требований для роли системы сайта каталога приложений. Для этого обратитесь к разделу [Поддерживаемые конфигурации](../../core/plan-design/configs/supported-configurations.md).  
 
 > [!NOTE]  
->  Se tiver iniciado com uma conta de administrador de domínio, mensagens de notificação do cliente do Configuration Manager (por exemplo, mensagens que indica que está disponível novo software) não serão apresentadas.  
+>  Если вы выполнили вход с учетной записью администратора домена, уведомления от клиента Configuration Manager (например, сообщения о наличии нового программного обеспечения) выводиться не будут.  
 
-### <a name="to-use-the-application-catalog-directly-from-a-browser"></a>Para utilizar o catálogo de aplicações diretamente a partir de um browser  
+### <a name="to-use-the-application-catalog-directly-from-a-browser"></a>Использование каталога приложений непосредственно в браузере  
 
--   Num browser, introduza o endereço do Web site catálogo de aplicações e confirme que a página web apresenta os três separadores: **Catálogo de aplicações**, **os meus pedidos de aplicação**, e **os meus dispositivos**.  
+-   В браузере введите адрес веб-сайта каталога приложений и убедитесь в том, что отобразилась веб-страница с тремя вкладками: **Каталог приложений**, **Мои запросы приложений** и **Мои устройства**.  
 
-     Selecione e utilize o endereço adequado na lista seguinte para o catálogo de aplicações, onde &lt;servidor&gt; é o nome do computador, o FQDN da intranet ou o FQDN de Internet:  
+     Выберите и используйте подходящий адрес каталога приложений из приведенного ниже списка, где &lt;сервер&gt; — это имя компьютера, полное доменное имя интрасети или полное доменное имя в Интернете:  
 
-    -   Ligações de cliente HTTPS e predefinições definições de função do sistema de sites: **https://&lt;servidor&gt;/CMApplicationCatalog**  
+    -   подключения клиентов по протоколу HTTPS и параметры роли системы сайта, используемые по умолчанию: **https://&lt;сервер&gt;/CMApplicationCatalog**;  
 
-    -   Ligações de cliente HTTP e predefinições definições de função do sistema de sites: **http://&lt;servidor&gt;/CMApplicationCatalog**  
+    -   подключения клиентов по протоколу HTTP и параметры роли системы сайта, используемые по умолчанию: **http://&lt;сервер&gt;/CMApplicationCatalog**;  
 
-    -   HTTPS ligações de cliente e definições de função do sistema de site personalizado: **https://&lt;servidor&gt;:&lt;porta&gt;/&lt;nome da aplicação web&gt;**  
+    -   подключения клиентов по протоколу HTTPS и настраиваемые параметры роли системы сайта: **https://&lt;сервер&gt;:&lt;порт&gt;/&lt;имя веб-приложения&gt;**;  
 
-    -   Ligações de cliente HTTP e definições de função do sistema de site personalizado: **http://&lt;servidor&gt;:&lt;porta&gt;/&lt;nome da aplicação web&gt;**  
+    -   подключения клиентов по протоколу HTTP и настраиваемые параметры роли системы сайта: **http://&lt;сервер&gt;:&lt;порт&gt;/&lt;имя веб-приложения&gt;**.  
 
-### <a name="to-use-the-application-catalog-from-software-center-does-not-apply-to-the-new-version-of-software-center"></a>Para utilizar o catálogo de aplicações a partir do Centro de Software (não é aplicável para a nova versão do Centro de Software)  
+### <a name="to-use-the-application-catalog-from-software-center-does-not-apply-to-the-new-version-of-software-center"></a>Использование каталога приложений из центра программного обеспечения (не применяется к новой версии центра программного обеспечения)  
 
-1.  Num computador cliente, escolha **iniciar** > **todos os programas** > **Microsoft System Center 2012** > **do Configuration Manager** > **Centro de Software**.  
+1.  На клиентском компьютере выберите **Пуск** > **Все программы** > **Microsoft System Center 2012** > **Configuration Manager** > **Центр программного обеспечения**.  
 
-2.  Se tiver configurado previamente um nome da organização para o Centro de Software como uma definição do cliente, certifique-se de que este é apresentado conforme especificado.  
+2.  Если для центра программного обеспечения в параметрах клиента было назначено организационное имя, убедитесь, что отображается именно это имя.  
 
-3.  Escolha **localizar aplicações adicionais no catálogo de aplicações**e confirme que a página mostra os três separadores: **Catálogo de aplicações**, **os meus pedidos de aplicação**, e **os meus dispositivos**.  
+3.  Щелкните **Найти дополнительные приложения в Каталоге приложений** и убедитесь в том, что отобразилась страница с тремя вкладками: **Каталог приложений**, **Мои запросы приложений** и **Мои устройства**.  
 
 > [!WARNING]  
->  Depois de instalar as funções de sistema de sites do catálogo de aplicações, conseguirá não ver de imediato o catálogo de aplicações quando escolhe o **localizar aplicações adicionais no catálogo de aplicações** ligação a partir do Centro de Software. O Catálogo de Aplicações fica disponível do Centro de Software quando o cliente transferir a respetiva política do cliente ou num período máximo de 25 horas após a instalação das funções do sistema de sites do Catálogo de Aplicações.  
+>  После установки ролей система сайта каталога приложений при нажатии на ссылку **Найти дополнительные приложения в Каталоге приложений** в центре программного обеспечения каталог приложений сразу не отобразится. Каталог приложений становится доступным из центра программного обеспечения после того, как клиент выполнит загрузку политики клиента; это происходит в течение 25 часов после установки ролей системы сайта каталога приложений.  

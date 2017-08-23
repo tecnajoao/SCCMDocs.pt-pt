@@ -1,6 +1,6 @@
 ---
-title: "Criar perfis de certificado PFX através da importação de detalhes do certificado | Microsoft Docs"
-description: "Saiba como utilizar ficheiros PFX no System Center Configuration Manager para gerar certificados específicos do utilizador que suportam a troca de dados encriptados."
+title: "Создание профилей сертификатов PFX с помощью импорта сведений о сертификате | Документация Майкрософт"
+description: "Узнайте, как использовать PFX-файлы в System Center Configuration Manager для создания пользовательских сертификатов, которые поддерживают обмен зашифрованными данными."
 ms.custom: na
 ms.date: 04/04/2017
 ms.prod: configuration-manager
@@ -17,86 +17,86 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: c8346d04c7cd9761291824f5d30f09fab9acbcf9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-pfx-certificate-profiles-by-importing-certificate-details"></a>Como criar perfis de certificado PFX através da importação de detalhes do certificado
+# <a name="how-to-create-pfx-certificate-profiles-by-importing-certificate-details"></a>Как создать профили сертификатов PFX с помощью импорта сведений о сертификате
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Aqui, irá aprender a criar um perfil de certificado através da importação de credenciais de certificados externos.  
+Вы узнаете, как создать профиль сертификата с помощью импорта учетных данных из внешних сертификатов.  
 
-[Perfis de certificado](../../protect/deploy-use/introduction-to-certificate-profiles.md) fornecer informações gerais sobre como criar e configurar perfis de certificado. Este tópico realça algumas informações específicas sobre os perfis de certificados relacionados com os certificados PFX.
+См. дополнительные сведения о создании и настройке [профилей сертификатов](../../protect/deploy-use/introduction-to-certificate-profiles.md). В этой статье представлены некоторые сведения о профилях сертификатов, связанные с сертификатами PFX.
 
--  Gestor de configuração de uma variedade de arquivos de certificados adequados para diferentes dispositivos e sistemas operativos.  Estas atualizações incluem:
+-  Configuration Manager предлагает широкий набор хранилищ сертификатов, применимых с разными устройствами и операционными системами.  Сюда входит следующее.
 
- -   iOS e MacOS/OSX
- -   Android e Android para o trabalho
- -   Windows 10, incluindo o Windows 10 mobile.
+ -   iOS и MacOS/OSX;
+ -   Android и Android for Work;
+ -   Windows 10, включая Windows 10 Mobile.
 
-Para obter mais informações, consulte [pré-requisitos de perfil de certificado](../../protect/plan-design/prerequisites-for-certificate-profiles.md).
+См. дополнительные сведения о [необходимых компонентах для профилей сертификатов](../../protect/plan-design/prerequisites-for-certificate-profiles.md).
 
-## <a name="pfx-certificate-profiles"></a>Perfis de certificado PFX
-System Center Configuration Manager permite-lhe importar as credenciais do certificado e, em seguida, aprovisionar ficheiros de personal information exchange (. pfx) para dispositivos de utilizador. Os ficheiros .pfx podem ser utilizados para gerar certificados específicos do utilizador para suportar a troca de dados encriptados.
+## <a name="pfx-certificate-profiles"></a>Профили сертификатов PFX
+System Center Configuration Manager позволяет импортировать учетные данные сертификата, а затем подготавливать файлы обмена личной информацией (PFX) для устройств пользователей. PFX-файлы можно использовать для создания пользовательских сертификатов с целью поддержки обмена зашифрованными данными.
 
 > [!TIP]  
->  Estão disponíveis instruções passo a passo que descrevem este processo em [Como Criar e Implementar Perfis de Certificado PFX no Configuration Manager](http://blogs.technet.com/b/karanrustagi/archive/2015/09/01/how-to-create-and-deploy-pfx-certificate-profiles-in-configuration-manager.aspx).  
+>  Пошаговое руководство, в котором описан этот процесс, доступно в разделе [Создание и развертывание профилей сертификатов PFX в Configuration Manager](http://blogs.technet.com/b/karanrustagi/archive/2015/09/01/how-to-create-and-deploy-pfx-certificate-profiles-in-configuration-manager.aspx).  
 
-## <a name="create-import-and-deploy-a-personal-information-exchange-pfx-certificate-profile"></a>Criar, importar e implementar um perfil de certificado do Personal Information (Exchange PFX)  
+## <a name="create-import-and-deploy-a-personal-information-exchange-pfx-certificate-profile"></a>Создание, импорт и развертывание профиля сертификата обмена личной информацией (PFX)  
 
-### <a name="get-started"></a>Introdução
+### <a name="get-started"></a>Начало работы
 
-1.  Na consola do System Center Configuration Manager, clique em **ativos e compatibilidade**.  
-2.  Na área de trabalho **Ativos e Compatibilidade** , expanda **Definições de Compatibilidade**, expanda **Acesso a Recursos da Empresa**e clique em **Perfis de Certificado**.  
+1.  В консоли System Center Configuration Manager щелкните элемент **Активы и соответствие**.  
+2.  В рабочей области **Активы и соответствие** разверните узлы **Параметры соответствия**и **Доступ к ресурсам компании**, а затем выберите пункт **Профили сертификатов**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Perfil de Certificado**.
+3.  На вкладке **Главная** в группе **Создать** щелкните пункт **Создать профиль сертификата**.
 
-4.  Na página **Geral** do Assistente **Criar Perfil de Certificado** , especifique as seguintes informações:  
+4.  На странице **Общие** мастера **Создание профилей сертификатов** введите перечисленные ниже сведения.  
 
-    -   **Nome**: Introduza um nome exclusivo para o perfil de certificado. Pode utilizar até 256 carateres.  
+    -   **Имя**: введите уникальное имя для профиля сертификата. Можно использовать не более 256 символов.  
 
-    -   **Descrição**: Forneça uma descrição que proporcione uma descrição geral do perfil de certificado e outras informações relevantes que ajudem a identificá-lo na consola do System Center Configuration Manager. Pode utilizar até 256 carateres.  
+    -   **Описание**: введите описание, которое позволяет получить представление о профиле сертификата и содержит другие важные сведения для его идентификации в консоли System Center Configuration Manager. Можно использовать не более 256 символов.  
 
-    -   **Especifique o tipo de perfil de certificado que pretende criar**: Para os certificados PFX, escolha uma das seguintes opções:  
+    -   **Укажите тип профиля сертификата, который вы хотите создать**. Для сертификатов PFX выберите один из следующих вариантов:  
 
-        -   **Definições de informações Exchange PKCS #12 (PFX) pessoais - importar**: Cria um perfil de certificado através da importação programaticamente informações dos certificados existentes.  
+        -   **Файл обмена личной информацией — параметры PKCS 12 (PFX) — импорт**. Создание профиля сертификата с помощью программного импорта информации из существующих сертификатов.  
 
-        -   **Personal Information Exchange - definições do PKCS #12 (PFX) - criar**: Cria um perfil de certificado PFX utilizando as credenciais fornecidas por uma autoridade de certificação.  Para obter mais informações, consulte [como criar perfis de certificado PFX através de uma autoridade de certificação](../../mdm/deploy-use/create-pfx-certificate-profiles.md).
+        -   **Файл обмена личной информацией — параметры PKCS 12 (PFX) — создание**. Создание профиля сертификата PFX с использованием учетных данных, предоставленных центром сертификации.  Дополнительные сведения см. в статье [Создание профилей сертификатов PFX с помощью центра сертификации](../../mdm/deploy-use/create-pfx-certificate-profiles.md).
 
 
-### <a name="create-a-pfx-certificate-profile-for-the-imported-credentials"></a>Criar um perfil de certificado PFX para as credenciais importados
+### <a name="create-a-pfx-certificate-profile-for-the-imported-credentials"></a>Создание профиля сертификата PFX для импортированных учетных данных
 
-Para importar um certificado PFX, pode utilizar o SDK do Configuration Manager para implementar um script criar PFX. 
+Чтобы импортировать сертификат PFX, нужно развернуть скрипт создания PFX с помощью пакета SDK для Configuration Manager. 
 
-Certificados importados mais tarde são implementados em dispositivos inscritos.
+Импортированные сертификаты впоследствии будут развертываться на зарегистрированных устройствах.
 
-1. No **certificado PFX** página do **certificado Assistente para criar perfil**, especifique onde o fornecedor de armazenamento de chaves de dispositivo:
-    -   **Instalar no Trusted Platform Module (TPM), se estiver presente**  
-    -   **Instalar no Trusted Platform Module (TPM), caso contrário ocorre uma falha** 
-    -   **Instalação do Windows Hello para falhar caso contrário, de negócio** 
-    -   **Instalar no Fornecedor de Armazenamento de Chaves de Software** 
-2. Clique em **Seguinte**. 
-3. No **plataformas suportadas** página do assistente, escolha as plataformas de dispositivos suportados e, em seguida, clique em **seguinte**.
+1. На странице **Сертификат PFX** **мастера создания профиля сертификата** укажите, где должен размещаться провайдер хранилища для ключей устройства.
+    -   **Установить в доверенный платформенный модуль (TPM) при его наличии**  
+    -   **Установить в доверенный платформенный модуль (TPM), в противном случае выдать отказ** 
+    -   **Установить в Windows Hello для бизнеса, в ином случае— сбой** 
+    -   **Установить в поставщик хранилища ключей программного обеспечения** 
+2. Нажмите кнопку **Далее**. 
+3. На странице **Поддерживаемые платформы** в мастере выберите платформы устройств, а затем щелкните **Далее**.
 
-### <a name="finish-the-profile"></a>Concluir o perfil
+### <a name="finish-the-profile"></a>Завершение создания профиля
 
-1.  Clique em **Seguinte**, reveja a página **Resumo** e, em seguida, feche o assistente.  
-2.  O perfil do certificado que contém o ficheiro PFX está agora disponível a partir da área de trabalho **Perfis de Certificados** . 
-3.  Implementar o perfil, no **ativos e compatibilidade** área de trabalho abrir **as definições de compatibilidade** > **acesso a recursos da empresa** > **perfis de certificado**, clique no certificado que pretende e clique em **implementar**. 
+1.  Щелкните **Далее**, просмотрите страницу **Сводка** , а затем закройте мастер.  
+2.  Профиль сертификата, содержащий PFX-файл, теперь доступен в рабочей области **Профили сертификатов** . 
+3.  Чтобы развернуть этот профиль, в консоли **Активы и соответствие** откройте **Параметры соответствия** > **Доступ к ресурсам компании** > **Профили сертификатов**, затем щелкните правой кнопкой мыши нужный сертификат и выберите **Развернуть**. 
 
-### <a name="deploy-a-create-pfx-script"></a>Implementar um criar PFX Script
+### <a name="deploy-a-create-pfx-script"></a>Развертывание скрипта создания PFX
 
-Utilize o [SDK do Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=613525) para implementar um Script criar PFX. 
+Чтобы развернуть скрипт создания PFX, используйте [пакет SDK для Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=613525). 
 
-O Script Criar PFX adicionado no Configuration Manager 2012 SP2 adiciona uma classe SMS_ClientPfxCertificate ao SDK. Esta classe inclui os seguinte métodos:  
+Сценарий создания PFX, добавленный в Configuration Manager 2012 с пакетом обновления 2 (SP2), добавляет класс SMS_ClientPfxCertificate в пакет SDK. Этот класс содержит следующие методы.  
 
     -   `ImportForUser`  
 
     -   `DeleteForUser`  
 
-O exemplo seguinte importa as credenciais para um perfil de certificado PFX.
+Следующий пример кода импортирует учетные данные в профиль сертификата PFX.
 
 ``` powershell
     $EncryptedPfxBlob = "<blob>"  
@@ -114,16 +114,16 @@ O exemplo seguinte importa as credenciais para um perfil de certificado PFX.
     $Resource = $WMIConnection.psbase.InvokeMethod("ImportForUser",$NewEntry,$null)  
 ```  
 
-Para utilizar este exemplo, Atualize as seguintes variáveis de script:  
+Чтобы использовать этот пример, измените в скрипте следующие переменные:  
 
-   -   **blob**\-blob de encriptado em base64 o PFX  
-   -   **$Password** -a palavra-passe para o ficheiro PFX  
-   -   **$ProfileName** -o nome do perfil PFX  
-   -   **ComputerName** -nome do computador anfitrião   
+   -   **blob**\ — зашифрованный с помощью base64 BLOB-объект PFX;  
+   -   **$Password** — пароль для PFX-файла;  
+   -   **$ProfileName** — имя профиля PFX;  
+   -   **ComputerName** — имя главного компьютера.   
 
-## <a name="see-also"></a>Consulte também
-[Criar um novo perfil de certificado](../../protect/deploy-use/create-certificate-profiles.md) orienta-o através do Assistente para criar perfil de certificado.
+## <a name="see-also"></a>См. также
+В разделе [Создание профиля сертификата](../../protect/deploy-use/create-certificate-profiles.md) рассматривается выполнение этой процедуры с помощью мастера создания профилей сертификатов.
 
-[Como criar perfis de certificado PFX através da importação de detalhes do certificado](../../mdm/deploy-use/create-pfx-certificate-profiles.md)
+[Как создать профили сертификатов PFX с помощью импорта сведений о сертификате](../../mdm/deploy-use/create-pfx-certificate-profiles.md)
 
-[Implementar Wi-Fi, VPN, e-mail e perfis de certificado](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) descreve Mostrar para implementar perfis de certificado.
+В статье [Развертывание профилей в System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) описано, как развертывать профили сертификатов.

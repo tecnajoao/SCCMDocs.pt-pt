@@ -1,6 +1,6 @@
 ---
-title: Configurar a infraestrutura de certificados | Microsoft Docs
-description: "Saiba como configurar a inscrição de certificado no System Center Configuration Manager."
+title: "Настройка инфраструктуры сертификатов | Документация Майкрософт"
+description: "Сведения о настройке регистрации сертификатов в System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/25/2017
 ms.prod: configuration-manager
@@ -17,192 +17,192 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 640eb1df9d53fc83d93c39a7ecbaf2668e176805
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-certificate-infrastructure"></a>Configurar a infraestrutura de certificados
+# <a name="configure-certificate-infrastructure"></a>Настройка инфраструктуры сертификатов
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Saiba como configurar a infraestrutura de certificado no System Center Configuration Manager. Antes de começar, verifique a existência de pré-requisitos listados em [Pré-requisitos para perfis de certificado no System Center Configuration Manager](../../protect/plan-design/prerequisites-for-certificate-profiles.md).  
+Настройка инфраструктуры сертификатов в System Center Configuration Manager. Перед началом работы проверьте выполнение всех необходимых условий, перечисленных в статье [Необходимые условия для профилей сертификатов в System Center Configuration Manager](../../protect/plan-design/prerequisites-for-certificate-profiles.md).  
 
-Utilize estes passos para configurar a sua infraestrutura para SCEP, ou os certificados PFX.
+Выполните эти действия, чтобы настроить инфраструктуру для сертификатов SCEP (или PFX).
 
-## <a name="step-1---install-and-configure-the-network-device-enrollment-service-and-dependencies-for-scep-certificates-only"></a>Passo 1 – instalar e configurar o serviço de inscrição de dispositivos de rede e dependências (para certificados SCEP)
+## <a name="step-1---install-and-configure-the-network-device-enrollment-service-and-dependencies-for-scep-certificates-only"></a>Шаг 1. Установка и настройка службы регистрации сертификатов для сетевых устройств и зависимостей (только для сертификатов SCEP)
 
- Tem de instalar e configurar o serviço de função Serviço de Inscrição de Dispositivos de Rede para Serviços de Certificados do Active Directory (AD CS), alterar as permissões de segurança nos modelos de certificados, implementar um certificado de cliente de infraestrutura de chave pública (PKI) e editar o registo para aumentar o limite do tamanho predefinido do URL do IIS (Serviços de Informação Internet). Se necessário, também tem de configurar a autoridade de certificação (AC) emissora para permitir um período de validade personalizado.  
+ Необходимо установить и настроить службу роли службы регистрации сертификатов для сетевых устройств для служб сертификатов Active Directory, изменить разрешения системы безопасности для шаблонов сертификатов, развернуть PKI-сертификат проверки подлинности клиента и внести изменения в реестр, увеличив значение максимальной длины URL-адреса IIS, используемое по умолчанию. При необходимости также необходимо настроить выдающий центр сертификации (ЦС), разрешив использование настраиваемого срока действия.  
 
 > [!IMPORTANT]  
->  Antes de configurar o System Center Configuration Manager para funcionar com o serviço de inscrição de dispositivos de rede, certifique-se de que a instalação e configuração do serviço de inscrição de dispositivos de rede. Se estas dependências não estiverem a funcionar corretamente, terá dificuldade em resolver problemas de inscrição de certificados utilizando o System Center Configuration Manager.  
+>  Перед настройкой System Center Configuration Manager для работы со службой регистрации сертификатов для сетевых устройств убедитесь, что эта служба установлена и настроена. Неправильная работа зависимостей затруднит устранение неполадок при регистрации сертификатов с помощью System Center Configuration Manager.  
 
-### <a name="to-install-and-configure-the-network-device-enrollment-service-and-dependencies"></a>Para instalar e configurar o Serviço de Inscrição de Dispositivos de Rede e dependências  
+### <a name="to-install-and-configure-the-network-device-enrollment-service-and-dependencies"></a>Установка и настройка службы регистрации сертификатов для сетевых устройств и зависимостей  
 
-1.  Num servidor que esteja a executar o Windows Server 2012 R2, instale e configure o serviço de função Serviço de Inscrição de Dispositivos de Rede para a função de servidor Serviços de Certificados do Active Directory. Para obter mais informações, veja [Documentação de Orientação do Serviço de Inscrição de Dispositivos de Rede](http://go.microsoft.com/fwlink/p/?LinkId=309016) na biblioteca Serviços de Certificados do Active Directory na TechNet.  
+1.  На сервере, работающем под управлением ОС Windows Server 2012 R2, установите и настройте службу роли службы регистрации сертификатов сетевых устройств для роли сервера служб сертификатов Active Directory. Дополнительные сведения см. в статье [Network Device Enrollment Service Guidance (Руководство по работе со службой регистрации сертификатов для сетевых устройств)](http://go.microsoft.com/fwlink/p/?LinkId=309016) в библиотеке служб сертификатов Active Directory в TechNet.  
 
-2.  Verifique e, se necessário, modifique as permissões de segurança para os modelos de certificados que o Serviço de Inscrição de Dispositivos de Rede está a utilizar:  
+2.  Проверьте и, при необходимости, измените разрешения безопасности для шаблонов сертификатов, используемых службой регистрации сертификатов для сетевых устройств.  
 
-    -   Para a conta que executa a consola do System Center Configuration Manager: **Leitura** permissão.  
+    -   Для учетной записи, используемой для запуска консоли System Center Configuration Manager: разрешение **Чтение**.  
 
-         Esta permissão é necessária. Assim, quando executa o Assistente para Criar Perfil de Certificado, pode procurar para selecionar o modelo de certificado que pretende utilizar quando cria um perfil de definições de SCEP. A seleção de um modelo de certificado é sinónimo de que algumas definições no assistente são automaticamente preenchidas. Logo, há menos para si para configurar e é menor o risco de escolha de definições que não são compatíveis com os modelos de certificados que o Serviço de Inscrição de Dispositivos de Rede está a utilizar.  
+         Это разрешение требуется для того, чтобы при работе с мастером создания профилей сертификатов вы могли просмотреть и выбрать шаблон сертификата, необходимый при создании профиля параметров протокола SCEP. Выбор шаблона сертификата означает, что некоторые параметры в мастере будут заполняться автоматически. За счет этого упрощается настройка и снижается риск выбора параметров, несовместимых с шаблонами сертификатов, используемыми службой регистрации сертификатов для сетевых устройств.  
 
-    -   Para a conta de serviço SCEP que o conjunto aplicacional do serviço de inscrição de dispositivos de rede utiliza: **Leitura** e **inscrever** permissões.  
+    -   Для учетной записи службы SCEP, используемой пулом приложений службы регистрации сертификатов для сетевых устройств: разрешения на **чтение** и **регистрацию** .  
 
-         Este requisito não é específico para o System Center Configuration Manager, mas faz parte de configurar o serviço de inscrição de dispositivos de rede. Para obter mais informações, veja [Documentação de Orientação do Serviço de Inscrição de Dispositivos de Rede](http://go.microsoft.com/fwlink/p/?LinkId=309016) na biblioteca Serviços de Certificados do Active Directory na TechNet.  
+         Это требование не относится к System Center Configuration Manager, но используется при настройке службы регистрации сертификатов для сетевых устройств. Дополнительные сведения см. в статье [Network Device Enrollment Service Guidance (Руководство по работе со службой регистрации сертификатов для сетевых устройств)](http://go.microsoft.com/fwlink/p/?LinkId=309016) в библиотеке служб сертификатов Active Directory в TechNet.  
 
     > [!TIP]  
-    >  Para identificar os modelos de certificado do serviço de inscrição de dispositivos de rede está a utilizar, veja a seguinte chave de registo no servidor que está a executar o serviço de inscrição de dispositivos de rede: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\MSCEP.  
+    >  Чтобы определить, какие шаблоны сертификатов используются службой регистрации сертификатов для сетевых устройств, просмотрите следующий раздел реестра на сервере, на котором работает эта служба: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\MSCEP.  
 
     > [!NOTE]  
-    >  Estas são as permissões de segurança predefinidas que serão convenientes para a maior parte dos ambientes. No entanto, pode utilizar uma configuração de segurança alternativa. Para obter mais informações, veja [Planear permissões de modelo de certificado para perfis de certificado no System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).  
+    >  Разрешения безопасности, используемые по умолчанию, подходят для большинства сред. Однако можно использовать и другую конфигурацию безопасности. Дополнительные сведения см. в статье [Планирование разрешений шаблонов сертификатов для профилей сертификатов в Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).  
 
-3.  Implemente neste servidor um certificado PKI que suporta a autenticação de cliente. É possível que já disponha de um certificado adequado instalado no computador que pode utilizar ou poderá ter de (ou preferir) implementar um certificado especificamente para esta finalidade. Para mais informações sobre os requisitos deste certificado, consulte os detalhes de servidores a executar o módulo de política do Configuration Manager com o serviço de função Serviço de inscrição de dispositivos de rede no * * secção certificados PKI para servidores * * a [requisitos de certificado PKI para o System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md) tópico.  
+3.  Разверните на этом сервере PKI-сертификат, который поддерживает проверку подлинности клиента. На вашем компьютере уже может быть установлен подходящий для использования сертификат, либо его необходимо (или желательно) развернуть специально для этой цели. Дополнительные сведения о требованиях, предъявляемых к этому сертификату, см. в подразделе "Серверы, на которых выполняется модуль политики Configuration Manager со службой роли службы регистрации сетевых устройств" раздела **Сертификаты PKI для серверов** в статье [Требования к PKI-сертификатам для System Center Configuration Manager](../../core/plan-design/network/pki-certificate-requirements.md).  
 
     > [!TIP]  
-    >  Se precisar de ajuda para implementar este certificado, pode utilizar as instruções para [implementar o certificado de cliente para pontos de distribuição](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clientdistributionpoint2008_cm2012), porque os requisitos de certificado são os mesmos com uma exceção:  
+    >  Дополнительные сведения по развертыванию этого сертификата см. в инструкциях раздела [Развертывание сертификата клиента для точек распространения](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clientdistributionpoint2008_cm2012), поскольку требования к сертификатам совпадают, за исключением приведенного ниже пункта.  
     >   
-    >  -   Não selecione a caixa de verificação **Permitir que a chave privada seja exportada** no separador **Processamento de Pedidos** das propriedades para o modelo de certificado.  
+    >  -   Не устанавливайте флажок **Разрешить экспортировать закрытый ключ** на вкладке **Обработка запроса** в свойствах шаблона сертификата.  
     >   
-    >  Não dispõe de exportar este certificado com a chave privada porque poderá procurar o arquivo local do computador e selecioná-lo quando configura o módulo de política do System Center Configuration Manager.  
+    >  Необходимость экспорта этого сертификата с закрытым ключом отсутствует, поскольку вы можете просмотреть хранилище локального компьютера и выбрать сертификат при настройке модуля политики System Center Configuration Manager.  
 
-4.  Localize o certificado de raiz ao qual o certificado de autenticação de cliente está encadeado. Em seguida, exporte este certificado da AC de raiz para um ficheiro de certificados (. cer). Guarde este ficheiro numa localização segura à qual pode aceder em segurança quando, posteriormente, instalar e configurar o servidor do sistema de sites para o ponto de registo de certificados.  
+4.  Найдите корневой сертификат, с которым будет связан сертификат проверки подлинности клиента. Затем экспортируйте этот сертификат корневого ЦС в CER-файл сертификата. Сохраните этот файл в надежном месте, к которому можно получить безопасный доступ при последующей установке и настройке сервера системы сайта для точки регистрации сертификатов.  
 
-5.  No mesmo servidor, utilize o editor de registo para aumentar o limite do tamanho predefinido do URL do IIS, definindo os seguintes valores DWORD de chaves de registo em HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\HTTP\Parameters:  
+5.  На этом же сервере используйте редактор реестра, чтобы увеличить максимальную длину URL-адреса IIS, установив следующие значения DWORD разделов реестра в HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\HTTP\Parameters.  
 
-    -   Defina a chave **MaxFieldLength** como **65534**.  
+    -   Задайте для раздела **MaxFieldLength** значение **65534**.  
 
-    -   Defina a chave **MaxRequestBytes** como **16777216**.  
+    -   Задайте для раздела **MaxRequestBytes** значение **16777216**.  
 
-     Para obter mais informações, consulte o artigo [820129: Definições de registo do HTTP.sys do Windows](http://go.microsoft.com/fwlink/?LinkId=309013) na Base de dados de Conhecimento Microsoft.  
+     Дополнительные сведения см. в статье [820129: Параметры реестра HTTP.sys для Windows](http://go.microsoft.com/fwlink/?LinkId=309013) в базе знаний Майкрософт.  
 
-6.  No mesmo servidor, no Gestor de Serviços de Informação Internet (IIS), modifique as definições de filtragem de pedidos para a aplicação de /certsrv/mscep e, em seguida, reinicie o servidor. Na caixa de diálogo **Editar Definições de Filtragem de Pedidos**, as definições de **Limites do Pedido** devem ser as seguintes:  
+6.  На этом же самом сервере в диспетчере служб IIS измените параметры фильтрации запросов для приложения /certsrv/mscep, а затем перезапустите сервер. В диалоговом окне **Изменение параметров фильтрации запросов** параметры **Ограничения запросов** должны быть настроены следующим образом.  
 
-    -   **Máximo comprimento de conteúdo permitido (Bytes)**: **30000000**  
+    -   **Максимально допустимая длина содержимого (в байтах)**: **30000000**  
 
-    -   **Comprimento máximo do URL (Bytes)**: **65534**  
+    -   **Максимальная длина URL-адреса (в байтах)**: **65534**  
 
-    -   **A cadeia de consulta máxima (Bytes)**: **65534**  
+    -   **Максимальная длина строки запроса (в байтах)**: **65534**  
 
-     Para obter mais informações sobre estas definições e como configurá-las, veja [Requests Limits](http://go.microsoft.com/fwlink/?LinkId=309014) na Biblioteca de Referência do IIS.  
+     Дополнительные сведения об этих параметрах и их настройке см. в статье [Requests Limits (Ограничения запросов)](http://go.microsoft.com/fwlink/?LinkId=309014) в справочной библиотеке IIS.  
 
-7.  Se pretender poder pedir um certificado que tenha um período de validade inferior ao modelo de certificado que está a utilizar: Esta configuração está desativada por predefinição para uma AC empresarial. Para ativar esta opção numa AC empresarial, utilize a ferramenta da linha de comandos Certutil e, em seguida, pare e reinicie o serviço de certificados utilizando os seguintes comandos:  
+7.  Если необходимо обеспечить возможность запроса сертификата с меньшим сроком действия, чем в используемом шаблоне сертификата, то по умолчанию эта конфигурация отключена для ЦС предприятия. Чтобы включить эту возможность в ЦС предприятия, используйте программу командной строки Certutil, а затем остановите и перезапустите службу сертификатов с помощью следующих команд:  
 
-    1.  **certutil - setreg Policy\EditFlags + EDITF_ATTRIBUTEENDDATE**  
+    1.  **certutil - setreg Policy\EditFlags +EDITF_ATTRIBUTEENDDATE**  
 
     2.  **net stop certsvc**  
 
     3.  **net start certsvc**  
 
-     Para obter mais informações, veja [Ferramentas e Definições dos Serviços de Certificados](http://go.microsoft.com/fwlink/p/?LinkId=309015) na biblioteca de Tecnologias PKI na TechNet.  
+     Дополнительные сведения см. в статье [Certificate Services Tools and Settings (Средства и параметры служб сертификатов)](http://go.microsoft.com/fwlink/p/?LinkId=309015) в библиотеке технологий PKI на веб-сайте TechNet.  
 
-8.  Certifique-se de que o Serviço de Inscrição de Dispositivos de Rede está a funcionar, utilizando a ligação seguinte como exemplo: **https://server.contoso.com/certsrv/mscep/mscep.dll**. Deverá ver a página Web incorporada do Serviço de Inscrição de Dispositivos de Rede. Esta página Web explica o que o serviço é e explica que os dispositivos de rede utilizam o URL para submeter pedidos de certificados.  
+8.  Удостоверьтесь, что служба регистрации сертификатов для сетевых устройств работает, используя в качестве примера следующую ссылку: **https://server.contoso.com/certsrv/mscep/mscep.dll**. Должна отобразиться встроенная веб-страница службы регистрации сертификатов для сетевых устройств. Эта страница содержит сведения о службе и о том, что сетевые устройства используют URL-адрес для отправки запросов на сертификаты.  
 
- Agora que o Serviço de Inscrição de Dispositivos de Rede e dependências estão configurados, está pronto para instalar e configurar o ponto de registo de certificados.
+ После настройки службы регистрации сертификатов для сетевых устройств и зависимостей можно установить и настроить точку регистрации сертификатов.
 
 
-## <a name="step-2---install-and-configure-the-certificate-registration-point"></a>Passo 2 - instalar e configurar o ponto de registo de certificados.
+## <a name="step-2---install-and-configure-the-certificate-registration-point"></a>Шаг 2. Установка и настройка точки регистрации сертификатов
 
-Tem de instalar e configurar o ponto de registo, pelo menos, um certificado na hierarquia do System Center Configuration Manager, e pode instalar esta função de sistema de sites no site de administração central ou num site primário.  
+Необходимо установить и настроить по крайней мере одну точку регистрации сертификатов в иерархии System Center Configuration Manager. Эта роль системы сайта может быть установлена в сайте центра администрирования или в первичном сайте.  
 
 > [!IMPORTANT]  
->  Antes de instalar o ponto de registo de certificados, veja a secção **Requisitos do Sistema de Sites** do tópico [Configurações suportadas do System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) para obter os requisitos do sistema operativo e dependências para o ponto de registo de certificados.  
+>  Перед установкой точки регистрации сертификатов ознакомьтесь с разделом **Требования к системе сайта** статьи [Поддерживаемые конфигурации для System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md), в которой приводятся требования к операционной системе и зависимости для точки регистрации сертификатов.  
 
-##### <a name="to-install-and-configure-the-certificate-registration-point"></a>Para instalar e configurar o ponto de registo de certificados  
+##### <a name="to-install-and-configure-the-certificate-registration-point"></a>Процедура установки и настройки точки регистрации сертификатов  
 
-1.  Na consola do System Center Configuration Manager, clique em **administração**.  
+1.  В консоли System Center Configuration Manager щелкните **Администрирование**.  
 
-2.  Na área de trabalho **Administração**, expanda **Configuração do Site**, clique em **Servidores e Funções de Sistema de Sites** e selecione o servidor que pretende utilizar para o ponto de registo de certificados.  
+2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**, щелкните **Серверы и роли системы сайта**, а затем выберите сервер, который требуется использовать для точки регистрации сертификатов.  
 
-3.  No separador **Home Page**, no grupo **Servidor**, clique em **Adicionar Funções do Sistema de Sites**.  
+3.  На вкладке **Главная** в группе **Сервер** щелкните **Добавить роли системы сайта**.  
 
-4.  Na página **Geral**, especifique as definições gerais do sistema de sites e clique em **Seguinte**.  
+4.  На странице **Общие** укажите общие параметры для системы сайта и нажмите кнопку **Далее**.  
 
-5.  Na página de **Proxy**, clique em **Seguinte**. O ponto de registo de certificados não utiliza as definições de proxy de Internet.  
+5.  На странице **Прокси-сервер** нажмите кнопку **Далее**. Точка регистрации сертификатов не использует параметры прокси-сервера Интернета.  
 
-6.  Na página **Seleção da Função do Sistema**, selecione o **Ponto de registo de certificados** na lista de funções disponíveis e clique em **Seguinte**. 
+6.  На странице **Выбор системной роли** в списке доступных ролей выберите **Точка регистрации сертификатов** и нажмите кнопку **Далее**. 
 
-7. No **modo de registo de certificados** página, selecione se pretende que este ponto de registo de certificados para **pedidos de certificado SCEP de processo**, ou **pedidos de certificado PFX processo**. Um ponto de registo de certificados não é possível processar a ambos os tipos de pedidos, mas pode criar certificado vários pontos de registo se estiver a trabalhar com ambos os tipos de certificados.
+7. На странице **Режим регистрации сертификата** укажите режим для точки регистрации сертификатов: **Обрабатывать запросы на SCEP-сертификаты** или **Обрабатывать запросы на PFX-сертификаты**. Точка регистрации сертификатов не может обрабатывать оба типа запросов, но вы можете создать несколько точек регистрации, если намерены работать с сертификатами обоих типов.
 
-   Se a processar os certificados PFX, terá de escolher uma autoridade de certificação, a Microsoft ou Entrust.
+   При обработке сертификатов PFX нужно выбрать центр сертификации Microsoft или Entrust.
 
-8.  O **definições do ponto de registo de certificados** página varia de acordo com o tipo de certificado:
-    -   Se tiver selecionado **pedidos de certificado SCEP de processo**, em seguida, configure o seguinte:
-        -   **Nome do Web site**, **número da porta HTTPS**, e **nome da aplicação Virtual** para o ponto de registo de certificados. Estes campos são preenchidos automaticamente com valores predefinidos. 
-        -   **URL para o certificado de AC do serviço de inscrição de dispositivos de rede e de raiz** -clique em **adicionar**, em seguida, no **adicionar URL e certificado da AC de raiz** diálogo caixa, especifique o seguinte:
-            - **URL para o serviço de inscrição de dispositivos de rede**: Especifique o URL no seguinte formato: https://*< servidor_fqdn >*/certsrv/mscep/mscep.dll. Por exemplo, se o FQDN do seu servidor que está a executar o Serviço de Inscrição de Dispositivos de Rede for server1.contoso.com, escreva **https://server1.contoso.com/certsrv/mscep/mscep.dll**.
-            - **Certificado de AC de raiz**: Procure e selecione o ficheiro de certificado (. cer) que é criado e guardado no **passo 1: Instalar e configurar o serviço de inscrição de dispositivos de rede e dependências**. Este certificado de AC de raiz permite que o ponto de registo de certificados para validar o cliente de certificado de autenticação que o módulo de política do System Center Configuration Manager irá utilizar.  
+8.  Страница **Параметры точки регистрации сертификатов** изменяется в зависимости от типа сертификата.
+    -   Если вы выбрали **Обрабатывать запросы на SCEP-сертификаты**, настройте следующие параметры.
+        -   **Имя веб-сайта**, **Номер порта HTTPS** и **Имя виртуального приложения** для точки регистрации сертификатов. Эти поля автоматически заполняются значениями по умолчанию. 
+        -   **URL-адрес для службы регистрации сетевых устройств и сертификата корневого ЦС**. Нажмите кнопку **Добавить**, а затем в диалоговом окне **Добавление URL-адреса и сертификата корневого ЦС** укажите следующие сведения.
+            - **URL-адрес службы регистрации сетевых устройств**: укажите URL-адрес в формате https://*<полное_доменное_имя_сервера>*/certsrv/mscep/mscep.dll. Например, если в качестве полного доменного имени сервера, на котором работает служба регистрации сертификатов для сетевых устройств, используется "server1.contoso.com", введите **https://server1.contoso.com/certsrv/mscep/mscep.dll**.
+            - **Сертификат корневого ЦС**: найдите и выберите CER-файл сертификата, который был создан и сохранен на этапе **Шаг 1. Установка и настройка службы регистрации сертификатов для сетевых устройств и зависимостей**. Этот сертификат корневого ЦС позволяет точке регистрации сертификатов проверять сертификат проверки подлинности клиента, который будет использоваться модулем политики System Center Configuration Manager.  
 
-    - Se tiver selecionado **pedidos de certificado PFX processo**, configure os detalhes de ligação e as credenciais para a autoridade de certificado selecionado.
+    - Если вы выбрали **Обрабатывать запросы на PFX-сертификаты**, следует настроить сведения о соединении и учетные данные для выбранного центра сертификации.
 
-        - Para utilizar o Microsoft como a autoridade de certificação, clique em **adicionar** , em seguida, no **adicionar uma conta e uma autoridade de certificação** diálogo caixa, especifique o seguinte:
-            - **Nome do servidor de autoridade de certificado** -introduza o nome do seu servidor de autoridade do certificado.
-            - **Conta de autoridade de certificado** -clique em **definir** para selecionar ou criar a conta que tenha permissões para se inscrever na modelos na autoridade de certificação.
-            - **Conta de ligação de ponto de registo de certificados** - selecione ou crie a conta que liga o ponto de registo de certificados para a base de dados do Configuration Manager. Alteratively, pode utilizar a conta de computador local do computador que aloja o ponto de registo de certificados.
-            - **Conta do Active Directory certificado publicação** - Selecione uma conta, ou crie uma nova conta que será utilizada para publicar certificados para objetos de utilizador no Active Directory.
+        - Чтобы выбрать Microsoft в качестве центра сертификации, щелкните **Добавить** и в диалоговом окне **Добавить центр сертификации и учетную запись** укажите следующие сведения:
+            - **Имя сервера центра сертификации**. Введите имя используемого сервера центра сертификации.
+            - **Учетная запись центра сертификации**. Щелкните **Задать**, чтобы выбрать или создать учетную запись с правами на регистрацию в шаблонах центра сертификации.
+            - **Учетная запись для подключения к точке регистрации сертификатов**. Выберите или создайте учетную запись, которая подключает точку регистрации сертификатов к базе данных Configuration Manager. Также здесь можно использовать локальную учетную запись компьютера, на котором размещена точка регистрации сертификатов.
+            - **Учетная запись публикации сертификатов в Active Directory**. Выберите или создайте учетную запись, которая будет использоваться для публикации сертификатов в объектах пользователей в Active Directory.
 
-            - No **URL de inscrição de dispositivos de rede e de raiz do certificado AC** caixa de diálogo, especifique o seguinte e, em seguida, clique em **OK**:  
+            - В диалоговом окне **URL-адрес для регистрации сертификатов для сетевых устройств и для сертификата корневого ЦС** укажите следующие параметры и щелкните **ОК**.  
 
-        - Para utilizar Entrust como a autoridade de certificado, especifique:
+        - Чтобы использовать Entrust в качестве центра сертификации, укажите следующие сведения:
 
-           - O **MDM URL do serviço web**
-           - As credenciais de nome de utilizador e palavra-passe para o URL.
+           - **URL-адрес веб-службы MDM**
+           - Учетные данные для этого URL-адреса: имя пользователя и пароль.
 
-           Ao utilizar a API de MDM para definir o URL do serviço web Entrust, lembre-se de que utilizar, pelo menos, versão 9 da API, conforme mostrado no seguinte exemplo:
+           Если вы используете API-интерфейс MDM для определения URL-адреса веб-службы Entrust, обязательно применяйте API-интерфейс версии не ниже 9, как показано в следующем примере:
 
            `https://entrust.contoso.com:19443/mdmws/services/AdminServiceV9`
 
-           Versões anteriores da API não suportam Entrust.
+           Более ранние версии API-интерфейса не поддерживают Entrust.
 
-9. Clique em **Seguinte** e conclua o assistente.  
+9. Нажмите кнопку **Далее** и завершите работу мастера.  
 
-10. Aguarde alguns minutos para deixar a instalação chegar ao fim e, em seguida, verifique se o ponto de registo de certificados foi instalado com êxito através de qualquer um dos seguintes métodos:  
+10. Дождитесь завершения установки, которая может занять нескольких минут, а затем убедитесь в успешной установке точки регистрации сертификатов, воспользовавшись одним из указанных ниже способов.  
 
-    -   Na área de trabalho **Monitorização**, expanda **Estado do Sistema**, clique em **Estado do Componente** e procure mensagens de estado no componente **SMS_CERTIFICATE_REGISTRATION_POINT**.  
+    -   В рабочей области **Мониторинг** разверните узел **Состояние системы**, щелкните **Состояние компонента**и найдите сообщения о состоянии компонента **SMS_CERTIFICATE_REGISTRATION_POINT** .  
 
-    -   No servidor do sistema de sites, utilize o ficheiro *<ConfigMgr Installation Path\>*\Logs\crpsetup.log e o ficheiro *<ConfigMgr Installation Path\>*\Logs\crpmsi.log. Uma instalação com êxito irá devolver um código de saída igual a 0.  
+    -   На сервере системы сайта используйте файлы *<путь установки Configuration Manager\>*\Logs\crpsetup.log и *<путь установки Configuration Manager\>*\Logs\crpmsi.log. При успешной установке возвращается код завершения 0.  
 
-    -   Utilizando um browser, certifique-se de que pode ligar para o URL da € de pointâ de registo de certificados "por exemplo, https://server1.contoso.com/CMCertificateRegistration. Deverá ver uma página **Erro de Servidor** para o nome da aplicação, com uma descrição de HTTP 404.  
+    -   С помощью браузера убедитесь в возможности подключения к URL-адресу точки регистрации сертификатов, например https://server1.contoso.com/CMCertificateRegistration. Должна отобразиться страница **Ошибка сервера** для имени приложения с описанием ошибки HTTP 404.  
 
-11. Localize o ficheiro de certificado exportado para a AC de raiz que o ponto de registo de certificados criou automaticamente na seguinte pasta no computador do servidor do site primário: *<ConfigMgr Installation Path\>*\inboxes\certmgr.box. Guarde este ficheiro numa localização segura que pode aceder em segurança quando, posteriormente, instalar o módulo de política do System Center Configuration Manager no servidor que está a executar o serviço de inscrição de dispositivos de rede.  
+11. Найдите экспортированный файл сертификата для корневого ЦС, который автоматически создается точкой регистрации сертификатов на сервере первичного сайта в папке *<путь установки Configuration Manager\>*\inboxes\certmgr.box. Сохраните этот файл в надежном месте, к которому можно получить безопасный доступ при последующей установке модуля политики System Center Configuration Manager на сервере, на котором работает служба регистрации сертификатов для сетевых устройств.  
 
     > [!TIP]  
-    >  Este certificado não está imediatamente disponível nesta pasta. Poderá ter de aguardar algum tempo (por exemplo, meia hora) antes do System Center Configuration Manager copiar o ficheiro para esta localização.  
+    >  Этот сертификат не сразу появляется в папке. Возможно, потребуется немного подождать (например, полчаса), пока System Center Configuration Manager скопирует файл в указанную папку.  
 
 
-## <a name="step-3----install-the-system-center-configuration-manager-policy-module-for-scep-certificates-only"></a>Passo 3 – instalar o módulo de política do System Center Configuration Manager (para certificados SCEP).
+## <a name="step-3----install-the-system-center-configuration-manager-policy-module-for-scep-certificates-only"></a>Шаг 3. Установка модуля политики System Center Configuration Manager (только для сертификатов SCEP)
 
-Tem de instalar e configurar o módulo de política do System Center Configuration Manager em cada servidor que especificou no **passo 2: Instalar e configurar o ponto de registo de certificados** como **URL para o serviço de inscrição de dispositivos de rede** nas propriedades para o ponto de registo de certificados.  
+Необходимо установить и настроить модуль политики System Center Configuration Manager на каждом сервере, указанном на этапе **Шаг 2. Установка и настройка точки регистрации сертификатов** в свойствах точки регистрации сертификатов в поле **URL-адрес службы регистрации сетевых устройств**.  
 
-##### <a name="to-install-the-policy-module"></a>Para instalar o Módulo de Política  
+##### <a name="to-install-the-policy-module"></a>Процедура установки модуля политики  
 
-1.  No servidor que executa o serviço de inscrição de dispositivos de rede, inicie sessão como administrador de domínio e copie os seguintes ficheiros do < Suportededadosdeinstalaçãodoconfigmgr\>pasta \SMSSETUP\POLICYMODULE\X64 no suporte de instalação do System Center Configuration Manager para uma pasta temporária:  
+1.  Войдите в систему сервера, на котором выполняется служба регистрации сертификатов для сетевых устройств, с учетной записью администратора домена и скопируйте следующие файлы из папки <установочный_носитель_Configuration_Manager\>\SMSSETUP\POLICYMODULE\X64 на установочном носителе System Center Configuration Manager во временную папку:  
 
     -   PolicyModule.msi  
 
     -   PolicyModuleSetup.exe  
 
-    Além disso, se tiver uma pasta LanguagePack no suporte de dados de instalação, copie esta pasta e respetivo conteúdo.  
+    Помимо этого, при наличии папки LanguagePack на установочном носителе, скопируйте эту папку и ее содержимое.  
 
-2.  A partir da pasta temporária, execute PolicyModuleSetup.exe para iniciar o Assistente de configuração de módulo de política do System Center Configuration Manager.  
+2.  Во временной папке выполните файл PolicyModuleSetup.exe, чтобы запустить мастер установки модуля политики System Center Configuration Manager.  
 
-3.  Na página inicial do assistente, clique em **Seguinte**, aceite os termos de licenciamento e clique em **Seguinte**.  
+3.  На начальной странице мастера нажмите кнопку **Далее**, примите условия лицензии и нажмите кнопку **Далее**.  
 
-4.  Na página **Pasta de Instalação**, aceite a pasta de instalação predefinida para o módulo de política ou especifique uma pasta alternativa e clique em **Seguinte**.  
+4.  На странице **Папка установки** примите предложенную по умолчанию папку установки для модуля политики или укажите альтернативную папку, а затем нажмите кнопку **Далее**.  
 
-5.  Na página **Ponto de Registo de Certificados**, especifique o URL do ponto de registo de certificados utilizando o FQDN do servidor do sistema de sites e o nome da aplicação virtual que é especificado nas propriedades para o ponto de registo de certificados. O nome de aplicação virtual predefinido é CMCertificateRegistration. Por exemplo, se o servidor do sistema de sites tiver o FQDN server1.contoso.com e utilizou o nome de aplicação virtual predefinido, especifique **https://server1.contoso.com/CMCertificateRegistration**.  
+5.  На странице **Точка регистрации сертификатов** укажите, используя полное доменное имя сервера системы сайта, URL-адрес точки регистрации сертификатов и имя виртуального приложения, которое указано в ее свойствах. Имя виртуального приложения по умолчанию — CMCertificateRegistration. Например, если полное доменное имя сервера системы сайта — "server1.contoso.com", и используется имя виртуального приложения по умолчанию, то укажите **https://server1.contoso.com/CMCertificateRegistration**.  
 
-6.  Aceite a porta predefinida **443** ou especifique o número da porta alternativa que o ponto de registo de certificados está a utilizar e clique em **Seguinte**.  
+6.  Примите значение порта по умолчанию **443** или укажите альтернативный номер порта, который использует точка регистрации сертификатов, затем нажмите кнопку **Далее**.  
 
-7.  No **certificado de cliente para o módulo de política**página, procure e especifique o certificado de autenticação de cliente que implementou no **passo 1: Instalar e configurar o serviço de inscrição de dispositivos de rede e dependências**e, em seguida, clique em **seguinte**.  
+7.  На странице **Сертификат клиента для модуля политики**найдите и укажите сертификат проверки подлинности клиента, который был развернут на этапе **Шаг 1. Установка и настройка службы регистрации сертификатов для сетевых устройств и зависимостей**, а затем нажмите кнопку **Далее**.  
 
-8.  No **certificado do ponto de registo de certificados** página, clique em **procurar** para selecionar o ficheiro de certificado exportado para a AC de raiz que localizou e guardou no final do **passo 2: Instalar e configurar o ponto de registo de certificados**.  
+8.  На странице **Сертификат точки регистрации сертификатов** нажмите кнопку **Обзор** , чтобы выбрать экспортированный файл сертификата для корневого ЦС, который был найден и сохранен в конце этапа **Шаг 2. Установка и настройка точки регистрации сертификатов**.  
 
     > [!NOTE]  
-    >  Se não tiver guardado anteriormente este ficheiro de certificado, o mesmo está localizado em <ConfigMgr Installation Path\>\inboxes\certmgr.box no computador do servidor do site.  
+    >  Если вы ранее не сохраняли этот файл сертификата, он находится в расположении <путь установки Configuration Manager\>\inboxes\certmgr.box на сервере сайта.  
 
-9. Clique em **Seguinte** e conclua o assistente.  
+9. Нажмите кнопку **Далее** и завершите работу мастера.  
 
- Se pretender desinstalar o módulo de política do System Center Configuration Manager, utilize **programas e funcionalidades** no painel de controlo. 
+ Если необходимо удалить модуль политики System Center Configuration Manager, используйте оснастку **Программы и компоненты** в панели управления. 
 
  
-Agora que concluiu os passos de configuração, está pronto para implementar certificados para utilizadores e dispositivos ao criar e implementar perfis de certificado. Para obter mais informações sobre como criar perfis de certificado, veja [Como criar perfis de certificado no System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
+Итак, вы завершили все этапы настройки и теперь можете развертывать сертификаты для пользователей и устройств, создавая и развертывая профили сертификатов. Дополнительные сведения о создании профилей сертификатов см. в статье [Создание профилей сертификатов в System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  

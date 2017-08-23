@@ -1,5 +1,5 @@
 ---
-title: "Planear para o gateway de gestão na nuvem | Microsoft Docs"
+title: "Планирование работы шлюза управления облачными клиентами | Документация Майкрософт"
 description: 
 ms.date: 06/07/2017
 ms.prod: configuration-manager
@@ -10,188 +10,188 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: a7380ae781447880ffcba0778694ea62e10c4889
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Planear para o gateway de gestão de nuvem no Configuration Manager
+# <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Планирование работы шлюза управления облачными клиентами в Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-A partir da versão 1610, o gateway de gestão de nuvem fornece uma forma simples de gerir clientes do Configuration Manager na Internet. O serviço de gateway de gestão de nuvem é implementado no Microsoft Azure e requer uma subscrição do Azure. Estabelece ligação à sua infraestrutura do Configuration Manager no local através de uma nova função de chamar o ponto de conector de gateway de gestão de nuvem. Assim que implementado e configurado, os clientes poderão aceder a funções de sistema de sites no local do Configuration Manager, independentemente se estão contidos no privada interna rede ou na Internet.
+Начиная с версии 1610 шлюз управления облачными клиентами обеспечивает простой способ управления клиентами Configuration Manager в Интернете. Служба шлюза управления облачными клиентами развертывается в Microsoft Azure и требует подписки Azure. Она подключается к локальной инфраструктуре Configuration Manager с помощью новой роли "Точка подключения к шлюзу управления облачными клиентами". После развертывания и настройки службы клиенты получают доступ к локальным ролям системы сайта Configuration Manager вне зависимости от того, находятся ли они во внутренней частной сети или в Интернете.
 
 > [!TIP]  
-> Introduzido com a versão 1610, o gateway de gestão de nuvem é uma funcionalidade de pré-lançamento. Para ativá-la, consulte o artigo [utilizar as funcionalidades de pré-lançamento das atualizações da](/sccm/core/servers/manage/pre-release-features).
+> Шлюз управления облаком, появившийся в версии 1610, — это компонент, доступный в режиме предварительной версии. Сведения о ее включении см. в статье [Использование функций предварительной версии из обновлений](/sccm/core/servers/manage/pre-release-features).
 
-Utilize a consola do Configuration Manager para implementar o serviço no Azure, adicionar a função de ponto de conector de gateway de gestão de nuvem e configurar funções de sistema de sites para permitir tráfego de gateway de gestão de nuvem. Gateway de gestão de nuvem só suporta atualmente os software e de ponto de atualização ponto funções de gestão.
+Используйте консоль Configuration Manager для развертывания службы в Azure, добавления роли точки подключения к шлюзу управления облачными клиентами и настройки ролей системы сайта для разрешения трафика шлюза. Шлюз управления облачными клиентами в настоящее время поддерживает только роли точки управления и точки обновления программного обеспечения.
 
-São necessários certificados de cliente e certificados de Secure Socket Layer (SSL) para autenticar computadores e encriptar comunicações entre as diferentes camadas do serviço. Computadores cliente recebem normalmente um certificado de cliente através da imposição de política de grupo. Para encriptar o tráfego entre clientes e servidor de sistema de sites que alojam as funções, terá de criar um certificado SSL personalizado da AC. Também tem de configurar um certificado de gestão no Azure que permite ao Configuration Manager para implementar o serviço de gateway de gestão de nuvem.
+Для проверки подлинности компьютеров и шифрования обмена данными между различными уровнями службы требуются клиентские сертификаты и сертификаты SSL. Клиентские компьютеры обычно получают сертификат клиента через применение групповой политики. Для шифрования трафика между клиентами и сервером системы сайта, на котором размещаются роли, необходимо создать пользовательский SSL-сертификат от ЦС. Также необходимо установить сертификат управления в Azure, который позволяет Configuration Manager развертывать службу шлюза управления облачными клиентами.
 
-## <a name="requirements-for-cloud-management-gateway"></a>Requisitos do gateway de gestão de nuvem
+## <a name="requirements-for-cloud-management-gateway"></a>Требования для шлюза управления облачными клиентами
 
--   Ponto de computadores cliente e o servidor de sistema de sites que executa o conector de gateway de gestão de nuvem.
+-   Клиентские компьютеры и сервер системы сайта, на котором выполняется точка соединения шлюза управления облачными клиентами.
 
--   Certificados SSL personalizados da AC interna - utilizado para encriptar a comunicação entre os computadores cliente e autenticar a identidade do serviço de gateway de gestão de nuvem.
+-   Пользовательские SSL-сертификаты из внутреннего центра сертификации используются для шифрования обмена данными от клиентских компьютеров и проверки подлинности службы шлюза управления облачными клиентами.
 
--   Subscrição do Azure para serviços em nuvem.
+-   Подписка Azure для облачных служб.
 
--   Certificado de gestão do Azure - utilizado para autenticar o Configuration Manager com o Azure.
+-   Сертификат управления Azure — используется для проверки подлинности Configuration Manager в Azure.
 
-## <a name="specifications-for-cloud-management-gateway"></a>Especificações para o gateway de gestão de nuvem
+## <a name="specifications-for-cloud-management-gateway"></a>Спецификации для шлюза управления облачными клиентами
 
-- Cada instância do gateway de gestão de nuvem suporta 4 000 clientes.
-- Recomendamos que crie, pelo menos, duas instâncias do gateway de gestão de nuvem para melhorar a disponibilidade.
-- Gateway de gestão de nuvem suporta apenas os software e de ponto de atualização ponto funções de gestão.
--   As seguintes funcionalidades no Configuration Manager não são atualmente suportadas para o gateway de gestão de nuvem:
+- Каждый экземпляр шлюза управления облачными клиентами поддерживает 4000 клиентов.
+- Чтобы повысить доступность, рекомендуется создать по крайней мере два экземпляра шлюза управления облачными клиентами.
+- Шлюз управления облачными клиентами поддерживает только роли точки управления и точки обновления программного обеспечения.
+-   Следующие функции в Configuration Manager в настоящее время не поддерживаются шлюзом управления облачными клиентами:
 
-    -   Implementação de clientes
-    -   Atribuição automática de site
-    -   Políticas de utilizador
-    -   Catálogo de aplicações (incluindo pedidos de aprovação de software)
-    -   Implementação completa do sistema operativo (OSD)
-    -   Consola do Configuration Manager
-    -   Ferramentas remotas
-    -   Relatórios Web site
-    -   Reativação por LAN
-    -   Clientes Mac, Linux e UNIX
-    -   O Azure Resource Manager
-    -   Cache ponto a ponto
-    -   Gestão de Dispositivos Móveis no Local
+    -   Развертывание клиента
+    -   Автоматическое назначение сайта
+    -   Политики пользователей
+    -   Каталог приложений (включая запросы на утверждение программного обеспечения)
+    -   Полное развертывание операционной системы
+    -   Консоль Configuration Manager
+    -   Удаленные средства
+    -   Веб-сайт отчетов
+    -   Пробуждение по локальной сети
+    -   Клиенты для Mac, Linux и UNIX
+    -   Azure Resource Manager
+    -   Одноранговый кэш
+    -   Локальное управление мобильными устройствами
 
-## <a name="cost-of-cloud-management-gateway"></a>Custo de gateway de gestão de nuvem
+## <a name="cost-of-cloud-management-gateway"></a>Затраты на шлюз управления облачными клиентами
 
 >[!IMPORTANT]
->As informações de custo fornecidas abaixo são para estimar apenas a fins. O ambiente, poderá ter outras variáveis que afetam o custo global de utilizar o gateway de gestão de nuvem.
+>Приведенные ниже сведения о стоимости предоставлены исключительно в целях оценки. В вашей среде могут присутствовать другие факторы, влияющие на общую стоимость использования шлюза управления облачными клиентами.
 
-Gateway de gestão de nuvem utiliza a seguinte funcionalidade Microsoft Azure, o que implica os encargos para a conta de subscrição do Azure:
+Шлюз управления облачными клиентами использует перечисленные ниже функции Microsoft Azure, за которые взимается плата в учетной записи подписки на Azure.
 
--   Máquina virtual
+-   Виртуальная машина
 
-    -   Gateway de gestão na nuvem atualmente requer um padrão\_A2 máquina. Ao criar o serviço, pode selecionar quantas VMs para suportar o serviço (um é a predefinição).
+    -   Доля шлюза управления облачными клиентами в настоящее время требуется виртуальная машина Standard\_A2. При создании службы можно выбрать количество поддерживающих ее виртуальных машин (по умолчанию используется одна).
 
-    -   Para estimar apenas a fins, esperar que um único do Azure Standard\_máquina virtual de A2 pode suportar aproximadamente 2.000 simultâneos baseado na Internet clientes.
+    -   Одна виртуальная машина Azure Standard\_A2 одновременно может поддерживать приблизительно 2000 клиентов в Интернете.
 
-    -   Consulte o [Calculadora de preços do Azure](https://azure.microsoft.com/en-us/pricing/calculator/) para ajudar a determinar os custos de potenciais.
+    -   Чтобы определить возможные затраты, воспользуйтесь [калькулятором цен Azure](https://azure.microsoft.com/en-us/pricing/calculator/).
 
       >[!NOTE]
-      >Os custos de máquina virtual variam consoante a região.
+      >Затраты на виртуальные машины различаются в зависимости от региона.
 
--   Transferência de dados de saída
+-   Передача исходящих данных
 
-    -   São cobradas taxas de dados que fluem do serviço fora de... Consulte o [largura de banda do Azure, os detalhes de preços](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) para ajudar a determinar os custos de potenciais.
+    -   За данные, исходящие из службы, взимается плата. Чтобы определить возможные затраты, см. страницу [Сведения о стоимости пропускной способности Azure](https://azure.microsoft.com/en-us/pricing/details/bandwidth/).
 
-    -   Para estimar apenas a fins, espere aproximadamente 100 MB por cliente por mês para clientes baseados na Internet fazer atualizações da política a cada hora.
+    -   Ориентировочно трафик будет составлять 100 МБ на клиент в месяц для клиентов в Интернете, обновляющих политику каждый час.
 
     >[!NOTE]
-    > Efetuar outras ações suportadas através do gateway de gestão de nuvem (por exemplo, a implementação de atualizações de software ou aplicações) irá aumentar a quantidade de transferência de dados de saída a partir do Azure.
+    > Выполнение других действий, поддерживаемых шлюзом управления облачными клиентами (например, развертывания приложений или обновлений программного обеспечения), увеличит объем исходящих данных, передаваемых из Azure.
 
--   Armazenamento de conteúdos
+-   Хранилище содержимого
 
-    -   Os clientes baseados na Internet geridos com o gateway de gestão de nuvem irão obter conteúdos de atualização de software do Windows Update, sem encargos.
+    -   Клиенты в Интернете, управляемые с помощью шлюза управления облачными клиентами, будут получать содержимое обновлений ПО из Центра обновления Windows бесплатно.
 
-    -   Qualquer outro conteúdo necessário (por exemplo, aplicações) têm de ser distribuído para um ponto de distribuição baseado na nuvem. Atualmente, o gateway de gestão de nuvem suporta apenas o ponto de distribuição em nuvem para a enviar conteúdo para clientes.
+    -   Другое необходимое содержимое (например, приложения) нужно распространять в облачной точке распространения. Сейчас шлюз управления облачными клиентами может отправлять содержимое клиентам только через облачную точку распространения.
 
-    - Consulte o custo de utilização um [distribuição baseados na nuvem](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution) para obter mais detalhes.
+    - Ознакомьтесь с более подробными сведениями о затратах на [облачное распространение](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution).
 
-## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Perguntas mais frequentes sobre o Gateway de gestão de nuvem (CMG)
+## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Часто задаваемые вопросы о шлюзе управления облачными клиентами
 
-### <a name="why-use-the-cloud-management-gateway"></a>Porquê utilizar o gateway de gestão da nuvem?
+### <a name="why-use-the-cloud-management-gateway"></a>Какими преимуществами обладает шлюз управления облачными клиентами?
 
-Utilize esta função para simplificar a gestão de clientes baseada na Internet em três passos a partir da consola do Configuration Manager.
+Эта роль позволяет упростить управление клиентами через Интернет из консоли Configuration Manager. Управление выполняется в три этапа:
 
-1. Implementar o CMG no Azure com o [criar Gateway de gestão de nuvem](/sccm/core/clients/manage/setup-cloud-management-gateway) assistente.
-2. Configurar o [ponto de ligação de gateway de gestão de nuvem](/sccm/core/servers/deploy/configure/install-site-system-roles) função do sistema de sites.
-3. [Configurar funções para o tráfego de gateway de gestão de nuvem](/sccm/core/clients/manage/setup-cloud-management-gateway#step-7-configure-roles-for-cloud-management-gateway-traffic), como o ponto de gestão e atualização de software ponto.
+1. Развертывание шлюза управления облачными клиентами в Azure с помощью соответствующего [мастера](/sccm/core/clients/manage/setup-cloud-management-gateway).
+2. Настройка системной роли сайта, которая служит [точкой подключения шлюза управления облачными клиентами](/sccm/core/servers/deploy/configure/install-site-system-roles).
+3. [Настройка ролей для трафика шлюза управления облачными клиентами](/sccm/core/clients/manage/setup-cloud-management-gateway#step-7-configure-roles-for-cloud-management-gateway-traffic), включая точку управления и точку обновления программного обеспечения.
 
-### <a name="how-does-the-cloud-management-gateway-work"></a>Como funciona o gateway de gestão da nuvem?
+### <a name="how-does-the-cloud-management-gateway-work"></a>Как работает шлюз управления облачными клиентами?
 
-- O ponto de ligação de gateway de gestão de nuvem permite uma ligação de consistente e de elevado desempenho a partir da Internet para o gateway de gestão de nuvem.
-- O Configuration Manager publica definições CMG, incluindo as definições de segurança e informações de ligação.
-- O CMG autentica e reencaminha os pedidos de cliente do Configuration Manager para o ponto de ligação de gateway de gestão de nuvem. Estes pedidos são reencaminhados para funções na rede da empresa, de acordo com os mapeamentos de URL.
+- Точка подключения шлюза управления облачными клиентами позволяет устанавливать из Интернета бесперебойные высокопроизводительные подключения к шлюзу управления облачными клиентами.
+- Configuration Manager публикует параметры в шлюз управления облачными клиентами, включая параметры безопасности и сведения о подключении.
+- Шлюз управления облачными клиентами выполняет аутентификацию запросов клиентов Configuration Manager и перенаправляет их в точку подключения шлюза управления облачными клиентами. Эти запросы перенаправляются к ролям в корпоративной сети в соответствии с сопоставленными URL-адресами.
 
-### <a name="how-is-the-cloud-management-gateway-deployed"></a>Como é implementar o gateway de gestão da nuvem?
+### <a name="how-is-the-cloud-management-gateway-deployed"></a>Как развертывается шлюз управления облачными клиентами?
 
-O componente de Gestor do serviço de nuvem no ponto de ligação de serviço processa todas as tarefas de implementação de CMG. Além disso, monitoriza e comunica informações de estado de funcionamento e o registo de serviço do Azure AD.
+Все задачи по развертыванию шлюза управления облачными клиентами обрабатывает компонент диспетчера облачной службы в точке подключения службы. Кроме того, он отслеживает работоспособность и ведение журнала службы из Azure AD, сообщая о текущем состоянии.
 
-#### <a name="certificate-requirements"></a>Requisitos de certificados
+#### <a name="certificate-requirements"></a>Требования к сертификатам
 
-Vai precisar dos seguintes certificados para proteger o CMG:
+Чтобы обеспечить безопасность шлюза управления облачными клиентами, вам понадобятся следующие сертификаты:
 
-- **Certificado de gestão** -Isto pode ser qualquer certificado, incluindo certificados autoassinados. Pode utilizar um certificado público carregado para o Azure AD ou um [PFX com chave privada](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) importados para o Configuration Manager para autenticar com o Azure AD.
-- **Certificado do serviço Web** -Recomendamos que utilize um certificado de AC público ganhar confiança nativa pelos clientes. O CName tem de ser criados na registar DNS público. Certificados de caráter universal não são suportados.
-- **Certificados de raiz/SubCA carregar para CMG** -CMG o tem completa a validação da cadeia no certificados PKI de cliente. Se utilizar uma AC empresarial para emitir certificados PKI de cliente e os respetivos raiz ou AC subordinada não está disponível na internet, tem carregá-lo para o CMG.
+- **Сертификат управления**. Это может быть любой сертификат, включая самозаверяющие сертификаты. Можно использовать открытые сертификаты, отправленные в Azure AD, или [PFX-файлы с закрытым ключом](/sccm/mdm/deploy-use/create-pfx-certificate-profiles), импортированные в Configuration Manager для аутентификации в Azure AD.
+- **Сертификат веб-службы**. Рекомендуется использовать сертификат, полученный из общедоступного центра сертификации. Таким образом клиенты изначально будут доверять шлюзу управления облачными клиентами. Запись CName должна быть создана в 	общедоступной системе DNS. Групповые сертификаты не поддерживаются.
+- **Сертификаты корневого или подчиненного центра сертификации, переданные в шлюз управления облачными клиентами**. Шлюз управления облачными клиентами должен проверить всю цепочку PKI-сертификатов клиента. Если вы используете корпоративный центр сертификации для выдачи клиентских PKI-сертификатов, а соответствующий корневой или подчиненный центр сертификации не доступен в Интернете, сертификат необходимо передать в шлюз управления облачными клиентами.
 
-#### <a name="deployment-process"></a>Processo de implementação
+#### <a name="deployment-process"></a>Процесс развертывания
 
-Existem duas fases para a implementação:
+Процесс развертывания состоит из двух этапов:
 
-- Implementar o serviço em nuvem
-    - Carregar o [esquema de definição de serviço do Azure](https://msdn.microsoft.com/library/azure/ee758711.aspx) ficheiro (. csdef)
-    - Carregar o [esquema de configuração do serviço de Azure](https://msdn.microsoft.com/library/azure/ee758710.aspx) ficheiro (. cscfg).
-- Configurar o componente CMG no seu servidor do Azure AD e os pontos finais, processadores HTTP e serviços nos serviços de informações Internet (IIS)
+- Развертывание облачной службы.
+    - Отправка [CSDEF](https://msdn.microsoft.com/library/azure/ee758711.aspx)-файла.
+    - Отправка [CSCFG](https://msdn.microsoft.com/library/azure/ee758710.aspx)-файла.
+- Установка компонента шлюза управления облачными клиентами на сервере Azure AD и настройка конечных точек, обработчиков HTTP-данных и служб в IIS.
 
-Se alterar a configuração de CMG, uma implementação de configuração é iniciada para o CMG.
+При изменении конфигурации шлюза управления облачными клиентами инициируется соответствующее развертывание конфигурации.
 
-### <a name="how-does-the-cloud-management-gateway-help-ensure-security"></a>Como é que o gateway de gestão de nuvem ajuda a garantir a segurança?
+### <a name="how-does-the-cloud-management-gateway-help-ensure-security"></a>Как шлюз управления облачными клиентами помогает обеспечивать безопасность?
 
-O CMG ajuda a garantir a segurança das seguintes formas:
+Шлюз управления облачными клиентами помогает обеспечить безопасность следующим образом:
 
-- Aceita e gere ligações a partir de pontos de ligação de CMG, incluindo a autenticação de SSL mútua utilizando certificados internos e os IDs de ligação.
-- Aceita e encaminha os pedidos de cliente
-    - Pré-autentica ligações, utilizando SSL mútua no certificado PKI de cliente.
-    - A lista de fidedignidade de certificados verifica a raiz do certificado PKI de cliente. Pode especificar esta definição no cliente comunicar as definições nas propriedades do site. Também efetua a validação do mesma como ponto de gestão para o cliente.
-    - Valida URLs recebidos
-    - Filtros receberam URLs para verificar se qualquer ponto de ligação CMG ligação pode processar o pedido de URL.  
-    - Verifica a verificação de comprimento do conteúdo para cada ponto final de publicação.
-    - Utiliza o round-robin para equilibrar entre CMG pontos de ligação do mesmo site.
+- Принимает и администрирует подключения из точек подключения шлюза управления облачными клиентами, включая взаимную аутентификацию SSL, для которой используются внутренние сертификаты и идентификаторы подключения.
+- Принимает и перенаправляет клиентские запросы.
+    - Выполняет предварительную аутентификацию подключений с использованием взаимной аутентификации SSL и клиентского PKI-сертификата.
+    - Список доверия сертификатов проверяет корень клиентского PKI-сертификата. Этот параметр можно указать в настройках обмена данными с клиентом в свойствах сайта. Выполняет ту же проверку, что и точка управления для клиента.
+    - Проверяет полученные URL-адреса.
+    - Фильтрует полученные URL-адреса, проверяя, могут ли подключающиеся точки подключения шлюза управления облачными клиентами обслужить URL-запрос.  
+    - Проверяет длину содержимого для каждой конечной точки публикации.
+    - Использует циклический перебор для распределения нагрузки между точками подключения шлюза управления облачными клиентами из одного сайта.
 
-- Protege o ponto de ligação CMG
-    - Baseia-se consistente ligações HTTP/TCP para todas as instâncias virtuais CMG a ligação. Verifica e mantém as ligações a cada minuto.
-    - Mutuamente autheticates autenticação de SSL com CMG utilizando certificados internos.
-    - Pedidos HTTP de reencaminhamentos com base nos mapeamentos de URL.
-    - Relatórios de estado de ligação para mostrar o estado de funcionamento do serviço de administração.
-    - Relatório de tráfego de ponto final de relatórios por ponto final a cada 5 minutos.
+- Обеспечивает безопасность точки подключения шлюза управления облачными клиентами.
+    - Создает бесперебойные HTTP/TCP-подключения ко всем виртуальным экземплярам подключающегося шлюза управления облачными клиентами. Ежеминутно проверяет и обеспечивает работу подключений.
+    - Выполняет взаимную аутентификацию SSL с использованием шлюза управления облачными клиентами и внутренних сертификатов.
+    - Перенаправляет HTTP-запросы в соответствии с сопоставленными URL-адресами.
+    - Сообщает о состоянии подключения для отображения сведений о работоспособности службы администрирования.
+    - Каждые пять минут сообщает о трафике каждой конечной точки.
 
-- Proteger a publicação ponto final do Configuration Manager com clientes funções, como o ponto de gestão e o software update ponto anfitrião pontos finais no IIS para servir pedidos do cliente. Cada ponto final publicado para o CMG tem um mapeamento de URL.
-O URL externo for um cliente utiliza para comunicar com o CMG.
-O URL interno é o ponto de ligação de CMG utilizado para reencaminhar pedidos de servidor interno.
+- Обеспечивает безопасность взаимодействующих с клиентом Configuration Manager ролей конечной точки публикации, например точки управления, и конечных точек узла точки обновления программного обеспечения в IIS для обслуживания клиентских запросов. Каждая конечная точка, опубликованная в шлюзе управления облачными клиентами, сопоставлена с определенным URL-адресом.
+Для обмена данными со шлюзом управления облачными клиентами клиенты используют внешний URL-адрес.
+Внутренний URL-адрес используется в качестве точки подключения шлюза управления облачными клиентами для перенаправления запросов к внутреннему серверу.
 
-#### <a name="example"></a>Exemplo:
-Quando ativar o tráfego de CMG num ponto de gestão, o Configuration Manager cria um conjunto de mapeamentos de URL internamente para cada servidor de ponto de gestão, como ccm_system, ccm_incoming e sms_mp.
-O URL externo para o ponto final ccm_system de ponto de gestão aspeto que poderá ter **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
-O URL é exclusivo para cada ponto de gestão. O cliente do Configuration Manager, em seguida, PUT o CMG ativado o nome do pacote de gestão como  **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**  na respetiva lista de pontos de gestão de internet.
-Todos os URLs externos publicados são carregados para o CMG automaticamente, em seguida, CMG é capaz de fazer a filtragem de URL. Todos os mapeamentos de URL é replicado para o ponto de ligação de CMG para que possa reencaminhar para servidores internos, de acordo com o cliente solicitar o URL externo.
+#### <a name="example"></a>Пример
+Когда вы включаете трафик шлюза управления облачными клиентами в точке управления, Configuration Manager создает набор сопоставленных URL-адресов для каждого сервера точки управления, например ccm_system, ccm_incoming и sms_mp.
+Внешний URL-адрес для конечной точки управления ccm_system может выглядеть так: **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
+У каждой точки управления есть свой уникальный URL-адрес. Клиент Configuration Manager затем добавляет имя точки управления, настроенное на шлюзе управления облачными клиентами (например, **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**), в свой список интернет-точек управления.
+Все опубликованные внешние URL-адреса передаются в шлюз управления облачными клиентами автоматически, после чего шлюз может их фильтровать. Все сопоставленные URL-адреса реплицируются в точку подключения шлюза управления облачными клиентами. Так шлюз может выполнять перенаправление на внутренние серверы на основе того, какой клиент запрашивает внешний URL-адрес.
 
-### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>As portas que são utilizadas pelo gateway de gestão na nuvem?
+### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Какие порты использует шлюз управления облачными клиентами?
 
-- Nenhuma porta de entrada necessária na rede no local. Implementação de CMG criará um bunch em CMG automaticamente.
-- Para além de 443, algumas portas de saída são necessários pelo ponto de ligação de CMG.
+- В локальной сети входящие порты не требуются. При развертывании шлюза управления облачными клиентами необходимая группа портов будет создана автоматически.
+- Кроме порта 443 для точки подключения шлюза управления облачными клиентами необходимы некоторые дополнительные исходящие порты.
 
 |||||
 |-|-|-|-|
-|Fluxo de dados|Servidor|Portas de servidor|Cliente|
-|Implementação de CMG|Azure|443|Ponto de ligação de serviço do Configuration Manager|
-|Criar o canal CMG|CMG|Instância VM: 1 porta: 443<br>Instância VM: N (N > = 2 e N < = 16) portas: 10124 ~ N 10140 ~ N|Ponto de ligação de CMG|
-|Cliente CMG|CMG|443|Cliente|
-|Conector CMG à função de site (atualmente pontos de gestão e pontos de atualização de software)|Função de site|Protocolo/portas configuradas na função de site|Ponto de ligação de CMG|
+|Поток данных|Сервер|Порты на сервере|Клиент|
+|Развертывание шлюза управления облачными клиентами|Azure|443|Точка подключения службы Configuration Manager|
+|Создание канала шлюза управления облачными клиентами|Шлюз управления облачными клиентами|Экземпляр виртуальной машины: 1. Порт: 443.<br>Экземпляр виртуальной машины: N (N >= 2 и N <= 16). Порты: 10124~N и 10140~N.|Точка подключения шлюза управления облачными клиентами|
+|Подключение клиента к шлюзу управления облачными клиентами|Шлюз управления облачными клиентами|443|Клиент|
+|Подключение соединителя шлюза управления облачными клиентами к роли сайта (сейчас это точки управления и точки обновления программного обеспечения)|Роль сайта|Протокол и порты, настроенные для роли сайта|Точка подключения шлюза управления облачными клиентами|
 
-### <a name="how-can-you-improve-performance-of-the-cloud-management-gateway"></a>Como pode melhorar o desempenho do gateway de gestão na nuvem?
+### <a name="how-can-you-improve-performance-of-the-cloud-management-gateway"></a>Как можно повысить производительность шлюза управления облачными клиентами?
 
-- Se possível, configure o CMG, ponto de ligação de CMG e o servidor do site do Configuration Manager na mesma região para reduzir a latência de rede.
-- Atualmente, a ligação entre o cliente do Configuration Manager e o CMG não é com suporte para a região.
-- Para obter elevada disponibilidade, recomendamos um mínimo de 2 instâncias virtuais o CMG e dois pontos de ligação de CMG por site
-- Pode dimensionar o CMG para suportar mais clientes ao adicionar mais instâncias VM. São com pelo balanceador de carga do Azure AD de balanceamento de carga.
-- Crie mais pontos de ligação de CMG distribuir a carga entre elas. O CMG será round-robin o tráfego para os respetivos pontos de ligação CMG ligação.
-- Número de cliente de suporte por instância de CMG VM é 6k na versão 1702. Quando o canal CMG está sob carga elevada, o pedido irá ainda ser processado, mas poderá demorar mais do que o normal.
+- Если это возможно, настройте шлюз управления облачными клиентами, точку подключения шлюза управления и сервер сайта Configuration Manager в сети, расположенной в одном регионе. Так вы сможете снизить задержку.
+- Сейчас при подключении между клиентом Configuration Manager и шлюзом управления облачными клиентами регион не учитывается.
+- Чтобы обеспечить высокий уровень доступности, для каждого сайта рекомендуется использовать хотя бы два виртуальных экземпляра шлюза управления облачными клиентами и две точки подключения шлюза управления.
+- Чтобы обеспечить поддержку большего числа клиентов, добавьте дополнительные экземпляры виртуальной машины. Распределение нагрузки между ними осуществляет подсистема балансировки нагрузки Azure AD.
+- Создайте дополнительные точки подключения шлюза управления облачными клиентами для распределения нагрузки между ними. Шлюз управления облачными клиентами будет циклически перераспределять трафик, поступающий на его подключающиеся точки подключения.
+- Выпуск 1702 поддерживает 6000 клиентов для каждого экземпляра виртуальной машины шлюза управления облачными клиентами. Когда канал шлюза управления облачными клиентами используется с высокой интенсивностью, запросы будут обрабатываться, но это может занимать больше времени.
 
-### <a name="how-can-you-monitor-the-cloud-management-gateway"></a>Como pode monitorizar o gateway de gestão da nuvem?
+### <a name="how-can-you-monitor-the-cloud-management-gateway"></a>Как можно отслеживать работу шлюза управления облачными клиентами?
 
-Para resolução de problemas de implementação, utilize **CloudMgr.log** e **CMGSetup.log**.
-Para resolver problemas com o estado de funcionamento do serviço, utilize **CMGService.log** e **SMS_CLOUD_PROXYCONNECTOR.log**.
-Para resolver problemas com o tráfego de cliente, utilize **CMGHttpHandler.log**, **CMGService.Log**, e **SMS_CLOUD_PROXYCONNECTOR.log**.
+Для устранения неполадок с развертыванием используйте журналы **CloudMgr.log** и **CMGSetup.log**.
+Для устранения неполадок с работоспособностью службы используйте журналы **CMGService.log** и **SMS_CLOUD_PROXYCONNECTOR.log**.
+Для устранения неполадок с клиентским трафиком используйте журналы**CMGHttpHandler.log**, **CMGService.Log** и **SMS_CLOUD_PROXYCONNECTOR.log**.
 
-Para obter uma lista de todos os ficheiros de registo relacionados com CMG, consulte [ficheiros de registo no Configuration Manager](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/log-files#cloud-management-gateway)
+Список всех файлов журналов Configuration Manager, связанных со шлюзом управления облачными клиентами, см. [здесь](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/log-files#cloud-management-gateway).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Configurar o gateway de gestão na cloud](setup-cloud-management-gateway.md)
+[Настройка шлюза управления облаком](setup-cloud-management-gateway.md)

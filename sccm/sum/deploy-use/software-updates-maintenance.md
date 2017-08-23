@@ -1,6 +1,6 @@
 ---
-title: "Manutenção de atualizações de software | Microsoft Docs"
-description: "Para manter as atualizações no Configuration Manager, pode agendar a tarefa de limpeza do WSUS ou pode executá-lo manualmente."
+title: "Обслуживание обновлений программного обеспечения | Документы Майкрософт"
+description: "Для обслуживания обновлений в Configuration Manager можно запланировать автоматический запуск задач очистки WSUS или выполнить ее вручную."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,20 +13,20 @@ ms.technology: configmgr-sum
 ms.assetid: 4b0e2e90-aac7-4d06-a707-512eee6e576c
 ms.openlocfilehash: 1590c623f7bc2f42a8617f110de5321212732a03
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="software-updates-maintenance"></a>Manutenção de atualizações de software
+# <a name="software-updates-maintenance"></a>Обслуживание обновлений программного обеспечения
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode agendar e executar a tarefa de limpeza do WSUS a partir da consola do Configuration Manager ou pode executar manualmente a tarefa de limpeza do WSUS nas propriedades do componente de ponto de atualização de Software. Quando selecionar a opção para executar a tarefa de limpeza do WSUS, será executada na próxima sincronização de atualizações de software. As atualizações do software expirado serão definidas para um estado de recusado no servidor do WSUS e o Agente de Atualizações do Windows em computadores já não irá analisar estas atualizações de software. Por predefinição, a tarefa de limpeza do WSUS é executada a cada 30 dias.  
+Задачу очистки WSUS можно запланировать и выполнить из консоли Configuration Manager, кроме того, ее можно запустить вручную в свойствах компонента точки обновления программного обеспечения. При выборе задания очистки WSUS для запуска оно будет выполнено при следующей синхронизации обновлений программного обеспечения. Просроченным обновлениям будет присвоено состояние «Отклонено» на сервере WSUS, и агент обновления Windows на компьютерах больше не будет проверять эти обновления. По умолчанию задание очистки WSUS запускается каждые 30 дней.  
 
-#### <a name="to-schedule-and-run-the-wsus-cleanup-job"></a>Para agendar e executar a tarefa de limpeza do WSUS  
+#### <a name="to-schedule-and-run-the-wsus-cleanup-job"></a>Планирование и запуск задания очистки WSUS  
 
-1.  Na consola do Configuration Manager, navegue até à **administração** > **descrição geral** > **configuração do Site** > **Sites**.  
+1.  В консоли Configuration Manager перейдите в раздел **Администрирование** > **Обзор** > **Конфигурация сайта** > **Сайты**.  
 
-2.  Clique em **Configurar Componentes do Site** no grupo **Definições** e, em seguida, clique em **Ponto de Atualização de Software** para abrir as Propriedades do Componente do Ponto de Atualização de Software.  
+2.  Щелкните **Настройка компонентов сайта** в группе **Параметры** и затем щелкните **Точка обновления программного обеспечения** , чтобы открыть свойства компонента точки обновления программного обеспечения.  
 
-3.  Clique no separador **Regras de Substituição** , selecione **Executar assistente de limpeza de WSUS**e, em seguida, clique em **OK**.
+3.  Выберите вкладку **Правила замены** , выберите **Запустить мастер очистки WSUS**, затем нажмите кнопку **ОК**.

@@ -1,6 +1,6 @@
 ---
-title: "Requisitos de infraestrutura para a implementação do sistema de operativo | Microsoft Docs"
-description: "Certifique-se de que deve saber dependências externas e dependências de produto antes de utilizar o System Center 2012 Configuration Manager para a implementação de sistema operativo."
+title: "Требования к инфраструктуре для развертывания операционной системы | Документы Майкрософт"
+description: "Перед использованием System Center 2012 Configuration Manager для развертывания операционной системы необходимо ознакомиться с внешними зависимостями и зависимостями продуктов."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,228 +16,228 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 167e639cdb9995fd743787cc9fbf364ec70f6ed9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="infrastructure-requirements-for-operating-system-deployment-in-system-center-configuration-manager"></a>Requisitos de infraestrutura para a implementação do sistema operativo no System Center Configuration Manager
+# <a name="infrastructure-requirements-for-operating-system-deployment-in-system-center-configuration-manager"></a>Требования к инфраструктуре для развертывания операционной системы в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Implementação do sistema operativo no System Center 2012 Configuration Manager tem dependências externas e dependências no produto. Utilize as secções seguintes para o ajudar a preparar a implementação do sistema operativo.  
+Функция развертывания операционных систем в System Center 2012 Configuration Manager имеет внешние зависимости и зависимости в пределах продукта. В следующих разделах содержатся сведения, которые помогут вам подготовиться к развертыванию операционной системы.  
 
-##  <a name="BKMK_ExternalDependencies"></a> Dependências Externas ao Configuration Manager  
- O seguinte fornece informações sobre ferramentas externas, kits de instalação e sistemas operativos que são necessários para implementar sistemas operativos no Configuration Manager.  
+##  <a name="BKMK_ExternalDependencies"></a> Внешние зависимости Configuration Manager  
+ Ниже приводятся сведения о внешних средствах, наборах установки и операционных системах, которые необходимы для развертывания операционных систем в Configuration Manager.  
 
-### <a name="windows-adk-for-windows-10"></a>Windows ADK para Windows 10  
- O Windows ADK é um conjunto de ferramentas e documentação que suporta a configuração e implementação de sistemas operativos Windows. O Configuration Manager utiliza o Windows ADK para automatizar as instalações do Windows, capturar imagens do Windows, migrar dados e perfis de utilizador e assim sucessivamente.  
+### <a name="windows-adk-for-windows-10"></a>Windows ADK для Windows 10  
+ Windows ADK — это набор средств и документации для настройки и развертывания операционных систем Windows. В Configuration Manager используется комплект Windows ADK для автоматизации установки Windows, записи образов Windows, переноса профилей и данных пользователей и выполнения других задач.  
 
- As seguintes funcionalidades do Windows ADK tem de ser instalado server no local de site de nível superior da hierarquia, no servidor do site de cada site primário na hierarquia e no servidor de sistema de site do fornecedor de SMS:  
+ Следующие компоненты Windows ADK должны быть установлены на сервере сайта верхнего уровня в иерархии, на сервере каждого первичного сайта в иерархии и на сервере системы сайта поставщика SMS.  
 
--   User State Migration Tool (USMT) <sup>1</sup>  
+-   Средство миграции пользовательской среды (USMT) <sup>1</sup>  
 
--   Ferramentas de Implementação do Windows  
+-   Средства развертывания Windows  
 
--   Ambiente de Pré-instalação do Windows (Windows PE)
+-   Среда предварительной установки Windows (Windows PE)
 
-Para obter uma lista das versões do Windows 10 ADK que pode utilizar com diferentes versões do Configuration Manager, consulte [suporte para Windows 10 como um cliente](https://docs.microsoft.com/en-us/sccm/core/plan-design/configs/support-for-windows-10#windows-10-adk).
+Список версий Windows 10 ADK, которые можно использовать с разными версиями Configuration Manager, см. в разделе [Поддержка для Windows 10 как клиента](https://docs.microsoft.com/en-us/sccm/core/plan-design/configs/support-for-windows-10#windows-10-adk).
 
- <sup>1</sup> O USMT não é necessário no servidor do sistema de sites do Fornecedor de SMS.  
+ <sup>1</sup> USMT не требуется на сервере системы сайта поставщика SMS.  
 
 > [!NOTE]  
->  Tem de instalar manualmente o Windows ADK em cada computador que irá alojar um site de administração central ou o servidor do site primário antes de instalar o site do Configuration Manager.  
+>  Необходимо вручную установить Windows ADK на каждом компьютере, на котором будет размещаться сайт центра администрирования или сервер первичного сайта, прежде чем устанавливать сайт Configuration Manager.  
 
- Para obter mais informações, consulte:  
+ Дополнительные сведения см. на странице  
 
--   [Cenários do Windows ADK para Windows 10 para Profissionais de TI](https://technet.microsoft.com/library/mt280162\(v=vs.85\).aspx)  
+-   [Сценарии Windows ADK для Windows 10 для ИТ-специалистов](https://technet.microsoft.com/library/mt280162\(v=vs.85\).aspx)  
 
--   [Transferir o Windows ADK para Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx#adkwin10)  
+-   [Скачивание Windows ADK для Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx#adkwin10)  
 
--   [Suporte para Windows 10](/sccm/core/plan-design/configs/support-for-windows-10)  
+-   [Поддержка Windows 10](/sccm/core/plan-design/configs/support-for-windows-10)  
 
 
-### <a name="user-state-migration-tool-usmt"></a>User State Migration Tool (USMT)  
- O Configuration Manager utiliza um pacote USMT que contém os ficheiros de origem USMT 10 para capturar e restaurar o estado do utilizador como parte da implementação do sistema operativo. Configuração do Configuration Manager no site de nível superior cria automaticamente o pacote USMT. O USMT 10 consegue capturar o estado de utilizador do Windows 7, Windows 8, Windows 8.1 e Windows 10. O USMT 10 é distribuído no Windows Assessment and Deployment Kit (Windows ADK) para Windows 10.  
+### <a name="user-state-migration-tool-usmt"></a>Средство миграции пользовательской среды (USMT)  
+ Configuration Manager использует пакет USMT, содержащий исходные файлы USMT 10, для сбора сведений о пользовательской среде и восстановления ее в рамках развертывания операционной системы. Программа установки Configuration Manager на сайте верхнего уровня автоматически создает пакет USMT. USMT 10 может записывать данные о пользовательской среде из Windows 7, Windows 8, Windows 8.1 и Windows 10. USMT 10 распространяется в составе комплекта средств для развертывания и оценки Windows (Windows ADK) для Windows 10.  
 
- Para obter mais informações, consulte:  
+ Дополнительные сведения см. на странице  
 
--   [Cenários Comuns de Migração do USMT 10](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx)  
+-   [Распространенные сценарии миграции для USMT 10](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx)  
 
--   [Gerir o estado do utilizador](../get-started/manage-user-state.md)  
+-   [Управление пользовательской средой](../get-started/manage-user-state.md)  
 
 ### <a name="windows-pe"></a>Windows PE  
- O Windows PE é utilizado para imagens de arranque para iniciar um computador. É um sistema operativo Windows com serviços limitados que é utilizado durante a pré-instalação e implementação de sistemas operativos Windows. O seguinte fornece a versão do Configuration Manager e a versão suportada do Windows ADK, a versão do Windows PE nas quais se baseia a imagem de arranque que pode ser personalizada a partir da consola do Configuration Manager e as versões do Windows PE na qual se baseia a imagem de arranque que pode personalizar com o DISM e depois adicione a imagem para a versão especificada do Configuration Manager.  
+ Windows PE используется загрузочными образами для запуска компьютера. Это операционная система Windows с ограниченными функциями, которая используется во время предустановки и развертывания операционных систем Windows. Ниже приведены версия Configuration Manager и поддерживаемая версия Windows ADK, версия среды предустановки Windows, используемая как основа образа загрузки, который может быть настроен в консоли Configuration Manager, и версии среды предустановки Windows, используемые как основа образов загрузки, которые могут быть настроены с помощью DISM, а затем добавлены в указанную версию Configuration Manager.  
 
-#### <a name="configuration-manager-version-1511"></a>Versão do Configuration Manager 1511  
- O seguinte fornece a versão suportada do Windows ADK, a versão do Windows PE nas quais se baseia a imagem de arranque que pode ser personalizada a partir da consola do Configuration Manager e as versões do Windows PE na qual se baseia a imagem de arranque que pode personalizar com o DISM e depois adicione a imagem para o Configuration Manager.  
+#### <a name="configuration-manager-version-1511"></a>Configuration Manager 1511  
+ Ниже приведены поддерживаемая версия Windows ADK, версия среды предустановки Windows, используемая как основа образа загрузки, который может быть настроен в консоли Configuration Manager, и версии среды предустановки Windows, используемые как основа образов загрузки, которые могут быть настроены с помощью DISM, а затем добавлены в указанную версию Configuration Manager.  
 
--   **Versão do Windows ADK**  
+-   **Версия Windows ADK**  
 
-     Windows ADK para Windows 10  
+     Windows ADK для Windows 10  
 
--   **Versões do Windows PE para imagens de arranque personalizáveis a partir da consola do Configuration Manager**  
+-   **Версии среды предустановки Windows для загрузочных образов с возможностью настройки в консоли Configuration Manager**  
 
      Windows PE 10  
 
--   **Versões do Windows PE para imagens de arranque não podem ser personalizadas na consola do Configuration Manager**  
+-   **Поддерживаемые версии среды предустановки Windows для загрузочных образов без возможности настройки в консоли Configuration Manager**  
 
-     Windows PE 3.1<sup>1</sup> e Windows PE 5  
+     Среда предустановки Windows 3.1<sup>1</sup> и среда предустановки Windows 5  
 
-     <sup>1</sup> só é possível adicionar uma imagem de arranque para o Configuration Manager quando se baseia no Windows PE 3.1. Instale o Suplemento do Windows AIK para o Windows 7 SP1 para atualizar o Windows AIK para o Windows 7 (baseado no Windows PE 3) com o Suplemento do Windows AIK para Windows 7 SP1 (baseado no Windows PE 3.1). Poderá transferir o Suplemento do Windows AIK para Windows 7 SP1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> Образ загрузки можно добавить в Configuration Manager, только если он был создан на основе среды предустановки Windows 3.1. Установите дополнительный компонент Windows AIK для Windows 7 с пакетом обновления 1 (SP1), чтобы обновить Windows AIK для Windows 7 (на основе среды предустановки Windows 3) с помощью дополнительного компонента Windows AIK для Windows 7 с пакетом обновления 1 (SP1) (на основе среды предустановки Windows 3.1). Дополнительный компонент Windows AIK для Windows 7 с пакетом обновления 1 (SP1) можно загрузить из [Центра загрузки Майкрософт](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Por exemplo, quando tiver do Configuration Manager, pode personalizar imagens de arranque do Windows ADK para Windows 10 (baseado no Windows PE 10) na consola do Configuration Manager. No entanto, embora as imagens de arranque baseadas no Windows PE 5 sejam suportadas, tem de personalizá-las a partir de um computador diferente e utilizar a versão do DISM que é instalada com o Windows ADK para Windows 8. Em seguida, pode adicionar a imagem de arranque à consola do Configuration Manager. Para obter mais informações sobre os passos para personalizar uma imagem de arranque (adicionar componentes e controladores opcionais), ativar suporte de comando para a imagem de arranque, adicionar a imagem de arranque à consola do Configuration Manager e atualizar pontos de distribuição com a imagem de arranque, consulte [personalizar imagens de arranque](../get-started/customize-boot-images.md). Para obter mais informações sobre imagens de arranque, veja [Gerir imagens de arranque](../get-started/manage-boot-images.md).  
+     Например, если используется Configuration Manager, загрузочные образы из Windows ADK для Windows 10 (на основе среды предустановки Windows 10) можно настраивать в консоли Configuration Manager. Однако несмотря на то что загрузочные образы на основе Windows PE 5 поддерживаются, их необходимо настраивать с другого компьютера и использовать версию DISM, установленную вместе с Windows ADK для Windows 8. После этого загрузочный образ можно будет добавить в консоль Configuration Manager. Дополнительные сведения о настройке образа загрузки (добавлении дополнительных компонентов и драйверов), включении поддержки команд для образа загрузки, добавлении образа загрузки в консоль Configuration Manager и обновлении точек распространения с учетом образа загрузки см. в разделе [Настройка загрузочных образов](../get-started/customize-boot-images.md). Дополнительные сведения об образах загрузки см. в разделе [Управление загрузочными образами](../get-started/manage-boot-images.md).  
 
-### <a name="windows-server-update-services-wsus"></a>Windows Server Update Services (WSUS)  
-Tem de instalar as seguintes correções WSUS 4.0:
-  - [Hotfix 3095113](https://support.microsoft.com/kb/3095113) é necessário para manutenção do Windows 10, que utiliza a infraestrutura de atualizações de software para obter as atualizações de funcionalidades do Windows 10. Se tiver o WSUS 3.2, tem de utilizar sequências de tarefas para atualizar o Windows 10. Para obter mais informações, consulte [gerir o Windows como um serviço](../deploy-use/manage-windows-as-a-service.md).  
-  - [Correção 3159706](https://support.microsoft.com/kb/3159706) é necessário utilizar manutenção para atualizar computadores para a atualização de aniversário do Windows 10, bem como para versões subsequentes do Windows 10. Existem passos manuais descritos no artigo de suporte que tem de efetuar para instalar esta correção. Para obter mais informações, consulte [gerir o Windows como um serviço](../deploy-use/manage-windows-as-a-service.md).
+### <a name="windows-server-update-services-wsus"></a>Службы Windows Server Update Services (WSUS)  
+Необходимо установить следующие исправления для WSUS 4.0:
+  - [Hotfix 3095113](https://support.microsoft.com/kb/3095113) , которые используют инфраструктуру обновлений программного обеспечения для получения обновлений компонентов Windows 10. При наличии WSUS 3.2 установку новой версии Windows 10 необходимо выполнять с помощью последовательностей задач. Дополнительные сведения см. в разделе [Управление Windows как службой](../deploy-use/manage-windows-as-a-service.md).  
+  - [Исправление 3159706](https://support.microsoft.com/kb/3159706) необходимо для использования функций обслуживания Windows 10 с целью обновления компьютеров до юбилейного обновления Windows 10, а также до последующих версий. Для установки этого исправления потребуется выполнить ручные процедуры, описанные в статье службы поддержки. Дополнительные сведения см. в разделе [Управление Windows как службой](../deploy-use/manage-windows-as-a-service.md).
 
 
-### <a name="internet-information-services-iis-on-the-site-system-servers"></a>IIS (Serviços de Informação Internet) nos servidores do sistema de sites  
- O IIS é necessário para o ponto de distribuição, o ponto de migração de estado e o ponto de gestão. Para obter mais informações sobre este requisito, consulte [Site e os pré-requisitos de sistema de site](../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+### <a name="internet-information-services-iis-on-the-site-system-servers"></a>Службы IIS на серверах систем сайта  
+ Службы IIS необходимы для точки распространения, точки миграции состояния и точки управления. Дополнительные сведения об этом требовании см. в разделе [Необходимые условия для сайтов и систем сайта](../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
-### <a name="windows-deployment-services-wds"></a>Serviços de implementação do Windows (WDS)  
- O WDS é necessário para implementações de PXE e quando for utilizado multicast para otimizar a largura de banda das implementações e para o funcionamento offline das mensagens. Se o fornecedor estiver instalado num servidor remoto, deve instalar o WDS no servidor do site e o fornecedor remoto. Para obter mais informações, veja [Serviços de Implementação do Windows](#BKMK_WDS) neste tópico.  
+### <a name="windows-deployment-services-wds"></a>Службы развертывания Windows (WDS)  
+ WDS необходимы для развертываний PXE, при использовании многоадресной рассылки для оптимизации полосы пропускания при развертываниях, а также для автономного обслуживания образов. Если поставщик установлен на удаленном сервере, WDS необходимо установить на сервере сайта и на сервере удаленного поставщика. Дополнительные сведения см. в разделе [Службы развертывания Windows](#BKMK_WDS) в этой статье.  
 
-### <a name="dynamic-host-configuration-protocol-dhcp"></a>Protocolo DHCP (Dynamic Host Configuration Protocol)  
- O protocolo DHCP é necessário para implementações de PXE. É necessário ter um servidor DHCP a funcionar com um anfitrião ativo para implementar sistemas operativos com PXE. Para obter mais informações sobre implementações de PXE, consulte [utilizar o PXE para implementar o Windows através da rede](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+### <a name="dynamic-host-configuration-protocol-dhcp"></a>Протокол DHCP  
+ DHCP необходим для PXE-развертываний. Необходимо иметь работающий DHCP-сервер с активным узлом для развертывания операционных систем с помощью протокола PXE. Дополнительные сведения о PXE-развертываниях см. в разделе [Использование PXE для развертывания Windows по сети](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
-### <a name="supported-operating-systems-and-hard-disk-configurations"></a>Sistemas operativos suportados e configurações do disco rígido  
- Para obter mais informações sobre as versões de sistema operativo e as configurações de disco rígido suportados pelo Configuration Manager quando implementar sistemas operativos, consulte [sistemas operativos suportados pelo](#BKMK_SupportedOS) e [configurações de disco suportadas](#BKMK_SupportedDiskConfig).  
+### <a name="supported-operating-systems-and-hard-disk-configurations"></a>Поддерживаемые операционные системы и конфигурации жесткого диска  
+ Дополнительные сведения о версиях операционной системы и конфигурациях жесткого диска, поддерживаемых Configuration Manager при развертывании операционных систем, см. в разделах [Поддерживаемые операционные системы](#BKMK_SupportedOS) и [Поддерживаемые конфигурации диска](#BKMK_SupportedDiskConfig).  
 
-### <a name="windows-device-drivers"></a>Controladores de dispositivo do Windows  
- É possível utilizar controladores de dispositivo do Windows ao instalar o sistema operativo no computador de destino e ao executar o Windows PE utilizando uma imagem de arranque. Para obter mais informações sobre controladores de dispositivo, consulte [gerir controladores](../get-started/manage-drivers.md).  
+### <a name="windows-device-drivers"></a>Драйверы устройств Windows  
+ Драйверы устройств Windows можно использовать при установке операционной системы на конечном компьютере и при установке среды предустановки Windows с помощью загрузочного образа. Дополнительные сведения о драйверах устройств см. в разделе [Управление драйверами](../get-started/manage-drivers.md).  
 
-##  <a name="BKMK_InternalDependencies"></a> Dependências do Configuration Manager  
- O seguinte fornece informações sobre o sistema do Configuration Manager os pré-requisitos de implementação.  
+##  <a name="BKMK_InternalDependencies"></a> Зависимости Configuration Manager  
+ Ниже приведены сведения о требованиях Configuration Manager к развертыванию операционной системы.  
 
-### <a name="operating-system-image"></a>Imagem do sistema operativo  
- As imagens de sistema operativo no Configuration Manager são armazenadas no formato de ficheiro Windows Imaging (WIM) e representam uma coleção comprimida de ficheiros e pastas de referência que são necessários para instalar e configurar com êxito um sistema operativo num computador. Para obter mais informações, consulte [gerir imagens do sistema operativo](../get-started/manage-operating-system-images.md).  
+### <a name="operating-system-image"></a>Образ операционной системы  
+ Образы операционных систем в Configuration Manager — это WIM-файлы, которые представляют собой сжатые наборы эталонных файлов и папок, необходимых для успешной установки и настройки операционной системы на компьютере. Дополнительные сведения см. в разделе [Управление образами операционных систем](../get-started/manage-operating-system-images.md).  
 
-### <a name="driver-catalog"></a>Catálogo de controladores  
- Para implementar um controlador de dispositivo, tem de importar o controlador de dispositivo, ativá-lo e disponibilizá-lo num ponto de distribuição que o cliente do Configuration Manager pode aceder. Para mais informações sobre o catálogo de controladores, consulte [gerir controladores](../get-started/manage-drivers.md).  
+### <a name="driver-catalog"></a>Каталог драйверов  
+ Чтобы выполнить развертывание драйвера устройств, необходимо импортировать драйвер, включить его и сделать доступным в точке распространения, которая доступна для клиента Configuration Manager. Дополнительные сведения о каталоге драйверов см. в разделе [Управление драйверами](../get-started/manage-drivers.md).  
 
-### <a name="management-point"></a>Ponto de gestão  
- Pontos de gestão transferem informações entre computadores cliente e o site do Configuration Manager. O cliente utiliza um ponto de gestão para executar as sequências de tarefas que são necessárias para concluir a implementação do sistema operativo.  
+### <a name="management-point"></a>Точка управления.  
+ Точки управления передают данные между клиентскими компьютерами и сайтом Configuration Manager. Клиент использует точки управления для запуска последовательностей задач, которые требуются для выполнения развертывания операционной системы.  
 
- Para obter mais informações sobre sequências de tarefas, consulte [considerações sobre planeamento para automatizar tarefas](planning-considerations-for-automating-tasks.md).  
+ Дополнительные сведения о последовательностях задач см. в разделе [Вопросы планирования для автоматизации задач](planning-considerations-for-automating-tasks.md).  
 
-### <a name="distribution-point"></a>Ponto de distribuição  
- Os pontos de distribuição são utilizados na maioria das implementações para armazenar os dados utilizados para implementar um sistema operativo, tais como a imagem do sistema operativo ou pacotes de controladores de dispositivo. Normalmente, as sequências de tarefas obtêm dados de um ponto de distribuição para implementar o sistema operativo.  
+### <a name="distribution-point"></a>Точка распространения.  
+ Точки распространения используются в большинстве развертываний для хранения данных, используемых при развертывании операционной системы, таких как образы операционной системы или пакеты драйверов устройств. Последовательности задач, как правило, получают данные, необходимые для развертывания ОС, из точки распространения.  
 
- Para obter mais informações sobre como instalar pontos de distribuição e gerir conteúdo, consulte [gerir a infraestrutura de conteúdo e conteúda](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+ Дополнительные сведения об установке точек распространения и управлении содержимым см. в разделе [Управление содержимым и инфраструктурой содержимого](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-### <a name="pxe-enabled-distribution-point"></a>Ponto de distribuição com PXE ativado  
- Para realizar implementações iniciadas por PXE, é necessário configurar um ponto de distribuição para aceitar pedidos PXE de clientes. Para obter mais informações sobre como configurar o ponto de distribuição, consulte [configurar um ponto de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#pxe).  
+### <a name="pxe-enabled-distribution-point"></a>Точка распространения с поддержкой PXE  
+ Для выполнения развертываний, запускаемых по сети (PXE), необходимо настроить точку распространения так, чтобы она принимала PXE-запросы от клиентов. Дополнительные сведения о настройке точки распространения см. в разделе [Настройка точки распространения](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#pxe).  
 
-### <a name="multicast-enabled-distribution-point"></a>Ponto de distribuição com multicast ativado  
- Para otimizar as implementações do sistema operativo através de multicast, é necessário configurar um ponto de distribuição para suportar multicast. Para obter mais informações sobre como configurar o ponto de distribuição, consulte [configurar um ponto de distribuição](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#multicast).   
+### <a name="multicast-enabled-distribution-point"></a>Точка распространения с поддержкой многоадресной рассылки  
+ Чтобы оптимизировать развертывание операционных систем, необходимо настроить для точки распространения поддержку многоадресной рассылки. Дополнительные сведения о настройке точки распространения см. в разделе [Настройка точки распространения](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#multicast).   
 
-### <a name="state-migration-point"></a>Ponto de migração de estado  
- Ao capturar e restaurar dados do estado do utilizador para implementações lado a lado e de atualizações, é necessário configurar um ponto de migração de estado para armazenar os dados do estado do utilizador noutro computador.  
+### <a name="state-migration-point"></a>Точка миграции среды  
+ При сборе и восстановлении данных пользовательской среды для параллельных развертываний и развертываний обновлений необходимо настроить точки миграции состояния для хранения данных пользовательской среды на другом компьютере.  
 
- Para obter mais informações sobre como configurar o ponto de migração de estado, veja [Ponto de migração de estado](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
+ Дополнительные сведения о настройке точек миграции состояния см. в разделе [Точка миграции состояния](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
- Para obter informações sobre como capturar e restaurar estado do utilizador, consulte [gerir o estado do utilizador](../get-started/manage-user-state.md).  
+ Сведения о записи и восстановлении информации о пользовательской среде см. в разделе [Управление пользовательской средой](../get-started/manage-user-state.md).  
 
-### <a name="service-connection-point"></a>Ponto de ligação de serviço  
- Ao utilizar o Windows como um serviço (WaaS) para implementar o Windows 10 Current Branch, tem de ter o ponto de ligação de serviço instalado. Para obter mais informações, consulte [gerir o Windows como um serviço](../deploy-use/manage-windows-as-a-service.md).  
+### <a name="service-connection-point"></a>Точка подключения службы  
+ Если для развертывания Windows 10 Current Branch используется Windows как служба (WaaS), должна быть установлена точка подключения службы. Дополнительные сведения см. в разделе [Управление Windows как службой](../deploy-use/manage-windows-as-a-service.md).  
 
-### <a name="reporting-services-point"></a>Ponto do Reporting Services  
- Para utilizar relatórios do Configuration Manager para implementações do sistema operativo, tem de instalar e configurar um ponto do Reporting Services. Para obter mais informações, consulte [relatórios](../../core/servers/manage/reporting.md).  
+### <a name="reporting-services-point"></a>Точка служб отчетов  
+ Для использования отчетов Configuration Manager при развертывании операционных систем необходимо установить и настроить точку служб отчетов. Дополнительные сведения см. в разделе [Отчеты](../../core/servers/manage/reporting.md).  
 
-### <a name="security-permissions-for-operating-system-deployments"></a>Permissões de segurança para implementações do sistema operativo  
- A função de segurança do **Gestor de Implementação do Sistema Operativo** é uma função incorporada que não pode ser alterada. No entanto, é possível copiar a função, efetuar alterações e, em seguida, guardar estas alterações como uma nova função de segurança personalizada. São apresentadas, a seguir, algumas das permissões que são diretamente aplicáveis a implementações do sistema operativo:  
+### <a name="security-permissions-for-operating-system-deployments"></a>Разрешения безопасности для развертываний операционных систем  
+ Роль безопасности **Менеджер по развертыванию ОС** — это встроенная роль, которую нельзя изменить. Тем не менее, эту роль можно скопировать, внести изменения, а затем сохранить ее как новую настраиваемую роль безопасности. Ниже приведены некоторые разрешения, которые применяются непосредственно к развертываниям операционных систем.  
 
--   **Pacote de imagem de arranque**: Criar, eliminar, modificar, modificar pasta, mover objeto, ler, definir âmbito de segurança  
+-   **Пакет загрузочного образа**: создание, удаление, изменение, изменение папки, перемещение объекта, чтение, настройка области безопасности  
 
--   **Controladores de dispositivo**: Criar, eliminar, modificar, modificar pasta, modificar relatório, mover objeto, ler, executar relatório  
+-   **Драйверы устройств**: создание, удаление, изменение, изменение папки, изменение отчета, перемещение объекта, чтение, выполнение отчета  
 
--   **Pacote de controladores**: Criar, eliminar, modificar, modificar pasta, mover objeto, ler, definir âmbito de segurança  
+-   **Пакет драйверов**: создание, удаление, изменение, изменение папки, перемещение объекта, чтение, настройка области безопасности  
 
--   **Imagem do sistema operativo**: Criar, eliminar, modificar, modificar pasta, mover objeto, ler, definir âmbito de segurança  
+-   **Образ операционной системы**: создание, удаление, изменение, изменение папки, перемещение объекта, чтение, настройка области безопасности  
 
--   **Pacote de instalação do sistema operativo**: Criar, eliminar, modificar, modificar pasta, mover objeto, ler, definir âmbito de segurança  
+-   **Пакет установки операционной системы**: создание, удаление, изменение, изменение папки, перемещение объекта, чтение, настройка области безопасности  
 
--   **Pacote de sequência de tarefas**: Criar, criar tarefa de suporte de dados de sequência, eliminar, modificar, modificar pasta, modificar relatório, mover objeto, ler, executar relatório, definir âmbito de segurança  
+-   **Пакет последовательности задач**: создание, создание носителя последовательности задач, удаление, изменение, изменение папки, изменение отчета, перемещение объекта, чтение, выполнение отчета, настройка области безопасности  
 
- Para obter mais informações sobre funções de segurança personalizadas, veja [Criar funções de segurança personalizadas](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole).  
+ Дополнительные сведения о настраиваемых ролях безопасности см. в разделе [Создание настраиваемых ролей безопасности](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole).  
 
-### <a name="security-scopes-for-operating-system-deployments"></a>Âmbitos de segurança para implementações do sistema operativo  
- Utilize âmbitos de segurança para fornecer aos utilizadores administrativos acesso aos objetos com capacidade de segurança utilizados em implementações do sistema operativo, tais como imagens de sistemas operativos e imagens de arranque, pacotes de controladores e pacotes de sequências de tarefas. Para obter mais informações, veja [Âmbitos de segurança](../../core/understand/fundamentals-of-role-based-administration.md#bkmk_PlanScope).  
+### <a name="security-scopes-for-operating-system-deployments"></a>Области безопасности для развертываний операционных систем  
+ Области безопасности служат для предоставления администраторам доступа к защищаемым объектам, которые используются при развертывании операционных систем, таким как образы ОС и загрузочные образы, пакеты драйверов и пакеты последовательностей задач. Дополнительные сведения см. в разделе [Области безопасности](../../core/understand/fundamentals-of-role-based-administration.md#bkmk_PlanScope).  
 
-##  <a name="BKMK_WDS"></a> Serviços de Implementação do Windows  
- O WDS (Serviços de Implementação do Windows) deve ser instalado no mesmo servidor que os pontos de distribuição configurados para suporte de PXE ou multicast. O WDS está incluído no sistema operativo do servidor. Para implementações de PXE, o WDS é o serviço que executa o arranque PXE. Quando o ponto de distribuição é instalado e ativado para PXE, o Configuration Manager instala um fornecedor no WDS que utiliza as funções de arranque PXE do WDS.  
+##  <a name="BKMK_WDS"></a> Службы развертывания Windows  
+ Службы развертывания Windows (WDS) необходимо установить на том же сервере, что и точки распространения, настроенные для поддержки PXE или многоадресной рассылки. WDS входит в состав операционной системы сервера. В PXE-развертываниях WDS — это служба, которая выполняет загрузку PXE. После установки точки распространения и включения на ней поддержки PXE Configuration Manager устанавливает поставщик на сервер WDS, который использует функции загрузки PXE службы WDS.  
 
 > [!NOTE]  
->  Se o servidor requer um reinício, a instalação do WDS poderá falhar. 
+>  Если сервер требует перезагрузки, может произойти сбой установки служб WDS. 
 
- Outras configurações do WDS que devem ser consideradas incluem:  
+ При установке других конфигураций WDS необходимо учитывать следующее.  
 
--   A instalação do WDS no servidor requer que o administrador seja um membro do grupo local de Administradores.  
+-   Для установки WDS на сервере администратор должен быть членом группы "Локальные администраторы".  
 
--   O servidor WDS tem de ser membro de um domínio do Active Directory ou de um controlador de domínio para um domínio do Active Directory. Todas as configurações de domínio e de floresta de Windows suportam WDS.  
+-   Сервер WDS должен входить в домен Active Directory или являться контроллером домена Active Directory. Все конфигурации домена и леса Windows поддерживают WDS.  
 
--   Se o fornecedor estiver instalado num servidor remoto, deve instalar o WDS no servidor do site e o fornecedor remoto.  
+-   Если поставщик установлен на удаленном сервере, WDS необходимо установить на сервере сайта и на сервере удаленного поставщика.  
 
-###  <a name="BKMK_WDSandDHCP"></a> Considerações sobre quando tiver o WDS e DHCP no mesmo servidor  
- Se planear coalojar o ponto de distribuição num servidor com o DHCP, considere os seguintes problemas de configuração.  
+###  <a name="BKMK_WDSandDHCP"></a> Рекомендации при наличии WDS и DHCP на одном сервере  
+ Если точку распространения планируется разместить на DHCP-сервере, следует учесть следующие аспекты.  
 
--   Tem de ter um servidor DHCP funcional com um âmbito ativo. Os Serviços de Implementação do Windows utilizam o PXE, que necessita de um servidor DHCP.  
+-   DHCP-сервер должен работать и обладать активной областью. Службы развертывания Windows используют PXE, для чего требуется DHCP-сервер.  
 
--   O DHCP e os Serviços de Implementação do Windows necessitam da porta número 67. Se coalojar os Serviços de Implementação do Windows e o DHCP, pode mover o DHCP ou o ponto de distribuição configurado para PXE para um servidor separado. Ou pode utilizar o procedimento seguinte para configurar o servidor dos Serviços de Implementação do Windows para escutar numa porta diferente.  
+-   Как службе DHCP, так и службе развертывания Windows, требуется порт 67. При размещении служб развертывания Windows и DHCP на одном сервере можно переместить DHCP или точку распространения, настроенную для PXE, на отдельный сервер. Кроме того, можно настроить для сервера служб распространения Windows прослушивание в другом порте с помощью следующей процедуры.  
 
-    #### <a name="to-configure-the-windows-deployment-services-server-to-listen-on-a-different-port"></a>Para configurar o servidor dos Serviços de Implementação do Windows para escutar numa porta diferente  
+    #### <a name="to-configure-the-windows-deployment-services-server-to-listen-on-a-different-port"></a>Настройка прослушивания в другом порте для сервера служб распространения Windows  
 
-    1.  Modifique a seguinte chave de registo:  
+    1.  Измените следующий раздел реестра:  
 
          **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WDSServer\Providers\WDSPXE**  
 
-    2.  Defina o valor de registo como: **UseDHCPPorts = 0**  
+    2.  Присвойте параметру **UseDHCPPorts реестра значение "0".**  
 
-    3.  Para efetivar a nova configuração, execute o seguinte comando no servidor:  
+    3.  Чтобы изменения вступили в силу, выполните следующую команду на сервере:  
 
          `WDSUTIL /Set-Server /UseDHCPPorts:No /DHCPOption60:Yes`  
 
--   É necessário um servidor DNS para executar os Serviços de Implementação do Windows.  
+-   Для работы службам развертывания Windows необходим DNS-сервер.  
 
--   As portas UDP seguintes devem estar abertas no servidor dos Serviços de Implementação do Windows.  
+-   На сервере служб развертывания Windows необходимо открыть следующие UDP-порты:  
 
-    -   Porta 67 (DHCP)  
+    -   порт 67 (DHCP);  
 
-    -   Porta 69 (TFTP)  
+    -   порт 69 (протокол TFTP);  
 
-    -   Porta 4011 (PXE)  
+    -   порт 4011 (PXE).  
 
     > [!NOTE]  
-    >  Além disso, se for necessária autorização de DHCP no servidor, a porta 68 do cliente DHCP precisa de estar aberta no servidor.  
+    >  Кроме того, если на сервере требуется авторизация DHCP, необходимо открыть на этом сервере порт клиента DHCP с номером 68.  
 
-##  <a name="BKMK_SupportedOS"></a> Sistemas Operativos Suportados  
- Todos os sistemas operativos do Windows listados como suportado nos sistemas operativos de cliente no [sistemas operativos suportados para os clientes e dispositivos](../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md) são suportadas para implementações do sistema operativo.  
+##  <a name="BKMK_SupportedOS"></a> Поддерживаемые операционные системы  
+ Все операционные системы Windows, указанные как поддерживаемые клиентские операционные системы в разделе [Поддерживаемые операционные системы для клиентов и устройств](../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md), поддерживаются при развертывании операционной системы.  
 
-##  <a name="BKMK_SupportedDiskConfig"></a> Configurações de disco suportadas  
- As combinações de configuração de disco rígido nos computadores de referência e de destino que são suportados para implementação do sistema operativo do Configuration Manager são apresentadas na tabela seguinte.  
+##  <a name="BKMK_SupportedDiskConfig"></a> Поддерживаемые конфигурации диска  
+ В приведенной ниже таблице представлены сочетания конфигураций жестких дисков на компьютере-образце и конечном компьютере, поддерживаемые при развертывании операционных систем с помощью Configuration Manager.  
 
-|Configuração do disco rígido do computador de referência|Configuração do disco rígido do computador de destino|  
+|Конфигурация жесткого диска эталонного компьютера|Конфигурация жесткого диска конечного компьютера|  
 |------------------------------------------------|--------------------------------------------------|  
-|Disco básico|Disco básico|  
-|Volume simples num disco dinâmico|Volume simples num disco dinâmico|  
+|Базовый диск|Базовый диск|  
+|Простой том динамического диска|Простой том динамического диска|  
 
- O Configuration Manager suporta capturar uma imagem do sistema operativo apenas de computadores que estão configurados com volumes simples. Não existe suporte para as seguintes configurações do disco rígido:  
+ Configuration Manager поддерживает создание образов операционных систем только с компьютеров, настроенных с использованием простых томов. Не поддерживаются следующие конфигурации жесткого диска:  
 
--   Volumes expandidos  
+-   Составные тома.  
 
--   Volumes repartidos (RAID 0)  
+-   Чередующиеся тома (RAID 0).  
 
--   Volumes espelhados (RAID 1)  
+-   Зеркальные тома (RAID 1).  
 
--   Volumes de paridade (RAID 5)  
+-   Тома с контролем четности (RAID 5).  
 
- A tabela seguinte mostra uma configuração adicional do disco rígido nos computadores de referência e de destino que não é suportado com a implementação do sistema operativo do Configuration Manager.  
+ В таблице ниже перечислены дополнительные конфигурации жестких дисков на компьютере-образце и конечном компьютере, не поддерживаемые Configuration Manager при развертывании операционных систем.  
 
-|Configuração do disco rígido do computador de referência|Configuração do disco rígido do computador de destino|  
+|Конфигурация жесткого диска эталонного компьютера|Конфигурация жесткого диска конечного компьютера|  
 |------------------------------------------------|--------------------------------------------------|  
-|Disco básico|Disco dinâmico|  
+|Базовый диск|Динамический диск|  
 
-## <a name="next-steps"></a>Passos seguintes
-[Preparar a implementação do sistema operativo](../get-started/prepare-for-operating-system-deployment.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Подготовка к развертыванию операционной системы](../get-started/prepare-for-operating-system-deployment.md)

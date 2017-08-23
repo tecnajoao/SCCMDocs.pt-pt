@@ -1,6 +1,6 @@
 ---
-title: "As propriedades de instalação de cliente | Microsoft Docs"
-description: "Saiba mais sobre as propriedades de instalação de cliente no System Center Configuration Manager."
+title: "Свойства установки клиента | Документы Майкрософт"
+description: "Сведения о свойствах установки клиента в System Center Configuration Manager."
 ms.custom: na
 ms.date: 01/04/2017
 ms.prod: configuration-manager
@@ -16,135 +16,135 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 36bcbbca4fdee3e95d293c436a105a41a6e3953e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>Acerca das propriedades de instalação do cliente no System Center Configuration Manager
+# <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>Сведения о свойствах установки клиента в Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize o comando CCMSetup.exe do System Center Configuration Manager para instalar manualmente o cliente do Configuration Manager.  
+Вы можете вручную установить клиент Configuration Manager с помощью программы CCMSetup.exe в System Center Configuration Manager.  
 
-##  <a name="aboutCCMSetup"></a> Acerca do CCMSetup.exe  
- O comando CCMSetup.exe transfere os ficheiros necessários para instalar o cliente a partir de um ponto de gestão ou para uma localização de origem. Esses ficheiros poderão incluir:  
+##  <a name="aboutCCMSetup"></a> О файле CCMSetup.exe  
+ Программа CCMSetup.exe скачивает файлы, необходимые для установки клиента, из точки управления или исходного расположения. Эти файлы могут содержать следующее:  
 
--   O pacote Windows Installer Client.msi que instala o software de cliente.  
+-   пакет установщика Windows Client.msi, который устанавливает программное обеспечение клиента;  
 
--   Ficheiros de instalação da Microsoft em segundo plano inteligente serviço de transferência (BITS).  
+-   файлы установки фоновой интеллектуальной службы передачи Майкрософт (BITS);  
 
--   Ficheiros de instalação do Windows Installer.  
+-   файлы установки установщика Windows;  
 
--   Atualizações e correções do cliente do Configuration Manager.  
+-   обновления и исправления для клиента Configuration Manager.  
 
 > [!NOTE]  
->  No Configuration Manager, não é possível executar o ficheiro Client.msi diretamente.  
+>  В Configuration Manager невозможно запустить непосредственно файл Client.msi.  
 
- CCMSetup.exe fornece [propriedades da linha de comandos](#ccmsetup-exe-command-line-properties) para personalizar a instalação. Também pode especificar propriedades para modificar o comportamento do Client.msi na linha de comandos de CCMSetup.exe.  
+ CCMSetup.exe поддерживает [параметры командной строки](#ccmsetup-exe-command-line-properties) для настройки установки. Кроме того, можно указать свойства для изменения поведения Client.msi в командной строке CCMSetup.exe.  
 
 > [!IMPORTANT]  
->  Especifique as propriedades de CCMSetup antes de especificar as propriedades de Client.msi.  
+>  Укажите свойства CCMSetup, прежде чем указывать свойства для Client.msi.  
 
- CCMSetup.exe e respetivos ficheiros de suporte estão localizados no servidor de site do Configuration Manager no **cliente** pasta da pasta de instalação do Configuration Manager. Esta pasta é partilhada na rede como  **&lt;nome do servidor de Site\>\SMS_&lt;código do Site\>\Client**.  
+ CCMSetup.exe и файлы поддержки расположены на сервере сайта Configuration Manager в папке **Client** папки установки Configuration Manager. Это общая сетевая папка, которая находится по адресу **&lt;имя_сервера_сайта\>\SMS_&lt;код_сайта\>\Client**.  
 
- Na linha de comandos, o comando CCMSetup.exe utiliza o seguinte formato:  
+ В командной строке команда CCMSetup.exe используется в следующем формате.  
 
  `CCMSetup.exe [<Ccmsetup properties>] [<client.msi setup properties>]`  
 
- Exemplo:  
+ Пример:  
 
- ' CCMSetup.exe /MP: smsmp01 /logon SMSSITECODE = S01 FSP = SMSFSP01'  
+ "CCMSetup.exe /mp:SMSMP01 /logon SMSSITECODE=S01 FSP=SMSFSP01"  
 
- Este exemplo faz o seguinte:  
+ В этом примере команда выполняет следующие действия:  
 
--   Especifica o ponto de gestão com o nome SMSMP01 para solicitar uma lista de pontos de distribuição para transferir os ficheiros de instalação de cliente.  
+-   задает точку управления с именем SMSMP01, чтобы запросить список точек распространения для скачивания установочных файлов клиента;  
 
--   Especifica que instalação deverá ser interrompida se já existir uma versão do cliente no computador.  
+-   указывает, что установка должна прекратиться, если на компьютере уже существует версия клиента;  
 
--   Indica ao client.msi que atribua o código de site S01 ao cliente.  
+-   Указывает, что client.msi должен назначить клиента сайту с кодом S01.  
 
--   Indica ao client.msi que utilize o ponto de estado de contingência com o nome SMSFP01.  
+-   Указывает, что client.msi должен использовать резервную точку состояния с именем SMSFP01.  
 
 > [!NOTE]  
->  Se uma propriedade contiver espaços, coloque-o entre aspas.  
+>  Если свойство содержит пробелы, заключите его в кавычки.  
 
 
 > [!IMPORTANT]  
->  Se tiver expandido o esquema do Active Directory para o Configuration Manager, muitas propriedades de instalação de cliente são publicadas nos serviços de domínio do Active Directory e lidos automaticamente pelo cliente do Configuration Manager. Para obter uma lista das propriedades de instalação do cliente publicadas nos Serviços de Domínio do Active Directory, veja [Acerca das propriedades de instalação de cliente publicadas nos Serviços de Domínio do Active Directory no System Center Configuration Manager](about-client-installation-properties-published-to-active-directory-domain-services.md)  
+>  Если схема Active Directory расширена для Configuration Manager, многие свойства установки клиента публикуются в доменных службах Active Directory и автоматически считываются клиентом Configuration Manager. Список свойств установки клиента, опубликованных в доменных службах Active Directory, см. в разделе [О свойствах установки клиента System Center Configuration Manager, публикуемых в доменных службах Active Directory](about-client-installation-properties-published-to-active-directory-domain-services.md).  
 
-##  <a name="ccmsetupexe-command-line-properties"></a>Propriedades de Linha de Comandos do CCMSetup.exe  
+##  <a name="ccmsetupexe-command-line-properties"></a>Параметры командной строки CCMSetup.exe  
 
 ### <a name=""></a>/?  
 
-Abre a caixa de diálogo **CCMSetup** que apresenta as propriedades de linha de comandos do ccmsetup.exe.  
+Открывает диалоговое окно **CCMSetup** с параметрами командной строки для ccmsetup.exe.  
 
-Exemplo: **ccmsetup.exe /?**  
+Пример: **ccmsetup.exe /?**  
 
-### <a name="sourceltpath"></a>/Source:&lt;caminho\>  
+### <a name="sourceltpath"></a>/source:&lt;Путь\>  
 
- Especifica a localização de transferência de ficheiros. Utilize uma localização ou caminho UNC. Os ficheiros são transferidos utilizando o protocolo de bloco (SMB) de mensagem de servidor.  Para utilizar **/origem**, a conta de utilizador do Windows para a instalação do cliente tem de ter permissões de leitura para a localização.
+ Указывает, откуда скачивать файлы. Укажите локальный путь или UNC-путь. Для скачивания файлов используется протокол SMB.  Чтобы использовать параметр **/source**, учетная запись пользователя Windows, используемая для установки клиента, должна иметь разрешения на чтение для указанного расположения.
 
 > [!NOTE]  
->  Pode utilizar o **/origem** propriedade várias vezes numa linha de comandos para especificar localizações de transferência alternativa.  
+>  Свойство **/source** можно использовать в командной строке несколько раз, чтобы указать альтернативные источники скачивания.  
 
- Example: **ccmsetup.exe /source:"\\\computer\folder"**  
+ Example: **ccmsetup.exe /source:"\\\компьютер\папка"**  
 
-### <a name="mpltcomputer"></a>/MP:&lt;computador\>
+### <a name="mpltcomputer"></a>/mp:&lt;Компьютер\>
 
- Especifica um ponto de gestão de origem para os computadores liguem para que estes possam localizar o ponto de distribuição mais próximo para os ficheiros de instalação. Se não existirem pontos de distribuição ou os computadores não conseguirem transferir os ficheiros a partir dos pontos de distribuição no prazo de 4 horas, os clientes transferirão os ficheiros a partir do ponto de gestão especificado.  
+ Задает исходную точку управления для компьютеров, чтобы они могли найти ближайшую точку распространения с установочными файлами. Если точки распространения отсутствуют или компьютеры не смогут загрузить файлы с точек распространения за 4 часа, клиенты загружают файлы из указанной точки управления.  
 
 > [!IMPORTANT]  
->  Esta propriedade é utilizada para especificar um ponto de gestão inicial para computadores para localizar uma origem da transferência e pode ser qualquer ponto de gestão em qualquer site. Não o faz *atribuir* o cliente para um ponto de gestão.   
+>  Это свойство служит для указания начальной точки управления, с помощью которой компьютеры находят источник скачивания. Это может быть любая точка управления на любом сайте. Свойство не *назначает* клиент точке управления.   
 
- Os computadores transferem os ficheiros através de uma ligação HTTP ou HTTPS, conforme a configuração da função do sistema de sites para ligações de cliente. A transferência utilizará limitação BITS, se configurados. Se todos os pontos de distribuição e pontos de gestão estiverem configurados cliente apenas para ligações HTTPS, certifique-se de que o computador cliente tem um certificado de cliente válido.  
+ Компьютеры загружают файлы через соединение по протоколу HTTP или HTTPS в зависимости от конфигурации ролей системы сайта для подключений клиентов. В процессе скачивания используется регулирование BITS, если оно настроено. Если все точки распространения и управления настроены только для подключения клиентов по протоколу HTTPS, убедитесь в том, что у клиентского компьютера есть действительный сертификат клиента.  
 
-Poderá utilizar a propriedade da linha de comandos **/mp** para especificar diversos pontos de gestão, de modo a que, se o computador não conseguir estabelecer ligação ao primeiro, tentará o seguinte, e assim sucessivamente. Se especificar vários pontos de gestão, separe os valores por ponto e vírgula.
+С помощью свойства командной строки **/mp** можно указать несколько точек управления, чтобы в случае сбоя подключения компьютера к одной точке управления использовалась следующая и т. д. При указании нескольких точек управления следует разделять значения точками с запятыми.
 
-Se o cliente se liga a um ponto de gestão através de HTTPS, normalmente, tem de especificar o FQDN, não o nome do computador. O valor tem de corresponder ao certificado PKI do requerente ou nome alternativo do requerente do ponto de gestão. Apesar do Configuration Manager suporta a utilizar um nome de computador no certificado para ligações na intranet, como melhor prática de segurança, é recomendado um FQDN.
+Если клиент подключается к точке управления, используя HTTPS, как правило, следует указывать полное доменное имя вместо имени компьютера. Задаваемое значение должно соответствовать имени субъекта или альтернативному имени субъекта в PKI-сертификате точки управления. Хотя Configuration Manager поддерживает использование имени компьютера в сертификате для подключений в интрасети, по соображениям безопасности рекомендуется использовать полное доменное имя.
 
-Exemplo ao utilizar o nome do computador:`ccmsetup.exe /mp:SMSMP01`  
+Пример использования имени компьютера: `ccmsetup.exe /mp:SMSMP01`  
 
-Exemplo ao utilizar o FQDN:`ccmsetup.exe /mp:smsmp01.contoso.com`  
+Пример использования полного доменного имени: `ccmsetup.exe /mp:smsmp01.contoso.com`  
 
-### <a name="retryltminutes"></a>/retry:&lt;minutos\>
+### <a name="retryltminutes"></a>/retry:&lt;Количество_минут\>
 
-O intervalo entre tentativas se o CCMSetup.exe não conseguir transferir ficheiros de instalação.  CCMSetup continuará a tentar até atingir o limite especificado no **downloadtimeout** propriedade.  
+Интервал между повторными попытками, если CCMSetup.exe не удается скачать файлы установки.  CCMSetup продолжит попытки, пока не достигнет предела, указанного в свойстве **downloadtimeout**.  
 
-Exemplo: `ccmsetup.exe /retry:20`  
+Пример: `ccmsetup.exe /retry:20`  
 
 ### <a name="noservice"></a>/noservice
 
-Impede o CCMSetup de ser executado como um serviço, o que é a predefinição. Quando o CCMSetup é executado como um serviço, é executada no contexto da conta do sistema Local do computador, o que poderá não ter direitos suficientes para aceder a recursos de rede necessária para a instalação. Com **/noservice**, CCMSetup.exe é executado no contexto da conta de utilizador que utilizar para iniciar a instalação. Além disso, se utilizar um script para executar o CCMSetup.exe com a **/service** propriedade, o CCMSetup.exe terminará após o serviço é iniciado e não pode reportar corretamente os detalhes da instalação.   
+Запрещает запуск CCMSetup в качестве службы (поведение по умолчанию). Когда CCMSetup запускается в качестве службы, работа ведется в контексте локальной системной учетной записи компьютера, у которой может не быть необходимых прав для доступа к сетевым ресурсам, которые требуются для установки. При указании параметра **/noservice** CCMSetup.exe выполняется в контексте учетной записи пользователя, применяемой для запуска установки. Кроме того, если использовать скрипт для запуска CCMSetup.exe со свойством **/service**, CCMSetup.exe завершает работу после запуска службы и может неправильно сообщить о ходе установки.   
 
-Exemplo: `ccmsetup.exe /noservice`  
+Пример: `ccmsetup.exe /noservice`  
 
 ### <a name="service"></a>/service
 
-Especifica que o CCMSetup deverá ser executado como um serviço que utiliza a conta do sistema local.  
+Указывает, что CCMSetup нужно запустить в качестве службы, которая использует локальную системную учетную запись.  
 
-Exemplo: `ccmsetup.exe /service`  
+Пример: `ccmsetup.exe /service`  
 
 ### <a name="uninstall"></a>/uninstall
 
-Especifica que o software de cliente deverá ser desinstalado. Para obter mais informações, veja [Como gerir clientes no System Center Configuration Manager](../manage/manage-clients.md).  
+Указывает, что нужно удалить программное обеспечение клиента. Дополнительные сведения см. в разделе [How to manage clients in System Center Configuration Manager](../manage/manage-clients.md).  
 
-Exemplo: `ccmsetup.exe /uninstall`  
+Пример: `ccmsetup.exe /uninstall`  
 
 ### <a name="logon"></a>/logon
 
-Especifica que a instalação do cliente deverá ser interrompida se já estiver instalada qualquer versão do cliente.  
+Указывает, что установка клиента должна прекратиться, если уже установлена любая версия клиента.  
 
-Exemplo: `ccmsetup.exe /logon`  
+Пример: `ccmsetup.exe /logon`  
 
 ### <a name="forcereboot"></a>/forcereboot
 
- Especifica que o CCMSetup deverá forçar o computador cliente para reiniciar se for necessário para concluir a instalação. Se não for especificado, o CCMSetup terminará quando é necessário um reinício e, em seguida, continua após o próximo reinício manual.  
+ Указывает, что программа CCMSetup должна перезапустить клиентский компьютер, если это необходимо для завершения установки. Если этот параметр не указан, CCMSetup завершит работу, когда потребуется перезапуск, а затем продолжит работу после следующего перезапуска вручную.  
 
- Exemplo: `CCMSetup.exe /forcereboot`  
+ Пример: `CCMSetup.exe /forcereboot`  
 
-### <a name="bitspriorityltpriority"></a>/Bitspriority:&lt;prioridade\>
+### <a name="bitspriorityltpriority"></a>/BITSPriority:&lt;Приоритет\>
 
- Especifica a prioridade de transferência quando os ficheiros de instalação do cliente são transferidos através de uma ligação HTTP. Os valores possíveis são:  
+ Указывает приоритет скачивания, когда файлы установки клиента скачиваются через HTTP-соединение. Возможные значения:  
 
 -   FOREGROUND  
 
@@ -154,429 +154,429 @@ Exemplo: `ccmsetup.exe /logon`
 
 -   LOW  
 
- O valor predefinido é NORMAL.  
+ Значение по умолчанию — NORMAL.  
 
- Exemplo: `ccmsetup.exe /BITSPriority:HIGH`  
+ Пример: `ccmsetup.exe /BITSPriority:HIGH`  
 
-### <a name="downloadtimeoutltminutes"></a>/downloadtimeout:&lt;minutos\>
+### <a name="downloadtimeoutltminutes"></a>/downloadtimeout:&lt;Количество минут\>
 
-O período de tempo em minutos que o CCMSetup tentará transferir os ficheiros de instalação antes da paragem. O valor predefinido é **1440** minutos (1 dia).  
+Время в минутах, в течение которого CCMSetup будет пытаться скачать файлы установки, прежде чем прекратить попытки. Значение по умолчанию равно **1440** минутам (1 сутки).  
 
-Exemplo: `ccmsetup.exe /downloadtimeout:100`  
+Пример: `ccmsetup.exe /downloadtimeout:100`  
 
 ### <a name="usepkicert"></a>/UsePKICert
 
- Quando especificado, o cliente utiliza um certificado PKI que incluem autenticação de cliente, se disponível. Se não for encontrado um certificado válido, o cliente utiliza uma ligação HTTP e um certificado autoassinado, que também é o comportamento quando não utilizar esta propriedade.
+ Если этот параметр указан, клиент использует PKI-сертификат, включающий проверку подлинности клиента, если такой сертификат доступен. Если действительный сертификат найти не удается, клиент использует подключение HTTP и самозаверяющий сертификат. То же самое происходит, если это свойство не указано.
 
 > [!NOTE]  
->  Em alguns cenários não tem de especificar esta propriedade quando estiverem a instalar um cliente e continuar a utilizar um certificado de cliente. Estes cenários incluem a instalação do cliente utilizando push de cliente e a instalação de cliente baseada em pontos de atualização de software. No entanto, terá de especificar esta propriedade sempre que instalar manualmente um cliente e utilizar a propriedade **/mp** para especificar um ponto de gestão que esteja configurado para aceitar apenas ligações de cliente HTTPS. Terá também de especificar esta propriedade ao instalar um cliente para comunicação apenas pela Internet, utilizando a propriedade CCMALWAYSINF=1 (juntamente com as propriedades para o ponto de gestão baseado na Internet e o código do site). Para obter mais informações sobre a gestão de clientes baseada na Internet, veja [Considerações sobre comunicações do cliente a partir da Internet ou de uma floresta não fidedigna](../../plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) em [Comunicações entre pontos finais no System Center Configuration Manager](../../plan-design/hierarchy/communications-between-endpoints.md).  
+>  В некоторых ситуациях не требуется указывать это свойство при установке клиента и использовании сертификата клиента. В число таких ситуаций входит принудительная установка клиента и установка клиента через точку обновления программного обеспечения. Однако это свойство необходимо указывать при каждой установке клиента вручную и использовать свойство **/mp** для указания точки управления, настроенной на принятие подключений клиентов только по протоколу HTTP. Этот параметр также необходимо указывать при установке клиента для обмена данными только через Интернет с использованием параметра CCMALWAYSINF=1 (при одновременном использовании параметров для интернет-точки управления и кода сайта). Дополнительные сведения об управлении клиентами через Интернет см. в разделе [Рекомендации по взаимодействию с клиентами из Интернета или недоверенного леса](../../plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) статьи [Связь между конечными точками в System Center Configuration Manager](../../plan-design/hierarchy/communications-between-endpoints.md).  
 
- Exemplo: `CCMSetup.exe /UsePKICert`  
+ Пример: `CCMSetup.exe /UsePKICert`  
 
 ### <a name="nocrlcheck"></a>/NoCRLCheck
 
- Especifica que um cliente não deve verificar a lista de revogação de certificados (CRL) quando comunica por HTTPS com um certificado PKI.  
+ Указывает, что клиент не должен проверять список отзыва сертификатов при соединении по протоколу HTTPS с использованием PKI-сертификата.  
 
- Quando não especificado, o cliente verifica a CRL antes de estabelecer uma ligação HTTPS.  
+ Если этот параметр не указан, клиент проверяет список отзыва сертификатов перед установкой соединения HTTPS.  
 
- Para obter mais informações sobre a verificação da CRL de cliente, veja [Planear a revogação de certificados PKI](../../plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs) em [Planear segurança no System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
+ Дополнительные сведения о проверке CRL клиента см. в разделе [Plannстатьиg for PKI certificate revocation](../../plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs) статьи[Plan for security статьи System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
 
- Exemplo: `CCMSetup.exe /UsePKICert /NoCRLCheck`  
+ Пример: `CCMSetup.exe /UsePKICert /NoCRLCheck`  
 
-### <a name="configltconfiguration-file"></a>/config:&lt;ficheiro de configuração\>
+### <a name="configltconfiguration-file"></a>/config:&lt;файл конфигурации\>
 
-Especifica o nome de um ficheiro de texto contendo as propriedades de instalação do cliente.
+Указывает имя текстового файла, содержащего свойства установки клиента.
 
-- Se não especificar o **/noservice** propriedade do CCMSetup, este ficheiro tem de estar localizado na pasta CCMSetup, que é % Windir %\\Ccmsetup sistemas operativos de 32 bits e 64 bits.
-- Se especificar a propriedade **/noservice** , este ficheiro terá de estar localizado na mesma pasta a partir da qual o CCMSetup.exe é executado.  
+- Если свойство CCMSetup **/noservice** не указано, этот файл должен находиться в папке CCMSetup %Windir%\\Ccmsetup для 32- и 64-разрядных операционных систем.
+- Если указано свойство **/noservice** , этот файл должен находиться в той же папке, из которой запускается CCMSetup.exe.  
 
-Exemplo: `CCMSetup.exe /config:&lt;Configuration File Name.txt\>`  
+Пример: `CCMSetup.exe /config:&lt;Configuration File Name.txt\>`  
 
-Utilize o ficheiro mobileclienttemplate.tcf no &lt;diretório do Configuration Manager\>\\bin\\&lt;plataforma\> pasta no computador do servidor do site para fornecer o formato de ficheiro corretos. Este ficheiro também contém comentários sobre as secções e como são utilizados. Especifique as propriedades de instalação de cliente na secção [instalação do cliente], após o seguinte texto: **Instalar = instalar = tudo**.  
+Используйте файл mobileclienttemplate.tcf в папке &lt;каталог Configuration Manager\>\\bin\\&lt;platform\> на компьютере сервера сайта для задания правильного формата файла. В этом файле также содержатся примечания о разделах и их использовании. Укажите свойства установки клиента в разделе [Client Install] после следующего текста: **Install=INSTALL=ALL**.  
 
-Entrada da secção [instalação do cliente] de exemplo:`Install=INSTALL=ALL SMSSITECODE=ABC SMSCACHESIZE=100`  
+Пример записи в разделе [Client Install]: `Install=INSTALL=ALL SMSSITECODE=ABC SMSCACHESIZE=100`  
 
-### <a name="skipprereqltfilename"></a>/skipprereq:&lt;filename\>
+### <a name="skipprereqltfilename"></a>/skipprereq:&lt;имя_файла\>
 
- Especifica que o CCMSetup.exe não deverá instalar o programa de pré-requisitos especificado quando o cliente do Configuration Manager está instalado. Esta propriedade suporta a introdução de vários valores. Utilize o caráter de ponto e vírgula (;) para separar os valores.  
+ Указывает, что программа CCMSetup.exe не должна устанавливать требуемую программу при установке клиента Configuration Manager. Это свойство поддерживает ввод нескольких значений. Используйте символ точки с запятой (;) для разделения значений.  
 
 
- Exemplos: `CCMSetup.exe /skipprereq:silverlight.exe` ou`CCMSetup.exe /skipprereq:dotnetfx40_client_x86_x64.exe;Silverlight.exe`  
+ Примеры: `CCMSetup.exe /skipprereq:silverlight.exe` или `CCMSetup.exe /skipprereq:dotnetfx40_client_x86_x64.exe;Silverlight.exe`  
 
 ### <a name="forceinstall"></a>/forceinstall
 
- Especificar que qualquer cliente existente será desinstalado e irá ser instalado um novo cliente.  
+ Указывает, что существующий клиент будет удален и будет установлен новый клиент.  
 
-### <a name="excludefeaturesltfeature"></a>/Excludefeatures:&lt;funcionalidade\>
+### <a name="excludefeaturesltfeature"></a>/ExcludeFeatures:&lt;функция\>
 
-Especifica que o CCMSetup.exe não instalará a funcionalidade especificada quando o cliente é instalado.  
+Указывает, что программа CCMSetup.exe не должна устанавливать указанный компонент при установке клиента.  
 
-Exemplo: `CCMSetup.exe /ExcludeFeatures:ClientUI` não instalará o Centro de Software no cliente.  
+Пример: `CCMSetup.exe /ExcludeFeatures:ClientUI` не будет устанавливать центр программного обеспечения на клиенте.  
 
 > [!NOTE]  
->  Nesta versão, **ClientUI** é o único valor suportado com a propriedade **/ExcludeFeatures** .  
+>  В этом выпуске единственным поддерживаемым для свойства **/ExcludeFeatures** значением является **ClientUI** .  
 
-##  <a name="ccmsetupReturnCodes"></a> Códigos de retorno CCMSetup.exe  
- O comando CCMSetup.exe fornece que os seguintes códigos concluídos de retorno. Para resolver, consulte o ficheiro ccmsetup.log no computador cliente para o contexto e os detalhes adicionais sobre códigos de retorno.  
+##  <a name="ccmsetupReturnCodes"></a> Коды возврата CCMSetup.exe  
+ Программа CCMSetup.exe предоставляет указанные ниже коды возврата при выполнении команды. Для устранения неполадок просмотрите файл ccmsetup.log на клиентском компьютере, чтобы определить контекст и получить дополнительные сведения о кодах возврата.  
 
-|Código de retorno|Significado|  
+|Код возврата|Значение|  
 |-----------------|-------------|  
-|0|Êxito|  
-|6|Erro|  
-|7|Reinício necessário|  
-|8|Programa de configuração já em execução|  
-|9|Falha de avaliação de pré-requisitos|  
-|10|Falha de validação de hash do manifesto de configuração|  
+|0|Успех|  
+|6|Ошибка|  
+|7|Требуется перезагрузка|  
+|8|Программа установка уже выполняется|  
+|9|Сбой оценки готовности к установке|  
+|10|Сбой проверки хэша манифеста программой установки|  
 
-##  <a name="clientMsiProps"></a> Propriedades de Client.msi  
- As seguintes propriedades podem modificar o comportamento de instalação de client.msi. Se utilizar o método de instalação push do cliente, também pode especificar as propriedades no separador **Cliente** da caixa de diálogo **Propriedades da Instalação Push do Cliente** .  
+##  <a name="clientMsiProps"></a> Свойства Client.msi  
+ Следующие свойства могут изменять режим установки client.msi. При использовании метода принудительной установки клиента эти параметры можно также указать на вкладке **Клиент** диалогового окна **Свойства принудительной установки клиента** .  
 
 ### <a name="ccmadmins"></a>CCMADMINS  
 
-Especifica uma ou mais contas ou grupos de utilizadores do Windows a que deve ser dado acesso a definições e políticas de cliente. Isto é útil em que o administrador do Configuration Manager não tem credenciais administrativas locais no computador cliente. Especifique uma lista de contas que são separados por ponto e vírgula.  
+Указывает одну или несколько учетных записей пользователя или групп Windows для предоставления доступа к параметрам и политикам клиента. Это полезно, если у администратора Configuration Manager нет прав локального администратора на клиентском компьютере. Укажите список учетных записей, разделяя их точкой с запятой.  
 
-Exemplo: `CCMSetup.exe CCMADMINS="Domain\Account1;Domain\Group1"`  
+Пример: `CCMSetup.exe CCMADMINS="Domain\Account1;Domain\Group1"`  
 
 ### <a name="ccmallowsilentreboot"></a>CCMALLOWSILENTREBOOT
 
-Especifica que o computador está autorizado a reiniciar após a instalação do cliente, se necessário.  
+Указывает, что при необходимости компьютер может быть перезагружен после установки клиента.  
 
 > [!IMPORTANT]  
->  O computador será reiniciado sem aviso, mesmo se um utilizador tiver sessão iniciado.  
+>  Компьютер будет перезапущен без предупреждения, даже если в системе находится пользователь.  
 
-Exemplo: **CCMSetup.exe CCMALLOWSILENTREBOOT**  
+Пример: **CCMSetup.exe  CCMALLOWSILENTREBOOT**.  
 
 ### <a name="ccmalwaysinf"></a>CCMALWAYSINF
 
- Defina como 1 para especificar que o cliente será sempre baseado na Internet, nunca estabelecendo ligação à intranet. O tipo de ligação do cliente apresenta **Sempre Internet**.  
+ Установите в 1, чтобы указать, что клиент всегда будет интернет-клиентом и не будет подключаться к интрасети. В типе подключения клиента будет отображено **Всегда Интернет**.  
 
- Esta propriedade deverá ser utilizada em conjunto com CCMHOSTNAME, que especifica o FQDN do ponto de gestão baseado na Internet. Deverá também ser utilizado em conjunto com a propriedade /UsePKICert do CCMSetup e com o código do site.  
+ Это свойство нужно использовать вместе с CCMHOSTNAME, которое указывает полное доменное имя интернет-точки управления. Его также следует использовать вместе со свойством /UsePKICert программы CCMSetup и с кодом сайта.  
 
- Para obter mais informações sobre a gestão de clientes baseada na Internet, veja [Considerações sobre comunicações do cliente a partir da Internet ou de uma floresta não fidedigna](../../plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) em [Comunicações entre pontos finais no System Center Configuration Manager](../../plan-design/hierarchy/communications-between-endpoints.md).  
+ Дополнительные сведения об управлении клиентами через Интернет см. в разделе [Рекомендации по взаимодействию с клиентами из Интернета или недоверенного леса](../../plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) статьи [Связь между конечными точками в System Center Configuration Manager](../../plan-design/hierarchy/communications-between-endpoints.md).  
 
- Exemplo: `CCMSetup.exe /UsePKICert  CCMALWAYSINF=1 CCMHOSTNAME=SERVER3.CONTOSO.COM SMSSITECODE=ABC`  
+ Пример: `CCMSetup.exe /UsePKICert  CCMALWAYSINF=1 CCMHOSTNAME=SERVER3.CONTOSO.COM SMSSITECODE=ABC`  
 
 ### <a name="ccmcertissuers"></a>CCMCERTISSUERS
 
- Especifica a lista de emissores de certificados, o que é uma lista de certificados de certificação (AC) de raiz fidedigna que confie do site do Configuration Manager.  
+ Указывает список издателей сертификатов, представляющий собой список сертификатов от доверенных корневых центров сертификации, которым доверяет сайт Configuration Manager.  
 
- Para obter mais informações sobre a lista de emissores de certificados e a forma como os clientes a utilizam durante o processo de seleção dos certificados, veja [Planear a seleção do certificado PKI de cliente](../../plan-design/security/plan-for-security.md#BKMK_PlanningForClientCertificateSelection) em [Planear segurança no System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
+ Дополнительные сведения о списке издателей сертификатов и его использовании клиентами в процессе выбора сертификата см. в разделе [Plannстатьиg for PKI client certificate selection](../../plan-design/security/plan-for-security.md#BKMK_PlanningForClientCertificateSelection) статьи [Plan for security статьи System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
 
- Esta é uma correspondência sensível a maiúsculas e minúsculas para os atributos do requerente presentes no certificado da AC raiz. Os atributos podem ser separados por uma vírgula (,) ou ponto e vírgula (;). É possível especificar vários certificados de AC de raiz utilizando uma barra separadora. Exemplo:  
+ Это чувствительное к регистру соответствие для атрибутов в сертификате от корневого центра сертификации. Атрибуты могут быть разделены запятыми (,) или точками с запятой (;). Через разделительную черту можно указать несколько сертификатов от корневых ЦС. Пример:  
 
  `CCMCERTISSUERS=”CN=Contoso Root CA; OU=Servers; O=Contoso, Ltd; C=US &#124; CN=Litware Corporate Root CA; O=Litware, Inc.”`  
 
 > [!TIP]  
->  Referência ao ficheiro mobileclient.tcf no &lt;diretório do Configuration Manager\>\bin\\&lt;plataforma\> pasta no computador do servidor do site para copiar o **CertificateIssuers =&lt;cadeia\>**  que está configurado para o site.  
+>  Укажите ссылку на файл mobileclient.tcf в папке &lt;каталог_Configuration_Manager\>\bin\\&lt;платформа\> на компьютере сервера сайта, чтобы скопировать значение **CertificateIssuers=&lt;строка\>**, настроенное для сайта.  
 
 ### <a name="ccmcertsel"></a>CCMCERTSEL
 
- Especifica os critérios de seleção de certificados se o cliente tiver mais de um certificado para comunicação por HTTPS (um certificado válido que inclua a capacidade de autenticação de cliente).  
+ Указывает критерий выбора сертификата, если у клиента имеется более одного сертификата для связи по протоколу HTTP (действительный сертификат, включающий возможность проверки подлинности клиента).  
 
- Pode procurar uma correspondência exata (utilizar **requerente:**) ou uma correspondência parcial (utilize **SubjectStr:)** no nome do requerente ou nome alternativo do requerente. Exemplos:  
+ Можно выполнить поиск точного совпадения (используйте **Subject:**) или частичного совпадения (используйте **SubjectStr:)** в имени субъекта или альтернативном имени субъекта. Примеры:  
 
- `CCMCERTSEL="Subject:computer1.contoso.com"`procura um certificado com uma correspondência exata com o nome de computador "COMPUTADOR1.contoso.com" no nome do requerente ou nome alternativo do requerente.  
+ `CCMCERTSEL="Subject:computer1.contoso.com"` выполняет поиск сертификата с точным совпадением с именем компьютера "computer1.contoso.com" в имени субъекта или альтернативном имени субъекта.  
 
- `CCMCERTSEL="SubjectStr:contoso.com"`procura um certificado que contenha "contoso.com" no nome do requerente ou nome alternativo do requerente.  
+ `CCMCERTSEL="SubjectStr:contoso.com"` выполняет поиск сертификата, содержащего "contoso.com" в имени субъекта или альтернативном имени субъекта.  
 
- Também é possível utilizar o Identificador de Objeto (OID) ou os atributos de nome distinto nos atributos do Nome do Requerente ou do Nome Alternativo do Requerente. Por exemplo:  
+ Можно также использовать идентификатор объекта (OID) или атрибуты различающегося имени в атрибутах имени получателя или альтернативного имени получателя, например:  
 
- `CCMCERTSEL="SubjectAttr:2.5.4.11 = Computers"`procura o atributo de unidade organizacional expresso como um identificador de objeto e denominado computadores.  
+ `CCMCERTSEL="SubjectAttr:2.5.4.11 = Computers"` выполняет поиск атрибута подразделения, выраженного как идентификатор объекта, с именем Computers.  
 
- `CCMCERTSEL="SubjectAttr:OU = Computers"`procura o atributo de unidade organizacional expresso como um nome distinto e denominado computadores.  
+ `CCMCERTSEL="SubjectAttr:OU = Computers"` выполняет поиск атрибута подразделения, выраженного как различающееся имя, с именем Computers.  
 
 > [!IMPORTANT]  
->  Se utilizar a caixa de nome do requerente, o **requerente:** diferencia maiúsculas de minúsculas e o **SubjectStr:** sensível.  
+>  Если используется поле "Имя субъекта", критерий **Subject:** учитывает регистр, а критерий **SubjectStr:** — не учитывает.  
 >   
->  Se utilizar a caixa Nome alternativo do requerente, o **requerente:**e **SubjectStr:** são sensível.  
+>  Если используется поле "Альтернативное имя субъекта", критерии **Subject:** и **SubjectStr:** не учитывают регистр.  
 
- A lista completa de atributos que pode utilizar para a seleção de certificados encontra-se em [Valores de Atributo Suportados para os Critérios de Seleção de Certificado PKI](#BKMK_attributevalues).  
+ Полный список атрибутов, которые можно использовать для выбора сертификата, перечислен в разделе [Поддерживаемые значения атрибутов для критериев выбора сертификата инфраструктуры открытого ключа](#BKMK_attributevalues).  
 
- Se mais do que um certificado corresponder à procura e a propriedade CCMFIRSTCERT tiver sido definida como 1, será selecionado o certificado com o período de validade mais longo.  
+ Если в результате поиска обнаружено несколько соответствующих сертификатов, и для свойства CCMFIRSTCERT было указано значение 1, выбирается сертификат с наибольшим сроком действия.  
 
 ### <a name="ccmcertstore"></a>CCMCERTSTORE
 
- Especifica um nome de arquivo de certificado alternativo, se o certificado de cliente HTTPS não se encontrar no arquivo de certificados predefinido **pessoais** no arquivo do computador.  
+ Указывает альтернативное имя хранилища сертификатов, если сертификат клиента для протокола HTTPS не находится в хранилище сертификатов по умолчанию в хранилище компьютера **Личное**.  
 
- Exemplo: `CCMSetup.exe /UsePKICert CCMCERTSTORE="ConfigMgr"`  
+ Пример: `CCMSetup.exe /UsePKICert CCMCERTSTORE="ConfigMgr"`  
 
 ### <a name="ccmdebuglogging"></a>CCMDEBUGLOGGING
 
-  Ativa o registo de depuração. Valores podem ser definidos como 0 (desativado, predefinição) ou 1 (ativado). Isto faz com que o cliente registe informações de baixo nível para resolução de problemas. Como melhor prática, evite utilizar esta propriedade em sites de produção, dado que poderá ocorrer um registo excessivo e poderá tornar mais difícil a localização informações relevantes nos ficheiros de registo. CCMENABLELOGGING também deve ser definido como TRUE para ativar o registo de depuração.  
+  Включает ведение журнала отладки. Значения могут быть установлены в 0 (отключено, по умолчанию) или 1 (включено). Это заставляет клиента заносить в журнал сведения низкого уровня для устранения неполадок. Рекомендуется избегать использовать это свойство на производственных сайтах, так как излишние записи в журнал могут затруднить поиск нужных сведений в файлах журналов. Свойство CCMENABLELOGGING также должно быть установлено в TRUE, чтобы включить ведение журнала отладки.  
 
-  Exemplo: `CCMSetup.exe CCMDEBUGLOGGING=1`  
+  Пример: `CCMSetup.exe CCMDEBUGLOGGING=1`  
 
 ### <a name="ccmenablelogging"></a>CCMENABLELOGGING
 
-  Por predefinição, definida como verdadeiro para ativar o registo. Os ficheiros de registo são armazenados no **registos** pasta na pasta de instalação de cliente do Configuration Manager. Por predefinição, esta pasta é %Windir%\CCM\Logs.  
+  По умолчанию задано значение TRUE, включающее ведение журнала. Файлы журналов хранятся в папке **Logs** в папке установки клиента Configuration Manager. Этой папкой по умолчанию является %Windir%\CCM\Logs.  
 
-  Exemplo: `CCMSetup.exe CCMENABLELOGGING=TRUE`  
+  Пример: `CCMSetup.exe CCMENABLELOGGING=TRUE`  
 
 ### <a name="ccmevalinterval"></a>CCMEVALINTERVAL  
 
- A frequência que cliente executa a ferramenta de avaliação do Estado de funcionamento (ccmeval.exe). Pode ser **1** para **1440** minutos. Por predefinição, é executada uma vez por dia.  
+ Частота запуска средства оценки работоспособности клиента (ccmeval.exe). Может иметь значение от **1** до **1440** минут. По умолчанию выполняется раз в день.  
 
 ### <a name="ccmevalhour"></a>CCMEVALHOUR
 
- A hora quando a ferramenta de avaliação de estado de funcionamento do cliente (ccmeval.exe) é executado, entre **0** (meia-noite) e **23** (23: 00). É executada à meia-noite, por predefinição.  
+ Время выполнения средства оценки работоспособности клиента (ccmeval.exe) — от **0** (полночь) до **23** (11 вечера). По умолчанию выполняется в полночь.  
 
 ### <a name="ccmfirstcert"></a>CCMFIRSTCERT
 
- Se estiver definida como 1, esta propriedade especifica que o cliente deve selecionar o certificado PKI com o período de validade mais longo. Esta definição poderá ser necessária se estiver a utilizar Proteção de Acesso à Rede com imposição de IPsec.  
+ Если задано значение 1, данное свойство указывает, что клиент должен выбрать PKI-сертификат с наибольшим сроком действия. Этот параметр может потребоваться, если используется защита доступа к сети с системой ограничений IPSec.  
 
- Exemplo: `CCMSetup.exe /UsePKICert CCMFIRSTCERT=1`  
+ Пример: `CCMSetup.exe /UsePKICert CCMFIRSTCERT=1`  
 
 ### <a name="ccmhostname"></a>CCMHOSTNAME
 
- Especifica o FQDN do ponto de gestão baseado na Internet, se o cliente for gerido através da Internet.  
+ Указывает FQDN интернет-точки управления, если клиент управляется по Интернету.  
 
- Não especifique esta opção com a propriedade de instalação SMSSITECODE=AUTO. Os clientes baseados na Internet têm de ser atribuídos diretamente ao respetivo site baseado na Internet.  
+ Не задавайте этот параметр со свойством установки SMSSITECODE=AUTO. Интернет-клиенты должны быть непосредственно присвоены их интернет-сайту.  
 
- Exemplo: `CCMSetup.exe  /UsePKICert/ CCMHOSTNAME="SMSMP01.corp.contoso.com"`  
+ Пример: `CCMSetup.exe  /UsePKICert/ CCMHOSTNAME="SMSMP01.corp.contoso.com"`  
 
 ### <a name="ccmhttpport"></a>CCMHTTPPORT
 
- Especifica a porta que o cliente deve utilizar quando comunicar por HTTP com servidores do sistema de sites. Defina a porta 80 por predefinição.  
+ Указывает порт, который должен использовать клиент при связи по протоколу HTTP с серверами системы сайта. По умолчанию задан порт 80.  
 
- Exemplo: `CCMSetup.exe CCMHTTPPORT=80`  
+ Пример: `CCMSetup.exe CCMHTTPPORT=80`  
 
 ### <a name="ccmhttpsport"></a>CCMHTTPSPORT
 
-Especifica a porta que o cliente deve utilizar quando comunicar por HTTPS com servidores do sistema de sites. Defina a porta 443 por predefinição.  
+Указывает порт, который должен использовать клиент при связи по протоколу HTTPS с серверами системы сайта. По умолчанию задан порт 443.  
 
-Exemplo: `CCMSetup.exe /UsePKICert CCMHTTPSPORT=443`  
+Пример: `CCMSetup.exe /UsePKICert CCMHTTPSPORT=443`  
 
 ### <a name="ccminstalldir"></a>CCMINSTALLDIR
 
- Identifica a pasta onde estão instalados os ficheiros de cliente do Configuration Manager, *% Windir %*\ccm. por predefinição. Independentemente de onde estes ficheiros são instalados, o ficheiro Ccmcore.dll é sempre instalado no *%Windir%\System32* pasta. Além disso, em sistemas operativos de 64 bits, uma cópia do ficheiro Ccmcore.dll é sempre instalada no *% Windir %*pasta \SysWOW64 para suportar aplicações de 32 bits que utilizem a versão de 32 bits do Configuration Manager APIs de cliente do Configuration Manager software development kit (SDK).  
+ Указывает папку, в которой установлены файлы клиента Configuration Manager. По умолчанию используется папка *%Windir%*\CCM. Независимо от того, где установлены эти файлы, файл Ccmcore.dll всегда устанавливается в папку *%Windir%\System32*. Кроме того, в 64-разрядных операционных системах копия файла Ccmcore.dll всегда устанавливается в папке *%Windir%*\SysWOW64 для поддержки 32-разрядных приложений, использующих 32-разрядную версию интерфейсов API клиента Configuration Manager из пакета SDK для Configuration Manager.  
 
- Exemplo: `CCMSetup.exe CCMINSTALLDIR="C:\ConfigMgr"`  
+ Пример: `CCMSetup.exe CCMINSTALLDIR="C:\ConfigMgr"`  
 
 ### <a name="ccmloglevel"></a>CCMLOGLEVEL
 
-Especifica o nível de detalhes a escrever nos ficheiros de registo do Configuration Manager. Especifique um número inteiro entre 0 e 3, em que 0 é o registo mais verboso e 3 regista apenas erros. A predefinição é 1.  
+Указывает уровень сведений для записи в файлы журналов Configuration Manager. Задайте целое число от 0 до 3, где 0 означает самое подробное ведение журнала, а 3 означает занесение только ошибок. Значение по умолчанию — 1.  
 
-Exemplo: `CCMSetup.exe CCMLOGLEVEL=3`  
+Пример: `CCMSetup.exe CCMLOGLEVEL=3`  
 
 ### <a name="ccmlogmaxhistory"></a>CCMLOGMAXHISTORY
 
-Quando um ficheiro de registo do Configuration Manager atinge 250.000 bytes em tamanho (ou o valor especificado pela propriedade CCMLOGMAXSIZE), o nome é mudado uma cópia de segurança e é criado um novo ficheiro de registo.  
+Когда размер файла журнала Configuration Manager достигает 250 000 байт (или значения, заданного свойством CCMMAXLOGSIZE), этот файл переименовывается в резервную копию, и создается новый файл журнала.  
 
-Esta propriedade especifica o número de versões anteriores do ficheiro de registo para manter. O valor predefinido é 1. Se o valor for definido como 0, não serão guardados ficheiros de registo antigos.  
+Это свойство указывает, сколько предыдущих версий файла требуется сохранять. Значение по умолчанию — 1. Если значение установлено в 0, старые файлы журналов не сохраняются.  
 
-Exemplo: `CCMSetup.exe CCMLOGMAXHISTORY=0`  
+Пример: `CCMSetup.exe CCMLOGMAXHISTORY=0`  
 
 ### <a name="ccmlogmaxsize"></a>CCMLOGMAXSIZE
 
-O tamanho de ficheiro de registo máximo em bytes. Quando um registo atinge o tamanho especificado, o nome é alterado para passar a ficheiro de histórico e é criado um novo ficheiro. Esta propriedade tem de ser definida, pelo menos, com 10.000 bytes. O valor predefinido é 250.000 bytes.  
+Максимальный размер файла журнала в байтах. Если журнал увеличивается до указанного размера, он переименовывается как архивный файл, и создается новый файл. Это свойство должно иметь значение по меньшей мере 10 000 байт. Значение по умолчанию равно 250 000 байт.  
 
-Exemplo: `CCMSetup.exe CCMLOGMAXSIZE=300000`  
+Пример: `CCMSetup.exe CCMLOGMAXSIZE=300000`  
 
 ### <a name="disablesiteopt"></a>DISABLESITEOPT
 
- Se definido para TRUE, desativa a capacidade dos utilizadores finais com credenciais administrativas no computador cliente para alterar o Gestor de configuração do site atribuído na **do Configuration Manager** no cliente do painel de controlo.  
+ Заданное значение TRUE отключает возможность для конечных пользователей с учетными данными администратора на клиентском компьютере изменять назначенный сайт Configuration Manager с помощью компонента **Configuration Manager** панели управления клиента.  
 
- Exemplo: **CCMSetup.exe DISABLESITEOPT = TRUE**  
+ Пример: **CCMSetup.exe DISABLESITEOPT=TRUE**.  
 
 ### <a name="disablecacheopt"></a>DISABLECACHEOPT
 
-Se definida como TRUE, desativa a capacidade dos utilizadores finais com credenciais administrativas no computador cliente para o cliente de alterar as definições de pasta de cache do cliente do Configuration Manager utilizando o Configuration Manager no painel de controlo do computador cliente.  
+Указанное значение TRUE отключает возможность для конечных пользователей с учетными данными администратора на клиентском компьютере изменять параметры папки кэша клиента для клиента Configuration Manager с помощью компонента Configuration Manager на панели управления клиентского компьютера.  
 
-Exemplo: `CCMSetup.exe DISABLECACHEOPT=TRUE`  
+Пример: `CCMSetup.exe DISABLECACHEOPT=TRUE`  
 
 ### <a name="dnssuffix"></a>DNSSUFFIX
 
- Especifica um domínio de DNS para os clientes localizarem pontos de gestão que sejam publicados no DNS. Quando um ponto de gestão é localizado, informa o cliente sobre outros pontos de gestão na hierarquia. Isto significa que o ponto de gestão localizado utilizando a publicação de DNS não tem de ser do site do cliente, podendo ser qualquer ponto de gestão da hierarquia.  
+ Указывает DNS-домен для использования клиентами при поиске точек управления, опубликованных в DNS. После нахождения точки управления информирует клиент о других точках управления в иерархии. Это значит, что точка управления, обнаруженная с помощью публикации DNS, не должна быть точкой с сайта клиента, но может быть любой точкой в иерархии.  
 
 > [!NOTE]  
->  Não é necessário especificar esta propriedade se o cliente pertencer ao mesmo domínio de um ponto de gestão publicado. Nesse caso, o domínio do cliente é automaticamente utilizado para procurar o DNS para pontos de gestão.  
+>  Если клиент находится в том же домене, что и опубликованная точка управления, указывать это свойство не требуется. В этом сценарии автоматически используется домен клиента для поиска точек управления в DNS.  
 
- Para obter mais informações sobre a publicação de DNS como método de localização de serviço para clientes do Configuration Manager, consulte [localização de serviço e como os clientes determinam o respetivo ponto de gestão atribuído](../../plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#BKMK_Plan_Service_Location) no [compreender a forma como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager](../../plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) .  
+ Дополнительные сведения о публикации DNS как методе обнаружения служб для клиентов Configuration Manager см. в разделе [Обнаружение службы и определение клиентами назначенной им точки управления](../../plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#BKMK_Plan_Service_Location) статьи [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
 > [!NOTE]  
->  Por predefinição, a publicação de DNS não está ativada no Configuration Manager.  
+>  По умолчанию публикация DNS не включена в Configuration Manager.  
 
- Exemplo: `CCMSetup.exe SMSSITECODE=ABC DNSSUFFIX=contoso.com`  
+ Пример: `CCMSetup.exe SMSSITECODE=ABC DNSSUFFIX=contoso.com`  
 
 ### <a name="fsp"></a>FSP
 
-Especifica o ponto de estado de contingência que recebe e processa mensagens de estado enviadas por computadores cliente do Configuration Manager.  
+Указывает резервную точку состояния, которая будет получать и обрабатывать сообщения о состоянии, отправленные клиентскими компьютерами Configuration Manager.  
 
-Para obter mais informações sobre o ponto de estado de contingência, consulte [determinar se necessita de um ponto de estado de contingência](/sccm/core/clients/deploy/plan#determine-if-you-need-a-fallback-status-point).  
+Дополнительные сведения о резервной точке состояния см. в разделе [Определение необходимости в резервной точке состояния](/sccm/core/clients/deploy/plan#determine-if-you-need-a-fallback-status-point).  
 
-Exemplo: `CCMSetup.exe FSP=SMSFP01`  
+Пример: `CCMSetup.exe FSP=SMSFP01`  
 
 ### <a name="ignoreappvversioncheck"></a>IGNOREAPPVVERSIONCHECK
 
- Especifica que a presença de versão mínima necessária do Microsoft Application Virtualization (App-V) não é verificada antes do cliente está instalado.  
+ Указывает, что наличие минимальной необходимой версии Microsoft Application Virtualization (App-V) не проверяется перед установкой клиента.  
 
 > [!IMPORTANT]  
->  Se instalar o cliente do Configuration Manager sem instalar o App-V, não é possível implementar aplicações virtuais.  
+>  Если установить клиент Configuration Manager без установки App-V, развертывание виртуальных приложений будет невозможным.  
 
- Exemplo: `CCMSetup.exe IGNOREAPPVVERSIONCHECK=TRUE`  
+ Пример: `CCMSetup.exe IGNOREAPPVVERSIONCHECK=TRUE`  
 
 ### <a name="notifyonly"></a>NOTIFYONLY
 
-Especifica que o estado do cliente reportará, mas não remediará problemas encontrados no cliente.  
+Указывает, что клиент сообщит о состоянии, но не будет устранять обнаруженные на нем неисправности.  
 
-Exemplo: `CCMSetup.exe NOTIFYONLY=TRUE`  
+Пример: `CCMSetup.exe NOTIFYONLY=TRUE`  
 
-Para obter mais informações, veja [Como configurar o estado do cliente no System Center Configuration Manager](configure-client-status.md).  
+Дополнительные сведения см. в статье [Настройка состояния клиента в System Center Configuration Manager](configure-client-status.md).  
 
 ### <a name="resetkeyinformation"></a>RESETKEYINFORMATION
 
- Se um cliente do Configuration Manager tiver a chave de raiz fidedigna do Configuration Manager incorreta e não é possível contactar um ponto de gestão fidedigno para receber a nova chave de raiz fidedigna, tem de remover manualmente a chave de raiz fidedigna antiga utilizando esta propriedade. Esta situação pode ocorrer quando move um cliente a partir de uma hierarquia de sites para outro. Esta propriedade aplica-se a clientes que utilizam a comunicação de cliente por HTTP e HTTPS.  
+ Если у клиента Configuration Manager имеется неправильный корневой ключ доверия Configuration Manager и ему не удается установить связь с доверенной точкой управления для получения нового корневого ключа доверия, необходимо вручную удалить старый корневой ключ доверия с помощью этого свойства. Такая ситуация может возникнуть при перемещении клиента из одной иерархии сайта в другую. Это свойство применимо к клиентам, использующим соединения по протоколам HTTP и HTTPS.  
 
- Exemplo: `CCMSetup.exe RESETKEYINFORMATION=TRUE`  
+ Пример: `CCMSetup.exe RESETKEYINFORMATION=TRUE`  
 
 ### <a name="sitereassign"></a>SITEREASSIGN
 
-Permite a reatribuição de site automática para atualizações de cliente quando utilizado com [SMSSITECODE](#smssitecode)= AUTO.
+Обеспечивает автоматическое переназначение сайта при обновлении клиентов при использовании с параметром [SMSSITECODE](#smssitecode)=AUTO.
 
-Exemplo: `CCMSetup.exe SMSSITECODE=AUTO SITEREASSIGN=TRUE`
+Пример: `CCMSetup.exe SMSSITECODE=AUTO SITEREASSIGN=TRUE`
 
 ### <a name="smscachedir"></a>SMSCACHEDIR
 
-Especifica a localização da pasta de cache do cliente no computador cliente, que armazena ficheiros temporários. Por predefinição, a localização é *%Windir \ccmcache*.  
+Указывает расположение папки кэша клиента на клиентском компьютере, в которой находятся временные файлы. Расположение по умолчанию: *%Windir \ccmcache*.  
 
-Exemplo: `CCMSetup.exe SMSCACHEDIR="C:\Temp"`  
+Пример: `CCMSetup.exe SMSCACHEDIR="C:\Temp"`  
 
-Esta propriedade pode ser utilizada em conjunto com a propriedade SMSCACHEFLAGS para controlar a localização de pasta de cache do cliente.  
+Это свойство можно использовать в сочетании со свойством SMSCACHEFLAGS для управления расположением папки кэша клиента.  
 
-Exemplo: `CCMSetup.exe SMSCACHEDIR=Cache SMSCACHEFLAGS=MAXDRIVE` instala a pasta de cache do cliente na maior unidade de disco de clientes disponíveis.  
+Пример: `CCMSetup.exe SMSCACHEDIR=Cache SMSCACHEFLAGS=MAXDRIVE` устанавливает папку кэша клиента на самом большом доступном диске клиента.  
 
 ### <a name="smscacheflags"></a>SMSCACHEFLAGS
 
-Especifica mais detalhes de instalação para a pasta de cache do cliente. Pode utilizar as propriedades SMSCACHEFLAGS individualmente ou em combinação, separadas por ponto e vírgula. Se esta propriedade não for especificada, a pasta de cache do cliente será instalada de acordo com a propriedade SMSCACHEDIR, não será comprimida e o valor de SMSCACHESIZE será utilizado como o tamanho da pasta, em MB.  
+Задает дополнительные сведения об установке для папки кэша клиента. Свойства SMSCACHEFLAGS можно использовать отдельно или в сочетании, разделяя точкой с запятой. Если это свойство не задано, папка кэша клиента устанавливается в соответствии со свойством SMSCACHEDIR, папка не сжимается, а значение SMSCACHESIZE используется в качестве размера папки в МБ.  
 
-Esta definição é ignorada quando atualiza um cliente existente.  
+Этот параметр игнорируется при обновлении существующего клиента.  
 
-Propriedades:  
+Свойства:  
 
--   PERCENTDISKSPACE: Especifica o tamanho da pasta como uma percentagem do espaço total do disco. Se especificar esta propriedade, terá de especificar também a propriedade SMSCACHESIZE como o valor percentual a utilizar.  
+-   PERCENTDISKSPACE: задает размер папки в процентах от общего места на диске. Если указано значение этого свойства, следует также указать свойство SMSCACHESIZE как процент для использования.  
 
--   PERCENTFREEDISKSPACE: Especifica o tamanho da pasta como uma percentagem de espaço livre em disco. Se especificar esta propriedade, terá de especificar também a propriedade SMSCACHESIZE como o valor percentual a utilizar. Por exemplo, se o disco tiver 10 MB de espaço livre e SMSCACHESIZE for especificada como 50, o tamanho da pasta será definido como 5 MB. Não é possível utilizar esta propriedade com a propriedade PERCENTDISKSPACE.  
+-   PERCENTFREEDISKSPACE: указывает размер папки в процентах от свободного места на диске. Если указано значение этого свойства, следует также указать свойство SMSCACHESIZE как процент для использования. Например, если на диске свободно 10 МБ, а для SMSCACHESIZE указано 50, то размер папки устанавливается в 5 МБ. Это свойство нельзя использовать вместе со свойством PERCENTDISKSPACE.  
 
--   MAXDRIVE: Especifica que a pasta deve ser instalada no maior disco disponível. Este valor será ignorado se tiver sido especificado um caminho com a propriedade SMSCACHEDIR.  
+-   MAXDRIVE: указывает, что папку нужно установить на самом большом доступном диске. Это значение будет игнорироваться, если путь был указан при помощи свойства SMSCACHEDIR.  
 
--   MAXDRIVESPACE: Especifica que a pasta deve ser instalada na unidade de disco que tem mais espaço livre. Este valor será ignorado se tiver sido especificado um caminho com a propriedade SMSCACHEDIR.  
+-   MAXDRIVESPACE: указывает, что папку нужно установить на диске с наибольшим свободным местом. Это значение будет игнорироваться, если путь был указан при помощи свойства SMSCACHEDIR.  
 
--   NTFSONLY: Especifica que a pasta pode ser instalada apenas em unidades de disco NTFS. Este valor será ignorado se tiver sido especificado um caminho com a propriedade SMSCACHEDIR.  
+-   NTFSONLY: указывает, что папку можно устанавливать только на дисках NTFS. Это значение будет игнорироваться, если путь был указан при помощи свойства SMSCACHEDIR.  
 
--   COMPRESS: Especifica que a pasta deve ser stoed num formato comprimido.  
+-   COMPRESS: указывает, что папку нужно хранить в сжатом виде.  
 
--   FAILIFNOSPACE: Especifica que o software de cliente deve ser removido se não existir espaço suficiente para instalar a pasta.  
+-   FAILIFNOSPACE: указывает, что следует удалить программное обеспечение клиента, если для установки папки недостаточно места.  
 
-Exemplo: `CCMSetup.exe SMSCACHEFLAGS=NTFSONLY;COMPRESS`  
+Пример: `CCMSetup.exe SMSCACHEFLAGS=NTFSONLY;COMPRESS`  
 
 
 ### <a name="smscachesize"></a>SMSCACHESIZE
 
 > [!IMPORTANT]
-> Novas definições de cliente a partir do Configuration Manager versão 1606, estão disponíveis para especificar o tamanho da pasta de cache de cliente. A adição dessas definições de cliente substitui eficazmente a utilização de SMSCACHESIZE como uma propriedade de client.msi para especificar o tamanho da cache do cliente. Para obter mais informações, veja as [definições do cliente para tamanho da cache](about-client-settings.md#client-cache-settings).  
+> Начиная с версии Configuration Manager 1606, доступны новые параметры клиента для указания размера папки кэша клиента. Добавление этих параметров клиента заменяет использование параметра SMSCACHESIZE как свойства client.msi для указания размера кэша клиента. Дополнительные сведения см. в разделе [Параметры клиента для размера кэша](about-client-settings.md#client-cache-settings).  
 
-Na versão 1602 e anterior, SMSCACHESIZE especifica o tamanho da pasta de cache do cliente em megabytes (MB) ou como uma percentagem quando utilizada com a propriedade PERCENTDISKSPACE ou PERCENTFREEDISKSPACE. Se esta propriedade não for definida, a pasta utilizará a predefinição de tamanho máximo de 5.120 MB. O menor valor que pode especificar é 1 MB.  
-
-> [!NOTE]  
->  Se um novo pacote que tenha de ser transferido fizer com que a pasta ultrapasse o tamanho máximo e não for possível remover o conteúdo da pasta para disponibilizar espaço suficiente, a transferência do pacote falhará e aplicação ou o programa não será executado.  
-
-Esta definição é ignorada quando atualiza um cliente existente e quando o cliente transfere atualizações de software.  
-
-Exemplo: `CCMSetup.exe SMSCACHESIZE=100`  
+Для версий, предшествующих 1602, параметр SMSCACHESIZE указывает размер папки кэша клиента в МБ или в процентах от дискового пространства при использовании со свойством PERCENTDISKSPACE или PERCENTFREEDISKSPACE. Если это свойство не установлено, для папки устанавливается максимальный размер по умолчанию в 5 120 МБ. Наименьшее значение, которое можно задать — 1 МБ.  
 
 > [!NOTE]  
->  Se reinstalar um cliente, não é possível utilizar as propriedades de instalação SMSCACHESIZE ou SMSCACHEFLAGS para definir o tamanho da cache com um valor menor do que tinha anteriormente. Se tentar fazê-lo, o valor será ignorado e o tamanho da cache é automaticamente definido para o tamanho que tinha anteriormente.  
+>  Если новый пакет, который требуется загрузить, приводит к превышению максимального размера папки, а папку не удается очистить, чтобы освободить достаточно места, то загрузка пакета не будет выполнена, а программа или приложение не будет запускаться.  
+
+Этот параметр игнорируется при обновлении существующего клиента, а также при загрузке клиентом обновлений программного обеспечения.  
+
+Пример: `CCMSetup.exe SMSCACHESIZE=100`  
+
+> [!NOTE]  
+>  При переустановке клиента нельзя использовать свойства установки SMSCACHESIZE и SMSCACHEFLAGS, чтобы уменьшить размер кэша. В противном случае заданное значение игнорируется и размер кэша автоматически приравнивается к последнему размеру.  
 
 ### <a name="smsconfigsource"></a>SMSCONFIGSOURCE
 
-Especifica a localização e a ordem em que o programa de instalação do Configuration Manager verifica a existência de definições de configuração. A propriedade é uma cadeia com um ou mais carateres, definindo cada um uma origem de configuração específica. Utilize os valores de caráter R, P, M e U, isoladamente ou:  
+Указывает расположение и порядок, в котором установщик Configuration Manager проверяет параметры конфигурации. Это свойство является строкой, содержащей один или более символов, каждый из которых определяет конкретный источник конфигурации. Используйте символьные значения R, P, M и U отдельно или в сочетании.  
 
--   R: Verifique a existência de definições de configuração no registo.  
+-   R: проверяет наличие параметров конфигурации в реестре.  
 
-   Para obter mais informações, consulte [informações sobre como armazenar propriedades de instalação de cliente no registo.](https://technet.microsoft.com/library/gg712298.aspx#BKMK_Provision).  
+   См. дополнительные [сведения о хранении свойств установки клиента в реестре](https://technet.microsoft.com/library/gg712298.aspx#BKMK_Provision).  
 
--   P: Verifique a existência de definições de configuração nas propriedades de instalação fornecidas na linha de comandos.  
+-   P: проверяет наличие параметров конфигурации в свойствах установки, заданных в командной строке.  
 
--   M: Verificar a existência de definições ao atualizar um cliente antigo com o software de cliente do Configuration Manager.  
+-   M: проверяет наличие существующих параметров при обновлении более старого клиента программным обеспечением клиента Configuration Manager.  
 
--   U: Atualizar o cliente instalado para uma versão mais recente (e utilizar o código de site atribuído).  
+-   U: обновляет установленный клиент до более новой версии (и использует назначенный код сайта).  
 
- Por predefinição, a instalação do cliente utiliza `PU` para verificar primeiro as propriedades de instalação e, em seguida, as definições existentes.  
+ По умолчанию установка клиента использует `PU` для проверки сначала свойств установки, а затем существующих параметров.  
 
- Exemplo: `CCMSetup.exe SMSCONFIGSOURCE=RP`  
+ Пример: `CCMSetup.exe SMSCONFIGSOURCE=RP`  
 
 ### <a name="smsdirectorylookup"></a>SMSDIRECTORYLOOKUP
 
- Especifica se o cliente pode utilizar o WINS (Windows Internet Name Service) para localizar um ponto de gestão que aceite ligações HTTP. Os clientes utilizam este método quando não conseguem encontrar um ponto de gestão nos Serviços de Domínio do Active Directory ou no DNS.  
+ Указывает, может ли клиент использовать службу WINS для обнаружения точки управления, принимающей подключения по протоколу HTTP. Клиенты используют этот метод, когда они не могут обнаружить точку управления в доменных службах Active Directory или в DNS.  
 
- Esta propriedade não afeta se o cliente utilizar WINS para resolução de nomes.  
+ Это свойство не влияет на использование клиентом WINS для разрешения имен.  
 
- Pode configurar dois modos diferentes para esta propriedade:  
+ Для этого свойства можно настроить два различных режима.  
 
--   NOWINS: Esta é a definição mais segura para esta propriedade e impede os clientes de localizar um ponto de gestão no WINS.  Quando utilizar esta definição, os clientes têm de ter um método alternativo para localizar um ponto de gestão na intranet, como os Serviços de Domínio do Active Directory ou a Publicação de DNS.  
+-   NOWINS: это наиболее безопасное значение для данного свойства, предотвращающее нахождение клиентами точек управления в WINS.  При использовании этого параметра у клиентов должен быть альтернативный метод нахождения точки управления в интрасети, например в доменных службах Active Directory или посредством публикации DNS.  
 
--   WINSSECURE (predefinição): Neste modo, um cliente que utilize comunicações HTTP pode utilizar o WINS para localizar um ponto de gestão. No entanto, o cliente tem de ter uma cópia da chave de raiz fidedigna para poder ligar com êxito ao ponto de gestão. Para obter mais informações, veja [Planear a Chave de Raiz Fidedigna](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) em [Planear a segurança no System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
+-   WINSSECURE (по умолчанию): в этом режиме клиент, использующий соединения по протоколу HTTP, может обнаруживать точку управления с использованием WINS. Однако у клиента должна быть копия доверенного корневого ключа, чтобы он мог успешно подключиться к точке управления. Дополнительные сведения см. в разделе [Plannстатьиg for the Trusted Root Key](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) статьи [Plan for security статьи System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
 
 
- Exemplo: `CCMSetup.exe SMSDIRECTORYLOOKUP=NOWINS`  
+ Пример: `CCMSetup.exe SMSDIRECTORYLOOKUP=NOWINS`  
 
 ### <a name="smsmp"></a>SMSMP
 
-Especifica um ponto de gestão inicial para o cliente do Configuration Manager para utilizar.  
+Задает начальную точку управления для использования клиентом Configuration Manager.  
 
 > [!IMPORTANT]  
->  Se o ponto de gestão apenas aceita ligações de cliente através de HTTPS, terá de preceder o nome de ponto de gestão com https://.  
+>  Если точка управления принимает подключения клиентов только по протоколу HTTPS, необходимо добавить к имени точки управления "https://" в качестве префикса.  
 
-Exemplo: `CCMSetup.exe SMSMP=smsmp01.contoso.com`
+Пример: `CCMSetup.exe SMSMP=smsmp01.contoso.com`
 
-Exemplo: `CCMSetup.exe SMSMP=https://smsmp01.contoso.com`  
+Пример: `CCMSetup.exe SMSMP=https://smsmp01.contoso.com`  
 
 ### <a name="smspublicrootkey"></a>SMSPUBLICROOTKEY
 
- Especifica a chave de raiz fidedigna do Configuration Manager quando não é possível obter a partir de serviços de domínio do Active Directory. Esta propriedade aplica-se a clientes que utilizam a comunicação de cliente por HTTP e HTTPS. Para obter mais informações, veja [Planear a Chave de Raiz Fidedigna](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) em [Planear a segurança no System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
+ Указывает корневой ключ доверия Configuration Manager, если его не удается получить из доменных служб Active Directory. Это свойство применимо к клиентам, использующим соединения по протоколам HTTP и HTTPS. Дополнительные сведения см. в разделе [Plannстатьиg for the Trusted Root Key](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) статьи [Plan for security статьи System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
 
- Exemplo: `CCMSetup.exe SMSPUBLICROOTKEY=&lt;key\>`  
+ Пример: `CCMSetup.exe SMSPUBLICROOTKEY=&lt;key\>`  
 
 ### <a name="smsrootkeypath"></a>SMSROOTKEYPATH
 
- Utilizada para reinstalar a chave de raiz fidedigna do Configuration Manager. Especifica o nome e o caminho completo de um ficheiro que contém a chave de raiz fidedigna. Esta propriedade aplica-se a clientes que utilizam a comunicação de cliente por HTTP e HTTPS. Para obter mais informações, veja [Planear a Chave de Raiz Fidedigna](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) em [Planear a segurança no System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
+ Используется для переустановки доверенного корневого ключа Configuration Manager. Указывает полный путь и имя файла, содержащего доверенного корневого ключа. Это свойство применимо к клиентам, использующим соединения по протоколам HTTP и HTTPS. Дополнительные сведения см. в разделе [Plannстатьиg for the Trusted Root Key](../../plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) статьи [Plan for security статьи System Center Configuration Manager](../../plan-design/security/plan-for-security.md).  
 
- Exemplo: ' CCMSetup.exe SMSROOTKEYPATH =&lt;completa e caminho do ficheiro\>`  
+ Пример: CCMSetup.exe SMSROOTKEYPATH=&lt;полный путь к файлу и его имя\>`  
 
 ### <a name="smssigncert"></a>SMSSIGNCERT
 
- Especifica o nome e o caminho completo do ficheiro .cer do certificado autoassinado exportado no servidor do site.  
+ Указывает полный путь и имя файла .cer экспортируемого самоподписанного сертификата на сервере сайта.  
 
- Este certificado é armazenado no arquivo de certificados **SMS** e tem o nome de Requerente **Servidor do Site** e o nome amigável **Certificado de Assinatura do Servidor do Site**.  
+ Этот сертификат находится в хранилище сертификатов **SMS** , ему задано имя субъекта **Сервер сайта** и понятное имя **Сертификат подписи сервера сайта**.  
 
- Exemplo: **CCMSetup.exe /usepkicert SMSSIGNCERT =&lt;nome de ficheiro e caminho completo\>**  
+ Пример: **CCMSetup.exe /UsePKICert SMSSIGNCERT=&lt;полный путь к файлу и его имя\>**  
 
 ### <a name="smssitecode"></a>SMSSITECODE
 
- Especifica o site do Configuration Manager para atribuir o cliente do Configuration Manager. Isto pode ser um código de site de três carateres ou a palavra AUTO. Se for especificado AUTO ou se esta propriedade não for especificada, o cliente tentará determinar a respetiva atribuição de site do Configuration Manager a partir de serviços de domínio do Active Directory ou de um ponto de gestão. Para ativar automática para atualizações de cliente, também tem de definir [SITEREASSIGN](#sitereassign) como TRUE.    
+ Задает сайт Configuration Manager, которому должен быть назначен клиент Configuration Manager. Это либо трехсимвольный код сайта, либо слово AUTO. Если указано значение AUTO или если это свойство не указано, клиент пытается определить свое назначение Configuration Manager в доменных службах Active Directory или в указанной точке управления. Чтобы задать значение AUTO для обновления клиентов, необходимо также присвоить параметру [SITEREASSIGN](#sitereassign) значение TRUE.    
 
 > [!NOTE]  
->  Não utilize AUTO se também especificar o ponto de gestão baseado na Internet (CCMHOSTNAME). Nesse caso, deve atribuir diretamente o cliente para o respetivo site.  
+>  Если наряду с этим указывается интернет-точка управления (CCMHOSTNAME), значение AUTO использовать не нужно. В этом случае необходимо непосредственно назначить клиент сайту.  
 
- Exemplo: `CCMSetup.exe SMSSITECODE=XZY`  
+ Пример: `CCMSetup.exe SMSSITECODE=XZY`  
 
-##  <a name="BKMK_attributevalues"></a> Valores de Atributo Suportados para os Critérios de Seleção de Certificado PKI  
- O Configuration Manager suporta os seguintes valores de atributo para os critérios de seleção de certificado PKI:  
+##  <a name="BKMK_attributevalues"></a> Поддерживаемые значения атрибутов для критериев выбора сертификата инфраструктуры открытого ключа  
+ Configuration Manager поддерживает следующие значения атрибутов для критериев выбора PKI-сертификата:  
 
-|Atributo OID|Atributo de Nome Único|Definição do atributo|  
+|Атрибут OID|Атрибут различающегося имени|Определение атрибута|  
 |-------------------|----------------------------------|--------------------------|  
-|0.9.2342.19200300.100.1.25|DC|Componente do domínio|  
-|1.2.840.113549.1.9.1|E ou E-mail|Endereço de e-mail|  
-|2.5.4.3|CN|Nome comum|  
-|2.5.4.4|SN|Nome do requerente|  
-|2.5.4.5|SERIALNUMBER|Número de série|  
-|2.5.4.6|C|Código de país|  
-|2.5.4.7|L|Localidade|  
-|2.5.4.8|S ou ST|Nome do estado ou distrito|  
-|2.5.4.9|STREET|Morada|  
-|2.5.4.10|O|Nome da organização|  
-|2.5.4.11|OU|Unidade organizacional|  
-|2.5.4.12|T ou Title|Título|  
-|2.5.4.42|G ou GN ou GivenName|Nome próprio|  
-|2.5.4.43|I ou Initials|Iniciais|  
-|2.5.29.17|(sem valor)|Nome Alternativo do Requerente|  
+|0.9.2342.19200300.100.1.25|DC|Компонент домена|  
+|1.2.840.113549.1.9.1|E или E-mail|Адрес электронной почты|  
+|2.5.4.3|CN|Общее имя|  
+|2.5.4.4|SN|Имя субъекта|  
+|2.5.4.5|SERIALNUMBER|Серийный номер|  
+|2.5.4.6|В|Код страны|  
+|2.5.4.7|L|Местонахождение|  
+|2.5.4.8|S или ST|Название штата или провинции|  
+|2.5.4.9|STREET|Адрес по улице|  
+|2.5.4.10|O|Название организации|  
+|2.5.4.11|OU|Подразделение|  
+|2.5.4.12|T или Title|Название|  
+|2.5.4.42|G или GN или GivenName|Имя|  
+|2.5.4.43|I или Initials|Инициалы|  
+|2.5.29.17|(без значения)|Альтернативное имя субъекта|  

@@ -1,6 +1,6 @@
 ---
-title: "Coleções de segurança e privacidade | Microsoft Docs"
-description: "Obter as melhores práticas de segurança e privacidade de coleções no System Center Configuration Manager."
+title: "Безопасность и конфиденциальность коллекций | Документы Майкрософт"
+description: "Ознакомьтесь с рекомендациями по обеспечению безопасности и конфиденциальности коллекций в System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,30 +17,30 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 0cade975e96220e193db1de92816f97cd253532d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-collections-in-system-center-configuration-manager"></a>Segurança e privacidade para coleções no System Center Configuration Manager
+# <a name="security-and-privacy-for-collections-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность коллекций в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico contém melhores práticas de segurança e informações de privacidade para coleções no System Center Configuration Manager.  
+В этом разделе приводятся рекомендации по обеспечению безопасности и конфиденциальности коллекций в System Center Configuration Manager.  
 
- Não há nenhuma informação de privacidade especificamente para coleções no Configuration Manager. As coleções são contentores de recursos, tais como utilizadores e dispositivos. Associação a coleções depende frequentemente as informações que o Configuration Manager recolhe durante o funcionamento normal. Por exemplo, através da utilização de informações de recursos que tenham sido recolhidas pela deteção ou inventário, uma coleção pode ser configurada para conter os dispositivos que cumprem critérios específicos. As coleções também podem basear-se nas informações de estado atuais para operações de gestão de clientes, tais como implementação de software e verificação de compatibilidade. Além destas coleções baseadas em consultas, os utilizadores administrativos também podem adicionar recursos a coleções.  
+ Сведения о конфиденциальности, касающиеся конкретно коллекций в Configuration Manager, отсутствуют. Коллекции являются контейнерами для ресурсов, таких как пользователи и устройства. Членство в коллекции часто зависит от информации, собранной Configuration Manager в ходе обычной работы. Например, используя сведения о ресурсах, собранные в ходе операций обнаружения или инвентаризации, можно настроить коллекцию для устройств, отвечающих заданным условиям. Коллекции также могут основываться на данных о текущем состоянии операций управления клиентами, таких как развертывание программного обеспечения и проверка соответствия. Помимо таких коллекций, основанных на запросах, пользователи также могут добавлять ресурсы в коллекции.  
 
- Para obter mais informações sobre coleções, consulte [introdução às coleções no System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md). Para obter mais informações sobre as melhores práticas de segurança e informações de privacidade para operações do Configuration Manager que pode ser utilizado para configurar a associação da coleção, consulte [melhores práticas de segurança e informações de privacidade do System Center Configuration Manager](../../../../core/plan-design/security/security-best-practices-and-privacy-information.md).  
+ Дополнительные сведения о коллекциях см. в разделе [Общие сведения о коллекциях в System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md). Дополнительные сведения о рекомендациях по обеспечению безопасности и конфиденциальности для операций Configuration Manager, которые могут использоваться для настройки членства в коллекциях, см. в разделе [Рекомендации по обеспечению безопасности и сведения о конфиденциальности в System Center Configuration Manager](../../../../core/plan-design/security/security-best-practices-and-privacy-information.md).  
 
-## <a name="security-best-practices-for-collections"></a>Melhores Práticas de Segurança para Coleções  
- Utilize a melhor prática de segurança seguinte para coleções.  
+## <a name="security-best-practices-for-collections"></a>Рекомендации по обеспечению безопасности для коллекций  
+ Примите во внимание следующие рекомендации по обеспечению безопасности коллекций.  
 
-|Procedimento recomendado de segurança|Mais informações|  
+|Рекомендация по безопасности|Дополнительные сведения|  
 |----------------------------|----------------------|  
-|Sempre que exportar ou importar uma coleção utilizando um ficheiro no formato MOF (Managed Object Format) guardada numa localização de rede, proteja a localização e o canal de rede.|Restringe quem pode aceder à pasta de rede.<br /><br /> Utilize a assinatura SMB (Server Message Block) ou a segurança IPsec entre a localização de rede e o servidor do site para impedir que um atacante adultere os dados da coleção exportados. Utilize IPsec para encriptar os dados na rede para evitar a divulgação de informações.|  
+|При импорте и экспорте коллекции с помощью MOF-файла, сохраненного в сетевой папке, обеспечьте безопасность расположения и сетевого канала.|Ограничьте доступ пользователей к сетевой папке.<br /><br /> Используйте подписывание SMB или протокол IPsec при обмене данными между сетевой папкой и сервером сайта, чтобы предотвратить изменение данных экспортируемых коллекций злоумышленниками. Используйте протокол IPsec для шифрования данных в сети, чтобы избежать раскрытия информации.|  
 
-### <a name="security-issues-for-collections"></a>Problemas de Segurança para Coleções  
- As coleções têm os seguintes problemas de segurança:  
+### <a name="security-issues-for-collections"></a>Проблемы безопасности, связанные с коллекциями  
+ С коллекциями связаны следующие проблемы безопасности.  
 
--   Se utilizar variáveis de coleção, os administradores locais podem ler informações potencialmente confidenciais.  
+-   При использовании переменных коллекции локальным администраторам может стать доступной потенциально конфиденциальная информация.  
 
-     As variáveis de coleção podem ser utilizadas quando implementar um sistema operativo.  
+     Переменные коллекции можно использовать при развертывании операционной системы.  

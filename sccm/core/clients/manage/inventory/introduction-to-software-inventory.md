@@ -1,6 +1,6 @@
 ---
-title: "Inventário de software | Microsoft Docs"
-description: "Obtenha uma introdução ao inventário de software no System Center Configuration Manager."
+title: "Инвентаризация программного обеспечения | Документы Майкрософт"
+description: "Общие сведения об инвентаризации программного обеспечения в System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,30 +17,30 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 969f2d28649853ddc95860fe72597d6d2c9a94e9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-software-inventory-in-system-center-configuration-manager"></a>Introdução ao inventário de software no System Center Configuration Manager
+# <a name="introduction-to-software-inventory-in-system-center-configuration-manager"></a>Общие сведения об инвентаризации программного обеспечения в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize o inventário de software para recolher informações sobre ficheiros nos dispositivos cliente. Inventário de software também pode recolher ficheiros de dispositivos cliente e armazená-los no servidor do site. Inventário de software é recolhido quando escolhe o **ativar inventário de software em clientes** definir nas definições do cliente, onde pode também agendar a operação.  
+Используйте инвентаризацию программного обеспечения для сбора сведений о файлах на клиентских устройствах. Кроме того, функция инвентаризации ПО может собирать файлы с клиентских устройств и сохранять их на сервере сайта. Данные инвентаризации ПО собираются, если в параметрах клиента включен параметр **Включить инвентаризацию программного обеспечения для клиентов**. В этих параметрах можно также запланировать эту операцию.  
 
-Depois do inventário de software está ativado e os clientes executarem um ciclo de inventário de software, o cliente envia as informações para um ponto de gestão no site do cliente. A gestão de pontos e reencaminha as informações de inventário para o servidor de site do Configuration Manager, que armazena as informações na base de dados do site.   
+После включения функции инвентаризации программного обеспечения и ее запуска клиентами данные инвентаризации отправляются в точку управления на сайте клиента. Затем точка управления передает данные инвентаризации на сервер сайта Configuration Manager, сохраняющий их в базе данных сайта.   
 
- Seguem-se formas para ver os dados de inventário de software:  
+ Ниже приведены способы просмотра данных инвентаризации ПО.  
 
--   [Criar consultas](../../../../core/servers/manage/queries-technical-reference.md) que devolvam os dispositivos com os ficheiros especificados.   
+-   [Создание запросов](../../../../core/servers/manage/queries-technical-reference.md), которые возвращают устройства с указанными файлами.   
 
--   Criar [coleções baseadas em consulta](../../../../core/clients/manage/collections/introduction-to-collections.md) que incluem dispositivos com os ficheiros especificados.   
+-   Создание [коллекций на основе запросов](../../../../core/clients/manage/collections/introduction-to-collections.md), которые включают в себя устройства с указанными файлами.   
 
--   [Executar relatórios](../../../../core/servers/manage/reporting.md) que fornecem detalhes sobre os ficheiros em dispositivos.
+-   [Запуск отчетов](../../../../core/servers/manage/reporting.md), содержащих сведения о файлах на устройствах.
 
--   Utilize [Explorador de recursos](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md) para examinar informações detalhadas sobre os ficheiros que foram inventariados e recolhidos a partir de dispositivos cliente.   
+-   Использование [обозревателя ресурсов](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md) для изучения подробной информации о файлах, включенных в инвентарную опись и собранных на клиентских устройствах.   
 
- Quando executa o inventário de software num dispositivo cliente, o primeiro relatório é um inventário completo. Os relatórios subsequentes contêm apenas informações de inventário de diferenças. O servidor do site processa as informações de diferenças pela ordem recebida. Se as informações de diferenças para um cliente estão em falta, o servidor do site rejeita as restantes informações de diferenças e indica ao cliente para executar um inventário completo.  
+ При выполнении на клиентском устройстве инвентаризации ПО первый отчет содержит полную инвентаризацию. Последующие отчеты содержат только сведения об изменении данных инвентаризации. Сервер сайта обрабатывает изменившиеся данные в порядке их поступления. Если изменившиеся данные для клиента отсутствуют, сервер сайта отклоняет дополнительные изменившиеся данные инвентаризации и предписывает клиенту выполнить полную инвентаризацию.  
 
- O Configuration Manager pode detetar computadores de arranque duplo, mas só devolve informações de inventário do sistema operativo que estava ativo no momento do inventário.  
+ Configuration Manager может обнаруживать такие компьютеры, но возвращает сведения об инвентаризации только из операционной системы, активной на момент выполнения инвентаризации.  
 
-**Dispositivos móveis:** Consulte [inventário de software para dispositivos móveis inscritos com o Microsoft Intune](../../../../mdm/deploy-use/software-inventory-mobile-devices.md) para obter informações sobre a recolha do inventário para as aplicações instaladas em dispositivos móveis.
+**Мобильные устройства.** Дополнительные сведения о сборе данных инвентаризации для приложений, установленных на мобильных устройствах, см. в статье [Инвентаризация программного обеспечения для мобильных устройств, зарегистрированных с помощью Microsoft Intune](../../../../mdm/deploy-use/software-inventory-mobile-devices.md).

@@ -1,6 +1,6 @@
 ---
-title: "Cenários de instalação | Microsoft Docs"
-description: "Saiba mais técnicas para instalar uma nova hierarquia do Configuration Manager quando estiver a atualizar ou atualizar um site."
+title: "Сценарии установки | Документы Майкрософт"
+description: "Ознакомьтесь с приемами установки новой иерархии Configuration Manager при обновлении сайта."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,115 +16,115 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 938b2970e4d8534fdd5f3daf0c9a5ddb1f576e60
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="scenarios-to-streamline-your-installation-of-system-center-configuration-manager"></a>Cenários para simplificar a instalação do System Center Configuration Manager
+# <a name="scenarios-to-streamline-your-installation-of-system-center-configuration-manager"></a>Сценарии для упрощения установки System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Com o lançamento de versões de atualização para o ramo atual do System Center Configuration Manager, há novos cenários para simplificar a instalação de uma nova hierarquia para uma versão de atualização (como a atualização 1610) e para atualizar a partir do Microsoft System Center 2012 Configuration Manager.
+С выпуском версий обновления для текущей ветви System Center Configuration Manager появились новые сценарии, позволяющие упростить установку новой иерархии в версии обновления (например, обновление 1610) и выполнить обновление с System Center 2012 Configuration Manager.
 
-Os cenários suportados incluem:  
+Поддерживаемые сценарии:  
 
-**Instalar uma novo ramo hierarquia System Center Configuration Manager atual** que executa uma versão de atualização.  
+**Установка новой иерархии текущей ветви System Center Configuration Manager**, в которой выполняется версия обновления.  
 
--   Instalar apenas o site de nível superior e, em seguida, imediatamente a instalar uma atualização para trazer esse site atual com a versão de atualização que irá utilizar. Em seguida, pode instalar sites adicionais diretamente para essa versão de atualização.  
--   Neste cenário, ignorar o processo de instalação de sites adicionais para um nível de linha de base e, em seguida, atualizando-as para a versão de atualização que pretende utilizar.  
--   Neste cenário, ignorar o processo de instalação de clientes para uma versão de linha de base e voltar a instalá-los quando atualizar para uma versão posterior.  
+-   Необходимо только установить сайт верхнего уровня, после чего сразу установить обновление, чтобы этот сайт соответствовал версии обновления, которая будет использоваться. Затем можно установить дополнительные сайты непосредственно в эту версию обновления.  
+-   В этом сценарии пропущена процедура установки дополнительных сайтов на базовом уровне и их последующего обновления до версии обновления, которая будет использоваться.  
+-   В этом сценарии пропущена процедура установки клиентов на базовой версии и их последующей переустановки при обновлении до более поздней версии.  
 
-**Atualizar um Microsoft System Center 2012 Configuration Manager** infraestrutura para uma versão de atualização do System Center Configuration Manager.  
+**Обновление инфраструктуры System Center 2012 Configuration Manager** до версии обновления System Center Configuration Manager.  
 
--   Atualizar manualmente o site de administração central e cada site primário para uma versão de linha de base (como a versão 1606) antes de instalar uma versão de atualização (como a versão 1610).  
--   Não atualize os sites secundários do Microsoft System Center 2012 Configuration Manager até que os sites primários executarem a versão de atualização que irá utilizar.  
--   Não atualize os clientes do Microsoft System Center 2012 Configuration Manager até que os sites primários executarem a versão de atualização que irá utilizar.  
+-   Прежде чем устанавливать версию обновления (например, 1610), необходимо вручную обновить сайт центра администрирования и каждый первичный сайт до базовой версии (например, 1606).  
+-   Не обновляйте вторичные сайты с Microsoft System Center 2012 Configuration Manager, пока на первичных сайтах не выполняется версия обновления, которая будет использоваться.  
+-   Не обновляйте клиенты с Microsoft System Center 2012 Configuration Manager, пока на первичных сайтах не выполняется версия обновления, которая будет использоваться.  
 
-## <a name="scenario-install-a-new-hierarchy-to-an-update-version"></a>Cenário: Instalar uma nova hierarquia para uma versão de atualização  
-Neste cenário de exemplo, instale o primeiro site de uma hierarquia utilizando uma versão de linha de base do System Center Configuration Manager, como a versão 1610. Em seguida, instale a atualização de 1610 antes de implementar sites ou clientes adicionais.  
+## <a name="scenario-install-a-new-hierarchy-to-an-update-version"></a>Сценарий — установить новую иерархию на версию обновления  
+В этом примере сценария первый сайт иерархии устанавливается с использованием базовой версии System Center Configuration Manager версии 1610. Затем устанавливается обновление 1610, а после этого выполняется развертывание дополнительных сайтов или клиентов.  
 
--   Dado que pretende utilizar uma versão de atualização (como a versão 1610) e não continuar uma versão de linha de base (como a versão 1606), não precisa de instalar sites adicionais e, em seguida, atualizá-los. Isto também se aplica aos clientes.  
--   Não instale sites secundários com a versão 1606 e, em seguida, atualizá-los para a versão 1610. Em vez disso, instale sites secundários depois dos sites primários executarem a versão 1610.  
+-   Так как планируется использование версии обновления (например, 1610), а не базовой версии (например, 1606), вам не потребуется устанавливать дополнительные сайты и обновлять их. Это также касается и клиентов.  
+-   Не нужно устанавливать вторичные сайты с версией 1606 и затем обновлять их до версии 1610. Их следует установить после того, как на первичных сайтах будет работать версия 1610.  
 
-Siga esta sequência:  
+Используйте следующую последовательность.  
 
-1.  **Instalar um site de nível superior para a nova hierarquia** utilizando o suporte de dados de linha de base.  
+1.  **Установите сайт верхнего уровня для новой иерархии**, используя базовый носитель.  
 
-    -   Pode utilizar suportes de dados de linha de base apenas para instalar o primeiro site numa nova hierarquia.  
-    -   Por exemplo, instale um site de nível superior utilizando a versão de linha de base do 1606. Para obter mais informações, consulte [utilize o Assistente de configuração para instalar sites](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).  
+    -   Базовый носитель можно использовать только для установки первого сайта новой иерархии.  
+    -   Например, установите сайт верхнего уровня, используя базовую версию 1606. Дополнительные сведения см. в разделе [Использование мастера установки для установки сайтов](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).  
 
-    Após este passo, o site de nível superior executa a versão 1606.  
+    После выполнения этого шага на сайте верхнего уровня будет работать версия 1606.  
 
-2.  **Utilize as atualizações na consola para atualizar o site de nível superior para uma versão posterior.**  
+2.  **Используйте обновления в консоли для обновления сайта верхнего уровня до более поздней версии.**  
 
-    -   Antes de instalar sites subordinados ou clientes, atualize o site de nível superior para a versão de atualização que pretende utilizar.  
-    -   Por exemplo, pode atualizar o site de nível superior que executa a versão 1606 para a versão 1610. Para obter mais informações, veja [Atualizações para o System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
+    -   Прежде чем устанавливать подчиненные сайты или клиенты, обновите свой сайт верхнего уровня до версии обновления, которую планируется использовать.  
+    -   Например, можно обновить сайт верхнего уровня с версии 1606 до версии 1610. Дополнительные сведения см. в статье [Обновления для System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
 
-    Após este passo, o site de nível superior executa a versão 1610.  
+    После выполнения этого шага на сайте верхнего уровня будет работать версия 1610.  
 
-3.  **Instale os novos sites primários subordinados abaixo de um site de administração central.**  
+3.  **Установите новые подчиненные первичные сайты на уровне ниже сайта центра администрирования.**  
 
-    -   Utilize o suporte de dados de instalação a partir da pasta CD.Latest no servidor do site de administração central para instalar sites primários subordinados. Para obter mais informações, veja [The CD.Latest folder for System Center Configuration Manager (A pasta CD.Latest do System Center Configuration Manager)](../../../../core/servers/manage/the-cd.latest-folder.md).  
+    -   Воспользуйтесь установочным носителем из папки CD.Latest на сервере сайта центра администрирования, чтобы установить подчиненные первичные сайты. Дополнительные сведения об этих файлах см. в статье [Папка CD.Latest для System Center Configuration Manager](../../../../core/servers/manage/the-cd.latest-folder.md).  
 
-      Este suporte de dados de origem é necessário para assegurar que os novos sites primários subordinados correspondem à versão do site de administração central.  
+      Этот носитель необходим для того, чтобы обеспечить соответствие новых подчиненных первичных сайтов версии сайта центра администрирования.  
 
-    Após este passo, os novos sites primários subordinados executam versão 1610.  
+    После выполнения этого шага на новых подчиненных первичных сайтах будет работать версия 1610.  
 
-4.  **Em cada site primário, utilize a opção na consola para instalar novos sites secundários.**  
+4.  **Воспользуйтесь параметром в консоли, чтобы установить новые вторичные сайты на каждом первичном сайте.**  
 
-    -   Porque não instalou sites secundários enquanto os sites primários estavam na versão 1606, não terá de atualizar os sites secundários.  
-    -   Em vez disso, instale novos sites secundários que executem a versão 1610. Para obter mais informações, veja [Instalar um site secundário](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites#bkmk_secondary) no tópico [Utilizar o Assistente de Configuração para instalar sites](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).  
+    -   Так как вы не устанавливали вторичные сайты, пока первичные сайты работали на версии 1606, вам не нужно обновлять вторичные сайты.  
+    -   Вместо этого необходимо установить новые вторичные сайты, использующие версию 1610. Дополнительные сведения см. в подразделе [Установка вторичного сайта](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites#bkmk_secondary) раздела [Установка сайтов с помощью мастера установки](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).  
 
-    Após este passo, novos sites secundários são instalados e executam a versão 1610.  
+    После выполнения этого шага новые вторичные сайты будут установлены и будут использовать версию 1610.  
 
-5.  **Instale novos clientes no site primário.**  
+5.  **Установите новые клиенты на первичном сайте.**  
 
-    -   Porque não instalou clientes enquanto os sites primários estavam na versão 1606, não terá de atualizar os clientes da versão 1606 para versão 1610.  
-    -   Em vez disso, instale novos clientes que executam a versão 1610. Para obter mais informações, consulte [implementar clientes no System Center Configuration Manager](../../../clients/deploy/deploy-clients-to-windows-computers.md).  
+    -   Так как вы не устанавливали клиенты, пока первичные сайты работали на версии 1606, вам не нужно обновлять клиенты с версии 1606 до 1610.  
+    -   Вместо этого необходимо установить новые клиенты, использующие версию 1610. Дополнительные сведения см. в разделе [Развертывание клиентов в System Center Configuration Manager](../../../clients/deploy/deploy-clients-to-windows-computers.md).  
 
-    Após este passo, são instalados novos clientes que executam a versão 1610.  
+    После выполнения этого шага будут установлены новые клиенты, использующие версию 1610.  
 
-## <a name="scenario-upgrade-system-center-2012-configuration-manager-to-an-update-version-of-system-center-configuration-manager-current-branch"></a>Cenário: Atualização do System Center 2012 Configuration Manager para uma versão de atualização do System Center Configuration Manager, o ramo atual  
-Neste cenário de exemplo, atualize a sua infraestrutura do Microsoft System Center 2012 Configuration Manager para uma versão de atualização do System Center Configuration Manager, como a versão 1610.  
+## <a name="scenario-upgrade-system-center-2012-configuration-manager-to-an-update-version-of-system-center-configuration-manager-current-branch"></a>Сценарий — обновить System Center 2012 Configuration Manager до версии обновления текущей ветви System Center Configuration Manager  
+В этом примере вы обновите инфраструктуру Microsoft System Center 2012 Configuration Manager до версии обновления System Center Configuration Manager, такой как версия 1610.  
 
--   O site de administração central e cada site primário tem de atualizar para a versão de linha de base 1606 antes de instalar a atualização da versão 1610.  
--   Os sites secundários e os clientes não atualizar ou instalar a versão 1606. Em vez disso, estes passam diretamente do Microsoft System Center 2012 Configuration Manager para System Center Configuration Manager versão 1610.  
+-   Прежде чем устанавливать обновление для версии 1610, необходимо обновить сайт центра администрирования и каждый первичный сайт до базовой версии 1606.  
+-   На вторичных сайтах и клиентах не выполняется обновление или установка версии 1606. Вместо этого они переводятся с версии Microsoft System Center 2012 Configuration Manager непосредственно на версию System Center Configuration Manager 1610.  
 
-Siga esta sequência:  
+Используйте следующую последовательность.  
 
-1.  **Atualizar o site do Microsoft System Center 2012 Configuration Manager de nível superior** para uma versão de linha de base da filial atual utilizando o suporte de dados de origem para o System Center Configuration Manager (como a versão 1606). Para obter mais informações, consulte [atualizar para o System Center Configuration Manager](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md).  
+1.  **Обновите сайт верхнего уровня Microsoft System Center 2012 Configuration Manager** до базовой версии текущей ветви с помощью исходного носителя для System Center Configuration Manager (например, версии 1606). Дополнительные сведения см. в разделе [Обновление до System Center Configuration Manager](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md).  
 
-    -   Como cenários de atualização tradicionais, atualiza sempre primeiro do site de nível superior de uma hierarquia e, em seguida, atualizar os sites subordinados.  
+    -   Как и в традиционных сценариях обновления, сначала всегда обновляйте сайт верхнего уровня иерархии, а затем подчиненные сайты.  
 
-    Após este passo, o site de nível superior executa a versão 1606.  
+    После выполнения этого шага на сайте верхнего уровня будет работать версия 1606.  
 
-2.  **Atualize cada site primário subordinado na hierarquia** para essa mesma versão de linha de base.  
+2.  **Обновите каждый подчиненный первичный сайт в иерархии** до той же базовой версии.  
 
-    -   Quando atualizar a partir do Microsoft System Center 2012 Configuration Manager, tem de atualizar manualmente cada site primário para uma versão de linha de base da filial atual.  
-    -   Neste momento, não irá atualizar os sites secundários.  
+    -   При обновлении с Microsoft System Center 2012 Configuration Manager необходимо вручную обновить каждый первичный сайт до базовой версии текущей ветви.  
+    -   В данный момент не следует обновлять вторичные сайты.  
 
-    Após este passo, cada site primário executa a versão 1606.  
+    После выполнения этого шага на каждом первичном сайте будет работать версия 1606.  
 
-3.  **Definir janelas de manutenção em sites primários subordinados.** Depois de atualizar todos os sites primários para a versão de linha de base, planeie configurar janelas de manutenção para controlar quando esses sites instalam atualizações de infraestrutura. Para obter mais informações, consulte [como utilizar janelas de manutenção no System Center Configuration Manager](../../../../core/clients/manage/collections/use-maintenance-windows.md).  (As janelas de manutenção são denominadas *serviço windows* versão 1606.)  
+3.  **Задайте периоды обслуживания на подчиненных первичных сайтах.** После обновления всех первичных сайтов до базовой версии следует настроить периоды обслуживания, чтобы контролировать, когда эти сайты устанавливают обновления инфраструктуры. Дополнительные сведения см. в статье [Использование периодов обслуживания в System Center Configuration Manager](../../../../core/clients/manage/collections/use-maintenance-windows.md).  (В версии 1606 используется термин *период обслуживания*).  
 
-    -   Um site primário subordinado instala automaticamente as mesmas atualizações que o utilizador instala num site de administração central.  
-    -   Secundários não instalam automaticamente novas versões. Tem de atualizá-los manualmente a partir da consola do.  
+    -   Подчиненный первичный сайт автоматически устанавливает такие же обновления, которые установлены на сайте центра администрирования.  
+    -   На вторичных сайтах новые версии автоматически не устанавливаются. Их необходимо обновить вручную через консоль.  
 
-  Após este passo, quando instalar atualizações no site de administração central, os sites primários subordinados irão instalar apenas essa atualização quando for permitido pela respetiva janela de manutenção.  
+  После выполнения этого шага, когда на сайте центра администрирования будут устанавливаться обновления, на подчиненных первичных сайтах они установятся только в том случае, если это позволит их период обслуживания.  
 
-4.  **Instale a versão de atualização no seu site de nível superior.** Isto atualiza o site de nível superior. Depois da versão de atualização é instalado um site de administração central, cada site primário subordinado instala automaticamente a atualização, a menos que a instalação está bloqueada por uma janela de manutenção.  
+4.  **Установите версию обновления на сайте верхнего уровня.** Это обновит сайт верхнего уровня. После установки версии обновления на сайте центра администрирования все подчиненные первичные сайты автоматически устанавливают данное обновление, если это действие не заблокировано периодом обслуживания.  
 
-    -   Por exemplo, pode atualizar o site de nível de versão 1606 de versão 1610. Para obter mais informações, veja [Atualizações para o System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
+    -   Например, можно обновить сайт верхнего уровня с версии 1606 до версии 1610. Дополнительные сведения см. в статье [Обновления для System Center Configuration Manager](../../../../core/servers/manage/updates.md).  
 
-    Após este passo, o site de administração central e cada site primário executa a versão 1610.  
+    После выполнения этого шага на сайте центра администрирования и на всех первичных сайтах будет работать версия 1610.  
 
-5.  **Atualize os sites secundários.** Depois de um site primário, instala a atualização e executa a versão 1610, utilize a opção na consola para atualizar sites secundários.  
+5.  **Обновите вторичные сайты.** После того, как на первичном сайте установлено обновление и работает версия 1610, воспользуйтесь параметром в консоли для обновления вторичных сайтов.  
 
-    -   Este procedimento atualiza os sites secundários diretamente a partir do Microsoft System Center 2012 Configuration Manager para a versão de atualização que instalou no site primário.  
-    -   Para informações sobre como atualizar um site secundário, consulte [atualizar sites](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md#bkmk_upgrade) no [atualizar para o System Center Configuration Manager](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md) tópico.  
+    -   Вторичные сайты будут обновлены непосредственно с Microsoft System Center 2012 Configuration Manager до версии обновления, которая была установлена на первичном сайте.  
+    -   Сведения об обновлении вторичного сайта см. в подразделе [Обновление сайтов](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md#bkmk_upgrade) раздела [Обновление до System Center Configuration Manager](../../../../core/servers/deploy/install/upgrade-to-configuration-manager.md).  
 
-6.  **Atualizar clientes.** Para atualizar os clientes, utilize as informações no [como atualizar clientes em computadores Windows no System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+6.  **Обновите клиенты.** Чтобы обновить клиенты, воспользуйтесь информацией в разделе [Обновление клиентов для компьютеров Windows в System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
 
-    -   Isto atualiza os clientes diretamente a partir do Microsoft System Center 2012 Configuration Manager para a versão de atualização que instalou no site primário.  
+    -   Клиенты будут обновлены непосредственно с Microsoft System Center 2012 Configuration Manager до версии обновления, которая была установлена на первичном сайте.  
 
-    Após este passo, os clientes são atualizados para a versão 1610 sem primeiro atualizar para a versão 1606.
+    После выполнения этого шага клиенты будут обновлены до версии 1610, при этом предварительное обновление до версии 1606 не потребуется.

@@ -1,6 +1,6 @@
 ---
-title: "Implementar linhas de base de configuração | Microsoft Docs"
-description: "Implemente linhas de base de configuração para definir implementações da linha de base de configuração e para adicionar ou remover linhas de base de configuração de implementações."
+title: "Развертывание конфигурационных баз | Документы Майкрософт"
+description: "Развертывание шаблонов базовых конфигураций для определения развертываний шаблонов базовой конфигурации, а также для добавления или удаления шаблонов базовой конфигурации из развертываний."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,42 +17,42 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 9c9e6b7780c7c10c20a60dbbbf506e916031eb88
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-deploy-configuration-baselines-in-system-center-configuration-manager"></a>Como implementar linhas de base de configuração no System Center Configuration Manager
+# <a name="how-to-deploy-configuration-baselines-in-system-center-configuration-manager"></a>Развертывание конфигурационных баз в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Linhas de base de configuração no System Center Configuration Manager devem ser implementadas numa ou mais coleções de utilizadores ou dispositivos antes de dispositivos cliente nessas coleções podem avaliar a respetiva conformidade com a linha de base de configuração.  
+Прежде чем клиентские устройства в коллекциях пользователей или устройств смогут выполнять проверку соответствия шаблонам базовой конфигурации, такие шаблоны в System Center Configuration Manager необходимо развернуть для одной или нескольких коллекций.  
 
-Utilize a caixa de diálogo **Implementar Linhas de Base de Configuração** para definir implementações da linha de base de configuração, que inclui adicionar ou remover linhas de base de configuração de implementações, além de especificar o agendamento de avaliação.  
+С помощью диалогового окна **Развертывание шаблонов базовой конфигурации** можно определить развертывания шаблонов конфигурации, включая добавление и удаление шаблонов конфигурации из развертываний, а также настройку расписания оценки.  
 
-## <a name="deploy-a-configuration-baseline"></a>Implementar uma linha de base de configuração  
+## <a name="deploy-a-configuration-baseline"></a>Развертывание конфигурационной базы  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **linhas de base de configuração**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Шаблоны базовой конфигурации**.  
 
-3.  Na lista **Perfis de E-mail** , selecione o perfil de e-mail que pretende implementar e, em seguida, no separador **Home Page** , no grupo **Implementação** , clique em **Implementar**.  
+3.  В списке **Шаблоны базовой конфигурации** выберите нужную конфигурационную базу, затем на вкладке **Главная** в группе **Развертывание** щелкните элемент **Развернуть**.  
 
-4.  Na caixa de diálogo **Implementar Linhas de Base de Configuração** , selecione as linhas de base de configuração que pretende implementar na lista **Linhas de base de configuração disponíveis** . Clique em **Adicionar** para adicioná-las à lista **Linhas de base de configuração selecionadas** .  
+4.  В диалоговом окне **Развертывание шаблонов базовой конфигурации** в списке **Доступные шаблоны базовой конфигурации** выберите конфигурационные базы для развертывания. Нажмите кнопку **Добавить** , чтобы добавить шаблоны в список **Выбранные шаблоны базовой конфигурации** .  
 
     > [!IMPORTANT]  
-    >  Se alterar um item de configuração adicionado a uma linha de base de configuração implementada, o item de configuração revisto só é avaliado em termos de conformidade depois da próxima hora de avaliação agendada.  
+    >  Если изменить элемент конфигурации, добавленный в развернутую конфигурационную базу, такой измененный элемент не проверяется на соответствие до момента следующей запланированной проверки.  
 
-5.  Especifique as seguintes informações adicionais:  
+5.  Укажите следующие дополнительные сведения.  
 
-    -   **Remediar regras incompatíveis quando suportado** – automaticamente retifica quaisquer regras não compatíveis para o Windows Management Instrumentation (WMI), o registo, scripts e todas as definições para dispositivos móveis que são inscritos pelo Configuration Manager.  
+    -   **Исправлять несоответствующие параметры, когда это возможно** — автоматическое исправление правил, не соответствующих параметрам инструментария WMI, реестра, скриптов и другим параметрам мобильных устройств, зарегистрированным с помощью Configuration Manager.  
 
-    -   **Permitir remediação fora da janela de manutenção** – Se uma janela de manutenção tiver sido configurada para a coleção onde pretende implementar a linha de base de configuração, ative esta opção para que as definições de conformidade retifiquem o valor fora da janela de manutenção. Para obter mais informações sobre janelas de manutenção, consulte [como utilizar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+    -   **Разрешить исправление за пределами периодов обслуживания** — если для коллекции, в которой развертывается конфигурационная база, был настроен период обслуживания, установите этот флажок, чтобы разрешить исправление параметров соответствия за пределами периода обслуживания. Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
-6.  **Gerar um alerta** – configura um alerta que é gerado se a compatibilidade da linha de base de configuração for inferior a uma percentagem especificada por uma data e hora especificadas. Também pode especificar se pretende que seja enviado um alerta para o System Center Operations Manager.  
+6.  **Создавать оповещение** — настройка предупреждения, которое будет создаваться, если соответствие конфигурационной базы меньше заданного процентного значения в указанную дату и время. Также можно указать, требуется ли отправлять оповещение в System Center Operations Manager.  
 
-7.  **Coleção** - Clique em **Procurar** para selecionar a coleção na qual pretende implementar a linha de base de configuração.  
+7.  **Коллекция** — нажмите кнопку **Обзор** , чтобы выбрать коллекцию, в которой требуется развернуть конфигурационную базу.  
 
-8.  **Especifique o agendamento de avaliação de compatibilidade para esta linha de base de configuração** Especifica o agendamento através do qual a linha de base de configuração implementado é avaliada nos computadores cliente. Pode ser um agendamento simples ou personalizado.  
+8.  **Задайте расписание оценки соответствия для этого шаблона базовой конфигурации** — задание расписания проверки развернутого шаблона базовой конфигурации на клиентских компьютерах. Это может быть простое или настраиваемое расписание.  
 
     > [!NOTE]  
-    >  Se a linha de base de configuração for implementada num computador, esta é avaliada em termos de conformidade duas horas após a hora de início agendada. Se for implementado num utilizador, é avaliada em termos de compatibilidade quando o utilizador inicia sessão.  
+    >  Если конфигурационная база развернута на компьютере, оценка соответствия выполняется в течение двух часов от момента запланированного запуска, указанного в расписании. Если конфигурационная база развернута для пользователя, оценка будет выполнена при входе пользователя в систему.  
 
-9. Clique em **OK** para fechar a caixa de diálogo **Implementar Linhas de Base de Configuração** e criar a implementação. Para obter mais informações sobre como monitorizar a implementação, consulte [monitorizar as definições de compatibilidade](/sccm/compliance/deploy-use/monitor-compliance-settings).  
+9. Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Развертывание шаблонов базовой конфигурации** и создать развертывание. Дополнительные сведения о мониторинге развертывания см. в разделе [Мониторинг параметров соответствия](/sccm/compliance/deploy-use/monitor-compliance-settings).  

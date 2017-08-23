@@ -1,6 +1,6 @@
 ---
-title: "Pré-requisitos de migração | Microsoft Docs"
-description: "Compreenda as versões suportadas do Configuration Manager, idiomas suportados do site de origem e as configurações necessárias para a migração."
+title: "Предварительные требования для миграции | Документы Майкрософт"
+description: "Сведения о поддерживаемых версиях Configuration Manager, поддерживаемых языках исходных сайтов и требуемых конфигурациях для миграции."
 ms.custom: na
 ms.date: 3/7/2017
 ms.prod: configuration-manager
@@ -17,111 +17,111 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: cd90f5462ac4bb4c0a2021e6d5dde65161b9c5f6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-migration-in-system-center-configuration-manager"></a>Pré-requisitos de migração no System Center Configuration Manager
+# <a name="prerequisites-for-migration-in-system-center-configuration-manager"></a>Необходимые условия для миграции в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Para migrar de uma hierarquia de origem suportada, tem de ter acesso a cada site de origem aplicável do Configuration Manager e as permissões no site de destino da System Center Configuration Manager para configurar e executar operações de migração.  
+Для миграции из поддерживаемой исходной иерархии необходим доступ к каждому соответствующему исходному сайту Configuration Manager и разрешения на конечном сайте System Center Configuration Manager для настройки и выполнения операций миграции.  
 
- Utilize as informações nas secções seguintes para ajudar a compreender as versões do Configuration Manager que são suportadas para migração e as configurações necessárias.  
+ В следующих разделах представлены сведения, которые помогут вам разобраться с версиями Configuration Manager, поддерживаемыми для миграции, и необходимыми настройками.  
 
--   [Versões do Configuration Manager que são suportadas para migração](#BKMK_SupportedMigrationVersions)  
+-   [Версии Configuration Manager, поддерживаемые для миграции](#BKMK_SupportedMigrationVersions)  
 
--   [Idiomas do site de origem que são suportados para migração](#BKMK_SorceSiteLanguage)  
+-   [Языки исходных сайтов, поддерживаемые при миграции](#BKMK_SorceSiteLanguage)  
 
--   [Configurações necessárias para a migração](#BKMK_Required_Configurations)  
+-   [Требуемые настройки для миграции](#BKMK_Required_Configurations)  
 
-##  <a name="BKMK_SupportedMigrationVersions"></a> Versões do Configuration Manager que são suportadas para migração  
- Pode migrar dados de uma hierarquia de origem que execute qualquer uma das seguintes versões do Configuration Manager:  
+##  <a name="BKMK_SupportedMigrationVersions"></a> Версии Configuration Manager, поддерживаемые для миграции  
+ Вы можете перенести данные из исходной иерархии, работающей под управлением любой из следующих версий Configuration Manager:  
 
--   Configuration Manager 2007 SP2 (para fins de migração, o Configuration Manager 2007 R2 ou R3 no site de origem não são uma consideração. Desde que a origem site é executada SP2, os sites com o suplemento R2 ou R3 instalado é suportada para migração para o System Center Configuration Manager).  
+-   Configuration Manager 2007 с пакетом обновления 2 (SP2). (Для миграции Configuration Manager 2007 R2 или R3 на исходном сайте не учитываются. До тех пор, пока на исходном сайте выполняется версия с пакетом обновления 2 (SP2), сайты с установленными надстройками R2 или R3 поддерживаются для миграции в System Center Configuration Manager).  
 
--   System Center 2012 Configuration Manager SP2 ou System Center 2012 R2 Configuration Manager SP1.  
+-   System Center 2012 Configuration Manager с пакетом обновления 2 (SP2) или System Center 2012 R2 Configuration Manager с пакетом обновления 1 (SP1).  
 
     > [!TIP]  
-    >  Além da migração, pode utilizar uma atualização no local dos sites que executam o System Center 2012 Configuration Manager para o System Center Configuration Manager.  
+    >  Помимо миграции, вы можете произвести обновление на месте сайтов System Center 2012 Configuration Manager до System Center Configuration Manager.  
 
--   Uma hierarquia de System Center Configuration Manager com a versão igual ou inferior do System Center Configuration Manager.  
+-   Иерархия System Center Configuration Manager с той же или более ранней версией System Center Configuration Manager.  
 
-  Por exemplo, se tiver uma hierarquia de destino com o System Center Configuration Manager 1606, pode utilizar a migração para copiar dados de uma hierarquia de origem que executa a versão 1606 ou 1602. No entanto não foi possível migrar dados de uma hierarquia de origem que executa 1610.  
+  Например, при наличии конечной иерархии, работающей на базе System Center Configuration Manager 1606, можно использовать миграцию для копирования данных из исходной иерархии под управлением версии 1606 или 1602. Однако перенос данных невозможно выполнить из исходной иерархии под управлением версии 1610.  
 
 
-##  <a name="BKMK_SorceSiteLanguage"></a> Idiomas do site de origem que são suportados para migração  
- Ao migrar dados entre hierarquias do Configuration Manager, os dados são armazenados na hierarquia de destino no formato independente de idiomas para o System Center Configuration Manager. Porque a configuração Manager2007 armazena dados num formato independente de idiomas, o processo de migração tem converter os objetos nesse formato durante a migração do Configuration Manager 2007. Por conseguinte, apenas do Configuration Manager 2007 sites de origem que são instalados com os seguintes idiomas são suportados para migração:  
+##  <a name="BKMK_SorceSiteLanguage"></a> Языки исходных сайтов, поддерживаемые при миграции  
+ При переносе данных между иерархиями Configuration Manager данные хранятся в конечной иерархии в не зависящем от языка формате для System Center Configuration Manager. Так как Configuration Manager 2007 не сохраняет данные в не зависящем от языка формате, в процессе миграции объекты необходимо преобразовать в этот формат из Configuration Manager 2007. Поэтому функция миграции поддерживает только сайты Configuration Manager 2007, установленные со следующими языками:  
 
--   Inglês  
+-   Английский  
 
--   Francês  
+-   Французский  
 
--   Alemão  
+-   Немецкий  
 
--   Japonês  
+-   Японский  
 
--   Coreano  
+-   Корейский  
 
--   Russo  
+-   Русский  
 
--   Chinês Simplificado  
+-   Китайский, упрощенное письмо  
 
--   Chinês Tradicional  
+-   Китайский (традиционный)  
 
-Quando migrar dados a partir de uma hierarquia do System Center 2012 Configuration Manager ou System Center Configuration Manager, não existem não existem limitações de idioma do site de origem. Os objetos da base de dados do site de origem já estão num formato independente de idiomas.  
+При переносе данных из исходной иерархии System Center 2012 Configuration Manager или System Center Configuration Manager никаких ограничений в отношении языков исходных сайтов нет. Объекты в базе данных исходного сайта уже находятся в формате, не зависящем от языка.  
 
-##  <a name="BKMK_Required_Configurations"></a> Configurações necessárias para a migração  
-Seguem-se as configurações necessárias para utilizar a migração e as operações de migração:  
+##  <a name="BKMK_Required_Configurations"></a> Требуемые настройки для миграции  
+Ниже перечислены настройки, необходимые для использования миграции и операций переноса.  
 
--   **Para configurar, executar e monitorizar a migração na consola do Configuration Manager:**  
+-   **Настройка, запуск и отслеживание миграции в консоли Configuration Manager**  
 
-     No site de destino, deve ser atribuída à sua conta a função de segurança de administração baseada em funções do **Administrador de Infraestrutura**. Esta função de segurança concede permissões para gestão de todas as operações de migração, incluindo a criação de tarefas de migração, limpeza e monitorização e a ação de partilhar e atualizar pontos de distribuição.  
+     На конечном сайте учетной записи должна быть назначена роль безопасности **Администратор инфраструктуры**на основе ролей. Эта роль безопасности обеспечивает права на управление всеми операциями миграции, включая создание заданий миграции, очистку, мониторинг и действия по предоставлению общего доступа и обновлению точек распространения.  
 
--   **Recolha de Dados:**  
+-   **Сбор данных.**  
 
-     Para ativar o site de destino para a recolha de dados, é necessário configurar as duas contas de acesso ao site de origem indicadas a seguir para utilização com cada site de origem:  
+     Чтобы позволить конечному сайту собирать данные, необходимо настроить следующие две учетные записи для доступа к исходному сайту для применения к каждому исходному сайту.  
 
-    -   **Conta de Site de origem:** Esta conta é utilizada para aceder ao fornecedor de SMS do site de origem.  
+    -   **Учетная запись исходного сайта:** эта учетная запись используется для доступа к поставщику SMS исходного сайта.  
 
-        -   Para um site de origem de configuração Manager2007 SP2, esta conta requer **leitura** permissão para todos os objetos de site de origem.  
+        -   Для исходного сайта Configuration Manager 2007 с пакетом обновления 2 (SP2) этой учетной записи требуется разрешение на **чтение** для всех объектов исходного сайта.  
 
-        -   Para um site de origem do System Center 2012 Configuration Manager ou System Center Configuration Manager, esta conta requer **leitura** permissão para todos os objetos do site de origem, pode conceder esta permissão à conta utilizando a administração baseada em funções. Para obter mais informações sobre como utilizar a administração baseada em funções, veja [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+        -   Для исходного сайта под управлением System Center 2012 Configuration Manager или System Center Configuration Manager этой учетной записи необходимо разрешение на **чтение** для всех объектов исходного сайта. Его вы можете предоставить с помощью ролевого администрирования. Сведения об использовании ролевого администрирования см. в статье [Fundamentals of role-based administration for System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
-    -   **Conta de base de dados do Site de origem:** Esta conta é utilizada para aceder à base de dados do SQL Server do site de origem e necessita **Connect**, **executar**, e **selecione** permissões para a base de dados do site de origem.  
+    -   **Учетная запись базы данных исходного сайта:** эта учетная запись используется для получения доступа к базе данных SQL Server исходного сайта и требует наличия разрешений **Connect**, **Execute**и **Select** для базы данных исходного сайта.  
 
-    Pode configurar estas contas durante a configuração de uma nova hierarquia de origem, a recolha de dados de um site de origem adicional ou a reconfiguração das credenciais de um site de origem. Estas contas podem utilizar uma conta de utilizador de domínio ou o utilizador pode especificar a conta de computador do site de nível superior da hierarquia de destino.  
+    Вы можете настроить эти учетные записи при настройке новой исходной иерархии, сбора данных для дополнительного исходного сайта или при изменении учетных данных для исходного сайта. Эти учетные записи могут использовать учетную запись пользователя домена, либо можно указать учетную запись компьютера сайта верхнего уровня конечной иерархии.  
 
     > [!IMPORTANT]  
-    >  Se utilizar a conta de computador do Configuration Manager para as contas de acesso, certifique-se de que esta conta é um membro do grupo de segurança **utilizadores COM distribuídos** no domínio onde reside o site de origem.  
+    >  При использовании учетной записи компьютера Configuration Manager для доступа к какой-либо учетной записи необходимо убедиться в том, что она входит в группу безопасности **Пользователи DCOM** в домене, где размещается исходный сайт.  
 
-    Durante a recolha de dados, são utilizados os protocolos de rede e as portas seguintes:  
+    При сборе данных используются следующие сетевые протоколы и порты:  
 
-    -   NetBIOS/SMB - 445 (TCP)  
+    -   NetBIOS/SMB — 445 (TCP)  
 
-    -   RPC (WMI) - 135 (TCP)  
+    -   RPC (WMI) — 135 (TCP),  
 
-    -   SQL Server - As portas TCP utilizadas pelas bases de dados dos sites de origem e de destino.  
+    -   SQL Server — порты TCP, используемые базами данных как исходного, так и конечного сайтов.  
 
--   **Migrar Atualizações de Software:**  
+-   **Миграция обновлений программного обеспечения.**  
 
-     Para poder migrar as atualizações de software, é necessário configurar a hierarquia de destino com um ponto de atualização de software. Para obter mais informações, veja [Planear a migração de atualizações de software](../../core/migration/planning-for-the-migration-of-objects.md#Plan_migrate_Software_updates).  
+     Прежде чем приступать к миграции обновлений программного обеспечения, необходимо настроить в конечной иерархии точку обновления ПО. Дополнительные сведения см. в разделе [Планирование миграции обновлений программного обеспечения](../../core/migration/planning-for-the-migration-of-objects.md#Plan_migrate_Software_updates).  
 
--   **Partilhar pontos de distribuição:**  
+-   **Предоставление общего доступа к точкам распространения.**  
 
-     Para partilhar pontos de distribuição com sucesso a partir de um site de origem, pelo menos um site primário ou o site de administração central da hierarquia de destino deve utilizar os mesmos números da porta que os do site de origem para os pedidos do cliente. Para obter informações sobre as portas de pedidos de cliente, veja [How to configure client communication ports in System Center Configuration Manager (Como configurar portas de comunicação de cliente no System Center Configuration Manager)](../../core/clients/deploy/configure-client-communication-ports.md).  
+     Чтобы успешно предоставлять общий доступ к точкам распространения с исходного сайта, по меньшей мере один первичный сайт или сайт центра администрирования в конечной иерархии должны использовать одинаковые номера портов для клиентских запросов в качестве исходного сайта. Дополнительные сведения о портах запросов клиентов см. в разделе [Настройка портов связи для клиентов в System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md).  
 
-     Em cada site de origem, são partilhados apenas os pontos de distribuição que estão instalados em servidores do sistema de sites configurados com um FQDN.  
+     Для каждого исходного сайта общий доступ предоставляется только к точкам распространения, установленных на системных серверах сайта, которые настроены с использованием полного доменного имени.  
 
-     Além disso, para partilhar um ponto de distribuição de um site de origem do System Center 2012 Configuration Manager ou System Center Configuration Manager, o **conta de Site de origem** (que acede ao fornecedor de SMS para o servidor de site de origem), tem de ter **modificar** permissões para o **Site** objeto no site de origem. Esta permissão é concedida à conta utilizando a administração baseada em funções. Para obter mais informações sobre como utilizar a administração baseada em funções, veja [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+     Кроме того, для совместного использования точки распространения с исходного сайта System Center 2012 Configuration Manager или System Center Configuration Manager у **учетной записи исходного сайта** (которая обращается к поставщику SMS для получения сервера исходного сайта) должно быть разрешение на **изменение** для объекта **Сайт** на исходном сайте. Его можно предоставить с помощью ролевого администрирования. Сведения об использовании ролевого администрирования см. в статье [Fundamentals of role-based administration for System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
 
--   **Atualizar ou reatribuir pontos de distribuição:**  
+-   **Обновление или повторное назначение точек распространения.**  
 
-     A **Conta de Acesso ao Site de Origem** configurada para recolher dados a partir de um Fornecedor de SMS do site de origem tem de ter as seguintes permissões:  
+     У **учетной записи для доступа к исходному сайту** , настроенной для сбора данных от поставщика SMS исходного сайта, должны быть следующие разрешения.  
 
-    -   Para atualizar um ponto de distribuição Manager2007 de configuração, a conta necessita **leitura**, **executar**, e **eliminar** permissões para o **Site** classe no servidor do site Manager2007 de configuração para remover com sucesso o ponto de distribuição do site de origem de configuração Manager2007  
+    -   Для обновления точки распространения Configuration Manager 2007 учетной записи требуются разрешения **Чтение**, **Выполнение** и **Удаление** для класса **Сайт** на сервере сайта Configuration Manager 2007, чтобы успешно удалить точку распространения с исходного сайта Configuration Manager 2007.  
 
-    -   Para reatribuir um ponto de distribuição do System Center 2012 Configuration Manager ou System Center Configuration Manager, a conta tem de ter **modificar** permissão para o **Site** objeto no site de origem. Esta permissão é concedida à conta utilizando a administração baseada em funções. Para obter mais informações sobre como utilizar a administração baseada em funções, veja [Noções básicas da administração baseada em funções para o System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+    -   Чтобы переназначить точку распространения System Center 2012 Configuration Manager или System Center Configuration Manager, учетной записи требуется разрешение на **изменение** для объекта **Сайт** на исходном сайте. Его можно предоставить с помощью ролевого администрирования. Сведения об использовании ролевого администрирования см. в статье [Fundamentals of role-based administration for System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
-     Para atualizar ou reatribuir com sucesso um ponto de distribuição a uma nova hierarquia, as portas configuradas para pedidos de cliente no site que efetua a gestão do ponto de distribuição na hierarquia de origem devem ser iguais às portas configuradas para pedidos de cliente no site de destino que efetuará a gestão do ponto de distribuição. Para obter informações sobre as portas de pedidos de cliente, veja [How to configure client communication ports in System Center Configuration Manager (Como configurar portas de comunicação de cliente no System Center Configuration Manager)](../../core/clients/deploy/configure-client-communication-ports.md).  
+     Для успешного обновления или переназначения точки распространения на новую иерархию порты, настроенные для клиентских запросов на сайте, который управляет точкой распространения в исходной иерархии, должны соответствовать портам, настроенным для клиентских запросов на конечном сайте, который будет управлять точкой распространения. Дополнительные сведения о портах запросов клиентов см. в разделе [Настройка портов связи для клиентов в System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md).  

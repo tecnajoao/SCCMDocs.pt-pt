@@ -1,6 +1,6 @@
 ---
-title: Produto e FAQ de licenciamento | Microsoft Docs
-description: "Localize respostas para o produto e a licença perguntas comuns para o System Center Configuration Manager."
+title: "Вопросы и ответы по продуктам и лицензированию | Документы Майкрософт"
+description: "Ответы на распространенные вопросы по продуктам и лицензиям System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/28/2017
 ms.prod: configuration-manager
@@ -16,63 +16,63 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: c1a276ad1ed6d10d286ab389ab3f05ec780c4e58
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="frequently-asked-questions-for-system-center-configuration-manager-branches-and-licensing"></a>Perguntas mais frequentes para System Center Configuration Manager ramos e licenciamento
+# <a name="frequently-asked-questions-for-system-center-configuration-manager-branches-and-licensing"></a>Вопросы и ответы о ветвях и лицензировании System Center Configuration Manager
 
- *Aplica-se a: O System Center Configuration Manager (ramo de manutenção longo prazo)*
+ *Применимо к: System Center Configuration Manager (Long-Term Servicing Branch)*
 
-## <a name="summary"></a>Resumo
-Estas FAQ endereços perguntas comuns de licenciamento sobre versões System Center Configuration Manager Current Branch (CB) e de longo prazo Servicing Branch (LTSB), disponíveis através de programas de licenciamento em Volume da Microsoft. Isto é fornecido para fins informativos e não substituem ou substituir qualquer documentação que abrangem licenciamento do System Center Configuration Manager. Para obter detalhes completos e informações sobre o licenciamento, consulte página do System Center 2016 do licenciamento em Volume [aqui](https://www.microsoft.com/licensing/product-licensing/system-center-2016.aspx) e [produto termos](http://www.microsoft.com/licensing/about-licensing/product-licensing.aspx). Os termos de produto descrevem os termos de utilização para todos os produtos da Microsoft no licenciamento em Volume.
+## <a name="summary"></a>Сводка
+В этом разделе рассматриваются распространенные вопросы по лицензированию System Center Configuration Manager версий Current Branch (CB) и Long-Term Servicing Branch (LTSB), доступных по программам корпоративного лицензирования Майкрософт. Эти сведения приводятся в информационных целях и не заменяют документацию по лицензированию System Center Configuration Manager. Исчерпывающие сведения о лицензировании см. на странице, посвященной [корпоративному лицензированию System Center 2016](https://www.microsoft.com/licensing/product-licensing/system-center-2016.aspx), и в [условиях для продуктов](http://www.microsoft.com/licensing/about-licensing/product-licensing.aspx). В условиях для продуктов описываются условия использования всех продуктов Майкрософт, предоставляемых по программе корпоративного лицензирования.
 
-Para obter mais informações sobre as funcionalidades do System Center Configuration Manager, consulte o Microsoft [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) página de produto
-
-
+Дополнительные сведения о компонентах System Center Configuration Manager см. на странице продукта Microsoft [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
 
 
-## <a name="system-center-configuration-manager-licensing-faq"></a>FAQ de licenciamento do System Center Configuration Manager
 
-1.  **O que é Current Branch (CB)?**   
-O ramo atual é a compilação pronto de produção do System Center Configuration Manager que fornece um modelo de manutenção ativos. Este modelo de manutenção é semelhante a experiência com o Windows 10 ou a opção de instalação do Windows Server 2016 nano for apresentado. Esta abordagem suporta clientes que estão a mover a uma cadência"nuvem" e pretendem a inovar mais rapidamente. Com o ramo atual, modelo de manutenção, os clientes do System Center Configuration Manager continuam a receber novas funcionalidades e funções. Por este motivo, apenas os clientes com o Active Directory Software Assurance no System Center Configuration Manager licenças ou com direitos de subscrição equivalentes podem instalar e utilizar a atual filial do System Center Configuration Manager.
 
-2.  **O que é Long Term Servicing Branch (LTSB)?**  
-O ramo de manutenção de longo prazo é uma compilação pronto de produção do System Center Configuration Manager que foi concebida para os clientes que permitem Software Assurance ou direitos de subscrição equivalente a expirar. Quando comparado com o ramo atual, o LTSB tem [reduzido funcionalidade](/sccm/core/understand/introduction-to-the-ltsb#features-that-are-not-available-in-the-ltsb-of-configuration-manager). Os clientes que permitem Software Assurance ou direitos de subscrição equivalente a expirar tem de desinstalar a atual filial do System Center Configuration Manager. Os clientes que têm direitos perpétuos descritos licença para o System Center Configuration Manager, em seguida, podem instalar e utilizar a compilação LTSB da versão do System Center Configuration Manager actual no momento de expiração.
+## <a name="system-center-configuration-manager-licensing-faq"></a>Часто задаваемые вопросы о лицензировании System Center Configuration Manager
 
-3.  **Posso viu SA e L & SA utilizado no conteúdo de licenciamento. O que estes significa in regard to do System Center Configuration Manager?**    
-SA (Software Assurance) e L & SA (licenças e Software Assurance) são opções de licença que conceda direitos a utilizar o System Center Configuration Manager. SA é uma opção para um cliente que está a renovação de cobertura de SA de um contrato de anterior. L & SA é uma opção para um cliente comprar uma licença nova e uma abordagem SA.
-  - Software Assurance (SA): Os clientes têm de ter SA Active Directory no System Center Configuration Manager licenças ou direitos de subscrição equivalentes, para instalar e utilizar a opção de ramo atual do System Center Configuration Manager.    
+1.  **Что такое Current Branch (CB)?**   
+Current Branch — это готовая к использованию в рабочей среде сборка System Center Configuration Manager, которая обеспечивает активную модель обслуживания. Модель обслуживания аналогична способам установки Windows 10 или Windows Server 2016 Nano Server. Такой подход предназначен для клиентов, которые осуществляют переход в облако для повышения темпа инноваций. Благодаря модели обслуживания Current Branch клиенты System Center Configuration Manager непрерывно получают новые функции и возможности. По этой причине только клиенты с действующим соглашением Software Assurance для лицензий System Center Configuration Manager или с эквивалентными правами по подписке могут установить и использовать System Center Configuration Manager (Current Branch).
 
-        -   Embora SA seja opcional para alguns produtos Microsoft, a única forma de obter os direitos para utilizar o System Center Configuration Manager Current Branch é com SA *(ou direitos de subscrição equivalentes)*.  Para obter mais informações consulte https://www.microsoft.com/en-us/licensing/licensing-programs/FAQ-Software-Assurance.aspx.
+2.  **Что такое Long-Term Servicing Branch (LTSB)?**  
+Long-Term Servicing Branch — это готовая к использованию в рабочей среде сборка System Center Configuration Manager, которая предназначена для клиентов, у которых истек срок действия соглашения Software Assurance или аналогичных прав по подписке. По сравнению с Current Branch ветвь LTSB имеет [ограниченные возможности](/sccm/core/understand/introduction-to-the-ltsb#features-that-are-not-available-in-the-ltsb-of-configuration-manager). Клиенты, у которых истек срок действия соглашения Software Assurance или аналогичных прав по подписке, должны удалить System Center Configuration Manager (Current Branch). Клиенты, имеющие бессрочные права по лицензии на System Center Configuration Manager, могут установить и использовать сборку LTSB версии System Center Configuration Manager, которая является текущей на момент истечения срока действия соглашения.
 
-      - Licenciamento da Microsoft e Software Assurance (L & SA). Os clientes comprar licenças novas para o System Center Configuration Manager tem de adquirir L & SA (da cobertura de licenças e SA).   
+3.  **Мне встречались упоминания Software Assurance (SA) и Лицензии и Software Assurance (L&SA) в материалах по лицензированию. Что значат эти термины в отношении System Center Configuration Manager?**    
+SA и L&SA — это варианты лицензий, которые дают права на использование System Center Configuration Manager. SA — это вариант для клиентов, которые продлевают срок действия предыдущего соглашения SA. L&SA — это вариант для клиентов, которые приобретают новую лицензию и покрытие SA.
+  - Software Assurance (SA) — клиенты должны иметь действующее соглашение SA для лицензий System Center Configuration Manager или эквивалентные права по подписке, чтобы устанавливать и использовать System Center Configuration Manager (Current Branch).    
 
-         - A SA concede direitos para utilizar o ramo atual.
+        -   Хотя соглашение SA является необязательным для некоторых продуктов Майкрософт, единственный способ получить права на использование System Center Configuration Manager (Current Branch) — посредством SA *(или эквивалентных прав по подписке)*.  Дополнительные сведения см. на странице https://www.microsoft.com/ru-ru/licensing/licensing-programs/FAQ-Software-Assurance.aspx.
 
-       - Se expira o SA e tem uma licença do System Center Configuration Manager, no entanto, pode já não utiliza o ramo atual. Número 6 neste FAQ, consulte: ***Se a minha SA expira e posso tinha L & SA, o que devo proceder?***
+      - Лицензия Майкрософт и Software Assurance (L&SA). Клиенты, приобретающие новые лицензии для System Center Configuration Manager, должны купить L&SA (Лицензия и Software Assurance).   
 
-       Saiba mais sobre as ofertas de licença em https://www.microsoft.com/licensing/licensing-programs e http://www.microsoftvolumelicensing.com/ProductResults.aspx?doc=Product%20Terms, OST & fid = 64.
+         - Соглашение SA дает права на использование сборки Current Branch.
 
-4.  **Posso ler o termo "equivalente subscrição", que programas que consulte?**   
-       Subscrições equivalentes consulte programas como [Enterprise Mobility + Security](http://www.microsoftvolumelicensing.com/ProductResults.aspx?doc=Product%20Terms,OST&fid=51) (EMS) ou [Secure produtivos Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx) (es). Podem existir outras pessoas, mas estes são mais comuns. Estes são denominados os termos de produto de licenciamento do Microsoft Volume como equivalentes de licença da gestão de licenças.
+       - Если срок действия соглашения SA истекает, но у вас все еще есть лицензия System Center Configuration Manager, вы больше не можете использовать Current Branch. См. пункт 6 в этом разделе: ***Если срок действия соглашения SA истек, но у меня есть L&SA, что я получаю?***
 
-5.  **Tenho Enterprise Mobility + e segurança expirado, o que tem devo fazer agora?**  
-       O EMS concede direitos para utilizar o System Center Configuration Manager (ramo atual e ramo do serviço de longo prazo). Quando estes direitos expirarem já não possui os direitos a utilizar o ramo e tem de desinstalar.  
+       Дополнительные сведения о предложениях по лицензированию см. на страницах https://www.microsoft.com/licensing/licensing-programs и http://www.microsoftvolumelicensing.com/ProductResults.aspx?doc=Product%20Terms,OST&fid=64.
 
-6.  **Se a minha SA expira e posso tinha L & SA, o que devo proceder?**   
-   Se a sua SA expirado após 1 de Outubro de 2016, consoante o programa obteve L & SA sob, pode manter uma licença perpétuos descrita para utilizar a longo prazo Servicing Branch (LTSB). Se utilizar atualmente o ramo atual, tem de desinstalá-lo e, em seguida, instalar o LTSB. Não são suportadas para migrar para ou converta o LTSB da filial atual.
+4.  **Мне встретился термин "эквивалентная подписка". К какой программе он относится?**   
+       Под эквивалентными подписками понимаются такие программы как [Enterprise Mobility + Security](http://www.microsoftvolumelicensing.com/ProductResults.aspx?doc=Product%20Terms,OST&fid=51) (EMS) или [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx) (SPE). Могут быть и другие программы, но это наиболее обычные. Они называются в условиях для продуктов в рамках программы корпоративного лицензирования Майкрософт лицензиями, эквивалентными лицензии на управление.
 
-  Se o SA expirou antes de 1 de Outubro de 2016, e mantidos uma licença perpétuos descrita para o System Center Configuration Manager, em seguida, a única opção para utilização em curso é instalar e utilizar o System Center 2012 R2 Configuration Manager e os seus pacotes de serviços disponíveis. Era necessário desinstalar o ramo atual quando o SA expirou e reinstale essa versão anterior do produto. Não são suportadas para migração para ou mudar do ramo atual do System Center Configuration Manager para versões anteriores do Configuration Manager.
+5.  **У меня есть план Enterprise Mobility + Security, но срок его действия истек. Что теперь делать?**  
+       EMS дает права на использование System Center Configuration Manager (Current Branch и Long-Term Service Branch). Когда срок действия этих прав истекает, вы больше не можете использовать ни одну из ветвей и должны удалить их.  
 
-7. **Posso "proprietário" Current Branch?**   
-  Não. Está licenciado para utilizar o ramo atual enquanto tiver SA Active Directory. Por exemplo, através de *L & SA*, quando *SA* expirar, em seguida, tiver apenas *L (licenciamento)* direitos, que inclui os direitos de utilização do Current Branch. Se o seu L fornece direitos perpétuos descritos, pode utilizar a longo prazo manutenção ramo do System Center Configuration Manager (ou o System Center 2012 R2 Configuration Manager se o seu SA expirou antes de 1 de Outubro de 2016) em vez do ramo atual.
+6.  **Если срок действия соглашения SA истек, но у меня есть L&SA, что я получаю?**   
+   Если срок действия вашего соглашения SA истек после 1 октября 2016 года, то в зависимости от программы, по которой вы приобрели L&SA, у вас могла сохраниться бессрочная лицензия на использование Long-Term Servicing Branch (LTSB). Если в настоящее время вы используете сборку Current Branch, необходимо удалить ее, а затем установить LTSB. Перенос или преобразование Current Branch в LTSB невозможен.
 
-8. **Pode comprar System Center Configuration Manager autónomo sem SA?**      
-  Não.  É a única forma de obter os direitos para utilizar o System Center Configuration Manager para adquirir uma licença com SA. Existem programas de programador (por exemplo, o MSDN) onde o System Center Configuration Manager é fornecido para fins de desenvolvimento e teste, mas não a utilização de produção.
+  Если срок действия вашего соглашения SA истек до 1 октября 2016 года и у вас сохранилась бессрочная лицензия System Center Configuration Manager, то единственный способ продолжить использование — установить System Center 2012 R2 Configuration Manager и доступные пакеты обслуживания. Вам требовалось удалить Current Branch после истечения срока действия SA и переустановить более раннюю версию продукта. Возможности перейти с System Center Configuration Manager (Current Branch) на предыдущие версии Configuration Manager нет.
 
-9. **Posso ver atualizações para o System Center Configuration Manager fornecida a partir de dentro da consola, como a versão 1610. Alguns têm direitos para instalá-lo?**   
-  Se tiver o Active Directory *SA*, fazê-lo. Se não tiver SA Active Directory, tem de desinstalar o ramo atual e, em seguida, pode instalar o LTSB do System Center Configuration Manager. O LTSB não recebem atualizações para versões incrementais do System Center Configuration Manager, mas a receber atualizações de segurança com base no ciclo de vida de suporte.
+7. **Принадлежит ли мне Current Branch?**   
+  Нет. Вы имеете лицензию на использование Current Branch, пока у вас есть активное соглашение SA. Например, если у вас есть *L&SA*, то когда срок действия *SA* истекает, у вас остаются только права по *лицензии* (L), которые не включают в себя права на использование Current Branch. Если ваша лицензия дает бессрочные права, вы можете использовать сборку Long-Term Servicing Branch продукта System Center Configuration Manager (или System Center 2012 R2 Configuration Manager, если срок действия вашего соглашения SA истек до 1 октября 2016 года) вместо Current Branch.
 
-10. **A minha subscrição-data de fim é o mesmo que uma data de expiração de SA?**    
-  Se *SA* ou a sua subscrição está ativa, que tem direitos de utilização para o ramo atual do System Center Configuration Manager. Uma subscrição ativa é equivalente de ter o Active Directory *SA*, mas não perpétuos descritos *"L" (licenciamento)*. Assim que a sua subscrição está acima, terá de desinstalar o ramo atual e não tem direitos para utilizar o LTSB.
+8. **Можно ли приобрести System Center Configuration Manager отдельно, то есть без соглашения SA?**      
+  Нет.  Единственный способ получить права на использование System Center Configuration Manager — приобрести Лицензию с соглашением SA. Существуют программы для разработчиков (например, MSDN), в рамках которых System Center Configuration Manager предлагается в целях разработки и тестирования, но не для использования в рабочей среде.
+
+9. **В консоли мне предлагаются обновления для System Center Configuration Manager, например версия 1610. Есть ли у меня права на их установку?**   
+  Если у вас есть действующее соглашение *SA*, то да. В противном случае вам необходимо удалить сборку Current Branch, после чего вы можете установить сборку LTSB System Center Configuration Manager. Сборка LTSB не позволяет получать обновления для последующих версий System Center Configuration Manager, но позволяет получать обновления для системы безопасности в соответствии с жизненным циклом поддержки.
+
+10. **Совпадает ли дата окончания моей подписки с датой истечения срока действия SA?**    
+  Если ваше соглашение *SA* или подписка действуют, у вас есть права на использование System Center Configuration Manager (Current Branch). Действующая подписка эквивалентна наличию действующего соглашения *SA*, но не равносильна наличию бессрочной *лицензии (L)*. Когда срок действия подписки истекает, вам необходимо удалить Current Branch и у вас не будет прав на использование LTSB.

@@ -1,6 +1,6 @@
 ---
-title: Atestado de estado de funcionamento | Microsoft Docs
-description: Saiba mais sobre a funcionalidade de atestado de estado de funcionamento do dispositivo podem ser visualizada na consola do Configuration Manager.
+title: "Аттестация работоспособности | Документы Майкрософт"
+description: "Сведения о возможностях аттестации работоспособности устройств, доступных в консоли Configuration Manager."
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -16,67 +16,67 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 54b3433a002b8ef29059bab04458138348f95d66
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="health-attestation-for-system-center-configuration-manager"></a>Atestado de estado de funcionamento do System Center Configuration Manager
+# <a name="health-attestation-for-system-center-configuration-manager"></a>Аттестация работоспособности в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Os administradores podem ver o estado do [Atestado de Estado de Funcionamento do Dispositivo Windows 10](https://technet.microsoft.com/library/mt592023.aspx) na consola do Configuration Manager.  O atestado de estado de funcionamento permite ao administrador garantir que os computadores cliente têm as seguintes configurações fidedignas de BIOS, TPM e software de arranque ativadas:  
+Администраторы могут просматривать состояние [аттестации работоспособности устройств Windows 10 ](https://technet.microsoft.com/library/mt592023.aspx) в консоли Configuration Manager.  Аттестация работоспособности устройств позволяет администратору гарантировать, что на клиентских компьютерах включены следующие надежные конфигурации BIOS, модуля TPM и загрузочного программного обеспечения.  
 
--   Antimalware de início antecipado - O antimalware de início antecipado (ELAM) protege o computador durante o arranque e antes da inicialização de controladores de terceiros. [Como ativar ELAM](https://gallery.technet.microsoft.com/How-to-turn-on-Early-84552ec5)  
--   BitLocker - A Encriptação de Unidade BitLocker do Windows é um software que encripta todos os dados armazenados no volume do sistema operativo do Windows.  [Como ativar o BitLocker](https://gallery.technet.microsoft.com/How-to-turn-on-BitLocker-34294d3d)  
--   Arranque seguro - O arranque seguro é uma norma de segurança desenvolvida por membros do setor de PC para o ajudar a certificar-se de que o computador arranca utilizando apenas o software que seja considerada fidedigno pelo fabricante do PC. [Saiba mais sobre o Arranque Seguro](https://technet.microsoft.com/library/hh824987.aspx)  
--   Integridade do código - A integridade do código é uma funcionalidade que melhora a segurança do sistema operativo ao validar a integridade de um controlador ou ficheiro de sistema sempre que é carregado na memória. [Saiba mais sobre Integridade do Código](https://technet.microsoft.com/library/dd348642.aspx)  
+-   Ранний запуск антивредоносной программы — ранний запуск антивредоносной программы (ELAM) обеспечивает защиту компьютера при запуске и до инициализации сторонних драйверов. [Как включить ELAM](https://gallery.technet.microsoft.com/How-to-turn-on-Early-84552ec5)  
+-   BitLocker — шифрование диска Windows BitLocker является программным обеспечением, позволяющим шифровать все данные, хранящиеся на томе операционной системы Windows.  [Как включить BitLocker](https://gallery.technet.microsoft.com/How-to-turn-on-BitLocker-34294d3d)  
+-   Безопасная загрузка — безопасная загрузка является стандартом безопасности, разработанным участниками компьютерной индустрии для того, чтобы гарантировать загрузку компьютера с использованием только программного обеспечения, которому доверяет производитель компьютера. [Дополнительные сведения о безопасной загрузке](https://technet.microsoft.com/library/hh824987.aspx)  
+-   Целостность кода — целостность кода является функцией, которая проверяет целостность файла драйвера или системного файла каждый раз, когда такой файл загружается в память. [Дополнительные сведения о целостности кода](https://technet.microsoft.com/library/dd348642.aspx)  
 
-Esta funcionalidade está disponível para PCs e recursos no local geridos pelo Configuration Manager e para dispositivos móveis geridos com o Microsoft Intune. Os administradores podem especificar se a comunicação é efetuada através da nuvem ou de infraestruturas no local. No local o device health attestation monitorização administrador permite monitorizar cliente PCs sem acesso à internet.
+Эта функция доступна для ПК и локальных ресурсов, управляемых с помощью Configuration Manager, и мобильных устройств, управляемых с помощью Microsoft Intune. Администраторы могут выбрать метод передачи отчетов — через облачную или локальную инфраструктуру. Локальный мониторинг для аттестации работоспособности устройств позволяет администратору отслеживать состояние клиентских компьютеров без доступа к Интернету.
 
-## <a name="enable-health-attestation"></a>Ativar o atestado de estado de funcionamento
+## <a name="enable-health-attestation"></a>Включение аттестации работоспособности устройств
 
- **Requisitos:**  
+ **Требования:**  
 
--   Dispositivos de cliente com o Windows 10 versão 1607 ou Windows Server 2016 versão 1607 com [atestado de estado de funcionamento do dispositivo ativada](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation)
--    TPM 1.2 ou dispositivos de TPM 2 ativado
--   Comunicação entre o agente de cliente do Configuration Manager e has.spserv.microsoft.com (porta 443) serviço de atestado de estado de funcionamento (gestão de nuvem) ou com o ponto de gestão ativado para atestado de estado de funcionamento de dispositivo (no local)
+-   Клиентские устройства под управлением Windows 10 версии 1607 или Windows Server 2016 версии 1607, на которых [включена аттестация работоспособности устройства](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation).
+-    Устройства с поддержкой TPM 1.2 или TPM 2.
+-   Наличие связи между агентом клиента Configuration Manager и сайтом has.spserv.microsoft.com (порт 443) службы аттестации работоспособности (для облачного управления) или точкой управления с поддержкой аттестации работоспособности устройств (локально).
 
-### <a name="how-to-enable-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Como ativar a comunicação do serviço de Atestado do Estado de Funcionamento em computadores cliente do Configuration Manager
+### <a name="how-to-enable-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Как включить связь со службой подтверждения работоспособности на клиентских компьютерах Configuration Manager
 
-Utilize este procedimento para ativar a monitorização de atestado de estado de funcionamento do dispositivo para dispositivos que ligam à internet.
+Эта процедура позволяет включить мониторинг для аттестации работоспособности устройств, подключенных к Интернету.
 
-1.  Na consola do Configuration Manager, escolha **Administração** > **Descrição geral** > **Definições de Cliente**.  Selecione o separador das definições **Agente do Computador** .  
-2.  Na caixa de diálogo **Predefinições** , selecione **Agente do Computador** e, em seguida, desloque para baixo para **Ativar comunicação com o Health Attestation Service**  
-3.  Defina **Ativar comunicação com o Serviço de Atestado de Estado de Funcionamento** para **Sim**e, em seguida, clique em **OK**.  
-4. As coleções de dispositivos que devem reportar o estado de funcionamento do dispositivo de destino.
+1.  В консоли Configuration Manager выберите **Администрирование** > **Обзор** > **Параметры клиента**.  Перейдите на вкладку параметров **агента компьютера** .  
+2.  В диалоговом окне **Параметры по умолчанию** выберите **Агент компьютера** и прокрутите вниз до пункта **Разрешить связь со службой подтверждения работоспособности**.  
+3.  Для параметра **Разрешить связь со службой подтверждения работоспособности** задайте значение **Да**, а затем нажмите кнопку **ОК**.  
+4. Выберите коллекции устройств, которые должны сообщать о работоспособности устройств.
 
-### <a name="how-to-enable-on-premises-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Como ativar a comunicação do serviço de Atestado do Estado de Funcionamento no local em computadores cliente do Configuration Manager
-Utilize este procedimento para ativar a monitorização de atestado de estado de funcionamento do dispositivo para dispositivos no local que não ligam à internet.
+### <a name="how-to-enable-on-premises-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Как включить связь с локальной службой подтверждения работоспособности на клиентских компьютерах Configuration Manager
+Эта процедура позволяет включить мониторинг для аттестации работоспособности устройств, размещенных в локальной среде без подключения к Интернету.
 
-A partir do Configuration Manager 1702, o URL de serviço do atestado de estado de funcionamento do dispositivo no local pode ser configurado no ponto de gestão para suportar dispositivos de cliente sem acesso à internet.
+Начиная с версии Configuration Manager 1702 вы можете настроить на точке управления URL-адрес локальной службы аттестации работоспособности устройств, чтобы работать с клиентскими устройствами без доступа к Интернету.
 
-1. Na consola do Configuration Manager, navegue **administração** > **descrição geral** > **configuração do Site** > **Sites**.
-2. Clique com o botão direito do site primário ou secundário com o ponto de gestão que suportam clientes de atestado de estado de funcionamento de dispositivos no local e selecione **configurar componentes do site** > **ponto de gestão**. O **propriedades do componente de ponto de gestão** é aberta a página.
-3. No **opções avançadas** separador, selecione **adicionar** e especifique um URL de serviço de atestado de estado de funcionamento de dispositivos de válido no local. Pode adicionar vários URLs. Se forem especificados várias URLs de no local, os clientes recebem o conjunto completo e aleatoriamente escolher quais pode ser utilizado.
-4.  Na consola do Configuration Manager, escolha **Administração** > **Descrição geral** > **Definições de Cliente**.  Selecione o separador das definições **Agente do Computador** .  
-5.  No **predefinições** caixa de diálogo, selecione **agente do computador** e, em seguida, desloque para baixo até **utilizar no local serviço de integridade de Attestaion**e definido para **Sim**.
-6. As coleções de dispositivos que devem reportar o estado de funcionamento do dispositivo com as definições de agente de cliente para permitir relatórios de atestado de estado de funcionamento do dispositivo de destino.
+1. В консоли Configuration Manager перейдите в раздел **Администрирование** > **Обзор** > **Конфигурация сайта** > **Сайты**.
+2. Щелкните правой кнопкой мыши первичный или вторичный сайт с точкой управления, поддерживающей локальные клиенты аттестации работоспособности устройств, а затем выберите **Настройка компонентов сайта** > **Точка управления**. Откроется страница **Свойства компонента точки управления**.
+3. На вкладке **Дополнительные параметры** выберите действие **Добавить** и укажите допустимый локальный URL-адрес службы аттестации работоспособности устройств. Здесь можно добавить несколько URL-адресов. Если вы укажете несколько локальных URL-адресов, клиенты получать весь набор адресов и будут случайным образом выбирать один из них.
+4.  В консоли Configuration Manager выберите **Администрирование** > **Обзор** > **Параметры клиента**.  Перейдите на вкладку параметров **агента компьютера** .  
+5.  В диалоговом окне **Параметры по умолчанию** выберите **Агент компьютера** и прокрутите вниз до пункта **Использовать локальную службу аттестации работоспособности**, а затем выберите для него значение **Да**.
+6. Выберите коллекции устройств, которые должны сообщать о работоспособности устройств, для которых установлены параметры агента клиента, разрешающие отчеты для аттестации работоспособности устройств.
 
-Também pode **editar** ou **remover** URLs do serviço de atestado de estado de funcionamento de dispositivo.
+Вы также можете **Изменить** или **Удалить** URL-адреса службы аттестации работоспособности устройств.
 
 > [!NOTE]
-> Se utilizou o atestado de estado de funcionamento do dispositivo antes de atualizar para o Configuration Manager 1702, os URLs no local, especificado nas definições de agente do cliente é pré-preencher nas propriedades do ponto de gestão durante a atualização. Clientes no local irão continuar a utilizar o URL especificado nas definições do agente de cliente, até que sejam atualizados. Em seguida, passará para um dos URLs especificados no ponto de gestão.
+> Если вы уже использовали аттестацию работоспособности устройств до обновления к версии Configuration Manager 1702, указанные в параметрах агента клиента локальные URL-адреса будут при обновлении автоматически перенесены в свойства точки управления. Локальные клиенты будут по-прежнему использовать URL-адрес, указанный в параметрах агента клиента, пока они не будут обновлены. После этого они перейдут на те URL-адреса, которые указаны для точки управления.
 
-## <a name="monitor-device-health-attestation"></a>Atestado de estado de funcionamento do monitor
+## <a name="monitor-device-health-attestation"></a>Мониторинг для аттестации работоспособности устройств
 
-1.  Para visualizar a vista do atestado de estado de funcionamento, na consola do Configuration Manager, vá para a área de trabalho de **Monitorização** , clique no nó **Segurança** e, em seguida, clique em **Atestado de Estado de Funcionamento**.  
-2.  O Atestado de Estado de Funcionamento é apresentado.  
+1.  Чтобы просмотреть представление аттестации работоспособности устройства, в консоли Configuration Manager перейдите в рабочую область **Мониторинг** , щелкните узел **Безопасность** , а затем щелкните **Аттестация работоспособности**.  
+2.  Отобразятся результаты аттестации работоспособности устройства.  
 
-O Atestado de Estado de Funcionamento do Dispositivo apresenta o seguinte:  
+Служба аттестации работоспособности устройств Configuration Manager выводит данные следующих мониторов.  
 
--   **Atestado do Estado de Funcionamento** - Mostra a partilha de dispositivos com os estados de conformidade, não conformidade, erro e desconhecidos  
--   **Atestado de Estado de Funcionamento de Relatórios de Dispositivos** - Mostra a percentagem de dispositivos que comunicam o estado de Atestado de Estado de Funcionamento  
--   **Dispositivos Não Conformes por Tipo de Cliente** - Mostra a partilha de dispositivos móveis e computadores não compatíveis  
--   **Definições Principais do Atestado de Estado de Funcionamento em Falta** - Mostra o número de dispositivos em falta na definição de atestado de estado de funcionamento, listados por definição
+-   **Состояние аттестации работоспособности** — показывает, какая часть устройств находится в соответствующем, несоответствующем и неизвестном состоянии, а также в состоянии ошибки.  
+-   **Устройства, передающие данные подтверждения работоспособности** — показывает процент устройств, которые передают данные о состоянии аттестации работоспособности.  
+-   **Несовместимые устройства по типу клиента** — показывает, какая часть мобильных устройств и компьютеров является несоответствующей.  
+-   **Наиболее часто отсутствующие параметры аттестации работоспособности** — показывает количество устройств, для которых отсутствуют параметры аттестации работоспособности, с отдельным списком для каждого параметра.
 
-Estado do atestado de estado de funcionamento do dispositivo cliente pode ser utilizado para definir regras de acesso condicional nas políticas de conformidade para dispositivos geridos pelo Configuration Manager com o Microsoft Intune. Para mais detalhes, veja [Gerir políticas de conformidade de dispositivos no System Center Configuration Manager](/sccm/protect/deploy-use/device-compliance-policies).  
+Состояние аттестации работоспособности клиентского устройства можно использовать при определении правил условного доступа в политиках соответствия требованиям для устройств, управляемых Configuration Manager с использованием Microsoft Intune. Подробные сведения см. в разделе [Управление политиками соответствия устройств в System Center Configuration Manager](/sccm/protect/deploy-use/device-compliance-policies).  

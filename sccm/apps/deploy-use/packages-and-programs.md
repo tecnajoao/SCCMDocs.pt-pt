@@ -1,368 +1,365 @@
 ---
-title: Pacotes e programas | Documentos do Microsoft
-description: "Suporta implementações que utilizem pacotes e programas ou aplicações com o System Center Configuration Manager."
+title: "Пакеты и программы | Документы Майкрософт"
+description: "Поддержка развертываний, использующих пакеты и программы или приложения с System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: caad0507-9913-415a-b13d-d36f8f0a1b80
-caps.latest.revision: 8
-caps.handback.revision: 0
+caps.latest.revision: "8"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6c5b23270501c11ed5aba9a6045734c73095d1bf
 ms.openlocfilehash: 6146bcf4e5aa9df6fe0b8cf71898e488ecf217cc
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="packages-and-programs-in-system-center-configuration-manager"></a>Pacotes e programas no System Center Configuration Manager
+# <a name="packages-and-programs-in-system-center-configuration-manager"></a>Пакеты и программы в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager continua a suportar pacotes e programas que foram utilizados no Configuration Manager 2007. Uma implementação que utiliza pacotes e programas pode ser mais adequada do que uma implementação que utiliza uma aplicação quando implementa qualquer um dos seguintes procedimentos:  
+System Center Configuration Manager по-прежнему поддерживает пакеты и программы, которые использовались в Configuration Manager 2007. Развертывание, использующее пакеты и программы, может быть более подходящим, нежели развертывание, использующее приложение, если выполняется развертывание следующих элементов:  
 
-- Aplicações em servidores Linux e UNIX
-- Scripts que não instalam uma aplicação num computador, tal como um script para desfragmentar a unidade de disco do computador
-- Scripts "pontuais" que não têm de ser monitorizados continuamente  
-- Scripts que são executados num agendamento periódico e não podem utilizar a avaliação global
+- Приложения для серверов Linux и UNIX
+- Сценарии, не устанавливающие приложение на компьютер (например, сценарий дефрагментации диска компьютера).
+- «Одноразовые» сценарии, не требующие постоянного мониторинга.  
+- Сценарии, которые выполняются в соответствии с повторяющимся расписанием и не могут использовать глобальную оценку.
 
-Ao migrar pacotes a partir de uma versão anterior do Configuration Manager, pode implementá-los na sua hierarquia do Configuration Manager. Quando a migração é concluída, os pacotes são apresentados no nó **Pacotes** na área de trabalho**Biblioteca de Software**.
+Пакеты, перенесенные из более ранней версии Configuration Manager, можно развернуть в иерархии Configuration Manager. По завершении миграции пакеты отображаются в узле **Пакеты** рабочей области **Библиотека программного обеспечения** .
 
-Pode modificar e implementar estes pacotes da mesma forma que efetuou através da utilização de distribuição de software. O **importar pacote no Assistente de definição** permanece no Configuration Manager para importar pacotes de legado. Anúncios são convertidas em implementações quando são migrados a partir do Configuration Manager 2007 para uma hierarquia do Configuration Manager.  
+Такие пакеты можно изменять и развертывать аналогично тому, как это происходило при использовании распространения программного обеспечения. **Мастер импорта пакетов из определений** сохранен в Configuration Manager для импорта устаревших пакетов. Объявления преобразуются в развертывания при миграции с Configuration Manager 2007 в иерархию Configuration Manager.  
 
 > [!NOTE]  
->  Pode utilizar o Microsoft System Center Configuration Manager Package Conversion Manager para converter pacotes e programas em aplicações do Configuration Manager.  
+>  Для преобразования пакетов и программ в приложения Configuration Manager можно использовать диспетчер преобразования пакетов Microsoft System Center Configuration Manager.  
 >   
->  Para obter mais informações, veja [Gestor de Conversão de Pacotes do Configuration Manager](https://technet.microsoft.com/library/hh531519.aspx).  
+>  Дополнительные сведения см. в разделе [Диспетчер преобразования пакетов Configuration Manager](https://technet.microsoft.com/library/hh531519.aspx).  
 
-Pacotes podem utilizar algumas novas funcionalidades do Configuration Manager, incluindo os grupos de pontos de distribuição e a monitorização. Aplicações do Microsoft Application Virtualization (App-V) não podem ser distribuídas através da utilização de pacotes e programas no Configuration Manager. Para distribuir aplicações virtuais, tem de criá-los como aplicações do Configuration Manager.  
+Пакеты могут использовать некоторые новые возможности Configuration Manager, включая группы точек распространения и мониторинг. Приложения Microsoft Application Virtualization (App-V) нельзя распространять с помощью пакетов и программ в Configuration Manager. Для распространения виртуальных приложений необходимо создать их как приложения Configuration Manager.  
 
-##  <a name="create-a-package-and-program"></a>Criar um pacote e programa  
- Utilize um dos seguintes procedimentos para ajudar a criar ou importar pacotes e programas.  
+##  <a name="create-a-package-and-program"></a>Создание пакета и программы  
+ Используйте одну из этих процедур для создания или импорта пакетов и программ.  
 
-### <a name="create-a-package-and-program-using-the-create-package-and-program-wizard"></a>Criar um pacote e um programa utilizando o Assistente para Criar Pacote e Programa  
+### <a name="create-a-package-and-program-using-the-create-package-and-program-wizard"></a>Создайте пакет и программу с помощью мастера создания пакетов и программ.  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **pacotes**.  
+1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Пакеты**.  
 
-3.  No **base** separador o **criar** grupo, selecione **criar pacote**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать пакет**.  
 
-4.  No **pacote** página do **assistente criar pacote e programa**, especifique as seguintes informações:  
+4.  На странице **Пакет** в **мастере создания пакетов и программ**укажите перечисленные ниже сведения.  
 
-    -   **Nome**: Especifique um nome para o pacote com um máximo de 50 carateres.  
+    -   **Имя** — укажите имя пакета, не более 50 символов.  
 
-    -   **Descrição**: Especifique uma descrição para este pacote com um máximo de 128 carateres.  
+    -   **Описание** — укажите описание пакета, не более 128 символов.  
 
-    -   **Fabricante** (opcional): Especifique um nome de fabricante para o ajudar a identificar o pacote na consola do Configuration Manager. Este nome pode ter um máximo de 32 carateres.
+    -   **Производитель** — укажите наименование производителя (необязательно), чтобы было удобнее идентифицировать пакет в консоли Configuration Manager. Это имя не должно быть длиннее 32 символов.
 
-    -   **Idioma** (opcional): Especifique a versão de idioma do pacote com um máximo de 32 carateres.  
+    -   **Язык** — укажите языковую версию пакета (необязательно), не более 32 символов.  
 
-    -   **Versão** (opcional):  Especifique um número de versão para o pacote com um máximo de 32 carateres.
+    -   **Версия** — укажите номер версии пакета (необязательно), не более 32 символов.
 
-    -   **Este pacote contém ficheiros de origem**: Esta definição indica se o pacote necessita que os ficheiros de origem esteja presente nos dispositivos cliente. Por predefinição, esta caixa de verificação estiver desmarcada e do Configuration Manager não utilizar pontos de distribuição para o pacote. Quando esta caixa de verificação está selecionada, são utilizados pontos de distribuição.  
+    -   **Этот пакет содержит исходные файлы** — указывает, требует ли пакет наличия исходных файлов на клиентских устройствах. По умолчанию этот флажок снят, и Configuration Manager не использует точки распространения для пакета. Если этот флажок установлен, то точки распространения используются.  
 
-    -   **Pasta de origem**: Se o pacote contém ficheiros de origem, escolher **procurar** para abrir o **definir a pasta de origem** diálogo caixa e, em seguida, especifique a localização dos ficheiros de origem para o pacote.  
+    -   **Исходная папка** — если пакет содержит исходные файлы, нажмите кнопку **Обзор**, чтобы открыть диалоговое окно **Задать исходную папку**, в котором можно указать расположение исходных файлов пакета.  
 
         > [!NOTE]  
-        >  A conta de computador do servidor do site deve ter permissões de acesso de leitura para a pasta de origem que especificar.  
+        >  Учетная запись компьютера сервера сайта должна иметь разрешения на чтение для указанной исходной папки.  
 
-5.  No **tipo de programa** página do **assistente criar pacote e programa**, selecione o tipo de programa para criar e, em seguida, escolha **seguinte**. Pode criar um programa para um computador ou dispositivo, ou pode ignorar este passo e criar um programa mais tarde.  
+5.  На странице **Тип программы** в **мастере создания пакетов и программ** выберите тип программы, которую нужно создать, а затем нажмите кнопку **Далее**. Можно создать программу для компьютера, устройства или пропустить этот шаг и создать программу позже.  
 
     > [!TIP]  
-    >  Para criar um novo programa para um pacote existente, selecione primeiro o pacote. Em seguida, no **base** no separador de **pacote** grupo, selecione **criar programa** para abrir o **Assistente de criação de programa**.  
+    >  Чтобы создать программу для существующего пакета, сначала выберите пакет. Затем на вкладке **Главная** в группе **Пакет** щелкните элемент **Создать программу**, чтобы открыть **мастер создания программ**.  
 
-6.  Utilize um dos seguintes procedimentos para criar um programa padrão ou um programa de dispositivo.  
+6.  Используйте одну из следующих процедур, чтобы создать стандартную программу или программу устройства.  
 
-    #### <a name="create-a-standard-program"></a>Criar um programa padrão  
+    #### <a name="create-a-standard-program"></a>Создание стандартной программы  
 
-  1.  No **tipo de programa** página do **assistente criar pacote e programa**, escolha **programa padrão**e, em seguida, escolha **seguinte**.     
+  1.  На странице **Тип программы** в **мастере создания пакетов и программ** выберите **Стандартная программа**, а затем нажмите кнопку **Далее**.     
 
-    2.  No **programa padrão** página, especifique as seguintes informações:  
+    2.  На странице **Стандартная программа** укажите следующие сведения.  
 
-        -   **Nome:** Especifique um nome para o programa com um máximo de 50 carateres.  
+        -   **Имя.** Укажите имя программы не более 50 символов.  
 
             > [!NOTE]  
-            >  O nome do programa deve ser exclusivo num pacote. Depois de criar um programa, não é possível modificar o respetivo nome.  
+            >  Имя программы должно быть уникальным в пределах пакета. После создания программы ее имя невозможно изменить.  
 
-        -   **Linha de comandos**: Introduza a linha de comandos a utilizar para iniciar este programa, ou escolha **procurar** para navegar para a localização do ficheiro.  
+        -   **Командная строка** — введите команду, используемую для запуска этой программы из командной строки, или нажмите кнопку **Обзор**, чтобы найти нужный файл.  
 
-            Se um nome de ficheiro não tiver uma extensão especificada, o Configuration Manager tenta utilizar. com, .exe e. bat como extensões possíveis.  
+            Если вместе с именем файла не указано расширение, то Configuration Manager пытается использовать COM, EXE и BAT в качестве возможных расширений.  
 
-             Quando o programa é executado num cliente, o Configuration Manager procura pela primeira vez o nome do ficheiro da linha de comandos no pacote, pesquisas junto numa pasta local do Windows e, em seguida, procura locais *% caminho %*. Se o ficheiro não for encontrado, o programa irá falhar.  
+             Если программа запускается на клиентском компьютере, Configuration Manager сначала ищет имя файла внутри пакета, затем в локальной папке Windows и в локальной папке *%path%*. Если файл не будет найден, программа не будет работать.  
 
-        -   **Pasta de arranque** (opcional): Especifique a pasta a partir do qual o programa é executado, até 127 carateres. Esta pasta pode ser um caminho absoluto no cliente ou um caminho relativo para a pasta de ponto de distribuição que contém o pacote.
+        -   **Рабочая папка** (необязательно) — укажите папку, из которой запускается программа, не более 127 символов. Эту папку можно задать, используя либо абсолютный путь на клиентском компьютере, либо относительный путь к папке в точке распространения, содержащей пакет.
 
-        -   **Executar**: Especifique o modo no qual o programa é executado em computadores cliente. Selecione um dos seguintes procedimentos:  
+        -   **Тип запуска** — режим запуска программы на клиентских компьютерах. Затем выберите один из следующих вариантов:  
 
-            -   **Normal**: O programa é executado no modo normal com base nas predefinições do sistema e do programa. Este é o modo predefinido.  
+            -   **Обычный** — программа запускается в обычном режиме на основе параметров системы и программы по умолчанию. Этот режим используется по умолчанию.  
 
-            -   **Minimizado**: O programa é executado minimizado nos dispositivos cliente. Os utilizadores poderão ver a atividade de instalação na área de notificação ou na barra de tarefas.  
+            -   **Свернуто** — программа запускается на клиентских устройствах в свернутом виде. Пользователи видят операции установки в области уведомлений или на панели задач.  
 
-            -   **Maximizado**: O programa é executado maximizado em dispositivos cliente. Os utilizadores veem todas as atividades de instalação.  
+            -   **Развернуто** — программа запускается на клиентских устройствах в развернутом виде. Пользователи видят все операции установки.  
 
-            -   **Oculta**: O programa é executado ocultado nos dispositivos cliente. Os utilizadores não veem qualquer atividade de instalação.  
+            -   **Скрытый** — программа запускается на клиентских устройствах в скрытом виде. Пользователи не видят никаких операций установки.  
 
-        -   **Programa pode ser executado**: Especifique se o programa é executado apenas quando um utilizador tem sessão iniciado, só quando nenhum utilizador está inscrita no, ou, independentemente de um utilizador tiver sessão iniciado no computador cliente.  
+        -   **Требования для запуска** — укажите, может ли программа запускаться только после входа пользователя в систему, пока никто не вошел в систему, или в любом случае.  
 
-        -   **Modo de execução**: Especifique se o programa é executado com permissões administrativas ou com as permissões do utilizador que tem atualmente sessão iniciada.  
+        -   **Режим выполнения** — укажите, запускается ли программа с разрешениями администратора или с разрешениями пользователя, выполнившего вход в систему.  
 
-        -   **Permitir que os utilizadores visualizem e interajam com a instalação do programa**: Utilize esta definição, se estiver disponível, para especificar se pretende permitir que os utilizadores interajam com a instalação do programa. Esta caixa de verificação só estará disponível se **só quando nenhum utilizador tiver sessão iniciado** ou **se deve ou não um utilizador tiver sessão iniciado** está selecionada para **programa pode ser executado** e quando **executar com direitos administrativos** está selecionada para **modo de execução**.  
+        -   **Разрешить пользователям видеть ход установки программы и взаимодействовать с ним** — по возможности укажите, разрешено ли пользователям взаимодействовать с установкой программы. Этот флажок доступен только в случае, если для параметра **Требования для запуска** выбрано значение **Пока никто не вошел в систему** или **В любом случае**, а для параметра **Режим выполнения** выбрано значение **Запустить с правами администратора**.  
 
-        -   **Modo de unidade**: Especifica informações sobre como executar este programa na rede. Escolha uma das seguintes opções:  
+        -   **Режим диска** — выберите, каким образом эта программа запускается по сети. Выберите один из следующих вариантов:  
 
-            -   **Executa com nome UNC**: Especifique que o programa é executado com um nome de convenção de Nomenclatura Universal (UNC). Esta é a predefinição.  
+            -   **Работа с UNC-именем** — укажите, что программа запускается с именем в формате UNC. Этот параметр используется по умолчанию.  
 
-            -   **Requer letra de unidade**: Especifique que o programa requer uma letra de unidade para qualificar completamente a respetiva localização. Para esta definição, o Configuration Manager pode utilizar qualquer letra de unidade disponível no cliente.  
+            -   **Требуется буква диска** — укажите, что программе требуется буква диска для полного определения ее расположения. Для этого параметра Configuration Manager может использовать любую доступную букву диска на клиенте.  
 
-            -   **Requer letra de unidade específica** : Especifique que o programa requer uma letra de unidade específica que especificou para qualificar completamente a respetiva localização (por exemplo, **z:)**). Se a letra de unidade especificada já estiver a ser utilizada num cliente, o programa não é executado.  
+            -   **Требуется определенная буква диска** — укажите, что программе требуется определенная буква диска, указываемая для полного определения ее расположения (например, **Z:**). Если указанная буква диска уже используется на клиенте, программа не выполняется.  
 
-        -   **Restabelecer a ligação ao ponto de distribuição no registo em**: Utilize esta caixa de verificação para indicar se o computador cliente volta a ligar ao ponto de distribuição quando o utilizador inicia sessão. Por predefinição, esta caixa de verificação está desmarcada.  
+        -   **Повторно подключаться к точке распространения при входе** — этот флажок позволяет указать, что при входе пользователя в систему клиентский компьютер повторно подключается к точке распространения. По умолчанию этот флажок снят.  
 
-  3.  No **requisitos** página do **criar pacote e programa assistente,** especifique as seguintes informações:  
+  3.  На странице **Требования** в **мастере создания пакетов и программ** укажите перечисленные ниже сведения.  
 
-        -   **Executar outro programa primeiro**: Utilize esta definição para identificar um pacote e programa que é executado antes deste pacote e programa está a ser executado.  
+        -   **Запустить сначала другую программу** — этот параметр позволяет выбрать пакет и программу, которые запускаются перед запуском данного пакета и программы.  
 
-        -   **Requisitos de plataforma**: Selecione **pode executar este programa em qualquer plataforma** ou **este programa pode ser executado apenas nas plataformas especificadas**e, em seguida, selecione os sistemas operativos que os clientes devem ser executadas para ser possível instalar o pacote e programa.  
+        -   **Требования к платформе** — выберите **Эта программа может запускаться на любой платформе** или **Эту программу можно запускать только на указанных платформах**, а затем выберите операционные системы, которые должны использоваться на клиентах для установки пакета и программы.  
 
-        -   **Espaço em disco estimado**: Especifique a quantidade de espaço em disco que o programa de software necessita para ser executada no computador. Pode especificá-lo como **Desconhecido** (a predefinição) ou como um número inteiro igual ou superior a zero. Se for especificado um valor, é necessário especificar também as unidades para o valor.  
+        -   **Место на диске** — указывает объем свободного места на диске, необходимого для работы программы на компьютере. Здесь можно задать **Неизвестно** (параметр по умолчанию) или целое число, большее или равное нулю. В случае задания значения следует также задать единицы измерения.  
 
-        -   **Máximo tempo de execução permitido (minutos)**: Especifique o tempo máximo que o programa poderá demorar a ser executado num computador cliente. Pode especificá-lo como **Desconhecido** (a predefinição) ou como um número inteiro superior a zero.  
+        -   **Максимально допустимое время выполнения (в минутах)**. Укажите максимальное время работы программы на клиентском компьютере. Здесь можно указать значение **Неизвестно** (значение по умолчанию) или целое число больше нуля.  
 
-             Por predefinição, este valor é definido para 120 minutos.  
+             По умолчанию устанавливается значение 120 минут.  
 
             > [!IMPORTANT]  
-            >  Se estiver a utilizar janelas de manutenção para a coleção onde este programa é executado, poderá ocorrer um conflito se o **tempo de execução máximo permitido** é maior do que a janela de manutenção agendada. No entanto, se o número máximo de tempo de execução estiver definido como **desconhecido**, o programa começa a ser executada durante a janela de manutenção e continua a ser executada conforme necessário depois de fechar a janela de manutenção. Se o utilizador define o tempo de execução máximo para um período específico que excede o comprimento de qualquer janela de manutenção disponível, em seguida, o programa não é executado.  
+            >  Если для коллекции, в которой выполняется эта программа, используются периоды обслуживания и значение параметра **Максимально допустимое время выполнения** больше запланированного периода обслуживания, может произойти конфликт. Однако, если максимальное время выполнения имеет значение **Неизвестный**, программа начинает выполняться в период обслуживания и продолжает работу при необходимости после завершения периода обслуживания. Если для параметра максимального времени выполнения пользователь задает значение, превышающее продолжительность любого доступного периода обслуживания, программа не запускается.  
 
-             Se o valor é definido como **desconhecido**, tempo de execução Configuration Manager conjuntos o máximo permitido como 12 horas (720 minutos).  
-
-            > [!NOTE]  
-            >  Se o tempo máximo de execução (definido pelo utilizador ou como o valor predefinido) for excedido, o Configuration Manager deixa o programa se **executar com direitos administrativos** está selecionada e **permitir que os utilizadores visualizem e interajam com a instalação do programa** não estiver selecionada.  
-
-  4.  Escolher **seguinte**.  
-
-    #### <a name="create-a-device-program"></a>Criar um programa de dispositivo  
-
-  1.  No **tipo de programa** página do **assistente criar pacote e programa**, selecione **programa para dispositivo**e, em seguida, escolha **seguinte**.  
-
-  2.  No **programa para dispositivo** página, especifique o seguinte:  
-
-        -   **Nome**: Especifique um nome para o programa com um máximo de 50 carateres.  
+             Если указано значение **Неизвестно**, Configuration Manager устанавливает максимально допустимое время выполнения равным 12 часам (720 минутам).  
 
             > [!NOTE]  
-            >  O nome do programa deve ser exclusivo num pacote. Depois de criar um programa, não é possível modificar o respetivo nome.  
+            >  В случае превышения максимального времени выполнения (заданного пользователем или установленного по умолчанию) Configuration Manager останавливает программу, если для нее выбран параметр **Запустить с правами администратора** и не выбран параметр **Разрешить пользователям видеть ход установки программы и взаимодействовать с ним**.  
 
-        -   **Comentário** (opcional): Especifique um comentário para este programa de dispositivo com um máximo de 127 carateres.  
+  4.  Нажмите кнопку **Далее**.  
 
-        -   **Transferir pasta**: Especifique o nome da pasta no dispositivo Windows CE onde serão armazenados os ficheiros de origem do pacote. O valor predefinido é **\Temp\\**.  
+    #### <a name="create-a-device-program"></a>Создание программы для устройства  
 
-        -   **Linha de comandos**: Introduza a linha de comandos a utilizar para iniciar este programa, ou escolha **procurar** para navegar para a localização do ficheiro.  
+  1.  На странице **Тип программы** в **мастере создания пакетов и программ**выберите **Программа для устройства**, а затем нажмите кнопку **Далее**.  
 
-        -   **Executar linha de comandos na pasta de transferência**: Selecione esta opção para executar o programa a partir da pasta de transferência especificado anteriormente.  
+  2.  На странице **Программа для устройства** укажите следующее.  
 
-        -   **Executar linha de comandos a partir desta pasta**: Selecione esta opção para especificar uma pasta diferente a partir do qual executar o programa.  
+        -   **Имя**. Укажите имя программы, не более 50 символов.  
 
-    3.  No **requisitos** página, especifique o seguinte:  
+            > [!NOTE]  
+            >  Имя программы должно быть уникальным в пределах пакета. После создания программы ее имя невозможно изменить.  
 
-        -   **Espaço em disco estimado**: Especifique a quantidade de espaço em disco necessário para o software. Esta informação é apresentada aos utilizadores de dispositivos móveis antes de instalarem o programa.  
+        -   **Комментарий** (необязательно) — укажите комментарий для программы устройства, не более 127 символов.  
 
-        -   **Transferir o programa**: Especifique informações sobre quando este programa pode ser transferido para dispositivos móveis. Pode especificar **Assim que possível**, **Apenas sobre uma rede rápida** ou **Apenas quando o dispositivo estiver ancorado**.  
+        -   **Папка загрузки** — укажите имя папки на устройстве Windows CE, в которой будут храниться исходные файлы пакета. По умолчанию используется папка **\Temp\\**.  
 
-        -   **Requisitos adicionais**: Especifique quaisquer requisitos suplementares para este programa. Estes são apresentados aos utilizadores antes de instalarem o software. Por exemplo, pode indicar os utilizadores que necessitam de fechar todas as outras aplicações antes de executar o programa.  
+        -   **Командная строка** — введите команду, используемую для запуска этой программы из командной строки, или нажмите кнопку **Обзор**, чтобы найти нужный файл.  
 
-  4.  Escolher **seguinte**.  
+        -   **Запустить командную строку в папке загрузки** — выберите этот параметр, чтобы запустить программу из указанной ранее папки загрузки.  
 
-  7.  No **resumo** página, reveja as ações que serão efetuadas e, em seguida, conclua o assistente.  
+        -   **Запустить командную строку из этой папки** — выберите этот параметр, чтобы указать другую папку для запуска программы.  
 
- Certifique-se de que o novo pacote e programa são apresentados no **pacotes** nó do **biblioteca de Software** área de trabalho.  
+    3.  На странице **Требования** укажите следующее.  
 
-## <a name="create-a-package-and-program-from-a-package-definition-file"></a>Criar um pacote e um programa a partir de um ficheiro de definição de pacote  
+        -   **Место на диске** — укажите объем дискового пространства, необходимого для программного обеспечения. Это значение выводится пользователям мобильных устройств перед установкой программы.  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **pacotes**.  
+        -   **Загрузить программу** — укажите, когда эта программа может быть скачана на мобильные устройства. Можно выбрать **Как можно скорее**, **Только по быстрой сети**или **Только когда устройство подключено**.  
 
-3.  No **base** separador o **criar** grupo, selecione **criar pacote a partir da definição**.  
+        -   **Дополнительные требования** — укажите любые дополнительные требования для этой программы. Они будут отображаться пользователям перед установкой программного обеспечения. Например можно уведомить пользователей, их необходимо закрыть все другие приложения перед запуском программы.  
 
-4.  No **definição de pacote** página do **criar pacote a partir do Assistente de definição**, escolha um ficheiro de definição de pacote existente, ou escolha **procurar** para abrir um novo ficheiro de definição de pacote. Depois de especificar um novo ficheiro de definição de pacote, selecione-o partir de **definição do pacote** lista e, em seguida, selecione **seguinte**.  
+  4.  Нажмите кнопку **Далее**.  
 
-5.  No **ficheiros de origem** página, especifique informações sobre ficheiros de origem necessários para o pacote e programa e, em seguida, selecione **seguinte**.  
+  7.  На странице **Сводка** просмотрите список необходимых действий, а затем завершите работу мастера.  
 
-6.  Se o pacote requer ficheiros de origem no **pasta de origem** página, especifique a localização a partir da qual os ficheiros de origem estão a ser obtidos e, em seguida, escolha **seguinte**.  
+ Убедитесь в том, что в узле **Пакеты** рабочей области **Библиотека программного обеспечения** отображаются новый пакет и программа.  
 
-7.  No **resumo** página, reveja as ações que serão efetuadas e, em seguida, conclua o assistente. O novo pacote e programa são apresentados no **pacotes** nó do **biblioteca de Software** área de trabalho.  
+## <a name="create-a-package-and-program-from-a-package-definition-file"></a>Создание пакетов и программ с помощью файлов определения пакета  
 
- Para mais informações sobre ficheiros de definição de pacote, consulte o artigo [sobre o formato de ficheiro de definição de pacote](/sccm/apps/deploy-use/packages-and-programs#about-the-package-definition-file-format) neste tópico.  
+1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Пакеты**.  
 
-##  <a name="deploy-packages-and-programs"></a>Implementar pacotes e programas  
+3.  На вкладке **Главная** в группе **Создать** нажмите кнопку **Создать пакет из определения**.  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **pacotes**.  
+4.  На странице **Определение пакета** в **мастере создания пакета из определения** выберите существующий файл определения пакета или нажмите кнопку **Обзор**, чтобы открыть новый файл определения пакета. Если выбран новый файл определения пакета, выберите его в списке **Определение пакета**, а затем нажмите кнопку **Далее**.  
 
-2.  Selecione o pacote que pretende implementar, e, em seguida, no **base** separador o **implementação** grupo, selecione **implementar**.  
+5.  На странице **Исходные файлы** укажите сведения обо всех требуемых исходных файлах пакета и программы, а затем нажмите кнопку **Далее**.  
 
-3.  No **geral** página do **Assistente de implementação de Software**, especifique o nome do pacote e programa que pretende implementar, a coleção à qual pretende implementar o pacote e programa e comentários opcionais para a implementação.  
+6.  Если для пакета требуются исходные файлы, то на странице **Исходная папка** укажите расположение исходных файлов, а затем нажмите кнопку **Далее**.  
 
-     Selecione **Utilizar grupos de pontos de distribuição predefinidos associados a esta coleção** se quiser armazenar o conteúdo do pacote no grupo de pontos de distribuição predefinido da coleção. Se não foi possível associar a coleção selecionada a um grupo de pontos de distribuição, esta opção está disponível.  
+7.  На странице **Сводка** просмотрите список необходимых действий, а затем завершите работу мастера. В узле **Пакеты** рабочей области **Библиотека программного обеспечения** отобразятся новый пакет и программа.  
 
-4.  No **conteúdo** página, selecione **adicionar**e, em seguida, selecione os pontos de distribuição ou grupos de pontos de distribuição ao qual pretende implementar o conteúdo que está associado este pacote e programa.  
+ Дополнительные сведения о файлах определений пакетов см. в подразделе [Формат файлов определений пакетов](/sccm/apps/deploy-use/packages-and-programs#about-the-package-definition-file-format) этого раздела.  
 
-5.  No **definições de implementação** página, selecione um objetivo para esta implementação e especifique as opções para dos pacotes de reativação e ligações com tráfego limitado:  
+##  <a name="deploy-packages-and-programs"></a>Развертывание пакетов и программ  
 
-    -   **Objetivo**: Escolha entre:  
+1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Пакеты**.  
 
-        -   **Disponível**: Se a aplicação for implementada para um utilizador, o utilizador vê o pacote publicado e o programa no catálogo de aplicações e poderá solicitá-la a pedido. Se o pacote e programa for implementado num dispositivo, o utilizador vê-lo no Centro de Software e pode instalá-la a pedido.  
+2.  Выберите пакет, который требуется развернуть, а затем на вкладке **Главная** в группе **Развертывание** нажмите кнопку **Развернуть**.  
 
-        -   **Obrigatório**: O pacote e programa é implementada automaticamente, de acordo com a agenda configurada. No entanto, um utilizador poderá controlar o estado de implementação do pacote e programa e instalá-los antes do prazo, utilizando o Centro de Software.   
+3.  В **мастере развертывания программного обеспечения** на странице **Общие** укажите имя пакета и программы, которые требуется развернуть, имя коллекции, в которой нужно развернуть пакет и программу, и при необходимости введите комментарии к развертыванию.  
 
-    -   **Enviar pacotes de reativação**: Se o objetivo da implementação estiver definido como **obrigatório** e esta opção estiver selecionada, é enviado um pacote de reativação aos computadores antes da instalação da implementação para reativar o computador da suspensão quando for atingido o prazo de instalação. Para poder utilizar esta opção, os computadores devem ser configurados para Wake On LAN.  
+     Если содержимое пакета необходимо сохранить в заданной по умолчанию группе точек распространения коллекции, выберите параметр **Использовать группы точек распространения по умолчанию, связанные с этой коллекцией** . Этот параметр будет недоступен, если выбранная коллекция не была связана с группой точек распространения.  
 
-    -  **Permitir que os clientes numa ligação de Internet limitada transfiram conteúdo após o prazo de instalação, o que pode implicar custos adicionais**: Selecione esta opção se é obrigatório.  
+4.  На странице **Содержимое** нажмите кнопку **Добавить**, а затем выберите точки распространения или группы точек распространения, в которых требуется развернуть содержимое, связанное с этими пакетом и программой.  
+
+5.  На странице **Параметры развертывания** выберите цель данного развертывания и укажите параметры для wake-up пакетов и лимитных подключений.  
+
+    -   **Цель**. Можно выбрать одно из указанных ниже значений.  
+
+        -   **Доступно**. Если приложение развертывается для пользователя, он увидит опубликованный пакет и программу в каталоге приложений и сможет запросить их по требованию. Если пакет и программа развертываются для устройства, пользователь увидит их в центре программного обеспечения и сможет установить их по запросу.  
+
+        -   **Обязательное**. Пакет и программа развертываются автоматически в соответствии с настроенным расписанием. Однако пользователь может отслеживать состояние развертывания пакета и программы и установить их с помощью центра программного обеспечения до наступления заданного крайнего срока.  
+
+    -   **Отправлять wake-up пакеты**. Если в качестве цели развертывания выбрано **Обязательное** и установлен этот параметр, wake-up пакеты будут отправляться на компьютеры до установки развертывания, чтобы пробудить компьютеры при наступлении крайнего срока установки. Перед использованием этого параметра компьютеры должны быть настроены для пробуждения по локальной сети.  
+
+    -  При необходимости выберите параметр **Разрешить клиентам, использующим лимитное подключение к Интернету, загружать содержимое после наступления крайнего срока установки (может повлечь дополнительные затраты)**.  
 
     > [!NOTE]  
-    >  A opção **Pré-implementar software no dispositivo primário do utilizador** não está disponível ao implementar um pacote e um programa.  
+    >  Параметр **Предварительно развертывать программное обеспечение на основном устройстве пользователя** недоступен при развертывании пакета и программы.  
 
-6.  No **agendamento** página, configure quando este pacote e programa serão implementadas ou disponibilizadas aos dispositivos cliente.  
+6.  На странице **Планирование** настройте время развертывания или доступности пакета и программы для клиентских устройств.  
 
-     As opções nesta página variam consoante a ação de implementação esteja definida **disponível** ou **necessário**.  
+     В зависимости от заданного действия развертывания — **Доступно** или **Обязательное** — параметры на этой странице могут отличаться.  
 
-7.  Se o objetivo da implementação estiver definido como **necessário**, configurar o comportamento de executar novamente o programa a partir de **comportamento da nova execução** menu pendente. Pode escolher uma das seguintes opções:  
+7.  Если в качестве цели развертывания выбрано **Обязательное**, выберите вариант поведения повторного запуска программы из списка **Поведение повторного запуска**. Выберите один из следующих параметров.  
 
-    |Comportamento da nova execução|Mais informações|  
+    |поведение повторного запуска|Дополнительные сведения|  
     |--------------------|----------------------|  
-    |Nunca voltar a executar o programa implementado|O programa não possível executar de novo no cliente, mesmo que o programa falhado ou se forem alterados, os ficheiros de programa.|  
-    |Executar sempre novamente o programa|O programa será sempre novamente executado no cliente quando a implementação estiver agendada, mesmo que o programa foi executada já com êxito. Isto pode ser útil quando utilizar implementações periódicas no qual o programa é atualizado, por exemplo, com software antivírus.|  
-    |Executar novamente se a tentativa anterior falhar|O programa será novamente executado quando a implementação estiver agendada apenas se a falha da tentativa de execução anterior.|  
-    |Executar novamente se a tentativa anterior tiver êxito|O programa será novamente executado apenas se anteriormente foi executado com êxito no cliente. Isto é útil se utilizar anúncios periódicos nos quais o programa é atualizado regularmente, e em que cada atualização necessitar que a atualização anterior tenha sido instalada com êxito.|  
+    |Никогда не повторять запуск развернутой программы|Программа не будет запускаться повторно на клиенте даже в случае ее изначального сбоя или изменения файлов программы.|  
+    |Всегда повторять запуск программы|В случае запланированного развертывания программа всегда будет запускаться повторно на клиенте, даже если она уже была успешно запущена. Это может быть полезно при использовании повторяющихся развертываний, в которых программа обновляется, например антивирусные программы.|  
+    |Повторить запуск, если предыдущая попытка не удалась|В случае запланированного развертывания программа запускается повторно, только если предыдущая попытка запуска не удалась.|  
+    |Повторить запуск, если предыдущая попытка была успешной|Программа запускается повторно только в случае успешной предыдущей попытки запуска на клиенте. Это может быть полезно при использовании повторяющихся объявлений, когда программа регулярно обновляется и для каждого обновления требуется успешная установка предыдущего обновления.|  
 
-8. Na página **Experiência de Utilizador** , especifique as seguintes informações:  
+8. На странице **Взаимодействие с пользователем** укажите перечисленные ниже сведения.  
 
-    -   **Permitir que os utilizadores executem o programa independentemente das atribuições**: Se estiver ativada, os utilizadores podem instalar este software a partir do Centro de Software, independentemente de qualquer hora de instalação agendada.  
+    -   **Разрешить пользователям запускать программу независимо от расписания**. Если выбран этот параметр, пользователи могут устанавливать это программное обеспечение из центра программного обеспечения независимо от времени запланированной установки.  
 
-    -   **Instalação de software**: Permite que o software seja instalado fora das janelas de manutenção configurada.  
+    -   **Установка программного обеспечения**: позволяет устанавливать программное обеспечение вне настроенных периодов обслуживания.  
 
-    -   **Reinício do sistema (se for necessário para concluir a instalação)**: Se a instalação de software exigir um reinício de dispositivo para concluir, permitir esta ação ocorrer fora de quaisquer janelas de manutenção configurada.  
+    -   **Перезагрузка системы (если это необходимо для завершения установки)**. Если для завершения установки требуется перезагрузить устройство, разрешите перезагрузку вне настроенных периодов обслуживания.  
 
-    -   **Dispositivos Embedded**: Ao implementar pacotes e programas em dispositivos Windows Embedded que com filtro escrita ativado, pode especificar que pacotes e programas ser instalado em temporária sobreposição e confirmar as alterações mais tarde. Em alternativa, consolidar as alterações no prazo de instalação ou durante uma janela de manutenção. Ao consolidar alterações no prazo de instalação ou durante uma janela de manutenção, é necessário um reinício e as alterações sejam mantidas no dispositivo.  
+    -   **Встраиваемые устройства**. При развертывании пакетов и программ на устройствах Windows Embedded с включенным фильтром записи можно задать установку пакетов и программ на временном наложении, чтобы зафиксировать изменения позже. Кроме того, зафиксировать изменения можно по наступлении крайнего срока установки или в течение периода обслуживания. При фиксации изменений по наступлении крайнего срока установки или в течение периода обслуживания требуется перезагрузка, и изменения сохраняются на устройстве.  
 
         > [!NOTE]  
-        >  Quando implementa um pacote ou programa num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada. Para mais informações sobre como as janelas de manutenção são utilizadas quando implementar pacotes e programas em dispositivos Windows Embedded, consulte o artigo [aplicações criar Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md).  
+        >  При развертывании пакета или программы на устройстве Windows Embedded убедитесь, что устройство является членом коллекции, которая содержит настроенного периода обслуживания. Дополнительные сведения о том, как периоды обслуживания используются при развертывании пакетов и программ для устройств Windows Embedded, см. в статье [Создание приложений Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md).  
 
-9. Na página **Pontos de Distribuição** , especifique as seguintes informações:  
+9. На странице **Точки распространения** укажите перечисленные ниже сведения.  
 
-    -   **Opções de implementação**: Especifique as ações que um cliente deverá ser necessário para executar o conteúdo do programa. Pode especificar o comportamento quando o cliente está numa zona de rede rápida ou numa zona de rede lenta ou pouco fiável.  
+    -   **Параметры развертывания** — укажите действия, которые необходимо выполнить клиенту для запуска содержимого программы. Если клиент находится в пределах границ быстрой сети или границ медленной или ненадежной сети, можно задать поведение.  
 
-    -   **Permitir que os clientes partilhem conteúdos com outros clientes na mesma sub-rede**: Selecione esta opção para reduzir a carga de rede ao permitir que os clientes transfiram conteúdos a partir de outros clientes na rede que já transferido e colocado em cache o conteúdo. Esta opção utiliza o Windows BranchCache e pode ser utilizada em computadores que executam o Windows Vista SP2 e posterior.  
+    -   **Разрешить клиентам использовать содержимое совместно с другими клиентами из той же подсети** — этот параметр позволяет сократить нагрузку на сеть, поскольку разрешает клиентам скачивать содержимое с других клиентов в сети, которые уже выполнили скачивание и кэширование содержимого. Этот параметр использует компонент Windows BranchCache и можно использовать на компьютерах под управлением Windows Vista SP2 и более поздних версий.  
 
-    -   **Permitir que os clientes utilizem uma localização de origem de contingência para conteúdo**:  
+    -   **Разрешить клиентам использовать резервный источник содержимого**:  
 
-        -  **Versões anteriores ao 1610**: Pode selecionar o **permitir a localização de origem de contingência para conteúdo de caixa de verificação** para permitir que os clientes fora destes limites grupos recorram à contingência e utilize a distribuição ponto como uma localização de origem de conteúdo quando não houver outros pontos de distribuição disponíveis.
+        -  **До версии 1610**: можно установить флажок **Разрешить использовать резервный источник содержимого**, чтобы разрешить клиентам за пределами этих групп границ откат и использование точек распространения в качестве источника содержимого, если другие точки распространения недоступны.
 
-        - **Versão 1610 e posterior**: Já não pode configurar **permitir a localização de origem de contingência para conteúdo**.  Em vez disso, pode configurar relações entre grupos de limites que determinam quando um cliente pode começar a procurar grupos de limites adicionais para uma localização de origem de conteúdo válida.
+        - **Версия 1610 и более поздние версии**: настроить параметр **Разрешить использовать резервный источник содержимого** больше нельзя.  Вместо этого следует настроить связи между группами границ, которые определяют, когда клиент может начинать поиск допустимого источника содержимого в дополнительных группах границ.
 
-10. No **resumo** página, reveja as ações que serão efetuadas e, em seguida, conclua o assistente.  
+10. На странице **Сводка** просмотрите список необходимых действий, а затем завершите работу мастера.  
 
-     Pode ver a implementação no nó **Implementações** da área de trabalho **Monitorização** e no painel de detalhes no separador de implementação do pacote quando seleciona a implementação. Para obter mais informações, consulte o artigo [monitorizar pacotes e programas](/sccm/apps/deploy-use/packages-and-programs#monitor-packages-and-programs) neste tópico.  
+     Развертывание можно просмотреть в узле **Развертывания** рабочей области **Мониторинг** и в области сведений на вкладке развертывания пакета после выбора нужного развертывания. Дополнительные сведения см. в подразделе [Мониторинг пакетов и программ](/sccm/apps/deploy-use/packages-and-programs#monitor-packages-and-programs) этого раздела.  
 
 > [!IMPORTANT]  
->  Se tiver configurado a opção **executar programa a partir do ponto de distribuição** no **pontos de distribuição** página do **Assistente de implementação de Software**, não desmarque a opção **copiar o conteúdo deste pacote para uma partilha de pacote em pontos de distribuição** porque isto faz com que o pacote disponível para execução a partir de pontos de distribuição.  
+>  Если вы задали параметр **Запустить программу из точки распространения** на странице **Точки распространения** **мастера развертывания программного обеспечения**, не снимайте флажок **Копировать содержимое этого пакета в общую сетевую папку, расположенную в точках распространения**, так как это сделает невозможным запуск пакета из точек распространения.  
 
-##  <a name="monitor-packages-and-programs"></a>Monitor de pacotes e programas  
- Para monitorizar implementações de pacote e programa, utilize os mesmos procedimentos que utilizar para monitorizar aplicações conforme especificado nas [monitorizar aplicações](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
+##  <a name="monitor-packages-and-programs"></a>Мониторинг пакетов и программ  
+ Для мониторинга развертываний пакетов и программ можно использовать те же процедуры, которые применяются для мониторинга приложений, как описано в разделе [Мониторинг приложений](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
 
- Pacotes e programas também inclui um número de relatórios incorporados que permitem monitorizar informações sobre o estado de implementação de pacotes e programas. Estes relatórios têm a categoria de relatório de **Distribuição de Software – Pacotes e Programas** e **Distribuição de Software - Estado de Implementação do Pacote e do Programa**.  
+ Пакеты и программы также содержат ряд встроенных отчетов, позволяющих осуществлять мониторинг сведений о состоянии развертывания пакетов и программ. Эти отчеты относятся к категориям **Распространение программного обеспечения – пакеты и программы** и **Распространение программного обеспечения – состояние развертывания пакетов и программ**.  
 
- Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte o artigo [Reporting no System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Дополнительные сведения о настройке отчетов в Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
-##  <a name="manage-packages-and-programs"></a>Gerir pacotes e programas  
- No **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**, escolha **pacotes**, selecione o pacote que pretende gerir e, em seguida, selecione uma tarefa de gestão da tabela seguinte:  
+##  <a name="manage-packages-and-programs"></a>Управление пакетами и программами  
+ В рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**, выберите **Пакеты**, укажите пакет, которым требуется управлять, после чего выберите задачу управления из следующей таблицы.  
 
-|Tarefa|Mais informações|  
+|Задача|Дополнительные сведения|  
 |----------|----------------------|  
-|**Criar Ficheiro de Conteúdo Pré-configurado**|Abre o **criar Assistente de ficheiro de conteúdo pré-configurado**, que lhe permite criar um ficheiro que contém o conteúdo do pacote que pode ser importado manualmente a outro site. Isto é útil em situações onde a largura de banda de rede seja fraca entre o servidor do site e o ponto de distribuição.|  
-|**Criar programa**|Abre o **Assistente de criação de programa**, que lhe permite criar um novo programa para este pacote.|  
-|**Exportarar**|Abre o **Assistente para Exportar pacote**, que lhe permite exportar o pacote selecionado e o respetivo conteúdo para um ficheiro.<br /><br /> Para obter informações sobre como importar pacotes e programas, consulte o artigo [criar pacotes e programas](/sccm/apps/deploy-use/packages-and-programs#create-packages-and-programs) neste tópico.|  
-|**Implementar**|Abre o **Assistente de implementação de Software**, que lhe permite implementar o pacote selecionado e o programa numa coleção. Para obter mais informações, consulte o artigo [implementar pacotes e programas](/sccm/apps/deploy-use/packages-and-programs#deploy-packages-and-programs) neste tópico.|  
-|**Distribuir Conteúdo**|Abre o **Assistente para distribuir conteúdo**, que lhe permite enviar o conteúdo que está associado ao pacote e programa para pontos de distribuição selecionados ou grupos de pontos de distribuição.|  
-|**Atualizar Pontos de Distribuição**|Atualiza pontos de distribuição com o conteúdo mais recente para o pacote e o programa selecionados.|  
+|**Создать файл с предварительно подготовленным содержимым**|Открывает **мастер создания файлов с предварительно подготовленным содержимым**, позволяющий создать файл с содержимым пакета, которое можно вручную импортировать на другой сайт. Это полезно при низкой пропускной способности сети между сервером сайта и точкой распространения.|  
+|**Создать программу**|Открывает **мастер создания программ**, позволяющий создать программу для данного пакета.|  
+|**Экспортировать**|Открывает **мастер экспорта пакетов**, позволяющий экспортировать выбранный пакет и его содержимое в файл.<br /><br /> Сведения об импорте пакетов и программ см. в подразделе [Создание пакетов и программ](/sccm/apps/deploy-use/packages-and-programs#create-packages-and-programs) этого раздела.|  
+|**Развертывание**|Открывает **мастер развертывания программного обеспечения**, позволяющий развернуть выбранный пакет и программу в коллекции. Дополнительные сведения см. в подразделе [Развертывание пакетов и программ](/sccm/apps/deploy-use/packages-and-programs#deploy-packages-and-programs) этого раздела.|  
+|**Распространение содержимого**|Открывает **мастер распространения содержимого**, позволяющий отправить содержимое, связанное с пакетом и программой, в выбранные точки распространения или группы точек распространения.|  
+|**Обновить точки распространения**|Обновляет точки распространения посредством загрузки актуального содержимого для выбранного пакета или программы.|  
 
-##  <a name="about-the-package-definition-file-format"></a>Sobre o formato de ficheiro de definição de pacote  
- Ficheiros de definição do pacote estão scripts que podem ser utilizados para ajudar a automatizar a criação do pacote e programa com o Configuration Manager. Fornecem todas as informações que necessita de criar um pacote e programa, excepto para a localização dos ficheiros de origem do pacote do Configuration Manager. Cada ficheiro de definição de pacote é um ficheiro de texto ASCII ou UTF-8 que utiliza o formato de ficheiro. ini e que contém as seguintes secções:  
+##  <a name="about-the-package-definition-file-format"></a>Формат файлов определений пакетов  
+ Файлы определений пакетов представляют собой сценарии, которые можно использовать для автоматизации создания пакетов и программ в Configuration Manager. Они предоставляют всю информацию, необходимую Configuration Manager для создания пакета и программы, кроме расположения исходных файлов пакета. Каждый файл определения пакета представляет собой текстовый INI-файл в кодировке ASCII или UTF-8, содержащий следующие разделы:  
 
 ###  <a name="pdf"></a>[PDF]  
- Esta secção identifica o ficheiro como um ficheiro de definição de pacote. Contém as seguintes informações:  
+ В этом разделе определяет файл как файл определения пакета. Он содержит следующие сведения:  
 
--   **Versão**: Especifique a versão do formato de ficheiro de definição de pacote que é utilizado pelo ficheiro. Isto corresponde à versão do System Management Server (SMS) ou o Configuration Manager para o qual foi escrito. Esta entrada é necessária.  
+-   **Version**. Укажите версию формата, используемую в файле определения пакета. Соответствует версии System Management Server (SMS) или Configuration Manager, для которого он создан. Это обязательный параметр.  
 
-###  <a name="package-definition"></a>[Definição de Pacote]  
- Especifica as propriedades do pacote e programa. Fornece as seguintes informações:  
+###  <a name="package-definition"></a>[Package Definition]  
+ Задайте свойства пакета и программы. Он содержит следующие сведения:  
 
--   **Nome**: O nome do pacote, até 50 carateres.  
+-   **Имя**. Имя пакета, не более 50 символов.  
 
--   **Versão** (opcional): A versão do pacote, até 32 carateres.  
+-   **Version** (необязательно). Версия пакета, не более 32 символов.  
 
--   **Ícone** (opcional): O ficheiro que contém o ícone a utilizar para este pacote. Se for especificado, este ícone substitui o ícone de pacote de predefinição na consola do Configuration Manager.
+-   **Icon** (необязательно). Файл, содержащий значок, используемый для этого пакета. Если указано, этот значок заменяет значок пакета по умолчанию в консоли Configuration Manager.
 
--   **Publisher**: O publicador do pacote, até 32 carateres.
+-   **Publisher**. Издатель пакета, не более 32 символов.
 
--   **Idioma**: A versão de idioma do pacote, até 32 carateres.
+-   **Язык**. Языковая версия пакета, не более 32 символов.
 
--   **Comentário** (opcional): Um comentário sobre o pacote, até 127 carateres.
+-   **Comment** (необязательно). Комментарий к пакету, не более 127 символов.
 
--   **ContainsNoFiles**: Esta entrada indica se é ou não uma origem associada ao pacote.  
+-   **ContainsNoFiles**. Этот параметр указывает, связаны ли с пакетом исходные файлы.  
 
--   **Programas**: Os programas que estão definidos para este pacote. Cada nome do programa corresponde a uma secção **[Programa]** neste ficheiro de definição de pacote.  
+-   **Programs**. Программы, определенные для этого пакета. Каждое имя программы соответствует разделу **[Program]** в этом файле определения пакета.  
 
-     Exemplo:  
+     Пример:  
 
      `Programs=Typical, Custom, Uninstall`  
 
--   **MIFFileName**: O nome do ficheiro de formato MIF (Management Information) que contém o estado de pacote, até 50 carateres.  
+-   **MIFFileName**. Имя MIF-файла, содержащего состояние пакета, не более 50 символов.  
 
--   **MIFName**: O nome do pacote (para correspondência MIF de), até 50 carateres.  
+-   **MIFName**. Имя пакета (для соответствия MIF), не более 50 символов.  
 
--   **MIFVersion**: O número de versão do pacote (para correspondência MIF de), até 32 carateres.  
+-   **MIFVersion**. Номер версии пакета (для соответствия MIF), не более 32 символов.  
 
--   **MIFPublisher**: O fabricante de software do pacote (para correspondência MIF de), até 32 carateres.  
+-   **MIFPublisher**. Издатель программного обеспечения пакета (для соответствия MIF), не более 32 символов.  
 
-###  <a name="program"></a>[Programa]  
- Para cada programa que está especificado no **programas** entrada no **[definição de pacote]** secção, o ficheiro de definição do pacote tem de incluir uma secção [programa] que define desse programa. Cada secção Programa fornece as seguintes informações:  
+###  <a name="program"></a>[Program]  
+ Файл определения пакета должен содержать раздел [Program], описывающий каждую программу, указанную в записи **Programs** раздела **[Package Definition]**. Каждый раздел программа предоставляет следующие сведения:  
 
--   **Nome**: O nome do programa, até 50 carateres. Esta entrada deve ser exclusiva num pacote. Este nome é utilizado quando se definem anúncios. Em computadores cliente, o nome do programa é mostrado em **Executar Programas Anunciados**, no Painel de Controlo.  
+-   **Имя**. Имя программы, не более 50 символов. Этой записи должно быть уникальным в пределах пакета. Это имя используется при определении объявлений. На клиентских компьютерах имя программы отображается в **Запуск объявленных программ** панели управления.  
 
--   **Ícone** (opcional): Especifique o ficheiro que contém o ícone a utilizar para este programa. Se for especificado, este ícone substitui o ícone de programa predefinido na consola do Configuration Manager e é apresentado nos computadores cliente quando o programa tenha sido anunciado.
+-   **Icon** (необязательно). Укажите файл, содержащий значок, используемый для этой программы. Если указано, этот значок заменяет значок программы по умолчанию в консоли Configuration Manager и отображается на клиентских компьютерах при объявлении программы.
 
--   **Comentário** (opcional): Um comentário sobre o programa, até 127 carateres.
+-   **Comment** (необязательно). Комментарий к программе, не более 127 символов.
 
--   **Uma linha de comando**: Especifique a linha de comandos do programa, até 127 carateres. O comando é relativo à pasta de origem do pacote.
+-   **CommandLine**. Укажите командную строку программы, не более 127 символов. Командная строка использует путь, заданный относительно исходной папки пакета.
 
--   **StartIn**: Especifique a pasta de trabalho para o programa, até 127 carateres. Esta entrada pode ser um caminho absoluto no computador cliente ou um caminho relativo para a pasta de origem do pacote.
+-   **StartIn**. Укажите рабочую папку для программы, не более 127 символов. Эту папку можно задать, используя либо абсолютный путь на клиентском компьютере, либо относительный путь к исходной папке пакета.
 
--   **Executar**: Especifique o modo de programa no qual o programa é executado. Pode especificar **Minimizado**, **Maximizado** ou **Oculto**. Se esta entrada não é incluída, o programa é executado no modo normal.  
+-   **Run**. Укажите режим запуска программы. Можно указать значение **Minimized**(Свернутый), **Maximized**(Развернутый) или **Hidden**(Скрытый). Если этот параметр не указан, программа запускается в обычном режиме.  
 
--   **AfterRunning**: Especifique qualquer acção especial que ocorre após o programa é concluído com êxito. As opções disponíveis são **SMSRestart**, **ProgramRestart** ou **SMSLogoff**. Se esta entrada não é incluída, o programa não executa uma acção especial.  
+-   **AfterRunning**. Укажите любое специальное действие, выполняемое после успешного завершения работы программы. Доступные параметры: **SMSRestart**, **ProgramRestart**или **SMSLogoff**. Если эта запись отсутствует, программа не выполняет специальное действие.  
 
--   **EstimatedDiskSpace**: Especifique a quantidade de espaço em disco que o programa de software necessita para ser executada no computador. Pode especificá-lo como **Desconhecido** (a predefinição) ou como um número inteiro igual ou superior a zero. Se for especificado um valor, é necessário especificar também as unidades para o valor.  
+-   **EstimatedDiskSpace**. Укажите объем свободного места на диске, необходимого для работы программы на компьютере. Здесь можно задать **Неизвестно** (параметр по умолчанию) или целое число, большее или равное нулю. Если значение указано, необходимо также указать единицы для значения.  
 
-     Exemplo:  
+     Пример:  
 
      `EstimatedDiskSpace=38MB`  
 
--   **EstimatedRunTime**: Especifique a duração estimada (em minutos) que o programa poderá demorar a ser executado num computador cliente. Pode especificá-lo como **Desconhecido** (a predefinição) ou como um número inteiro superior a zero.  
+-   **EstimatedRunTime**. Укажите примерное время (в минутах) работы программы на клиентском компьютере. Здесь можно указать значение **Неизвестно** (значение по умолчанию) или целое число больше нуля.  
 
-     Exemplo:  
+     Пример:  
 
      `EstimatedRunTime=25`  
 
--   **SupportedClients**: Especifica os processadores e sistemas operativos onde este programa é executado. As plataformas especificadas devem ser separadas por vírgulas. Se esta entrada não é incluída, a verificação de plataforma suportada está desativada para este programa.  
+-   **SupportedClients**. Укажите процессоры и операционные системы, на которых будет выполняться программа. Указанный платформы должны быть разделены запятыми. Если этот элемент не указан, проверка поддерживаемых платформ отключена для данной программы.  
 
--   **SupportedClientMinVersionX**, **SupportedClientMaxVersionX**: Especifique o intervalo de início para terminar para números de versão para os sistemas operativos que são especificados no **SupportedClients** entrada.  
+-   **SupportedClientMinVersionX**, **SupportedClientMaxVersionX**. Задайте начало и конец диапазона номеров версий операционных систем, указанных в записи **SupportedClients**.  
 
-     Exemplo:  
+     Пример:  
 
     ```  
     SupportedClients=Win NT (I386),Win NT (IA64),Win NT (x64)  
@@ -388,30 +385,29 @@ Pacotes podem utilizar algumas novas funcionalidades do Configuration Manager, i
     Win NT (x64) MaxVersion4=6.00.9999.9999   
     ```  
 
--   **AdditionalProgramRequirements** (opcional): Forneça quaisquer informações ou outros requisitos para computadores cliente, até 127 carateres.
+-   **AdditionalProgramRequirements** (необязательно). Введите текст длиной до 127 символов, который содержит любые другие сведения или требования для клиентских компьютеров.
 
--   **CanRunWhen**: Especifique o estado de utilizador que o programa necessita para ser executada no computador cliente. Os valores disponíveis são **UserLoggedOn**, **NoUserLoggedOn** ou **AnyUserStatus**. O valor predefinido é **UserLoggedOn**.  
+-   **CanRunWhen**. Укажите состояние пользователя, при котором программа может выполняться на клиентском компьютере. Доступные значения: **UserLoggedOn**, **NoUserLoggedOn**и **AnyUserStatus**. Значение по умолчанию — **UserLoggedOn**.  
 
--   **UserInputRequired**: Especifique se o programa necessite de interação com o utilizador. Os valores disponíveis são **Verdadeiro** ou **Falso**. O valor predefinido é **Verdadeiro**. Esta entrada é definida como **Falso** se **CanRunWhen** não estiver definido como **UserLoggedOn**.  
+-   **UserInputRequired**. Укажите, требуется ли программе взаимодействие с пользователем. Доступные значения: **True** и **False**. Значение по умолчанию — **True**. Если для параметра **CanRunWhen** не задано значение **UserLoggedOn** , для этой записи устанавливается значение **False**.  
 
--   **AdminRightsRequired**: Especifique se o programa necessita de credenciais administrativas no computador para ser executada. Os valores disponíveis são **Verdadeiro** ou **Falso**. O valor predefinido é **Falso**. Esta entrada é definida como **Verdadeiro** se **CanRunWhen** não estiver definido como **UserLoggedOn**.  
+-   **AdminRightsRequired**. Укажите, требуются ли для выполнения программы на компьютере административные учетные данные. Доступные значения: **True** и **False**. Значение по умолчанию — **False**. Если для параметра **CanRunWhen** не задано значение **UserLoggedOn** , для этой записи устанавливается значение **True**.  
 
--   **UseInstallAccount**: Especifique se o programa utiliza a conta de instalação do Software de cliente quando este é executado em computadores cliente. Por predefinição, este valor é **Falso**. Este valor é também **Falso** se **CanRunWhen** estiver definido como **UserLoggedOn**.  
+-   **UseInstallAccount**. Укажите, использует ли программа учетную запись установки программного обеспечения клиента при выполнении на клиентских компьютерах. По умолчанию используется значение **False**. Этот параметр также имеет значение **False** , если для параметра **CanRunWhen** задано значение **UserLoggedOn**.  
 
--   **DriveLetterConnection**: Especifique se o programa requer uma ligação de letra de unidade para os ficheiros do pacote que se encontram no ponto de distribuição. Pode especificar **Verdadeiro** ou **Falso**. O valor predefinido é **falso**, que permite que o programa utilizar uma ligação de convenção de Nomenclatura Universal (UNC). Quando este valor está definido como **verdadeiro**, a seguinte letra de unidade disponível é utilizada (começando z:) e prosseguir para trás).  
+-   **DriveLetterConnection**. Укажите, требуется ли программе подключение определенного диска для доступа к файлам пакета в точке распространения. Можно указать значение **True** или **False**. По умолчанию используется значение **False**, позволяющее программе использовать подключение на основе UNC. Если для этого параметра установлено значение **True**, будет использована следующая доступная буква диска (начиная с Z: и далее в обратном порядке).  
 
--   **SpecifyDrive** (opcional): Especifique uma letra de unidade que o programa necessário para estabelecer ligação para os ficheiros do pacote no ponto de distribuição. Esta especificação força a utilização da letra de unidade especificada para ligações de cliente para pontos de distribuição.
+-   **SpecifyDrive** (необязательно). Укажите букву диска, необходимого программе для доступа к файлам пакета в точке распространения. Эта спецификация принудительное использование указанная буква диска для подключения клиентов к точкам распространения.
 
--   **ReconnectDriveAtLogon**: Especifique se o computador voltar a ligar ao ponto de distribuição quando o utilizador inicia sessão. Os valores disponíveis são **Verdadeiro** ou **Falso**. O valor predefinido é **Falso**.  
+-   **ReconnectDriveAtLogon**. Укажите, выполняется ли повторное подключение компьютера к точке распространения при входе пользователя в систему. Доступные значения: **True** и **False**. Значение по умолчанию — **False**.  
 
--   **DependentProgram**: Especifique um programa deste pacote que tem de executar antes do programa atual. Esta entrada utiliza o formato **DependentProgram**=<**NomedoPrograma>**, em que **<NomedoPrograma\>** é a entrada **Nome** do programa no ficheiro de definição do pacote. Se não houver programas dependentes, deixe esta entrada em branco.  
+-   **DependentProgram**. Укажите программу в данном пакете, которая должна быть запущена перед текущей программой. В этой записи используется формат **DependentProgram**=<**ProgramName>**, где **<ProgramName>\>** — это запись **Name** для программы в файле определения пакета. Если зависимые программы отсутствуют, оставьте поле пустым.  
 
-     Exemplo:  
+     Пример:  
 
-     DependentProgram=Admin  
-    DependentProgram=  
+     DependentProgram = Admin  
+    DependentProgram =  
 
--   **Atribuição**: Especifique como o programa é atribuído aos utilizadores. Este valor pode ser: **FirstUser** (apenas o primeiro utilizador que inicia a sessão para o cliente executa o programa) ou **EveryUser** (todos os utilizadores que inicia sessão executarem o programa). Quando **CanRunWhen** não está definido como **UserLoggedOn**, esta entrada é definida como **FirstUser**.  
+-   **Assignment**. Укажите способ назначения программы пользователям. Этот параметр может иметь значение **FirstUser** (только первый пользователь, вошедший в систему клиента, может запустить программу) или **EveryUser** (программу может запустить любой пользователь, вошедший в систему). Если для параметра **CanRunWhen** не установлено значение **UserLoggedOn**, для данной записи устанавливается значение **FirstUser**.  
 
--   **Desativado**: Especifique se este programa pode ser publicitado aos clientes. Os valores disponíveis são **Verdadeiro** ou **Falso**. O valor predefinido é **Falso**.  
-
+-   **Disabled**. Укажите, может ли эта программа объявляться клиентам. Доступные значения: **True** и **False**. Значение по умолчанию — **False**.  

@@ -1,6 +1,6 @@
 ---
-title: Inscrever dispositivos | Microsoft Docs
-description: "Saiba mais sobre métodos para inscrever dispositivos para gestão de dispositivos móveis no local no System Center Configuration Manager."
+title: "Регистрация устройств | Документация Майкрософт"
+description: "Ознакомьтесь со способами регистрации устройств для локального управления мобильными устройствами в System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,29 +16,29 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 4abaef35969ef1a5340ae8ca8aa5699cd3942642
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enroll-devices-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Inscrever dispositivos para Gestão de Dispositivos Móveis no Local do System Center Configuration Manager
+# <a name="enroll-devices-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Регистрация устройств для локального управления мобильными устройствами в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Para gerir computadores e dispositivos com gestão de dispositivos móveis no local do System Center Configuration Manager, os dispositivos têm de estar inscritos para que o Configuration Manager podem comunicar com os dispositivos para tarefas de gestão. Configuration Manager fornece dois métodos de inscrição de dispositivos:  
+Для управления компьютерами и устройствами с помощью функции локального управления мобильными устройствами System Center Configuration Manager устройства должны быть зарегистрированы, чтобы среда Configuration Manager могла связываться с устройствами для выполнения задач управления. Configuration Manager предоставляет два метода регистрации устройств.  
 
--   **Inscrição de utilizadores** - Neste método, os utilizadores iniciam o processo de inscrição nos respetivos dispositivos. Para inscrição do utilizador seja concluída com êxito, o dispositivo tem de ter um certificado de raiz fidedigna instalado e o utilizador tem de ser aprovisionado para inscrição pelo Configuration Manager.  Para inscrever o dispositivo, o utilizador fornece simplesmente as credenciais de trabalho e o dispositivo é inscrito para ser gerido.  
+-   **Регистрация пользователем** : в этом методе пользователь инициирует процесс регистрации на устройствах. Для успешной регистрации пользователем на устройстве должен быть установлен доверенный корневой сертификат, а сам пользователь — быть подготовлен к регистрации в Configuration Manager.  Чтобы зарегистрировать устройство, пользователь просто предоставляет рабочие учетные данные.  
 
-     Para obter mais informações, consulte [como os utilizadores inscrevem dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md)  
+     Дополнительные сведения см. в разделе [Регистрация устройств пользователями с помощью локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
 
--   **Inscrição em massa** - Neste método, o utilizador do dispositivo não tem de iniciar a inscrição. Em vez disso, um pacote de inscrição em volume criados no Configuration Manager e é, em seguida, colocado no dispositivo e aberto. Quando aberto, o pacote fornece as informações necessárias para inscrever o dispositivo.  
+-   **Массовая регистрация** : в этом методе пользователю устройства не требуется инициировать процесс регистрации. Вместо этого в Configuration Manager создается пакет массовой регистрации, который затем передается на устройство и открывается. При этом пакет предоставляет сведения, необходимые для регистрации устройства.  
 
-     Para obter mais informações, consulte [como a inscrição em massa de dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/deploy-use/bulk-enroll-devices-on-premises-mdm.md)  
+     Дополнительные сведения см. в разделе [Массовая регистрация устройств с помощью локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/deploy-use/bulk-enroll-devices-on-premises-mdm.md).  
 
  > [!NOTE]  
->  O ramo atual do Configuration Manager suporta a inscrição na gestão de dispositivos móveis no local para dispositivos que executam os sistemas operativos seguintes:  
+>  Текущая ветвь Configuration Manager поддерживает регистрацию локального управления мобильными устройствами для устройств со следующими операционными системами:  
 >   
->  -   Windows 10 Enterprise  
-> -   Windows 10 Pro  
-> -   Windows 10 Team 
+>  -   Windows 10 Корпоративная  
+> -   Windows 10 Pro  
+> -   Windows 10 для совместной работы 
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Enterprise   
+> -   Windows 10 Mobile Корпоративная   

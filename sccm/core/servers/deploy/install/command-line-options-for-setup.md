@@ -1,6 +1,6 @@
 ---
-title: "Opções da linha de comandos de configuração | Microsoft Docs"
-description: "Utilize as informações neste artigo para configurar scripts ou para instalar o System Center Configuration Manager a partir de uma linha de comandos."
+title: "Параметры командной строки программы установки | Документация Майкрософт"
+description: "Используйте сведения в этой статье для настройки скриптов или установки System Center Configuration Manager из командной строки."
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -16,1262 +16,1262 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 04fe7b3e674287c4255563ab4a308e54d0b6c3aa
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Opções da linha de comandos para a configuração no System Center Configuration Manager
+# <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Параметры командной строки программы установки для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
- Utilize as seguintes informações para configurar scripts ou para instalar o System Center Configuration Manager a partir de uma linha de comandos.  
+ Используйте приведенные ниже сведения для настройки скриптов или установки System Center Configuration Manager из командной строки.  
 
-##  <a name="bkmk_setup"></a>Opções da linha de comandos para configuração  
- **/ DESINSTALAR**  
- Desinstala o site. Tem de executar o programa de configuração do computador do servidor do site.  
+##  <a name="bkmk_setup"></a> Параметры командной строки для программы установки  
+ **/DEINSTALL**  
+ Удаление сайта. Необходимо запустить программу установки с компьютера сервера сайта.  
 
- **/ DONTSTARTSITECOMP**  
- Instala um site, mas impede que o serviço Gestor de componentes do Site a iniciar. Até que o serviço do Gestor de componentes do Site é iniciado, o site não está ativo. O Gestor de componentes do Site é responsável para instalar e iniciar o serviço SMS_Executive e para os processos adicionais no site. Depois de concluída a instalação do site, quando iniciar o serviço Gestor de componentes do Site, instala o serviço SMS_Executive e os processos adicionais necessários para o site funcionar.  
+ **/DONTSTARTSITECOMP**  
+ Установка сайта без запуска службы диспетчера компонентов сайта. Пока служба Component Manager сайта не будет запущена, сайт не станет активен. Диспетчер компонентов сайта обеспечивает установку и запуск службы SMS_Executive, а также дополнительных процессов на сайте. После завершения установки сайта при запуске службы диспетчера компонентов сайта она устанавливает службу SMS_Executive и дополнительные процессы, необходимые для работы сайта.  
 
- **/ OCULTO**  
- Oculta a interface de utilizador durante a configuração. Utilize esta opção apenas em conjunto com o **/SCRIPT** opção. O ficheiro de script automático tem de fornecer todas as opções necessárias ou programa de configuração falha.  
+ **/HIDDEN**  
+ Скрывает пользовательский интерфейс во время установки. Используйте этот параметр только в сочетании с параметром **/SCRIPT**. Файл скрипта автоматической установки должен содержать все необходимые параметры, иначе установка будет невозможна.  
 
- **/ NOUSERINPUT**  
- Desativa a intervenção do utilizador durante a configuração, mas apresenta o Assistente de configuração. Utilize esta opção apenas em conjunto com o **/SCRIPT** opção. O ficheiro de script automático tem de fornecer todas as opções necessárias ou programa de configuração falha.  
+ **/NOUSERINPUT**  
+ Отключает возможность ввода данных пользователем при установке, но отображает мастер установки. Используйте этот параметр только в сочетании с параметром **/SCRIPT**. Файл скрипта автоматической установки должен содержать все необходимые параметры, иначе установка будет невозможна.  
 
  **/RESETSITE**  
- Efetua um site de reposição que repõe as contas de serviço e da base de dados para o site. Tem de executar a configuração a partir  **<* caminho de instalação do Configuration Manager*> \BIN\X64** no servidor do site. Para obter mais informações sobre a reposição do site, consulte o [executar uma reposição do site](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) secção [modificar a infraestrutura do System Center Configuration Manager](../../../../core/servers/manage/modify-your-infrastructure.md).  
+ Выполняет сброс сайта: будет сброшена база данных и учетные записи службы сайта. Необходимо запустить программу установки из папки **<*путь_установки_Configuration_Manager*>\BIN\X64** на сервере сайта. Дополнительные сведения о сбросе сайта см. в подразделе [Выполнение сброса параметров сайта](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) раздела [Изменение инфраструктуры System Center Configuration Manager](../../../../core/servers/manage/modify-your-infrastructure.md).  
 
- **/TESTDBUPGRADE <*nome da instância*>\\<*nome de base de dados*>**  
- Efetua um teste numa cópia de segurança da base de dados do site para se certificar de que a base de dados é capaz de uma atualização. Tem de fornecer o nome da instância e o nome de base de dados para a base de dados do site. Se especificar apenas o nome de base de dados, a configuração utiliza o nome da instância predefinida.  
+ **/TESTDBUPGRADE <*имя_экземпляра*>\\<*имя_базы_данных*>**  
+ Выполняет проверку резервной копии базы данных сайта, чтобы убедиться в том, что база данных поддерживает обновление. Необходимо указать имя экземпляра и имя базы данных для базы данных сайта. Если указать только имя базы данных, программа установки будет использовать имя экземпляра по умолчанию.  
 
 > [!IMPORTANT]  
->  Não execute esta opção da linha de comandos na sua base de dados do site de produção. Executar esta opção da linha de comandos na sua base de dados do site de produção atualiza a base de dados do site e pode fazer o seu site inoperáveis.  
+>  Не используйте этот параметр командной строки для базы данных рабочего сайта. Это приведет к обновлению базы данных сайта, из-за чего сайт может перестать работать.  
 
- **/ ATUALIZAR**  
- Executa uma atualização automática de um site. Quando utiliza **/ATUALIZAR**, tem de especificar a chave de produto, incluindo os traços (-). Além disso, tem de especificar o caminho para os ficheiros de pré-requisitos do programa de configuração anteriormente transferidos.  
+ **/UPGRADE**  
+ Запускает автоматическое обновление сайта. При использовании параметра **/UPGRADE** необходимо указать ключ продукта, включая дефисы (-). Кроме того, нужно указать путь к ранее скачанным файлам необходимых компонентов установки.  
 
- Exemplo: `setupwpf.exe /UPGRADE xxxxx-xxxxx-xxxxx-xxxxx-xxxxx <path to external component files>`  
+ Пример: `setupwpf.exe /UPGRADE xxxxx-xxxxx-xxxxx-xxxxx-xxxxx <path to external component files>`  
 
- Para obter mais informações sobre os ficheiros de pré-requisitos de configuração, consulte [dispositivo de transferência da configuração](setup-downloader.md).  
+ Дополнительные сведения о файлах необходимых компонентов установки см. в разделе [Загрузчик программы установки](setup-downloader.md).  
 
- **/SCRIPT <*caminho do script de configuração*>**  
- Efetua instalações automáticas. Um ficheiro de inicialização da configuração é necessário quando utiliza o **/SCRIPT** opção. Para obter mais informações sobre como executar a configuração automática, consulte [instalar sites utilizando uma linha de comandos](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).  
+ **/SCRIPT <*путь к скрипту установки*>**  
+ Выполняет автоматическую установку. При использовании параметра **/SCRIPT** требуется файл инициализации установки. Дополнительные сведения об автоматическом запуске программы установки см. в разделе [Установка сайтов с помощью командной строки](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).  
 
- **/ SDKINST <*FQDN do fornecedor de SMS*>**  
- Instala o fornecedor de SMS no computador especificado. Tem de fornecer o nome de domínio completamente qualificado (FQDN) para o computador do fornecedor de SMS. Para mais informações sobre o fornecedor de SMS, consulte [planear o fornecedor de SMS para o System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+ **/SDKINST <*полное_доменное_имя_поставщика_SMS*>**  
+ Устанавливает поставщик SMS на указанный компьютер. Необходимо указать полное доменное имя компьютера поставщика SMS. Дополнительные сведения о поставщике SMS см. в статье [Планирование использования поставщика SMS для System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
- **/ SDKDEINST <*FQDN do fornecedor de SMS*>**  
- Desinstala o fornecedor de SMS no computador especificado. Tem de fornecer o FQDN para o computador do fornecedor de SMS.  
+ **/SDKDEINST <*полное_доменное_имя_поставщика_SMS*>**  
+ Удаляет поставщик SMS с указанного компьютера. Необходимо указать полное доменное имя компьютера поставщика SMS.  
 
- **/MANAGELANGS <*caminho do script de idioma*>**  
- Gere os idiomas que estão instalados num site instalado anteriormente. Para utilizar esta opção, tem de executar a configuração a partir  **<* caminho de instalação do Configuration Manager*> \BIN\X64** no servidor do site e fornecer a localização para o ficheiro de script de idioma que contém as definições de idioma. Para obter mais informações sobre as opções de idioma disponíveis no ficheiro de script de configuração de idioma, consulte [opções da linha de comandos para gerir idiomas](#bkmk_Lang) neste tópico.  
+ **/MANAGELANGS <*путь к скрипту с языковыми параметрами*>**  
+ Управляет языками, установленными на ранее установленном сайте. Чтобы использовать этот параметр, необходимо запустить программу установки из папки **<*путь установки Configuration Manager*>\BIN\X64** на сервере сайта и указать расположение файла скрипта с языковыми параметрами. Дополнительные сведения о языковых параметрах, доступных в файле скрипта установки языков, см. в подразделе [Параметры командной строки для управления языками](#bkmk_Lang) этого раздела.  
 
-##  <a name="bkmk_Lang"></a>Opções da linha de comandos para gerir idiomas  
- **Identificação**  
+##  <a name="bkmk_Lang"></a> Параметры командной строки для управления языками  
+ **Identification**  
 
--   **Nome da chave:** Ação  
+-   **Имя ключа:** Action  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** ManageLanguages  
+    -   **Значения:** ManageLanguages  
 
-    -   **Detalhes:** Gere o servidor, o cliente e o suporte de idiomas de cliente móvel num site.  
+    -   **Сведения:** управляет поддержкой языков серверов, клиентов и мобильных клиентов на сайте.  
 
-**Opções**  
+**Параметры**  
 
--   **Nome da chave:** AddServerLanguages  
+-   **Имя ключа:** AddServerLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Especifica os idiomas de servidor que estarão disponíveis para a consola do Configuration Manager, relatórios e objetos do Configuration Manager. O inglês está disponível por predefinição.  
+    -   **Сведения:** указывает языки сервера, которые будут доступны для консоли Configuration Manager, отчетов и объектов Configuration Manager. По умолчанию доступен английский язык.  
 
--   **Nome da chave:** AddClientLanguages  
+-   **Имя ключа:** AddClientLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Especifica os idiomas que estarão disponíveis para os computadores cliente. O inglês está disponível por predefinição.  
+    -   **Сведения:** задает языки, которые будут доступны для клиентских компьютеров. По умолчанию доступен английский язык.  
 
--   **Nome da chave:** DeleteServerLanguages  
+-   **Имя ключа:** DeleteServerLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Especifica os idiomas a remover e que já não estarão disponíveis para a consola do Configuration Manager, relatórios e objetos do Configuration Manager. O inglês está disponível por predefinição e não pode ser removido.  
+    -   **Сведения:** указывает языки сервера, которые будут удалены и больше не будут доступны для консоли Configuration Manager, отчетов и объектов Configuration Manager. По умолчанию доступен английский язык; удалить его нельзя.  
 
--   **Nome da chave:** DeleteClientLanguages  
+-   **Имя ключа:** DeleteClientLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Especifica os idiomas a remover e que já não estarão disponíveis para computadores cliente. O inglês está disponível por predefinição e não pode ser removido.  
+    -   **Сведения:** задает языки, которые будут удалены и больше не будут доступны для клиентских компьютеров. По умолчанию доступен английский язык; удалить его нельзя.  
 
--   **Nome da chave:** MobileDeviceLanguage  
+-   **Имя ключа:** MobileDeviceLanguage  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se estão instalados os idiomas de cliente do dispositivo móvel.  
+    -   **Сведения:** определяет, выполняется ли установка языков мобильных устройств клиентов.  
 
--   **Nome da chave:** PrerequisiteComp  
+-   **Имя ключа:** PrerequisiteComp  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = transferência  
+         0 = скачать  
 
-         1 = Already transferido  
+         1 = уже скачаны  
 
-    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se utilizar um valor de **0**, a configuração transfere os ficheiros.  
+    -   **Сведения:** указывает, скачаны ли уже необходимые файлы для программы установки. Например, если установить значение **0**, программа установки скачивает эти файлы.  
 
--   **Nome da chave:** PrerequisitePath  
+-   **Имя ключа:** PrerequisitePath  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
+    -   **Значения:** <*путь_к_необходимым_файлам_программы_установки*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Сведения:** указывает путь к необходимым файлам для программы установки. В зависимости от значения параметра **PrerequisiteComp** , программа установки использует этот путь, чтобы сохранить загруженные файлы или использовать ранее загруженные файлы.  
 
-##  <a name="bkmk_Unattended"></a>Chaves de ficheiro de script de configuração automática  
- Utilize as secções seguintes para ajudar a criar o script para a configuração automática. As listas mostram as chaves de script de configuração disponíveis, os valores correspondentes, se são necessárias, que tipo de instalação são utilizadas e uma descrição breve da chave.  
+##  <a name="bkmk_Unattended"></a> Ключи файла сценария автоматической установки  
+ В следующих разделах содержатся сведения о создании скрипта для автоматической установки. В списках перечисляются доступные ключи скриптов установки, их значения, указывается, являются ли ключи обязательными и для какого типа установки они предназначены. Также приводится краткое описание каждого ключа.  
 
-### <a name="unattended-install-for-a-central-administration-site"></a>Instalação automática de site de administração central  
- Utilize os detalhes seguintes para instalar um site de administração central, utilizando um ficheiro de script de configuração automática.  
+### <a name="unattended-install-for-a-central-administration-site"></a>Автоматическая установка сайта центра администрирования  
+ Используйте сведения, приведенные в ниже, чтобы установить сайт центра администрирования с помощью файла сценария автоматической установки.  
 
-**Identificação**  
+**Identification**  
 
--   **Nome da chave:** Ação  
+-   **Имя ключа:** Action  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** InstallCAS  
+    -   **Значения:** InstallCAS  
 
-    -   **Detalhes:** Instala um site de administração central.  
+    -   **Сведения:** устанавливает сайт центра администрирования.  
 
--   **Nome da chave:** CDLatest  
+-   **Имя ключа:** CDLatest  
 
-    -   **Necessário:** Sim – apenas quando utilizar suportes de dados de CD. Pasta mais recente.    
+    -   **Обязательный:** да (только при использовании носителя из папки CD.Latest)    
 
-    -   **Valores:** 1 qualquer valor diferente de 1 é considerado não estar a utilizar CD. Mais recente.
+    -   **Значения:** 1 (любые другие значения будут обозначать, что CD.Latest не используется)
 
-    -   **Detalhes:** O script tem de incluir esta chave e valor quando executar a configuração do suporte de dados por um CD. Pasta mais recente para fins de instalar um site de administração central ou primário ou ao recuperar um site primário ou de administração central. Este valor informa o programa de configuração que suporte de dados de formulário de CD. Está a ser utilizada a versão mais recente.
+    -   **Сведения:** при запуске программы установки из носителя в папке CD.Latest сценарий должен содержать этот ключ и значение. Это необходимо как для установки первичного сайта и сайта центра администрирования, так и для восстановления этих сайтов. Это значение передает в программу установки сведения о том, что используется носитель из папки CD.Latest.
 
-**Opções**  
+**Параметры**  
 
--   **Nome da chave:** ProductID  
+-   **Имя ключа:** ProductID  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
+    -   **Значения:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*>  *или* Eval  
 
-    -   **Detalhes:** Especifica a chave de produto de instalação do Configuration Manager, incluindo os traços. Introduza **Eval** para instalar a versão de avaliação do Configuration Manager.  
+    -   **Сведения:** установочный ключ продукта Configuration Manager, включая дефисы. Введите **Eval**, чтобы установить ознакомительную версию Configuration Manager.  
 
--   **Nome da chave:** SiteCode  
+-   **Имя ключа:** SiteCode  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*código do Site*>  
+    -   **Значения:** <*код_сайта*>  
 
-    -   **Detalhes:** Especifica três carateres alfanuméricos que identificam o site na sua hierarquia.  
+    -   **Сведения:** трехзначный буквенно-цифровой код, уникально идентифицирующий сайт в иерархии.  
 
--   **Nome da chave:** Nome do site  
+-   **Имя ключа:** имя сайта  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*nome do Site*>  
+    -   **Значения:** <*имя_сайта*>  
 
-    -   **Detalhes:** Especifica o nome para este site.  
+    -   **Сведения:** указывает имя для этого сайта.  
 
--   **Nome da chave:** SMSInstallDir  
+-   **Имя ключа:** SMSInstallDir  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*caminho de instalação do Configuration Manager*>  
+    -   **Значения:** <*путь_установки_Configuration_Manager*>  
 
-    -   **Detalhes:** Especifica a pasta de instalação para os ficheiros de programa do Configuration Manager.  
+    -   **Сведения:** указывает папку для файлов программы Configuration Manager.  
 
--   **Nome da chave:** SDKServer  
+-   **Имя ключа:** SDKServer  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*FQDN do fornecedor de SMS*>  
+    -   **Значения:** <*полное_доменное_имя_поставщика_SMS*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que alojará o fornecedor de SMS. Pode configurar Fornecedores de SMS adicionais para o site após a instalação inicial.  
+    -   **Сведения:** полное доменное имя сервера, на котором будет размещен поставщик SMS. Можно настроить дополнительные поставщики SMS для сайта после первоначальной установки.  
 
--   **Nome da chave:** PrerequisiteComp  
+-   **Имя ключа:** PrerequisiteComp  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = transferência  
+         0 = скачать  
 
-         1 = Already transferido  
+         1 = уже скачаны  
 
-    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se utilizar um valor de **0**, a configuração irá transferir os ficheiros.  
+    -   **Сведения:** указывает, скачаны ли уже необходимые файлы для программы установки. Например, если установить значение **0**, то программа установки скачает эти файлы.  
 
--   **Nome da chave:** PrerequisitePath  
+-   **Имя ключа:** PrerequisitePath  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
+    -   **Значения:** <*путь_к_необходимым_файлам_программы_установки*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Сведения:** указывает путь к необходимым файлам для программы установки. В зависимости от значения параметра **PrerequisiteComp** , программа установки использует этот путь, чтобы сохранить загруженные файлы или использовать ранее загруженные файлы.  
 
--   **Nome da chave:** AdminConsole  
+-   **Имя ключа:** AdminConsole  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager.  
+    -   **Сведения:** указывает, следует ли устанавливать консоль Configuration Manager.  
 
--   **Nome da chave:** JoinCEIP  
+-   **Имя ключа:** JoinCEIP  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não aderir  
+         0 = не принимать участие  
 
-         1 = associação  
+         1 = принять участие  
 
-    -   **Detalhes:** Especifica se pretende associar o programa de melhoramento da experiência do cliente (PMEC).  
+    -   **Сведения:** указывает, следует ли принимать участие в программе улучшения качества программного обеспечения (CEIP).  
 
--   **Nome da chave:** AddServerLanguages  
+-   **Имя ключа:** AddServerLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Especifica os idiomas de servidor que estarão disponíveis para a consola do Configuration Manager, relatórios e objetos do Configuration Manager. O inglês está disponível por predefinição.  
+    -   **Сведения:** указывает языки сервера, которые будут доступны для консоли Configuration Manager, отчетов и объектов Configuration Manager. По умолчанию доступен английский язык.  
 
--   **Nome da chave:** AddClientLanguages  
+-   **Имя ключа:** AddClientLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Especifica os idiomas que estarão disponíveis para os computadores cliente. O inglês está disponível por predefinição.  
+    -   **Сведения:** задает языки, которые будут доступны для клиентских компьютеров. По умолчанию доступен английский язык.  
 
--   **Nome da chave:** DeleteServerLanguages  
+-   **Имя ключа:** DeleteServerLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Modifica um site depois de ser instalado. Especifica os idiomas a remover e que já não estarão disponíveis para a consola do Configuration Manager, relatórios e objetos do Configuration Manager. O inglês está disponível por predefinição e não pode ser removido.  
+    -   **Сведения:** изменяет сайт после того, как он был установлен. Указывает языки сервера, которые будут удалены и больше не будут доступны для консоли Configuration Manager, отчетов и объектов Configuration Manager. По умолчанию доступен английский язык; удалить его нельзя.  
 
--   **Nome da chave:** DeleteClientLanguages  
+-   **Имя ключа:** DeleteClientLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Modifica um site depois de ser instalado. Especifica os idiomas a remover e que já não estarão disponíveis para computadores cliente. O inglês está disponível por predefinição e não pode ser removido.  
+    -   **Сведения:** изменяет сайт после того, как он был установлен. Задает языки, которые будут удалены и больше не будут доступны для клиентских компьютеров. По умолчанию доступен английский язык; удалить его нельзя.  
 
--   **Nome da chave:** MobileDeviceLanguage  
+-   **Имя ключа:** MobileDeviceLanguage  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se estão instalados os idiomas de cliente do dispositivo móvel.  
+    -   **Сведения:** определяет, выполняется ли установка языков мобильных устройств клиентов.  
 
 **SQLConfigOptions**  
 
--   **Nome da chave:** SQLServerName  
+-   **Имя ключа:** SQLServerName  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*nome do SQL Server*>  
+    -   **Значения:** <*имя_сервера_SQL*>  
 
-    -   **Detalhes:** Especifica o nome do servidor ou uma instância em cluster que executa o SQL Server e que irá alojar a base de dados do site.  
+    -   **Сведения:** задает имя сервера или кластеризованного экземпляра с SQL Server, в котором будет размещена база данных сайта.  
 
--   **Nome da chave:** DatabaseName  
+-   **Имя ключа:** DatabaseName  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*nome de base de dados do Site*> ou <*nome da instância*>\\<*nome de base de dados do Site*>  
+    -   **Значения:** <*имя_базы_данных_сайта*> или <*имя_экземпляра*>\\<*имя_базы_данных_сайта*>  
 
-    -   **Detalhes:** Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site de administração central.  
+    -   **Сведения:** указывает имя базы данных SQL Server, создаваемой или используемой для установки базы данных сайта центра администрирования.  
 
         > [!IMPORTANT]  
-        >  Se não utilizar a instância predefinida, terá de especificar o nome da instância e o nome da base de dados do site.  
+        >  Необходимо указать имя экземпляра и имя базы данных сайта, если не используется экземпляр по умолчанию.  
 
--   **Nome da chave:** SQLSSBPort  
+-   **Имя ключа:** SQLSSBPort  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*número de porta SSB*>  
+    -   **Значения:** <*номер_порта_SSB*>  
 
-    -   **Detalhes:** Especifica a porta do SQL Server Service Broker (SSB) que utiliza o SQL Server. SSB normalmente está configurado para utilizar a porta TCP 4022, mas pode utilizar uma porta diferente.  
+    -   **Сведения:** задает порт SQL Server Service Broker (SSB), используемый сервером SQL Server. Обычно для SSB используется TCP-порт 4022, но можно настроить и другой порт.  
 
--   **Nome da chave:** SQLDataFilePath  
+-   **Имя ключа:** SQLDataFilePath  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho do ficheiro. mdb de base de dados*>  
+    -   **Значения:** <*путь_к_MDB-файлу_базы_данных*>  
 
-    -   **Detalhes:** Especifica uma localização alternativa para criar o ficheiro. mdb de base de dados.  
+    -   **Сведения:** задает альтернативное расположение для создания MDB-файла базы данных.  
 
--   **Nome da chave:** SQLLogFilePath  
+-   **Имя ключа:** SQLLogFilePath  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho do ficheiro. ldf de base de dados*>  
+    -   **Значения:** <*путь_к_LDF-файлу_базы_данных*>  
 
-    -   **Detalhes:** Especifica uma localização alternativa para criar o ficheiro. ldf de base de dados.  
+    -   **Сведения:** задает альтернативное расположение для создания LDF-файла базы данных.  
 
 **CloudConnectorOptions**  
 
--   **Nome da chave:** CloudConnector  
+-   **Имя ключа:** CloudConnector  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se pretende instalar um ponto de ligação de serviço neste site. Porque o ponto de ligação de serviço só pode ser instalado no site de nível superior da hierarquia, este valor tem de ser **0** para um site primário subordinado.  
+    -   **Сведения:** указывает, следует ли установить на этом сайте точку подключения службы. Так как точка подключения службы может быть установлена только на сайте верхнего уровня иерархии, это значение должно быть равно **0** для подчиненного первичного сайта.  
 
--   **Nome da chave:** CloudConnectorServer  
+-   **Имя ключа:** CloudConnectorServer  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** <*o servidor de ponto de ligação de serviço FQDN*>  
+    -   **Значения:** <*полное_доменное_имя_сервера_точки_подключения_службы*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que irá alojar a função de sistema de sites de ponto de ligação de serviço.  
+    -   **Сведения:** указывает полное доменное имя сервера, на котором будет размещена роль системы сайта точки подключения службы.  
 
--   **Nome da chave:** UseProxy  
+-   **Имя ключа:** UseProxy  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se o ponto de ligação de serviço irá utilizar um servidor proxy.  
+    -   **Сведения:** указывает, будет ли точка подключения службы использовать прокси-сервер.  
 
--   **Nome da chave:** ProxyName  
+-   **Имя ключа:** ProxyName  
 
-    -   **Necessário:** Necessário quando **UseProxy** é igual a 1  
+    -   **Обязательный:** требуется, если значение **UseProxy** равно 1.  
 
-    -   **Valores:** <*FQDN do servidor Proxy*>  
+    -   **Значения:** <*полное_доменное_имя_прокси-сервера*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor proxy que será utilizado pela função de sistema de sites de ponto de ligação de serviço.  
+    -   **Сведения:** указывает полное доменное имя прокси-сервера, который будет использоваться ролью системы сайта точки подключения службы.  
 
--   **Nome da chave:** /Proxyport  
+-   **Имя ключа:** ProxyPort  
 
-    -   **Necessário:** Necessário quando **UseProxy** é igual a 1  
+    -   **Обязательный:** требуется, если значение **UseProxy** равно 1.  
 
-    -   **Valores:** <*número de porta*>  
+    -   **Значение:** <*номер_порта*>  
 
-    -   **Detalhes:** Especifica o número de porta a utilizar para a porta de proxy.  
+    -   **Сведения:** указывает номер порта, который будет использоваться для прокси.  
 
-### <a name="unattended-install-for-a-primary-site"></a>Instalação automática de um site primário  
-Utilize os detalhes seguintes para instalar um site primário, utilizando um ficheiro de script de configuração automática.  
+### <a name="unattended-install-for-a-primary-site"></a>Автоматическая установка первичного сайта  
+С помощью приведенных ниже сведений установите первичный сайт с помощью файла сценария автоматической установки.  
 
-**Identificação**  
+**Identification**  
 
--   **Nome da chave:** Ação  
+-   **Имя ключа:** Action  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** InstallPrimarySite  
+    -   **Значения:** установка_первичиного_сайта  
 
-    -   **Detalhes:** Instala um site primário.  
+    -   **Сведения:** устанавливает первичный сайт.  
 
--   **Nome da chave:** CDLatest  
+-   **Имя ключа:** CDLatest  
 
-    -   **Necessário:** Sim – apenas quando utilizar suportes de dados de CD. Pasta mais recente.    
+    -   **Обязательный:** да (только при использовании носителя из папки CD.Latest)    
 
-    -   **Valores:** 1 qualquer valor diferente de 1 é considerado não estar a utilizar CD. Mais recente.
+    -   **Значения:** 1 (любые другие значения будут обозначать, что CD.Latest не используется)
 
-    -   **Detalhes:** O script tem de incluir esta chave e valor quando executar a configuração do suporte de dados por um CD. Pasta mais recente para fins de instalar um site de administração central ou primário ou ao recuperar um site primário ou de administração central. Este valor informa o programa de configuração que suporte de dados de formulário de CD. Está a ser utilizada a versão mais recente.
+    -   **Сведения:** при запуске программы установки из носителя в папке CD.Latest сценарий должен содержать этот ключ и значение. Это необходимо как для установки первичного сайта и сайта центра администрирования, так и для восстановления этих сайтов. Это значение передает в программу установки сведения о том, что используется носитель из папки CD.Latest.
 
-**Opções**  
+**Параметры**  
 
--   **Nome da chave:** ProductID  
+-   **Имя ключа:** ProductID  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
+    -   **Значения:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*>  *или* Eval  
 
-    -   **Detalhes:** Especifica a chave de produto de instalação do Configuration Manager, incluindo os traços. Introduza **Eval** para instalar a versão de avaliação do Configuration Manager.  
+    -   **Сведения:** установочный ключ продукта Configuration Manager, включая дефисы. Введите **Eval**, чтобы установить ознакомительную версию Configuration Manager.  
 
--   **Nome da chave:** SiteCode  
+-   **Имя ключа:** SiteCode  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*código do Site*>  
+    -   **Значения:** <*код_сайта*>  
 
-    -   **Detalhes:** Especifica três carateres alfanuméricos que identificam o site na sua hierarquia.  
+    -   **Сведения:** трехзначный буквенно-цифровой код, уникально идентифицирующий сайт в иерархии.  
 
--   **Nome da chave:** SiteName  
+-   **Имя ключа:** SiteName  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*nome do Site*>  
+    -   **Значения:** <*имя_сайта*>  
 
-    -   **Detalhes:** Especifica o nome para este site.  
+    -   **Сведения:** указывает имя для этого сайта.  
 
--   **Nome da chave:** SMSInstallDir  
+-   **Имя ключа:** SMSInstallDir  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*caminho de instalação do Configuration Manager*>
+    -   **Значения:** <*путь_установки_Configuration_Manager*>
 
-    -   **Detalhes:** Especifica a pasta de instalação para os ficheiros de programa do Configuration Manager.  
+    -   **Сведения:** указывает папку для файлов программы Configuration Manager.  
 
--   **Nome da chave:** SDKServer  
+-   **Имя ключа:** SDKServer  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*FQDN do fornecedor de SMS*>  
+    -   **Значения:** <*полное_доменное_имя_поставщика_SMS*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que alojará o fornecedor de SMS. Pode configurar Fornecedores de SMS adicionais para o site após a instalação inicial.  
+    -   **Сведения:** полное доменное имя сервера, на котором будет размещен поставщик SMS. Можно настроить дополнительные поставщики SMS для сайта после первоначальной установки.  
 
--   **Nome da chave:** PrerequisiteComp  
+-   **Имя ключа:** PrerequisiteComp  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = transferência  
+         0 = скачать  
 
-         1 = Already transferido  
+         1 = уже скачаны  
 
-    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se utilizar um valor de **0**, a configuração irá transferir os ficheiros.  
+    -   **Сведения:** указывает, скачаны ли уже необходимые файлы для программы установки. Например, если установить значение **0**, то программа установки скачает эти файлы.  
 
--   **Nome da chave:** PrerequisitePath  
+-   **Имя ключа:** PrerequisitePath  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
+    -   **Значения:** <*путь_к_необходимым_файлам_программы_установки*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Сведения:** указывает путь к необходимым файлам для программы установки. В зависимости от значения параметра **PrerequisiteComp** , программа установки использует этот путь, чтобы сохранить загруженные файлы или использовать ранее загруженные файлы.  
 
--   **Nome da chave:** AdminConsole  
+-   **Имя ключа:** AdminConsole  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager.  
+    -   **Сведения:** указывает, следует ли устанавливать консоль Configuration Manager.  
 
--   **Nome da chave:** JoinCEIP  
+-   **Имя ключа:** JoinCEIP  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não aderir  
+         0 = не принимать участие  
 
-         1 = associação  
+         1 = принять участие  
 
-    -   **Detalhes:** Especifica se pretende aderir ao CEIP.  
+    -   **Сведения:** указывает, следует ли присоединиться к программе CEIP.  
 
--   **Nome da chave:** ManagementPoint  
+-   **Имя ключа:** ManagementPoint  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*FQDN do servidor do site do ponto de gestão*>  
+    -   **Значения:** <*полное_доменное_имя_сервера_сайта_точки_управления*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que irá alojar a função de sistema de sites de ponto de gestão.  
+    -   **Сведения:** указывает полное доменное имя сервера, на котором будет размещена роль системы сайта точки управления.  
 
--   **Nome da chave:** ManagementPointProtocol  
+-   **Имя ключа:** ManagementPointProtocol  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** HTTPS *ou* HTTP  
+    -   **Значения:** HTTPS *или* HTTP  
 
-    -   **Detalhes:** Especifica o protocolo a utilizar para o ponto de gestão.  
+    -   **Сведения:** определяет протокол, используемый точкой управления.  
 
--   **Nome da chave:** Ponto dedistribuição  
+-   **Имя ключа:** DistributionPoint  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*o servidor de site de ponto de distribuição FQDN*>  
+    -   **Значения:** <*полное_доменное_имя_сервера_сайта_точки_распространения*>  
 
-    -   **Detalhes:** Especifica o protocolo a utilizar para o ponto de distribuição.  
+    -   **Сведения:** определяет протокол, используемый точкой распространения.  
 
--   **Nome da chave:** DistributionPointProtocol  
+-   **Имя ключа:** DistributionPointProtocol  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** HTTPS *ou* HTTP  
+    -   **Значения:** HTTPS *или* HTTP  
 
-    -   **Detalhes:** Especifica o protocolo a utilizar para o ponto de distribuição.  
+    -   **Сведения:** определяет протокол, используемый точкой распространения.  
 
--   **Nome da chave:** RoleCommunicationProtocol  
+-   **Имя ключа:** RoleCommunicationProtocol  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** EnforceHTTPS *ou* HTTPorHTTPS  
+    -   **Значения:** EnforceHTTPS *или* HTTPorHTTPS  
 
-    -   **Detalhes:** Especifica se pretende configurar todos os sistemas de sites para aceitar apenas comunicações HTTPS de clientes ou o método de comunicação seja configurado para cada função do sistema de sites. Quando seleciona **EnforceHTTPS**, computador cliente tem de ter um certificado de infraestrutura de chaves públicas (PKI) válido para autenticação de cliente.  
+    -   **Сведения:** указывает, следует ли настроить все системы сайта для приема подключений клиентов только по протоколу HTTPS или метод связи должен быть настроен для каждой роли системы сайта. Если выбрано значение **EnforceHTTPS**, у клиентского компьютера должен быть действительный сертификат инфраструктуры открытых ключей (PKI) для проверки подлинности клиента.  
 
--   **Nome da chave:** ClientsUsePKICertificate  
+-   **Имя ключа:** ClientsUsePKICertificate  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não utilizar  
+         0 = не использовать  
 
-         1 = utilizar  
+         1 = использовать  
 
-    -   **Detalhes:** Especifica se os clientes utilizam um certificado PKI de cliente para comunicar com funções de sistema de sites.  
+    -   **Сведения**: указывает, будут ли клиенты использовать PKI-сертификат для обмена данными с ролями систем сайта.  
 
--   **Nome da chave:** AddServerLanguages  
+-   **Имя ключа:** AddServerLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Especifica os idiomas de servidor que estarão disponíveis para a consola do Configuration Manager, relatórios e objetos do Configuration Manager. O inglês está disponível por predefinição.  
+    -   **Сведения:** указывает языки сервера, которые будут доступны для консоли Configuration Manager, отчетов и объектов Configuration Manager. По умолчанию доступен английский язык.  
 
--   **Nome da chave:** AddClientLanguages  
+-   **Имя ключа:** AddClientLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Especifica os idiomas que estarão disponíveis para os computadores cliente. O inglês está disponível por predefinição.  
+    -   **Сведения:** задает языки, которые будут доступны для клиентских компьютеров. По умолчанию доступен английский язык.  
 
--   **Nome da chave:** DeleteServerLanguages  
+-   **Имя ключа:** DeleteServerLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Modifica um site depois de ser instalado. Especifica os idiomas a remover e que já não estarão disponíveis para a consola do Configuration Manager, relatórios e objetos do Configuration Manager. O inglês está disponível por predefinição e não pode ser removido.  
+    -   **Сведения:** изменяет сайт после того, как он был установлен. Указывает языки сервера, которые будут удалены и больше не будут доступны для консоли Configuration Manager, отчетов и объектов Configuration Manager. По умолчанию доступен английский язык; удалить его нельзя.  
 
--   **Nome da chave:** DeleteClientLanguages  
+-   **Имя ключа:** DeleteClientLanguages  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
+    -   **Значения:** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK или ZHH  
 
-    -   **Detalhes:** Modifica um site depois de ser instalado. Especifica os idiomas a remover e que já não estarão disponíveis para computadores cliente. O inglês está disponível por predefinição e não pode ser removido.  
+    -   **Сведения:** изменяет сайт после того, как он был установлен. Задает языки, которые будут удалены и больше не будут доступны для клиентских компьютеров. По умолчанию доступен английский язык; удалить его нельзя.  
 
--   **Nome da chave:** MobileDeviceLanguage  
+-   **Имя ключа:** MobileDeviceLanguage  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se estão instalados os idiomas de cliente do dispositivo móvel.  
+    -   **Сведения:** определяет, выполняется ли установка языков мобильных устройств клиентов.  
 
 **SQLConfigOptions**  
 
--   **Nome da chave:** SQLServerName  
+-   **Имя ключа:** SQLServerName  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*nome do SQL Server*>  
+    -   **Значения:** <*имя_сервера_SQL*>  
 
-    -   **Detalhes:** Especifica o nome do servidor ou uma instância em cluster que executa o SQL Server e que irá alojar a base de dados do site.  
+    -   **Сведения:** задает имя сервера или кластеризованного экземпляра с SQL Server, в котором будет размещена база данных сайта.  
 
--   **Nome da chave:** DatabaseName  
+-   **Имя ключа:** DatabaseName  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*nome de base de dados do Site*> ou <*nome da instância*>\\<*nome de base de dados do Site*>  
+    -   **Значения:** <*имя_базы_данных_сайта*> или <*имя_экземпляра*>\\<*имя_базы_данных_сайта*>  
 
-    -   **Detalhes:** Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site primário.  
+    -   **Сведения:** указывает имя базы данных SQL Server, создаваемой или используемой для установки базы данных первичного сайта.  
 
         > [!IMPORTANT]  
-        >  Se não utilizar a instância predefinida, terá de especificar o nome da instância e o nome da base de dados do site.  
+        >  Необходимо указать имя экземпляра и имя базы данных сайта, если не используется экземпляр по умолчанию.  
 
--   **Nome da chave:** SQLSSBPort  
+-   **Имя ключа:** SQLSSBPort  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*número de porta SSB*>  
+    -   **Значения:** <*номер_порта_SSB*>  
 
-    -   **Detalhes:** Especifica a porta do SSB que utiliza o SQL Server. SSB normalmente está configurado para utilizar a porta TCP 4022, mas pode utilizar uma porta diferente.  
+    -   **Сведения:** задает порт SSB, используемый сервером SQL Server. Обычно для SSB используется TCP-порт 4022, но можно настроить и другой порт.  
 
--   **Nome da chave:** SQLDataFilePath  
+-   **Имя ключа:** SQLDataFilePath  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho do ficheiro. mdb de base de dados*>  
+    -   **Значения:** <*путь_к_MDB-файлу_базы_данных*>  
 
-    -   **Detalhes:** Especifica uma localização alternativa para criar o ficheiro. mdb de base de dados.  
+    -   **Сведения:** задает альтернативное расположение для создания MDB-файла базы данных.  
 
--   **Nome da chave:** SQLLogFilePath  
+-   **Имя ключа:** SQLLogFilePath  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho do ficheiro. ldf de base de dados*>  
+    -   **Значения:** <*путь_к_LDF-файлу_базы_данных*>  
 
-    -   **Detalhes:** Especifica uma localização alternativa para criar o ficheiro. ldf de base de dados.  
+    -   **Сведения:** задает альтернативное расположение для создания LDF-файла базы данных.  
 
 **HierarchyExpansionOption**  
 
--   **Nome da chave:** CCARSiteServer  
+-   **Имя ключа:** CCARSiteServer  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*FQDN do site de Administração Central*>  
+    -   **Значения:** <*полное_доменное_имя_сайта_центра_администрирования*>  
 
-    -   **Detalhes:** Especifica o site de administração central que um site primário se ligará quando aderir a hierarquia do Configuration Manager. Tem de especificar o site de administração central durante a configuração.  
+    -   **Сведения:** указывает сайт центра администрирования, к которому будет присоединен первичный сайт при его добавлении в иерархию Configuration Manager. Во время установки необходимо указать сайт центра администрирования.  
 
--   **Nome da chave:** CASRetryInterval  
+-   **Имя ключа:** CASRetryInterval  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*Interval*>  
+    -   **Значения:** <*интервал*>  
 
-    -   **Detalhes:** Especifica o intervalo entre tentativas (em minutos) para estabelecer ligação ao site de administração central após uma falha da ligação. Por exemplo, se a ligação ao site de administração central falhar, o site primário aguarda o número de minutos que especificar para o **CASRetryInterval** valor e, em seguida, tenta restabelecer a ligação.  
+    -   **Сведения:** указывает интервал (в минутах) между повторными попытками подключения к сайту центра администрирования после неудачного подключения. Например, если соединение с сайтом центра администрирования прервано, первичный сайт повторно пытается подключиться к сайту через интервал в минутах, указанный в параметре **CASRetryInterval**.  
 
--   **Nome da chave:** WaitForCASTimeout  
+-   **Имя ключа:** WaitForCASTimeout  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*Timeout*>  
+    -   **Значения:** <*время ожидания*>  
 
-         Um valor de **0** para **100**  
+         Значение от **0** до **100**.  
 
-    -   **Detalhes:** Especifica o valor de tempo limite máximo (em minutos) para um site primário ligar ao site de administração central. Por exemplo, se um site primário não conseguir ligar a um site de administração central, o site primário repete a ligação ao site de administração central com base no **CASRetryInterval** valor até o **WaitForCASTimeout** período. Pode especificar um valor de **0** para **100**.  
+    -   **Сведения:** указывает максимальное значение периода ожидания (в минутах) подключения первичного сайта к сайту центра администрирования. Например, если первичному сайту не удается подключиться к сайту центра администрирования, первичный сайт повторно пытается подключиться к нему через интервал, указанный в параметре **CASRetryInterval**, до тех пор, пока не истечет период ожидания **WaitForCASTimeout**. Можно указать значение от **0** до **100**.  
 
 **CloudConnectorOptions**  
 
--   **Nome da chave:** CloudConnector  
+-   **Имя ключа:** CloudConnector  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se pretende instalar um ponto de ligação de serviço neste site. Porque o ponto de ligação de serviço só pode ser instalado no site de nível superior da hierarquia, este valor tem de ser **0** para um site primário subordinado.  
+    -   **Сведения:** указывает, следует ли установить на этом сайте точку подключения службы. Так как точка подключения службы может быть установлена только на сайте верхнего уровня иерархии, это значение должно быть равно **0** для подчиненного первичного сайта.  
 
--   **Nome da chave:** CloudConnectorServer  
+-   **Имя ключа:** CloudConnectorServer  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** <*o servidor de ponto de ligação de serviço FQDN*\>  
+    -   **Значения:** <*полное_доменное_имя_сервера_точки_подключения_службы*\>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que irá alojar a função de sistema de sites de ponto de ligação de serviço.  
+    -   **Сведения:** указывает полное доменное имя сервера, на котором будет размещена роль системы сайта точки подключения службы.  
 
--   **Nome da chave:** UseProxy  
+-   **Имя ключа:** UseProxy  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se o ponto de ligação de serviço irá utilizar um servidor proxy.  
+    -   **Сведения:** указывает, будет ли точка подключения службы использовать прокси-сервер.  
 
--   **Nome da chave:** ProxyName  
+-   **Имя ключа:** ProxyName  
 
-    -   **Necessário:** Necessário quando **UseProxy** é igual a 1  
+    -   **Обязательный:** требуется, если значение **UseProxy** равно 1.  
 
-    -   **Valores:** <*FQDN do servidor Proxy*>  
+    -   **Значения:** <*полное_доменное_имя_прокси-сервера*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor proxy que será utilizado pela função de sistema de sites de ponto de ligação de serviço.  
+    -   **Сведения:** указывает полное доменное имя прокси-сервера, который будет использоваться ролью системы сайта точки подключения службы.  
 
--   **Nome da chave:** /Proxyport  
+-   **Имя ключа:** ProxyPort  
 
-    -   **Necessário:** Necessário quando **UseProxy** é igual a 1  
+    -   **Обязательный:** требуется, если значение **UseProxy** равно 1.  
 
-    -   **Valores:** <*número de porta*>  
+    -   **Значение:** <*номер_порта*>  
 
-    -   **Detalhes:** Especifica o número de porta a utilizar para a porta de proxy.  
+    -   **Сведения:** указывает номер порта, который будет использоваться для прокси.  
 
-### <a name="unattended-recovery-for-a-central-administration-site"></a>Recuperação automática de site de administração central  
- Utilize os detalhes seguintes para recuperar um site de administração central utilizando um ficheiro de script de configuração automática.  
+### <a name="unattended-recovery-for-a-central-administration-site"></a>Автоматическое восстановление сайта центра администрирования  
+ Используйте сведения, приведенные ниже, чтобы восстановить сайт центра администрирования с помощью файла сценария автоматической установки.  
 
-**Identificação**  
+**Identification**  
 
--   **Nome da chave:** Ação  
+-   **Имя ключа:** Action  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** RecoverCCAR  
+    -   **Значения:** RecoverCCAR  
 
-    -   **Detalhes:** Recupera um site de administração central.  
+    -   **Сведения:** восстанавливает сайт центра администрирования.  
 
--   **Nome da chave:** CDLatest  
+-   **Имя ключа:** CDLatest  
 
-    -   **Necessário:** Sim – apenas quando utilizar suportes de dados de CD. Pasta mais recente.    
+    -   **Обязательный:** да (только при использовании носителя из папки CD.Latest)    
 
-    -   **Valores:** 1 qualquer valor diferente de 1 é considerado não estar a utilizar CD. Mais recente.
+    -   **Значения:** 1 (любые другие значения будут обозначать, что CD.Latest не используется)
 
-    -   **Detalhes:** O script tem de incluir esta chave e valor quando executar a configuração do suporte de dados por um CD. Pasta mais recente para fins de instalar um site de administração central ou primário ou ao recuperar um site primário ou de administração central. Este valor informa o programa de configuração que suporte de dados de formulário de CD. Está a ser utilizada a versão mais recente.
+    -   **Сведения:** при запуске программы установки из носителя в папке CD.Latest сценарий должен содержать этот ключ и значение. Это необходимо как для установки первичного сайта и сайта центра администрирования, так и для восстановления этих сайтов. Это значение передает в программу установки сведения о том, что используется носитель из папки CD.Latest.
 
 **RecoveryOptions**  
 
--   **Nome da chave:** ServerRecoveryOptions  
+-   **Имя ключа:** ServerRecoveryOptions  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 1, 2 ou 4  
+    -   **Значения:** 1, 2 или 4  
 
-         1 = servidor de site de recuperação e SQL Server.  
+         1 = восстановить сервер сайта и сервер SQL Server.  
 
-         2 = Recuperar apenas servidor de site.  
+         2 = восстановить только сервер сайта.  
 
-         4 = Recuperar apenas SQL Server.  
+         4 = восстановить только сервер SQL Server.  
 
-    -   **Detalhes:** Especifica se a configuração irá recuperar o servidor do site, o SQL Server ou ambos. As chaves associadas são necessárias quando define o seguinte valor para o **ServerRecoveryOptions** definição:  
+    -   **Сведения:** указывает, будет ли программа установки восстанавливать сервер сайта, сервер SQL Server или оба сервера. Если параметру **ServerRecoveryOptions** присваивается указанное далее значение, потребуются связанные ключи.  
 
-        -   Valor = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+        -   Значение 1. Вы можете указать значение для ключа **SiteServerBackupLocation** , чтобы восстановить сайт с помощью резервной копии сайта. Если не указать это значение, сайт будет переустановлен без восстановления из резервной копии.  
 
-        -   Valor = 2: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+        -   Значение 2. Вы можете указать значение для ключа **SiteServerBackupLocation** , чтобы восстановить сайт с помощью резервной копии сайта. Если не указать это значение, сайт будет переустановлен без восстановления из резервной копии.  
 
-        -   Valor = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
+        -   Значение 4. Ключ **BackupLocation** необходим при настройке значения **10** для ключа **DatabaseRecoveryOptions** , используемого для восстановления базы данных сайта из резервной копии.  
 
--   **Nome da chave:** DatabaseRecoveryOptions  
+-   **Имя ключа:** DatabaseRecoveryOptions  
 
-    -   **Necessário:** Esta chave é necessária quando a definição **ServerRecoveryOptions** tem o valor **1** ou **4**  
+    -   **Обязательный:** этот ключ необходим, если параметру **ServerRecoveryOptions** присвоено значение **1** или **4**.  
 
-    -   **Valores:** 10, 20, 40 ou 80  
+    -   **Значения:** 10, 20, 40 или 80  
 
-         10 = Restaurar a base de dados do site a partir de cópia de segurança.  
+         10 = восстановить базу данных сайта из резервной копии.  
 
-         20 = Utilizar uma base de dados do site que tenha sido recuperada manualmente utilizando outro método.  
+         20 = использовать базу данных сайта, которая была восстановлена вручную с помощью другого метода.  
 
-         40 = Criar uma nova base de dados para o site. Utilize esta opção quando não estiver disponível nenhuma cópia de segurança da base de dados do site. Os dados globais e de site são recuperados através da replicação a partir de outros sites.  
+         40 = создать новую базы данных для сайта. Используйте этот параметр при отсутствии резервной копии базы данных сайта. Глобальные и сайтовые данные восстанавливаются с помощью репликации с других сайтов.  
 
-         80 = ignorar recuperação de base de dados.  
+         80 = пропустить восстановление базы данных.  
 
-    -   **Detalhes:** Especifica a forma como a configuração recupera a base de dados do site no SQL Server.  
+    -   **Сведения:** указывает, каким образом программа установки восстановит базу данных сайта на сервере SQL Server.  
 
--   **Nome da chave:** ReferenceSite  
+-   **Имя ключа:** ReferenceSite  
 
-    -   **Necessário:** Esta chave é obrigatória se a definição **DatabaseRecoveryOptions** tiver o valor **40**.  
+    -   **Обязательный:** этот параметр необходим, если параметру **DatabaseRecoveryOptions** присвоено значение **40**.  
 
-    -   **Valores:** <*FQDN do site de referência*>  
+    -   **Значения:** <*полное_доменное_имя_эталонного_сайта*>  
 
-    -   **Detalhes:** Especifica o site primário de referência utilizado pelo site de administração central para recuperar dados globais, se a cópia de segurança da base de dados é mais antiga do que o período de retenção do registo de alterações ou quando recuperar o site sem uma cópia de segurança.  
+    -   **Сведения:** указывает эталонный первичный сайт, используемый сайтом центра администрирования для восстановления глобальных данных, если резервная копия базы данных старше срока хранения журнала отслеживания изменений или если сайт восстанавливается без резервной копии.  
 
-         Quando não especificar um site de referência e a cópia de segurança é mais antiga do que o período de retenção do registo de alterações, todos os sites primários serão reinicializados com dados restaurados a partir do site de administração central.  
+         Если не задать эталонный сайт, а резервная копия старше срока хранения журнала отслеживания изменений, все первичные сайты повторно инициализируются с восстановленными данными с сайта центра администрирования.  
 
-         Quando não especificar um site de referência e a cópia de segurança é dentro do período de retenção de registo de alterações, apenas as alterações são efetuadas após a cópia de segurança são replicadas a partir dos sites primários. Quando existirem alterações de diferentes sites primários em conflito, o site de administração central utilizará a primeira que receber.  
+         Если не задать эталонный сайт и резервная копия находится в пределах срока хранения журнала отслеживания изменений, с первичных сайтов реплицируются только изменения, внесенные после резервного копирования. При наличии противоречивых изменений с разных первичных сайтов сайт центра администрирования использует первое полученное изменение.  
 
--   **Nome da chave:** SiteServerBackupLocation  
+-   **Имя ключа:** SiteServerBackupLocation  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho para o conjunto de cópia de segurança de servidor do site*>  
+    -   **Значения:** <*путь_к_набору_архивации_сервера_сайта*>  
 
-    -   **Detalhes:** Especifica o caminho para o conjunto de cópia de segurança de servidor de site. Esta chave é opcional se a definição **ServerRecoveryOptions** tiver o valor **1** ou **2**. Especifique um valor para a chave **SiteServerBackupLocation** para recuperar o site com uma cópia de segurança do mesmo. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+    -   **Сведения:** указывает путь к набору архивации сервера сайта. Этот ключ не является обязательным, если параметру **ServerRecoveryOptions** задано значение **1** или **2**. Укажите значение ключа **SiteServerBackupLocation** , чтобы восстановить сайт, используя его резервную копию. Если не указать это значение, сайт будет переустановлен без восстановления из резервной копии.  
 
--   **Nome da chave:** BackupLocation  
+-   **Имя ключа:** BackupLocation  
 
-    -   **Necessário:** Esta chave é necessária quando configura o valor **1** ou **4** para o **ServerRecoveryOptions** chave e configura o valor **10** para o **DatabaseRecoveryOptions** chave.  
+    -   **Обязательный:** этот ключ необходим, если задано значение **1** или **4** для ключа **ServerRecoveryOptions**, а также значение **10** для ключа **DatabaseRecoveryOptions**.  
 
-    -   **Valores:** <*caminho para o conjunto de cópia de segurança de base de dados do site*>  
+    -   **Значения:** <*путь_к_набору_архивации_базы_данных_сайта*>  
 
-    -   **Detalhes:** Especifica o caminho para o conjunto de cópia de segurança de base de dados de site.  
+    -   **Сведения:** указывает путь к набору архивации базы данных сайта.  
 
-**Opções**  
+**Параметры**  
 
--   **Nome da chave:** ProductID  
+-   **Имя ключа:** ProductID  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
+    -   **Значения:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*>  *или* Eval  
 
-    -   **Detalhes:** Especifica a chave de produto de instalação do Configuration Manager, incluindo os traços. Introduza **Eval** para instalar a versão de avaliação do Configuration Manager.  
+    -   **Сведения:** установочный ключ продукта Configuration Manager, включая дефисы. Введите **Eval**, чтобы установить ознакомительную версию Configuration Manager.  
 
--   **Nome da chave:** SiteCode  
+-   **Имя ключа:** SiteCode  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*código do Site*>  
+    -   **Значения:** <*код_сайта*>  
 
-    -   **Detalhes:** Especifica três carateres alfanuméricos que identificam o site na sua hierarquia. Tem de especificar o código do site que o site utilizava antes da falha.
+    -   **Сведения:** трехзначный буквенно-цифровой код, уникально идентифицирующий сайт в иерархии. Необходимо указать код сайта, используемый до сбоя.
 
--   **Nome da chave:** SiteName  
+-   **Имя ключа:** SiteName  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*nome do Site*>  
+    -   **Значения:** <*имя_сайта*>  
 
-    -   **Detalhes:** Especifica o nome para este site.  
+    -   **Сведения:** указывает имя для этого сайта.  
 
--   **Nome da chave:** SMSInstallDir  
+-   **Имя ключа:** SMSInstallDir  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*caminho de instalação do Configuration Manager*>  
+    -   **Значения:** <*путь_установки_Configuration_Manager*>  
 
-    -   **Detalhes:** Especifica a pasta de instalação para os ficheiros de programa do Configuration Manager.  
+    -   **Сведения:** указывает папку для файлов программы Configuration Manager.  
 
--   **Nome da chave:** SDKServer  
+-   **Имя ключа:** SDKServer  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*FQDN do fornecedor de SMS*>  
+    -   **Значения:** <*полное_доменное_имя_поставщика_SMS*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que alojará o fornecedor de SMS. Terá de especificar o servidor que hospedava o Fornecedor de SMS antes da falha.  
+    -   **Сведения:** полное доменное имя сервера, на котором будет размещен поставщик SMS. Необходимо указать сервер, где поставщик SMS размещался до сбоя.  
 
-         Pode configurar Fornecedores de SMS adicionais para o site após a instalação inicial. Para mais informações sobre o fornecedor de SMS, consulte [planear o fornecedor de SMS para o System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+         Можно настроить дополнительные поставщики SMS для сайта после первоначальной установки. Дополнительные сведения о поставщике SMS см. в статье [Планирование использования поставщика SMS для System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
--   **Nome da chave:** PrerequisiteComp  
+-   **Имя ключа:** PrerequisiteComp  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = transferência  
+         0 = скачать  
 
-         1 = Already transferido  
+         1 = уже скачаны  
 
-    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se utilizar um valor de **0**, a configuração transfere os ficheiros.  
+    -   **Сведения:** указывает, скачаны ли уже необходимые файлы для программы установки. Например, если установить значение **0**, программа установки скачивает эти файлы.  
 
--   **Nome da chave:** PrerequisitePath  
+-   **Имя ключа:** PrerequisitePath  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
+    -   **Значения:** <*путь_к_необходимым_файлам_программы_установки*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Сведения:** указывает путь к необходимым файлам для программы установки. В зависимости от значения параметра **PrerequisiteComp** , программа установки использует этот путь, чтобы сохранить загруженные файлы или использовать ранее загруженные файлы.  
 
--   **Nome da chave:** AdminConsole  
+-   **Имя ключа:** AdminConsole  
 
-    -   **Necessário:** Esta chave é necessária, exceto se a definição **ServerRecoveryOptions** tiver o valor **4**.  
+    -   **Обязательный:** этот параметр необходим, если параметру **ServerRecoveryOptions** присвоено значение **4**.  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager.  
+    -   **Сведения:** указывает, следует ли устанавливать консоль Configuration Manager.  
 
--   **Nome da chave:** JoinCEIP  
+-   **Имя ключа:** JoinCEIP  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não aderir  
+         0 = не принимать участие  
 
-         1 = associação  
+         1 = принять участие  
 
-    -   **Detalhes:** Especifica se pretende aderir ao CEIP.  
+    -   **Сведения:** указывает, следует ли присоединиться к программе CEIP.  
 
 **SQLConfigOptions**  
 
--   **Nome da chave:** SQLServerName  
+-   **Имя ключа:** SQLServerName  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*nome do SQL Server*>  
+    -   **Значения:** <*имя_сервера_SQL*>  
 
-    -   **Detalhes:** Especifica o nome do servidor ou uma instância em cluster que executa o SQL Server e que irá alojar a base de dados do site. Terá de especificar o mesmo servidor que alojava a base de dados do site antes da falha.  
+    -   **Сведения:** задает имя сервера или кластеризованного экземпляра с SQL Server, в котором будет размещена база данных сайта. Необходимо указать тот же сервер, где база данных сайта размещалась до сбоя.  
 
--   **Nome da chave:** DatabaseName  
+-   **Имя ключа:** DatabaseName  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*nome de base de dados do Site*> ou <*nome da instância*>\\<*nome de base de dados do Site*>  
+    -   **Значения:** <*имя_базы_данных_сайта*> или <*имя_экземпляра*>\\<*имя_базы_данных_сайта*>  
 
-    -   **Detalhes:** Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site de administração central. Terá de especificar o nome da mesma base de dados que foi utilizada antes da falha.  
+    -   **Сведения:** указывает имя базы данных SQL Server, создаваемой или используемой для установки базы данных сайта центра администрирования. Необходимо указать то же имя базы данных, что использовалось до сбоя.  
 
         > [!IMPORTANT]  
-        >  Se não utilizar a instância predefinida, terá de especificar o nome da instância e o nome da base de dados do site.  
+        >  Необходимо указать имя экземпляра и имя базы данных сайта, если не используется экземпляр по умолчанию.  
 
--   **Nome da chave:** SQLSSBPort  
+-   **Имя ключа:** SQLSSBPort  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*número de porta SSB*>  
+    -   **Значения:** <*номер_порта_SSB*>  
 
-    -   **Detalhes:** Especifica a porta do SSB que utiliza o SQL Server. Normalmente, o SSB está configurado para utilizar a porta TCP 4022. Tem de especificar a mesma porta do SSB que foi utilizada antes da falha.  
+    -   **Сведения:** задает порт SSB, используемый сервером SQL Server. Обычно для SSB используется TCP-порт 4022. Необходимо указать тот же номер порта SSB, какой использовалось до сбоя.  
 
--   **Nome da chave:** SQLDataFilePath  
+-   **Имя ключа:** SQLDataFilePath  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho do ficheiro. mdb de base de dados*>  
+    -   **Значения:** <*путь_к_MDB-файлу_базы_данных*>  
 
-    -   **Detalhes:** Especifica uma localização alternativa para criar o ficheiro. mdb de base de dados.  
+    -   **Сведения:** задает альтернативное расположение для создания MDB-файла базы данных.  
 
--   **Nome da chave:** SQLLogFilePath  
+-   **Имя ключа:** SQLLogFilePath  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho do ficheiro. ldf de base de dados*>  
+    -   **Значения:** <*путь_к_LDF-файлу_базы_данных*>  
 
-    -   **Detalhes:** Especifica uma localização alternativa para criar o ficheiro. ldf de base de dados.  
+    -   **Сведения:** задает альтернативное расположение для создания LDF-файла базы данных.  
 
 **CloudConnectorOptions**  
 
--   **Nome da chave:** CloudConnector  
+-   **Имя ключа:** CloudConnector  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se pretende instalar um ponto de ligação de serviço neste site. Porque o ponto de ligação de serviço só pode ser instalado no site de nível superior da hierarquia, este valor tem de ser **0** para um site primário subordinado.  
+    -   **Сведения:** указывает, следует ли установить на этом сайте точку подключения службы. Так как точка подключения службы может быть установлена только на сайте верхнего уровня иерархии, это значение должно быть равно **0** для подчиненного первичного сайта.  
 
--   **Nome da chave:** CloudConnectorServer  
+-   **Имя ключа:** CloudConnectorServer  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** <*o servidor de ponto de ligação de serviço FQDN*>  
+    -   **Значения:** <*полное_доменное_имя_сервера_точки_подключения_службы*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que irá alojar a função de sistema de sites de ponto de ligação de serviço.  
+    -   **Сведения:** указывает полное доменное имя сервера, на котором будет размещена роль системы сайта точки подключения службы.  
 
--   **Nome da chave:** UseProxy  
+-   **Имя ключа:** UseProxy  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se o ponto de ligação de serviço irá utilizar um servidor proxy.  
+    -   **Сведения:** указывает, будет ли точка подключения службы использовать прокси-сервер.  
 
--   **Nome da chave:** ProxyName  
+-   **Имя ключа:** ProxyName  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** <*FQDN do servidor Proxy*>  
+    -   **Значения:** <*полное_доменное_имя_прокси-сервера*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor proxy que será utilizado pela função de sistema de sites de ponto de ligação de serviço.  
+    -   **Сведения:** указывает полное доменное имя прокси-сервера, который будет использоваться ролью системы сайта точки подключения службы.  
 
--   **Nome da chave:** /Proxyport  
+-   **Имя ключа:** ProxyPort  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** <*número de porta*>  
+    -   **Значение:** <*номер_порта*>  
 
-    -   **Detalhes:** Especifica o número de porta a utilizar para a porta de proxy.  
+    -   **Сведения:** указывает номер порта, который будет использоваться для прокси.  
 
-### <a name="unattended-recovery-for-a-primary-site"></a>Recuperação automática de um site primário  
- Utilize os detalhes seguintes para recuperar um site primário utilizando um ficheiro de script de configuração automática.  
+### <a name="unattended-recovery-for-a-primary-site"></a>Автоматическое восстановление первичного сайта  
+ Используйте сведения, приведенные ниже, чтобы восстановить первичный сайт с помощью файла сценария автоматической установки.  
 
-**Identificação**  
+**Identification**  
 
--   **Nome da chave:** Ação  
+-   **Имя ключа:** Action  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*RecoverPrimarySite*>  
+    -   **Значения:** <*RecoverPrimarySite*>  
 
-    -   **Detalhes:** Recupera um site primário.  
+    -   **Сведения:** восстанавливает первичный сайт.  
 
--   **Nome da chave:** CDLatest  
+-   **Имя ключа:** CDLatest  
 
-    -   **Necessário:** Sim – apenas quando utilizar suportes de dados de CD. Pasta mais recente.    
+    -   **Обязательный:** да (только при использовании носителя из папки CD.Latest)    
 
-    -   **Valores:** 1 qualquer valor diferente de 1 é considerado não estar a utilizar CD. Mais recente.
+    -   **Значения:** 1 (любые другие значения будут обозначать, что CD.Latest не используется)
 
-    -   **Detalhes:** O script tem de incluir esta chave e valor quando executar a configuração do suporte de dados por um CD. Pasta mais recente para fins de instalar um site de administração central ou primário ou ao recuperar um site primário ou de administração central. Este valor informa o programa de configuração que suporte de dados de formulário de CD. Está a ser utilizada a versão mais recente.    
+    -   **Сведения:** при запуске программы установки из носителя в папке CD.Latest сценарий должен содержать этот ключ и значение. Это необходимо как для установки первичного сайта и сайта центра администрирования, так и для восстановления этих сайтов. Это значение передает в программу установки сведения о том, что используется носитель из папки CD.Latest.    
 
 **RecoveryOptions**  
 
--   **Nome da chave:** ServerRecoveryOptions  
+-   **Имя ключа:** ServerRecoveryOptions  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 1, 2 ou 4  
+    -   **Значения:** 1, 2 или 4  
 
-         1 = servidor de site de recuperação e SQL Server.  
+         1 = восстановить сервер сайта и сервер SQL Server.  
 
-         2 = Recuperar apenas servidor de site.  
+         2 = восстановить только сервер сайта.  
 
-         4 = Recuperar apenas SQL Server.  
+         4 = восстановить только сервер SQL Server.  
 
-    -   **Detalhes:** Especifica se a configuração irá recuperar o servidor do site, o SQL Server ou ambos. As chaves associadas são necessárias quando define o seguinte valor para o **ServerRecoveryOptions** definição:  
+    -   **Сведения:** указывает, будет ли программа установки восстанавливать сервер сайта, сервер SQL Server или оба сервера. Если параметру **ServerRecoveryOptions** присваивается указанное далее значение, потребуются связанные ключи.  
 
-        -   Valor = 1: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+        -   Значение 1. Вы можете указать значение для ключа **SiteServerBackupLocation** , чтобы восстановить сайт с помощью резервной копии сайта. Если не указать это значение, сайт будет переустановлен без восстановления из резервной копии.  
 
-        -   Valor = 2: Tem a opção de especificar um valor para o **SiteServerBackupLocation** chave para recuperar o site utilizando uma cópia de segurança do site. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+        -   Значение 2. Вы можете указать значение для ключа **SiteServerBackupLocation** , чтобы восстановить сайт с помощью резервной копии сайта. Если не указать это значение, сайт будет переустановлен без восстановления из резервной копии.  
 
-        -   Valor = 4: A chave **BackupLocation** é obrigatória se configurar o valor **10** para a chave **DatabaseRecoveryOptions** , para restaurar a base de dados do site a partir de uma cópia de segurança.  
+        -   Значение 4. Ключ **BackupLocation** необходим при настройке значения **10** для ключа **DatabaseRecoveryOptions** , используемого для восстановления базы данных сайта из резервной копии.  
 
--   **Nome da chave:** DatabaseRecoveryOptions  
+-   **Имя ключа:** DatabaseRecoveryOptions  
 
-    -   **Necessário:** Esta chave é necessária quando a definição **ServerRecoveryOptions** tem o valor **1** ou **4**  
+    -   **Обязательный:** этот ключ необходим, если параметру **ServerRecoveryOptions** присвоено значение **1** или **4**.  
 
-    -   **Valores:** 10, 20, 40 ou 80  
+    -   **Значения:** 10, 20, 40 или 80  
 
-         10 = Restaurar a base de dados do site a partir de cópia de segurança.  
+         10 = восстановить базу данных сайта из резервной копии.  
 
-         20 = Utilizar uma base de dados do site que tenha sido recuperada manualmente utilizando outro método.  
+         20 = использовать базу данных сайта, которая была восстановлена вручную с помощью другого метода.  
 
-         40 = Criar uma nova base de dados para o site. Utilize esta opção quando não estiver disponível nenhuma cópia de segurança da base de dados do site. Os dados globais e de site são recuperados através da replicação a partir de outros sites.  
+         40 = создать новую базы данных для сайта. Используйте этот параметр при отсутствии резервной копии базы данных сайта. Глобальные и сайтовые данные восстанавливаются с помощью репликации с других сайтов.  
 
-         80 = ignorar recuperação de base de dados.  
+         80 = пропустить восстановление базы данных.  
 
-    -   **Detalhes:** Especifica a forma como a configuração recupera a base de dados do site no SQL Server.  
+    -   **Сведения:** указывает, каким образом программа установки восстановит базу данных сайта на сервере SQL Server.  
 
--   **Nome da chave:** SiteServerBackupLocation  
+-   **Имя ключа:** SiteServerBackupLocation  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho para o conjunto de cópia de segurança de servidor do site*>  
+    -   **Значения:** <*путь_к_набору_архивации_сервера_сайта*>  
 
-    -   **Detalhes:**  
+    -   **Сведения:**  
 
-         Especifica o caminho para o conjunto de cópia de segurança de servidor de site. Esta chave é opcional se a definição **ServerRecoveryOptions** tiver o valor **1** ou **2**. Especifique um valor para a chave **SiteServerBackupLocation** para recuperar o site com uma cópia de segurança do mesmo. Se não especificar um valor, o site será reinstalado sem ser restaurado a partir de um conjunto de cópias de segurança.  
+         Указывает путь к резервной копии сервера сайта. Этот ключ не является обязательным, если для параметра **ServerRecoveryOptions** задано значение **1** или **2**. Укажите значение ключа **SiteServerBackupLocation** , чтобы восстановить сайт, используя его резервную копию. Если не указать это значение, сайт будет переустановлен без восстановления из резервной копии.  
 
--   **Nome da chave:** BackupLocation  
+-   **Имя ключа:** BackupLocation  
 
-    -   **Necessário:** Esta chave é necessária quando configura o valor **1** ou **4** para o **ServerRecoveryOptions** e configura um valor de **10** para o **DatabaseRecoveryOptions** chave.  
+    -   **Обязательный:** этот ключ необходим, если задано значение **1** или **4** для ключа **ServerRecoveryOptions**, а также значение **10** для ключа **DatabaseRecoveryOptions**.  
 
-    -   **Valores:** <*caminho para o conjunto de cópia de segurança de base de dados do site*>  
+    -   **Значения:** <*путь_к_набору_архивации_базы_данных_сайта*>  
 
-    -   **Detalhes:** Especifica o caminho para o conjunto de cópia de segurança de base de dados de site.  
+    -   **Сведения:** указывает путь к набору архивации базы данных сайта.  
 
-**Opções**  
+**Параметры**  
 
--   **Nome da chave:** ProductID  
+-   **Имя ключа:** ProductID  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** *xxxxx-xxxxx-xxxxx-xxxxx-xxxxx* ou *Eval*  
+    -   **Значения:** *xxxxx-xxxxx-xxxxx-xxxxx-xxxxx* или *Eval*  
 
-    -   **Detalhes:** Especifica a chave de produto de instalação do Configuration Manager, incluindo os traços. Introduza **Eval** para instalar a versão de avaliação do Configuration Manager.  
+    -   **Сведения:** установочный ключ продукта Configuration Manager, включая дефисы. Введите **Eval**, чтобы установить ознакомительную версию Configuration Manager.  
 
--   **Nome da chave:** SiteCode  
+-   **Имя ключа:** SiteCode  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*código do Site*>  
+    -   **Значения:** <*код_сайта*>  
 
-    -   **Detalhes:** Especifica três carateres alfanuméricos que identificam o site na sua hierarquia. Tem de especificar o código do site que o site utilizava antes da falha.
+    -   **Сведения:** трехзначный буквенно-цифровой код, уникально идентифицирующий сайт в иерархии. Необходимо указать код сайта, используемый до сбоя.
 
--   **Nome da chave:** SiteName  
+-   **Имя ключа:** SiteName  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*nome do Site*>  
+    -   **Значения:** <*имя_сайта*>  
 
-    -   **Detalhes:** Especifica o nome para este site.  
+    -   **Сведения:** указывает имя для этого сайта.  
 
--   **Nome da chave:** SMSInstallDir  
+-   **Имя ключа:** SMSInstallDir  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*caminho de instalação do Configuration Manager*>  
+    -   **Значения:** <*путь_установки_Configuration_Manager*>  
 
-    -   **Detalhes:** Especifica a pasta de instalação para os ficheiros de programa do Configuration Manager.  
+    -   **Сведения:** указывает папку для файлов программы Configuration Manager.  
 
--   **Nome da chave:** SDKServer  
+-   **Имя ключа:** SDKServer  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*FQDN do fornecedor de SMS*>  
+    -   **Значения:** <*полное_доменное_имя_поставщика_SMS*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que alojará o fornecedor de SMS. Terá de especificar o servidor que hospedava o Fornecedor de SMS antes da falha. Pode configurar Fornecedores de SMS adicionais para o site após a instalação inicial. Para mais informações sobre o fornecedor de SMS, consulte [planear o fornecedor de SMS para o System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+    -   **Сведения:** полное доменное имя сервера, на котором будет размещен поставщик SMS. Необходимо указать сервер, где поставщик SMS размещался до сбоя. Можно настроить дополнительные поставщики SMS для сайта после первоначальной установки. Дополнительные сведения о поставщике SMS см. в статье [Планирование использования поставщика SMS для System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
--   **Nome da chave:** PrerequisiteComp  
+-   **Имя ключа:** PrerequisiteComp  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = transferência  
+         0 = скачать  
 
-         1 = Already transferido  
+         1 = уже скачаны  
 
-    -   **Detalhes:** Especifica se os ficheiros de pré-requisitos de configuração já foram transferidos. Por exemplo, se utilizar um valor de **0**, a configuração transfere os ficheiros.  
+    -   **Сведения:** указывает, скачаны ли уже необходимые файлы для программы установки. Например, если установить значение **0**, программа установки скачивает эти файлы.  
 
--   **Nome da chave:** PrerequisitePath  
+-   **Имя ключа:** PrerequisitePath  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*caminho para ficheiros de pré-requisitos de configuração*>  
+    -   **Значения:** <*путь_к_необходимым_файлам_программы_установки*>  
 
-    -   **Detalhes:** Especifica o caminho para os ficheiros de pré-requisitos de configuração. Conforme o valor de **PrerequisiteComp** , a Configuração utiliza este caminho para armazenar os ficheiros transferidos ou localizar os ficheiros transferidos anteriormente.  
+    -   **Сведения:** указывает путь к необходимым файлам для программы установки. В зависимости от значения параметра **PrerequisiteComp** , программа установки использует этот путь, чтобы сохранить загруженные файлы или использовать ранее загруженные файлы.  
 
--   **Nome da chave:** AdminConsole  
+-   **Имя ключа:** AdminConsole  
 
-    -   **Necessário:** Esta chave é necessária, exceto se a definição **ServerRecoveryOptions** tiver o valor **4**.  
+    -   **Обязательный:** этот параметр необходим, если параметру **ServerRecoveryOptions** присвоено значение **4**.  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se pretende instalar a consola do Configuration Manager.  
+    -   **Сведения:** указывает, следует ли устанавливать консоль Configuration Manager.  
 
--   **Nome da chave:** JoinCEIP  
+-   **Имя ключа:** JoinCEIP  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não aderir  
+         0 = не принимать участие  
 
-         1 = associação  
+         1 = принять участие  
 
-    -   **Detalhes:** Especifica se pretende aderir ao CEIP.  
+    -   **Сведения:** указывает, следует ли присоединиться к программе CEIP.  
 
 **SQLConfigOptions**  
 
--   **Nome da chave:** SQLServerName  
+-   **Имя ключа:** SQLServerName  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*nome do SQL Server*>  
+    -   **Значения:** <*имя_сервера_SQL*>  
 
-    -   **Detalhes:** Especifica o nome do servidor ou uma instância em cluster que executa o SQL Server e que irá alojar a base de dados do site. Terá de especificar o mesmo servidor que alojava a base de dados do site antes da falha.  
+    -   **Сведения:** задает имя сервера или кластеризованного экземпляра с SQL Server, в котором будет размещена база данных сайта. Необходимо указать тот же сервер, где база данных сайта размещалась до сбоя.  
 
--   **Nome da chave:** DatabaseName  
+-   **Имя ключа:** DatabaseName  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:**  <*nome de base de dados do Site*> ou <*nome da instância*>\\<*nome de base de dados do Site*>
+    -   **Значения:**  <*имя_базы_данных_сайта*> или <*имя_экземпляра*>\\<*имя_базы_данных_сайта*>
 
-    -   **Detalhes:**  
+    -   **Сведения:**  
 
-         Especifica o nome da base de dados do SQL Server para criar ou a base de dados do SQL Server a utilizar ao instalar a base de dados do site de administração central. Terá de especificar o nome da mesma base de dados que foi utilizada antes da falha.  
+         Указывает имя базы данных SQL Server, создаваемой или используемой для установки базы данных сайта центра администрирования. Необходимо указать то же имя базы данных, что использовалось до сбоя.  
 
         > [!IMPORTANT]  
-        >  Se não utilizar a instância predefinida, terá de especificar o nome da instância e o nome da base de dados do site.  
+        >  Необходимо указать имя экземпляра и имя базы данных сайта, если не используется экземпляр по умолчанию.  
 
--   **Nome da chave:** SQLSSBPort  
+-   **Имя ключа:** SQLSSBPort  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** <*número de porta SSB*>  
+    -   **Значения:** <*номер_порта_SSB*>  
 
-    -   **Detalhes:** Especifica a porta do SSB que utiliza o SQL Server. Normalmente, o SSB está configurado para utilizar a porta TCP 4022. Tem de especificar a mesma porta do SSB que foi utilizada antes da falha.  
+    -   **Сведения:** задает порт SSB, используемый сервером SQL Server. Обычно для SSB используется TCP-порт 4022. Необходимо указать тот же номер порта SSB, какой использовалось до сбоя.  
 
--   **Nome da chave:** SQLDataFilePath  
+-   **Имя ключа:** SQLDataFilePath  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho do ficheiro. mdb de base de dados*>  
+    -   **Значения:** <*путь_к_MDB-файлу_базы_данных*>  
 
-    -   **Detalhes:** Especifica uma localização alternativa para criar o ficheiro. mdb de base de dados.  
+    -   **Сведения:** задает альтернативное расположение для создания MDB-файла базы данных.  
 
--   **Nome da chave:** SQLLogFilePath  
+-   **Имя ключа:** SQLLogFilePath  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*caminho do ficheiro. ldf de base de dados*>  
+    -   **Значения:** <*путь_к_LDF-файлу_базы_данных*>  
 
-    -   **Detalhes:** Especifica uma localização alternativa para criar o ficheiro. ldf de base de dados.  
+    -   **Сведения:** задает альтернативное расположение для создания LDF-файла базы данных.  
 
 **HierarchyExpansionOptions**  
 
--   **Nome da chave:** CCARSiteServer  
+-   **Имя ключа:** CCARSiteServer  
 
-    -   **Necessário:** Consulte os detalhes.  
+    -   **Обязательный:** см. сведения.  
 
-    -   **Valores:** <*código para o site de administração central do Site*>  
+    -   **Значения:** <*код_сайта_центра_администрирования*>  
 
-    -   **Detalhes:** Especifica o site de administração central ao qual um site primário liga quando é associado a hierarquia do Configuration Manager. Esta definição é necessária se o site primário estava ligado a um site de administração central antes da falha. Tem de especificar o código do site que era utilizado para o site de administração central antes da falha.  
+    -   **Сведения:** указывает сайт центра администрирования, к которому будет присоединен первичный сайт при его добавлении в иерархию Configuration Manager. Этот параметр требуется, если первичный сайт был присоединен к сайту центра администрирования до сбоя. Необходимо указать код сайта центра администрирования, использовавшийся до сбоя.  
 
--   **Nome da chave:** CASRetryInterval  
+-   **Имя ключа:** CASRetryInterval  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*Interval*>  
+    -   **Значения:** <*интервал*>  
 
-    -   **Detalhes:** Especifica o intervalo entre tentativas (em minutos) para estabelecer ligação ao site de administração central após uma falha da ligação. Por exemplo, se a ligação ao site de administração central falhar, o site primário aguarda o número de minutos que especificar para o **CASRetryInterval** valor e, em seguida, tenta restabelecer a ligação.  
+    -   **Сведения:** указывает интервал (в минутах) между повторными попытками подключения к сайту центра администрирования после неудачного подключения. Например, если соединение с сайтом центра администрирования прервано, первичный сайт повторно пытается подключиться к сайту через интервал в минутах, указанный в параметре **CASRetryInterval**.  
 
--   **Nome da chave:** WaitForCASTimeout  
+-   **Имя ключа:** WaitForCASTimeout  
 
-    -   **Necessário:** Não  
+    -   **Обязательный:** нет  
 
-    -   **Valores:** <*Timeout*>  
+    -   **Значения:** <*время ожидания*>  
 
-    -   **Detalhes:** Especifica o valor de tempo limite máximo (em minutos) para um site primário ligar ao site de administração central. Por exemplo, se um site primário não conseguir ligar a um site de administração central, o site primário repete a ligação ao site de administração central com base no **CASRetryInterval** valor até o **WaitForCASTimeout** período. Pode especificar um valor de **0** para **100**.  
+    -   **Сведения:** указывает максимальное значение периода ожидания (в минутах) подключения первичного сайта к сайту центра администрирования. Например, если первичному сайту не удается подключиться к сайту центра администрирования, первичный сайт повторно пытается подключиться к нему через интервал, указанный в параметре **CASRetryInterval**, до тех пор, пока не истечет период ожидания **WaitForCASTimeout**. Можно указать значение от **0** до **100**.  
 
 **CloudConnectorOptions**  
 
--   **Nome da chave:** CloudConnector  
+-   **Имя ключа:** CloudConnector  
 
-    -   **Necessário:** Sim  
+    -   **Обязательный:** да  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se pretende instalar um ponto de ligação de serviço neste site. Porque o ponto de ligação de serviço só pode ser instalado no site de nível superior da hierarquia, este valor tem de ser **0** para um site primário subordinado.  
+    -   **Сведения:** указывает, следует ли установить на этом сайте точку подключения службы. Так как точка подключения службы может быть установлена только на сайте верхнего уровня иерархии, это значение должно быть равно **0** для подчиненного первичного сайта.  
 
--   **Nome da chave:** CloudConnectorServer  
+-   **Имя ключа:** CloudConnectorServer  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** <*o servidor de ponto de ligação de serviço FQDN*>  
+    -   **Значения:** <*полное_доменное_имя_сервера_точки_подключения_службы*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor que irá alojar a função de sistema de sites de ponto de ligação de serviço.  
+    -   **Сведения:** указывает полное доменное имя сервера, на котором будет размещена роль системы сайта точки подключения службы.  
 
--   **Nome da chave:** UseProxy  
+-   **Имя ключа:** UseProxy  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** 0 ou 1  
+    -   **Значения:** 0 или 1  
 
-         0 = efetue não instalar  
+         0 = не устанавливать  
 
-         1 = instalar  
+         1 = установить  
 
-    -   **Detalhes:** Especifica se o ponto de ligação de serviço irá utilizar um servidor proxy.  
+    -   **Сведения:** указывает, будет ли точка подключения службы использовать прокси-сервер.  
 
--   **Nome da chave:** ProxyName  
+-   **Имя ключа:** ProxyName  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** <*FQDN do servidor Proxy*>  
+    -   **Значения:** <*полное_доменное_имя_прокси-сервера*>  
 
-    -   **Detalhes:** Especifica o FQDN do servidor proxy que será utilizado pela função de sistema de sites de ponto de ligação de serviço.  
+    -   **Сведения:** указывает полное доменное имя прокси-сервера, который будет использоваться ролью системы сайта точки подключения службы.  
 
--   **Nome da chave:** /Proxyport  
+-   **Имя ключа:** ProxyPort  
 
-    -   **Necessário:** Necessário quando **CloudConnector** é igual a 1  
+    -   **Обязательный:** требуется, если значение **CloudConnector** равно 1.  
 
-    -   **Valores:** <*número de porta*>  
+    -   **Значение:** <*номер_порта*>  
 
-    -   **Detalhes:** Especifica o número de porta a utilizar para a porta de proxy.  
+    -   **Сведения:** указывает номер порта, который будет использоваться для прокси.  

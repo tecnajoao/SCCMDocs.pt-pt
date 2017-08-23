@@ -1,6 +1,6 @@
 ---
-title: "Criar uma sequência de tarefas para capturar um sistema de operativo | Microsoft Docs"
-description: "Uma sequência de tarefas de compilação e captura baseia-se um computador de referência que pode incluir controladores específicos e atualizações de software, juntamente com o sistema operativo."
+title: "Создание последовательности задач для записи операционной системы | Документы Майкрософт"
+description: "Последовательность задач сборки и записи для создания компьютера-образца, который может содержать специальные драйверы и обновления программного обеспечения вместе с операционной системой."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,217 +17,217 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: e9320e40b8e5031ffa3da5e5149c7da718cc87d5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Criar uma sequência de tarefas para capturar um sistema operativo no System Center Configuration Manager
+# <a name="create-a-task-sequence-to-capture-an-operating-system-in-system-center-configuration-manager"></a>Создание последовательности задач для записи операционной системы в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Quando utilizar uma sequência de tarefas para implementar um sistema operativo num computador no System Center Configuration Manager, o computador instala a imagem do sistema operativo que especificou na sequência de tarefas. Para personalizar a imagem do sistema operativo de modo a que inclua controladores, aplicações, atualizações de software específicos, etc., pode utilizar uma sequência de tarefas de compilação e captura para criar um computador de referência e, em seguida, capturar a imagem do sistema operativo a partir desse computador de referência. Se já tiver um computador de referência disponível para capturar, pode criar uma sequência de tarefas personalizada para capturar o sistema operativo. Utilize as secções seguintes para capturar um sistema operativo personalizado.  
+При использовании последовательности задач для развертывания операционной системы на компьютере в System Center Configuration Manager этот компьютер устанавливает образ операционной системы, указанный в последовательности задач. Чтобы настроить образ операционной системы, включив в него специальные драйверы, приложения, обновления программного обеспечения и т. п., используется последовательность задач создания и записи, позволяющая создать компьютер-образец, а затем записать с него образ операционной системы. Если у вас уже есть доступный для записи компьютер-образец, можно создать настраиваемую последовательность задач для записи операционной системы. Используйте сведения из следующих разделов для записи настраиваемой операционной системы.  
 
-##  <a name="BKMK_BuildCaptureTS"></a> Utilizar uma sequência de tarefas para compilar e capturar um computador de referência  
- A sequência de tarefas de compilação e captura cria partições e formata o computador de referência, instala o sistema operativo, bem como as atualizações de cliente, aplicações e software do Configuration Manager e, em seguida, captura o sistema operativo do computador de referência. Os pacotes associados à sequência de tarefas, tais como aplicações, têm de estar disponíveis em pontos de distribuição antes de criar a sequência de tarefas de compilação e captura.  
+##  <a name="BKMK_BuildCaptureTS"></a> Использование последовательности задач для создания и записи компьютера-образца  
+ Последовательность задач создания и записи осуществляет секционирование и форматирование компьютера-образца, устанавливает операционную систему, клиент Configuration Manager, приложения и обновления программного обеспечения, а затем записывает операционную систему с компьютера-образца. Перед созданием последовательности задач создания и записи в точках распространения должны быть доступны пакеты, связанные с последовательностью задач, например приложения.  
 
-###  <a name="BKMK_CreatePackages"></a> Preparar implementações de sistemas operativos  
- Existem muitos cenários para implementar um sistema operativo em computadores no seu ambiente. Na maioria dos casos, irá criar uma sequência de tarefas e selecionar **Instalar um pacote de imagem existente** , no Assistente de Criação de Sequência de Tarefas, para instalar o sistema operativo, migrar as definições de utilizador, aplicar atualizações de software e instalar aplicações. Antes de criar uma sequência de tarefas para instalar um sistema operativo, é necessário o seguinte:  
+###  <a name="BKMK_CreatePackages"></a> Подготовка к развертываниям операционной системы  
+ Существует множество сценариев развертывания операционной системы на компьютерах в вашей среде. В большинстве случаев вы создадите последовательность задач и выберите **Установить существующий образ** в мастере создания последовательности задач, чтобы установить операционную систему, перенести параметры пользователя, применить обновления программного обеспечения и установить приложения. Перед созданием последовательности задач для установки операционной системы должны быть выполнены следующие условия:  
 
--   **Necessário**  
+-   **Обязательное**  
 
-    -   O [imagem de arranque](../get-started/manage-boot-images.md) devem estar disponíveis na consola do Configuration Manager.  
+    -   [Загрузочный образ](../get-started/manage-boot-images.md) должен быть доступен в консоли Configuration Manager.  
 
-    -   Um [imagem do sistema operativo](../get-started/manage-operating-system-images.md) devem estar disponíveis na consola do Configuration Manager.  
+    -   [Образ операционной системы](../get-started/manage-operating-system-images.md) должен быть доступен в консоли Configuration Manager.  
 
--   **Necessário (se utilizado)**  
+-   **Обязательно (если используется)**  
 
-    -   [Pacotes de controladores](../get-started/manage-drivers.md) que contêm o necessário controladores do Windows para suportar hardware no computador de referência tem de estar disponíveis na consola do Configuration Manager. Para mais informações sobre os passos de sequência de tarefas para gerir controladores, consulte [utilizar sequências de tarefas para instalar controladores de dispositivo](../get-started/manage-drivers.md#BKMK_TSDrivers).  
+    -   [Пакеты драйверов](../get-started/manage-drivers.md), содержащие необходимые драйверы Windows для поддержки оборудования на компьютере-образце, должны быть доступны в консоли Configuration Manager. Дополнительные сведения о шагах последовательности задач для управления драйверами см. в статье [Использование последовательностей задач для установки драйверов устройств](../get-started/manage-drivers.md#BKMK_TSDrivers).  
 
-    -   [As atualizações de software](../../sum/get-started/synchronize-software-updates.md) têm de ser sincronizados na consola do Configuration Manager.  
+    -   [Обновления программного обеспечения](../../sum/get-started/synchronize-software-updates.md) должны быть синхронизированы в консоли Configuration Manager.  
 
-    -   [Aplicações](../../apps/deploy-use/create-applications.md) tem de ser adicionado à consola do Configuration Manager.  
+    -   [Приложения](../../apps/deploy-use/create-applications.md) должны быть добавлены в консоль Configuration Manager.  
 
-###  <a name="BKMK_CreateBuildCaptureTS"></a> Criar uma sequência de tarefas de compilação e captura  
- Utilize o procedimento seguinte para utilizar uma sequência de tarefas para compilar um computador de referência e capturar o sistema operativo.  
+###  <a name="BKMK_CreateBuildCaptureTS"></a> Создание последовательности задач создания и записи  
+ Используйте следующую процедуру, чтобы воспользоваться последовательностью задач для создания компьютера-образца и записи операционной системы.  
 
-#### <a name="to-create-a-task-sequence-that-builds-and-captures-an-operating-system-image"></a>Para criar uma sequência de tarefas que crie e capture uma imagem de sistema operativo  
+#### <a name="to-create-a-task-sequence-that-builds-and-captures-an-operating-system-image"></a>Создание последовательности задач для создания образа операционной системы и сбора для него данных  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
+3.  В группе **Создать** вкладки **Главная** выберите команду **Создать последовательность задач** , чтобы запустить мастер создания последовательности задач.  
 
-4.  Na página **Criar uma Nova Sequência de Tarefas** , selecione **Construir e capturar uma imagem do sistema operativo de referência**.  
+4.  На странице **Создание новой последовательности задач** щелкните **Создать и сохранить мастер-образ операционной системы**.  
 
-5.  Na página **Informações da Sequência de Tarefas** , especifique as seguintes definições e clique em **Seguinte**.  
+5.  На странице **Сведения о последовательности задач** настройте следующие параметры, затем нажмите кнопку **Далее**.  
 
-    -   **Nome da sequência de tarefas**: Especifique um nome que identifique a sequência de tarefas.  
+    -   **Имя последовательности задач**. Укажите имя последовательности задач.  
 
-    -   **Descrição**: Especifique uma descrição da tarefa que é executada pela sequência de tarefas, como uma descrição do sistema operativo que é criado pela sequência de tarefas.  
+    -   **Описание**. Введите описание задачи, выполняющейся последовательностью. Например, описание операционной системы, создаваемой последовательностью задач.  
 
-    -   **Imagem de arranque**: Especifique a imagem de arranque que instala a imagem do sistema operativo.  
-
-        > [!IMPORTANT]  
-        >  A arquitetura da imagem de arranque deve ser compatível com a arquitetura de hardware do computador de destino.  
-
-6.  Na página **Instalar o Windows** , especifique as seguintes definições e clique em **Seguinte**.  
-
-    -   **Pacote de imagem**: Especifique o pacote de imagem do sistema operativo, que contém os ficheiros que são necessários para instalar o sistema operativo.  
-
-    -   **Índice de imagens**: Especifique o sistema operativo a instalar. Se a imagem do sistema operativo tiver várias versões, selecione a versão que pretende instalar.  
-
-    -   **Chave de produto**: Especifique a chave de produto para o sistema operativo do Windows instalar. Pode especificar chaves de licenciamento em volume codificadas e chaves de produto padrão. Se utilizar uma chave de produto não codificada, terá de separar cada grupo de 5 carateres por um hífen (-). Por exemplo: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
-
-    -   **Modo de licenciamento de servidor**: Especifique se a licença do servidor é **por posto**, **por servidor**, ou se for especificada qualquer licença. Se a licença do servidor for **Por servidor**, especifique também o número máximo de ligações de servidor.  
-
-    -   Especifique como lidar com a conta de administrador utilizada quando o sistema operativo é implementado.  
-
-        -   **Aleatoriamente gerar a palavra-passe de administrador local e desativar a conta nas plataformas suportadas**: Especifique se pretende criar uma palavra-passe aleatória para a conta de administrador local e desative a conta quando o sistema operativo é implementado o Configuration Manager.  
-
-        -   **Ativar a conta e especificar a palavra-passe de administrador local**: Especifique se a mesma palavra-passe é utilizada para a conta de administrador local em todos os computadores em que o sistema operativo é implementado.  
-
-7.  Na página **Configurar Rede** , especifique as seguintes definições e clique em **Seguinte**.  
-
-    -   **Aderir a um grupo de trabalho**: Especifique se pretende adicionar o computador de destino a um grupo de trabalho quando o sistema operativo é implementado.  
-
-    -   **Aderir a um domínio**: Especifique se pretende adicionar o computador de destino a um domínio quando o sistema operativo é implementado. Em **Domínio**, especifique o nome do domínio.  
+    -   **Загрузочный образ**. Укажите образ загрузки, используемый для установки образа операционной системы.  
 
         > [!IMPORTANT]  
-        >  Pode navegar para localizar domínios na floresta local, mas tem de especificar o nome de domínio de uma floresta remota.  
+        >  Архитектура загрузочного образа должна быть совместимой с архитектурой оборудования конечного компьютера.  
 
-         Também pode especificar uma unidade organizacional (UO). Trata-se de uma definição opcional que especifica o nome único LDAP X.500 da UO em que deverá ser criada a conta de computador, caso ainda não exista.  
+6.  На странице **Установка Windows** настройте следующие параметры, затем нажмите кнопку **Далее**.  
 
-    -   **Conta**: Especifique o nome de utilizador e palavra-passe para a conta que possui permissões para aderir ao domínio especificado. Por exemplo: *domínio\utilizador* ou *%variable%*.  
+    -   **Пакет образа**. Укажите пакет образа операционной системы, который содержит файлы, необходимые для установки операционной системы.  
+
+    -   **Индекс образа**. Укажите устанавливаемую операционную систему. Если образ операционной системы содержит несколько версий, выберите версию, которую необходимо установить.  
+
+    -   **Ключ продукта**. Введите ключ продукта для устанавливаемой операционной системы Windows. Можно указать зашифрованные ключи многократной установки или стандартные ключи продукта. В незашифрованном ключе знаки сгруппированы по 5 и разделены дефисами (-), Например, *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
+
+    -   **Режим лицензирования сервера**. Выберите режим лицензирования сервера: **Для каждого рабочего места**, **Для каждого сервера**или не указывайте лицензию. В случае использования варианта **Для каждого сервера**следует также указать максимальное число подключений.  
+
+    -   Укажите параметры обработки учетной записи администратора, использующейся при развертывании операционной системы.  
+
+        -   **Задать произвольно пароль лок. администратора и отключить учетную запись лок. администратора на всех поддерживаемых платформах**. Укажите, требуется ли Configuration Manager создать случайный пароль для учетной записи локального администратора и отключить учетную запись при развертывании образа операционной системы.  
+
+        -   **Включить учетную запись локального администратора и задать пароль**. Укажите, используется ли один и тот же пароль для учетной записи локального администратора на всех компьютерах, на которых развертывается операционная система.  
+
+7.  На странице **Настроить сеть** настройте следующие параметры, затем нажмите кнопку **Далее**.  
+
+    -   **Присоединить к рабочей группе**. Укажите, следует ли добавлять конечный компьютер к рабочей группе при развертывании операционной системы.  
+
+    -   **Присоединить к домену**. Укажите, следует ли добавлять конечный компьютер к домену при развертывании операционной системы. Укажите имя домена в разделе **Домен**.  
 
         > [!IMPORTANT]  
-        >  Se pretender migrar as definições de domínio ou as definições de grupo de trabalho, terá de introduzir as credenciais de domínio apropriadas.  
+        >  Чтобы указать домен из локального леса, достаточно просмотреть структуру последнего; в случае же с удаленным лесом необходимо знать (и ввести) имя домена.  
 
-8.  No **instalar Configuration Manager** página, especifique o pacote de cliente do Configuration Manager que contém os ficheiros de origem para instalar o cliente do Configuration Manager, adicione as propriedades adicionais necessárias para instalar o cliente e, em seguida, clique em **seguinte**.  
+         Можно также указать подразделение (OU). Это необязательный параметр, содержащий различающееся имя подразделения в каталоге LDAP X.500, куда добавляется учетная запись компьютера, если она еще не создана.  
 
-     Para obter mais informações sobre as propriedades que podem ser utilizadas para instalar um cliente, consulte [acerca das propriedades de instalação de cliente](../../core/clients/deploy/about-client-installation-properties.md).  
+    -   **Учетная запись**. Введите имя пользователя и пароль учетной записи, которая может присоединиться к выбранному домену. Например: *domain\user* или *%variable%*.  
 
-9. Na página **Incluir Atualizações** , especifique se devem ser instaladas as atualizações de software necessárias, todas as atualizações de software ou nenhuma atualização de software e clique em **Seguinte**. Se especificar a instalação de atualizações de software, o Configuration Manager instala apenas as atualizações de software destinadas às coleções de que o computador de destino é um membro do.  
+        > [!IMPORTANT]  
+        >  Для переноса параметров домена или рабочей группы требуется ввод надлежащих учетных данных домена.  
 
-10. Na página **Instalar Aplicações** , especifique as aplicações a instalar no computador de destino e clique em **Seguinte**. Se especificar várias aplicações, poderá também especificar que a sequência de tarefas deverá continuar se a instalação de uma aplicação específica falhar.  
+8.  На странице **Установка Configuration Manager** укажите пакет клиента Configuration Manager, содержащий исходные файлы для установки клиента Configuration Manager, добавьте дополнительные свойства, необходимые для установки клиента, а затем нажмите кнопку **Далее**.  
 
-11. Na página **Preparação do Sistema** , especifique as seguintes definições e clique em **Seguinte**.  
+     Дополнительные сведения о свойствах, которые можно использовать для установки клиента, см. в статье [Сведения о свойствах установки клиента](../../core/clients/deploy/about-client-installation-properties.md).  
 
-    -   **Pacote**: Especifique o pacote de Configuration Manager que contém a versão adequada do Sysprep a utilizar para capturar as definições do computador de referência.  
+9. На странице **Включить обновления** укажите, следует ли устанавливать только обязательные обновления ПО, все обновления или не устанавливать их вообще, и нажмите кнопку **Далее**. Если выбран вариант установки обновлений программного обеспечения, Configuration Manager устанавливает только те обновления ПО, которые относятся к коллекциям, в которые входит конечный компьютер.  
 
-         Se a versão do sistema operativo em execução for Windows Vista ou posterior, o Sysprep será automaticamente instalado no computador, sem necessidade de especificar um pacote.  
+10. На странице **Установить приложения** укажите приложения, которые необходимо установить на конечный компьютер, а затем нажмите кнопку **Далее**. Если задано несколько приложений, можно настроить продолжение выполнения последовательности задач в случае сбоя установки определенного приложения.  
 
-12. Na página **Propriedades da Imagem** , especifique as seguintes definições para a imagem de sistema operativo e clique em **Seguinte**.  
+11. На странице **Подготовка системы** укажите следующие параметры, затем нажмите кнопку **Далее**.  
 
-    -   **Criado pelo**: Especifique o nome do utilizador que criou a imagem do sistema operativo.  
+    -   **Пакет**. Укажите пакет Configuration Manager, содержащий подходящую версию программы Sysprep, которая будет использоваться для записи параметров компьютера-образца.  
 
-    -   **Versão**: Especifique um número de versão definido pelo utilizador que está associado a imagem do sistema operativo.  
+         Если версией операционной системы, выполняющейся на компьютере, является Windows Vista или более поздняя, программа Sysprep автоматически установлена этом компьютере, поэтому нет необходимости указывать пакет.  
 
-    -   **Descrição**: Especifique uma descrição definida pelo utilizador da imagem do computador do sistema operativo.  
+12. На странице **Свойства образа** укажите следующие параметры образа операционной системы и нажмите кнопку **Далее**.  
 
-13. Na página **Capturar Imagem** , especifique as seguintes definições e clique em **Seguinte**.  
+    -   **Автор**. Укажите имя пользователя, создавшего образ операционной системы.  
 
-    -   **Caminho**: Especifique uma pasta de rede partilhada onde a saída. É armazenado o ficheiro WIM. Este ficheiro contém a imagem de sistema operativo baseada nas definições especificadas utilizando este assistente. Se especificar uma pasta que já contenha um ficheiro .WIM, o ficheiro existente está substituído.  
+    -   **Версия**. Укажите номер версии, задаваемый пользователем, который будет связан с образом операционной системы.  
 
-    -   **Conta**: Especifique a conta do Windows que tem permissões para a partilha de rede onde está armazenada a imagem.  
+    -   **Описание**. Укажите описание, определяемое пользователем, для образа операционной системы компьютера.  
 
-14. Conclua o assistente.  
+13. На странице **Запись образа** укажите следующие параметры, а затем нажмите кнопку **Далее**.  
 
-15. Para adicionar mais passos à sequência de tarefas, selecione a sequência de tarefas que criou e clique em **Editar**. Para obter informações sobre como editar uma sequência de tarefas, consulte [editar uma sequência de tarefas](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+    -   **Путь**. Укажите общую сетевую папку для хранения выходного WIM-файла. Этот файл содержит образ операционной системы, основанный на параметрах, указанных в мастере. Если задать папку, уже имеющую WIM-файл, существующий файл будет перезаписан.  
 
- Implemente a sequência de tarefas num computador de referência de uma das seguintes formas:  
+    -   **Учетная запись**. Укажите учетную запись Windows, имеющую разрешения на доступ к общей сетевой папке, где хранится образ.  
 
--   Se o computador de referência for um cliente de Configuration Manager, pode implementar a compilação e captura a sequência de tarefas na coleção que contenha o computador de referência. Para obter informações sobre como implementar a imagem do sistema operativo, consulte [criar uma sequência de tarefas para instalar um sistema operativo](create-a-task-sequence-to-install-an-operating-system.md).  
+14. Завершите работу мастера.  
+
+15. Чтобы добавить шаги в последовательность задач, выберите созданную последовательность задач и нажмите кнопку **Изменить**. Дополнительные сведения о редактировании последовательности задач см. в статье [Редактирование последовательности задач](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+
+ Разверните последовательность задач на компьютере-образце одним из следующих способов:  
+
+-   Если компьютер-образец является клиентом Configuration Manager, разверните последовательность задач создания и записи в коллекцию, содержащую компьютер-образец. Дополнительные сведения о развертывании образа операционной системы см. в статье [Создание последовательности задач для установки операционной системы](create-a-task-sequence-to-install-an-operating-system.md).  
 
     > [!NOTE]  
-    >  Se a sequência de tarefas possuir um passo da sequência de tarefas de criação de partições no disco, não selecione a opção **Transferir Programa** ao implementar a sequência de tarefas.  
+    >  Если в последовательности задач присутствует шаг создания разделов на диске, не выбирайте параметр **Загрузить программу** при развертывании последовательности задач.  
 
--   Se o computador de referência não for um cliente do Configuration Manager ou se pretender executar manualmente a sequência de tarefas no computador de referência, execute o **criar Assistente de suporte de dados de sequência de tarefas** para criar suportes de dados. Para obter informações sobre como criar suportes de dados, consulte [criar suportes de dados](create-bootable-media.md).  
+-   Если компьютер-образец не является клиентом Configuration Manager или необходимо вручную выполнить последовательность задач на компьютере-образце, запустите **мастер создания носителя с последовательностью задач**, чтобы создать загрузочный носитель. Сведения о создании загрузочного носителя см. в разделе [Создание загрузочного носителя](create-bootable-media.md).  
 
-##  <a name="BKMK_CaptureExistingRefComputer"></a> Capturar uma imagem do sistema operativo a partir de um computador de referência existente  
- Quando já tiver um computador de referência preparado para capturar, pode criar uma sequência de tarefas que capture o sistema operativo a partir do computador de referência. Utilizará o passo de sequência de tarefas **Capturar Imagem do Sistema Operativo** para capturar uma ou mais imagens de um computador de referência e armazená-las num ficheiro de imagem (.wim) na partilha de rede especificada. O computador de referência é iniciado no Windows PE através de uma imagem de arranque e cada disco rígido no computador de referência é capturado como uma imagem separada no ficheiro .wim. Se o computador referenciado tiver várias unidades, o ficheiro .wim resultante irá conter uma imagem separada para cada volume. Apenas são capturados os volumes formatados como NTFS ou FAT32. Os volumes com outros formatos e os volumes USB são ignorados.  
+##  <a name="BKMK_CaptureExistingRefComputer"></a> Запись образа операционной системы с существующего компьютера-образца  
+ После подготовки компьютера-образца к записи можно создать последовательность задач, которая записывает операционную систему с компьютера-образца. Шаг последовательности задач **Записать образ операционной системы** используется для записи одного или нескольких образов с эталонного компьютера. Затем эти образы сохраняются в файл образа (WIM) в указанной сетевой папке. Компьютер-образец запускается в Windows PE с помощью образа загрузки. Каждый жесткий диск на компьютере-образце записывается в виде отдельного образа в WIM-файле. Если компьютер-образец имеет несколько дисков, получившийся WIM-файл будет содержать отдельный образ для каждого тома. Поддерживается запись только томов с файловыми системами NTFS или FAT32. Тома с другими форматами файловых систем и тома USB пропускаются.  
 
- Utilize o procedimento seguinte para capturar uma imagem do sistema operativo a partir de um computador de referência existente.  
+ Используйте следующую процедуру для записи образа операционной системы с существующего компьютера-образца.  
 
-#### <a name="to-capture-an-operating-system-from-an-existing-reference-computer"></a>Para capturar um sistema operativo a partir de um computador de referência existente  
+#### <a name="to-capture-an-operating-system-from-an-existing-reference-computer"></a>Порядок записи операционной системы с существующего компьютера-образца  
 
-1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  Na área de trabalho **Biblioteca de Software** , expanda **Sistemas Operativos**e clique em **Sequências de Tarefas**.  
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите элемент **Последовательности задач**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Sequência de Tarefas** para iniciar o Assistente de Criação de Sequência de Tarefas.  
+3.  В группе **Создать** вкладки **Главная** выберите команду **Создать последовательность задач** , чтобы запустить мастер создания последовательности задач.  
 
-4.  Na página **Criar uma Nova Sequência de Tarefas** , selecione **Criar uma nova sequência de tarefas personalizada**.  
+4.  На странице **Создание новой последовательности задач** выберите команду **Создание новой последовательности задач**.  
 
-5.  Na página **Informações da Sequência de Tarefas** , especifique um nome e uma descrição para a sequência de tarefas.  
+5.  На странице **Сведения о последовательности задач** укажите имя и описание для последовательности задач.  
 
-6.  Especifique uma imagem de arranque para a sequência de tarefas. Esta imagem de arranque é utilizada para iniciar o computador de referência com o Windows PE.  Para obter mais informações, consulte [gerir imagens de arranque](../get-started/manage-boot-images.md).  
+6.  Укажите образ загрузки для последовательности задач. Этот образ загрузки используется для запуска компьютера-образца с помощью Windows PE.  Дополнительные сведения см. в разделе [Управление загрузочными образами](../get-started/manage-boot-images.md).  
 
-7.  Conclua o assistente.  
+7.  Завершите работу мастера.  
 
-8.  Em **Sequências de Tarefas**, selecione a sequência de tarefas personalizada e, em seguida, no separador **Base** , no grupo **Sequência de Tarefas** , clique em **Editar** , para abrir o editor de sequência de tarefas.  
+8.  В окне **Последовательности задач**выберите настраиваемую последовательность задач, а затем на вкладке **Главная** группы **Последовательность задач** щелкните **Изменить** , чтобы открыть редактор последовательности задач.  
 
-9. Utilize este passo apenas se o cliente do Configuration Manager está instalado no computador de referência.  
+9. Используйте этот шаг, только если на компьютере-образце установлен клиент Configuration Manager.  
 
-     Clique em **adicionar**, clique em **imagens**e, em seguida, clique em [preparar ConfigMgr Client para captura](../understand/task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture). Este passo de sequência de tarefas executa o cliente do Configuration Manager no computador de referência e prepara-o para captura como parte do processamento de imagens.  
+     Нажмите кнопку **Добавить**, выберите **Образы** и щелкните [Подготовка клиента Configuration Manager перед снятием образа](../understand/task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture). Этот шаг последовательности задач используется для обработки клиента Configuration Manager на компьютере-образце и его подготовки к включению в образ.  
 
-10. Clique em **adicionar**, clique em **imagens**e, em seguida, clique em [preparar Windows para captura](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture). Esta ação de sequência de tarefas executa o Sysprep e, em seguida, reinicia o computador na imagem de arranque do Windows PE especificada para a sequência de tarefas. O computador de referência não deve ser associado a um domínio para que esta ação seja concluída com êxito.  
+10. Нажмите кнопку **Добавить**, выберите **Образы** и щелкните [Подготовка Windows перед снятием образа](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture). Этот действие последовательности задач выполняет программу Sysprep и затем перезагружает компьютер с помощью загрузочного образа Windows PE, определенного в последовательности задач. Чтобы это действие было выполнено успешно, компьютер-образец не должен входить в состав домена.  
 
-11. Clique em **adicionar**, clique em **imagens**e, em seguida, clique em [Capturar imagem do sistema operativo](../understand/task-sequence-steps.md#BKMK_CaptureOperatingSystemImage).  Este passo da sequência de tarefas só será executado a partir do Windows PE para capturar os discos rígidos no computador de referência. Configure as definições seguintes para o passo de sequência de tarefas.  
+11. Нажмите кнопку **Добавить**, выберите **Образы** и щелкните [Записать образ операционной системы](../understand/task-sequence-steps.md#BKMK_CaptureOperatingSystemImage).  Этот шаг последовательности задач выполняется только из Windows PE для записи жестких дисков на компьютере-образце. Настройте следующие параметры для этого шага последовательности задач.  
 
-    -   **Nome** e **Descrição**: Opcionalmente, pode alterar o nome do passo de sequência de tarefas e forneça uma descrição.  
+    -   **Имя** и **Описание**. При необходимости можно изменить имя шага последовательности и указать описание.  
 
-    -   **Destino**: Especifique uma pasta de rede partilhada onde a saída. É armazenado o ficheiro WIM. Este ficheiro contém a imagem de sistema operativo baseada nas definições especificadas utilizando este assistente. Se especificar uma pasta que já contenha um ficheiro .WIM, o ficheiro existente está substituído.  
+    -   **Назначение**. Укажите общую сетевую папку для хранения выходного WIM-файла. Этот файл содержит образ операционной системы, основанный на параметрах, указанных в мастере. Если задать папку, уже имеющую WIM-файл, существующий файл будет перезаписан.  
 
-    -   **Descrição**, **versão**, e **criado pelo**: Opcionalmente, indique detalhes sobre a imagem que vai capturar.  
+    -   **Описание**, **Версия**и **Автор**. При необходимости укажите сведения о записываемом образе.  
 
-    -   **Conta de imagem do sistema operativo para captura**: Especifique a conta do Windows que tem permissões para a rede de partilha que especificou. Clique em **Definir** para especificar o nome dessa conta do Windows.  
+    -   **Учетная запись "Записать образ операционной системы"**. Укажите учетную запись Windows, имеющую разрешения на доступ к заданной общей сетевой папке. Нажмите кнопку **Задать** , чтобы указать имя этой учетной записи Windows.  
 
-     Clique em **OK** para fechar o editor de sequência de tarefas.  
+     Нажмите кнопку **ОК** , чтобы закрыть редактор последовательности задач.  
 
- Implemente a sequência de tarefas num computador de referência de uma das seguintes formas:  
+ Разверните последовательность задач на компьютере-образце одним из следующих способов:  
 
--   Se o computador de referência for um cliente de Configuration Manager, pode implementar a sequência de tarefas na coleção que contenha o computador de referência. Para obter informações sobre como implementar a imagem do sistema operativo, consulte [criar uma sequência de tarefas para instalar um sistema operativo](create-a-task-sequence-to-install-an-operating-system.md).  
+-   Если компьютер-образец является клиентом Configuration Manager, разверните последовательность задач создания и записи в коллекцию, содержащую компьютер-образец. Дополнительные сведения о развертывании образа операционной системы см. в статье [Создание последовательности задач для установки операционной системы](create-a-task-sequence-to-install-an-operating-system.md).  
 
--   Se o computador de referência não for um cliente do Configuration Manager ou se pretender executar manualmente a sequência de tarefas no computador de referência, execute o **criar Assistente de suporte de dados de sequência de tarefas** para criar suportes de dados. Para obter informações sobre como criar suportes de dados, consulte [criar suportes de dados](create-bootable-media.md).  
+-   Если компьютер-образец не является клиентом Configuration Manager или необходимо вручную выполнить последовательность задач на компьютере-образце, запустите **мастер создания носителя с последовательностью задач**, чтобы создать загрузочный носитель. Сведения о создании загрузочного носителя см. в разделе [Создание загрузочного носителя](create-bootable-media.md).  
 
-##  <a name="BKMK_BuildandCaptureTSExample"></a> Exemplo de sequência de tarefas para compilar e capturar uma imagem do sistema operativo  
- Utilize a tabela seguinte como guia para criar uma sequência de tarefas que compile e capture uma imagem do sistema operativo. A tabela irá ajudá-lo a decidir a sequência geral para os passos da sequência de tarefas e como organizar e estruturar esses passos da sequência de tarefas em grupos lógicos. A sequência de tarefas que criar pode ser diferente da deste exemplo, podendo conter mais ou menos passos de sequência de tarefas e grupos.  
+##  <a name="BKMK_BuildandCaptureTSExample"></a> Пример последовательности задач для создания и записи образа операционной системы  
+ Приведенная ниже таблица представляет собой руководство, на которое можно опираться при создании последовательности задач, выполняющей создание образа операционной системы. Таблица поможет при выработке общей структуры шагов последовательности задач и объединении их в логические группы. Последовательность задач, созданная вами, может отличаться от представленного примера и включать в себя больше (или меньше) шагов и групп.  
 
 > [!IMPORTANT]  
->  Utilize sempre o Assistente de Criação de Sequência de Tarefas para criar este tipo de sequência de tarefas.  
+>  Для создания подобных последовательностей задач всегда используйте мастер создания последовательности задач.  
 
- Quando utiliza a opção **Nova Sequência de Tarefas** para criar esta nova sequência de tarefas, alguns dos nomes dos passos de sequência de tarefas são diferentes do que seriam se adicionasse manualmente esses passos a uma sequência já existente. A tabela seguinte apresenta as diferenças de nomenclatura:  
+ При использовании функции **создания новой последовательности задач** для создания последовательности названия некоторых шагов будут отличаться от равнозначных им шагов, добавленных в существующую последовательность задач вручную. Различия в именовании представлены в следующей таблице.  
 
-|Nome do Novo Passo de Sequência de Tarefas do Assistente de Sequência de Tarefas|Nome do Passo Equivalente do Editor de Sequência de Tarefas|  
+|Название шага в последовательности задач при использовании мастера создания новой последовательности задач|Название равнозначного шага в редакторе последовательности задач|  
 |------------------------------------------------------|-----------------------------------------------|  
-|Reiniciar no Windows PE|Arrancar para o Windows PE ou disco rígido|  
-|Criar Partições do Disco 0|Formatar e Particionar Disco|  
-|Aplicar Controladores de Dispositivo|Aplicar Controladores Automaticamente|  
-|Instalar Atualizações|Instalar Atualizações de Software|  
-|Aderir ao Grupo de Trabalho|Associar Domínio ou Grupo de Trabalho|  
-|Preparar ConfigMgr Client|Prepare ConfigMgr Client for Capture|  
-|Preparar Sistema Operativo|Prepare Windows for Capture|  
-|Capturar o Computador de Referência|Capturar Imagem do Sistema Operativo|  
+|Перезапустить в Windows PE|Перезагрузить в Windows PE или с жесткого диска|  
+|Создать разделы на диске 0|Отформатировать диск и создать разделы|  
+|Применить драйверы устройств|Автоматическое применение драйверов|  
+|Установить обновления|Установить обновления программного обеспечения|  
+|Присоединить к рабочей группе|Присоединить к домену или рабочей группе|  
+|Подготовка клиента Configuration Manager|Prepare ConfigMgr Client for Capture|  
+|Подготовить операционную систему|Prepare Windows for Capture|  
+|Сделать образ с эталонного компьютера|Записать образ операционной системы|  
 
-|Grupo/Passo de Sequência de Tarefas|Referência|  
+|Группа или шаг последовательности задач|Справочные сведения|  
 |-------------------------------|---------------|  
-|Compilar Computador de Referência - **(Novo Grupo de Sequência de Tarefas)**|Criar um grupo de sequência de tarefas. Os grupos de sequência de tarefas mantêm agrupados os passos de sequência de tarefas semelhantes para uma melhor organização e um melhor controlo de erros.<br /><br /> Este grupo contém as ações necessárias para compilar um computador de referência.|  
-|Reiniciar no Windows PE|Utilize este passo de sequência de tarefas para especificar as opções de reinício do computador de destino. Este passo apresentará uma mensagem ao utilizador a indicar que o computador será reiniciado para que a instalação possa continuar.<br /><br /> Este passo utiliza a variável de sequência de tarefas só de leitura **_SMSTSInWinPE** . Se o valor associado for igual a **false** , o passo de sequência de tarefas continuará.|  
-|Criar Partições do Disco 0|Utilize este passo de sequência de tarefas para especificar as ações necessárias para formatar o disco rígido no computador de destino. O número de disco predefinido é **0**.<br /><br /> Este passo utiliza a variável de sequência de tarefas só de leitura **_SMSTSClientCache** . Este passo será executado se a cache do cliente do Configuration Manager não existe.|  
-|Aplicar Sistema Operativo|Utilize este passo de sequência de tarefas para instalar uma imagem do sistema operativo especificada no computador de destino. Este passo aplica-se a todas as imagens de volume contidas no ficheiro WIM ao volume de disco sequencial correspondente no computador de destino depois de eliminar primeiro todos os ficheiros nesse volume (à exceção dos ficheiros de controlo específicos do Configuration Manager).|  
-|Aplicar Definições do Windows|Utilize este passo de sequência de tarefas para configurar as informações de configuração das definições do Windows para o computador de destino.|  
-|Aplicar Definições de Rede|Utilize este passo de sequência de tarefas para especificar as informações de configuração da rede ou do grupo de trabalho para o computador de destino.|  
-|Aplicar Controladores de Dispositivo|Utilize este passo de sequência de tarefas para corresponder e instalar controladores como parte da implementação do sistema operativo. Pode permitir que a Configuração do Windows pesquise todas as categorias de controladores existentes ao selecionar **Considerar controladores de todas as categorias** ou limitar as categorias de controladores que a Configuração do Windows pode pesquisar ao selecionar **Limitar a correspondência de controladores para apenas considerar controladores nas categorias selecionadas**.<br /><br /> Este passo utiliza a variável de sequência de tarefas só de leitura **_SMSTSMediaType** . Se o valor associado não for igual a **FullMedia** , será executado este passo de sequência de tarefas.|  
-|Configurar Windows e ConfigMgr|Utilize este passo de sequência de tarefas para instalar o software de cliente do Configuration Manager. O Configuration Manager instala e regista o GUID do cliente do Configuration Manager. Pode atribuir os parâmetros de instalação necessários na janela **Propriedades de instalação** .|  
-|Instalar Atualizações|Utilize este passo de sequência de tarefas para especificar a forma como as atualizações de software são instaladas no computador de destino. O computador de destino não é avaliado relativamente a atualizações de software aplicáveis até ser executado este passo de sequência de tarefas. Nessa altura, o computador de destino é avaliado relativamente a atualizações de software semelhantes a qualquer outro cliente gerido pelo Configuration Manager.<br /><br /> Este passo utiliza a variável de sequência de tarefas só de leitura **_SMSTSMediaType** . Se o valor associado não for igual a **FullMedia** , será executado este passo de sequência de tarefas.|  
-|Capturar Computador de Referência - **(Novo Grupo de Sequência de Tarefas)**|Criar outro grupo de sequência de tarefas. Este grupo contém os passos necessários para preparar e capturar um computador de referência.|  
-|Aderir ao Grupo de Trabalho|Utilize este passo de sequência de tarefas para especificar as informações necessárias para associar o computador de destino a um grupo de trabalho.|  
-|Prepare ConfigMgr Client for Capture|Utilize este passo para efetuar o cliente do Configuration Manager no computador de referência e prepara-o para captura como parte do processamento de imagens|  
-|Preparar Sistema Operativo|Utilize este passo de sequência de tarefas para especificar as opções de Sysprep a utilizar quando capturar as definições do Windows a partir do computador de referência. Este passo de sequência de tarefas executa o Sysprep e, em seguida, reinicia o computador na imagem de arranque do Windows PE especificada para a sequência de tarefas.|  
-|Capturar Imagem do Sistema Operativo|Utilize este passo de sequência de tarefas para introduzir uma partilha de rede existente e um ficheiro .WIM específicos a utilizar quando guardar a imagem. Esta localização é utilizada como a localização de origem do pacote quando adicionar um pacote de imagem do sistema operativo com o **Assistente para Adicionar Pacote de Imagem do Sistema Operativo**.|  
+|Создание компьютера-образца **(новая группа последовательности задач)**|Создание группы последовательности задач. Группа последовательности задач используется для группирования сходных шагов в целях повышения управляемости и упрощения управления ошибками.<br /><br /> В этой группе содержатся действия, необходимые для построения компьютера-образца.|  
+|Перезапустить в Windows PE|Этот шаг последовательности задач используется для указания параметров перезагрузки для конечного компьютера. На этом шаге пользователю будет отображено сообщение, информирующее, что для продолжения установки компьютер будет перезагружен.<br /><br /> Этим шагом используется переменная последовательности задач **_SMSTSInWinPE** , доступная только для чтения. Если она имеет значение **false** , этот шаг будет выполнен.|  
+|Создать разделы на диске 0|Этот шаг используется для указания действий, необходимых для форматирования жесткого диска на конечном компьютере. По умолчанию обрабатывается диск номер **0**.<br /><br /> Этим шагом используется переменная последовательности задач **_SMSTSClientCache** , доступная только для чтения. Этот шаг будет выполнен, если кэш клиентов Configuration Manager не существует.|  
+|Применить операционную систему|Этот шаг используется для установки указанного образа операционной системы на конечный компьютер. На этом шаге все образы томов, хранящиеся в WIM-файле, применяются к соответствующим томам последовательного диска на конечном компьютере (при этом выполняется предварительное удаление всех файлов на обрабатываемых томах, за исключением файлов параметров, связанных с Configuration Manager).|  
+|Применить настройки Windows|Этот шаг последовательности задач используется для настройки параметров Windows на конечном компьютере.|  
+|Применить параметры сети|Этот шаг последовательности задач используется для задания параметров сети или рабочей группы на конечном компьютере.|  
+|Применить драйверы устройств|Этот шаг используется для сопоставления и установки драйверов в ходе развертывания операционной системы. Программе установки Windows можно разрешить искать драйверы во всех существующих категориях, выбрав параметр **Использовать драйверы всех категорий** , или ограничить круг доступных категорий, выбрав **Использовать драйверы только из указанных категорий**.<br /><br /> Этим шагом используется переменная последовательности задач **_SMSTSMediaType** , доступная только для чтения. Этот шаг будет выполняться, если ее значение не равно **FullMedia** .|  
+|Настройка Windows и Configuration Manager|Используйте этот шаг последовательности задач для установки клиентского программного обеспечения Configuration Manager. Configuration Manager устанавливает и регистрирует GUID клиента Configuration Manager. Необходимые параметры установки можно назначить в окне **Свойства установки** .|  
+|Установить обновления|Этот шаг используется для указания способа установки обновлений программного обеспечения на конечный компьютер. Конечный компьютер не оценивается на наличие применимых обновлений программного обеспечения, пока не будет запущен этот шаг последовательности задач. На этом шаге конечный компьютер оценивается на применимость обновлений ПО, как и любой другой клиент, управляемый Configuration Manager.<br /><br /> Этим шагом используется переменная последовательности задач **_SMSTSMediaType** , доступная только для чтения. Этот шаг будет выполняться, если ее значение не равно **FullMedia** .|  
+|Сбор данных с компьютера-образца **(новая группа последовательности задач)**|Создание еще одной группы последовательности задач. В этой группе содержатся шаги, необходимые для подготовки компьютера-образца и сбора с него данных.|  
+|Присоединить к рабочей группе|Этот шаг используется для указания данных, необходимых для присоединения конечного компьютера к рабочей группе.|  
+|Prepare ConfigMgr Client for Capture|Этот шаг используется для обработки клиента Configuration Manager на конечном компьютере и его подготовки к включению в образ.|  
+|Подготовить операционную систему|Этот шаг используется для задания параметров Sysprep, используемых для сбора параметров Windows с компьютера-образца. В ходе этого шага происходит выполнение Sysprep с последующей перезагрузкой компьютера с использованием загрузочного образа среды предустановки Windows (Windows PE), указанного в последовательности задач.|  
+|Записать образ операционной системы|Этот шаг используется для указания существующей сетевой папки и WIM-файла, используемых при сохранении образа. Это расположение используется в качестве исходного расположения пакета при добавлении пакета с образом операционной системы из **мастера добавления пакета образа операционной системы**.|  
 
- Após ter capturado uma imagem de um computador de referência, não capture outra imagem do sistema operativo do computador de referência, porque as entradas do registo são criadas durante a configuração inicial. Crie um novo computador de referência sempre que capturar a imagem do sistema operativo. Se planear utilizar o mesmo computador de referência para criar imagens do sistema de operativo futuras, primeiro de desinstalar o cliente do Configuration Manager e, em seguida, reinstalar o cliente do Configuration Manager.  
+ Создав образ операционной системы на основе эталонного компьютера, не используйте последний для создания другого образа, поскольку в ходе первоначальной настройки создаются записи реестра. Для создания каждого образа операционной системы используйте новый эталонный компьютер. Если вы планируете использовать тот же компьютер для создания других образов операционной системы, сначала удалите клиент Configuration Manager, а затем переустановите его.  
 
-## <a name="next-steps"></a>Passos seguintes  
-[Métodos para implementar sistemas operativos empresariais](methods-to-deploy-enterprise-operating-systems.md)
+## <a name="next-steps"></a>Дальнейшие действия  
+[Методы развертывания операционных систем предприятия](methods-to-deploy-enterprise-operating-systems.md)

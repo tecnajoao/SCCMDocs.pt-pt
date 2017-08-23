@@ -1,6 +1,6 @@
 ---
-title: "Criar suportes de dados de sequência de tarefas com o System Center Configuration Manager | Microsoft Docs"
-description: "Crie suportes de dados da sequência tarefas, tais como um CD, para implementar um sistema operativo num computador de destino no seu ambiente do Configuration Manager."
+title: "Создание носителя последовательности задач в System Center Configuration Manager | Документы Майкрософт"
+description: "Создайте носитель последовательности задач, например компакт-диск, чтобы развернуть операционную систему на конечном компьютере в среде Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,54 +17,54 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: bd5448d70c2d465347de840cb197d4c33075c90a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-task-sequence-media-with-system-center-configuration-manager"></a>Criar um suporte de dados de sequência de tarefas com o System Center Configuration Manager
+# <a name="create-task-sequence-media-with-system-center-configuration-manager"></a>Создание носителя последовательности задач в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode utilizar suportes de dados para capturar uma imagem de sistema operativo a partir de um computador de referência ou implementar um sistema operativo num computador de destino no seu ambiente do System Center Configuration Manager. O suporte de dados criado pode ser um conjunto de CD, DVD ou uma unidade flash USB.  
+С помощью носителя можно создать образ операционной системы на основе компьютера-образца или развернуть ОС на конечном компьютере в среде System Center Configuration Manager. В качестве носителя может применяться набор компакт-дисков, DVD-дисков или USB-устройство флэш-памяти.  
 
- Suporte de dados é essencialmente utilizado para implementar sistemas operativos em computadores de destino que não tenham uma ligação de rede ou que tenham uma ligação de largura de banda reduzida ao site do Configuration Manager. No entanto, o suporte de dados de implementação também é utilizado para iniciar a implementação de um sistema operativo fora de um sistema operativo Windows existente. Esta segunda utilização de suportes de dados de implementação é importante quando não existe um sistema operativo no computador de destino, quando o sistema operativo está num estado não operacional ou quando o utilizador administrativo pretende criar partições do disco rígido no computador de destino.  
+ Носители используются преимущественно для развертывания операционных систем на конечных компьютерах, не имеющих сетевого подключения к сайту Configuration Manager или подключенных к нему посредством медленного соединения. Они также используются для запуска развертывания операционной системы при отсутствии ОС Windows. Этот второй вариант применения носителей развертывания важен в тех случаях, когда на конечном компьютере нет операционной системы, она в нерабочем состоянии или пользователю с правами администратора требуется изменить разделы жесткого диска на конечном компьютере.  
 
- O suporte de dados de implementação inclui suportes de dados de arranque, suportes de dados autónomos e suportes de dados pré-configurados. O conteúdo do suporte de dados de implementação varia consoante o tipo de suporte de dados utilizado. Por exemplo, o suporte de dados autónomo contém a sequência de tarefas que implementa o sistema operativo, enquanto outros tipos de suportes de dados obtêm sequências de tarefas a partir do ponto de gestão.  
-
-> [!IMPORTANT]  
->  Para criar suportes de dados de sequência de tarefas, tem de ser um administrador no computador em que executa a consola do Configuration Manager. Se não for um administrador, ser-lhe-ão pedidas as credenciais de administrador quando iniciar o assistente para Criar Suportes de Dados de Sequência de Tarefas.  
-
-##  <a name="BKMK_PlanCaptureMedia"></a>Captura de suportes de dados para imagens de sistema operativo  
- O suporte de dados de captura permite capturar uma imagem do sistema operativo a partir de um computador de referência. O suporte de dados de captura contém a imagem de arranque que inicia o computador de referência e a sequência de tarefas que captura a imagem do sistema operativo. Para obter mais informações sobre como criar suportes de dados de captura, veja [Criar suportes de dados de captura com o System Center Configuration Manager](create-capture-media.md).  
-
-##  <a name="BKMK_PlanBootableMedia"></a>Implementações do sistema operativo de suportes de dados  
- Suporte de dados de arranque contém apenas a imagem de arranque, opcional [comandos de Pré-início](../understand/prestart-commands-for-task-sequence-media.md) e os ficheiros necessários e os binários do Configuration Manager. Quando o computador de destino é iniciado, estabelece a ligação à rede e obtém a sequência de tarefas, a imagem do sistema operativo e qualquer outro conteúdo necessário a partir da rede. Dado que a sequência de tarefas não está no suporte de dados, pode alterar a sequência de tarefas ou o conteúdo sem ter de recriar o suporte de dados.  
+ Носителями развертывания могут быть загрузочные носители, автономные носители и предварительно подготовленные носители. Содержимое носителей развертывания зависит от типа используемого носителя. Например, автономные носители содержат последовательность задач, которая выполняет развертывание операционной системы, а другие типы носителей получают последовательности задач из точки управления.  
 
 > [!IMPORTANT]  
->  Os pacotes dos suportes de dados de arranque não estão encriptados. O utilizador administrativo deve tomar as medidas de segurança apropriadas, como adicionar uma palavra-passe ao suporte e dados, para garantir que o conteúdo do pacote está protegido contra utilizadores não autorizados.  
+>  Чтобы создать носитель с последовательностью задач, необходимо быть администратором компьютера, на котором выполняется консоль Configuration Manager. Если вы не являетесь администратором, вам будет предложено ввести учетные данные администратора при запуске мастера создания носителя с последовательностью задач.  
 
- Para obter informações sobre como criar suportes de dados [criar suportes de dados](create-bootable-media.md).  
+##  <a name="BKMK_PlanCaptureMedia"></a> Носитель для снятия образов операционной системы  
+ Носитель для снятия образа позволяет создавать образ операционной системы на основе эталонного компьютера. Носитель для снятия образа содержит загрузочный образ, который запускает эталонный компьютер и выполняет последовательность задач, создающую образ операционной системы. Сведения о создании этого носителя см. в разделе [Создание носителя для снятия образа с помощью System Center Configuration Manager](create-capture-media.md).  
 
-##  <a name="BKMK_PlanPrestagedMedia"></a>Implementações de sistema operativo do suporte de dados pré-configurado  
- O suporte de dados pré-configurado permite-lhe pré-configurar o suporte de dados de arranque e uma imagem do sistema operativo num disco rígido antes do processo de aprovisionamento. O suporte de dados pré-configurado é um ficheiro de formato WIM (Windows Imaging) que pode ser instalado num computador bare-metal pelo fabricante ou num centro de transição empresarial que não está ligado ao ambiente do Configuration Manager.  
-
- O suporte de dados pré-configurado contém a imagem de arranque utilizada para iniciar o computador de destino e a imagem de sistema operativo aplicada no computador de destino. Também pode especificar aplicações, pacotes e pacotes de controladores para incluir como parte do suporte de dados pré-configurado. A sequência de tarefas que implementa o sistema operativo não está incluída no suporte de dados. Quando implementa uma sequência de tarefas que utiliza suportes de dados pré-configurados, o cliente verifica primeiro a presença de conteúdo válido na cache local da sequência de tarefas e, se o conteúdo não puder ser localizado ou tiver sido revisto, o cliente transfere-o a partir do ponto de distribuição.  
-
- O suporte de dados pré-configurado é aplicado no disco rígido do computador novo antes do seu envio para o utilizador final. Quando o computador é iniciado pela primeira vez após a aplicação do suporte de dados pré-configurado, o computador inicia o Windows PE e estabelece ligação a um ponto de gestão para localizar a sequência de tarefas que conclui o processo de implementação do sistema operativo.  
+##  <a name="BKMK_PlanBootableMedia"></a> Развертывания операционной системы с помощью загрузочного носителя  
+ Загрузочный носитель содержит только образ загрузки, [команды перед запуском](../understand/prestart-commands-for-task-sequence-media.md) (их наличие необязательно) и необходимые им файлы, а также двоичные файлы Configuration Manager. Когда запускается конечный компьютер, он подключается к сети и запрашивает через сеть последовательность задач, образ операционной системы и все другое требуемое содержимое. Так как последовательность задач расположена не на носителе, можно изменять ее и содержимое без повторного создания носителя.  
 
 > [!IMPORTANT]  
->  Os pacotes dos suportes de dados pré-configurados não estão encriptados. O utilizador administrativo deve tomar as medidas de segurança apropriadas, como adicionar uma palavra-passe ao suporte e dados, para garantir que o conteúdo do pacote está protegido contra utilizadores não autorizados.  
+>  Пакеты на загрузочном носителе не шифруются. Пользователь с правами администратора должен предпринять соответствующие меры безопасности, такие как защита носителя паролем, чтобы предотвратить доступ к носителю неуполномоченных пользователей.  
 
- Para obter informações sobre como criar suportes de dados pré-configurados, consulte [criar suportes de dados pré-configurados](create-prestaged-media.md).  
+ Сведения о создании загрузочного носителя см. в разделе [Создание загрузочного носителя](create-bootable-media.md).  
 
-##  <a name="BKMK_PlanStandaloneMedia"></a>Implementações de sistema operativo do suporte de dados autónomo  
- O suporte de dados autónomo contém tudo o que é necessário para implementar o sistema operativo. Isto inclui a sequência de tarefas e qualquer outro conteúdo necessário. Como tudo o que é necessário para implementar o sistema operativo está armazenado no suporte de dados autónomo, o espaço em disco necessário para o suporte de dados autónomo é significativamente maior do que o espaço em disco necessário para outros tipos de suportes de dados.  
+##  <a name="BKMK_PlanPrestagedMedia"></a> Развертывания операционной системы с помощью предварительно подготовленного носителя  
+ Предварительно настроенный носитель позволяет предварительно настроить загрузочный носитель и образ операционной системы на жестком диске до процесса подготовки. Предварительно подготовленный носитель представляет собой WIM-файл, который может быть установлен на компьютер без операционной системы производителем или в центре подготовки организации без подключения к среде Configuration Manager.  
 
- Para obter informações sobre como criar suportes de dados autónomos, consulte [criar suportes de dados autónomos](create-stand-alone-media.md).  
+ Предварительно подготовленный носитель содержит загрузочный образ, используемый для запуска конечного компьютера, и образ операционной системы, который применяется к конечному компьютеру. Вы также можете указать приложения, пакеты и пакеты драйверов, включаемые в состав предварительно подготовленного носителя. Последовательность задач, развертывающая операционную систему, не содержится на носителе. При развертывании последовательности задач с использованием предварительно подготовленного носителя клиент сначала проверяет локальный кэш последовательности задач на наличие допустимого содержимого. Если содержимое не найдено или было изменено, оно загружается с точки распространения.  
 
-## <a name="media-considerations-when-using-site-systems-configured-for-https"></a>Considerações sobre o suporte de dados ao utilizar sistemas de sites configurados para HTTPS  
- Quando o ponto de gestão e os pontos de distribuição são configurados para utilizar comunicação HTTPS, deve criar os suportes de dados de arranque e os suportes de dados pré-configurados num site principal e não no site de administração central. Além disso, considere o seguinte para o ajudar a determinar se deve configurar o suporte de dados como dinâmico ou baseado no site:  
+ Предварительно подготовленный носитель применяется к жесткому диску компьютера перед тем, как компьютер будет отправлен конечному пользователю. Когда компьютер запускается в первый раз после применения предварительно подготовленного носителя, компьютер запускает среду предустановки Windows (Windows PE) и подключается к точке управления, чтобы найти последовательность задач, завершающую процесс развертывания операционной системы.  
 
--   Para configurar o suporte de dados como suporte de dados dinâmico, todos os sites principais têm de ter a AC de raiz do site a partir do qual criou o suporte de dados. Pode importar a AC de raiz para todos os sites principais da hierarquia.  
+> [!IMPORTANT]  
+>  Пакеты на предварительно подготовленном носителе не шифруются. Пользователь с правами администратора должен предпринять соответствующие меры безопасности, такие как защита носителя паролем, чтобы предотвратить доступ к носителю неуполномоченных пользователей.  
 
--   Quando os sites primários na hierarquia do Configuration Manager utilizam várias AC de raiz, tem de utilizar suportes de dados baseados no site em cada site.  
+ Сведения о создании предварительно подготовленного носителя см. в разделе [Создание предварительно подготовленного носителя](create-prestaged-media.md).  
+
+##  <a name="BKMK_PlanStandaloneMedia"></a> Развертывания операционной системы с помощью автономного носителя  
+ Автономные носители содержат все данные, которые необходимы для развертывания операционной системы (в том числе последовательность задач и все остальное необходимое содержимое). Так как все необходимое для развертывания операционной системы хранится на автономном носителе, для такого носителя требуется существенно большее дисковое пространство, чем для носителей других типов.  
+
+ Сведения о создании автономного носителя см. в разделе [Создание автономного носителя](create-stand-alone-media.md).  
+
+## <a name="media-considerations-when-using-site-systems-configured-for-https"></a>Особенности носителя, которые необходимо учитывать при использовании систем сайта, настроенных на HTTPS  
+ Если точки управления и точки распространения настроены на использование HTTPS, необходимо создать загрузочный носитель и предварительно подготовленный носитель на первичном сайте, а не на сайте центра администрирования. Кроме того, учтите следующее, чтобы определить, требуется ли настроить носители как динамические или сайтовые:  
+
+-   Чтобы настроить носитель как динамические, все первичные сайты должны иметь корневой ЦС сайта, на котором был создан носитель. Можно импортировать корневой ЦС для всех первичных сайтов в иерархии.  
+
+-   Если первичные сайты в иерархии Configuration Manager применяют разные корневые ЦС, необходимо использовать сайтовый носитель на каждом сайте.  

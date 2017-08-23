@@ -1,6 +1,6 @@
 ---
-title: "Cenário de exemplo para implementar e monitorizar atualizações de software de segurança | Microsoft Docs"
-description: "Utilize este cenário de exemplo de como utilizar atualizações de software no Configuration Manager para implementar e monitorizar atualizações de software de segurança para versões mensais da Microsoft."
+title: "Пример сценария для развертывания и мониторинга обновлений для программного обеспечения безопасности | Документы Майкрософт"
+description: "Ознакомьтесь с примером сценария использования обновлений программного обеспечения в Configuration Manager для развертывания и мониторинга обновлений для программного обеспечения безопасности, ежемесячно выпускаемых Майкрософт."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,80 +13,80 @@ ms.service:
 ms.assetid: c32f757a-02da-43f2-b055-5cfd097d8c43
 ms.openlocfilehash: 0e6e2b3a9455bb6eda437eb1325aaaadb3d83420
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-scenario-for-using-system-center-configuration-manager-to-deploy-and-monitor-the-security-software-updates-released-monthly-by-microsoft"></a>Cenário de exemplo para utilizar o System Center Configuration Manager para implementar e monitorizar as atualizações de software de segurança publicadas mensalmente pela Microsoft
+# <a name="example-scenario-for-using-system-center-configuration-manager-to-deploy-and-monitor-the-security-software-updates-released-monthly-by-microsoft"></a>Пример сценария по использованию System Center Configuration Manager в целях развертывания и мониторинга обновлений для программного обеспечения безопасности, ежемесячно выпускаемых корпорацией Майкрософт
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico fornece um cenário de exemplo de como pode utilizar as atualizações de software no System Center Configuration Manager para implementar e monitorizar as atualizações de software de segurança lançadas mensalmente do Microsoft.  
+В этом разделе представлен пример сценария использования обновлений программного обеспечения в System Center Configuration Manager для развертывания и мониторинга обновлений для программного обеспечения безопасности, ежемесячно выпускаемых Майкрософт.  
 
- Neste cenário, o João é o administrador do Configuration Manager no Woodgrove Bank. O João necessita de criar uma estratégia de implementação de atualizações de software com as condições e os requisitos seguintes:  
+ В этом сценарии Джон является администратором Configuration Manager в банке Woodgrove. Он хочет создать стратегию развертывания обновлений со следующими условиями и требованиями.  
 
--   A implementação ativa de atualizações de software ocorre uma semana após o lançamento das atualizações de software de segurança pela Microsoft, na segunda terça-feira de cada mês. Este evento é normalmente denominado "Patch Tuesday".  
+-   Активное развертывания обновлений ПО проходит через неделю после того, как корпорация Майкрософт выпускает обновления для системы безопасности программного обеспечения во второй вторник каждого месяца. Данное событие обычно называют "вторником исправлений".  
 
--   As atualizações de software são transferidas e configuradas nos pontos de distribuição. Em seguida, é testada uma implementação num subconjunto de clientes antes de o João implementar totalmente as atualizações de software no seu ambiente de produção.  
+-   Обновления программного обеспечения загружаются и размещаются на промежуточное хранение на точках распространения. Затем развертывание тестируется для подмножества клиентов перед тем, как Джон проводит полное развертывание обновлений программного обеспечения в своей рабочей среде.  
 
--   O João tem de conseguir monitorizar a compatibilidade das atualizações de software mensal ou anualmente.  
+-   Джону необходимо отслеживать соответствие обновлений программного обеспечения по годам или по месяцам.  
 
- Este cenário pressupõe que a infraestrutura do ponto de atualização de software já foi implementada. Utilize as informações seguintes para planear e configurar as atualizações de software no Configuration Manager.  
+ Этот сценарий предполагает, что инфраструктура точек обновления программного обеспечения уже была реализована. Используйте приведенные ниже сведения, чтобы спланировать и настроить обновления ПО в Configuration Manager.  
 
-|Processo|Referência|  
+|Как это работает|Справочные сведения|  
 |-------------|---------------|  
-|Rever os principais conceitos das atualizações de software.|[Introdução às atualizações de software](../understand/software-updates-introduction.md)|  
-|Planear as atualizações de software. Estas informações ajudam a planear considerações em termos de capacidade e a determinar a infraestrutura do ponto de atualização de software, a instalação do ponto de atualização de software, as definições de sincronização e as definições de cliente para atualizações de software.|[Planear as atualizações de software](../plan-design/plan-for-software-updates.md)|  
-|Configurar as atualizações de software. Estas informações ajudam a instalar e a configurar pontos de atualização de software na hierarquia e ajudam a configurar e a sincronizar atualizações de software.<br /><br /> Neste cenário, o João configura a agenda de sincronização de atualizações de software para ocorrer na segunda quarta-feira de cada mês, certifique-se de que são obtidas as mais recentes atualizações de software de segurança da Microsoft.|[Sincronizar atualizações de software](../get-started/synchronize-software-updates.md)|  
+|Просмотрите основные понятия для обновления программного обеспечения.|[Общие сведения об обновлениях программного обеспечения](../understand/software-updates-introduction.md)|  
+|Проведите планирование обновлений программного обеспечения. Эта информация позволит спланировать емкость, определить инфраструктуру точек обновления программного обеспечения, установить точки обновления программного обеспечения, задать параметры синхронизации и параметры клиентов для обновления программного обеспечения.|[Планирование обновлений программного обеспечения](../plan-design/plan-for-software-updates.md)|  
+|Настройте обновления ПО. Эти сведения помогут вам в установке и настройке точек программного обеспечения в иерархии, а также помогут настроить и синхронизировать обновления программного обеспечения.<br /><br /> В этом сценарии Джон формирует расписание синхронизации обновлений программного обеспечения, чтобы она выполнялась во вторую среду каждого месяца. Это позволяет гарантировать, что он извлекает последние обновления для системы безопасности программного обеспечения от корпорации Майкрософт.|[Синхронизация обновлений программного обеспечения](../get-started/synchronize-software-updates.md)|  
 
- As secções seguintes deste tópico fornecem passos de exemplo para ajudar a implementar e monitorizar atualizações de software de segurança do Configuration Manager na sua organização.
+ В следующих разделах приведены примеры инструкций, которые помогут вам в развертывании и отслеживании обновлений для системы безопасности в вашей организации Configuration Manager.
 
-##  <a name="BKMK_Step1"></a>Passo 1: Criar um grupo de atualização de software para compatibilidade anual  
- O João cria um grupo de atualização de software que pode ser utilizado para monitorizar a compatibilidade de todas as atualizações de software de segurança lançadas em 2016. Ele efetua os passos da seguinte tabela.  
+##  <a name="BKMK_Step1"></a> Шаг 1. Создание групп обновлений ПО для ежегодной проверки соответствия  
+ Джон создает группу обновлений ПО, которую он может использовать для мониторинга соответствия всех обновлений программного обеспечения, которые он выпускает в 2016 г. Он выполняет действия, указанные в следующей таблице.  
 
-|Processo|Referência|  
+|Как это работает|Справочные сведения|  
 |-------------|---------------|  
-|Do **todas as atualizações de Software** nó na consola do Configuration Manager, o João adiciona critérios para visualizar apenas atualizações de software segurança que são lançadas ou revistas no ano de 2015 que satisfazem os seguintes critérios:<br /><br /><ul><li>**Critérios**: Data de lançamento ou revisão</li><li>**Condição**: é maior que ou igual à data específica<br />**Valor**: 1/1/2015</li><li>**Critérios**: Classificação de atualização<br />**Valor**: Atualizações de segurança</li><li>**Critérios**: Expirou <br />**Valor**: Não</li></ul>|Não existem informações adicionais|
-|O João adiciona todas as atualizações de software filtradas a um novo grupo de atualizações de software com os seguintes requisitos:<br /><br /><ul><li>**Nome**: Grupo de compatibilidade - Microsoft Security atualizações 2015</li><li>**Descrição**: Atualizações de software|[Adicionar atualizações de software a um grupo de atualizações](add-software-updates-to-an-update-group.md)|  
+|В узле **Все обновления программного обеспечения** консоли Configuration Manager Джон настраивает отображение только тех обновлений программного обеспечения безопасности, которые выпущены или изменены в 2015 г. и соответствуют следующим критериям:<br /><br /><ul><li>**Критерии**: Дата выпуска или пересмотра</li><li>**Условие**: не раньше указанной даты<br />**Значение**: 1/1/2015</li><li>**Критерий**: классификация обновлений<br />**Значение**: Обновления безопасности</li><li>**Критерии**: Истек срок действия <br />**Значение**: Нет</li></ul>|Дополнительные сведения отсутствуют|
+|Джон добавляет все отфильтрованные обновления программного обеспечения в новую группы обновлений программного обеспечения при соблюдении следующих условий:<br /><br /><ul><li>**Имя**: группа проверки соответствия — обновления Майкрософт для системы безопасности, 2015 г.</li><li>**Описание**. Обновления программного обеспечения|[Добавление обновлений программного обеспечения в группу обновлений](add-software-updates-to-an-update-group.md)|  
 
-##  <a name="BKMK_Step2"></a>Passo 2: Criar uma regra de implementação automática para o mês atual  
- O João cria uma regra de implementação automática para as atualizações de software de segurança lançadas pela Microsoft para o mês atual. Ele efetua os passos da seguinte tabela.  
+##  <a name="BKMK_Step2"></a> Шаг 2. Создание правила автоматического развертывания на текущий месяц  
+ Джон создает автоматическое правило развертывания для обновлений программного обеспечения, которые выпускаются корпорацией Майкрософт в текущем месяце. Он выполняет действия, указанные в следующей таблице.  
 
-|Processo|Referência|  
+|Как это работает|Справочные сведения|  
 |-------------|---------------|  
-|O João cria uma regra de implementação automática com os seguintes requisitos:<br /><br /><ol><li>No separador **Geral** , o João configura o seguinte:<br /> <ul><li>Especifica **atualizações de segurança mensais** para o nome.</li><li>Seleciona uma coleção de teste com clientes limitados.</li><li>Seleciona **criar um novo grupo de atualização de Software**.</li><li>Verifica se **ativar a implementação após a execução desta regra** não está selecionada.</li></ul></li><li>No separador **Definições de Implementação** , o João seleciona as predefinições.</li><li>No **atualizações de Software** página, o João configura os seguintes filtros de propriedade e os critérios de pesquisa:<br /><ul><li>Data de lançamento ou revisão **Último 1 mês**.</li><li>Classificação da atualização **Atualizações de Segurança**.</li></ul></li><li>No **avaliação** página, o João ativa a regra seja executada numa agenda o **segunda quinta-feira** de cada **mês**. O João também verifica que a agenda de sincronização está configurada para ser executada **segunda quarta-feira** de cada **mês**.</li><li>O João utiliza as predefinições das páginas Agenda de Implementação, Experiência do Utilizador, Alertas e Definições de Transferência.</li><li>No **pacote de implementação** página, o João Especifica um novo pacote de implementação.</li><li>O João utiliza as predefinições das páginas Localização de Transferência e Seleção de Idioma.</li></ol>|[Implementar atualizações de software automaticamente](automatically-deploy-software-updates.md)|  
+|Джон создает правило автоматического развертывания со следующими требованиями:<br /><br /><ol><li>На вкладке **Общие** Джон настраивает следующие параметры:<br /> <ul><li>Задает имя **Ежемесячные обновления для системы безопасности**.</li><li>Выбирает тестовую коллекцию с ограниченным набором клиентов.</li><li>Выбирает команду **Создать группу обновлений программного обеспечения**.</li><li>Снимает флажок **Активировать развертывание после выполнения этого правила**.</li></ul></li><li>На вкладке **Параметры развертывания** Джон выбирает настройки по умолчанию.</li><li>На странице **Обновления программного обеспечения** Джон настраивает следующие фильтры свойств и условия поиска:<br /><ul><li>Дата выпуска или пересмотра — **Последний месяц**.</li><li>Категория обновления — **Обновления для системы безопасности**.</li></ul></li><li>На странице **Оценка** Джон включает выполнение правила по расписанию — **второй четверг** каждого **месяца**. Джон также проверяет, включено ли расписание синхронизации для запуска во **вторую среду** каждого **месяца**.</li><li>Джон использует параметры по умолчанию для графика развертывания, пользовательского интерфейса, предупреждений, а также параметров загрузки.</li><li>На странице **Пакет развертывания** Джон определяет новый пакет развертывания.</li><li>Джон использует установленные по умолчанию параметры для места загрузки и выбора языка.</li></ol>|[Автоматическое развертывание обновлений программного обеспечения](automatically-deploy-software-updates.md)|  
 
-##  <a name="BKMK_Step3"></a>Passo 3: Certifique-se de que estão prontas para implementar atualizações de software  
- Na segunda quinta-feira de cada mês, o João verifica se as atualizações de software estão prontas para ser implementadas. Ele efetua o passo seguinte.  
+##  <a name="BKMK_Step3"></a> Шаг 3. Проверка готовности обновлений программного обеспечения к развертыванию  
+ Во второй четверг каждого месяца Джон проверяет, готовы ли обновления для развертывания. Он выполняет указанные ниже действия.  
 
-|Processo|Referência|  
+|Как это работает|Справочные сведения|  
 |-------------|---------------|  
-|O João verifica se a sincronização das atualizações de software foi concluída com sucesso.|[Estado de sincronização de atualizações de software](monitor-software-updates.md#BKMK_SUSyncStatus)|  
+|Джон проверяет, что синхронизация обновлений программного обеспечения успешно завершена.|[Состояние синхронизации обновлений программного обеспечения](monitor-software-updates.md#BKMK_SUSyncStatus)|  
 
-##  <a name="BKMK_Step4"></a>Passo 4: Implementar o grupo de atualização de software  
- Depois de se certificar de que as atualizações de software estão prontas para implementar, o João efetua a implementação. Ele efetua os passos da seguinte tabela.  
+##  <a name="BKMK_Step4"></a> Шаг 4. Развертывание группы обновлений программного обеспечения  
+ После проверки Джон проводит развертывание обновлений программного обеспечения. Он выполняет действия, указанные в следующей таблице.  
 
-|Processo|Referência|  
+|Как это работает|Справочные сведения|  
 |-------------|---------------|  
-|O João cria duas implementações de teste para o novo grupo de atualizações de software. Considera os seguintes ambientes para cada implementação:<br /><br /> **Implementação de teste da estação de trabalho**: O João considera as seguintes opções para a implementação de teste da estação de trabalho:<br /><br /><ul><li>Especifica uma coleção de implementação que contém um subconjunto de clientes de estação de trabalho para verificar a implementação.</li><li>Configura as definições de implementação que são adequadas para os clientes de estação de trabalho no seu ambiente.</li></ul><br />**Implementação de teste do servidor**: O João considera as seguintes opções para a implementação de teste do servidor:<br /><br /><ul><li>Especifica uma coleção de implementação que contém um subconjunto de clientes de servidor para verificar a implementação.</li><li>Configura as definições de implementação que são adequadas para os clientes de servidor no seu ambiente.</li></ul>|[Implementar atualizações de software](deploy-software-updates.md)|  
-|O João verifica se as implementações de teste foram implementadas com sucesso.|[Estado de implementação de atualizações de software](monitor-software-updates.md#BKMK_SUDeployStatus)|  
-|O João atualiza as duas implementações com novas coleções que incluem os servidores e as estações de trabalho de produção.|Não existem informações adicionais|  
+|Джон создает два тестовых развертывания для новой группы обновлений программного обеспечения. Он рассматривает следующие среды для каждого развертывания:<br /><br /> **Тестовое развертывание для рабочих станций**: Джон рассматривает следующие вопросы для тестирования развертывания на рабочих станциях:<br /><br /><ul><li>Определяет коллекцию развертывания, содержащую подмножество клиентов на рабочих станциях, для проверки развертывания.</li><li>Настраивает параметры развертывания, соответствующие клиентам на рабочих станциях в его среде.</li></ul><br />**Тестовое развертывание для сервера**: Джон рассматривает следующие вопросы для тестирования развертывания на серверах:<br /><br /><ul><li>Определяет коллекцию развертывания, содержащую подмножество клиентов на серверах, для проверки развертывания.</li><li>Настраивает параметры развертывания, соответствующие клиентам на серверах в его среде.</li></ul>|[Развертывание обновлений программного обеспечения](deploy-software-updates.md)|  
+|Джон проверяет успешность тестовых развертываний.|[Состояние развертывания обновлений программного обеспечения](monitor-software-updates.md#BKMK_SUDeployStatus)|  
+|Джон дополняет оба развертывания новыми коллекциями, включающими производственные рабочие станции и серверы.|Дополнительные сведения отсутствуют|  
 
-##  <a name="BKMK_Step5"></a>Passo 5: Monitorizar a compatibilidade de atualizações de software implementadas  
- O João monitoriza a compatibilidade das implementações de atualizações de software. Ele efetua o passo da seguinte tabela.  
+##  <a name="BKMK_Step5"></a> Шаг 5. Мониторинг соответствия для развернутых обновлений программного обеспечения  
+ Джон проверяет соответствие развертывания обновлений программного обеспечения. Он выполняет действия, указанные в следующей таблице.  
 
-|Processo|Referência|  
+|Как это работает|Справочные сведения|  
 |-------------|---------------|  
-|João monitoriza o estado de implementação de atualizações de software na consola do Configuration Manager e verifica os relatórios de implementação de atualizações de software disponíveis na consola.|[Monitorizar atualizações de software no System Center Configuration Manager](../../sum/deploy-use/monitor-software-updates.md)|  
+|Джон отслеживает состояние развертывания обновлений ПО в консоли Configuration Manager и проверяет отчеты о развертывании обновлений ПО, доступные в консоли.|[Мониторинг обновлений программного обеспечения в System Center Configuration Manager](../../sum/deploy-use/monitor-software-updates.md)|  
 
-##  <a name="BKMK_Step6"></a>Passo 6: Adicionar atualizações de software mensais ao grupo de atualizações anuais  
- O João adiciona as atualizações de software do grupo de atualizações de software mensais ao grupo de atualizações de software anuais. Ele efetua o passo da seguinte tabela.  
+##  <a name="BKMK_Step6"></a> Шаг 6. Добавление ежемесячных обновлений программного обеспечения в группу ежегодного обновления  
+ Джон добавляет обновления из группы ежемесячных обновлений в группу ежегодного обновления программного обеспечения. Он выполняет действия, указанные в следующей таблице.  
 
-|Processo|Referência|  
+|Как это работает|Справочные сведения|  
 |-------------|---------------|  
-|O João seleciona as atualizações de software do grupo de atualizações de software mensais e adiciona-as ao grupo de atualizações de software criado para compatibilidade anual. Ele controla a compatibilidade das atualizações de software e cria vários relatórios para gestão.|[Adicionar atualizações de software a um grupo de atualização implementado](add-software-updates-to-an-update-group.md)|  
+|Джон выбирает обновления программного обеспечения из группы ежемесячного обновления программного обеспечения и добавляет обновления программного обеспечения в группу обновления для ежегодной проверки соответствия. Он отслеживает соответствие обновлений программного обеспечения и создает различные отчеты для руководства.|[Добавление обновлений программного обеспечения в развернутую группу обновлений](add-software-updates-to-an-update-group.md)|  
 
-O João concluiu com sucesso a implementação mensal de atualizações de software de segurança. Ele continua a monitorizar e a reportar a compatibilidade das atualizações de software para garantir que os clientes do seu ambiente estão nos níveis de compatibilidade aceitáveis.  
+Джон успешно завершил ежемесячное развертывание обновлений для системы безопасности. Он продолжает мониторинг и создание отчетов соответствия обновлений программного обеспечения, чтобы гарантировать, что клиенты в его среде находятся на приемлемых уровнях соответствия.  
 
-##  <a name="BKMK_MonthlyProcess"></a>Processo mensal recorrente para implementar atualizações de software  
- Após o primeiro mês da implementação de atualizações de software, o João efetua os passos três a seis para implementar as atualizações de software de segurança mensais lançadas pela Microsoft.  
+##  <a name="BKMK_MonthlyProcess"></a> Повторяющийся ежемесячный процесс развертывания обновлений программного обеспечения  
+ После первого месяца Джон развертывает обновления программного обеспечения и выполняет шаги с третьего по шестой для развертывания обновлений для системы безопасности, выпускаемых корпорацией Майкрософт в очередном месяце.  

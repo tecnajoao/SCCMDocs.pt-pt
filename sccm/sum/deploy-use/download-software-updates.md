@@ -1,6 +1,6 @@
 ---
-title: "Transferir atualizações de software - Configuration Manager | Microsoft Docs"
-description: "Utilize o Assistente para transferir atualizações de Software para transferir atualizações de software e distribuí-los aos pontos de distribuição para que estas estão prontas para implementar em clientes."
+title: "Скачивание обновлений программного обеспечения в Configuration Manager | Документы Майкрософт"
+description: "Используйте мастер скачивания обновлений программного обеспечения для скачивания обновлений ПО и их распространения в точках распространения, чтобы они были готовы для развертывания на клиентах."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,22 +13,22 @@ ms.technology: configmgr-sum
 ms.assetid: de78e8d3-043f-4cd3-97e0-4dfb824fd3fb
 ms.openlocfilehash: f38f72f9f547b82c92789f02975cbd0193b79b2d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="download-software-updates"></a>Transferir atualizações de software  
+# <a name="download-software-updates"></a>Скачивание обновлений программного обеспечения  
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Existem vários métodos disponíveis para que possa transferir as atualizações de software no Configuration Manager. Quando criar uma regra de implementação automática (ADR) ou ao implementar manualmente atualizações de software, as atualizações de software são transferidas para a biblioteca de conteúdos no servidor do site. Em seguida, as atualizações de software são copiadas para a biblioteca de conteúdos nos pontos de distribuição que estão associados ao pacote de implementação configurado. Caso pretenda transferir as atualizações de software antes de as implementar, poderá utilizar o Assistente para Transferir Atualizações. Este procedimento permite-lhe verificar se as atualizações de software estão disponíveis nos pontos de distribuição antes de implementar as atualizações de software nos computadores cliente.  
+В Configuration Manager существует несколько способов скачивания обновлений программного обеспечения. При создании правила автоматического развертывания или развертывании обновлений программного обеспечения вручную обновления загружаются в библиотеку содержимого на сервере сайта. После этого обновления копируются в библиотеку содержимого в точках распространения, связанных с настроенным пакетом развертывания. Чтобы загрузить обновления программного обеспечения до их развертывания, воспользуйтесь мастером загрузки обновлений. В этом случае вы сможете убедиться в доступности обновлений программного обеспечения в точках распространения до развертывания обновлений на клиентских компьютерах.  
 
 > [!NOTE]  
->  Para obter informações sobre a monitorização do estado do conteúdo, veja [Monitorização do estado do conteúdo](../deploy-use/monitor-software-updates.md#BKMK_ContentStatus).  
+>  Дополнительные сведения о мониторинге состояния содержимого см. в разделе [Мониторинг состояния содержимого](../deploy-use/monitor-software-updates.md#BKMK_ContentStatus).  
 
-Utilize o seguinte procedimento para transferir as atualizações de software através do Assistente Transferir Atualizações de Software.  
+Следующая процедура используется для загрузки обновлений программного обеспечения с помощью мастера загрузки обновлений программного обеспечения.  
 
-#### <a name="to-download-software-updates"></a>Para transferir atualizações de software  
+#### <a name="to-download-software-updates"></a>Загрузка обновлений программного обеспечения  
 [!INCLUDE[downloadupdates](..\includes\downloadupdates.md)]
 <!---
 1.  In the Configuration Manager console, navigate to **Software Library** > **Software Updates**.  

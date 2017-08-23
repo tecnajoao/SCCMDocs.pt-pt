@@ -1,6 +1,6 @@
 ---
-title: "Inventário de hardware – Configuration Manager | Microsoft Docs"
-description: "Obtenha uma introdução ao inventário de hardware no System Center Configuration Manager."
+title: "Инвентаризация оборудования в Configuration Manager | Документы Майкрософт"
+description: "Общие сведения об инвентаризации оборудования в System Center Configuration Manager."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -17,40 +17,40 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: c64f0b42bff25e8e91cf9101d6fbb538634eab15
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-hardware-inventory-in-system-center-configuration-manager"></a>Introdução ao inventário de hardware no System Center Configuration Manager
+# <a name="introduction-to-hardware-inventory-in-system-center-configuration-manager"></a>Общие сведения об инвентаризации оборудования в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize o inventário de hardware no System Center Configuration Manager para recolher informações sobre a configuração de hardware dos dispositivos cliente na sua organização. Para recolher o i inventário de hardware, a definição **Ativar inventário de hardware nos clientes** tem de estar ativada nas definições de cliente.  
+Для сбора сведений о конфигурации оборудования клиентских устройств предприятия можно использовать функцию инвентаризации оборудования System Center Configuration Manager. Для работы функции инвентаризации оборудования необходимо включить клиентский параметр **Включить инвентаризацию оборудования для клиентов** .  
 
- Depois do inventário de hardware está ativado e o cliente é executar um ciclo de inventário de hardware, o cliente envia as informações para um ponto de gestão no site do cliente. A gestão de pontos e reencaminha as informações de inventário para o servidor do site do Configuration Manager que armazena as informações de inventário na base de dados do site. O inventário de hardware é executado nos clientes, de acordo com a agenda que especificou nas definições de cliente.  
+ После включения инвентаризации оборудования и запуска цикла инвентаризации клиентом клиент отправляет данные в точку управления на сайте клиента. Затем точка управления передает данные инвентаризации на сервер сайта Configuration Manager, сохраняющий их в соответствующей базе данных. Инвентаризация оборудования выполняется на клиентах согласно расписанию, заданному в параметрах клиента.  
 
- Pode utilizar vários métodos para ver os dados de inventário de hardware recolhe do Configuration Manager. Os mesmos incluem os seguintes:  
+ Существует несколько способов просмотра данных инвентаризации оборудования, собранных Configuration Manager. К ним относятся следующие:  
 
--   [Criar consultas que devolvam os dispositivos que se baseiam numa configuração de hardware específico](../../../../core/servers/manage/queries-technical-reference.md).  
+-   [Создание запросов, возвращающих список устройств на основе определенной конфигурации оборудования](../../../../core/servers/manage/queries-technical-reference.md).  
 
--   [Criar coleções baseadas em consultas que se baseiam numa configuração de hardware específico](../../../../core/clients/manage/collections/introduction-to-collections.md). As adesões a coleções baseadas em consultas são atualizadas automaticamente segundo uma agenda. Pode utilizar coleções para várias tarefas, que inclui a implementação de software. .  
+-   [Создание коллекций на основе запросов, которые основываются на определенной конфигурации оборудования](../../../../core/clients/manage/collections/introduction-to-collections.md). Членство в коллекции на основе запросов автоматически обновляется согласно расписанию. Коллекции можно использовать для решения нескольких задач, включая развертывание программного обеспечения. .  
 
--   [Executar relatórios que apresentam detalhes específicos sobre configurações de hardware na sua organização](../../../../core/servers/manage/reporting.md).   
+-   [Запуск отчетов, в которых отображаются определенные сведения о конфигурациях оборудования в организации](../../../../core/servers/manage/reporting.md).   
 
--   [Utilize o Explorador de recursos](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md) para ver informações detalhadas sobre o inventário de hardware que é recolhido dos dispositivos cliente.   
+-   [Использование обозревателя ресурсов](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md) для просмотра подробных сведений об инвентаризации оборудования, собранных с клиентских устройств.   
 
- Quando executa o inventário de hardware num dispositivo cliente, os primeiros dados de inventário devolvidos pelo cliente são sempre um inventário completo. As informações de inventário subsequentes contêm apenas informações de inventário diferencial. O servidor do site processa as informações de inventário de diferenças pela ordem em que são recebidas. Se as informações de diferenças para um cliente estão em falta, o servidor do site rejeita informações adicionais de diferenças e indica ao cliente para executar um ciclo de inventário completo.  
+ Когда инвентаризация оборудования выполняется на клиентском устройстве, первые возвращаемые клиентом данные всегда являются данными полной инвентаризации. Данные, передаваемые в дальнейшем, содержат только сведения об изменениях. Сервер сайта обрабатывает изменившиеся данные инвентаризации в порядке их поступления. Если изменившиеся данные для клиента отсутствуют, сервер сайта отклоняет дополнительные изменившиеся данные инвентаризации и передает клиенту инструкцию на проведение полного цикла инвентаризации.  
 
- O Configuration Manager fornece suporte limitado para computadores de arranque duplo. O Configuration Manager pode detetar computadores de arranque duplo, mas só devolve informações de inventário do sistema operativo que estava ativo no momento o ciclo de inventário foi executada.  
+ Configuration Manager предлагает ограниченную поддержку для компьютеров с двумя вариантами загрузки. Configuration Manager может обнаруживать такие компьютеры, но возвращает сведения об инвентаризации только из операционной системы, активной на момент выполнения цикла инвентаризации.  
 
 > [!NOTE]  
->  Para obter informações sobre como utilizar o inventário de hardware com clientes que executam o Linux e UNIX, consulte [inventário de Hardware para Linux e UNIX no System Center Configuration Manager](../../../../core/clients/manage/inventory/hardware-inventory-for-linux-and-unix.md).  
+>  Сведения об использовании инвентаризации оборудования с клиентами под управлением Linux и UNIX см. в разделе [Инвентаризация оборудования для Linux и UNIX в System Center Configuration Manager](../../../../core/clients/manage/inventory/hardware-inventory-for-linux-and-unix.md).  
 
-## <a name="extending-configuration-manager-hardware-inventory"></a>Expandir o inventário de hardware do Configuration Manager  
- Para além do inventário de hardware incorporado no Configuration Manager, também pode utilizar um dos seguintes métodos para expandir o inventário de hardware para recolher informações adicionais:  
+## <a name="extending-configuration-manager-hardware-inventory"></a>Расширение инвентаризации оборудования Configuration Manager  
+ Помимо встроенной инвентаризации оборудования, в Configuration Manager вы можете воспользоваться одним из следующих методов, чтобы расширить инвентаризацию оборудования для сбора дополнительных сведений:  
 
-- Pode ativar, desativar, adicionar e remover classes de inventário de hardware a partir da consola do Configuration Manager. |  
-- Utilize ficheiros NOIDMIF para recolher informações sobre dispositivos cliente que não podem ser inventariados pelo Configuration Manager. Por exemplo, pode pretender recolher informações sobre o número de ativos de dispositivo existentes apenas como uma etiqueta no dispositivo. O inventário NOIDMIF é automaticamente associado ao dispositivo cliente a partir do qual foi recolhido.  
-- Utilize ficheiros IDMIF para recolher informações sobre os recursos que não estão associados um cliente de Configuration Manager, por exemplo, projetores, fotocopiadoras e impressoras de rede.  
+- Вы можете включать, отключать, добавлять и удалять классы инвентаризации для инвентаризации оборудования из консоли Configuration Manager.  
+- Используйте NOIDMIF-файлы для сбора сведений о клиентских устройствах, не учитываемых Configuration Manager. Например можно собирать активов номеров сведений об устройстве, существует только в качестве метки на устройстве. NOIDMIF инвентаризации автоматически связывается с устройством клиента, собранные из.  
+- Используйте IDMIF-файлы для сбора сведений об активах, которые не связаны с клиентом Configuration Manager, таких как проекторы, фотокопиры и сетевые принтеры.  
 
- Para obter mais informações sobre como utilizar estes métodos para expandir o inventário de hardware do Configuration Manager, consulte [como configurar inventário de hardware no System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
+ Дополнительные сведения об использовании этих методов для расширения инвентаризации оборудования в Configuration Manager см. в разделе [Настройка инвентаризации оборудования в System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  

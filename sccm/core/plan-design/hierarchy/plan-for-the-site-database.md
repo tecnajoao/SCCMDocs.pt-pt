@@ -1,6 +1,6 @@
 ---
-title: Planear a base de dados do site | Microsoft Docs
-description: "Considere a base de dados do site e a função de servidor de base de dados do site quando planear a hierarquia do System Center Configuration Manager."
+title: "Планирование базы данных сайта | Документы Майкрософт"
+description: "При планировании иерархии System Center Configuration Manager примите во внимание использование базы данных сайта и роли сервера базы данных сайта."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,46 +17,46 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d4efe1f013dbb74efca79cd27f7248fc085c7424
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-the-site-database-for-system-center-configuration-manager"></a>Planear a base de dados do site para o System Center Configuration Manager
+# <a name="plan-for-the-site-database-for-system-center-configuration-manager"></a>План для базы данных сайта для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-O servidor de base de dados do site é um computador que executa uma versão suportada do Microsoft SQL Server. SQL Server é utilizada para armazenar informações de sites do Configuration Manager. Cada site numa hierarquia do Configuration Manager contém uma base de dados do site e um servidor que está atribuído a função de servidor de base de dados do site.  
+Сервер базы данных сайта — это компьютер, на котором выполняется поддерживаемая версия Microsoft SQL Server. SQL Server используется для хранения сведений для сайтов Configuration Manager. На каждом сайте в иерархии Configuration Manager находится база данных сайта и сервер, которому назначена роль сервера базы данных сайта.  
 
--   Para sites de administração central e sites primários, pode instalar o SQL Server no servidor do site ou pode instalar o SQL Server num computador diferente do servidor do site.  
+-   Для сайтов центра администрирования и первичных сайтов можно устанавливать SQL Server на сервере сайта или на другом компьютере.  
 
--   Para sites secundários, pode utilizar o SQL Server Express em vez de uma instalação completa do SQL Server. O servidor de base de dados tem de, no entanto, a ser executado no servidor do site secundário.  
+-   На вторичных сайтах вместо полной установки SQL Server можно установить экспресс-выпуск SQL Server. Но сервер базы данных должен работать на сервере вторичного сайта.  
 
-As seguintes configurações do SQL Server podem ser utilizadas para alojar a base de dados do site:  
+Для размещения базы данных сайта можно использовать следующие конфигурации SQL Server:  
 
--   A instância predefinida do SQL Server  
+-   Экземпляр SQL Server по умолчанию  
 
--   Uma instância nomeada num único computador com o SQL Server  
+-   Именованный экземпляр на отдельном компьютере с SQL Server  
 
--   Uma instância nomeada numa instância em cluster do SQL Server  
+-   Именованный экземпляр в кластеризованном экземпляре SQL Server  
 
--   Um grupo de Disponibilidade AlwaysOn do SQL Server (início com a versão 1602 do System Center Configuration Manager)
-
-
-Para alojar a base de dados do site, o SQL Server tem de cumprir os requisitos detalhados em [suporte para versões do SQL Server para o System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+-   Группа доступности SQL Server AlwaysOn (начиная с System Center Configuration Manager версии 1602)
 
 
-
-## <a name="remote-database-server-location-considerations"></a>Considerações de localização do servidor de base de dados remota  
-
-Se utilizar um computador de servidor de base de dados remota, certifique-se de que a ligação de rede intervenientes é uma ligação de rede de elevada disponibilidade, a largura de banda alta. O servidor do site e algumas funções de sistema de sites têm de comunicar constantemente com o servidor remoto que está a alojar a base de dados do site.
-
--   A quantidade de largura de banda necessária para as comunicações com o servidor de base de dados depende de uma combinação de muitas configurações de site e cliente diferentes. Por conseguinte, a largura de banda realmente necessária não é possível prever exatamente.  
-
--   O número de computadores a executar o fornecedor de SMS e a ligar à base de dados do site aumenta os requisitos de largura de banda da rede.  
-
--   O computador que executa o SQL Server tem de estar localizado num domínio que tenha uma fidedignidade bidirecional com o servidor de site e todos os computadores com o fornecedor de SMS.  
-
--   Não é possível utilizar um SQL Server agrupado para o servidor de base de dados do site se a base de dados do site estiver localizada conjuntamente com o servidor do site.  
+Для размещения базы данных сайта SQL Server должен соответствовать требованиям, описанным в статье [Поддержка версий SQL Server в System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
 
-Normalmente, um servidor de sistema de sites suporta funções de sistema de sites de apenas um único site do Configuration Manager. No entanto, pode utilizar várias instâncias do SQL Server, em servidores agrupados ou não em cluster, com o SQL Server para alojar uma base de dados de diferentes sites do Configuration Manager. Para suportar bases de dados de diferentes sites, é necessário configurar cada instância do SQL Server para utilizar portas exclusivas para a comunicação.  
+
+## <a name="remote-database-server-location-considerations"></a>Вопросы расположения удаленного сервера базы данных  
+
+Если вы используете удаленный компьютер сервера базы данных, убедитесь в высокой доступности и пропускной способности используемого сетевого подключения. Сервер сайта и некоторые роли системы сайта должны постоянно обмениваться информацией с удаленным сервером, на котором размещена база данных сайта.
+
+-   Объем пропускной способности, необходимый для передачи данных на сервер базы данных, зависит от сочетания различных параметров сайта и клиентов. По этой причине невозможно точно предсказать фактическую требуемую пропускную способность.  
+
+-   Каждый подключенный к базе данных сайта компьютер, на котором выполняется поставщик SMS, увеличивает нагрузку на пропускную способность сети.  
+
+-   Компьютер с SQL Server должен находиться в домене с двусторонними отношениями доверия с сервером сайта и со всеми компьютерами с поставщиком SMS.  
+
+-   Если база данных размещена совместно с сервером сайта, невозможно использовать кластерный сервер SQL Server в качестве сервера базы данных сайта.  
+
+
+Как правило, сервер системы сайта поддерживает роли систем сайта только с одного сайта Configuration Manager. Но для размещения базы данных для различных сайтов Configuration Manager можно использовать различные экземпляры SQL Server на кластеризованных или некластеризованных серверах с SQL Server. Для поддержки баз данных на различных сайтах необходимо настроить каждый экземпляр SQL Server для использования разных портов.  

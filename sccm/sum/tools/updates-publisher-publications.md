@@ -1,6 +1,6 @@
 ---
-title: "Gerir as publicações | Microsoft Docs"
-description: "Gerir grupos de atualizações de software como uma publicação com o System Center Updates Publisher"
+title: "Управление публикациями | Документация Майкрософт"
+description: "Управление группами обновлений программного обеспечения как публикацией с помощью System Center Updates Publisher"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,89 +17,89 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: ddea7af935d5be880b96e383401061f8aa11e6da
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-publications-in-updates-publisher"></a>Gerir as publicações no publicador de atualizações
+# <a name="manage-publications-in-updates-publisher"></a>Управление публикациями в Updates Publisher
 
-*Aplica-se a: O System Center Updates Publisher*
+*Область применения: System Center Updates Publisher*
 
-Pode utilizar publicações para gerir grupos de atualizações e os pacotes de como um único objeto. Isto inclui publicar as atualizações para um servidor de gestão e exportar a publicação como grupo para utilização com outra instalação do Updates Publisher.
+Вы можете использовать публикации для управления группами и пакетами обновлений как единым объектом. Сюда входят публикации обновлений на сервере управления и экспорт публикации в виде группы для использования в процессе другой установки Updates Publisher.
 
-## <a name="create-publications"></a>Criar publicações
-As publicações são criadas duas formas:
+## <a name="create-publications"></a>Создание публикаций
+Публикации создаются двумя способами:
 
--   Quando gere as atualizações e pacotes no **área de trabalho atualizações**, pode [atribuir](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication) -las para uma publicação novo criado nessa altura.
+-   При управлении обновлениями и пакетами в **рабочей области "Обновления"** вы можете [назначить](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication) их новой публикации, которая создается в данный момент.
 
--   No **publicações área de trabalho** pode utilizar o **criar** botão no **publicação** separador do Friso. Este método permite-lhe criar uma publicação para utilização futura. Mais tarde, quando atribui atualizações, pode utilizar esta publicação.
+-   В **рабочей области "Публикации"** можно использовать кнопку **Создать** на вкладке ленты **Публикация**. Так вы сможете создавать публикации для использования в будущем. Позже при назначении обновлений можно использовать эту публикацию.
 
-## <a name="rename-a-publication"></a>Mudar o nome de uma publicação
-Para mudar o nome de uma publicação, selecione a publicação a partir do **publicações área de trabalho**e, em seguida, no **publicação** separador do Friso, selecione **editar**.
+## <a name="rename-a-publication"></a>Переименование публикации
+Чтобы переименовать публикацию, выберите ее в **рабочей области "Публикации"**, а затем на вкладке ленты **Публикация** выберите **Изменить**.
 
-## <a name="change-the-publication-type-of-updates-in-a-publication"></a>Alterar o tipo de publicação de atualizações numa publicação
-Do **área de trabalho de publicação**, pode modificar o **tipo publicação** das atualizações e os pacotes que são atribuídos a uma publicação.
+## <a name="change-the-publication-type-of-updates-in-a-publication"></a>Изменение типа публикации обновлений
+В **рабочей области "Публикации"** можно изменить **тип публикации** обновлений и пакетов, назначенных публикации.
 
-1. Selecione a publicação que contenha as atualizações que pretende modificar e, em seguida, selecione um ou mais atualizações ou pacotes do **todos os &lt;nome da publicação > Membro atualizações** lista.
+1. Выберите публикацию, содержащую обновления, которые необходимо изменить, а затем в списке **All &lt;publication name> member updates** (Все обновления элементов <имя публикации>) выберите одно или несколько обновлений или пакетов.
 
-2. Em seguida, no **home page** separador, escolha uma das seguintes opções. As opções disponíveis dependem do tipo de publicação de atualizações que selecionou.
+2. На вкладке **Главная** выполните одно из следующих действий. Доступные параметры зависят от типа публикации выбранных обновлений.
 
-  -   **Automática**
-  -   **Conteúdo completo**
-  -   **Metadados apenas**
+  -   **Automatic** (Автоматический)
+  -   **Full Content** (Все содержимое)
+  -   **Metadata only** (Только метаданные)
 
-Depois de efetuar uma alteração, poderá ter de atualizar a vista de publicação para ver os novos valores.
+После внесения изменений необходимо обновить публикацию, чтобы увидеть новые значения.
 
-Para obter informações sobre os tipos de publicação diferentes, consulte [atribuir as atualizações e os pacotes para uma publicação](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication).
+Сведения о различных типах публикаций см. в разделе [Назначение обновлений и пакетов для публикации](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication).
 
 > [!TIP]    
-> Quando definir o tipo de publicação de um pacote, todas as atualizações de software nesse grupo são publicadas com o tipo de publicação desse pacote.
+> При установке типа публикации пакета все обновления программного обеспечения в этом пакете публикуются вместе с типом публикации этого пакета.
 
-## <a name="remove-updates-from-a-publication"></a>Remover as atualizações de uma publicação
-Remover as atualizações ou pacotes de uma publicação, o **publicações área de trabalho** selecione a publicação que pretende modificar e, em seguida, selecione as atualizações e pacotes que pretende remover. Em seguida, no **home page** separador do Friso, selecione **remover**.
+## <a name="remove-updates-from-a-publication"></a>Удаление обновлений из публикации
+Чтобы удалить обновления или пакеты из публикации, в **рабочей области "Публикации"** выберите публикацию, которую необходимо изменить, а затем выберите обновления и пакеты, которые требуется удалить. Затем на вкладке ленты **Главная** выберите **Удалить**.
 
-Depois das atualizações são removidas da publicação, permanecem disponíveis no repositório de Updates Publisher.
+После удаления обновлений из публикации они остаются доступными в репозитории Updates Publisher.
 
-## <a name="publish-publications"></a>Publicar publicações
-Ao publicar as atualizações e pacotes, Updates Publisher adiciona informações sobre as atualizações de pacotes (metadados) e, possivelmente, os binários das atualizações (conteúdo completo), de um servidor de atualização para implementação em dispositivos.
+## <a name="publish-publications"></a>Публикация публикаций
+При публикации обновлений и пакетов средство Updates Publisher добавляет информацию об этих обновлениях и пакетах (метаданные) и, возможно, двоичные файлы для обновлений (все содержимое) на сервер обновлений для развертывания на устройствах.
 
-Antes de ter a opção de publicar, tem de configurar o [servidor de atualização](/sccm/sum/tools/updates-publisher-options#update-server) opção para o Updates Publisher. Para abrir esta opção de configuração, aceda a **área de trabalho atualizações** &gt; **descrição geral** e selecione **configurar o WSUS e o certificado de assinatura.** Pode também aceder à página servidor de atualização nas opções do Updates Publisher.
+Прежде чем появится возможность публикации, необходимо настроить параметр [Сервер обновлений](/sccm/sum/tools/updates-publisher-options#update-server) для Updates Publisher. Чтобы открыть этот параметр конфигурации, перейдите к **рабочей области "Обновления"**, выберите **Обзор** и щелкните **Configure WSUS and Signing Certificate** (Настройка служб WSUS и сертификата для подписи). Вы можете также перейти на страницу сервера обновлений в параметрах Updates Publisher.
 
 > [!NOTE]   
-> Publicador de atualizações só pode publicar as atualizações que estão 375 megabytes (MB) ou tamanho.
+> Updates Publisher может публиковать обновления размером до 375 мегабайт (МБ).
 
-### <a name="to-publish-a-publication"></a>Para publicar uma publicação
+### <a name="to-publish-a-publication"></a>Опубликование публикации
 
-1.  Vá para o **publicações área de trabalho**e, em seguida, selecione uma publicação que contém o grupo de atualizações e os pacotes que pretende publicar ou exportar. Em seguida, escolha **publicar** de **home page** separador do Friso.
+1.  Перейдите к **рабочей области "Публикации"**, а затем выберите публикацию, содержащую группу обновлений и пакетов, которые требуется опубликовать или экспортировать. Затем на вкладке ленты **Главная** выберите **Опубликовать**.
 
-2.  No **selecione** página do **publicar** assistente, pode optar por assinar todas as atualizações com um novo certificado de publicação, mas não é possível alterar o tipo de publicação.
+2.  На странице **выбора** мастера **публикаций** вы можете подписать все обновления с помощью нового сертификата публикации, но вы не можете изменить тип публикации.
 
-3.  Conclua o assistente.
+3.  Завершите работу мастера.
 
-  Se falhar a publicação, são apresentadas com uma ligação para o ficheiro de UpdatesPublisher.log que pode fornecer mais informações.
+  Если произойдет сбой публикации, на экране появится ссылка на файл UpdatesPublisher.log с дополнительными сведениями.
 
-## <a name="export-a-publication"></a>Exportar uma publicação
-Pode exportar uma publicação do seu repositório do Updates Publisher. Se o fizer, exporta as atualizações e os pacotes são atribuídos a esse publicação, que cria um catálogo de atualização. Pode, em seguida, [adicionar](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) e, em seguida, [importar](/sccm/sum/tools/updates-publisher-catalogs#mport-updates) esse catálogo noutra instância do Updates Publisher. Também pode [exportar atualizações](/sccm/sum/tools/manage-updates-with-updates-publisher#export-updates) que não fazem parte de uma publicação.
+## <a name="export-a-publication"></a>Экспорт публикации
+Публикацию можно экспортировать из репозитория Updates Publisher. При этом экспортируются обновления и пакеты, назначенные этой публикации, и создается каталог обновлений. Затем можно [добавить](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) и [импортировать](/sccm/sum/tools/updates-publisher-catalogs#mport-updates) этот каталог в другой экземпляр Updates Publisher. Вы также можете [экспортировать обновления](/sccm/sum/tools/manage-updates-with-updates-publisher#export-updates), которые не являются частью публикации.
 
-Para exportar uma publicação, vá para o **publicações área de trabalho** e selecione a publicação que contém as atualizações que pretende exportar. Só pode selecionar uma publicação de cada vez.
+Чтобы экспортировать публикацию, перейдите к **рабочей области "Публикации"** и выберите публикацию с обновлениями, которые необходимо экспортировать. Одновременно можно выбрать только одну публикацию.
 
-Com a publicação selecionada, escolher **exportar** do **home page** separador do Friso e, em seguida, forneça um caminho e nome de ficheiro para a exportação de catálogo.
+Выбрав публикацию, на вкладке ленты **Главная** щелкните **Экспорт** и укажите путь и имя файла для экспорта каталога.
 
-Também tem a opção para exportar (incluem) atualizações de software dependentes como parte da exportação.
+У вас также есть возможность экспортировать (добавить) зависимые обновления программного обеспечения в рамках экспорта.
 
-## <a name="rename-a-publication"></a>Mudar o nome de uma publicação
-Para mudar o nome de uma publicação, selecione a publicação de **publicações área de trabalho**e, em seguida, escolha **editar** do **publicação** separador do Friso.
+## <a name="rename-a-publication"></a>Переименование публикации
+Чтобы переименовать публикацию, выберите ее в **рабочей области "Публикации"**, а затем на вкладке ленты **Публикация** выберите **Изменить**.
 
-## <a name="delete-a-publication"></a>Eliminar uma publicação
-Para eliminar uma publicação, selecione a publicação de **publicações área de trabalho**e, em seguida, escolha **eliminar** do **publicação** separador do Friso.
+## <a name="delete-a-publication"></a>Удаление публикации
+Чтобы удалить публикацию, выберите ее в **рабочей области "Публикации"**, а затем на вкладке ленты **Публикация** выберите **Удалить**.
 
-Após a publicação é removida do Updates Publisher, as atualizações que foram na publicação permanecem disponíveis no repositório de Updates Publisher.
+После удаления публикации из Updates Publisher ее обновления остаются доступными в репозитории Updates Publisher.
 
-## <a name="expire-or-reactivate-updates-and-bundles"></a>Expirar ou reativar atualizações e pacotes
-Pode utilizar o **área de trabalho atualizações** para selecionar e, em seguida, expirar ou reativar atualizações e pacotes. Pode expirar e reativar as atualizações e os pacotes tantas vezes quanto que escolher.
+## <a name="expire-or-reactivate-updates-and-bundles"></a>Завершение срока действия и повторная активация обновлений и пакетов
+В **рабочей области "Обновления"** можно выбрать обновления и пакеты, а также завершить их срок действия или повторно активировать их. Это можно делать столько раз, сколько понадобится.
 
--   **Expirar atualizações ou pacotes**, na, selecione a área de trabalho de atualizações uma ou mais atualizações ou bundles que não expiraram e, em seguida, escolha **expirar** do **home page** separador. Depois de publicar a atualização ou pacote como expirados para o Configuration Manager, pode reativá-lo.
+-   **Чтобы завершить срок действия обновлений и пакетов**, в рабочей области "Обновления" выберите одно или несколько обновлений или пакетов, срок действия которых не истек, а затем на вкладке **Главная** щелкните **Expire** (Завершить срок действия). Пока вы не опубликуете в Configuration Manager обновления или пакеты как такие, у которых истек срок действия, вы можете повторно активировать их.
 
-    Antes de poder remover (eliminar) personalizadas atualização ou pacote do Configuration Manager, tem de expirá-lo e, em seguida, publicar esse estado expirado para o Configuration Manager. Depois das atualizações ou pacotes expiraram no Configuration Manager, já não pode implementar ou reativar a atualização ou pacote.
+    Перед удалением пользовательских обновлений или пакетов из Configuration Manager необходимо завершить срок их действия и опубликовать соответствующие сведения о состоянии в Configuration Manager. После истечения срока действия обновлений и пакетов в Configuration Manager вы не сможете разворачивать или повторно активировать их.
 
--   **Para reativar atualizações ou pacotes**, na área de trabalho de atualizações, selecione uma ou mais atualizações que expiraram em, em seguida, escolha **reativar** do **home page** separador do Friso. Se a atualização expirada anteriormente foi publicada como expirados para o Configuration Manager, não pode reativá-lo.
+-   **Чтобы повторно активировать обновления или пакеты**, в рабочей области "Обновления" выберите одно или несколько обновлений или пакетов, срок действия которых истек, а затем на вкладке ленты **Главная** щелкните **Reactivate** (Повторно активировать). Если обновление с истекшим сроком действия ранее было опубликовано как такое в Configuration Manager, вы не сможете активировать его повторно.

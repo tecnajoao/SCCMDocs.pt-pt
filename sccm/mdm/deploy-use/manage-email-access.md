@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso ao e-mail | Microsoft Docs
-description: Saiba como utilizar o acesso condicional do System Center Configuration Manager para gerir o acesso ao e-mail do Exchange.
+title: "Управление доступом к электронной почте | Документы Майкрософт"
+description: "Сведения об использовании политики условного доступа System Center Configuration Manager для управления доступом к электронной почте Exchange."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,346 +16,346 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: a5c2a8912cd2ef95a778b81d0b7f1f98315b8413
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-email-access-in-system-center-configuration-manager"></a>Gerir o acesso ao e-mail no System Center Configuration Manager
+# <a name="manage-email-access-in-system-center-configuration-manager"></a>Управление доступом к электронной почте в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize o System Center Configuration Manager o acesso condicional para gerir o acesso ao e-mail do Exchange com base nas condições que especificar.  
+Используйте условный доступ System Center Configuration Manager, чтобы управлять доступом к электронной почте Exchange на основе заданных вами условий.  
 
-Pode gerir o acesso ao:  
+Вы можете управлять доступом к следующим средам:  
 
--   Microsoft Exchange No Local  
+-   Microsoft Exchange (локально)  
 
 -   Microsoft Exchange Online  
 
--   Exchange Online Dedicado
+-   Выделенная среда Exchange Online
 
-Pode controlar o acesso ao Exchange Online e ao Exchange No Local a partir do cliente de e-mail incorporado nas seguintes plataformas:  
+Доступом к Exchange Online и локальной среде Exchange можно управлять из встроенного почтового клиента на следующих платформах:  
 
--   Android 4.0 e posterior, Samsung KNOX Standard 4.0 e posterior  
+-   Android 4.0 и более поздние версии, Samsung KNOX Standard 4.0 и более поздние версии  
 
--   iOS 7.1 e posterior  
+-   iOS 7.1 и более поздние версии  
 
--   Windows Phone 8.1 e posterior  
+-   Windows Phone 8.1 и более поздней версии.  
 
--   Aplicação de correio no Windows 8.1 e posterior
+-   Почтовые приложения в Windows 8.1 и более поздних версиях
 
-Aplicações de ambiente de trabalho do Office podem aceder ao Exchange Online em computadores que executam:  
+Классические приложения Office могут получать доступ к Exchange Online на компьютерах под управлением:  
 
--   Ambiente de trabalho do Office 2013 e versões posteriores com [autenticação moderna](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) ativada.  
+-   Классический набор Office 2013 и более поздние версии с включенной [современной проверкой подлинности](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) .  
 
--   Windows 7.0 ou Windows 8.1  
+-   Windows 7.0 или Windows 8.1  
 
 > [!NOTE]  
->  Os computadores devem estar associados a um domínio ou em conformidade com as políticas definidas no Intune.  
+>  ПК должны быть присоединены к домену или соответствовать политикам, установленным в Intune.  
 
 
-## <a name="device-requirements"></a>Requisitos de dispositivos
- Se configurar o acesso condicional, antes de um utilizador se poder ligar ao respetivo e-mail, o dispositivo que ele utiliza deve:  
+## <a name="device-requirements"></a>Требования к устройствам
+ Если вы настраиваете условный доступ, то прежде чем пользователь сможет подключиться к электронной почте, его устройство должно удовлетворять следующим требованиям:  
 
--   Estar inscrito no Intune ou PC associado a um domínio.  
+-   быть зарегистрировано в Intune или на компьютере, присоединенном к домену.  
 
--   Registar o dispositivo no Azure Active Directory (isto ocorre automaticamente quando o dispositivo é inscrito no Intune (apenas para o Exchange Online). Além disso, o ID do Exchange ActiveSync cliente tem de estar registado no Azure Active Directory (não se aplica a dispositivos Windows e Windows Phone que se liguem ao Exchange No Local).  
+-   Зарегистрируйте устройство в Azure Active Directory. Это происходит автоматически при регистрации устройства в Intune (только для Exchange Online). Кроме того, идентификатор клиента Exchange ActiveSync должен быть зарегистрирован в Azure Active Directory (не применяется к устройствам Windows и Windows Phone, подключающимся к локальной среде Exchange).  
 
-     Para um PC associado a um domínio, tem de defini-lo para ser registado automaticamente no Azure Active Directory.  A secção **Acesso Condicional para PCs** do tópico [Gerir o acesso a serviços no System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md) apresenta uma lista do conjunto completo de requisitos para ativar o acesso condicional em PCs.  
+     Для ПК, присоединенного к домену, необходимо задать автоматическую регистрацию в Azure Active Directory.  В разделе **Условный доступ для ПК** статьи [Управление доступом к службам в System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md) перечислены все требования для включения условного доступа для ПК.  
 
--   Ser compatível com as políticas de conformidade do Gestor de configuração implementadas nesse dispositivo  
+-   Устройство должно удовлетворять любым развернутым на нем политикам соответствия Configuration Manager.  
 
- Se não for cumprida uma condição de acesso condicional, é apresentada ao utilizador uma das duas mensagens seguintes quando iniciar sessão:  
+ Если условие для условного доступа не выполняется, при входе пользователь получает одно из следующих сообщений.  
 
--   Se o dispositivo não estiver inscrito no Intune ou não está registado no Azure Active Directory, será apresentada uma mensagem com instruções sobre como instalar a aplicação do portal da empresa, inscrever o dispositivo e (para dispositivos Android e iOS), ativar o e-mail, o que associa o ID do Exchange ActiveSync do dispositivo ao registo do dispositivo no Azure Active Directory.  
+-   Если устройство не зарегистрировано в Intune либо в Azure Active Directory, выводится сообщение с инструкциями о том, как установить приложение корпоративного портала, зарегистрировать устройство (для устройств Android и iOS) и активировать электронную почту, в результате чего идентификатор Exchange ActiveSync устройства сопоставляется с записью этого устройства в Azure Active Directory.  
 
--   Se o dispositivo não for conforme, será apresentada uma mensagem que direciona o utilizador para o portal web do Intune onde pode encontrar informações sobre o problema e como resolvê-lo.  
+-   Если устройство не соответствует требованиям, отображается сообщение, направляющее пользователя на веб-портал Intune, где можно найти сведения о данной проблеме и способах ее решения.  
 
-**Para dispositivos móveis:**
+**Для мобильных устройств:**
 
-Pode restringir o acesso ao **Outlook Web Access (OWA)** no Exchange Online quando o acesso for feito a partir de um browser em dispositivos **iOS** e **Android** .  O acesso só será permitido a partir de browsers suportados em dispositivos conformes:
+Можно ограничить доступ к **Outlook Web Access (OWA)** в Exchange Online, если доступ осуществляется из браузера на устройствах **iOS** и **Android** .  Доступ будет разрешен только из поддерживаемых браузеров на совместимых устройствах:
 
-* Safari (iOS)
-* Chrome (Android)
-* Managed Browser (iOS e Android)
+* Safari (iOS);
+* Chrome (Android);
+* управляемый браузер (iOS и Android).
 
-Os browsers não suportados serão bloqueados. As aplicações do OWA para iOS e Android não são suportadas.  Devem ser bloqueadas através de regras de afirmações do ADFS:
-* Configure regras de afirmações do ADFS para bloquear protocolos de autenticação não moderna. O cenário 3 - [bloquear todos os acessos ao O365 exceto aplicações baseadas no browser](https://technet.microsoft.com/library/dn592182.aspx)fornece instruções detalhadas.
+Неподдерживаемые браузеры будут заблокированы. Приложения OWA для iOS и Android не поддерживаются.  Они должны блокироваться с помощью правил утверждений ADFS:
+* Настройте правила утверждений ADFS для блокирования несовременных протоколов проверки подлинности. Пошаговые инструкции описаны в сценарии 3: [блокировка доступа к Office 365, за исключением браузерных приложений](https://technet.microsoft.com/library/dn592182.aspx).
 
- **Para PCs:**  
+ **Для ПК:**  
 
--   Se o requisito de política de acesso condicional permitir a **associação a um domínio** ou a **conformidade**, será apresentada uma mensagem com instruções sobre como inscrever o dispositivo. Se o PC não cumprir nenhum dos requisitos, será pedido ao utilizador para inscrever o dispositivo no Intune.  
+-   если требование политики доступа — разрешить устройства, **присоединенные к домену** или **соответствующие требованиям**, отобразится сообщение с инструкциями о регистрации устройства; если ПК не соответствует каким-либо требованиям, пользователя попросят зарегистрировать устройство в Intune;  
 
--   Se o requisito da política de acesso condicional estiver definido para permitir apenas dispositivos Windows associados a um domínio, o dispositivo será bloqueado e será apresentada uma mensagem para contactar o administrador de TI.  
+-   если требование политики условного доступа — разрешать только присоединенные к домену устройства Windows, устройство блокируется и отображается сообщение, рекомендующее обратиться к ИТ-администратору.  
 
- Pode bloquear o acesso ao e-mail do Exchange no cliente de e-mail Exchange ActiveSync incorporado no dispositivo nas seguintes plataformas:  
+ Вы можете заблокировать доступ к электронной почте Exchange с устройств с помощью встроенного клиента электронной почты Exchange ActiveSync на следующих платформах:  
 
--   Android 4.0 e posterior, Samsung KNOX Standard 4.0 e posterior  
+-   Android 4.0 и более поздние версии, Samsung KNOX Standard 4.0 и более поздние версии  
 
--   iOS 7.1 e posterior  
+-   iOS 7.1 и более поздние версии  
 
--   Windows Phone 8.1 e posterior  
+-   Windows Phone 8.1 и более поздней версии  
 
--   A aplicação **Correio** no Windows 8.1 e posterior  
+-   Приложение **Почта** в Windows 8.1 и более поздних версиях  
 
- A aplicação Outlook para iOS e Android, e o Outlook Desktop 2013 e posterior é suportada apenas para o Exchange Online.  
+ Приложение Outlook для iOS и Android и классическая версия Outlook 2013 и более поздней версии поддерживаются только для Exchange Online.  
 
- O **conector do Exchange no local** entre o Configuration Manager e o Exchange é necessário para o acesso condicional funcionar.  
+ Для работы условного доступа требуется **локальный соединитель Exchange** между Configuration Manager и Exchange.  
 
- Pode configurar uma política de acesso condicional para o Exchange no local a partir da consola do Configuration Manager. Quando configura uma política de acesso condicional para o Exchange Online, pode iniciar o processo na consola do Configuration Manager, que inicia a consola do Intune onde pode concluir o processo.  
+ Политика условного доступа к локальной службе Exchange настраивается в консоли Configuration Manager. При настройке политики условного доступа для Exchange Online вы можете начать процесс в консоли Configuration Manager, запускающая консоль Intune, в которой можно завершить процесс.  
 
-## <a name="configure-conditional-access"></a>Configurar o acesso condicional
-### <a name="step-1-evaluate-the-effect-of-the-conditional-access-policy"></a>Passo 1: Avaliar o efeito da política de acesso condicional  
- Assim que tiver configurado o **conector do Exchange no local**, pode utilizar o Gestor de configuração**lista de dispositivos por Estado de acesso condicional** relatório para identificar dispositivos que serão impedidos de aceder ao Exchange após configurar a política de acesso condicional. Este relatório também requer:  
+## <a name="configure-conditional-access"></a>Настройка условного доступа
+### <a name="step-1-evaluate-the-effect-of-the-conditional-access-policy"></a>Шаг 1. Оценка влияния политики условного доступа  
+ После настройки **локального соединителя Exchange** вы можете использовать отчет **Список устройств по состоянию условного доступа** Configuration Manager для определения устройств, которым будет заблокирован доступ к Exchange после настройки политики условного доступа. Для этого отчета также требуется, чтобы были выполнены следующие действия.  
 
--   Uma subscrição do Intune  
+-   Оформлена подписка на Intune.  
 
--   O ponto de ligação de serviço deve ser configurado e implementado  
+-   Точка подключения службы должна быть настроена и развернута.  
 
- Nos parâmetros do relatório, selecione o grupo do Intune que pretende avaliar e, se necessário, as plataformas de dispositivos aos quais será aplicada a política.  
+ В параметрах отчета выберите группу Intune, которую следует оценить, и, при необходимости, платформы устройств, для которых будет действовать политика.  
 
- Para obter mais informações sobre como executar relatórios, veja [Os relatórios do System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Дополнительные сведения о запуске отчетов см. в разделе [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
- Depois de executar o relatório, examine estas quatro colunas para determinar se um utilizador será bloqueado:  
+ После запуска отчета изучите эти четыре столбца, чтобы определить, будет ли пользователь заблокирован:  
 
--   **Canal de gestão** -indica se o dispositivo é gerido pelo Intune, do Exchange ActiveSync ou ambos.  
+-   **Канал управления** — указывает, управляется ли устройство Intune и (или) Exchange ActiveSync.  
 
--   **Registado no AAD** -indica se o dispositivo é registado no Azure Active Directory (conhecido como associação à área de trabalho).  
+-   **Зарегистрировано в AAD** — указывает, зарегистрировано ли устройство в Azure Active Directory (этот процесс называется присоединением к рабочей области).  
 
--   **Em conformidade** -indica se o dispositivo está em conformidade com as políticas de conformidade implementadas.  
+-   **Соответствует** — указывает, соответствует ли устройство развернутым политикам соответствия.  
 
--   **EAS ativado** -dispositivos iOS e Android têm de ter os respetivos ID do Exchange ActiveSync associado ao registo do dispositivo no Azure Active Directory. Isto acontece quando o utilizador clica na ligação **Ativar E-mail** no e-mail de quarentena.  
+-   **EAS активирована** — идентификатор Exchange ActiveSync устройств iOS и Android должен быть сопоставлен с записью регистрации устройства в Azure Active Directory. Это происходит, когда пользователь щелкает ссылку **Активация электронной почты** в сообщении электронной почты о карантине.  
 
     > [!NOTE]  
-    >  Os dispositivos Windows Phone apresentam sempre um valor nesta coluna.  
+    >  Устройства Windows Phone всегда отображают в этом столбце значение.  
 
- Os dispositivos que fazem parte de uma coleção ou grupo de destino serão impedidos de aceder ao Exchange, exceto se os valores da coluna corresponderem aos listados na seguinte tabela:  
+ Устройствам, которые являются частью целевой группы или коллекции, будет заблокирован доступ к Exchange, пока значения столбцов не будут совпадать со значениями, перечисленными в следующей таблице.  
 
-|Canal de Gestão|Registado no AAD|conformidade|EAS Ativado|Ação resultante|  
+|Канал управления|Зарегистрировано в AAD|соответствующие требованиям|EAS активирована|Результирующее действие|  
 |------------------------|--------------------|---------------|-------------------|----------------------|  
-|**Gerido pelo Microsoft Intune e pelo Exchange ActiveSync**|Sim|Sim|É apresentado**Sim** ou **Não** |Acesso ao e-mail permitido|  
-|Qualquer outro valor|Não|Não|Não é apresentado nenhum valor|Acesso ao e-mail bloqueado|  
+|**Управляется Microsoft Intune и Exchange ActiveSync**|Да|Да|Отображается**Да** или **Нет** |Доступ к электронной почте разрешен|  
+|Любое другое значение|Нет|Нет|Значение не отображается|Доступ к электронной почте заблокирован|  
 
- Pode exportar os conteúdos do relatório e utilizar a coluna **Endereço de E-mail** para ajudar a informar os utilizadores de que serão bloqueados.  
+ Вы можете экспортировать содержимое отчета и использовать столбец **Адрес электронной почты** для информирования пользователей о том, что они будут заблокированы.  
 
-### <a name="step-2-configure-user-groups-or-collections-for-the-conditional-access-policy"></a>Passo 2: Configurar grupos de utilizadores ou de coleções para a política de acesso condicional  
- O direcionamento de políticas de acesso condicional para diferentes coleções ou grupos de utilizadores depende dos tipos de políticas. Estes grupos contêm os utilizadores que serão direcionados ou que estarão excluídos da política. Quando um utilizador é direcionado por uma política, cada dispositivo que utiliza tem de estar em conformidade para poder aceder ao e-mail.  
+### <a name="step-2-configure-user-groups-or-collections-for-the-conditional-access-policy"></a>Шаг 2. Настройка групп или коллекций пользователей для политики условного доступа  
+ Политики условного доступа ориентируются на различные группы или коллекции пользователей в зависимости от типов политик. Эти группы содержат пользователей, которые будут являться целями для политики или будут исключены из нее. Когда пользователь становится целью для политики, каждое используемое им устройство должно быть совместимым, чтобы получить  доступ к электронной почте.  
 
--   **Para a política do Exchange Online** – para grupos de utilizadores de segurança do Azure Active Directory. Pode configurar estes grupos no **centro de administração do Office 365**ou no **portal de contas do Intune**.  
+-   **Для политики Exchange Online** — для групп безопасности пользователей Azure Active Directory. Эти группы можно настроить в **Центре администрирования Office 365**или на **портале учетных записей Intune**.  
 
--   **Para a política do Exchange no local** - para coleções de utilizadores do Configuration Manager. Pode configurá-los na área de trabalho **Ativos e Compatibilidade** .  
+-   **Для локальной политики Exchange** — для коллекций пользователей Configuration Manager. Их можно настроить в рабочей области **Активы и соответствие**  
 
- Pode especificar dois tipos de grupos em cada política:  
+ В каждой политике можно указать два типа групп:  
 
--   **Grupos direcionados** -grupos de utilizadores ou de coleções nos quais é aplicada a política  
+-   **Целевые группы** — группы или коллекции пользователей, к которым применяется данная политика.  
 
--   **Grupos excluídos** -grupos de utilizadores ou de coleções que estão excluídas da política (opcional)  
+-   **Исключенные группы** — группы или коллекции пользователей, которые исключены из политики (необязательно).  
 
- Se um utilizador estiver em ambos, estará excluído da política.  
+ Если пользователь входит в обе группы, то он будет исключен из политики.  
 
- Apenas os grupos ou coleções direcionados pela política de acesso condicional são avaliados para acesso ao Exchange.  
+ Оценка возможности доступа к Exchange производится только для тех групп или коллекций, которые являются целевыми для политики условного доступа.  
 
-### <a name="step-3-configure-and-deploy-a-compliance-policy"></a>Passo 3: Configurar e implementar uma política de conformidade  
- Certifique-se de que criou e implementou uma política de conformidade em todos os dispositivos para os quais será direcionada a política de acesso condicional do Exchange.  
+### <a name="step-3-configure-and-deploy-a-compliance-policy"></a>Шаг 3. Настройка и развертывание политики соответствия требованиям  
+ Убедитесь, что политика соответствия создана и развернута для всех устройств, на которые будет нацелена политика условного доступа Exchange.  
 
- Para obter detalhes sobre como configurar a política de conformidade, veja [Gerir políticas de conformidade no System Center Configuration Manager](device-compliance-policies.md).  
+ Дополнительные сведения о настройке политики соответствия требованиям см. в разделе [Управление политиками соответствия устройств в System Center Configuration Manager](device-compliance-policies.md).  
 
 > [!IMPORTANT]  
->  Se não tiver implementado uma política de conformidade e, em seguida, ativar uma política de acesso condicional do Exchange, todos os dispositivos direcionados terão permissão de acesso.  
+>  Если политика соответствия не была развернута и включена политика условного доступа Exchange, доступ будет разрешен всем целевым устройствам.  
 
- Quando estiver pronto, avance para o **Passo 4**.  
+ Когда будете готовы, перейдите к **шагу 4**.  
 
-### <a name="step-4-configure-the-conditional-access-policy"></a>Passo 4: Configurar a política de acesso condicional  
+### <a name="step-4-configure-the-conditional-access-policy"></a>Шаг 4. Настройка политики условного доступа  
 
-#### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Para o Exchange Online (e inquilinos no novo ambiente do Exchange Online Dedicado)
+#### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Для Exchange Online (и клиентов в новой выделенной среде Exchange Online)
 
 >[!NOTE]
->Também pode criar política de acesso condicional na consola de gestão do Azure AD. Consola de gestão do Azure AD permite-lhe criar políticas de acesso condicional (referidas como a política de acesso condicional baseado no dispositivo no Azure AD) para além de outras políticas de acesso condicional, como a autenticação multifator do dispositivo do Intune. Também pode definir políticas de acesso condicional para aplicações da empresa de terceiros, como o Salesforce e suporta a caixa de que o Azure AD. Para obter mais detalhes, consulte [como definir a política de acesso condicional baseado no dispositivo do Azure Active Directory para o controlo de acesso ao Azure Active Directory ligado aplicações](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
+>Политику условного доступа можно также создать в консоли управления Azure AD. В консоли управления Azure AD можно создавать политики условного доступа для устройств Intune (называемые политиками условного доступа на основе устройств в Azure AD) помимо других политик условного доступа, таких как многофакторная проверка подлинности. Можно также задать политики условного доступа для сторонних корпоративных приложений, например Salesforce и Box, поддерживаемых Azure AD. Дополнительные сведения см. в статье [Настройка политики условного доступа на основе устройств Azure Active Directory для контроля доступа к подключаемым приложениям Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
 
- As políticas de acesso condicional para o Exchange Online utilizam o fluxo seguinte para avaliar se os dispositivos devem ser permitidos ou bloqueados.  
+ Следующая схема используется политиками условного доступа для Exchange Online, чтобы определить, следует ли разрешить или запретить доступ для устройств.  
 
  ![ConditionalAccess8&#45;1](media/ConditionalAccess8-1.png)  
 
- Para aceder ao e-mail, o dispositivo tem de:  
+ Для доступа к электронной почте устройство должно соответствовать следующим условиям:  
 
--   Estar inscrito no Intune  
+-   должно быть зарегистрировано в Intune;  
 
--   PCs tem de ser domínio associado ou ser inscritos e em conformidade com as políticas definidas no Intune.  
+-   ПК должны быть присоединены к домену или зарегистрированы и соответствовать политикам, заданным в разделе Intune.  
 
--   Registar o dispositivo no Azure Active Directory (isto ocorre automaticamente quando o dispositivo é inscrito no Intune.  
+-   Зарегистрируйте устройство в Azure Active Directory (это происходит автоматически при регистрации устройства в Intune).  
 
-     Para um PC associado a um domínio, tem de defini-lo para [registar automaticamente o dispositivo](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) no Azure Active Directory.  
+     Для ПК, присоединенных к домену, необходимо задать [автоматическую регистрацию устройства](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) в Azure Active Directory.  
 
--   Ter o e-mail ativado, que associa o ID do Exchange ActiveSync do dispositivo ao registo do dispositivo no Azure Active Directory (aplica-se a dispositivos iOS e Android apenas).  
+-   Для устройства должна быть активирована электронная почта, в результате чего идентификатор Exchange ActiveSync устройства сопоставляется с записью этого устройства в Azure Active Directory (применяется только для устройств iOS и Android).  
 
--   Ser compatível com todas as políticas de conformidade implementadas  
+-   Устройство должно удовлетворять всем развернутым политикам соответствия.  
 
- O estado do dispositivo é armazenado no Azure Active Directory, o qual concede ou bloqueia o acesso ao e-mail, com base nas condições avaliadas.  
+ Состояние устройства хранится в Azure Active Directory, который предоставляет или блокирует доступ к электронной почте на основе оценочных условий.  
 
- Se não for cumprida uma condição, será apresentada ao utilizador uma das duas mensagens seguintes quando iniciar sessão:  
+ Если условие не выполняется, при входе пользователь получает следующие сообщения.  
 
--   Se o dispositivo não estiver inscrito ou registado no Azure Active Directory, será apresentada uma mensagem com instruções sobre como instalar a aplicação do portal da empresa e inscrevê-la  
+-   Если устройство не зарегистрировано либо зарегистрировано в Azure Active Directory, выводится сообщение с инструкциями о том, как установить приложение корпоративного портала и выполнить регистрацию.  
 
--   Se o dispositivo não for conforme, será apresentada uma mensagem que direciona o utilizador para o Web site do Portal da empresa do Intune ou para a aplicação Portal da empresa, onde é possível localizar informações sobre o problema e como resolvê-lo.  
+-   Если устройство не соответствует требованиям, отображается сообщение, направляющее пользователя на веб-сайт корпоративного портала Intune или к приложению корпоративного портала Intune, где можно найти сведения о данной проблеме и способах ее устранения.  
 
--   Num PC:  
+-   Для ПК:  
 
-    -   Se a política estiver definida para exigir a associação a um domínio e o PC não estiver associado a qualquer domínio, será apresentada uma mensagem para contactar o administrador de TI.  
+    -   если политика требует присоединения к домену, а ПК не присоединен к домену, отобразится сообщение, рекомендующее обратиться к ИТ-администратору;  
 
-    -   Se a política estiver definida para exigir a associação a um domínio ou estar em conformidade, o PC não cumpre nenhum dos requisitos e será apresentada uma mensagem com instruções sobre como instalar o portal da empresa e inscrevê-lo.  
+    -   если политика требует присоединения к домену или соответствия политике, это означает, что ПК не соответствует какому-либо из требований, и отобразится сообщение с инструкциями о том, как установить приложение корпоративного портала и выполнить регистрацию.  
 
- A mensagem é apresentada no dispositivo para os utilizadores do Exchange Online e os inquilinos no novo ambiente do Exchange Online Dedicado e é enviada para a caixa de entrada de e-mail dos utilizadores do Exchange No Local e dos dispositivos legados do Exchange Online Dedicado.  
-
-> [!NOTE]  
->  Permitir a substituição de regras de acesso condicional, o Configuration Manager, bloqueio e quarentena regras que são definidas na consola de administração do Exchange Online.  
+ Сообщение отображается на устройстве для пользователей и клиентов Exchange Online в новой выделенной среде Exchange Online и направляется в ящик входящих сообщений электронной почты пользователей устройств локальной организации Exchange и устройств устаревшей выделенной среды Exchange Online.  
 
 > [!NOTE]  
->  A política de acesso condicional deve ser configurada na consola do Intune. Os seguintes passos começam por aceder à consola do Intune através do Configuration Manager. Se lhe for solicitado, inicie sessão com as mesmas credenciais que foram utilizadas para configurar o ponto de ligação do serviço entre o Configuration Manager e o Intune.  
+>  Configuration Manager переопределяют, разрешают, блокируют и помещают в карантин правила, определенные в консоли администрирования Exchange Online.  
 
-##### <a name="to-enable-the-exchange-online-policy"></a>Para ativar a política do Exchange Online  
+> [!NOTE]  
+>  Политика условного доступа должна быть настроена в консоли Intune. Следующие шаги начинаются с открытия консоли Intune через Configuration Manager. Если будет предложено, войдите в систему с помощью тех же учетных данных, которые использовались для настройки точки подключения службы между Configuration Manager и Intune.  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+##### <a name="to-enable-the-exchange-online-policy"></a>Включение политики Exchange Online  
 
-2.  Expanda **Definições de Compatibilidade**, expanda **Acesso Condicional**e, em seguida, clique em **Exchange Online**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-3.  No separador **Início** , no grupo **Ligações** , clique em **Configurar Política de Acesso Condicional na Consola do Intune**. Poderá ter de fornecer o nome de utilizador e palavra-passe da conta utilizada para ligar o Configuration Manager com qualquer administrador global para o serviço do Intune.  
+2.  Разверните раздел **Параметры соответствия**, разверните **Условный доступ**, а затем выберите **Exchange Online**.  
 
-     Abre a consola de administração do Intune.  
+3.  На вкладке **Главная** в группе **Ссылки** щелкните пункт **Настройка политики условного доступа в консоли Intune**. Вам может потребоваться указать имя пользователя и пароль той учетной записи, которая использовалась для подключения Configuration Manager с любым глобальным администратором для службы Intune.  
 
-4.  Na [consola de administração do Microsoft Intune](https://manage.microsoft.com), clique em **Política** > **Acesso Condicional** > **Política do Exchange Online**.  
+     Откроется консоль администрирования Intune.  
+
+4.  В консоли [Консоли администрирования Microsoft Intune](https://manage.microsoft.com)щелкните **Политика** > **Условный доступ** > **Exchange Online Политика**;  
 
      ![HybridOnlineSetupIntune](media/HybridOnlineSetupIntune.png)  
 
-5.  Na página **Política do Exchange Online** , selecione **Ativar política de acesso condicional no Exchange Online**. Se selecionar esta opção, o dispositivo tem de estar em conformidade. Se não estiver selecionada, o acesso condicional não é aplicado.  
+5.  На странице **Политика Exchange Online** выберите **Включить политику условного доступа для Exchange Online**. Устройство должно соответствовать требованиям для установки этого флажка. Если этот флажок не установлен, условный доступ не применяется.  
 
     > [!NOTE]  
-    >  Se não tiver implementado uma política de conformidade e, em seguida, ativar a política do Exchange Online, todos os dispositivos direcionados serão comunicados como estando em conformidade.  
+    >  Если политика соответствия не была развернута и включена политика Exchange Online, все целевые устройства считаются соответствующими.  
     >   
-    >  Independentemente do Estado de conformidade, todos os utilizadores visados pela política terão de inscrever os respetivos dispositivos com o Intune.  
+    >  Независимо от состояния соответствия все пользователи, на которых распространяется политика, должны будут регистрировать свои устройства в Intune.  
 
-6.  Em **Acesso da aplicação**, para o Outlook e outras aplicações com autenticação moderna, pode optar por restringir o acesso apenas a dispositivos em conformidade com cada plataforma.  Os dispositivos Windows têm de estar associados a um domínio ou inscritos no Intune e em conformidade.  
+6.  В разделе **Доступ приложения**для Outlook и других приложений, использующих современную проверку подлинности, вы можете ограничить доступ, предоставив его только устройствам, которые соответствуют требованиям для каждой платформы.  Устройства Windows должны быть присоединены к домену или зарегистрированы в Intune и обязаны соответствовать требованиям.  
 
     > [!TIP]  
-    >  A **Autenticação moderna** fornece um início de sessão baseado na ADAL (Active Directory Authentication Library) aos clientes do Office.  
+    >  **Современная проверка подлинности** активирует для клиентов Office процедуру входа на основе библиотеки проверки подлинности Active Directory (ADAL).  
     >   
-    >  -   A autenticação baseada na ADAL permite que os clientes do Office participem na autenticação baseada no browser (também conhecido como autenticação passiva).  Para autenticar, o utilizador é direcionado para uma página Web de início de sessão.  
-    > -   Este novo método de início de sessão permite novos cenários, como o acesso condicional, com base na **conformidade do dispositivo** e no facto de a **autenticação multifator** ter sido ou não executada.  
+    >  -   Процедура проверки подлинности на основе ADAL позволяет клиентам Office применять проверку подлинности на основе браузера (также называемую пассивной проверкой подлинности).  Для проверки подлинности пользователь перенаправляется на веб-страницу входа в систему.  
+    > -   Это новый метод входа, который позволяет реализовать новые сценарии, например условный доступ, на основе **политик соответствия устройств** и выполнения **многофакторной проверки подлинности** .  
     >   
-    >  Este [artigo](https://support.office.com/en-US/article/How-modern-authentication-works-for-Office-2013-and-Office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) tem informações mais detalhadas sobre como funciona a autenticação moderna.  
+    >  В данной [статье](https://support.office.com/en-US/article/How-modern-authentication-works-for-Office-2013-and-Office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) содержатся более подробные сведения о процедуре современной проверки подлинности.  
 
-     Utilizar o Exchange Online com o Configuration Manager e o Intune não só pode gerir dispositivos móveis com acesso condicional, mas também com computadores de secretária. Os PCs têm de estar associados a um domínio ou inscritos no Intune e em conformidade. Pode definir os seguintes requisitos:  
+     Используя Exchange Online с Configuration Manager и Intune, вы можете применять условный доступ для управления не только мобильными устройствами, но и настольными компьютерами. ПК должны быть присоединены к домену или зарегистрированы в Intune и должны соответствовать политикам. Можно задать следующие требования.  
 
-    -   **Os dispositivos têm de estar associados a um domínio ou em conformidade.** Os PC têm de estar associados a um domínio ou em conformidade com as políticas. Se um PC não cumprir nenhum destes requisitos, é pedido ao utilizador para inscrever o dispositivo no Intune.  
+    -   **Устройства должны быть присоединены к домену или должны соответствовать политикам.** Компьютеры должны быть присоединены к домену или соответствовать политикам. Если ПК не соответствует каким-либо требованиям, пользователю предлагается зарегистрировать устройство в Intune.  
 
-    -   **Os dispositivos têm de estar associados a um domínio.** Os PC têm de estar associados a um domínio para acederem ao Exchange Online. Se o PC não estiver associado a um domínio, o acesso ao e-mail é bloqueado e é pedido ao utilizador para contactar o administrador de TI.  
+    -   **Устройства должны быть присоединены к домену.** Компьютеры должны быть присоединены к домену для доступа к Exchange Online. Если ПК не присоединен к домену, доступ к почте будет заблокирован, и пользователя попросят обратиться к ИТ-администратору.  
 
-    -   **Os dispositivos têm de estar em conformidade.** Os PCs têm de estar inscritos no Intune e conformes. Se um PC não estiver inscrito, será apresentada uma mensagem com instruções sobre como inscrevê-lo.  
+    -   **Устройства должны соответствовать политикам.** Компьютеры должны быть зарегистрированы в Intune и соответствовать требованиям. Если ПК не зарегистрирован, отображается сообщение с инструкциями по регистрации.  
 
-7.  Em **acesso web do Outlook (OWA)**, pode optar por permitir o acesso ao Exchange Online apenas através de browsers suportados: Safari (iOS) e o Chrome (Android). O acesso a partir de outros browsers será bloqueado. As mesmas restrições de plataforma que selecionou para Acesso da aplicação para o Outlook também se aplicam aqui.
+7.  В разделе **Outlook web access (OWA)**вы можете разрешить доступ к Exchange Online только через поддерживаемые браузеры: Safari (iOS) и Chrome (Android). Доступ из других браузеров будет заблокирован. Здесь также применяются те же ограничения платформ, которые были заданы в разделе "Доступ приложений" для Outlook.
 
-    Em dispositivos **Android** , os utilizadores têm de ativar o acesso ao browser.  Para tal, o utilizador final tem de ativar a opção "Ativar o acesso ao Browser" no dispositivo inscrito da seguinte forma:
-     1. Inicie a **aplicação Portal da Empresa**.
-     2. Vá para o **definições** página a partir das reticências (…) ou no botão do menu de hardware.
-      3.    Prima o botão **Ativar acesso ao browser** .
-      4.    No browser Chrome, termine sessão no Office 365 e reinicie o Chrome.
+    На устройствах **Android** пользователям потребуется включить доступ через браузер.  Для этого конечному пользователю потребуется включить параметр "Включить доступ в браузере" на зарегистрированном устройстве следующим образом.
+     1. Запустите **приложение корпоративного портала**.
+     2. Перейдите на страницу **Настройки** с помощью кнопки с многоточием (…) или аппаратной кнопки меню.
+      3.    Нажмите кнопку **Включить доступ в браузере** .
+      4.    В браузере Chrome выйдите из Office 365 и перезагрузите Chrome.
 
-     Nas plataformas **iOS e Android** , para identificar o dispositivo que é utilizado para aceder ao serviço, o Azure Active Directory emitirá um certificado Transport Layer Security (TLS) para o dispositivo.  O dispositivo apresenta o certificado com uma linha de comandos ao utilizador final para selecionar o certificado, tal como mostram as capturas de ecrã abaixo. O utilizador final tem de selecionar este certificado para poder continuar a utilizar o browser.
+     В платформах **iOS и Android** для идентификации устройства, используемого для доступа к службе, Azure Active Directory выдает устройству сертификат протокола TLS.  Устройство указывает сертификат, предлагая конечному пользователю выбрать его, как показано на снимке экрана ниже. Конечный пользователь должен выбрать этот сертификат, прежде чем сможет продолжить работать с браузером.
 
      **iOS**
 
-     ![captura de ecrã da linha de comandos do certificado num ipad](media/mdm-browser-ca-ios-cert-prompt_v2.png)
+     ![снимок экрана запроса сертификата на ipad](media/mdm-browser-ca-ios-cert-prompt_v2.png)
 
     **Android**
 
-    ![captura de ecrã da linha de comandos do certificado num dispositivo Android](media/mdm-browser-ca-android-cert-prompt.png)
+    ![снимок экрана запроса сертификата на устройстве Android](media/mdm-browser-ca-android-cert-prompt.png)
 
-7.  Em**aplicações de correio do Exchange ActiveSync**, pode optar por bloquear o acesso do e-mail ao Exchange Online se o dispositivo não estiver em conformidade e selecionar se pretende permitir ou bloquear o acesso ao e-mail quando não for possível ao Intune gerir o dispositivo.  
+7.  В разделе**Почтовые приложения Exchange ActiveSync**вы можете заблокировать доступ почты к Exchange Online, если устройство не соответствует требованиям, и разрешить или заблокировать доступ к электронной почте, если Intune не может управлять устройством.  
 
-8.  Em **Grupos Visados**, selecione os grupos de segurança do Active Directory dos utilizadores aos quais será aplicada a política.  
+8.  В разделе **Целевые группы**выберите группы безопасности Active Directory пользователей, к которым будет применена политика.  
 
     > [!NOTE]  
-    >  Para utilizadores que estão nos grupos de Destino, as políticas do Intune irão substituir as regras e as políticas do Exchange.  
+    >  Для пользователей, которые являются членами целевых групп, политики Intune заменят правила и политики Exchange.  
     >   
-    >  O Exchange só irá impor permissões, bloqueios, regras de quarentena e políticas do Exchange se:  
+    >  Exchange сможет разрешать, блокировать и помещать в карантин правила, а также политики Exchange только в том случае, если:  
     >   
-    >  -   O utilizador não estiver licenciado para o Intune.  
-    > -   O utilizador estiver licenciado para o Intune, mas não pertencer a quaisquer grupos de segurança direcionados na política de acesso condicional.  
+    >  -   пользователь не имеет лицензии на Intune;  
+    > -   у пользователя есть лицензия на Intune, но он не входит ни в одну из групп безопасности, на которые распространяется политика условного доступа.  
 
-9. Em **Grupos Excluídos**, selecione os grupos de segurança do Active Directory dos utilizadores que estão excluídos desta política. Se um utilizador estiver em ambos os grupos, estará excluído da política e terá acesso ao respetivo e-mail.  
+9. В разделе **Исключенные группы**выберите группы безопасности Active Directory пользователей, которые будут исключены из этой политики. Если пользователь входит в обе указанные группы, то он будет исключен из политики и получит доступ к своей электронной почте.  
 
-10. Quando terminar, clique em **Guardar**.  
+10. По завершении нажмите кнопку **Сохранить**.  
 
--   Não tem de implementar a política de acesso condicional, pois esta entra em vigor imediatamente.  
+-   Развертывать политику условного доступа не нужно, она вступает в силу немедленно.  
 
--   Depois de um utilizador criar uma conta de e-mail, o dispositivo é bloqueado de imediato.  
+-   Устройство блокируется сразу, как только пользователь создает учетную запись электронной почты.  
 
--   Se um utilizador bloqueado inscreve o dispositivo no Intune (ou corrigir a não conformidade), o acesso ao e-mail é desbloqueado em dois minutos.  
+-   Если заблокированный пользователь регистрирует устройство в Intune (или устраняет несоответствие), доступ к электронной почте будет разблокирован в течение 2 минут.  
 
--   Se o utilizador anular a inscrição do respetivo dispositivo, o e-mail é bloqueado após aproximadamente 6 horas.  
+-   Если пользователь отменяет регистрацию устройства, электронная почта будет заблокирована приблизительно через 6 часов.  
 
-### <a name="for-exchange-on-premises-and-tenants-in-the-legacy-exchange-online-dedicated-environment"></a>Para o Exchange no local (e inquilinos no ambiente legado do Exchange Online Dedicado)  
- As políticas de acesso condicional para o Exchange no local e os inquilinos no ambiente legado do Exchange Online Dedicado utilizam o fluxo seguinte para avaliar se os dispositivos devem ser permitidos ou bloqueados.  
+### <a name="for-exchange-on-premises-and-tenants-in-the-legacy-exchange-online-dedicated-environment"></a>Для локальной организации Exchange (и клиентов в устаревшей выделенной среде Exchange Online)  
+ Следующая схема используется политиками условного доступа для локальной организации Exchange и клиентов в устаревшей выделенной среде Exchange Online, чтобы определить, следует ли разрешить или запретить доступ для устройств.  
 
  ![ConditionalAccess8&#45;2](media/ConditionalAccess8-2.png)  
 
-##### <a name="to-enable-the-exchange-on-premises-policy"></a>Para ativar a política do Exchange No Local  
+##### <a name="to-enable-the-exchange-on-premises-policy"></a>Чтобы включить политику локальной системы Exchange  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Expanda **Definições de Compatibilidade**, expanda **Acesso Condicional**e, em seguida, clique em **Exchange no Local**.  
+2.  Разверните раздел **Параметры соответствия**, разверните **Условный доступ**, а затем выберите вариант **Локальная служба Exchange**.  
 
-3.  No separador **Home Page** , no grupo **Exchange no Local** , clique em **Configurar Política de Acesso Condicional**.  
+3.  На вкладке **Главная** в группе **Локальная служба Exchange** щелкните пункт **Настройка политики условного доступа**.  
 
-4.  **A partir da versão 1602 do Configuration Manager**, na página **Geral** do **Assistente para Configurar Política de Acesso Condicional**, especifique se pretende substituir a regra predefinida do Exchange Active Sync. Clique nesta opção se pretender que os dispositivos inscritos e compatíveis tenham sempre acesso ao e-mail, mesmo quando a regra predefinida está definida para colocar em quarentena ou bloquear o acesso.  
+4.  **Начиная с версии Configuration Manager 1602**, на странице **Общие** **мастера настройки политики условного доступа**вы можете указать, следует ли переопределить используемое по умолчанию правило Exchange Active Sync. Выберите этот параметр, чтобы всегда предоставлять доступ зарегистрированным и соответствующим требованиям устройствам, даже если для правила по умолчанию задан карантин или блокирование доступа.  
 
     > [!NOTE]  
-    >  Ocorreu um problema com a substituição predefinida de dispositivos Android. Se a regra de acesso predefinida do Exchange Server estiver definida como **Bloquear** e a política de acesso condicional do Exchange estiver ativada com a opção de substituição de regras predefinida, os dispositivos Android dos utilizadores visados podem não ficar desbloqueados, mesmo depois de os dispositivos estarem inscritos no Intune e estarem em conformidade.  Para resolver este problema, defina a regra de acesso predefinida do Exchange como **Quarentena**. O dispositivo não consegue aceder ao Exchange por predefinição e o administrador pode obter um relatório do servidor do Exchange na lista dos dispositivos que estão a ser colocados em quarentena.  
+    >  Существует проблема переопределения правила по умолчанию для устройств Android. Если для правила доступа по умолчанию сервера Exchange задано значение **Блокировать** и включена политика условного доступа Exchange с параметром переопределения правила по умолчанию, то устройства Android целевых пользователей могут быть не разблокированы, даже если они зарегистрированы в Intune и соответствуют требованиям.  Чтобы обойти эту проблему, задайте для правила доступа Exchange по умолчанию значение **Карантин**. Устройство не получает доступ к серверу Exchange по умолчанию, и администратор может получить отчет с сервера Exchange со списком устройств, которые находятся в карантине.  
 
-     Se não tiver configurado uma conta de e-mail de notificação quando configurar o Exchange Connector, será apresentado um aviso nesta página e o botão **Seguinte** é desativado.  Para poder continuar, tem primeiro de configurar as definições de e-mail de notificação no Exchange Connector e, em seguida, voltar ao **Assistente para Configurar Política de Acesso Condicional** para concluir o processo.  
+     Если вы не настроили учетную запись для уведомлений по электронной почте при настройке коннектора Exchange, на этой странице появится предупреждение, а кнопка **Далее** будет отключена.  Прежде чем продолжить, необходимо настроить параметры электронной почты для уведомлений в коннекторе Exchange, а затем вернуться в **мастер настройки политики условного доступа** , чтобы завершить процесс.  
 
      ![HybridCondAccessWiz1](media/HybridCondAccessWiz1.PNG)  
 
-     Clique em **Seguinte**.  
+     Нажмите кнопку **Далее**.  
 
-5.  Na página **Coleções Direcionadas** , adicione uma ou mais coleções de utilizadores. Para aceder ao Exchange, os utilizadores nestas coleções têm de inscrever os respetivos dispositivos no Intune e de estar em conformidade com as políticas de conformidade implementadas.  
+5.  На странице **Целевые коллекции** добавьте одну или несколько коллекций пользователей. Для доступа к Exchange пользователи, входящие в эти коллекции, должны зарегистрировать свои устройства в Intune и соответствовать всем развернутым политикам соответствия.  
 
      ![HybridCondAccessWiz2](media/HybridCondAccessWiz2.PNG)  
 
-     Clique em **Seguinte**.  
+     Нажмите кнопку **Далее**.  
 
-6.  Na página **Coleções Isentas** , adicione as coleções de utilizadores que pretende isentar da política de acesso condicional. Os utilizadores nestes grupos, não precisa de inscrever os respetivos dispositivos no Intune e não precisa de estar em conformidade com as políticas de conformidade implementadas para aceder ao Exchange.  
+6.  На странице **Исключенные коллекции** добавьте коллекции пользователей, которые требуется исключить из политики условного доступа. Пользователям, входящим в эти группы, не требуется регистрировать свои устройства в Intune и обеспечивать соответствие всем развернутым политикам соответствия для доступа к Exchange.  
 
      ![HybridCondAccessWiz3](media/HybridCondAccessWiz3.png)  
 
-     Se um utilizador aparecer em ambos os grupos, estará excluído da política de acesso condicional.  
+     Если пользователь входит в оба списка, как целевой, так и исключенный, он будет исключен из политики условного доступа.  
 
-     Clique em **Seguinte**.  
+     Нажмите кнопку **Далее**.  
 
-7.  No **editar notificação do utilizador** página, configure o e-mail que o Intune envia com instruções sobre como desbloquear o dispositivo (para além do e-mail que o Exchange envia).  
+7.  На странице **Изменение уведомления пользователя** настройте сообщение электронной почты, которое Intune отправляет пользователям с инструкциями о том, как разблокировать устройство (в дополнение к сообщению, которое отправляет Exchange).  
 
-     Pode editar a mensagem predefinida e utilizar tags de HTML para formatar a apresentação do texto. Também pode enviar uma mensagem de e-mail antecipadamente aos seus funcionários para notificá-los sobre alterações futuras e fornecer-lhes instruções sobre como inscrever os respetivos dispositivos.  
+     Вы можете изменить сообщение по умолчанию и использовать HTML-теги для форматирования отображаемого текста. Можно также заранее отправить сообщение электронной почты своим сотрудникам, уведомив их о предстоящих изменениях и предоставив им инструкции по регистрации устройств.  
 
      ![HybridCondAccessWiz4](media/HybridCondAccessWiz4.PNG)  
 
     > [!NOTE]  
-    >  Como o e-mail de notificação do Intune com as instruções de correção é enviado para a caixa de correio do Exchange do utilizador, no caso do dispositivo do utilizador ficar bloqueado antes de receber a mensagem de e-mail, este pode utilizar um dispositivo desbloqueado ou outro método para aceder ao Exchange e ver a mensagem.  
+    >  Поскольку уведомление Intune с инструкциями по исправлению доставляется в почтовый ящик Exchange пользователя в случае, если устройство пользователя блокируется, прежде чем он получит это сообщение, пользователь может использовать незаблокированное устройство или другой способ для доступа к Exchange и просмотра сообщения.  
 
     > [!NOTE]  
-    >  Para o Exchange poder enviar o e-mail de notificação, tem de configurar a conta que será utilizada para enviá-lo. Pode efetuar esta ação quando configurar as propriedades do conector do Exchange Server.  
+    >  Чтобы система Exchange могла отправить уведомление по электронной почте, необходимо настроить учетную запись, которая будет использоваться для отправки такого уведомления. Это делается при настройке свойств соединителя Exchange Server.  
     >   
-    >  Para obter detalhes, veja [Gerir dispositivos móveis com o System Center Configuration Manager e o Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+    >  Дополнительные сведения см. в разделе [Управление мобильными устройствами с помощью System Center Configuration Manager и Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
-     Clique em **Seguinte**.  
+     Нажмите кнопку **Далее**.  
 
-8.  Na página  **Resumo** , verifique as definições e, em seguida, feche o assistente.  
+8.  На странице  **Сводка** просмотрите параметры и завершите работу мастера.  
 
--   Não tem de implementar a política de acesso condicional, pois esta entra em vigor imediatamente.  
+-   Развертывать политику условного доступа не нужно, она вступает в силу немедленно.  
 
--   Depois de um utilizador configurar um perfil do Exchange ActiveSync, poderá demorar entre 1 a 3 horas até o dispositivo ser bloqueado (se não for gerido pelo Intune).  
+-   После того как пользователь настроит профиль Exchange ActiveSync, блокировка устройства может занять от 1 до 3 часов (если оно не находится под управлением Intune).  
 
--   Se um utilizador bloqueado, em seguida, inscreve o dispositivo no Intune (ou corrigir a não conformidade), o acesso ao e-mail será desbloqueado em dois minutos.  
+-   Если заблокированный пользователь регистрирует устройство в Intune (или устраняет несоответствие), доступ к электронной почте будет разблокирован в течение 2 минут.  
 
--   Se o utilizador anular-inscrição no Intune, poderá demorar entre 1 a 3 horas até o dispositivo ser bloqueado.  
+-   Если пользователь отменяет регистрацию из Intune, блокировка устройства может занять от 1 до 3 часов.  
 
-### <a name="see-also"></a>Consulte também  
- [Gerir o acesso a serviços no System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)
+### <a name="see-also"></a>См. также  
+ [Управление доступом к службам в System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md)

@@ -1,6 +1,6 @@
 ---
-title: "Configurar a reativação por LAN | Microsoft Docs"
-description: "Selecione as definições de reativação por LAN no System Center Configuration Manager."
+title: "Настройка пробуждения по локальной сети | Документы Майкрософт"
+description: "Выбор параметров пробуждения по локальной сети в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,44 +16,44 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 9c920651ba1dc6e0a28df458d28956126ddbaff0
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-wake-on-lan-in-system-center-configuration-manager"></a>Como configurar a reativação por LAN no System Center Configuration Manager
+# <a name="how-to-configure-wake-on-lan-in-system-center-configuration-manager"></a>Настройка пробуждения по локальной сети в System Center Configuration Manager.
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Especificar definições de LAN para o System Center Configuration Manager reativação quando pretender reativar computadores que se encontram em estado de suspensão para instalar o software necessário, tal como as atualizações de software, aplicações, sequências de tarefas e programas.
+Укажите параметры пробуждения по локальной сети для System Center Configuration Manager, когда необходимо вывести компьютеры из спящего режима для установки требуемого программного обеспечения, например обновлений программного обеспечения, приложений, последовательностей задач и программ.
 
-É possível completar a reativação por LAN utilizando as definições de cliente de proxy de reativação. No entanto, para utilizar o proxy de reativação, deve primeiro ativar a reativação por LAN para o site e especificar **utilizar apenas pacotes de reativação** e **Unicast** opção para a reativação de método de transmissão de LAN. Esta solução de reativação também suporta ligações ad-hoc, como uma ligação de ambiente de trabalho remota.
+Пробуждение по локальной сети можно дополнить параметрами клиента прокси-сервера пробуждения. Чтобы использовать пробуждение через прокси, необходимо сначала включить функцию пробуждения по локальной сети для сайта и задать параметры **Использовать только wake-up пакеты** и **Одноадресная рассылка** для способа передачи. Этот решение также поддерживает случайные соединения, например подключение к удаленному рабочему столу.
 
-Utilize o primeiro procedimento para configurar um site primário para Wake on LAN. Em seguida, utilize o segundo procedimento para configurar as definições de cliente de proxy de reativação. Este segundo procedimento configura as predefinições de cliente para as definições de proxy de reativação aplicar a todos os computadores na hierarquia. Se pretender que estas definições se apliquem apenas a computadores selecionados, crie uma definição personalizada do dispositivo e atribua-a uma coleção que contenha os computadores que pretende configurar para um proxy de reativação. Para obter mais informações sobre como criar definições de cliente personalizadas, veja [Como configurar as definições do cliente no System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).
+С помощью первой процедуры можно настроить функцию пробуждения по сети для первичного сайта. Затем выполните вторую процедуру, чтобы настроить параметры клиента прокси-сервера пробуждения. Вторая процедура настраивает клиентские параметры по умолчанию для прокси пробуждения на всех компьютерах в иерархии. Если эти параметры требуется применить только к некоторым компьютерам, создайте настраиваемые параметры устройства и назначьте их коллекции, которая содержит необходимые компьютеры. Дополнительные сведения о создании настраиваемых клиентских параметров см. в статье [Как настраивать параметры клиента в Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).
 
-Um computador que recebe as definições de cliente de proxy de reativação, provavelmente, será colocado em pausa a ligação de rede de 1 a 3 segundos. Isto ocorre porque o cliente tem de repor a placa de interface de rede para ativar o controlador de proxy de reativação no mesmo.
+Подключение к сети компьютера, получающего параметры клиента прокси-сервера пробуждения, приостанавливается на 1–3 секунды. Это связано с тем, что клиент должен выполнить сброс сетевой карты, чтобы включить на ней драйвер прокси-сервера пробуждения.
 
 > [!WARNING]
-> Para evitar uma interrupção inesperada dos serviços de rede, avalie primeiro o proxy de reativação numa infraestrutura de rede isolada e representativa. Em seguida, utilize definições personalizadas de cliente para expandir o teste para um grupo selecionado de computadores em várias sub-redes. Para obter mais informações sobre como reativação proxy funciona, consulte [planear como reativar os clientes no System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
+> Чтобы избежать непредсказуемого простоя сетевых служб, в первую очередь оцените работу прокси пробуждения в изолированной и репрезентативной сетевой инфраструктуре. Затем используйте настраиваемые параметры клиента для расширения своего теста до выбранной группы компьютеров в нескольких подсетях. Дополнительные сведения о принципах работы прокси-сервера пробуждения см. в разделе [Планирование пробуждения клиентов в System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
 
-## <a name="to-configure-wake-on-lan-for-a-site"></a>Para configurar a reativação por LAN para um site
+## <a name="to-configure-wake-on-lan-for-a-site"></a>Настройка функции пробуждения по локальной сети для сайта
 
-1. Na consola do Configuration Manager, vá para **administração > Configuração do Site > Sites**.
-2. Clique no site primário a configurar e, em seguida, clique em **propriedades**.
-3. Clique em de **reativação por LAN** separador e configurar as opções de que precisa para este site. Para suportar o proxy de reativação, certifique-se de que seleciona **utilizar apenas pacotes de reativação** e **Unicast**. Para obter mais informações, consulte [planear como reativar os clientes no System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
-4. Clique em **OK** e repita o procedimento para todos os sites primários na hierarquia.
+1. В консоли Configuration Manager перейдите в раздел **Администрирование > Конфигурация сайта > Сайты**.
+2. Выберите первичный сайт для настройки и нажмите кнопку **Свойства**.
+3. Перейдите на вкладку **Пробуждение по локальной сети** и настройте параметры, необходимые для этого сайта. Для поддержки прокси-сервера пробуждения убедитесь, что выбраны параметры **Использовать только пакеты пробуждения** и **Одноадресная рассылка**. Дополнительные сведения см. в разделе [Планирование пробуждения клиентов в System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
+4. Нажмите кнопку **ОК** и повторите эту процедуру для всех первичных сайтов в иерархии.
 
-## <a name="to-configure-wake-up-proxy-client-settings"></a>Para configurar as definições de cliente de proxy de reativação
+## <a name="to-configure-wake-up-proxy-client-settings"></a>Настройка параметров прокси-сервера пробуждения для клиента
 
-1. Na consola do Configuration Manager, vá para **administração > definições de cliente**.
-2. Clique em **predefinições de cliente**e, em seguida, clique em **propriedades**.
-3. Selecione **gestão de energia** e, em seguida, escolha **Sim** para **ativar o proxy de reativação**.
-4. Reveja e, se necessário, configure as outras definições de proxy de reativação. Para obter mais informações sobre estas definições, consulte [as definições de gestão de energia](../../../core/clients/deploy/about-client-settings.md#power-management).
-5. Clique em **OK** para fechar a caixa de diálogo e, em seguida, clique em **OK** para fechar a caixa de diálogo de predefinições de cliente.
+1. В консоли Configuration Manager выберите **Администрирование > Параметры клиента**.
+2. Щелкните **Параметры клиента по умолчанию**, а затем нажмите кнопку **Свойства**.
+3. Выберите **Управление питанием** и для параметра **Включить прокси-сервер пробуждения** выберите **Да**.
+4. Просмотрите и при необходимости настройте параметры прокси пробуждения. Дополнительные сведения об этих параметрах см. в разделе [Параметры управления питанием](../../../core/clients/deploy/about-client-settings.md#power-management).
+5. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно, а затем нажмите кнопку **ОК**, чтобы закрыть диалоговое окно "Параметры клиента по умолчанию".
 
-Pode utilizar os seguintes relatórios de reativação por LAN para monitorizar a instalação e configuração de proxy de reativação:
+Можно использовать следующие отчеты пробуждения для мониторинга установки и настройки прокси пробуждения:
 
-- Resumo do estado de implementação do proxy de reativação
-- Detalhes do estado de implementação do proxy de reativação
+- Сводная информация о состоянии развертывания прокси-сервера пробуждения
+- Сведения о состоянии развертывания прокси-сервера пробуждения
 
 > [!TIP]
-> Para testar se um proxy de reativação está a funcionar, teste uma ligação a um computador em modo de suspensão. Por exemplo, ligar a uma pasta partilhada nesse computador ou tente ligar ao computador utilizando o ambiente de trabalho remoto. Se utilizar o acesso direto, certifique-se de que os prefixos IPv6 funcionam com os mesmos testes para um computador em modo de suspensão, que está atualmente na Internet.
+> Чтобы проверить, работает ли прокси пробуждения, проверьте подключение к компьютеру в спящем режиме. Например, подключитесь к общей папке на данном компьютере или попытайтесь подключиться к компьютеру с помощью удаленного рабочего стола. При использовании DirectAccess убедитесь в том, что работают префиксы IPv6, применяя те же тесты для компьютера в спящем режиме, на котором в данный момент есть доступ к Интернету.

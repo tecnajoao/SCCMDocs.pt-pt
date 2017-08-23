@@ -1,6 +1,6 @@
 ---
-title: "Introdução à gestão de aplicações | Microsoft Docs"
-description: "Detete as informações básicas, que terá de gerir e implementar aplicações do System Center Configuration Manager."
+title: "Общие сведения об управлении приложениями | Документы Майкрософт"
+description: "Основные сведения, которые потребуются для развертывания приложений System Center Configuration Manager и управления ими."
 ms.custom: na
 ms.date: 12/23/2016
 ms.prod: configuration-manager
@@ -16,94 +16,94 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 959a36413d06bb225f260bd44c1d3d59efd44e69
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-application-management-in-system-center-configuration-manager"></a>Introdução à gestão de aplicações no System Center Configuration Manager
+# <a name="introduction-to-application-management-in-system-center-configuration-manager"></a>Общие сведения об управлении приложениями в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Neste tópico, irá aprender as noções básicas que precisa de saber antes de começar a trabalhar com aplicações do System Center Configuration Manager.  
+Из этого раздела вы получите основные сведения, которые необходимо знать перед началом работы с приложениями System Center Configuration Manager.  
 
 > [!TIP]  
->  Se já estiver familiarizado com a gestão de aplicações no Configuration Manager, pode ignorar este tópico e avançar para a criação de uma aplicação de exemplo. Consulte [Criar e implementar uma aplicação com o System Center Configuration Manager](../../apps/get-started/create-and-deploy-an-application.md).  
+>  Если вы уже знакомы с управлением приложениями в Configuration Manager, вы можете пропустить этот раздел и перейти к созданию образца приложения. См. раздел [Создание и развертывание приложения с помощью System Center Configuration Manager](../../apps/get-started/create-and-deploy-an-application.md).  
 
-## <a name="what-is-an-application"></a>O que é uma aplicação?  
- Embora *aplicação* é um termo bastante utilizado em informática, no Gestor de configuração, significa algo diferente. Pense numa aplicação como uma caixa. Esta caixa contém um ou mais conjuntos de ficheiros de instalação de um pacote de software (conhecido como um **tipo de implementação**), juntamente com instruções sobre como implementar o software.  
+## <a name="what-is-an-application"></a>Что такое приложение?  
+ Несмотря на то, что термин *приложение* довольно широко применяется в компьютерной сфере, в Configuration Manager он означает нечто иное. Приложение можно представить в виде коробки. Она содержит один или несколько наборов файлов установки для пакета программного обеспечения (который называется **типом развертывания**), а также инструкции по развертыванию программного обеспечения.  
 
- Quando a aplicação é implementada em dispositivos, os **requisitos** determinam o tipo de implementação que está instalado no dispositivo.  
+ При развертывании приложения на устройствах **требования** определяют, какой тип развертывания устанавливается на устройстве.  
 
- Pode fazê-lo inúmeros aspetos mais com uma aplicação. Irá aprender sobre estes coisas como ler este guia. A tabela seguinte apresenta alguns conceitos que terá de saber antes de começar a investigar mais:  
+ Вы можете выполнять другие действия с приложением. Вы узнаете о них после прочтения этого руководства. В следующей таблице представлены некоторые концепции, с которыми необходимо ознакомиться, прежде чем продолжать изучение.  
 
-|Conceito|Descrição|    
+|Концепция|Описание|    
 |-|-|  
-|**Requirements**|Em versões anteriores do Configuration Manager, normalmente criaria uma coleção que contém os dispositivos que quer implementar uma aplicação. Embora ainda possa criar uma coleção com os requisitos, que pode especificar critérios mais detalhados para uma implementação de aplicação.<br /><br /> Por exemplo, pode especificar que uma aplicação só pode ser instalada em dispositivos com o Windows 10. Em seguida, pode implementar a aplicação nos seus dispositivos, mas só será instalada nos dispositivos que executam o Windows 10.<br /><br /> O Configuration Manager avalia os requisitos para determinar se uma aplicação e algum dos respetivos tipos de implementação será instalado. Em seguida, determina o tipo de implementação correto para a instalação da aplicação. Por predefinição, a cada sete dias as regras de requisitos são reavaliadas para garantir a compatibilidade, de acordo com a definição de cliente **Agendar a reavaliação das implementações**.<br /><br /> Para obter mais informações, consulte [criar e implementar uma aplicação](../../apps/get-started/create-and-deploy-an-application.md).|  
-|**Condições globais**|Apesar dos requisitos são utilizados com um tipo de implementação específico numa única aplicação, também pode criar condições globais. Estes são uma biblioteca de requisitos predefinidos que pode utilizar com qualquer aplicação e o tipo de implementação.<br /><br /> Gestor de configuração contém um conjunto de condições globais incorporadas e também pode criar os seus próprios.<br /><br /> Para obter mais informações, consulte [criar condições globais](../../apps/deploy-use/create-global-conditions.md).|  
-|**Implementação simulada**|Avalia os requisitos, o método de deteção e dependências para uma aplicação. -Reporta os resultados sem instalar efetivamente a aplicação.<br /><br /> Para obter mais informações, consulte [simular implementações de aplicações](../../apps/deploy-use/simulate-application-deployments.md).|  
-|**Ação de implementação**|Especifica se pretende instalar ou desinstalar (quando suportadas), a aplicação estiver a implementar.<br /><br /> Para obter mais informações, consulte [implementar aplicações](../../apps/deploy-use/deploy-applications.md).|  
-|**Objetivo da implementação**|Especifica se a aplicação de implementação será **Necessária**, ou **Disponível**.<br /><br /> **Necessário** significa que a aplicação é implementada automaticamente, de acordo com a agenda que tenha sido configurada. No entanto, o utilizador pode controlar o estado de implementação da aplicação caso este não se encontre oculto, podendo instalar a aplicação antes do fim do prazo utilizando o Centro de Software.<br /><br /> **Disponível** significa que, se a aplicação for implementada para um utilizador, este verá a aplicação publicada no Centro de Software e pode solicitá-la a pedido.<br /><br /> Para obter mais informações, consulte [implementar aplicações](../../apps/deploy-use/deploy-applications.md).|  
-|**Revisões**|Quando são efetuadas revisões de uma aplicação ou um tipo de implementação que está contido numa aplicação, o Configuration Manager cria uma nova versão da aplicação. Pode visualizar o histórico de cada revisão da aplicação, ver as respetivas propriedades, restaurar uma versão anterior de uma aplicação ou eliminar uma versão antiga.<br /><br /> Para obter mais informações, consulte [atualizar e extinguir aplicações](../../apps/deploy-use/update-and-retire-applications.md).|  
-|**Método de deteção**|Os métodos de deteção são utilizados para detetar se uma aplicação implementada já está instalada. Se o método de deteção indicar que a aplicação está instalada, o Configuration Manager não tenta instalá-la novamente.<br /><br /> Para obter mais informações, consulte [criar aplicações](../../apps/deploy-use/create-applications.md).|  
-|**Dependências**|As dependências definem um ou mais tipos de implementação a partir de outra aplicação que tem de ser instalada antes de um tipo de implementação ser instalado. Pode configurar os tipos de implementação dependentes para serem automaticamente instalados antes de um tipo de implementação está instalado.<br /><br /> Para obter mais informações, consulte [criar aplicações](../../apps/deploy-use/create-applications.md).|  
-|**Substituição**|O Configuration Manager permite-lhe atualizar ou substituir as aplicações existentes utilizando uma relação de substituição. Se substituir uma aplicação, pode especificar um novo tipo de implementação para substituir o tipo de implementação da aplicação substituída. Também pode decidir se atualizar ou desinstalar a aplicação substituída antes da aplicação substituta está instalado.<br /><br /> Para obter mais informações, consulte [criar aplicações](../../apps/deploy-use/create-applications.md).|  
-|**Gestão centrada no utilizador**|Aplicações do Configuration Manager suportam gestão centrada no utilizador, permitindo-lhe associar utilizadores específicos a dispositivos específicos. Em vez de ter de memorizar o nome do dispositivo de um utilizador, pode agora implementar aplicações para o utilizador e para o dispositivo. Esta funcionalidade ajuda-o a garantir que as aplicações mais importantes se encontram sempre disponíveis em cada dispositivo a que um utilizador específico acede. Se um utilizador adquirir um novo computador, poderá instalar automaticamente as aplicações do utilizador no dispositivo antes de iniciar sessão.<br /><br /> Para obter mais informações, consulte [associar utilizadores e dispositivos à afinidade dispositivo / utilizador](../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).|  
+|**Requirements**|В предыдущих версиях Configuration Manager часто создается коллекция, содержащая устройства, на которых требуется развернуть приложение. Хотя вы по-прежнему можете создать коллекцию, с помощью требований можно указать подробные условия для развертывания приложения.<br /><br /> Например, можно указать, что приложение может устанавливаться только на устройствах под управлением Windows 10. Хотя после этого можно развернуть приложения на своих устройствах, оно устанавливается только на устройствах под управлением Windows 10.<br /><br /> Configuration Manager оценивает требования, чтобы определить возможность установки приложения и какого-либо из его типов развертывания. Затем клиент определяет правильный тип развертывания, с помощью которого нужно установить приложение. По умолчанию каждые семь дней правила требований подвергаются повторной оценке для обеспечения соответствия, согласно клиентскому параметру **Расписание повторной оценки развертываний**.<br /><br /> Подробные сведения см. в разделе [Создание и развертывание приложения](../../apps/get-started/create-and-deploy-an-application.md).|  
+|**Глобальные условия**|В то время как требования используются с конкретным типом развертывания в одном приложении, можно также создать глобальные условия. Они представляют собой библиотеку предопределенных требований, которые можно использовать с любым типом развертывания и приложением.<br /><br /> Configuration Manager содержит набор встроенных глобальных условий. Кроме того, вы можете создавать собственные условия.<br /><br /> Подробные сведения см. в разделе [Создание глобальных условий](../../apps/deploy-use/create-global-conditions.md).|  
+|**Имитация развертывания**|Оценивает требования, метод обнаружения и зависимости для приложения. Сообщает о результатах без установки самого приложения.<br /><br /> Подробные сведения см. в разделе [Имитация развертываний приложений](../../apps/deploy-use/simulate-application-deployments.md).|  
+|**Действие развертывания**|Указывает, требуется ли установить или удалить (если поддерживается) развертываемое приложение.<br /><br /> Подробные сведения см. в разделе [Развертывание приложений](../../apps/deploy-use/deploy-applications.md).|  
+|**Цель развертывания**|Указывает, будет ли развертывание приложений **обязательным**или **доступным**.<br /><br /> **Обязательное**: приложение развертывается автоматически в соответствии с настроенным расписанием. Однако пользователь может отслеживать состояние развертывания приложения (если оно не скрыто) и установить приложение с помощью центра программного обеспечения до наступления заданного крайнего срока.<br /><br /> **Доступное** : если приложение развертывается для устройства, пользователь увидит опубликованное приложение в центре программного обеспечения и сможет запросить его.<br /><br /> Подробные сведения см. в разделе [Развертывание приложений](../../apps/deploy-use/deploy-applications.md).|  
+|**Редакции**|При внесении изменений в приложение или в тип развертывания приложения Configuration Manager создает новую версию приложения. Можно отобразить журнал всех изменений, внесенных в приложение, просмотреть его свойства, восстановить предыдущую версию приложения, а также удалить старую версию.<br /><br /> Подробные сведения см. в разделе [Обновление и вывод приложений из эксплуатации](../../apps/deploy-use/update-and-retire-applications.md).|  
+|**Метод обнаружения**|Методы обнаружения используются для обнаружения того, установлено ли развернутое приложение. Если метод обнаружения показывает, что приложение установлено, Configuration Manager не пытается установить его повторно.<br /><br /> Подробные сведения см. в разделе [Создание приложений](../../apps/deploy-use/create-applications.md).|  
+|**Зависимости**|Зависимости определяют один или несколько типов развертываний другого приложения, которые необходимо установить перед установкой данного типа развертывания. Можно настроить автоматическую установку зависимых типов развертывания перед установкой нужного типа развертывания.<br /><br /> Подробные сведения см. в разделе [Создание приложений](../../apps/deploy-use/create-applications.md).|  
+|**Замена**|Configuration Manager позволяет обновить или заменить существующие приложения с помощью отношения замены. При замене приложения можно указать новый тип развертывания, заменяющий тип развертывания заменяемого приложения. Также можно выбрать, следует ли обновить заменяемое приложение или же удалить его перед установкой заменяющего приложения.<br /><br /> Подробные сведения см. в разделе [Создание приложений](../../apps/deploy-use/create-applications.md).|  
+|**Ориентированное на пользователей управление**|Приложения Configuration Manager поддерживают управление, ориентированное на пользователей. Другими словами, они позволяют сопоставлять пользователей с конкретными устройствами. Вместо того, чтобы запоминать, какие устройства использует данный пользователь, можно развернуть приложения для пользователя и для устройства. Благодаря этой функции можно гарантировать доступность важных приложений на любом устройстве, применяемом определенным пользователем. Если пользователь получил новый компьютер, можно автоматически установить приложения пользователя до того, как он войдет в систему.<br /><br /> Подробные сведения см. в разделе [Связывание пользователей и устройств с помощью сопоставления пользователей и устройств](../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).|  
 
-## <a name="what-application-types-can-you-deploy"></a>Que tipos de aplicação pode implementar?  
- O Configuration Manager permite-lhe implementar os seguintes tipos de aplicação:  
+## <a name="what-application-types-can-you-deploy"></a>Какие типы приложений можно развернуть?  
+ Configuration Manager позволяет развертывать следующие типы приложений:  
 
-- Windows Installer (ficheiro *.msi)
-- Pacote de aplicações do Windows (*. AppX, *. appxbundle)
-- Pacote de aplicações do Windows (na Loja Windows)
+- Установщик Windows (MSI-файл)
+- Пакет приложения Windows (.appx, .appxbundle)
+- Пакет приложения Windows (в Магазине Windows)
 - Microsoft Application Virtualization 4
 - Microsoft Application Virtualization 5
-- Ficheiro CAB do Windows Mobile
+- CAB-файл Windows Mobile
 - MacOS  
 
 
-Além disso, quando gerir dispositivos através do Microsoft Intune do Configuration Manager local ou na gestão de dispositivos, pode gerir estes tipos de aplicação adicionais:
+Кроме того, при управлении устройствами с помощью Microsoft Intune или локального управления устройствами Configuration Manager вы можете управлять следующими типами приложений:
 
-- Pacote de aplicação do Windows Phone (ficheiro *.xap)
-- Pacote de Aplicações para iOS (ficheiro *.ipa)
-- Pacote de Aplicações para Android (ficheiro *.apk)
-- Pacote de aplicação para Android no Google Play
-- Pacote de aplicação do Windows Phone (na Loja Windows Phone)
-- Windows Installer através de MDM
-- Aplicação Web
-
-
-
-## <a name="state-based-applications"></a>Aplicações baseadas no estado  
- Aplicações do Configuration Manager utilizam monitorização baseada no Estado, que pode controlar o último Estado de implementação de aplicação para utilizadores e dispositivos. As mensagens de estado apresentam informações sobre os dispositivos individuais. Por exemplo, se uma aplicação for implementada para uma coleção de utilizadores, pode ver o estado de compatibilidade da implementação e o objetivo da implementação na consola do Configuration Manager. Pode monitorizar a implementação de todo o software utilizando o **monitorização** área de trabalho na consola do Configuration Manager. As implementações de software incluem atualizações de software, definições de compatibilidade, aplicações, sequências de tarefas e pacotes e programas. Para obter mais informações, consulte [monitorizar aplicações](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
-
- As implementações de aplicações são regularmente reavaliadas pelo Configuration Manager. Por exemplo:  
-
--   Uma aplicação implementada é desinstalada pelo utilizador final. No próximo ciclo de avaliação, o Configuration Manager detetar que a aplicação não está presente e reinstalará.  
-
--   Uma aplicação não foi instalada num dispositivo por não satisfazer os requisitos. Posteriormente, é efetuada uma alteração ao dispositivo, que passa a satisfazer os requisitos. O Configuration Manager Deteta essa alteração e a aplicação está instalada.  
+- Пакет приложения Windows Phone (XAP-файл)
+- Пакет приложения для iOS (IPA-файл)
+- Пакет приложения для Android (APK-файл)
+- Пакет приложения для ОС Android в Google Play
+- Пакет приложения для ОС Windows Phone (в Магазине Windows)
+- Установщик Windows через MDM (MSI)
+- Веб-приложение
 
 
- Pode definir o intervalo de reavaliação para implementações de aplicações utilizando o **agendar reavaliação para implementações** definição de cliente. Para obter mais informações, consulte [sobre definições de cliente](../../core/clients/deploy/about-client-settings.md).  
 
-## <a name="get-started-creating-an-application"></a>Introdução à criação de uma aplicação  
- Se pretender avançar diretamente e começar a criar uma aplicação, encontrará uma explicação passo a passo para criar uma aplicação simples no [criar e implementar uma aplicação](../../apps/get-started/create-and-deploy-an-application.md) tópico.  
+## <a name="state-based-applications"></a>Приложения на основе состояний  
+ Приложения в Configuration Manager поддерживают мониторинг на основе состояния, позволяющий отслеживать последнее состояние развертывания приложения для пользователей и устройств. В этих сообщениях о состоянии отображаются сведения об отдельных устройствах. Например, если приложение развертывается в коллекции пользователей, в консоли Configuration Manager можно выяснить состояние соответствия развертывания, а также цель развертывания. Отслеживать развертывание всего программного обеспечения можно с помощью рабочей области **Наблюдение** в консоли Configuration Manager. Развертывания приложений включают обновления программного обеспечения, параметры соответствия, приложения, последовательности задач, а также пакеты и программы. Дополнительные сведения см. в разделе [Мониторинг приложений](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
 
- Se estiver familiarizado com as noções básicas e estiver à procura de informações mais detalhadas referência sobre todas as opções disponíveis, inicie a partir da [criar aplicações](/sccm/apps/deploy-use/create-applications).  
+ Configuration Manager регулярно повторно оценивает развертывания приложений. Пример.  
 
-## <a name="software-center-and-the-application-catalog"></a>Centro de Software e o Catálogo de Aplicações  
- Em versões anteriores do Configuration Manager, o Centro de Software foi utilizado para instalar e agendar instalações de software, configurar definições de controlo remoto e configurar a gestão de energia. Os utilizadores foi possível ligar ao catálogo de aplicações para procurar e solicitar software, definir algumas preferências e apagar remotamente os seus dispositivos móveis.  
+-   Развернутое приложение удаляется конечным пользователем. В следующем цикле оценки Configuration Manager определяет, что приложение отсутствует, и повторно его устанавливает.  
 
- Enquanto estas definições ainda estão disponíveis no System Center Configuration Manager, agora está disponível uma versão nova do Centro de Software que lhe permite procurar aplicações. Não tem de utilizar o catálogo de aplicações, que requer um browser com capacidade para Silverlight web. No entanto, as funções de sistema de sites de ponto de sites do Catálogo de Aplicações e de ponto de serviço Web do Catálogo de Aplicações ainda são necessárias para que as aplicações disponíveis ao utilizador sejam apresentadas no Centro de Software.  
+-   Приложение не установлено на устройстве из-за несоответствия требованиям. Позже на устройстве было сделано изменение, и устройство теперь соответствует требованиям. Configuration Manager обнаруживает это изменение, и приложение устанавливается.  
 
- Para obter mais informações, consulte [planear e configurar a gestão de aplicações](../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
-## <a name="configuration-manager-packages-and-programs"></a>O Configuration Manager pacotes e programas  
- O Configuration Manager continua a suportar pacotes e programas que foram utilizados em versões anteriores do produto. Uma implementação que utiliza pacotes e programas pode ser mais adequada do que uma implementação que utiliza uma aplicação quando implementa qualquer um dos seguintes procedimentos:  
+ Вы можете настроить интервал повторной оценки развертывания приложения с помощью параметра клиента **Запланировать повторную оценку для развертываний**. Дополнительные сведения см. в разделе [Сведения о параметрах клиентов](../../core/clients/deploy/about-client-settings.md).  
 
--   Scripts que não instalam uma aplicação num computador, tal como um script para desfragmentar a unidade de disco do computador.  
+## <a name="get-started-creating-an-application"></a>Приступая к созданию приложения  
+ Если вы хотите перейти сразу к делу и начать создавать приложение, см. пошаговое руководство по созданию простого приложения в разделе [Создание и развертывание приложения](../../apps/get-started/create-and-deploy-an-application.md).  
 
--   Os scripts "pontuais" não têm de ser monitorizados continuamente.  
+ Если вы знакомы с основами и хотите найти более подробные справочные сведения о всех доступных параметрах, начните с раздела [Создание приложений](/sccm/apps/deploy-use/create-applications).  
 
--   Os scripts que são executados num agendamento periódico e não podem utilizar a avaliação global.
+## <a name="software-center-and-the-application-catalog"></a>Центр программного обеспечения и каталог приложений  
+ В предыдущих версиях Configuration Manager центр программного обеспечения использовался для планирования и установки программного обеспечения, настройки параметров удаленного управления и управления питанием. Пользователи могли подключаться к каталогу приложений для просмотра и запроса программного обеспечения, настройки отдельных параметров и удаленной очистки своих мобильных устройств.  
 
- Para obter mais informações, consulte [pacotes e programas](../../apps/deploy-use/packages-and-programs.md).  
+ Хотя эти параметры все еще присутствуют в System Center Configuration Manager, теперь доступна новая версия центра программного обеспечения, позволяющая просматривать приложения. Вам не нужно использовать каталог приложений, для которого требуется веб-браузер с поддержкой Silverlight. Однако для того чтобы доступные пользователю приложения отображались в центре программного обеспечения, по-прежнему необходимы точка веб-службы каталога приложений и роли системы сайта точки веб-сайта каталога приложений.  
+
+ Дополнительные сведения см. в разделе [Планирование и настройка управления приложениями](../../apps/plan-design/plan-for-and-configure-application-management.md).  
+
+## <a name="configuration-manager-packages-and-programs"></a>Пакеты и программы Configuration Manager  
+ Configuration Manager по-прежнему поддерживает пакеты и программы, которые использовались в предыдущих версиях продукта. Развертывание, использующее пакеты и программы, может быть более подходящим, нежели развертывание, использующее приложение, если выполняется развертывание следующих элементов:  
+
+-   Сценарии, не устанавливающие приложение на компьютер (например, сценарий дефрагментации диска компьютера).  
+
+-   "Одноразовые" сценарии, не требующие постоянного мониторинга.  
+
+-   Сценарии, которые выполняются в соответствии с повторяющимся расписанием и не могут использовать глобальную оценку.
+
+ Дополнительные сведения см. в разделе [Пакеты и программы](../../apps/deploy-use/packages-and-programs.md).  

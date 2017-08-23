@@ -1,6 +1,6 @@
 ---
-title: Saiba mais sobre licenciamento e ramos | Microsoft Docs
-description: "Utilize este tópico para saber mais sobre os requisitos de licenciamento para as opções de instalação disponíveis com a versão de Outubro de 2016 do System Center Configuration Manager, que incluem a versão de Current Branch 1606, a longo prazo Servicing Branch (LTSB) e a instalação de avaliação da filial atual."
+title: "Дополнительные сведения о лицензировании и ветвях | Документы Майкрософт"
+description: "В этом разделе приведены сведения о требованиях к лицензированию для вариантов установки, доступных в выпуске System Center Configuration Manager за октябрь 2016 г., которые включают установку Current Branch версии 1606, Long-Term Servicing Branch (LTSB) и ознакомительную установку Current Branch."
 ms.custom: na
 ms.date: 10/12/2016
 ms.prod: configuration-manager
@@ -17,98 +17,98 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 90e16b316872cb370c9c2e645f46ac12afab7107
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Licenciamento e ramos para o System Center Configuration Manager
+# <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Лицензирование и ветви в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual), (ramo de manutenção longo prazo)*
+*Применяется к: System Center Configuration Manager (Current Branch), (Long-Term Servicing Branch)*
 
-Utilize este tópico para saber mais sobre os requisitos de licenciamento para as opções de instalação disponíveis com a versão de Outubro de 2016 do System Center Configuration Manager versão 1606. Estas opções de instalação incluem a versão 1606 do ramo atual, a longo prazo Servicing Branch (LTSB) e a instalação de avaliação da versão do ramo atual 1606.
+В этом разделе приведены сведения о требованиях к лицензированию для вариантов установки, доступных в выпуске System Center Configuration Manager версии 1606, вышедшем в октябре 2016 г. В их число входит установка Current Branch версии 1606, Long-Term Servicing Branch (LTSB) и ознакомительная установка Current Branch версии 1606.
 
-**Descrição geral de licenciamento:**   
-Os clientes com o Active Directory Software Assurance (SA) de licenças do System Center Configuration Manager ou com direitos de subscrição equivalente a partir de 1 de Outubro de 2016 têm direitos a utilizar a versão de versão 1606 de Outubro de 2016 do System Center Configuration Manager. Os clientes com direitos para o System Center Configuration Manager nesta ou após 1 de Outubro de 2016, irão encontrar duas opções licenciadas após a instalação: O ramo atual e a longo prazo manutenção Branch (LTSB).
-
-
-**Informações específicas de licenciamento:**  
-[Completos termos e condições para os produtos comprar através de programas de licenciamento em Volume da Microsoft podem ser encontradas aqui](http://go.microsoft.com/fwlink/?LinkId=800052).
+**Общие сведения о лицензировании:**   
+Клиенты с действующим соглашением Software Assurance (SA) для лицензий System Center Configuration Manager или с эквивалентными правами по подписке с 1 октября 2016 г. имеют право на использование выпуска System Center Configuration Manager версии 1606 за октябрь 2016 г. Пользователи с правами на System Center Configuration Manager, действительными на 1 октября 2016 г. или после этой даты, могут выбрать один из двух вариантов лицензирования после установки: Current Branch и Long-Term Servicing Branch (LTSB).
 
 
-## <a name="system-center-configuration-manager-licensed-branches"></a>System Center Configuration Manager licenciado ramos  
-Este tópico referencia o contrato de Software Assurance (ou direitos equivalentes subscrição), que é o Microsoft contrato de licenciamento que concede direitos para instalar e utilizar o Configuration Manager.
+**Особенности лицензирования:**  
+[Полные условия в отношении продуктов, приобретаемых в рамках программ корпоративного лицензирования Майкрософт, можно найти здесь](http://go.microsoft.com/fwlink/?LinkId=800052).
 
 
-|Sucursal|Licensing|Detalhes|
+## <a name="system-center-configuration-manager-licensed-branches"></a>Лицензированные ветви System Center Configuration Manager  
+В этом разделе упоминается соглашение Software Assurance (или эквивалентные права по подписке), которое является лицензионным соглашением Майкрософт, предоставляющим права на установку и использование Configuration Manager.
+
+
+|Ветвь|Лицензирование|Подробные сведения|
 |----------------|---------------------|--------------------|
-|Ramo atual | Requer um contrato de Software Assurance Active Directory (ou direitos equivalentes) para o Configuration Manager. </br></br> Consulte [Software Assurance e o ramo atual](#software-assurance-and-the-current-Branch) neste tópico.| Suportado para utilização em ambientes de produção que pretende receber atualizações regulares de qualidade e a funcionalidade da Microsoft. </br></br> Este ramo fornece acesso a utilizar todas as funcionalidades e melhoramentos. </br></br> Cada atualização de versão é suportada para um (1) ano após o lançamento, tempo de que tem de atualizar para uma versão mais recente do que é ainda [suporte](/sccm/core/servers/manage/current-branch-versions-supported).|
-|Longa duração manutenção Branch (LTSB)| Requer um contrato de Software Assurance atual com a Microsoft no momento da versão (1 de Outubro de 2016) </br></br> Consulte [Software Assurance e a LTSB](#software-assurance-and-the-ltsb) neste tópico. | Suportado para utilização em ambientes de produção. Se destina a utilizar por clientes que tenham permitem que respetivo Software Assurance (SA) ou direitos equivalentes subscrições para o Configuration Manager expiram após 1 de Outubro de 2016. </br></br> Este ramo está limitado quando comparado com o ramo atual. </br></br> São disponibilizadas atualizações de segurança críticas para o Configuration Manager para este ramo, mas não existem novas funcionalidades ficam disponíveis. |
-|Instalação de avaliação do ramo atual| Não necessita de um contrato de Software Assurance com a Microsoft. | [A instalação de avaliação](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection) são sempre o ramo atual e pode ser utilizado por 180 dias. </br></br> A instalação de avaliação pode ser atualizada para uma instalação completa do ramo atual. Não é possível atualizar uma instalação de avaliação para o ramo de manutenção de longo prazo.|
+|Current Branch | Требуется действующее соглашение Software Assurance (или эквивалентные права) для Configuration Manager. </br></br> См. подраздел [Software Assurance и Current Branch](#software-assurance-and-the-current-Branch) этого раздела.| Поддерживается для использования в рабочих средах, в которых необходимо регулярно получать исправления и обновления компонентов из корпорации Майкрософт. </br></br> Эта ветвь предоставляет доступ ко всем возможностям и улучшениям. </br></br> Каждое обновление версии поддерживается в течение одного (1) года после выпуска, после чего необходимо произвести обновление до более новой версии, которая все еще [поддерживается](/sccm/core/servers/manage/current-branch-versions-supported).|
+|Long-Term Servicing Branch (LTSB)| Требуется соглашение Software Assurance с корпорацией Майкрософт, действующее на момент выпуска (1 октября 2016 г.). </br></br> См. подраздел [Software Assurance и LTSB](#software-assurance-and-the-ltsb) этого раздела. | Поддерживается для использования в рабочих средах. Предназначена для клиентов, срок действия соглашения Software Assurance или эквивалентных прав по подписке которых для Configuration Manager истек после 1 октября 2016 г. </br></br> Возможности этой ветви ограничены по сравнению с Current Branch. </br></br> Она позволяет получать критические обновления для системы безопасности Configuration Manager, но новые возможности недоступны. |
+|Ознакомительная установка Current Branch| Соглашение Software Assurance с корпорацией Майкрософт не требуется. | [Ознакомительные установки](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection) могут быть только ветви Current Branch, и их можно использовать в течение 180 дней. </br></br> Ознакомительную установку можно обновить до полной установки Current Branch. Обновить ознакомительную установку до Long-Term Servicing Branch нельзя.|
 
-Para além do ramo atual, LTSB e instalação de avaliação do ramo atual, um [Technical Preview do System Center Configuration Manager](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview) também está disponível. Esta é uma compilação limitada do Configuration Manager que permite-lhe experimentar as novas funcionalidades que podem ser adicionadas para o ramo atual, numa atualização futura. Instalar a pré-visualização técnica utilizando suportes de dados diferentes que as versões licenciadas. Para obter mais informações, consulte a documentação para o [Technical Preview](/sccm/core/get-started/technical-preview).
-
-
-## <a name="licensed-branches"></a>Ramos licenciados
-Os clientes com o Active Directory Software Assurance (SA) de licenças do System Center Configuration Manager ou com direitos de subscrição equivalente a partir de 1 de Outubro de 2016 têm direitos a utilizar a versão de versão 1606 de Outubro de 2016 do System Center Configuration Manager. Os clientes com direitos para o System Center Configuration Manager versão 1606 nesta ou após 1 de Outubro de 2016, irão encontrar duas opções licenciadas após a instalação:
--   **Ramo atual**
--   **Longa duração manutenção Branch (LTSB)**
+Помимо Current Branch, LTSB и ознакомительной установки Current Branch, также доступен выпуск [Technical Preview для System Center Configuration Manager](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview). Это ограниченная сборка Configuration Manager, которая позволяет испытать новые возможности, которые могут быть добавлены в Current Branch в будущем обновлении. Для установки Technical Preview и лицензированных версий используются разные носители. Дополнительные сведения см. в документации по [Technical Preview](/sccm/core/get-started/technical-preview).
 
 
-Consulte a tabela na secção anterior para obter mais informações.
+## <a name="licensed-branches"></a>Лицензированные ветви
+Клиенты с действующим соглашением Software Assurance (SA) для лицензий System Center Configuration Manager или с эквивалентными правами по подписке с 1 октября 2016 г. имеют право на использование выпуска System Center Configuration Manager версии 1606 за октябрь 2016 г. Пользователи с правами на System Center Configuration Manager версии 1606, действительными на 1 октября 2016 г. или после этой даты, могут выбрать при установке один из двух вариантов лицензирования:
+-   **Current Branch**
+-   **Long-Term Servicing Branch (LTSB)**
 
 
-## <a name="software-assurance-agreements-and-system-center-configuration-manager"></a>Os contratos de Software Assurance e System Center Configuration Manager
-O estado do Software Assurance no seu licenças do System Center Configuration Manager ou direitos de subscrição equivalentes, nesta ou após 1 de Outubro de 2016, determina o ramo podem instalar e utilizar.
+Дополнительные сведения см. в таблице в предыдущем разделе.
 
 
-### <a name="software-assurance-and-the-current-branch"></a>Software Assurance e o ramo atual
-Direitos para utilizar o ramo atual do System Center Configuration Manager podem ser fornecidos por:
--  **O System Center:** Os clientes com o Active Directory SA no System Center Standard ou Datacenter licenças podem instalar e utilizar a opção de ramo atual do System Center Configuration Manager.
-
--  **O System Center Configuration Manager:** Os clientes com o Active Directory SA no System Center Configuration Manager licenças ou com direitos de subscrição equivalentes, podem instalar e utilizar a opção de ramo atual do System Center Configuration Manager.
-
-Se tiver SA Active Directory em licenças do System Center Configuration Manager (ou direitos de subscrição equivalentes) nesta ou após 1 de Outubro de 2016:
-- Pode instalar e utilizar o ramo atual.
-- Se permitir SA ou de subscrição para o intervalo, tem de desinstalar o ramo atual.
-
-### <a name="software-assurance-and-the-ltsb"></a>Software Assurance e a LTSB
- Se tiver um SA Active Directory em licenças do System Center Configuration Manager (ou direitos de subscrição equivalentes) nesta ou após 1 de Outubro de 2016:
- - Pode instalar e utilizar o LTSB. Os clientes que tenham direitos perpétuos descritos para o System Center Configuration Manager ou permitir que a respetiva SA ou uma subscrição para o intervalo, podem instalar a versão do System Center Configuration Manager LTSB actual no momento do intervalo.
-
-LTSB baseia-se numa versão 1606 de Current Branch e tem as seguintes limitações:
-  - Não são suportadas para converter um ramo atual para o LTSB. Se tiver atualmente um site de Current Branch, tem de instalar o LTSB como um novo site.  
-
-  - LTSB não suporta todas as funcionalidades da filial atual. Limitações passo são detalhadas no [introdução para o ramo de manutenção de longo prazo](introduction-to-the-ltsb.md) e a respetiva documentação relacionada. Estas limitações incluem um conjunto de funcionalidades limitado, limitadas de opções de atualização e um ciclo de vida de suporte do produto separado.  
+## <a name="software-assurance-agreements-and-system-center-configuration-manager"></a>Соглашения Software Assurance и System Center Configuration Manager
+Состояние Software Assurance или эквивалентных прав по подписке для лицензий System Center Configuration Manager на 1 октября 2016 г. или после этой даты определяет то, какую ветвь вы можете установить и использовать.
 
 
-### <a name="software-assurance-expiration-date"></a>Data de expiração do Software Assurance
-Começando com a versão de Outubro de 2016 do suporte de dados de linha de base do versão 1606 para o System Center Configuration Manager, pode especificar a data de expiração do seu contrato de Software Assurance. O **data de expiração do Software Assurance** é um valor opcional, pode especificar como um lembrete conveniente ao executar a configuração do Configuration Manager ou posterior do dentro do Gestor de configuração da consola.
+### <a name="software-assurance-and-the-current-branch"></a>Software Assurance и Current Branch
+Права на использование System Center Configuration Manager (Current Branch) могут предоставляться из следующих источников:
+-  **System Center:** клиенты с активными соглашениями SA для лицензий System Center Standard или Datacenter могут установить и использовать System Center Configuration Manager (Current Branch).
+
+-  **System Center Configuration Manager:** клиенты с действующим соглашением SA для лицензий System Center Configuration Manager или с эквивалентными правами по подписке могут установить и использовать System Center Configuration Manager (Current Branch).
+
+При наличии действующего соглашения SA для лицензий System Center Configuration Manager (или эквивалентных прав по подписке) на 1 октября 2016 г. или после этой даты:
+- Вы можете установить и использовать Current Branch.
+- Если срок действия соглашения SA или подписки истечет, Current Branch необходимо будет удалить.
+
+### <a name="software-assurance-and-the-ltsb"></a>Software Assurance и LTSB
+ При наличии действующего соглашения SA для лицензий System Center Configuration Manager (или эквивалентных прав по подписке) на 1 октября 2016 г. или после этой даты:
+ - Вы можете установить и использовать LTSB. Клиенты, имеющие бессрочные права на System Center Configuration Manager либо соглашение SA или подписку с истекшим сроком действия, могут установить версию System Center Configuration Manager LTSB, которая является текущей на момент истечения срока действия соглашения.
+
+Ветвь LTSB основана на версии Current Branch 1606 и имеет указанные ниже ограничения.
+  - Преобразование Current Branch в LTSB не поддерживается. При наличии сайта Current Branch необходимо установить LTSB в качестве нового сайта.  
+
+  - LTSB поддерживает не все возможности Current Branch. Ограничения описываются в разделе [Общие сведения о Long-Term Servicing Branch](introduction-to-the-ltsb.md) и связанной документации. К ограничениям относятся ограниченный набор возможностей, ограниченные варианты обновления и отдельный жизненный цикл поддержки продукта.  
+
+
+### <a name="software-assurance-expiration-date"></a>Дата истечения срока действия Software Assurance
+Начиная с выпуска версии 1606 базового носителя для System Center Configuration Manager в октябре 2016 г. можно указывать дату окончания срока действия соглашения Software Assurance. Используется необязательное значение **Дата истечения срока действия Software Assurance**, которое можно указать для напоминания при выполнении программы установки Configuration Manager или позднее в консоли Configuration Manager.
 
 >  [!NOTE]   
->  Microsoft não valida a data de expiração que especifica e não utiliza esta data para validação da licença.  Em vez disso, pode utilizá-lo como um lembrete da sua data de expiração. Isto é útil porque o Configuration Manager periodicamente verifica a existência de novas atualizações de software disponibilizadas online e o estado de licença do Software Assurance deve ser atual para serem elegíveis para utilizar estas atualizações adicionais.    
+>  Майкрософт не проверяет указанную дату окончания срока действия и не будет использовать ее для проверки лицензии.  Вы сами можете использовать эти сведения в качестве напоминания об окончании срока действия. Это удобно, так как Configuration Manager периодически проверяет наличие новых обновлений программного обеспечения, предлагаемых через Интернет, поэтому ваши лицензии в рамках Software Assurance должны иметь соответствующее состояние для использования этих дополнительных обновлений.    
 
-**Para especificar a data:**
-- Quando executar a configuração do suporte de dados do System Center Configuration Manager versão 1606 de linha de base, pode especificar o valor no **chave de produto** página do Assistente de configuração.
+**Указание даты:**
+- Вы можете указать это значение на странице **Ключ продукта** мастера установки при запуске программы установки с базового носителя System Center Configuration Manager версии 1606.
 
-- Na consola do Configuration Manager, no **propriedades de definições de hierarquia**, pode especificar o valor no **licenciamento** separador.
+- Эту дату также можно указать на вкладке **Лицензирование** диалогового окна **Свойства параметров иерархии** в консоли Configuration Manager.
 
-Para obter mais informações sobre o licenciamento do Software Assurance e a atual filial do System Center Configuration Manager, consulte [licenciamento e ramos para o System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+Дополнительные сведения о лицензировании Software Assurance и System Center Configuration Manager (Current Branch) см. в разделе [Лицензирование и ветви в System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
 
-## <a name="resources-for-licensing-information"></a>Recursos para obter informações de licenciamento
-Utilize as seguintes ligações para mais informações sobre o produto detalhes de licenciamento.
+## <a name="resources-for-licensing-information"></a>Ресурсы со сведениями о лицензировании
+Чтобы узнать больше о лицензировании продуктов, воспользуйтесь приведенными ниже ссылками.
 
-**Ligações de Microsoft Volume Licensing Service Center (VLSC):**
-- Descrição geral do VLSC: [https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx](https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx).
+**Ссылки Microsoft Volume Licensing Service Center (VLSC):**
+- Обзор VLSC: [https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx](https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx).
 
-- Produto termos de licenciamento em Volume da Microsoft: [http://go.microsoft.com/fwlink/?LinkId=800052](http://go.microsoft.com/fwlink/?LinkId=800052).
+- Условия использования продуктов в рамках программы корпоративного лицензирования Майкрософт: [http://go.microsoft.com/fwlink/?LinkId=800052](http://go.microsoft.com/fwlink/?LinkId=800052).
 
-- Os clientes de licenciamento de volume, podem obter um resumo das respetivas licenças aqui: [https://www.microsoft.com/Licensing/servicecenter/default.aspx](https://www.microsoft.com/Licensing/servicecenter/default.aspx).  
-  Vá para o **licenças** e, clique em **resumo de licenças** para uma descrição geral de licenças.
+- Клиенты программы корпоративного лицензирования могут получить сводку по лицензиям на следующей странице: [https://www.microsoft.com/Licensing/servicecenter/default.aspx](https://www.microsoft.com/Licensing/servicecenter/default.aspx).  
+  Откройте меню **Лицензии** и выберите пункт **Сводка по лицензиям**.
 
-**Vídeos do VLSC:**
-- Vídeos sobre o funcionamento do VLSC de preparação: m[https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx#tab=2](https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx#tab=2).
+**Видеоролики, посвященные VLSC:**
+- Учебные видеоролике о работе VLSC: [https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx#tab=2](https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx#tab=2).
 
-- Onde pretende procurar o contrato de Software Assurance ativo (a partir de cerca de 43 segundos em): [https://www.microsoft.com/showcase/video.aspx?uuid=fe1846cb-1d26-49fc-b064-57b25dcc31a0](https://www.microsoft.com/showcase/video.aspx?uuid=fe1846cb-1d26-49fc-b064-57b25dcc31a0).
+- Инструкции по поиску действующего соглашения Software Assurance (начиная приблизительно с 43-й секунды): [https://www.microsoft.com/showcase/video.aspx?uuid=fe1846cb-1d26-49fc-b064-57b25dcc31a0](https://www.microsoft.com/showcase/video.aspx?uuid=fe1846cb-1d26-49fc-b064-57b25dcc31a0).
 
-- Como obter permissões para VLSC: [https://www.microsoft.com/showcase/video.aspx?uuid=ac4ed1ca-d0a9-43cd-89fa-74ccb555dec4](https://www.microsoft.com/showcase/video.aspx?uuid=ac4ed1ca-d0a9-43cd-89fa-74ccb555dec4).  Pode delegar a leitura do VLSC e permissões de escrita para outras pessoas na sua organização.
+- Получение разрешений на доступ к VLSC: [https://www.microsoft.com/showcase/video.aspx?uuid=ac4ed1ca-d0a9-43cd-89fa-74ccb555dec4](https://www.microsoft.com/showcase/video.aspx?uuid=ac4ed1ca-d0a9-43cd-89fa-74ccb555dec4).  Вы можете предоставлять разрешения на чтение и запись данных в VLSC другим сотрудникам своей организации.

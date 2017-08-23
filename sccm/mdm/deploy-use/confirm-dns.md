@@ -1,6 +1,6 @@
 ---
-title: "Confirmar os requisitos de nome de domínio com o System Center Configuration Manager | Microsoft Docs"
-description: "Confirme os requisitos de nome de domínio com o System Center Configuration Manager."
+title: "Настройка требований к имени домена с помощью System Center Configuration Manager | Документация Майкрософт"
+description: "Настройка требований к имени домена с помощью System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/21/2017
 ms.prod: configuration-manager
@@ -17,38 +17,38 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 35b24294073956a6bdb14cae07705f56d31e00a9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="confirm-domain-name-requirements-with-system-center-configuration-manager-and-microsoft-intune"></a>Confirmar os requisitos de nome de domínio com o System Center Configuration Manager e o Microsoft Intune
+# <a name="confirm-domain-name-requirements-with-system-center-configuration-manager-and-microsoft-intune"></a>Настройка требований к имени домена с помощью System Center Configuration Manager и Microsoft Intune
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Se necessário, siga os passos seguintes para satisfazer as dependências externas ao Configuration Manager:
+Если вам требуется выполнить условия всех зависимостей, являющихся внешними для Configuration Manager, сделайте следующее:
 
-1. Cada utilizador tem de ter uma licença do Intune atribuída para inscrever dispositivos. Para associar as licenças do Intune aos utilizadores, cada utilizador tem de ter o nome principal de utilizador (UPN) que pode ser resolvido publicamente (por exemplo, johndoe@contoso.com) ou um ID de início de sessão alternativo configurado no Azure Active Directory. Configurar um ID de início de sessão alternativo permite aos utilizadores iniciar sessão com um endereço de e-mail, por exemplo, mesmo que o UPN está num formato NetBIOS (por exemplo, contoso\diogoandrade).
+1. Каждый пользователь должен иметь лицензию Intune для регистрации устройств. Чтобы связать лицензии Intune с пользователями, каждый пользователь должен иметь имя участника-пользователя (UPN), которое может быть разрешено через Интернет (например, johndoe@contoso.com или альтернативный идентификатор входа в Azure Active Directory). Настройка альтернативного идентификатора входа позволяет пользователям выполнять вход с помощью адреса электронной почты, например, даже если их UPN-имена указаны в формате NetBIOS (например, CONTOSO\johndoe).
 
-  - Se a sua empresa utiliza UPNs resolvíveis publicamente (ou seja, johndoe@contoso.com), é necessária nenhuma configuração adicional.
-  - Se a sua empresa utiliza um UPN não resolvível (ou seja, contoso\diogoandrade), tem [configurar um ID alternativo no Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#pages-under-the-section-sync).
+  - Если ваша компания использует разрешимые, доступные через Интернет имена участников-пользователей (т. е. johndoe@contoso.com), дальнейшая настройка не требуется.
+  - Если ваша компания использует неразрешимое имя субъекта-пользователя (например, CONTOSO\johndoe), необходимо [настроить альтернативный идентификатор в Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#pages-under-the-section-sync).
 
-2.  Implementar e configurar os serviços de Federação do Active Directory (AD FS). (Opcional)
+2.  Разверните и настройте службы федерации Active Directory (AD FS). (Необязательный)
 
-     Quando configurar o início de sessão único, os utilizadores podem iniciar sessão com as respetivas credenciais empresariais para aceder aos serviços no Intune.
+     При настройке единого входа пользователи могут войти в систему, указав корпоративные учетные данные для использования служб в Intune.
 
-     Para obter mais informações, consulte os tópicos seguintes:
-    -   [Preparar para o início de sessão único](http://go.microsoft.com/fwlink/?LinkID=271124)
-    -   [Planear e implementar o AD FS 2.0 para utilização com o início de sessão único](http://go.microsoft.com/fwlink/?LinkID=271125)
+     Дополнительные сведения см. в следующих разделах:
+    -   [Подготовка к осуществлению единого входа](http://go.microsoft.com/fwlink/?LinkID=271124)
+    -   [Планирование и развертывание служб федерации Active Directory 2.0 для использования с единым входом](http://go.microsoft.com/fwlink/?LinkID=271125)
 
-3.  Implemente e configure a sincronização de diretórios.
+3.  Разверните и настройте синхронизацию службы каталогов.
 
-     Sincronização de diretórios permite-lhe preencher o Intune com contas de utilizador sincronizadas. As contas de utilizador sincronizadas e os grupos de segurança são adicionados ao Intune. A incapacidade de ativar a sincronização do Directory é uma das causas comuns pelos quais os dispositivos não conseguem inscrever-se durante a configuração do MDM do Configuration Manager com o Microsoft Intune.
+     Синхронизация службы каталогов позволяет заполнить Intune синхронизированными учетными записями пользователей. Синхронизированные учетные записи пользователей и группы безопасности добавляются в Intune. Ошибка включения синхронизации каталогов является распространенной причиной, по которой устройства не могут выполнить регистрацию при настройке управления мобильными устройствами Configuration Manager с использованием Microsoft Intune.
 
-     Para obter mais informações, veja [Integração de diretórios](http://go.microsoft.com/fwlink/?LinkID=271120) na biblioteca de documentação do Active Directory.
+     Дополнительные сведения см. в статье [Интеграция каталогов](http://go.microsoft.com/fwlink/?LinkID=271120) библиотеки документации Active Directory.
 
-4.  Opcional, não recomendado: Se não estiver a utilizar serviços de Federação do Active Directory, reposição de palavras-passe de Microsoft Online dos utilizadores.
+4.  Необязательно, не рекомендуется: если службы федерации Active Directory (AD FS) не используются, сбросьте пароли пользователей Microsoft Online.
 
-     Se não estiver a utilizar o AD FS, tem de definir uma palavra-passe do Microsoft Online para cada utilizador.
+     Если вы не используете службы федерации Active Directory, необходимо задать пароль для каждого пользователя Microsoft Online.
 
 > [!div class="button"]
-[< Anterior passo](create-mdm-collection.md)[passo seguinte >  ](configure-intune-subscription.md)
+[< Назад](create-mdm-collection.md) [Вперед >](configure-intune-subscription.md)

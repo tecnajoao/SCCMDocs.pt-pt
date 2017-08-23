@@ -1,6 +1,6 @@
 ---
-title: Instalar um site utilizando o suporte de dados de linha de base de 1606 | Microsoft Docs
-description: Instalar ou atualizar para o LTSB para o System Center Configuration Manager.
+title: "Установка сайта с помощью базового носителя версии 1606 | Документы Майкрософт"
+description: "Установка LTSB для System Center Configuration Manager или обновление до этой версии."
 ms.custom: na
 ms.date: 05/01/2017
 ms.prod: configuration-manager
@@ -16,139 +16,139 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 39653604ba5fd8e1fe9dd4d42889221d983f9bec
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-and-upgrade-with-the-version-1606-baseline-media-for-system-center-configuration-manager"></a>Instalar e atualizar com a versão 1606 suporte de dados de linha de base para o System Center Configuration Manager
+# <a name="install-and-upgrade-with-the-version-1606-baseline-media-for-system-center-configuration-manager"></a>Установка и обновление с помощью базового носителя версии 1606 для System Center Configuration Manager
 
-*Aplica-se a:  O System Center Configuration Manager (ramo atual), (ramo de manutenção longo prazo)*
+*Применяется к: System Center Configuration Manager (Current Branch), (Long-Term Servicing Branch)*
 
-Quando executar a configuração do suporte de dados de linha de base do versão 1606 para o Configuration Manager, pode instalar o ramo de manutenção de longo prazo ou um site do ramo atual do System Center Configuration Manager.
+При запуске программы установки с базового носителя версии 1606 для Configuration Manager вы можете установить сайт Long Term Servicing Branch или Current Branch решения System Center Configuration Manager.
 
-O suporte de dados de linha de base está disponível no DVD como parte do Microsoft System Center 2016 ou versão do System Center Configuration Manager (ramo atual e 1606 de sucursal de manutenção longo prazo). Para saber mais sobre o suporte de dados de linha de base, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#baseline-and-udpate-versions).
-
-
-Quando utiliza os versão 1606 da linha de base de dados, é o site instalar ou atualizar para:
-- A *site Current Branch* que é equivalente a um site que foi a primeira instalados utilizando o suporte de dados de linha de base 1511 e, em seguida, atualizar a versão 1606 plus o 1606 de rollup de correção - KB3186654.
--   Um *LTSB site* que é equivalente ao site Current Branch que executa o rollup de correção de versão 1606 plus o 1606 - KB3186654. O suporte de dados de linha de base já inclua o rollup de correção.  No entanto, o LTSB não suporta todas as funcionalidades ou capacidades disponíveis com o ramo atual, conforme detalhado em [introdução para a longo prazo manutenção ramo do System Center Configuration Manager](introduction-to-the-ltsb.md).
-
-Se não estiver familiarizado com os ramos diferentes do System Center Configuration Manager, consulte [o ramo do Configuration Manager devo utilizar](which-branch-should-i-use.md).
+Базовый носитель доступен на DVD-диске в составе выпуска Microsoft System Center 2016 или System Center Configuration Manager (Current Branch и Long-Term Servicing Branch 1606). Дополнительные сведения о базовых носителях см. в разделе [Базовые и обновленные версии](/sccm/core/servers/manage/updates#baseline-and-udpate-versions).
 
 
+При использовании базового носителя версии 1606 устанавливается следующий сайт (или производится обновление до этой версии):
+- *Сайт Current Branch*, который эквивалентен сайту, который был изначально установлен с помощью базового носителя версии 1511, а затем обновлен до версии 1606 с пакетом исправлений 1606 (KB3186654).
+-   *Сайт LTSB*, который эквивалентен сайту Current Branch версии 1606 с пакетом исправлений 1606 (KB3186654). Базовый носитель уже содержит пакет исправлений.  Однако версия LTSB поддерживает не все функции и возможности, доступные в Current Branch. Подробные сведения см. в разделе [Общие сведения о версии System Center Configuration Manager (Long-Term Servicing Branch)](introduction-to-the-ltsb.md).
+
+Если вы не знакомы с различными ветвями System Center Configuration Manager, см. раздел [Выбор ветви Configuration Manager](which-branch-should-i-use.md).
 
 
-## <a name="changes-to-setup-with-the-1606-baseline-media"></a>Alterações à configuração com o suporte de dados de linha de base de 1606
-O suporte de dados de linha de base de 1606 apresenta as seguintes alterações à configuração do Configuration Manager.
 
-### <a name="branch-and-edition"></a>Ramo e edição
-Quando executar a configuração, é agora apresentada uma página de licenciamento, onde pode selecionar o ramo do Configuration Manager que pretende instalar. Pode escolher o ramo atual ou LTSB como uma instalação licenciada, ou pode escolher uma edição de avaliação da filial atual como uma instalação não licenciado.
 
-Para obter mais informações, consulte [licenciamento e ramos para o System Center Configuration Manager](learn-more-editions.md).
+## <a name="changes-to-setup-with-the-1606-baseline-media"></a>Изменения в программе установки на базовом носителе версии 1606
+На базовом носителе версии 1606 в программу установки Configuration Manager были внесены перечисленные ниже изменения.
 
-### <a name="software-assurance-expiration"></a>Expiração do Software Assurance
-Durante a configuração, tem a opção para introduzir o **data de expiração do Software Assurance** valor. Este é um valor opcional que pode especificar como um lembrete conveniente.
+### <a name="branch-and-edition"></a>Ветвь и выпуск
+При запуске программы установки теперь выводится страница лицензирования, на которой можно выбрать ветвь Configuration Manager, которую нужно установить. Вы можете выбрать Current Branch или LTSB в качестве лицензионной установки или выбрать ознакомительный выпуск Current Branch для установки без лицензии.
+
+Дополнительные сведения см. в статье [Лицензирование и ветви в System Center Configuration Manager](learn-more-editions.md).
+
+### <a name="software-assurance-expiration"></a>Истечение срока действия Software Assurance
+Во время установки можно ввести **дату истечения срока действия Software Assurance**. Это необязательное значение, которое можно указать для напоминания.
 
 > [!NOTE]
-> Microsoft não valida a data de expiração, introduza e não utilize esta data para validação da licença.  Em vez disso, pode utilizá-lo como um lembrete da sua data de expiração. Isto é útil porque o Configuration Manager periodicamente verifica a existência de novas atualizações de software disponibilizadas online e o estado de licença do software assurance deve ser atual para serem elegíveis para utilizar estas atualizações adicionais.    
+> Майкрософт не проверяет указанную дату окончания срока действия и не будет использовать ее для проверки лицензии.  Вы сами можете использовать эти сведения в качестве напоминания об окончании срока действия. Это удобно, так как Configuration Manager периодически проверяет наличие новых обновлений программного обеспечения, предлагаемых через Интернет, поэтому ваши лицензии в рамках Software Assurance должны иметь соответствующее состояние для использования этих дополнительных обновлений.    
 
-- Pode especificar o valor de data no **chave de produto** página do Assistente de configuração ao executar a configuração da versão System Center Configuration Manager 1606 suporte de dados de linha de base.
-- Também pode especificar esta data selecionando **propriedades de definições de hierarquia** > **licenciamento** na consola do Configuration Manager.
+- Вы можете указать значение даты на странице **Ключ продукта** мастера установки при запуске программы установки с базового носителя System Center Configuration Manager версии 1606.
+- Эту дату также можно указать, выбрав **Свойства параметров иерархии** > **Лицензирование** в консоли Configuration Manager
 
-Para obter mais informações, consulte "Contratos de Software Assurance" em [licenciamento e ramos para o System Center Configuration Manager](learn-more-editions.md).
-
-
-### <a name="additional-pre-upgrade-configurations"></a>Configurações de pré-atualização adicionais
-Antes de iniciar uma atualização do System Center 2012 Configuration Manager para o LTSB, tem de colocar os seguintes passos adicionais como parte da lista de verificação de pré-atualização.  
-Desinstale as funções de sistema de sites que o LTSB não suporta:
-- Ponto de sincronização do Asset Intelligence
-- Conector do Microsoft Intune
-- Pontos de distribuição baseados na nuvem
-
-Para obter mais informações, consulte [atualizar para o System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
+Дополнительные сведения см. в подразделе "Соглашения Software Assurance" раздела [Лицензирование и ветви в System Center Configuration Manager](learn-more-editions.md).
 
 
-### <a name="new-scripted-installation-options"></a>Novas opções de instalação com script
-O suporte de dados de linha de base do versão 1606 suporta uma nova chave de ficheiro de script automático para instalações com scripts de um novo site de nível superior. Isto aplica-se para instalar um novo site primário autónomo ou a adição de um site de administração central como parte de um cenário de expansão do site.
+### <a name="additional-pre-upgrade-configurations"></a>Дополнительные настройки перед обновлением
+Перед тем как начинать обновление System Center 2012 Configuration Manager до версии LTSB, необходимо выполнить указанные ниже дополнительные действия в рамках контрольного списка перед обновлением.  
+Удалите роли системы сайта, которые не поддерживаются LTSB:
+- точка синхронизации каталога аналитики активов;
+- Соединитель Microsoft Intune
+- Облачные точки распространения
 
-Quando utilizar um script automático para instalar um ramo licenciado, tem de adicionar a secção seguinte, os nomes de chaves e valores para a secção de opções do seu script. Não precisa de utilizar estes valores para a instalação de uma edição de avaliação do ramo atual do script:  
+Дополнительные сведения см. в разделе [Обновление до System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
+
+
+### <a name="new-scripted-installation-options"></a>Новые параметры установки с помощью скрипта
+Базовый носитель версии 1606 поддерживает новый ключ файла скрипта для автоматической установки нового сайта верхнего уровня. Он относится к установке нового автономного первичного сайта или добавлению сайта центра администрирования в рамках сценария расширения иерархии.
+
+При использовании автоматического скрипта для установки лицензированной ветви необходимо добавить указанный ниже раздел, имена ключей и значения в раздел Options скрипта. Использовать эти значения в скрипте для установки ознакомительного выпуска Current Branch не нужно.  
 
  **SABranchOptions**
--   **Nome da chave: SAActive**
-  - Valores: 0 ou 1.  
-  - Detalhes:  0 instala uma edição de avaliação não licenciado do ramo atual, e 1 instala uma edição licenciada.   
+-   **Имя ключа: SAActive**
+  - Значения: 0 или 1.  
+  - Сведения: значение 0 соответствует установке ознакомительного выпуска Current Branch без лицензии, а значение 1 — установке лицензированного выпуска.   
 
 - **CurrentBranch**
-  - Valores: 0 ou 1.  
-  - Detalhes:  0 instala o ramo de manutenção de longo prazo e 1 instala o ramo atual.  
+  - Значения: 0 или 1.  
+  - Сведения: значение 0 соответствует установке Long-Term Servicing Branch, а значение 1 — установке Current Branch.  
 
-Por exemplo, para instalar uma edição licenciada do ramo atual utilize:
+Например, чтобы установить лицензированный выпуск Current Branch, используйте следующие значения:
 
-  **Nome da chave: SABranchOptions**
+  **Имя ключа: SABranchOptions**
    -    **SAActive = 1**
-   - **CurrentBranch = 1**
+   - **CurrentBranch = 1**
 
 
 > [!IMPORTANT]  
-> **SABranchOptions** só funciona com a configuração do suporte de dados de linha de base. Não é aplicável quando executar a configuração a partir do CD. Pasta mais recente de um site instalado anteriormente utilizando o suporte de dados de linha de base de versão 1606.
+> Раздел **SABranchOptions** работает только с программой установки с базового носителя. Он не применяется, если программа установки запускается из папки CD.Latest на сайте, которую вы установили ранее с помощью базового носителя версии 1606.
 >
-> **SABranchOptions** não se aplicam a atualizações com script do System Center 2012 Configuration Manager e sempre resulta no ramo atual.
+> **SABranchOptions** не применяется при обновлении с System Center 2012 Configuration Manager с помощью скрипта и всегда приводит к установке Current Branch.
 
-Para obter mais informações, consulte [utilizar uma linha de comando para instalar sites do System Center Configuration Manager](/sccm/core/servers/deploy/install/use-a-command-line-to-install-sites).
+Дополнительные сведения см. в разделе [Установка сайтов System Center Configuration Manager с помощью командной строки](/sccm/core/servers/deploy/install/use-a-command-line-to-install-sites).
 
 
-## <a name="install-a-new-site"></a>Instalar um novo site
-Quando utiliza o 1606 da linha de base suporte de dados para instalar um novo site de um ramo, utilize o site de planeamento, preparação e procedimentos de instalação documentadas no [sites de instalar o System Center Configuration Manager](/sccm/core/servers/deploy/install/installing-sites) tópico com a adição das seguintes considerações para a configuração:
+## <a name="install-a-new-site"></a>Установка нового сайта
+При использовании базового носителя версии 1606 для установки нового сайта любой ветви выполните процедуры планирования, подготовки и установки, описанные в разделе [Установка сайтов System Center Configuration Manager](/sccm/core/servers/deploy/install/installing-sites), с учетом приведенных ниже рекомендаций касательно программы установки.
 
-- Durante a configuração tem de escolher o ramo do Configuration Manager que pretende instalar e pode especificar os detalhes do contrato de Software Assurance.
-- Todos os sites na mesma hierarquia tem de executar o ramo do mesmo. Não é suportado para ter uma hierarquia com uma combinação de LTSB e Current Branch em sites diferentes.
--   Nova instalação com script. Para obter mais informações, consulte "Novo convertidos em script opções de instalação" anteriormente no artigo.
+- Во время установки необходимо выбрать ветвь Configuration Manager, которую нужно установить, и можно указать сведения о соглашении Software Assurance.
+- На всех сайтах в одной иерархии должна использоваться одна ветвь. Иерархия с версиями LTSB и Current Branch на разных сайтах не поддерживается.
+-   Новая установка с помощью скрипта. Дополнительные сведения см. в подразделе "Новые параметры установки с помощью скрипта" ранее в этом разделе.
 
-## <a name="expand-a-stand-alone-primary-site"></a>Expandir um site primário autónomo
-Pode expandir um site primário autónomo que executa o LTSB.  O processo é não diferente da utilizada para um site de Current Branch com uma advertência:
+## <a name="expand-a-stand-alone-primary-site"></a>Развертывание автономного первичного сайта
+Вы можете развернуть автономный первичный сайт LTSB.  Процесс не отличается от используемого для развертывания сайта Current Branch, за одним исключением.
 
-- Ao instalar o novo site de administração central tem de utilizar a configuração do suporte de dados do origem original que utilizou para instalar o site LTSB. Executar a configuração do CD. Pasta mais recente para este cenário não é suportada.
+- При установке нового сайта центра администрирования необходимо использовать программу установки с исходного носителя, который вы применяли для установки сайта LTSB. Запускать программу установки из папки CD.Latest в этом сценарии нельзя.
 
-Para obter mais informações sobre a expansão de um site, consulte "Expandir um site primário autónomo" [instalar um site utilizando o Assistente de configuração](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).
+Дополнительные сведения о расширении сайта см. в подразделе "Расширение автономного первичного сайта" раздела [Установка сайта с помощью мастера установки](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites).
 
-## <a name="upgrade-from-system-center-2012-configuration-manager"></a>Atualização do System Center 2012 Configuration Manager
-Quando atualizar a partir do System Center 2012 Configuration Manager, utilize o site planeamento, preparação e os procedimentos, conforme documentado no [atualizar para o System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager) tópico, but com as seguintes alterações:
+## <a name="upgrade-from-system-center-2012-configuration-manager"></a>Обновление с версии System Center 2012 Configuration Manager
+При обновлении с версии System Center 2012 Configuration Manager выполните процедуры планирования, подготовки и обновления сайта, описанные в разделе [Обновление до System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager), с учетом указанных ниже изменений.
 
-**Atualizar para o ramo atual:**
-- Durante a configuração, tem de escolher o ramo atual, e pode especificar os detalhes do contrato de Software Assurance.
--   Nova instalação com script. Para obter mais informações, consulte "Novo convertidos em script opções de instalação" anteriormente no artigo.
+**Обновление до Current Branch**
+- Во время установки необходимо выбрать Current Branch и можно указать сведения о соглашении Software Assurance.
+-   Новая установка с помощью скрипта. Дополнительные сведения см. в подразделе "Новые параметры установки с помощью скрипта" ранее в этом разделе.
 
-**Atualizar para o LTSB:**  
-- Passos adicionais para seguinte da lista de verificação de pré-atualização.
-- Durante a configuração tem de escolher o LTSB e pode especificar os detalhes do contrato de Software Assurance.
-- Só é possível atualizar um site que executa o System Center 2012 Configuration Manager com Service Pack 2 ou System Center 2012 R2 Configuration Manager com Service Pack 1.
+**Обновление до LTSB**  
+- Необходимо выполнить дополнительные действия из контрольного списка перед обновлением.
+- Во время установки необходимо выбрать LTSB и можно указать сведения о соглашении Software Assurance.
+- Обновить можно только сайт System Center 2012 Configuration Manager с пакетом обновления 2 (SP2) или System Center 2012 R2 Configuration Manager с пакетом обновления 1 (SP1).
 
-### <a name="in-place-upgrade-paths-for-the-1606-baseline-media"></a>Caminhos de atualização para o suporte de dados de linha de base de 1606 no local
-Pode utilizar o suporte de dados de linha de base de 1606 para atualizar o seguinte procedimento para uma edição licenciada do System Center Configuration Manager:
-- System Center 2012 Configuration Manager sem Service Pack 2.
-- System Center 2012 R2 Configuration Manager sem Service Pack 1.
+### <a name="in-place-upgrade-paths-for-the-1606-baseline-media"></a>Варианты обновления на месте для базового носителя версии 1606
+С помощью базового носителя версии 1606 можно обновить следующие лицензированные выпуски System Center Configuration Manager:
+- System Center 2012 Configuration Manager с пакетом обновления 2 (SP2);
+- System Center 2012 R2 Configuration Manager с пакетом обновления 1 (SP1).
 
-Também pode utilizar este suporte de dados para atualizar uma edição de avaliação não licenciado do ramo atual para uma versão totalmente licenciada do ramo atual.
+С помощью этого носителя можно также обновить ознакомительный выпуск Current Branch без лицензии до полной лицензированной версии Current Branch.
 
-Este suporte de dados não suporta a atualização do:
-- Outras versões do System Center 2012 Configuration Manager.
-- Do Configuration Manager 2007 ou anterior.
-- Uma instalação de candidatos de lançamento do System Center Configuration Manager.
+Этот носитель не поддерживает обновление следующих версий:
+- другие версии System Center 2012 Configuration Manager;
+- Configuration Manager 2007 или более ранней версии;
+- установка версии-кандидата System Center Configuration Manager.
 
-## <a name="about-the-cdlatest-folder-and-the-ltsb"></a>Sobre o CD. Pasta mais recente e a LTSB
-Seguem-se as limitações utilizando o suporte de dados do Configuration Manager cria no CD. Pasta mais recente no servidor do site. Estes limites se aplicam a sites que executam o LTSB:
+## <a name="about-the-cdlatest-folder-and-the-ltsb"></a>Сведения о папке CD.Latest и LTSB
+Ниже приведены ограничения, касающиеся использования носителя, который Configuration Manager создает в папке CD.Latest на сервере сайта. К сайтам с выпуском LTSB применяются указанные ниже ограничения.
 
-Suporte de dados no CD. Pasta mais recente é suportada para:
-- Recuperação de sites.
-- Manutenção do site.
-- Instalar sites primários subordinados adicionais.
+Носитель в папке CD.Latest можно использовать в следующих целях:
+- восстановление сайта;
+- обслуживание сайта;
+- установка дополнительных подчиненных первичных сайтов.
 
-Suporte de dados no CD. Pasta mais recente não é suportada para:  
-- Instalar um site de administração central como parte de um cenário de expansão do site.
+Носитель в папке CD.Latest нельзя использовать в следующих целях:  
+- установка сайта центра администрирования в рамках сценария расширения сайта.
 
-Para obter mais informações, consulte [CD. Pasta mais recente](/sccm/core/servers/manage/the-cd.latest-folder).
+Дополнительные сведения см. в разделе [Папка CD.Latest](/sccm/core/servers/manage/the-cd.latest-folder).
 
-## <a name="backup-recovery-and-site-maintenance-for-the-ltsb"></a>Cópia de segurança, recuperação e manutenção do site para o LTSB
-Para criar cópias de segurança, recuperar ou executar a manutenção do site num site que executa o LTSB, utilize as orientações e procedimentos do [cópia de segurança e recuperação para o System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).  
+## <a name="backup-recovery-and-site-maintenance-for-the-ltsb"></a>Резервное копирование, восстановление и обслуживание сайта LTSB
+Для резервного копирования, восстановления и обслуживания сайта LTSB используйте указания и процедуры, приведенные в разделе [Резервное копирование и восстановление в System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).  
 
-Utilize o Gestor de configuração do programa de configuração do CD. Pasta mais recente da cópia de segurança do seu site LTSB.
+Используйте программу установки Configuration Manager из папки CD.Latest в резервной копии сайта LTSB.

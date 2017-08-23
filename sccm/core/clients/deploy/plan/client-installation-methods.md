@@ -1,6 +1,6 @@
 ---
-title: "Métodos de instalação de cliente | Microsoft Docs"
-description: "Saiba mais métodos de instalação de cliente para o System Center Configuration Manager."
+title: "Методы установки клиента | Документы Майкрософт"
+description: "Сведения о методах установки клиента в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/25/2017
 ms.prod: configuration-manager
@@ -17,130 +17,130 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: edca31249cc2bb3e0c67265962815c82e3f4711e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="client-installation-methods-in-system-center-configuration-manager"></a>Métodos de instalação de cliente no System Center Configuration Manager
+# <a name="client-installation-methods-in-system-center-configuration-manager"></a>Методы установки клиента в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode utilizar diferentes métodos para instalar o software de cliente do Configuration Manager. Pode utilizar um método ou uma combinação de métodos. Este tópico pode ler sobre cada método, para saber que funcionará melhor na sua organização.  
+Установить клиентское программное обеспечение Configuration Manager можно разными способами. Можно использовать один метод или их сочетание. В этом разделе вы можете получить сведения о каждом методе, чтобы выбрать наиболее подходящий вашей организации.  
 
-## <a name="client-push-installation"></a>Instalação push do cliente  
+## <a name="client-push-installation"></a>Принудительная установка клиента  
 
- **Plataforma de cliente suportada:** Windows  
+ **Поддерживаемая платформа клиента** : Windows  
 
- **Vantagens**  
+ **Преимущества**  
 
--   Pode ser utilizado para instalar o cliente num único computador, numa coleção de computadores ou para os resultados de uma consulta.  
+-   Может использоваться для установки клиента на отдельном компьютере, коллекции компьютеров или на компьютерах, отображенных в результатах запроса.  
 
--   Pode ser utilizado para instalar automaticamente o cliente em todos os computadores detetados.  
+-   Может использоваться для автоматической установки клиента на всех обнаруженных компьютерах.  
 
--   Utiliza automaticamente as propriedades de instalação do cliente definidas no separador **Cliente** na caixa de diálogo **Propriedades da Instalação Push do Cliente**.  
+-   Автоматически использует свойства установки клиента, заданные на вкладке **Клиент** в диалоговом окне **Свойства принудительной установки клиента** .  
 
- **Desvantagens**  
+ **Недостатки**  
 
--   Pode causar tráfego de rede elevado quando efetuar instalações push em coleções de grandes dimensões.  
+-   Может привести к высокой нагрузке на сеть при принудительной установке в больших коллекциях.  
 
--   Só pode ser utilizado em computadores que tenham sido detetados pelo Configuration Manager.  
+-   Может использоваться только на компьютерах, обнаруженных с помощью Configuration Manager.  
 
--   Não pode ser utilizado para instalar clientes num grupo de trabalho.  
+-   Не может использоваться для установки клиентов в рабочей группе.  
 
--   Deve ser especificada uma conta de instalação push de cliente com direitos administrativos no computador cliente pretendido.  
+-   Необходимо указать учетную запись принудительной установки клиента, у которой есть права администратора на соответствующем клиентском компьютере.  
 
--   A Firewall do Windows tem de ser configurada com exceções nos computadores cliente para que a instalação push do cliente seja concluída.  
+-   В брандмауэре Windows на клиентских компьютерах должны быть настроены исключения, чтобы можно было выполнить принудительную установку клиента.  
 
--   Não é possível cancelar a instalação push do cliente. Quando utiliza este método de instalação de cliente para um site, o Configuration Manager tenta instalar o cliente em todos os recursos detetados e repete as tentativas de eventuais falhas durante 7 dias.  
+-   Принудительную установку клиента отменить нельзя. При использовании этого метода установки клиента для сайта Configuration Manager пытается установить клиент на всех обнаруженных ресурсах и в случае сбоев выполняет повторные попытки в течение 7 дней.  
 
- Para obter mais informações sobre este método de instalação, veja [How to deploy clients to Windows computers in System Center Configuration Manager (Como implementar clientes em computadores Windows no System Center Configuration Manager)](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
+ Дополнительные сведения об этом методе установки см. в разделе [Развертывание клиентов для компьютеров Windows в System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-## <a name="software-update-point-based-installation"></a>Instalação baseada em pontos de atualizações de software  
- **Plataforma de cliente suportada:** Windows  
+## <a name="software-update-point-based-installation"></a>Установка через точку обновления программного обеспечения  
+ **Поддерживаемая платформа клиента** : Windows  
 
- **Vantagens:**  
+ **Преимущества:**  
 
--   Pode utilizar a infraestrutura de atualizações de software existente para gerir o software de cliente.  
+-   Может использовать существующую инфраструктуру обновлений программного обеспечения для управления клиентским ПО.  
 
--   Pode instalar automaticamente o software de cliente em novos computadores se as definições do Windows Server Update Services (WSUS) e da Política de Grupo estiverem instaladas corretamente nos Serviços de Domínio do Active Directory.  
+-   Может автоматически устанавливать программное обеспечение клиента на новых компьютерах, если соответствующим образом настроены службы Windows Server Update Services (WSUS) и параметры групповой политики в доменных службах Active Directory.  
 
--   Não necessita que os computadores sejam detetados antes de instalar o cliente.  
+-   Для установки клиента не требуется обнаружение компьютеров.  
 
--   Os computadores podem ler as propriedades de instalação de cliente que tiverem sido publicadas nos Serviços de Domínio do Active Directory Domain Services.  
+-   Компьютеры могут считывать свойства установки клиента, опубликованные в доменных службах Active Directory.  
 
--   Irá reinstalar o software de cliente, se este for removido.  
+-   Программное обеспечение клиента будет переустановлено, если его удалить.  
 
--   Não necessita que seja configurada e mantida uma conta de instalação para o computador cliente pretendido.  
+-   Не требует создания и обслуживания учетной записи установки для соответствующего клиентского компьютера.  
 
- **Desvantagens:**  
+ **Недостатки:**  
 
--   Como pré-requisito, requer uma infraestrutura de atualizações de software a funcionar.  
+-   В обязательном порядке требует наличия работоспособной инфраструктуры обновления ПО.  
 
--   Tem de utilizar o mesmo servidor para a instalação do cliente e para as atualizações de software e este servidor tem de residir num site primário.  
+-   Для установки клиента и обновления ПО должен использоваться один и тот же сервер, и этот сервер должен находиться на первичном сайте.  
 
--   Para instalar novos clientes, é necessário configurar um Objeto de Política de Grupo (GPO) nos Serviços de Domínio do Active Directory com a porta e o ponto de atualização de software ativos do cliente.  
+-   Для установки новых клиентов необходимо настроить объект групповой политики (GPO) в доменных службах Active Directory, указав активную точку обновления программного обеспечения и порт для клиента.  
 
--   Se o esquema do Active Directory não estiver expandido para o Configuration Manager, tem de utilizar as definições de política de grupo para aprovisionar computadores com propriedades de instalação de cliente.  
+-   Если схема Active Directory не расширена для Configuration Manager, необходимо с помощью параметров групповой политики настроить для компьютеров свойства установки клиента.  
 
- Para obter mais informações sobre este método de instalação, veja [How to deploy clients to Windows computers in System Center Configuration Manager (Como implementar clientes em computadores Windows no System Center Configuration Manager)](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
+ Дополнительные сведения об этом методе установки см. в разделе [Развертывание клиентов для компьютеров Windows в System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-## <a name="group-policy-installation"></a>Instalação de Política de Grupo  
- **Plataforma de cliente suportada:** Windows  
+## <a name="group-policy-installation"></a>Установка на основании групповой политики  
+ **Поддерживаемая платформа клиента** : Windows  
 
- **Vantagens:**  
+ **Преимущества:**  
 
--   Não necessita que os computadores sejam detetados antes de instalar o cliente.  
+-   Для установки клиента не требуется обнаружение компьютеров.  
 
--   Pode ser utilizada para novas instalações de cliente ou para atualizações.  
+-   Может использоваться для установки новых клиентов или для выполнения обновлений.  
 
--   Os computadores podem ler as propriedades de instalação de cliente que tiverem sido publicadas nos Serviços de Domínio do Active Directory Domain Services.  
+-   Компьютеры могут считывать свойства установки клиента, опубликованные в доменных службах Active Directory.  
 
--   Não necessita que seja configurada e mantida uma conta de instalação para o computador cliente pretendido.  
+-   Не требует создания и обслуживания учетной записи установки для соответствующего клиентского компьютера.  
 
- **Desvantagens:**  
+ **Недостатки:**  
 
--   Pode causar tráfego de rede elevado se estiver a ser instalado um elevado número de clientes.  
+-   Может вызвать увеличение сетевого трафика в случае установки большого числа клиентов.  
 
--   Se o esquema do Active Directory não estiver expandido para o Configuration Manager, tem de utilizar as definições de política de grupo para adicionar propriedades de instalação de cliente aos computadores no seu site.  
+-   Если схема Active Directory не расширена для Configuration Manager, необходимо с помощью параметров групповой политики добавить свойства установки клиента для компьютеров в вашем сайте.  
 
- Para obter mais informações sobre este método de instalação, veja [How to deploy clients to Windows computers in System Center Configuration Manager (Como implementar clientes em computadores Windows no System Center Configuration Manager)](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
+ Дополнительные сведения об этом методе установки см. в разделе [Развертывание клиентов для компьютеров Windows в System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-## <a name="logon-script-installation"></a>Instalação do script de início de sessão  
- **Plataforma de cliente suportada:** Windows  
+## <a name="logon-script-installation"></a>Установка сценария входа  
+ **Поддерживаемая платформа клиента** : Windows  
 
- **Vantagens:**  
+ **Преимущества:**  
 
--   Não necessita que os computadores sejam detetados antes de instalar o cliente.  
+-   Для установки клиента не требуется обнаружение компьютеров.  
 
--   Suporta a utilização de propriedades da linha de comandos para CCMSetup.  
+-   Поддерживает использование свойств командной строки для CCMSetup.  
 
- **Desvantagens:**  
+ **Недостатки:**  
 
--   Pode causar tráfego de rede elevado se estiver a ser instalado um elevado número de clientes durante um período de tempo curto.  
+-   Может вызвать увеличение сетевого трафика в случае установки большого числа клиентов в течение короткого промежутка времени.  
 
--   Pode demorar muito tempo a instalar em todos os computadores cliente se os utilizadores não iniciarem sessão na rede com frequência.  
+-   Установка на всех клиентских компьютерах может занять длительное время, если пользователи нечасто входят в сеть.  
 
- Para obter mais informações sobre este método de instalação, veja [How to deploy clients to Windows computers in System Center Configuration Manager (Como implementar clientes em computadores Windows no System Center Configuration Manager)](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
+ Дополнительные сведения об этом методе установки см. в разделе [Развертывание клиентов для компьютеров Windows в System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-## <a name="manual-installation"></a>Instalação manual  
- **Plataforma de cliente suportada:** Windows, UNIX/Linux, Mac OS X  
+## <a name="manual-installation"></a>Установка вручную  
+ **Поддерживаемая платформа клиента:** Windows, UNIX, Linux, Mac OS X  
 
- **Vantagens:**  
+ **Преимущества:**  
 
--   Não necessita que os computadores sejam detetados antes de instalar o cliente.  
+-   Для установки клиента не требуется обнаружение компьютеров.  
 
--   Pode ser útil para fins de teste.  
+-   Может быть полезна для тестирования.  
 
--   Suporta a utilização de propriedades da linha de comandos para CCMSetup.  
+-   Поддерживает использование свойств командной строки для CCMSetup.  
 
- **Desvantagens:**  
+ **Недостатки:**  
 
--   Sem automatização, portanto demorada.  
+-   Отсутствует автоматизация, поэтому требуется много времени.  
 
- Para mais informações sobre como instalar manualmente o cliente em cada plataforma, consulte o seguinte:  
+ Дополнительные сведения о ручной установке клиента на каждой из платформ см. в следующих статьях.  
 
--   [Como implementar clientes em computadores Windows no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
+-   [Развертывание клиентов на компьютерах Windows в System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
 
--   [Como implementar clientes em servidores UNIX e Linux no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md)  
+-   [Развертывание клиентов на серверах UNIX и Linux в System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md)  
 
--   [Como implementar clientes em Mac no System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
+-   [Развертывание клиентов на компьютерах Mac в System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  

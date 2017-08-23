@@ -1,6 +1,6 @@
 ---
-title: "Ponto de distribuição baseado na nuvem | Microsoft Docs"
-description: "Saiba mais sobre as configurações e limitações para utilizar um ponto de distribuição baseado na nuvem com o System Center Configuration Manager."
+title: "Облачная точка распространения | Документы Майкрософт"
+description: "Сведения о конфигурациях и ограничениях при использовании облачной точки распространения в System Center Configuration Manager."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -16,198 +16,198 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8caf3319d93b98680ed4a719a8db714c7e4e96ce
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-cloud-based-distribution-point-with-system-center-configuration-manager"></a>Utilizar um ponto de distribuição baseado na nuvem com o System Center Configuration Manager
+# <a name="use-a-cloud-based-distribution-point-with-system-center-configuration-manager"></a>Использование облачной точки распространения в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Um ponto de distribuição baseado na nuvem é um ponto de distribuição do System Center Configuration Manager que está alojado no Microsoft Azure. As informações que se seguem destinam-se a ajudá-lo a saber mais sobre as configurações e limitações da utilização de um ponto de distribuição baseado na nuvem.
+Облачная точка распространения — это точка распространения System Center Configuration Manager, размещенная в Microsoft Azure. Следующие сведения помогут вам получить представление о конфигурациях и ограничениях при использовании облачной точки распространения.
 
-Depois de instalar um site primário e estiver pronto para instalar um ponto de distribuição baseados na nuvem, consulte [instalar pontos de distribuição baseados na nuvem no Azure](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md).
-
-
-## <a name="plan-to-use-a-cloud-based-distribution-point"></a>Planear a utilização de um ponto de distribuição baseado na nuvem
-Quando utilizar um ponto de distribuição baseado na nuvem, pode:  
-
--   **Configurar definições de cliente** para permitir aos utilizadores e dispositivos aceder ao conteúdo.  
-
--   **Especifique um site primário para gerir a transferência de conteúdo** ao ponto de distribuição.  
-
--   **Especificar limiares** para a quantidade de conteúdo que pretende armazenar no ponto de distribuição e a quantidade de conteúdo que pretende permitir que os clientes transfiram a partir do ponto de distribuição.  
+После установки первичного сайта и подготовки к установке облачной службы распространения см. сведения в статье [Установка облачных точек распространения в Microsoft Azure для System Center Configuration Manager](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md).
 
 
-Com base nos limiares configuradas por si, o Configuration Manager pode emitir alertas para avisá-lo quando a quantidade de conteúdos mistos armazenada no ponto de distribuição estiver próxima da quantidade de armazenamento especificada, ou quando as transferências de dados de clientes se aproximam dos limiares que definiu.  
+## <a name="plan-to-use-a-cloud-based-distribution-point"></a>Планирование использования облачной точки распространения
+Если используется облачное распространение, вы:  
 
-Pontos de distribuição baseado na nuvem suportam várias funcionalidades que também são fornecidas por pontos de distribuição no local:  
+-   **настраиваете параметры клиента**, чтобы предоставить пользователям и устройствам доступ к содержимому;  
 
--   Gerir pontos de distribuição baseado na nuvem individualmente ou como membros da distribuição de grupos de pontos.  
+-   **указываете первичный сайт для управления передачей содержимого** в точку распространения;  
 
--   Pode utilizar um ponto de distribuição baseado na nuvem como uma localização de conteúdo de contingência.  
-
--   Receberá suporte tanto para clientes baseados na intranet como baseados na Internet.  
-
-
-Pontos de distribuição baseado na nuvem, forneça as seguintes vantagens adicionais:  
-
--   Conteúdo que é enviado para um ponto de distribuição baseado na nuvem é encriptado pelo Configuration Manager antes do Configuration Manager envia-o para o Azure.  
-
--   No Azure, pode dimensionar manualmente o serviço em nuvem para satisfazer os requisitos evolutivos para pedidos de conteúdo por clientes, sem necessidade de instalar e aprovisionar pontos de distribuição adicionais.  
-
--   O ponto de distribuição baseado na nuvem suporta a transferência de conteúdos por parte de clientes que estejam configurados para o Windows BranchCache.  
+-   **задаете пороговые значения** для объема содержимого, которое будет храниться в точке распространения, и объема содержимого, который клиенты должны быть в состоянии передать из точки распространения.  
 
 
-Um ponto de distribuição baseado na nuvem tem as seguintes limitações:  
+На основе этих настраиваемых пороговых значений Configuration Manager может создавать предупреждения о ситуациях, когда общий объем содержимого, сохраненного в точке распространения, приближается к указанному объему хранилища или когда объем данных, переданных клиентами, приближается к заданному пороговому значению.  
 
--  Antes de utilizar a versão 1610 com a correção KB4010155, não é possível utilizar um ponto de distribuição baseado na nuvem para alojar pacotes de atualização de software. Este problema seja resolvido a partir da versão 1702 e versões posteriores.  
+Облачные точки распространения поддерживают следующие возможности, также поддерживаемые локальными точками распространения:  
 
--   Não é possível utilizar um ponto de distribuição baseado na nuvem para implementações com capacidade multicast ou de PXE.  
+-   облачными точками распространения можно управлять как по отдельности, так и в качестве участников групп точек распространения;  
 
--   Os clientes não poderão utilizar um ponto de distribuição baseado na nuvem como uma localização de conteúdo para uma sequência de tarefas que é implementada através da opção de implementação **Transferir o conteúdo localmente quando necessário para a sequência de tarefas em execução**. No entanto, as sequências de tarefas que são implementadas utilizando a opção de implementação **Transferir todo o conteúdo localmente antes de iniciar a sequência de tarefas** podem utilizar um ponto de distribuição baseado na nuvem como uma localização válida de conteúdos.  
+-   облачную точку распространения можно использовать в качестве резервного расположения содержимого;  
 
--   Um ponto de distribuição baseado na nuvem não suporta pacotes que são executados a partir do ponto de distribuição. Todo o conteúdo tem de ser transferido pelo cliente e, em seguida, executar localmente.  
-
--   Um ponto de distribuição baseado na nuvem não suporta aplicações de transmissão em sequência através do Application Virtualization ou de programas similares.  
-
--   Um ponto de distribuição baseado na nuvem não suporta conteúdos pré-configurados. O Gestor de distribuição do site primário que gere as transferências de ponto de distribuição todo o conteúdo ao ponto de distribuição.  
-
--   Um ponto de distribuição baseado na nuvem não pode ser configurado como um ponto de distribuição de solicitação.  
-
-##  <a name="BKMK_PrereqsCloudDP"></a> Pré-requisitos de pontos de distribuição baseados na nuvem  
- Um ponto de distribuição baseado na nuvem necessita dos seguintes pré-requisitos para poder ser utilizado:  
-
--   Uma subscrição do Azure (consulte [acerca das subscrições e certificados](#BKMK_CloudDPCerts) neste tópico).
-
--   Um certificado de gestão auto-assinado ou pública infraestrutura de chaves (PKI) para comunicação entre um servidor de site primário do Configuration Manager e o serviço de nuvem do Azure (consulte [acerca das subscrições e certificados](#BKMK_CloudDPCerts) neste tópico).
-
--   Um certificado de serviço (PKI) que utilizam a clientes do Configuration Manager para ligar a pontos de distribuição baseado na nuvem e transferir conteúdos dos mesmos utilizando HTTPS.  
-
--  Tem de ter um dispositivo ou utilizador **pontos de permitir o acesso a distribuição de nuvem** definido como **Sim** no cliente de definição de **serviços Cloud** antes de um dispositivo ou utilizador aceder ao conteúdo de um ponto de distribuição baseados na nuvem. Por predefinição, este valor está definido como **Não**.  
-
--   Um cliente tem de conseguir resolver o nome do serviço de nuvem, o que requer um alias de sistema de nomes de domínio (DNS) e um registo CNAME no seu espaço de nomes DNS.  
-
--   Um cliente deve estar preparado para aceder à Internet para utilizar o ponto de distribuição baseado na nuvem.  
-
-##  <a name="BKMK_CloudDPCost"></a> Custo de utilização da distribuição baseada na nuvem  
- Quando utiliza um ponto de distribuição baseado na nuvem, planeie o custo de armazenamento de dados e transferências de transferência que efetuar a clientes do Configuration Manager.  
-
- O Configuration Manager inclui opções para ajudar a controlar os custos e monitorizar o acesso de dados:  
-
--   Pode controlar e monitorizar a quantidade de conteúdo que armazena num serviço em nuvem.  
-
--   Pode configurar o Configuration Manager para o alertar quando **limiares** para o cliente transfere cumprem ou excedem os limites mensais.  
-
--   Além disso, pode utilizar o ponto a ponto (BranchCache do Windows) a colocação em cache para ajudar a reduzir o número de transferências de dados de pontos de distribuição baseado na nuvem pelos clientes. Clientes do Configuration Manager que estão configurados para o BranchCache podem transferir conteúdo utilizando pontos de distribuição baseados na nuvem.  
+-   Вы получаете поддержку клиентов для интрасети и интернет-клиентов.  
 
 
-**Opções:**  
+Ниже описаны дополнительные преимущества, предоставляемые облачными точками распространения.  
 
--   **Definições de cliente para a nuvem**: Controlar o acesso a todos os pontos de distribuição baseado na nuvem de uma hierarquia utilizando **as definições de cliente**.  
+-   Содержимое, отправляемое в облачную точку распространения, шифруется с помощью Configuration Manager, а затем Configuration Manager отправляет его в Azure.  
 
-     Nas **Definições de Cliente**, a categoria **Definições de Nuvem** suporta a definição **Permitir acesso a pontos de distribuição de nuvem**. Por predefinição, esta definição encontra-se definida como **Não**. Pode ativar esta definição para utilizadores e dispositivos.  
+-   В Azure облачную службу можно масштабировать вручную, что позволяет удовлетворять меняющиеся потребности клиентов в содержимом без установки и инициализации дополнительных точек распространения.  
 
--   **Limiares para transferências de dados**: Pode configurar limiares para a quantidade de dados que pretende armazenar no ponto de distribuição e para a quantidade de dados transferidos pelos clientes a partir do ponto de distribuição.  
+-   Облачная точка распространения поддерживает загрузку содержимого клиентами, настроенными для использования Windows BranchCache.  
 
-     Os limiares para pontos de distribuição baseados em nuvem incluem:  
 
-    -   **Limiar de alerta de armazenamento**: Um limiar de alerta de armazenamento define um limite superior a quantidade de dados ou conteúdo que pretende armazenar no ponto de distribuição baseado na nuvem. O Configuration Manager pode gerar um alerta de aviso quando o espaço livre restante atinge o nível que especificar.  
+Облачная точка распространения имеет следующие ограничения.  
 
-    -   **Limiar de alerta de transferência**: Um limiar de alerta de transferência ajuda-o a monitorizar a quantidade de conteúdo que é transferido do ponto de distribuição a clientes durante um período de 30 dias. O limiar de alerta de transferência monitoriza a transferência de dados para 30 dias anteriores e pode emitir um alerta de aviso e um alerta crítico quando as transferências atingirem valores por si.  
+-  До выхода версии 1610 с исправлением KB4010155 использовать облачные точки распространения для предоставления удаленного доступа к пакетам обновления программного обеспечения было невозможно. В версии 1702 и более поздних версиях эта проблема решена.  
+
+-   Облачную точку распространения нельзя использовать для PXE или развертываний с поддержкой многоадресной рассылки.  
+
+-   Облачная точка распространения не будет предложена клиентам в качестве расположения содержимого для последовательности задач, которые развертываются с помощью параметра развертывания **Загружать содержимое локально, если это требуется для выполняющейся последовательности задач**. Однако последовательности задач, развернутые с использованием параметра **Загрузить все содержимое локально перед выполнением последовательности задач** , могут использовать облачную точку распространения как допустимое расположение содержимого.  
+
+-   Облачная точка распространения не поддерживает пакеты, запускаемые с точки распространения. Клиент должен скачать все содержимое, а затем запустить его локально.  
+
+-   Облачная точка распространения не поддерживает потоковую передачу приложений с помощью Application Virtualization или аналогичных программ.  
+
+-   Облачная точка распространения не поддерживает предварительную подготовку содержимого. Диспетчер распространения на основном сайте управляет передачей всего содержимого точки распространения на эту точку распространения.  
+
+-   Облачную точку распространения нельзя настроить в качестве точки распространения по запросу.  
+
+##  <a name="BKMK_PrereqsCloudDP"></a> Необходимые условия использования облачных точек распространения  
+ Для использования облачной точки распространения должны выполняться следующие необходимые условия.  
+
+-   Подписка в Azure. Дополнительные сведения см. в разделе [Сведения о подписках и сертификатах для облачных точек распространения](#BKMK_CloudDPCerts).
+
+-   Сертификат управления (самозаверяющий или инфраструктуры открытых ключей (PKI)) для обмена данными между сервером первичного сайта Configuration Manager и облачной службой в Azure. Дополнительные сведения см. в разделе [Сведения о подписках и сертификатах для облачных точек распространения](#BKMK_CloudDPCerts).
+
+-   Сертификат службы (PKI), используемый клиентами Configuration Manager для подключения к облачным точкам распространения и загрузке с них содержимого по HTTPS.  
+
+-  Чтобы устройство или пользователь могли получить доступ к содержимому в облачной точке распространения, в разделе **Облачные службы** для параметра **Allow Access to cloud distribution points** (Разрешить доступ к облачным точкам распространения) должно быть установлено значение **Да**. По умолчанию установлено значение **Нет**.  
+
+-   Клиент должен быть способен разрешить имя облачной службы, что требует наличия соответствующего DNS-псевдонима и записи CNAME в пространстве имен DNS.  
+
+-   Для использования облачной точки распространения клиент должен иметь доступ к Интернету.  
+
+##  <a name="BKMK_CloudDPCost"></a> Затраты на использование облачных точек распространения  
+ При использовании облачной точки распространения следует спланировать расходы на хранение данных и их передачу при скачивании, которое выполняют клиенты Configuration Manager.  
+
+ Configuration Manager включает в себя параметры для управления затратами и отслеживания доступа к данным:  
+
+-   Вы можете контролировать и отслеживать объем содержимого, хранящегося в облачной службе.  
+
+-   Вы можете настроить Configuration Manager на выдачу оповещения, когда **пороговые значения** скачивания для клиентов достигают месячного лимита или превышают его.  
+
+-   Кроме того, чтобы сократить количество совершаемых клиентами операций передачи данных из облачных точек распространения, вы можете использовать функцию однорангового кэширования (Windows BranchCache). Клиенты Configuration Manager, настроенные для использования BranchCache, могут передавать содержимое с помощью облачных точек распространения.  
+
+
+**Параметры**  
+
+-   **Параметры клиента для облака**. Вы управляете доступом ко всем облачным точкам распространения в иерархии с помощью **параметров клиента**.  
+
+     В разделе **Параметры клиента**представлена категория **Параметры облака** , которая поддерживает параметр **Разрешить доступ к облачным точкам распространения**. По умолчанию для него установлено значение **Нет**. Вы можете включить этот параметр для пользователей и устройств.  
+
+-   **Пороговые значения для передачи данных**. Вы можете настроить пороговые значения для объема данных, который нужно хранить в точке распространения, и для того объема данных, который клиенты скачивают из точки распространения.  
+
+     Для облачных точек распространения существуют следующие пороговые значения.  
+
+    -   **Порог оповещений хранилища**: задает верхний предел объема данных или содержимого, который должен храниться в облачной точке распространения. Вы можете настроить Configuration Manager для создания предупреждения, когда свободное место достигает заданного уровня порога оповещения.  
+
+    -   **Порог оповещений передачи**: это значение помогает отслеживать объем содержимого, передаваемый из точки распространения клиентам в течение 30 дней. Порог оповещений передачи отслеживает передачу данных за последние 30 дней и может создать оповещение и критическое оповещение, если объем переданных данных достигает заданного значения.  
 
         > [!IMPORTANT]  
-        >  O Configuration Manager monitoriza a transferência de dados, mas não a interromperá se a transferência de dados acima do limiar de alerta de transferência especificado.  
+        >  Configuration Manager отслеживает передачу данных, но не останавливает передачу после достижения указанного порога оповещений передачи.  
 
- Poderá especificar limiares para cada ponto de distribuição baseado em nuvem durante a instalação do ponto de distribuição ou editando as propriedades de cada ponto após a respetiva instalação.  
+ Можно задать пороговые значения для каждой облачной точки распространения в процессе установки точки распространения или же можно изменить свойства каждой облачной точки после их установки.  
 
--   **Alertas**: Pode configurar o Configuration Manager para emitir alertas sobre as transferências de dados de e para cada ponto de distribuição baseado na nuvem, com base nos limiares de transferência de dados que especificar. Estes alertas ajuda a monitorizar as transferências de dados e pode ajudar a decidir quando para parar o serviço em nuvem, ajuste o conteúdo que armazenar no ponto de distribuição ou modificar os clientes que podem utilizar a distribuição baseados na nuvem a apontar.  
+-   **Оповещения**. Можно настроить Configuration Manager таким образом, чтобы создавать оповещения о передаче данных в каждую облачную точку распространения и из нее на основе заданных пороговых значений передачи данных. Эти оповещения позволяют отслеживать передачу данных. С их помощью также можно определить время остановки облачной службы, изменить содержимое, которое хранится в точке распространения или настроить клиенты, которые могут использовать облачные точки распространения.  
 
-     Num ciclo horário, o site primário que monitoriza o ponto de distribuição baseados na nuvem transfere dados de transação do Azure e armazena-os em Clouddp-<nomedoserviço>.log -&lt;ServiceName\>. log no servidor do site. O Configuration Manager avalia então esta informação face dos armazenamento e transfere quotas para cada ponto de distribuição baseado na nuvem. Quando a transferência de dados atinge ou excede o volume especificado para avisos ou alertas críticos, o Configuration Manager gera o alerta adequado.  
+     В почасовом цикле первичный сайт, отслеживающий облачную точку распространения, скачивает данные транзакций из Azure и сохраняет их в журнале CloudDP-&lt;имя_службы\>.log на сервере сайта. Configuration Manager оценивает эти сведения в отношении квот хранилища и передачи для каждой облачной точки распространения. Если объем передаваемых данных достигает или превышает указанный объем для предупреждений или критических оповещений, Configuration Manager формирует соответствующее оповещение.  
 
     > [!WARNING]  
-    >  Como obter informações sobre as transferências de dados são transferidas a partir do Azure numa base horária, que a utilização de dados poderá exceder um limiar de aviso ou crítico, antes do Configuration Manager pode aceder aos dados e emitir um alerta.  
+    >  Так как информация о передаче данных скачивается из Azure каждый час, объем данных может превысить порог предупреждения или критического оповещения, прежде чем Configuration Manager сможет получить доступ к данным и вызывать оповещение.  
 
     > [!NOTE]  
-    >  Alertas para um ponto de distribuição baseado na nuvem dependem das estatísticas de utilização do Azure, o que pode demorar até 24 horas a ficar disponível. Para obter informações sobre a análise de armazenamento do Azure, incluindo a frequência das atualizações do Azure estatísticas de utilização, consulte [análise de armazenamento](http://go.microsoft.com/fwlink/p/?LinkID=275111) na biblioteca da MSDN.  
+    >  Оповещения для облачной точки распространения зависят от статистики использования, полученной от Azure, и для их появления может потребоваться до 24 часов. Дополнительные сведения об аналитике хранилища для Azure, в том числе информацию о частоте обновлений статистики использования Azure, см. в статье [Storage Analytics](http://go.microsoft.com/fwlink/p/?LinkID=275111) (Аналитика хранилища) в библиотеке MSDN.  
 
 
--   **Parar ou iniciar o serviço em nuvem a pedido**: Pode utilizar a opção para parar um serviço em nuvem em qualquer altura para impedir que os clientes utilizando o serviço continuamente. Quando para o serviço em nuvem, impede de imediato que os clientes transfiram conteúdo adicional a partir do mesmo. Também poderá reiniciar o serviço em nuvem para restaurar o acesso dos clientes. Por exemplo, poderá querer parar um serviço em nuvem quando os limiares de dados forem atingidos.  
+-   **Остановка или запуск облачной службы по требованию**. Вы можете использовать параметр для остановки облачной службы в любое время, чтобы заблокировать ее использование для клиентов. При остановке облачной службы вы немедленно запрещаете клиентам загружать дополнительное содержимое из службы. Кроме того, вы можете перезапустить облачную службу, чтобы восстановить доступ клиентов. Например, вам может понадобиться остановить облачную службу при достижении пороговых значений передачи данных.  
 
-     Quando para um serviço em nuvem, o serviço não elimina o conteúdo do ponto de distribuição nem impede o servidor do site de transferir conteúdo adicional para o ponto de distribuição baseado em nuvem.  
+     При остановке облачной службы содержимое не удаляется из точки распространения и не запрещает серверу сайта передавать дополнительное содержимое в облачную точку распространения.  
 
-     Para parar um serviço em nuvem, na consola do Configuration Manager, selecione o ponto de distribuição no **pontos de distribuição de nuvem** nó **serviços em nuvem**, no **administração** área de trabalho. Em seguida, escolha **parar serviço** para parar o serviço em nuvem executado no Azure.  
+     Чтобы остановить облачную службу, в консоли Configuration Manager выберите точку распространения в узле **Облачные точки распространения** в разделе **Облачные службы** рабочей области **Администрирование**. Затем нажмите кнопку **Остановить службу**, чтобы остановить облачную службу, которая работает в Azure.  
 
-##  <a name="BKMK_CloudDPCerts"></a> Acerca das subscrições e certificados de pontos de distribuição baseados na nuvem  
- Pontos de distribuição baseado na nuvem necessitam de certificados para permitir o Configuration Manager para gerir o serviço em nuvem que aloja o ponto de distribuição bem como os clientes de acesso a conteúdo de distribuição ponto. As seguintes informações fornecem uma descrição geral sobre estes certificados. Para obter informações mais detalhadas, veja [Requisitos de certificado PKI para o System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+##  <a name="BKMK_CloudDPCerts"></a> Сведения о подписках и сертификатах для облачных точек распространения  
+ Облачным точкам распространения требуются сертификаты для того, чтобы разрешить Configuration Manager управление облачной службой, на которой размещена точка распространения, а также для разрешения доступа клиентов к содержимому на точке распространения. Ниже приведены общие сведения об этих сертификатах. Более подробные сведения см. в статье [Требования к PKI-сертификатам для System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- **Certificados**  
+ **Сертификаты**  
 
--   **Certificado de gestão para o servidor de site para comunicação de ponto de distribuição**: O certificado de gestão estabelece a fidedignidade entre a API de gestão do Azure e o Configuration Manager. Esta autenticação permite ao Gestor de configuração para chamar a API do Azure, quando efetua tarefas, tais como a implementação de conteúdo ou a iniciar e parar o serviço em nuvem. Ao utilizar o Azure, pode criar os seus próprios certificados de gestão, que podem ser certificados autoassinados ou certificados emitidos por uma autoridade de certificação (AC):  
+-   **Сертификат управления для обмена данными между сервером сайта и точкой распространения**. Сертификат управления позволяет установить отношения доверия между API управления Azure и Configuration Manager. Эта проверка подлинности позволяет Configuration Manager вызывать API Azure, когда вы выполняете такие задачи, как развертывание содержимого или запуск и остановка облачной службы. Azure позволяет клиентам создавать собственные сертификаты управления, которые могут быть либо самозаверяющими, либо выданными центром сертификации (ЦС).  
 
-    -   Disponibilize o ficheiro. cer do certificado de gestão para o Azure quando configurar o Azure para o Configuration Manager. O ficheiro .cer contém a chave pública do certificado de gestão. Tem de carregar este certificado para o Azure antes de instalar um ponto de distribuição baseado na nuvem. Este certificado permite ao Gestor de configuração para aceder à API do Azure.  
+    -   При настройке Azure для Configuration Manager предоставьте Azure CER-файл сертификата управления. CER-файл содержит открытый ключ сертификата управления. Этот сертификат необходимо загрузить в Azure до установки облачной точки распространения. Он позволяет Configuration Manager получить доступ к API Azure.  
 
-    -   Forneça o ficheiro. pfx do certificado de gestão para o Configuration Manager quando instala o ponto de distribuição baseado na nuvem. O ficheiro .pfx contém a chave privada para o certificado de gestão. O Configuration Manager armazena este certificado na base de dados do site. Dado que o ficheiro. pfx contém a chave privada, tem de fornecer a palavra-passe para importar este ficheiro de certificado para a base de dados do Configuration Manager.  
+    -   Предоставьте PFX-файл сертификата управления для Configuration Manager при установке точки распространения на основе облака. PFX-файл содержит закрытый ключ сертификата управления. Configuration Manager сохраняет этот сертификат в базе данных сайта. Поскольку PFX-файл содержит закрытый ключ, необходимо указать пароль для импорта файла сертификата в базу данных Configuration Manager.  
 
-    Se criar um certificado autoassinado, tem de exportar primeiro o certificado como um ficheiro. cer e, em seguida, exportá-lo novamente como um ficheiro. pfx.  
+    Если вы создаете самозаверяющий сертификат, сначала необходимо экспортировать сертификат как CER-файл, а затем снова экспортировать его как PFX-файл.  
 
-    Opcionalmente, pode especificar uma versão de um **. publishsettings** ficheiro a partir do Azure SDK 1.7. Para obter informações sobre os ficheiros. publishsettings, consulte a documentação do Azure.  
+    Дополнительно можно указать первую версию **PUBLISHSETTINGS-файла** из пакета SDK 1.7 Azure. Дополнительные сведения о PUBLISHSETTINGS-файлах см. в документации по Azure.  
 
-    Para obter mais informações, consulte [como criar um certificado de gestão](http://go.microsoft.com/fwlink/p/?LinkId=220281) e [como adicionar um certificado de gestão a uma subscrição do Azure](http://go.microsoft.com/fwlink/p/?LinkId=241722) na secção plataforma do Azure da biblioteca MSDN.  
+    Дополнительные сведения см. в статьях [Общие сведения о сертификатах для облачных служб Azure](http://go.microsoft.com/fwlink/p/?LinkId=220281) и [How to add a management certificate to an Azure subscription](http://go.microsoft.com/fwlink/p/?LinkId=241722) (Как добавить сертификат управления в подписку Azure) в разделе "Платформа Azure" библиотеки MSDN.  
 
--   **Certificado de serviço para a comunicação de cliente para o ponto de distribuição**: O certificado de serviço do ponto de distribuição baseados na nuvem do Configuration Manager estabelece a fidedignidade entre os clientes do Configuration Manager e o ponto de distribuição baseado na nuvem e protege os dados transferidos pelos clientes a partir da mesma, utilizando Secure Socket Layer (SSL) através de HTTPS.  
+-   **Сертификат службы для подключения клиента к точке распространения**. Сертификат службы облачной точки распространения Configuration Manager устанавливает отношения доверия между клиентами Configuration Manager и облачной точкой распространения, а также обеспечивает защиту данных, которые клиенты скачивают с нее по протоколу SSL через HTTPS.  
 
     > [!IMPORTANT]  
-    >  O nome comum localizado na caixa de assunto do certificado correspondente ao certificado de serviço tem de ser exclusivo no seu domínio e não pode corresponder a qualquer dispositivo associado ao domínio.  
+    >  Общее имя в поле субъекта сертификата для сертификата службы должно быть уникальным в домене и не должно совпадать с именем какого-либо присоединенного к домену устройства.  
 
-   Para um exemplo de implementação deste certificado, consulte a secção **implementar o certificado de serviço para pontos de distribuição baseado na nuvem** no tópico [exemplo passo a passo de implementação da PKI certificados para o System Center Configuration Manager: Autoridade de certificação do Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+   Пример развертывания этого сертификата см. в разделе **Развертывание сертификатов служб для облачных точек распространения** статьи [Пример пошагового развертывания PKI-сертификатов для System Center Configuration Manager: центр сертификации Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="bkmk_Tasks"></a> Tarefas de gestão comuns para pontos de distribuição baseados na nuvem  
+##  <a name="bkmk_Tasks"></a> Типовые задачи управления для облачных точек распространения  
 
--   **Servidor do site para comunicação de ponto de distribuição baseados na nuvem**: Quando instala um ponto de distribuição baseado na nuvem, tem de atribuir um site primário para gerir a transferência de conteúdo para o serviço em nuvem. Esta ação equivale a instalar a função de sistema de sites de ponto de distribuição num site específico.  
+-   **Сервер сайта для обмена данными между облачными точками распространения**. При установке облачной точки распространения необходимо назначить один первичный сайт для управления передачей содержимого в облачную службу. Это действие эквивалентно установке роли системы сайта точки распространения на определенном сайте.  
 
--   **Cliente para comunicação de ponto de distribuição baseados na nuvem**: Quando um dispositivo ou utilizador de um dispositivo está configurado com a definição de cliente que permitem a utilização de um ponto de distribuição baseados na nuvem, o dispositivo pode receber o ponto de distribuição baseado na nuvem como uma localização válida de conteúdos:  
+-   **Обмен данными между клиентом и облачной точкой распространения**. Когда для устройства или его пользователя настроен параметр клиента, позволяющий использовать облачную точку распространения, устройство может использовать ее как допустимое расположение содержимого.  
 
-    -   O ponto de distribuição baseado na nuvem é considerado um ponto de distribuição remoto quando um cliente avalia as localizações de conteúdos disponíveis.  
+    -   Облачная точка распространения считается удаленной, когда клиент оценивает местонахождения содержимого.  
 
-    -   Os clientes na intranet apenas utilizam pontos de distribuição baseado na nuvem como uma opção de contingência se pontos de distribuição no local não estão disponíveis.  
+    -   Клиенты в интрасети могут использовать облачные точки распространения только в качестве резервных, если недоступны локальные точки распространения.  
 
-    Apesar de os instalar pontos de distribuição baseado na nuvem em regiões específicas do Azure, os clientes que utilizam pontos de distribuição baseado na nuvem não têm conhecimento das regiões do Azure e selecionam não determinística um ponto de distribuição em nuvem com base.
+    Несмотря на то что облачные точки распространения устанавливаются в определенных регионах Azure, эти регионы неизвестны клиентам, использующим облачные точки распространения, и они выбирают облачную точку распространения непреднамеренно.
 
-Isto significa que se instalar pontos de distribuição baseado na nuvem em várias regiões e um cliente recebe vários pontos de distribuição baseado na nuvem como localizações de conteúdo, o cliente poderá não utilizar um ponto de distribuição baseado na nuvem na mesma região do Azure que o cliente.  
+Это означает, что если облачные точки распространения установлены в нескольких регионах и клиент использует в качестве расположений содержимого разные облачные точки распространения, он может не использовать облачную точку распространения из того региона Azure, в котором он находится.  
 
-Os clientes que utilizam pontos de distribuição baseados na nuvem utilizam a seguinte sequência para pedidos de localização de conteúdo:  
+Клиенты, использующие облачные точки распространения, используют следующую последовательность при запросах местоположения содержимого:  
 
-1.  Um cliente que esteja configurado para utilizar pontos de distribuição baseados na nuvem tenta sempre obter primeiro os conteúdos a partir de um ponto de distribuição preferencial.  
+1.  Клиент, для которого настроено использование облачных точек распространения, сначала всегда пытается получить содержимое из предпочтительной точки распространения.  
 
-2.  Quando um ponto de distribuição preferencial não estiver disponível, o cliente utiliza um ponto de distribuição remoto, se a implementação suporte esta opção e se está disponível um ponto de distribuição remoto.  
+2.  Когда предпочтительная точка распространения недоступна, клиент использует удаленную точку распространения, если развертывание ее поддерживает и если она доступна.  
 
-3.  Quando um ponto de distribuição preferencial ou ponto de distribuição remoto não estiverem disponíveis, o cliente pode reverter para obter os conteúdos a partir de um ponto de distribuição baseado na nuvem.  
+3.  Когда предпочтительная точка распространения или удаленная точка распространения недоступна, клиент может получить контент из облачной точки распространения.  
 
 
 
-  Quando um cliente utiliza um ponto de distribuição baseado na nuvem como uma localização de conteúdos, autentica-se ao ponto de distribuição baseado na nuvem utilizando um token de acesso do Configuration Manager. Se o cliente considerar o certificado de ponto de distribuição baseado na nuvem do Configuration Manager, o cliente, em seguida, pode transferir os conteúdos solicitados.  
+  Если клиент использует облачную точку распространения как расположение контента, он проходит проверку подлинности в облачной точке распространения с помощью маркера доступа Configuration Manager. Если клиент доверяет сертификату облачной точки распространения Configuration Manager, он может затем загрузить требуемый контент.  
 
--   **Monitorizar pontos de distribuição baseado na nuvem**: Pode monitorizar o conteúdo que implementa em cada ponto de distribuição baseados na nuvem, e pode monitorizar o serviço em nuvem que aloja o ponto de distribuição.  
+-   **Мониторинг облачных точек распространения**. Вы можете отслеживать содержимое, которое развертывается в каждой точке распространения, а также отслеживать облачную службу, в которой размещается точка распространения.  
 
-    -   **Conteúdo**: Monitorizar o conteúdo que implementa para um ponto de distribuição baseado na nuvem da mesma forma que fazer quando implementar o conteúdo para pontos de distribuição no local.  
+    -   **Содержимое**. Содержимое, развертываемое в облачной точке распространения, отслеживается точно так же, как содержимое, развернутое в локальных точках распространения.  
 
-    -   **O serviço em nuvem**: Periodicamente, o Configuration Manager verifica o serviço do Azure e gera um alerta se o serviço não estiver ativo ou se existirem problemas com subscrições ou certificados. Também pode ver detalhes sobre o ponto de distribuição no **pontos de distribuição de nuvem** nó **serviços em nuvem** no **administração** área de trabalho da consola do Configuration Manager. Nesta localização, pode ver informações de alto nível sobre o ponto de distribuição. Pode também selecionar um ponto de distribuição e, em seguida, edite as respetivas propriedades.  
+    -   **Облачная служба**. Configuration Manager периодически проверяет службу Azure и создает оповещение, если эта служба неактивна или возникли проблемы с сертификатом или подпиской. Вы также можете просмотреть сведения о точке распространения в узле **Облачные точки распространения** в разделе **Облачные службы** в рабочей области **Администрирование** консоли Configuration Manager. Из этого расположения вы можете просмотреть подробные сведения о точке распространения. Вы также можете выбрать точку распространения, а затем изменить ее свойства.  
 
-    Quando edita as propriedades de um ponto de distribuição baseado na nuvem, pode:  
+    При изменении свойств облачной точки распространения вы можете выполнять следующие задачи.  
 
-    -   Ajuste os limiares de dados de armazenamento e alertas.  
+    -   Настроить пороговые значения данных для хранилища и оповещений.  
 
-    -   Gerir o conteúdo como que faria para uma local no ponto de distribuição.  
+    -   Управлять содержимым по аналогии с локальной точкой распространения.  
 
-    Finalmente, para cada ponto de distribuição baseado em nuvem poderá visualizar, mas não editar, o ID de subscrição, nome do serviço e outros detalhes relacionados especificados ao instalar o ponto de distribuição baseado em nuvem.  
+    Наконец, для каждой облачной точки распространения можно просматривать, но не изменять, код подписки, имя службы и другие связанные сведения, указанные при установке облачной точки распространения.  
 
--   **Cópia de segurança e recuperação para pontos de distribuição baseado na nuvem**: Quando utiliza um ponto de distribuição baseado na nuvem na hierarquia, utilize as seguintes informações para ajudar a planear a cópia de segurança ou recuperação do ponto de distribuição:  
+-   **Резервное копирование и восстановление облачных точек распространения**. При использовании облачной точки распространения в иерархии следующая информация поможет вам спланировать архивацию или восстановление точки распространения.  
 
-    -   Quando utiliza o predefinidas **cópia de segurança do servidor do Site** tarefa de manutenção, o Configuration Manager inclui automaticamente as configurações do ponto de distribuição baseado na nuvem.  
+    -   При использовании предопределенной задачи обслуживания **Резервное копирование сервера сайта** Configuration Manager автоматически использует настройки для облачной точки распространения.  
 
-    -   É recomendável fazer uma cópia de segurança e guarde uma cópia do certificado de gestão e do certificado de serviço que estão a ser utilizados com um ponto de distribuição baseado na nuvem. Se restaurar o site primário do Configuration Manager que gere o ponto de distribuição baseados na nuvem para um computador diferente, deve voltar a importar os certificados antes de poder continuar a utilizá-los.  
+    -   Мы рекомендуем выполнить резервное копирование и сохранить копию сертификата управления и сертификата службы, которые используются в облачной точке распространения. В случае восстановления первичного сайта Configuration Manager, который управляет облачной точкой распространения, на другой компьютер необходимо повторно импортировать сертификаты, чтобы продолжить их использование.  
 
--   **Desinstalar um ponto de distribuição baseados na nuvem** : Para desinstalar um ponto de distribuição baseados na nuvem, selecione o ponto de distribuição na consola do Configuration Manager e, em seguida, selecione **eliminar**.  
+-   **Удаление облачной точки распространения**. Чтобы удалить облачную точку распространения, выберите эту точку в консоли Configuration Manager и нажмите кнопку **Удалить**.  
 
-    Quando eliminar um ponto de distribuição baseado na nuvem de uma hierarquia, o Gestor de configuração remove o conteúdo do serviço em nuvem no Azure.  
+    При удалении облачной точки распространения из иерархии Configuration Manager удаляет содержимое из облачной службы в Azure.  

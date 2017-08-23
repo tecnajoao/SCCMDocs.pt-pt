@@ -1,6 +1,6 @@
 ---
-title: "Configurar classificações e produtos para sincronizar | Microsoft Docs"
-description: "Siga estes passos para configurar classificações e produtos para sincronizar na consola do Configuration Manager."
+title: "Настройка классов и продуктов для синхронизации | Документы Майкрософт"
+description: "Выполните следующие действия по настройке классификаций и продуктов для синхронизации в консоли Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,58 +13,58 @@ ms.technology: configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
 ms.openlocfilehash: 2da61e6e06850b36543b9fd41bd9a7d2368006fb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="configure-classifications-and-products-to-synchronize"></a>Configurar classificações e produtos a sincronizar  
+#  <a name="configure-classifications-and-products-to-synchronize"></a>Настройка классификаций и продуктов для синхронизации  
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
 > [!NOTE]  
->  Utilize o procedimento desta secção apenas no site de nível superior.  
+>  Используйте процедуру из этого раздела только на сайте верхнего уровня.  
 
- Os metadados de atualizações de software são obtidos durante o processo de sincronização no Configuration Manager com base nas definições que especificou nas propriedades do componente de ponto de atualização de Software. Depois de sincronizar as atualizações de software pela primeira vez, ou quando são lançadas novos produtos e classificações, tem de ir para as propriedades para selecionar os itens de novo. Utilize o seguinte procedimento para configurar classificações e produtos a sincronizar.  
+ Метаданные обновлений программного обеспечения извлекаются во время процесса синхронизации в Configuration Manager на основе параметров, указанных в свойствах компонента "Точка обновления программного обеспечения". После первой синхронизации обновлений программного обеспечения или при выпуске новых продуктов и классификаций необходимо открыть окно свойств и выбрать новые элементы. Выполните следующую процедуру по настройке классификаций и продуктов для синхронизации  
 
-#### <a name="to-configure-classifications-and-products-to-synchronize"></a>Para configurar classificações e produtos a sincronizar  
+#### <a name="to-configure-classifications-and-products-to-synchronize"></a>Настройка классификаций и продуктов для синхронизации  
 
-1.  No **do Configuration Manager** consola, navegue para **administração** > **configuração do Site** > **Sites**.
+1.  В консоли **Configuration Manager** последовательно выберите **Администрирование** > **Конфигурация сайта** > **Сайты**.
 
-2. Selecione o site de administração central ou site primário autónomo.  
+2. Выберите сайт центра администрирования или автономный первичный сайт.  
 
-3.  No separador **Home Page** , no grupo **Definições** , clique em **Configurar Componentes do Site**e clique em **Ponto de Atualização de Software**.
+3.  На вкладке **Главная** в группе **Параметры** выберите **Настройка компонентов сайта**, а затем щелкните **Точка обновления программного обеспечения**.
 
-4.  No separador **Classificações** , especifique as classificações de atualização de software para as quais quer sincronizar atualizações de software.  
+4.  На вкладке **Классификации** укажите классификации обновления программного обеспечения, для которых требуется синхронизировать обновления программного обеспечения.  
 
     > [!NOTE]  
-    >  Cada atualização de software é definida com uma classificação de atualização que ajuda a organizar os diferentes tipos de atualizações. Durante o processo de sincronização, serão sincronizados os metadados de atualizações de software para as classificações especificadas. O Configuration Manager fornece a capacidade para sincronizar atualizações de software com as seguintes classificações de atualização:  
+    >  Каждое обновление программного обеспечения определяется с помощью классификации обновления, позволяющей упорядочить различные типы обновлений. В процессе синхронизации происходит синхронизация метаданных обновлений ПО для указанных классификаций. Configuration Manager позволяет выполнять синхронизацию обновлений ПО для следующих классификаций.  
     >   
-    > - **Atualizações críticas**: Especifica uma atualização amplamente lançada para um problema específico que corrige um crítico não relacionado com segurança.  
-    > - **As atualizações de definições**: Especifica uma atualização para vírus ou outros ficheiros de definição.  
-    > - **Pacotes de funcionalidades**: Especifica as novas funcionalidades do produto que são distribuídas fora de uma versão de produto e que normalmente estão incluídas na próxima versão completa do produto.  
-    > - **Atualizações de segurança**: Especifica uma atualização amplamente lançada para um problema específico do produto, relacionadas com segurança.  
-    > - **Service Packs**: Especifica um conjunto cumulativo de correções que são aplicadas a uma aplicação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações de software e assim sucessivamente.  
-    > - **Ferramentas**: Especifica um utilitário ou funcionalidade que ajuda a efetuar uma ou mais tarefas.  
-    > - **Update Rollups**: Especifica um conjunto cumulativo de correções que são agrupadas para facilitar a implementação. Estas correções podem incluir atualizações de segurança, atualizações críticas, atualizações e assim sucessivamente. Um rollup de atualizações resolve geralmente uma área específica, tal como segurança ou um componente de produto.  
-    > - **Atualizações**: Especifica uma atualização para uma aplicação ou um ficheiro que está atualmente instalado.  
-    > - **Atualizar**: Especifica uma atualização para Windows 10 e funcionalidades. Os pontos de atualização de software e os sites têm de executar um mínimo de WSUS 4.0 com a [correção 3095113](https://support.microsoft.com/kb/3095113) para obter o **atualizar** classificação.    
+    > - **Критические обновления**. Указывает широкодоступное обновление для решения конкретной проблемы и устранения критической ошибки, не относящейся к системе безопасности.  
+    > - **Обновления определений**. Указывает обновление для файлов определений вирусов или других файлов определений.  
+    > - **Пакеты дополнительных компонентов**. Указывает новые компоненты продуктов, распространяемые вне рамок выпуска продукта и обычно входящие в следующий полный выпуск продукта.  
+    > - **Обновления для системы безопасности**. Указывает широкодоступное обновление для решения проблемы, связанной с системой безопасности конкретного продукта.  
+    > - **Пакеты обновления**. Указывает накопительный набор исправлений, применяемых к приложению. К таким исправлениям могут относиться обновления для системы безопасности, критические и обычные обновления ПО и т. д.  
+    > - **Средства**. Служебная программа или компонент для выполнения одной или нескольких задач.  
+    > - **Накопительные пакеты обновления**. Указывает набор исправлений, объединенных в один пакет для более удобного развертывания. К таким исправлениям могут относиться обновления для системы безопасности, критические и обычные обновления и пр. Накопительный пакет обновления обычно предназначен для определенной области, например, безопасности, или для определенного компонента продукта.  
+    > - **Обновления**. Указывает обновление для уже установленного приложения или файла.  
+    > - **Обновление**. Указывает установку новых версий компонентов и функций Windows 10. На точках обновления программного обеспечения и сайтах необходимо запустить службы WSUS 4.0 с [исправлением 3095113](https://support.microsoft.com/kb/3095113), чтобы получить классификацию **Обновление**.    
     >       
 
     > [!NOTE]    
-    > A partir do Configuration Manager versão 1706, também pode selecionar o **incluem o Microsoft Surface controladores e as atualizações de firmware** caixa de verificação para sincronizar controladores Microsoft Surface. Todos os pontos de atualização de software tem de executar para sincronizar com êxito a superfície controladores do Windows Server 2016.     
+    > Начиная с версии 1706 Configuration Manager можно также установить флажок **Включить драйверы и обновления встроенного ПО Microsoft Surface**, чтобы синхронизировать драйверы Microsoft Surface. Для успешной синхронизации драйверов Surface на всех точках обновления программного обеспечения должна работать ОС Windows Server 2016.     
     >    
-    > Esta é uma funcionalidade de pré-lançamento. As funcionalidades de pré-lançamento estão incluídas no produto para um teste antecipado num ambiente de produção, mas devem não ser consideradas prontas para produção. Tem de ativar esta funcionalidade para que fique disponível. Para obter mais informações, veja [Utilizar as funcionalidades da versão de pré-lançamento de atualizações](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
+    > Эта функция предварительной версии. Функции предварительной версии включены в продукт для раннего тестирования в рабочей среде, но не следует считать их готовыми к работе. Чтобы эти функции были доступны, необходимо включить их. Дополнительные сведения см. в разделе [Использование функций предварительной версии из обновлений](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
-5.  No separador **Produtos** , especifique os produtos para os quais quer sincronizar atualizações de software e, em seguida, clique em **Fechar**.  
+5.  На вкладке **Продукты** укажите продукты, для которых нужно синхронизировать обновления ПО, затем нажмите кнопку **Закрыть**.  
 
     > [!NOTE]  
-    >  Os metadados para cada atualização de software definem os produtos para os quais a atualização é aplicável. Um produto é uma edição específica de um sistema operativo ou aplicação, como o Windows Server 2012. Uma família de produtos é o sistema operativo base ou a aplicação a partir da qual derivam os produtos individuais. Um exemplo de uma família de produtos é o Windows, do qual o Windows Server 2012 é membro. Pode especificar uma família de produtos ou produtos individuais dentro de uma família de produtos. Quantos mais produtos selecionar, mais tempo demorará para sincronizar atualizações de software.  
+    >  Метаданные каждого обновления ПО определяют, к каким продуктам применимо это обновление. Продукт представляет собой определенную версию операционной системы или приложения, например Windows Server 2012. Семейство продуктов представляет собой базовую операционную систему или приложение, от которых происходят отдельные продукты. Например, Windows — это семейство продуктов, членом которого является Windows Server 2012. Можно указать семейство продуктов или отдельные продукты в составе семейства. Чем больше выбрано продуктов, тем дольше будет выполняться синхронизация обновлений ПО.  
     >   
-    >  Quando as atualizações de software sejam aplicam a vários produtos e pelo menos um dos produtos foi selecionado para sincronização, todos os produtos aparecerão na consola do Configuration Manager, mesmo se alguns produtos não foram selecionados. Por exemplo, se o Windows Server 2012 for o único sistema operativo que selecionou, e se uma atualização de software se aplicar ao Windows 8 e Windows Server 2012, ambos os produtos serão apresentados na consola do Configuration Manager.  
+    >  Если обновления ПО применимы к нескольким продуктам и хотя бы один из этих продуктов выбран для синхронизации, то все эти продукты будут показаны в консоли Configuration Manager, даже если некоторые из них не были выбраны. Например, если выбрана только операционная система Windows Server 2012, а обновление применимо к Windows 8 и Windows Server 2012, то оба этих продукта будут показаны в консоли Configuration Manager.  
 
     > [!IMPORTANT]  
-    >  O Configuration Manager armazena uma lista de produtos e famílias de produtos a partir dos quais pode escolher quando instalar pela primeira vez o software de um ponto de atualização. Produtos e famílias de produtos que são lançadas depois do Configuration Manager ser lançado poderão não estar disponíveis para seleção até concluir a sincronização de atualizações de software, que atualiza a lista de produtos disponíveis e famílias de produtos a partir da qual pode escolher.  
+    >  Configuration Manager сохраняет список продуктов и семейств продуктов, которые можно выбрать при первой установке точки обновления ПО. Продукты и семейства продуктов, выпущенные после выпуска Configuration Manager, могут быть недоступны для выбора до завершения синхронизации обновлений ПО. При синхронизации обновляется список доступных для выбора продуктов и семейств продуктов.  
 
-## <a name="next-steps"></a>Passos seguintes
-Inicie a sincronização de atualizações de software para obter atualizações de software com base nos critérios de novo. Para obter mais informações, consulte [sincronizar atualizações de software](synchronize-software-updates.md).
+## <a name="next-steps"></a>Дальнейшие действия
+Запуск синхронизации обновлений программного обеспечения для получения обновлений ПО на основе новых условий. Дополнительные сведения см. в статье [Синхронизация обновлений программного обеспечения](synchronize-software-updates.md).

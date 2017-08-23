@@ -1,6 +1,6 @@
 ---
-title: "Criar condições globais | Microsoft Docs"
-description: "Crie condições globais para especificar como uma aplicação é fornecida e implementada em dispositivos cliente."
+title: "Создание глобальных условий | Документы Майкрософт"
+description: "Создайте глобальные условия, чтобы определить способ предоставления и развертывания приложения на клиентских устройствах."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,198 +17,198 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 8a59a1769eec4cd6d78d7686a1d8008e832dd924
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-global-conditions-in-system-center-configuration-manager"></a>Como criar condições globais no System Center Configuration Manager
+# <a name="how-to-create-global-conditions-in-system-center-configuration-manager"></a>Создание глобальных условий в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-No System Center Configuration Manager, as condições globais são regras que representam condições comerciais ou técnicas que pode utilizar para especificar como uma aplicação é fornecida e implementada em dispositivos cliente. O acesso às condições globais é efetuado na página **Requisitos** do Assistente para Criar Tipo de Implementação.  
+Глобальные условия в System Center Configuration Manager — это правила, отражающие деловые или технические условия, с помощью которых можно указывать, каким образом приложение предоставляется клиентским устройствам и как выполняется его развертывание. Глобальные условия отображаются на странице **Требования** мастера создания типа развертывания.  
 
 > [!NOTE]  
->  Pode editar condições globais apenas a partir do site onde foram criados.  
+>  Изменить глобальные условия можно только с того сайта, на котором они были созданы.  
 
- Utilize os procedimentos seguintes para criar condições globais do Configuration Manager.  
+ Используйте приведенные ниже процедуры для создания глобальных условий Configuration Manager.  
 
-## <a name="provide-basic-information-about-the-global-condition"></a>Fornecer informações básicas sobre a condição global  
- Existem vários tipos diferentes de condições globais. Aos diferentes tipos de condições globais estão associadas opções diferentes. Quando seleciona um tipo de condição global específico, o Configuration Manager mostra as opções que se aplicam à seleção.  
+## <a name="provide-basic-information-about-the-global-condition"></a>Предоставление основных сведений о глобальном условии  
+ Доступны различные типы глобальных условий. С различными типами глобальных условий связаны различные параметры. При выборе определенного типа глобального условия Configuration Manager отображает параметры, которые будут применяться к выбранному объекту.  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **condições globais**.  
+1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Глобальные условия**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar condição Global**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать глобальное условие**.  
 
-4.  Na caixa de diálogo **Criar Condição Global** , forneça um nome e uma descrição opcional para a condição global.  
+4.  В диалоговом окне **Создание глобального условия** введите имя и дополнительное описание глобального условия.  
 
-5.  No **tipo de dispositivo** pendente lista, escolha se a condição global é de um **Windows** computador ou um **Windows Mobile** dispositivo.  
+5.  В раскрывающемся списке **Тип устройства** выберите глобальное условие для компьютера с **Windows** или устройства **Windows Mobile**.  
 
-6.  Na lista pendente **Tipo de Condição** , escolha uma das seguintes opções:  
+6.  В раскрывающемся списке **Тип условия** выберите одно из следующих значений.  
 
-    -   **Definição** – esta opção verifica a existência de um ou mais itens em dispositivos cliente. Por exemplo, pode verificar se um valor de chave de ficheiro, pasta ou de registo existe num dispositivo cliente.  
+    -   **Параметр** . Проверяет существование одного или нескольких элементов на клиентских устройствах. Например, можно проверить, существует ли на клиентском устройстве определенный файл, папка или раздел реестра.  
 
-    -   **Expressão** – esta opção permite-lhe configurar regras mais complexas para verificar se a condição é satisfeita em dispositivos cliente. Por exemplo, pode verificar se a memória física de um computador é entre 2 GB e 4 GB ou se um dispositivo móvel utiliza introdução por ecrã tátil.  
+    -   **Выражение**. Позволяет задавать более сложные правила, проверяющие выполнение условий на клиентских устройствах. Например, можно проверить, составляет ли объем физической памяти компьютера от 2 до 4 ГБ или оснащено ли мобильное устройство сенсорным экраном.  
 
-## <a name="set-up-rules-for-the-global-condition"></a>Configurar regras para a condição global  
- O procedimento para definir as regras da condição global é diferente consoante esteja a configurar uma definição ou uma expressão. Utilize o procedimento aplicável aqui para configurar uma definição ou uma expressão para a condição global.  
+## <a name="set-up-rules-for-the-global-condition"></a>Настройка правил для глобального условия  
+ Процедура определения правил глобального условия зависит от того, что вы настраиваете — параметр или выражение. Используйте эти процедуры для настройки параметра или выражения глобального условия.  
 
-### <a name="to-set-up-a-setting-for-the-global-condition"></a>Para configurar uma definição para a condição global  
+### <a name="to-set-up-a-setting-for-the-global-condition"></a>Настройка параметра глобального условия  
 
-1.  Na lista pendente **Tipo de Condição** , escolha **Definição**.  
+1.  В раскрывающемся списке **Тип условия** выберите **Параметр**.  
 
-2.  Na lista pendente **Tipo de definição** , escolha o item a utilizar como a condição para a qual os requisitos serão verificados. Estão disponíveis os seguintes tipos de definição e configurações.  
+2.  В раскрывающемся списке **Тип параметра** выберите элемент, представляющий собой условие, для которого будут проверяться требования. Доступны перечисленные ниже типы параметров и конфигурации.  
 
-    -   **Consulta do Active Directory**  
+    -   **Запрос Active Directory**  
 
-        -   **Prefixo LDAP** - especifique um prefixo LDAP válido para a consulta dos Serviços de Domínio do Active Directory para avaliar a compatibilidade em computadores cliente. Pode utilizar **LDAP://** ou **GC://**.  
+        -   **Префикс LDAP** — укажите действительный префикс LDAP для запроса доменных служб Active Directory с целью оценки соответствия на клиентских компьютерах. Вы можете использовать **LDAP://** или **GC://**.  
 
-        -   **Nome único (DN)** -especifique o nome único do objeto serviços de domínio do Active Directory que será avaliada relativamente à compatibilidade em computadores cliente.  
+        -   **Различающееся имя (DN)** — укажите различающееся имя объекта доменных служб Active Directory, соответствие которого будет оцениваться на клиентских компьютерах.  
 
-        -   **Filtro de procura** - especifique um filtro de LDAP opcional para refinar os resultados da consulta dos Serviços de Domínio do Active Directory para avaliar a compatibilidade em computadores cliente.  
+        -   **Фильтр поиска** — укажите дополнительный фильтр LDAP для уточнения результатов запроса доменных служб Active Directory с целью оценки соответствия на клиентских компьютерах.  
 
-        -   **Âmbito da procura** - especifique o âmbito da procura nos Serviços de Domínio do Active Directory:  
+        -   **Область поиска** — укажите область поиска в доменных службах Active Directory:  
 
-            -   **Base** -consulta apenas o objeto especificado.  
+            -   **Базовая** — запрос только указанного объекта.  
 
-            -   **Um nível** -esta opção não está a ser utilizada nesta versão do Configuration Manager.  
+            -   **Один уровень** — указанный параметр не используется в данной версии Configuration Manager.  
 
-            -   **Subárvore** -consulta o objeto especificado e a respetiva subárvore completa no diretório.  
+            -   **Поддерево** — запрос указанного объекта и его полного поддерева в каталоге.  
 
-        -   **Propriedade** - especifique a propriedade do objeto dos Serviços de Domínio do Active Directory que será utilizada para avaliar a compatibilidade em computadores cliente.  
+        -   **Свойство** — определение свойства объекта доменных служб Active Directory, которое будет использоваться для оценки соответствия на клиентских компьютерах.  
 
-        -   **Consulta** -mostra a consulta LDAP construída a partir das entradas em **prefixo LDAP**, **nome único (DN)**, **filtro de pesquisa** se for especificado, e **propriedade**. Esta consulta será utilizada para avaliar a compatibilidade em computadores cliente.  
+        -   **Запрос** — отображение запроса LDAP, сформированного из записей в полях **Префикс LDAP**, **Различающееся имя**, **Фильтр поиска** (если указано) и **Свойство**. Этот запрос будет использоваться для оценки соответствия на клиентских компьютерах.  
 
-    -   **Assemblagem**  
+    -   **Сборка**  
 
-        -   **Nome da assemblagem** - Especifica o nome do objeto de assemblagem a procurar. O nome não pode ser o mesmo que qualquer outro objeto de assemblagem do mesmo tipo e o nome tem de estar registado na Global Assembly Cache. O nome da assemblagem pode ter um máximo de 256 carateres.  
+        -   **Имя сборки** — указание имени объекта сборки, который требуется найти. Имя не может совпадать с именами других объектов сборки одного и того же типа и должно быть зарегистрировано в глобальном кэше сборок. Имя сборки не должно быть длиннее 256 символов.  
 
         > [!NOTE]  
-        >  Uma assemblagem é um fragmento de código que pode ser partilhado entre aplicações. As assemblagens podem ter a extensão de nome de ficheiro. dll ou .exe. A Global Assembly Cache é uma pasta denominada *%systemroot%\assembly* em computadores cliente em que todas as assemblagens partilhadas são armazenados.  
+        >  Сборка — это фрагмент кода, который может совместно использоваться приложениями. Сборки могут иметь расширение файла DLL или EXE. Глобальный кэш сборок представляет собой папку с именем *%systemroot%\assembly* на клиентских компьютерах, на которых хранятся все общие сборки.  
 
-    -   **Sistema de ficheiros**  
+    -   **Файловая система**  
 
-        -   **Tipo** – na lista pendente, escolha se pretende procurar um **ficheiro** ou um **pasta**.  
+        -   **Тип** — в раскрывающемся списке выберите, по какому параметру требуется выполнить поиск: по параметру **Файл** или **Папка**.  
 
-        -   **Caminho** – especifique o caminho da pasta ou do ficheiro especificado nos computadores cliente. Pode especificar variáveis de ambiente do sistema e a variável de ambiente *%USERPROFILE%* no caminho.  
-
-            > [!NOTE]  
-            >  Se utilizar a variável de ambiente *%USERPROFILE%* no campo **Caminho** ou **Nome da pasta ou ficheiro** , a procura será efetuada em todos os perfis de utilizador do computador cliente. Isto pode resultar na deteção de várias instâncias do ficheiro ou pasta.  
-
-        -   **Nome da pasta ou ficheiro** – especifique o nome do objeto de ficheiro ou de pasta que será procurado. Pode especificar variáveis de ambiente do sistema e a variável de ambiente *%USERPROFILE%* no nome da pasta ou ficheiro. Também pode utilizar o * e? carateres universais no nome do ficheiro.  
+        -   **Путь** — укажите путь к указанному файлу или папке на клиентских компьютерах. В пути можно указать системные переменные среды и переменную среды *%USERPROFILE%* .  
 
             > [!NOTE]  
-            >  Se especificar um nome de ficheiro ou de pasta e utilizar carateres universais, isto poderá produzir um elevado número de resultados. Isto pode resultar numa utilização intensiva de recursos no computador cliente e tráfego de rede elevado ao reportar os resultados para o Configuration Manager.  
+            >  При использовании переменной среды *%USERPROFILE%* в полях **Путь** или **Имя файла или папки** все профили пользователей на клиентском компьютере будут включены в поиск. Это может привести к обнаружению нескольких экземпляров файла или папки.  
 
-        -   **Incluir subpastas** – ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
-
-        -   **Este ficheiro ou pasta está associada a uma aplicação de 64 bits** -escolher se o sistema de 64 bits localização de ficheiros (*% windir %*\system32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\syswow64) em clientes do Configuration Manager com uma versão de 64 bits do Windows.  
+        -   **Имя файла или папки** — укажите имя файла или объекта папки, которые потребуется найти. В имени файла или папки можно указать системные переменные среды и переменную среды *%USERPROFILE%* . Кроме того, можно использовать подстановочные знаки * и ? в имени файла.  
 
             > [!NOTE]  
-            >  Se o mesmo ficheiro ou pasta existir em ambas as localizações no mesmo computador de 64 bits, serão detetados múltiplos ficheiros pela condição global.  
+            >  Если указано имя файла или папки и используются подстановочные знаки, это может привести к отображению слишком большого числа результатов. В итоге уровень использования ресурсов на клиентском компьютере возрастет, а также увеличится сетевой трафик при отправке результатов в Configuration Manager.  
 
-         O tipo de definição **Sistema de ficheiros** não suporta a especificação de um caminho UNC de partilha de rede no campo **Caminho** .  
+        -   **Включая вложенные папки** — используйте этот параметр, если также требуется выполнить поиск во всех вложенных папках по указанному пути.  
 
-    -   **Metabase do IIS**  
-
-        -   **Caminho da metabase** - especifique um caminho válido para a Metabase do IIS.  
-
-        -   **ID da Propriedade** - especifique a propriedade numérica da definição da Metabase do IIS.  
-
-    -   **Chave de registo**  
-
-        -   **Ramo de registo** – na lista pendente, selecione o ramo de registo que pretende procurar.  
-
-        -   **Chave** – especifique o nome da chave de registo que pretende procurar. O formato utilizado deve ser *chave\subchave*.  
-
-        -   **Esta chave de registo está associada a uma aplicação de 64 bits** – especifica se a procura deve ser efetuada nas chaves de registo de 64 bits, além das chaves de registo de 32 bits, em clientes com uma versão de 64 bits do Windows.  
+        -   **Этот файл или эта папка связаны с 64-разрядным приложением** — выберите, требуется ли выполнять поиск в расположении файлов 64-разрядной системы (*%windir%*\system32), помимо расположения файлов 32-разрядной системы (*%windir%*\syswow64), в клиентах Configuration Manager, работающих под управлением 64-разрядной версии Windows.  
 
             > [!NOTE]  
-            >  Se a mesma chave de registo existir nas localizações do registo de 64 bits e de 32 bits no mesmo computador de 64 bits, a condição global detetará ambas as chaves de registo.  
+            >  Если один и тот же файл или папка присутствует в расположениях 64-разрядных и 32-разрядных системных файлов на одном 64-разрядном компьютере, при глобальном условии будет обнаружено несколько файлов.  
 
-    -   **Valor de registo**  
+         Тип параметра **Файловая система** не поддерживает указание UNC-пути к сетевой папке в поле **Путь** .  
 
-        -   **Ramo** – na lista pendente, selecione o ramo do registo em que pretende procurar.  
+    -   **Метабаза IIS**  
 
-        -   **Chave** – especifique o nome da chave de registo que pretende procurar. O formato utilizado deve ser *chave\subchave*.  
+        -   **Путь к метабазе** — укажите допустимый путь к метабазе IIS.  
 
-        -   **Valor** – especifique o valor que deve estar incluído na chave de registo especificada.  
+        -   **Идентификатор свойства** — укажите числовое свойство параметра метабазы IIS.  
 
-        -   **Esta chave de registo está associada a uma aplicação de 64 bits** – especifica se a procura deve ser efetuada nas chaves de registo de 64 bits, além das chaves de registo de 32 bits, em clientes com uma versão de 64 bits do Windows.  
+    -   **Раздел реестра**  
 
-            > [!NOTE]  
-            >  Se a mesma chave de registo existir nas localizações do registo de 64 bits e de 32 bits no mesmo computador de 64 bits, a condição global detetará ambas as chaves de registo.  
+        -   **Раздел** — в раскрывающемся списке выберите куст реестра, в котором требуется выполнить поиск.  
 
-    -   **Script**  
+        -   **Ключ** — укажите имя раздела реестра, который требуется найти. Следует использовать формат *раздел\подраздел*.  
 
-        -   **Script de deteção** – escolha **adicionar** para introduzir ou navegue para o script a utilizar. Pode utilizar scripts do Windows PowerShell, VBScript ou JScript.  
-
-        -   **Executar scripts ao utilizar o iniciada em credenciais de utilizador** – se ativar esta opção, o script será executado nos computadores cliente utilizando as credenciais do utilizador que tenha sessão iniciada.  
+        -   **Этот раздел реестра связан с 64-разрядным приложением** — указывает, следует ли выполнять поиск в разделах реестра для 64-разрядных программ, помимо разделов реестра для 32-разрядных программ, на клиентах, работающих под управлением 64-разрядной версии ОС Windows.  
 
             > [!NOTE]  
-            >  O valor devolvido pelo script será utilizado para avaliar a compatibilidade da condição global. Por exemplo, quando utilizar VBScript, poderá utilizar o **WScript resultado** comando para devolver o valor da variável resultado à condição global.  
+            >  Если один и тот же раздел реестра присутствует в расположениях реестра для 64-разрядных и 32-разрядных программ на одном 64-разрядном компьютере, при глобальном условии будут обнаружены оба раздела реестра.  
+
+    -   **Значение реестра**  
+
+        -   **Раздел** — в раскрывающемся списке выберите куст реестра, в котором требуется выполнить поиск.  
+
+        -   **Ключ** — укажите имя раздела реестра, который требуется найти. Следует использовать формат *раздел\подраздел*.  
+
+        -   **Значение** — укажите значение, которое должен содержать указанный раздел реестра.  
+
+        -   **Этот раздел реестра связан с 64-разрядным приложением** — указывает, следует ли выполнять поиск в разделах реестра для 64-разрядных программ, помимо разделов реестра для 32-разрядных программ, на клиентах, работающих под управлением 64-разрядной версии ОС Windows.  
+
+            > [!NOTE]  
+            >  Если один и тот же раздел реестра присутствует в расположениях реестра для 64-разрядных и 32-разрядных программ на одном 64-разрядном компьютере, при глобальном условии будут обнаружены оба раздела реестра.  
+
+    -   **Сценарий**  
+
+        -   **Сценарий обнаружения** — нажмите кнопку **Добавить**, чтобы ввести или перейти к расположению скрипта, который требуется использовать. Можно использовать скрипты Windows PowerShell, VBScript или JScript.  
+
+        -   **Выполнять сценарии с использованием данных вошедшего пользователя** — если этот параметр включен, скрипт на клиентских компьютерах будет выполнен с использованием учетных данных пользователя, вошедшего в систему.  
+
+            > [!NOTE]  
+            >  Значение, которое возвращает сценарий, будет использоваться для оценки соответствия по глобальному условию. Например, при использовании VBScript можно выполнить команду **WScript.Echo Result**, чтобы получить значение переменной Result для глобального условия.  
             >   
-            >  Se o script devolver vários valores, estes valores devem estar numa única linha e separadas por ponto e vírgula. Se cada valor estiver numa linha separada, a avaliação irá falhar.  
+            >  Если скрипт возвращает несколько значений, все они должны находиться в одной строке и быть разделены точками с запятыми. Если каждое значение будет находиться в отдельной строке, оценка завершится сбоем.  
 
-    -   **Consulta SQL**  
+    -   **SQL-запрос**  
 
-        -   **Instância do SQL Server** – escolha se pretende que a consulta SQL seja executada na instância predefinida, em todas as instâncias ou na instância de base de dados com o nome especificado.  
+        -   **Экземпляр сервера SQL Server** — выберите, требуется ли выполнить SQL-запрос в экземпляре, используемом по умолчанию, во всех экземплярах или в экземпляре базы данных с указанным именем.  
 
             > [!NOTE]  
-            >  O nome da instância deve referir-se a uma instância local do SQL Server. Para fazer referência a uma instância do SQL Server em cluster, deverá utilizar uma definição de script.  
+            >  Имя экземпляра должно указывать на локальный экземпляр сервера SQL Server. Чтобы указать экземпляр кластеризованного сервера SQL Server, следует использовать параметр сценария.  
 
-        -   **Base de dados** – especifique o nome da base de dados do Microsoft SQL Server relativamente à qual será executada a consulta SQL.  
+        -   **База данных** — укажите имя базы данных Microsoft SQL Server, в которой будет выполнен SQL-запрос.  
 
-        -   **Coluna** – especifique o nome da coluna devolvido pela instrução Transact-SQL a utilizar para avaliar a compatibilidade da condição global.  
+        -   **Столбец** — укажите имя столбца, который возвращает инструкция Transact-SQL, используемая для оценки соответствия глобальному условию.  
 
-        -   **Instrução Transact-SQL** – especifique a consulta SQL completa a utilizar para a condição global. Também pode optar por **abrir** para abrir uma consulta SQL existente.  
+        -   **Инструкция Transact-SQL** — укажите полный SQL-запрос, который требуется использовать для глобального условия. Можно также нажать кнопку **Открыть** для открытия существующего SQL-запроса.  
 
-    -   **Consulta WQL**  
+    -   **WQL-запрос**  
 
-        -   **Espaço de nomes** - especifique o espaço de nomes WMI que será utilizado para criar uma consulta WQL que será avaliada relativamente à compatibilidade em computadores cliente. O valor predefinido é Root\cimv2.  
+        -   **Пространство имен** — укажите пространство имен инструментария WMI, которое будет использоваться для создания WQL-запроса, оцениваемого на соответствие на клиентских компьютерах. Значение по умолчанию — Root\cimv2.  
 
-        -   **Classe** - especifica a classe WMI que será utilizada para criar uma consulta WQL que será avaliada relativamente à compatibilidade em computadores cliente.  
+        -   **Класс** — укажите класс инструментария WMI, который будет использоваться для создания WQL-запроса, оцениваемого на соответствие на клиентских компьютерах.  
 
-        -   **Propriedade** - especifica a propriedade WMI que será utilizada para criar uma consulta WQL que será avaliada relativamente à compatibilidade em computadores cliente.  
+        -   **Свойство** — укажите свойство инструментария WMI, которое будет использоваться для создания WQL-запроса, оцениваемого на соответствие на клиентских компьютерах.  
 
-        -   **Cláusula WHERE da consulta WQL** - pode utilizar o item **Cláusula WHERE da consulta WQL** para especificar uma cláusula WHERE a aplicar ao espaço de nomes, à classe e à propriedade especificados nos computadores cliente.  
+        -   **Предложение WHERE WQL-запроса** — элемент **Предложение WHERE WQL-запроса** можно использовать для указания предложения WHERE, применяемого к указанному пространству имен, классу и свойству на клиентских компьютерах.  
 
-    -   **Consulta XPath**  
+    -   **Запрос XPath**  
 
-        -   **Caminho** - especifique o caminho para o ficheiro XML em computadores cliente que serão utilizados para avaliar a compatibilidade. O Configuration Manager suporta a utilização de todas as variáveis de ambiente de sistema do Windows e o *% USERPROFILE %* variável de utilizador no nome do caminho.  
+        -   **Путь** — это путь к XML-файлу на клиентских компьютерах, который будет использоваться для оценки соответствия. Configuration Manager поддерживает использование всех переменных среды системы Windows и пользовательскую переменную *%USERPROFILE%* в имени пути.  
 
-        -   **Nome do ficheiro XML** -especifique o nome de ficheiro que contém a consulta XML a utilizar para avaliar a compatibilidade em computadores cliente.  
+        -   **Имя XML-файла** — укажите имя файла, содержащего XML-запрос, который будет использоваться для оценки соответствия на клиентских компьютерах.  
 
-        -   **Incluir subpastas** - ative esta opção se também pretender procurar em todas as subpastas do caminho especificado.  
+        -   **Включая вложенные папки** — используйте этот параметр, если также требуется выполнить поиск во всех вложенных папках по указанному пути.  
 
-        -   **Este ficheiro está associado uma aplicação de 64 bits** -escolher se o sistema de 64 bits localização de ficheiros (*% windir %*\system32) deve ser pesquisada, além da localização do ficheiro de sistema de 32 bits (*% windir %*\syswow64) em clientes do Configuration Manager com uma versão de 64 bits do Windows.  
+        -   **Этот файл связан с 64-разрядным приложением** — выберите, требуется ли выполнять поиск в расположении файлов 64-разрядной системы (*%windir%*\system32), помимо расположения файлов 32-разрядной системы (*%windir%*\syswow64), в клиентах Configuration Manager, работающих под управлением 64-разрядной версии Windows.  
 
-        -   **Consulta XPath** - especifique uma consulta da linguagem XPath completa e válida a utilizar para avaliar a compatibilidade em computadores cliente.  
+        -   **Запрос XPath** — укажите действительный полный запрос на языке XPath, который будет использоваться для оценки соответствия на клиентских компьютерах.  
 
-        -   **Espaços de Nomes** - abre a caixa de diálogo **Espaços de Nomes XML** para identificar espaços de nomes e prefixos a utilizar durante a consulta XPath.  
+        -   **Пространства имен** — откройте диалоговое окно **Пространства имен XML** , чтобы определить пространства имен и префиксы, используемые во время выполнения запроса XPath.  
 
-3.  Na lista pendente **Tipo de dados** , escolha o formato em que os dados serão devolvidos pela condição, antes da sua utilização para verificar os requisitos.  
+3.  В раскрывающемся списке **Тип данных** выберите формат, в котором данные будут возвращаться условием перед их использованием для проверки требований.  
 
     > [!NOTE]  
-    >  O **tipo de dados** na lista pendente não é apresentada para todos os tipos de definição.  
+    >  Раскрывающийся список **Тип данных** отображается не для всех типов параметров.  
 
-4.  Configurar detalhes adicionais sobre esta definição abaixo o **tipo de definição** na lista pendente. Os itens que pode configurar irão variar consoante o tipo de definição selecionado.  
+4.  Настройте дополнительные сведения об этом параметре под раскрывающимся списком **Тип параметра**. Элементы, которые можно настроить, будут зависеть от выбранного типа параметра.  
 
-5.  Escolha **OK** para guardar a regra e fechar o **criar condição Global** caixa de diálogo.  
+5.  Нажмите кнопку **ОК**, чтобы сохранить правило и закрыть диалоговое окно **Создание глобального условия**.  
 
-### <a name="set-up-an-expression-for-the-global-condition"></a>Configurar uma expressão para a condição global  
+### <a name="set-up-an-expression-for-the-global-condition"></a>Настройка выражения глобального условия  
 
-1.  Na lista pendente **Tipo de Condição** , escolha **Expressão**.  
+1.  В раскрывающемся списке **Тип условия** выберите **Выражение**.  
 
-2.  Escolha **Adicionar cláusula** para abrir o **Adicionar cláusula** caixa de diálogo.  
+2.  Нажмите кнопку **Добавить предложение**, чтобы открыть диалоговое окно **Добавление предложения**.  
 
-3.  Na lista pendente **Selecionar categoria** , selecione se esta expressão se destina a um dispositivo ou um utilizador. Em alternativa, selecione **Personalizado** para utilizar uma condição global configurada anteriormente.  
+3.  В раскрывающемся списке **Выберите категорию** укажите, что предназначено ли данное выражение для устройства или пользователя. Кроме того, выбрав **Настраиваемая** , можно использовать ранее настроенное глобальное условие.  
 
-4.  Na lista pendente **Selecione uma condição** , selecione a condição a utilizar para avaliar se o utilizador ou o dispositivo satisfaz os requisitos da regra. O conteúdo desta lista varia consoante a categoria selecionada.  
+4.  В раскрывающемся списке **Выберите условие** выберите условие, на основании которого будет оцениваться соответствие пользователя или устройства требованиям правила. Содержимое этого списка зависит от того, какая выбрана категория.  
 
-5.  Na lista pendente **Selecione operador** , escolha o operador que será utilizado para comparar a condição selecionada com o valor especificado para avaliar se o utilizador ou o dispositivo satisfaz os requisitos da regra. Os operadores disponíveis variam consoante a condição selecionada.  
+5.  В раскрывающемся списке **Выберите оператор** укажите оператор, который будет использоваться для сравнения выбранного условия с указанным значением в рамках проверки соответствия пользователя или устройства требованиям правила. Набор доступных операторов зависит от выбранного условия.  
 
-6.  No campo **Valor** , especifique os valores que serão utilizados com a condição e o operador selecionados para avaliar se o utilizador ou o dispositivo satisfaz os requisitos da regra. Os valores disponíveis variam consoante a condição selecionada e o operador selecionado.  
+6.  В поле **Значение** укажите значения, по которым с помощью выбранного условия и оператора будет определяться соответствие пользователя или устройства требованиям правила. Набор доступных значений зависит от выбранного условия и оператора.  
 
-7.  Escolha **OK** para guardar a expressão e fechar o **Adicionar cláusula** caixa de diálogo.  
+7.  Нажмите кнопку **ОК**, чтобы сохранить выражение и закрыть диалоговое окно **Добавление предложения**.  
 
-8.  Quando acabar de adicionar cláusulas à condição global, escolha **OK** para fechar o **criar condição Global** caixa de diálogo e guardar a condição global.  
+8.  После добавления предложений в глобальное условие нажмите кнопку **OK**, чтобы закрыть диалоговое окно **Создание глобального условия** и сохранить глобальное условие.  

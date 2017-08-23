@@ -1,6 +1,6 @@
 ---
-title: "Ativar regra de proteção de dispositivo numa política de conformidade | Microsoft Docs"
-description: "Ative regra de proteção de ameaça móvel na política de conformidade de dispositivo."
+title: "Включение правила защиты устройств в политике соответствия требованиям | Документация Майкрософт"
+description: "Включение правила защиты от мобильных угроз в политике соответствия устройств требованиям."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,39 +16,39 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: faa92e150686e615164ce3f5435b77a65305aab3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enable-device-threat-protection-rule-in-the-compliance-policy"></a>Ativar regra de proteção de ameaça do dispositivo na política de conformidade
+# <a name="enable-device-threat-protection-rule-in-the-compliance-policy"></a>Включение правила защиты устройств от угроз в политике соответствия требованиям.
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Intune com a proteção de ameaça móveis Lookout dá-lhe a capacidade para detetar ameaças móveis e efetuar uma avaliação de risco no dispositivo. Pode criar uma regra de política de conformidade no Configuration Manager para incluir a avaliação de risco para determinar se o dispositivo está em conformidade. Em seguida, pode utilizar a política de acesso condicional para permitir ou bloquear o acesso ao Exchange, SharePoint e outros serviços com base na conformidade do dispositivo.
+Подписка Intune с функцией Lookout Mobile Threat Protection позволяет выявлять угрозы для мобильных устройств и оценивать риски для устройства. Вы можете создать правило политики соответствия требованиям в Configuration Manager и включить в процесс определения того, соответствует ли устройство требованиям, оценку рисков. Затем можно использовать политику условного доступа, чтобы разрешить или запретить доступ к Exchange, SharePoint и другим службам в зависимости от уровня соответствия устройства требованиям.
 
-Para que a deteção de ameaças de dispositivo Lookout influenciar a política de conformidade do dispositivo:
+Чтобы информация от Lookout Mobile Threat Protection учитывалась в политике соответствия требованиям устройства:
 
-* O **proteção contra ameaças do dispositivo** regra tem de estar ativada na política de conformidade.
+* правило **Защита от угроз на устройстве** должно быть включено в политике соответствия требованиям;
 
-* O **Lookout estado** página no **consola de administrador do Intune** deve mostrar como **Active Directory**. Consulte o [ligação ativar o Lookout MTP no Intune](enable-lookout-connection-in-intune.md) tópico para obter mais detalhes e instruções sobre como ativar a integração de Lookout.
+* страница **Состояние Lookout** в **консоли администратора Intune** должна отображать значение **Активно**. Подробности и инструкции по активации интеграции с Lookout см. в статье [Включение подключения Lookout MTP в Intune](enable-lookout-connection-in-intune.md).
 
 
-Antes de criar a regra de proteção de ameaça do dispositivo na política de conformidade era, recomendamos que lhe [configurar a sua subscrição com a proteção contra ameaças do Lookout dispositivo](set-up-your-subscription-with-lookout.md), [ativar a ligação de Lookout no Intune](enable-lookout-connection-in-intune.md), e [configurar o Lookout for work aplicação](configure-and-deploy-lookout-for-work-apps.md). A regra de conformidade imposta apenas depois de concluída a configuração.
+Перед созданием правила защиты устройства от угроз в политике соответствия требованиям рекомендуется [настроить в подписке Lookout Mobile Threat Protection](set-up-your-subscription-with-lookout.md), [включить подключение Lookout в Intune](enable-lookout-connection-in-intune.md) и [настроить приложение Lookout for Work](configure-and-deploy-lookout-for-work-apps.md). Правило соответствия требованиям начинает применяться только после завершения настройки.
 
-Para ativar a regra de proteção de ameaça do dispositivo, pode utilizar uma política de conformidade existente ou crie um novo.
+Чтобы включить правило защиты устройств от угроз, можно использовать существующую политику соответствия требованиям или создать новую.
 
-Como parte da configuração de proteção de ameaça do dispositivo de Lookout, no [consola Lookout](https://aad.lookout.com), criou uma política que classifica ameaças vários em níveis de altas, médias e baixas. A política de conformidade do Intune utilizará o nível de ameaças para definir o nível máximo ameaça permitidos.
+В процессе установки Lookout Mobile Threat Protection в [консоли Lookout](https://aad.lookout.com) создается политика, которая классифицирует различные угрозы по уровню (высокий, средний и низкий). В политике соответствия требованиям Intune уровень угрозы используется для задания максимально допустимого уровня угрозы.
 
-No **regras** página do Assistente de política de conformidade, definir uma nova regra com as seguintes informações:
-  * Condição: Nível de risco máxima de proteção de ameaças de dispositivo.
-  * Value: O valor pode ser um dos seguintes:
-    * **Nenhum (protegidos)**: Esta é a mais segura. Isto significa que o dispositivo não pode ter qualquer ameaças. Se não for encontrada qualquer nível de ameaças, o dispositivo for avaliado como não conforme.
-    * **Baixa**: O dispositivo for avaliado como compatível se apenas baixas ameaças nível estão presentes. Nada superior coloca o dispositivo num Estado de não conformidade.
-    * **Média**: O dispositivo for avaliado como compatível se as ameaças encontradas num dispositivo são nível médio ou baixo. Se forem detetadas ameaças de nível elevadas, o dispositivo é determinado como não conforme.
-    * **Elevada**: É uma situação menos segura. Essencialmente, isto permite que todos os níveis de ameaças e talvez apenas útil se estiver a utilizar esta solução apenas para efeitos de relatórios.
+На странице **Правила** мастера создания политик соответствия требованиям определите новое правило со следующими параметрами.
+  * Условие — максимальный уровень риска функции защиты устройства от угроз.
+  * Значение — значение может быть одним из следующих:
+    * **Нет (защищено)** — это наиболее безопасный режим. Это означает, что на устройстве не должно быть каких-либо угроз. При обнаружении угрозы любого уровня устройство признается несоответствующим требованиям.
+    * **Низкий** — устройство считается соответствующим требованиям, если присутствуют только угрозы низкого уровня. Любая угроза с более высоким уровнем приводит к тому, что устройство признается несоответствующим требованиям.
+    * **Средний** — устройство считается соответствующим требованиям, если обнаруженные на устройстве угрозы относятся к низкому и среднему уровню. При обнаружении угроз с высоким уровнем устройство признается несоответствующим требованиям.
+    * **Высокий** — этот режим обеспечивает самый низкий уровень защиты. По существу, он разрешает угрозы всех уровней и может использоваться, если это решение применяется только для составления отчетов.
 
-Se criar políticas de acesso condicional para o Office 365 e outros serviços, a avaliação de compatibilidade acima é levada em consideração e não conformes dispositivos estão bloqueados de aceder aos recursos da empresa até a ameaça está resolvida.
+При создании политик условного доступа для Office 365 и других служб описанная выше оценка соответствия требованиям принимается в расчет, и несоответствующим устройствам запрещается доступ к ресурсам организации, пока угроза не будет устранена.
 
-O estado de proteção de ameaça do dispositivo é apresentado no **segurança** no nó de **monitorização** área de trabalho.
-É apresentado um resumo do Estado com um nível de vários threads de um gráfico de visual. Pode clicar nas secções individuais do gráfico para ver mais informação, como o número de dispositivos que reportem como não conformes por plataforma e quaisquer erros que são reportados.
-Também pode ver o estado do dispositivo individual no **ativos e compatibilidade** área de trabalho, em **dispositivos**.  Pode adicionar o **conformidade do dispositivo ameaça** e **nível de ameaças de dispositivo** colunas para ver o estado.  Estas colunas não são apresentadas por predefinição.
+Состояние защиты устройств от угроз отображается в узле **Безопасность** рабочей области **Мониторинг**.
+Сводка по состоянию, в которой представлены разные уровни угроз, отображается в виде визуальной диаграммы. Можно щелкнуть любой из разделов диаграммы, чтобы просмотреть дополнительную информацию, такую как число устройств, которые признаны несоответствующими требованиям (с группированием по платформе), или сообщения об ошибках.
+Кроме того, в рабочей области **Активы и соответствие** в разделе **Устройства** можно просмотреть состояние отдельного устройства.  Для отображения данных о состоянии можно добавить столбцы **Device threat compliance** (Соответствие устройства политике защиты от угроз) и **Уровень угрозы устройства**.  Эти столбцы не отображаются по умолчанию.

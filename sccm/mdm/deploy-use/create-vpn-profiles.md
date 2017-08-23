@@ -1,6 +1,6 @@
 ---
-title: Perfis VPN no System Center Configuration Manager | Microsoft Docs
-description: "Perfis da VPN em dispositivos móveis no System Center Configuration Manager."
+title: "Профили VPN в System Center Configuration Manager | Документация Майкрософт"
+description: "Профили VPN на мобильных устройствах в System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/26/2017
 ms.prod: configuration-manager
@@ -17,149 +17,149 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: e4a53caab7d76b604a3fee7dcfc4dc48f22b0fb0
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Perfis da VPN em dispositivos móveis no System Center Configuration Manager
+# <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Профили VPN на мобильных устройствах в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize perfis VPN no System Center Configuration Manager para implementar definições VPN em utilizadores de dispositivos móveis na sua organização. Ao implementar estas definições, minimiza o esforço do utilizador final necessárias para ligar a recursos na rede da empresa.  
+Использование профилей VPN в System Center Configuration Manager, чтобы развернуть параметры VPN для пользователей мобильных устройств в вашей организации. Развертывание этих параметров упрощает для пользователя подключение к ресурсам в корпоративной сети.  
 
- Por exemplo, pretende configurar todos os dispositivos que executam o sistema operativo iOS, utilizando as definições que são necessárias para ligar a uma partilha de ficheiros na rede empresarial. Pode criar um perfil da VPN com as definições necessárias para ligar à rede empresarial e, em seguida, implementar este perfil em todos os utilizadores com dispositivos que executam o iOS na sua hierarquia. Os utilizadores de dispositivos com iOS veem a ligação VPN na lista de redes disponíveis e podem estabelecer ligação com esta rede com o mínimo de esforço.  
+ Например, это удобно, если нужно настроить все устройства, запущенные в операционной системе iOS с параметрами, необходимыми для подключения к общей папке в корпоративной сети. Можно создать профиль VPN с параметрами, необходимыми для подключения к корпоративной сети, а затем развернуть этот профиль для всех пользователей с устройствами под управлением iOS в иерархии. Пользователи устройств iOS увидят VPN-подключение в списке доступных сетей и смогут подключаться к этой сети с минимальными усилиями.  
 
- Quando cria um perfil da VPN, pode incluir um vasto leque de definições de segurança. Por exemplo, pode especificar certificados para autenticação de cliente e validação do servidor que configurou através da utilização de perfis de certificado do System Center Configuration Manager. Para obter mais informações sobre perfis de certificado, consulte [no System Center Configuration Manager de perfis de certificado](../../protect/deploy-use/introduction-to-certificate-profiles.md).  
+ При создании профиля Wi-Fi можно указать большое число параметров безопасности. Например, вы можете определить сертификаты для проверки сервера и аутентификации клиента, настроенные с помощью профилей сертификатов в System Center Configuration Manager. См. дополнительные сведения о [профилях сертификатов в System Center Configuration Manager](../../protect/deploy-use/introduction-to-certificate-profiles.md).  
 
- ## <a name="vpn-profiles-when-using-configuration-manager-together-with-intune"></a>Perfis VPN, ao utilizar o Gestor de configuração com o Intune
+ ## <a name="vpn-profiles-when-using-configuration-manager-together-with-intune"></a>Профили VPN при использовании Configuration Manager с Intune
 
- Para implementar perfis em dispositivos Windows 8.1, Windows Phone, Android e iOS, estes dispositivos têm de estar inscritos no Microsoft Intune. Dispositivos em outras plataformas também podem ser inscritos no Intune. Para obter informações sobre como inscrever, consulte [gerir dispositivos móveis com o Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx). Esta tabela mostra o tipo de ligação que é suportado para cada plataforma de dispositivo:  
+ Для развертывания профилей на устройствах iOS, Android, Windows Phone и Windows 8.1 эти устройства должны быть зарегистрированы в Microsoft Intune. Устройства на основе других платформ также можно регистрировать в Intune. Сведения о том, как зарегистрировать устройства, см. в разделе [Управление мобильными устройствами с помощью Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx). В этой таблице показано, какой тип подключения поддерживается для каждой платформы устройств.  
 
- |Tipo de ligação|iOS e macOS X|Android|Windows 8,1|Windows RT|Windows RT 8.1|Windows Phone 8.1|Windows 10 Desktop e Mobile|  
+ |Тип подключения|iOS и macOS X|Android|Windows 8.1|Windows RT|Windows RT 8.1|Windows Phone 8.1|Windows 10 Desktop и Mobile|  
  |---------------------|----------------------|-------------|-----------------|----------------|--------------------|-----------------------|-----------------------------------|  
- |Cisco AnyConnect|Sim|Sim|Não|Não|Não|Não|Sim (OMA-URI)|
- |Cisco (IPSec)|apenas em iOS|Não|Não|Não|Não|Não|Não|  
- |Pulse Secure|Sim|Sim|Sim|Não|Sim|Sim|Sim|  
- |F5 Edge Client|Sim|Sim|Sim|Não|Sim|Sim|Sim|  
- |Dell SonicWALL Mobile Connect|Sim|Sim|Sim|Não|Sim|Sim|Sim|  
- |VPN Móvel do Ponto de Verificação|Sim|Sim|Sim|Não|Sim|Sim|Sim|  
- |Microsoft SSL (SSTP)|Não|Não|Sim|Sim|Sim|Não|Não|  
- |Microsoft Automatic|Não|Não|Sim|Sim|Sim|Não|Sim (OMA-URI)|  
- |IKEv2|Sim (política personalizada)|Não|Sim|Sim|Sim|Sim|Sim (OMA-URI)|  
- |PPTP|Sim|Não|Sim|Sim|Sim|Não|Sim (OMA-URI)|  
- |L2TP|Sim|Não|Sim|Sim|Sim|Não|Sim (OMA-URI)|  
+ |Cisco AnyConnect|Да|Да|Нет|Нет|Нет|Нет|Да (OMA-URI)|
+ |Cisco (IPSec)|Только iOS|Нет|Нет|Нет|Нет|Нет|Нет|  
+ |Pulse Secure|Да|Да|Да|Нет|Да|Да|Да|  
+ |F5 Edge Client|Да|Да|Да|Нет|Да|Да|Да|  
+ |Dell SonicWALL Mobile Connect|Да|Да|Да|Нет|Да|Да|Да|  
+ |Check Point Mobile VPN|Да|Да|Да|Нет|Да|Да|Да|  
+ |Microsoft SSL (SSTP)|Нет|Нет|Да|Да|Да|Нет|Нет|  
+ |Microsoft Automatic|Нет|Нет|Да|Да|Да|Нет|Да (OMA-URI)|  
+ |IKEv2|Да (настраиваемая политика)|Нет|Да|Да|Да|Да|Да (OMA-URI)|  
+ |PPTP|Да|Нет|Да|Да|Да|Нет|Да (OMA-URI)|  
+ |L2TP|Да|Нет|Да|Да|Да|Нет|Да (OMA-URI)|  
 
-## <a name="create-vpn-profiles"></a>Criar perfis de VPN
-[Como criar perfis VPN no System Center Configuration Manager](../../protect/deploy-use/create-vpn-profiles.md) fornece informações gerais sobre como creat perfis VPN.
+## <a name="create-vpn-profiles"></a>Создание профилей VPN
+См. общие сведения о [создании профилей VPN в System Center Configuration Manager](../../protect/deploy-use/create-vpn-profiles.md).
 
-###   <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Funcionalidades de VPN do Windows 10 estão disponíveis ao utilizar o Configuration Manager com o Intune  
+###   <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Функции VPN для Windows 10, доступные при использовании Configuration Manager с Intune  
 
 
 > [!NOTE]  
-> O nome de um perfil VPN que utiliza funcionalidades de VPN do Windows 10 não pode estar em Unicode ou incluir carateres especiais.
+> Имя профиля VPN, который использует функции VPN для Windows 10, не может быть в формате Юникода или содержать специальные символы.
 
 
-|Opção|Mais informações|Tipo de ligação|  
+|Параметр|Дополнительные сведения|Тип подключения|  
     |------------|----------------------|---------------------|  
-    |**Ignorar a VPN quando ligado à rede Wi-Fi da empresa**|A ligação VPN não será utilizada quando o dispositivo estiver ligado à rede Wi-Fi da empresa. Introduza o nome de rede fidedigna, que é utilizado para determinar se o dispositivo está ligado à rede da empresa.|Todas|  
-    |**Regras network traffic (de tráfego de rede)**|Defina os protocolos, portas locais, porta remota e intervalos de endereços que irão estar ativados para a ligação VPN.<br /><br /> **Nota:** Se não criar uma regra de tráfego de rede, todos os protocolos, portas e intervalos de endereços estarão ativados. Depois de criar uma regra, apenas os protocolos, portas e intervalos de endereços que especificar nessa regra ou nas regras adicionais serão utilizados pela ligação VPN.|Todas|  
-    |**Rotas**|Rotas que utilizarão a ligação VPN. Tenha em atenção que a criação de mais de 60 rotas pode fazer com que a política de falha. |Todas|  
-    |**Servidores DNS**|Servidores DNS que são utilizados pela ligação VPN, depois da ligação for estabelecida.|Todas|  
-    |**Aplicações que ligam automaticamente à VPN**|Pode adicionar aplicações ou importar listas de aplicações que irão utilizar automaticamente a ligação VPN. O tipo de aplicação irá determinar o identificador de aplicação. Para uma aplicação de ambiente de trabalho, forneça o caminho do ficheiro da aplicação. Para uma aplicação universal, forneça o nome de família de pacotes (PFN). Para saber como encontrar o PFN para uma aplicação, consulte [localizar um nome de família de pacotes para VPN por aplicação](../../protect/deploy-use/find-a-pfn-for-per-app-vpn.md). |Todas|
+    |**Обход VPN при подключении к корпоративной сети Wi-Fi**|VPN-подключение не будет использоваться, когда устройство подключено к сети Wi-Fi организации. Введите имя доверенной сети, которое используется, чтобы определять состояние подключения устройства к корпоративной сети.|Все|  
+    |**Правила сетевого трафика**|Укажите, какие протоколы, локальные и удаленные порты, а также диапазоны адресов будут включены для VPN-подключения.<br /><br /> **Примечание**. Если вы не создадите правило сетевого трафика, будут включены все протоколы, порты и диапазоны адресов. VPN-подключение будет использовать только протоколы, порты и диапазоны адресов, указанные в созданном правиле или дополнительных правилах.|Все|  
+    |**Маршруты**|Маршруты, которые будут использовать VPN-подключение. Обратите внимание, что создание более чем 60 маршрутов может вызвать сбой политики. |Все|  
+    |**DNS-серверы**|DNS-серверы, которые используются VPN-подключением после установки соединения.|Все|  
+    |**Приложения, которые автоматически подключаются к VPN**|Вы можете добавлять приложения или импортировать списки приложений, которые будут автоматически использовать VPN-подключение. Тип приложения определяет его идентификатор. Для классического приложения укажите путь к файлу приложения. Для универсального приложения укажите имя семейства пакетов (PFN). Сведения об определении имени PFN для приложения см. в разделе [Определение имени семейства пакетов для VPN для отдельного приложения](../../protect/deploy-use/find-a-pfn-for-per-app-vpn.md). |Все|
 
 > [!IMPORTANT]
-> Recomendamos que proteja todas as listas de aplicações associadas que compilar para utilização na configuração da VPN por aplicação. Se a sua lista de alterações de um utilizador não autorizado e importe-o à lista de aplicações VPN por aplicação, irá autorizar potencialmente o acesso VPN para aplicações que não devem ter acesso. Uma forma de proteger as listas de aplicação é utilizar uma lista de controlo de acesso (ACL).
+> Мы рекомендуем защищать все списки связанных приложений, которые вы составляете для использования в конфигурации VPN для отдельных приложений. Если неавторизованный пользователь изменит список, а вы импортируете его в список приложений VPN для отдельных приложений, вы сможете разрешить доступ к VPN приложениям, которые не должны иметь такой доступ. Одним из способов защиты списков приложений является использование списка управления доступом (ACL).
 
 
-1.  No **método de autenticação** página do assistente, especifique:  
+1.  На странице **Метод проверки подлинности** мастера укажите приведенные ниже сведения.  
 
-    -   **Método de autenticação**: Selecione o método de autenticação que será utilizado pela ligação VPN. Métodos disponíveis dependem do tipo de ligação conforme mostrado nesta tabela.  
+    -   **Метод аутентификации**. Выберите метод аутентификации, который будет использоваться VPN-подключением. Доступные методы зависят от типа подключения, как показано в таблице.  
 
-        |Método de Autenticação|Suportado&nbsp;ligação&nbsp;tipos|  
+        |Метод проверки подлинности|Поддерживаемые&nbsp;типы&nbsp;подключения|  
         |---------------------------|--------------------------------|  
-        |**Certificados**<br /><br /> **Notas:**<ul><li>Se o certificado de cliente efetua a autenticação para um servidor RADIUS, como um servidor de políticas de rede, tem de definir o nome alternativo do requerente no certificado para o nome Principal de utilizador.</li><li>Para implementações de Android, selecione o identificador EKU e o valor de hash de thumbprint do certificado emissor.  Caso contrário, os utilizadores tem de selecionar o certificado adequado manualmente.</li></ul>  |<ul><li>Cisco AnyConnect</li><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> VPN Móvel do Ponto de Verificação</li></ul>|  
-        |**Nome de Utilizador e Palavra-passe**|<ul><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> VPN Móvel do Ponto de Verificação</li></ul>|  
+        |**Сертификаты**<br /><br /> **Примечания.**<ul><li>Если сертификат клиента используется для аутентификации на сервере RADIUS (например, на сервере политики сети), в качестве альтернативного имени субъекта в сертификате должно быть указано имя участника-пользователя.</li><li>Для развертываний Android выберите идентификатор EKU и значение хэша отпечатка издателя сертификата.  В противном случае пользователи должны выбрать нужный сертификат вручную.</li></ul>  |<ul><li>Cisco AnyConnect</li><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> Check Point Mobile VPN</li></ul>|  
+        |**Имя пользователя и пароль**|<ul><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> Check Point Mobile VPN</li></ul>|  
         |**Microsoft EAP-TTLS**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>IKEv2</li><li>L2TP</li></ul>|  
-        |**EAP (PEAP) protegido da Microsoft**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**Microsoft protegida por palavra-passe (EAP-MSCHAP v2)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**Smart Card ou outro certificado**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+        |**Microsoft PEAP**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+        |**Защищенный пароль Майкрософт (EAP-MSCHAP v2)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+        |**Смарт-карта или иной сертификат**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
         |**MSCHAP v2**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**RSA SecurID** (apenas para iOS)|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**Utilizar certificados de computador**|<ul><li>IKEv2</li></ul>|  
+        |**RSA SecurID** (только iOS)|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>L2TP</li></ul>|  
+        |**Использовать сертификаты компьютера**|<ul><li>IKEv2</li></ul>|  
 
-         Consoante as opções selecionadas, poderá ser-lhe pedido para especificar a obter mais informações, como:  
+         В зависимости от выбранных параметров, вам может быть предложено ввести дополнительные сведения:  
 
-        -   **Lembrar as credenciais de utilizador em cada início de sessão**: As credenciais de utilizador são memorizadas, para que os utilizadores não têm introduzi-las sempre que se ligam.  
+        -   **Запоминать учетные данные пользователей при каждом входе**. Учетные данные пользователя запоминаются, чтобы пользователю не нужно было вводить их при каждом подключении.  
 
-        -   **Selecione um certificado de cliente para autenticação de cliente**: Selecione o cliente criado anteriormente [certificado de SCEP](create-pfx-certificate-profiles.md) que será utilizado para autenticar a ligação VPN.   
+        -   **Выберите сертификат клиента для проверки подлинности клиента**. Выберите созданный ранее [сертификат SCEP](create-pfx-certificate-profiles.md) клиента, который будет использоваться для проверки подлинности VPN-подключения.   
 
             > [!NOTE]  
-            >  Para dispositivos iOS, o perfil SCEP que selecionar será incorporado no perfil da VPN. Para outras plataformas, é adicionada uma regra de aplicabilidade para assegurar que o perfil VPN não está instalado se o certificado não está presente ou não está em conformidade.  
+            >  Для устройств iOS выбранный вами профиль SCEP будет встроен в профиль VPN. Для других платформ добавляется правило применимости. Это гарантирует, что профиль VPN не будет установлен, если сертификат отсутствует или несовместим.  
             >   
-            >  Se o certificado SCEP que especificou não está em conformidade ou não foi implementado, em seguida, o perfil VPN não será instalado no dispositivo.
+            >  Если указанный сертификат SCEP несовместим или не был развернут, профиль VPN не будет установлен на устройстве.
             >  
-            >  Os dispositivos que executam o iOS suportam apenas SecurID de RSA e MSCHAP v2 para o método de autenticação quando o tipo de ligação for PPTP. Para evitar erros de relatório, implemente um perfil VPN PPTP separado para dispositivos com iOS.  
+            >  Устройства с iOS поддерживают только RSA SecurID и MSCHAP v2 в качестве способа проверки подлинности, если тип соединения — PPTP. Чтобы избежать ошибок, разверните отдельный профиль PPTP VPN на устройствах под управлением iOS.  
 
-        - **Acesso condicional**
-            - Escolha **ativar o acesso condicional para esta ligação VPN** para se certificar de que os dispositivos que ligam à VPN são testados para compatibilidade de acesso condicional, antes de ligar. Políticas de conformidade são descritas nas [políticas de conformidade de dispositivos no System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/device-compliance-policies.md).
-            - Escolha **ativar início de sessão único (SSO) com certificado alternativo** para escolher um certificado que não seja o certificado de autenticação VPN para conformidade do dispositivo. Se escolher esta opção, forneça o **EKU** (lista de valores separados por vírgulas) e **Hash de emissor**, para o certificado correto que o cliente VPN deve localizar.
+        - **Условный доступ**
+            - Выберите параметр **Включить условный доступ для этого VPN-подключения**, чтобы перед подключением устройств к VPN проверялось их соответствие требованиям для условного доступа. См. дополнительные сведения о [политиках соответствия устройств в System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/device-compliance-policies.md).
+            - Выберите параметр **Включить единый вход с помощью дополнительного сертификата**, чтобы выбрать сертификат, отличный от сертификата проверки подлинности VPN, для соответствия устройств. При выборе этого параметра укажите значения **EKU** (разделенный запятыми список) и **Хэш издателя** для сертификата, который должен найти клиент VPN.
 
-         - Para **Windows Information Protection**, forneça a geridas por empresas identidade empresarial, que é normalmente domínio principal da sua organização, por exemplo, *contoso.com*. Pode especificar vários domínios que a organização é proprietária, separando-as com o "|" carateres. Por exemplo, *contoso.com|newcontoso.com*.   
-            Para mais informações sobre o Windows Information Protection, consulte [criar uma política de proteção de informações do Windows (WIP) através do Microsoft Intune](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/create-wip-policy-using-intune).   
+         - **Windows Information Protection**. Укажите удостоверение предприятия, которым обычно является основной домен организации, например *contoso.com*. Можно указать несколько доменов, принадлежащих организации, через символ "|". Пример: *contoso.com|newcontoso.com*.   
+            См. дополнительные сведения о [создании политики Windows Information Protection (WIP) с помощью Microsoft Intune](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/create-wip-policy-using-intune).   
 
-         ![Configurar o acesso condicional para VPN](media/vpn-conditional-access.png)
+         ![Настройка условного доступа для VPN](media/vpn-conditional-access.png)
 
-         Quando suportado pela versão do Windows que executa o Configuration Manager _e_ o método de autorização selecionada, pode escolher **configurar** para abrir a caixa de diálogo de propriedades do Windows e configurar as propriedades do método de autenticação.  Se **configurar** está desativada, utilize um meio diferente para configurar as propriedades do método de autenticação.
+         Если поддерживается версия Windows с запущенным экземпляром Configuration Manager _и_ выбран метод авторизации, вы можете щелкнуть **Настройка**, чтобы открыть диалоговое окно свойств Windows и настроить свойства метода аутентификации.  Если возможность **настройки** отключена, используйте альтернативные способы, чтобы настроить свойства метода аутентификации.
 
-2.  No **as definições de Proxy** página do **VPN Assistente para criar perfil**, verifique o **configurar definições de proxy para este perfil VPN** caixa se a ligação VPN utilizar um servidor proxy. Em seguida, forneça o proxy de informações do servidor. Para obter mais informações, consulte a documentação do Windows Server.  
-
-    > [!NOTE]  
-    >  Em computadores Windows 8.1, o perfil VPN não irá mostrar as informações de proxy até que o se ligar à VPN utilizando esse computador.  
-
-
-3. Configure definições DNS adicionais (se necessário).  
- No **configurar ligação VPN automática** página, pode configurar o seguinte:  
-
-    -   **Ativar VPN a pedido**: Utilize se pretender configurar mais definições de DNS para dispositivos Windows Phone 8.1. Esta definição só se aplica a dispositivos Windows Phone 8.1 e só deve ser ativada em perfis VPN que vão ser implementado em dispositivos Windows Phone 8.1.
-
-    -   **Lista de sufixos DNS** (apenas para dispositivos Windows Phone 8.1): Configura domínios que irão estabelecer uma ligação VPN. Para cada domínio que especificar, adicione o sufixo DNS, o endereço do servidor DNS e uma das seguintes ações a pedido:  
-
-        -   **Nunca estabelecer**: Nunca abra uma ligação VPN.  
-
-        -   **Estabelecer se necessário**: Apenas abra uma ligação VPN se o dispositivo tem de se ligar aos recursos.  
-
-        -   **Estabelecer sempre**: Abra sempre a ligação VPN.  
-
-    -   **Intercalar**: Copia todos os sufixos DNS que configurou para o **lista de redes fidedignas**.  
-
-    -   **Lista de redes fidedignas** (apenas para dispositivos Windows Phone 8.1): Especifique um sufixo DNS em cada linha. Se o dispositivo estiver numa rede fidedigna, a ligação VPN não será aberta.  
-
-    -   **Lista de pesquisa de sufixos** (apenas para dispositivos Windows Phone 8.1): Especifique um sufixo DNS em cada linha. Cada sufixo DNS será procurado ao ligar a um Web site utilizando um nome abreviado.  
-
-     Por exemplo, pode especificar os sufixos DNS, **dominio1.contoso.com** e **dominio2.contoso.com**e, em seguida, avance para o URL **http://mywebsite**. Serão procurados os seguintes endereços:  
-
-    -   **http://omeusite.dominio1.contoso.com**  
-
-    -   **http://omeusite.dominio2.contoso.com**  
+2.  Если VPN-подключение использует прокси-сервер, на странице **Параметры прокси-сервера** в **мастере создания профилей VPN** установите флажок **Укажите расширенные параметры для этого профиля VPN**. Затем укажите сведения о прокси-сервере. Дополнительные сведения см. в документации по Windows Server.  
 
     > [!NOTE]  
-    >  Apenas para dispositivos Windows Phone 8.1  
+    >  На компьютерах под управлением Windows 8.1 в профиле VPN не будут отображаться сведения о прокси-сервере, пока вы не подключитесь к VPN с этого компьютера.  
+
+
+3. Настройка дополнительных параметров DNS (при необходимости)  
+ На странице **Настройка автоматического подключения VPN** можно настроить следующие параметры:  
+
+    -   **Включить VPN по запросу** — выберите этот параметр, если нужно настроить дополнительные параметры DNS для устройств Windows Phone 8.1. Этот параметр применяется только к устройствам Windows Phone 8.1. Его можно включать только для профилей VPN, которые будут развернуты на устройствах Windows Phone 8.1.
+
+    -   **Список DNS-суффиксов** (только для устройств Windows Phone 8.1) — позволяет указать домены, которые будут устанавливать VPN-подключение. Для каждого указанного домена добавьте DNS-суффикс, адрес DNS-сервера и одно из следующих действий по запросу:  
+
+        -   **Никогда не устанавливать** — никогда не открывать VPN-подключение.  
+
+        -   **Устанавливать при необходимости** — открывать VPN-подключение, только если устройству необходимо подключиться к ресурсам.  
+
+        -   **Всегда устанавливать** — всегда открывать VPN-подключение.  
+
+    -   **Слияние** — копирует все настроенные DNS-суффиксы в **список доверенных сетей**.  
+
+    -   **Список доверенных сетей** (только для устройств Windows Phone 8.1) — введите один DNS-суффикс в каждой строке. Если устройство находится в доверенной сети, VPN-подключение не будет открыто.  
+
+    -   **Список поиска суффиксов** (только для устройств Windows Phone 8.1) — введите один DNS-суффикс в каждой строке. При подключении к веб-сайту с использованием короткого имени будет выполнен поиск каждого DNS-суффикса.  
+
+     Например, укажите DNS-суффиксы **domain1.contoso.com** и **domain2.contoso.com**, а затем перейдите по URL-адресу **http://mywebsite**. Будет выполнен поиск по следующим адресам:  
+
+    -   **http://mywebsite.domain1.contoso.com**  
+
+    -   **http://mywebsite.domain2.contoso.com**  
+
+    > [!NOTE]  
+    >  Только для устройств Windows Phone 8.1  
     >   
-    >  Quando o *enviar fego de rede através da ligação VPN* opção está selecionada *e* a ligação VPN utiliza túneis completos, a ligação VPN abre automaticamente com o primeiro perfil de dispositivo. Para abrir uma ligação com um perfil diferente, defina o perfil pretendido como predefinição.  
+    >  Если выбран параметр *Отправлять весь сетевой трафик через подключение VPN* *и* VPN-подключение использует полное туннелирование, для первого настроенного профиля на устройстве будет автоматически открыто VPN-подключение. Чтобы открыть подключение с использованием другого профиля, укажите нужный профиль как профиль по умолчанию.  
     >   
-    >  Quando o *enviar fego de rede através da ligação VPN* opção é *não* selecionado *e* a ligação VPN utiliza a divisão de túnel, as ligações VPN aberta automaticamente para rotas configuradas ou sufixos DNS específico da ligação.  
+    >  Если параметр *Отправлять весь сетевой трафик через подключение VPN* *не* выбран *и* VPN-подключение использует раздельное туннелирование, VPN-подключение может автоматически открываться при настройке маршрутов или конкретного DNS-суффикса для подключения.  
 
 
-4. No **plataformas suportadas** página do **VPN Assistente para criar perfil**, selecione os sistemas operativos nos quais o perfil VPN será instalado ou escolha **Selecionar tudo** para instalar o perfil da VPN em todos os sistemas operativos disponíveis.  
+4. На странице **Поддерживаемые платформы** в **мастере создания профилей VPN** выберите операционные системы, в которых будет установлен профиль VPN, или щелкните пункт **Выбрать все**, чтобы установить профиль VPN во всех доступных операционных системах.  
 
-5. Conclua o assistente. O **perfis VPN** no nó de **ativos e compatibilidade** área de trabalho mostra o novo perfil VPN.  
+5. Завершите мастер. Новый профиль VPN отобразится в узле **Профили VPN** в рабочей области **Активы и соответствие**.  
 
 
-**Implementar**: Consulte [implementar Wi-Fi, VPN, e-mail e perfis de certificado](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) para obter mais informações sobre como implementar perfis VPN.
+**Развертывание** — см. дополнительные сведения о [развертывании профилей Wi-Fi, VPN, электронной почты и сертификатов](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).
 
-### <a name="next-steps"></a>Passos seguintes  
- Utilize os tópicos seguintes para o ajudar a planear, configurar, operar e manter perfis VPN no Configuration Manager.  
+### <a name="next-steps"></a>Дальнейшие действия  
+ Следующие разделы содержат справочные сведения о планировании, настройке, использовании и обслуживании профилей VPN в Configuration Manager.  
 
--   [Pré-requisitos para perfis VPN no System Center Configuration Manager](../../protect/plan-design/prerequisites-for-wifi-vpn-profiles.md)  
+-   [Необходимые условия для профилей VPN в System Center Configuration Manager](../../protect/plan-design/prerequisites-for-wifi-vpn-profiles.md)  
 
--   [Segurança e privacidade para perfis VPN no System Center Configuration Manager](../../protect/plan-design/security-and-privacy-for-wifi-vpn-profiles.md)
+-   [Безопасность и конфиденциальность профилей VPN в System Center Configuration Manager](../../protect/plan-design/security-and-privacy-for-wifi-vpn-profiles.md)

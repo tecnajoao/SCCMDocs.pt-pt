@@ -1,6 +1,6 @@
 ---
-title: "Tarefas de manutenção | Microsoft Docs"
-description: "Compreenda que manutenção de tarefas a efetuar para sites do Configuration Manager e hierarquias e quando deve efetuá-los."
+title: "Задачи обслуживания | Документы Майкрософт"
+description: "Сведения о задачах обслуживания, выполняемых для иерархий и сайтов Configuration Manager, и периодах их выполнения."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,124 +17,124 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 90b6e4434abc5573a364c769bd835e08e5dff16d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="maintenance-tasks-for-system-center-configuration-manager"></a>Tarefas de manutenção para o System Center Configuration Manager
+# <a name="maintenance-tasks-for-system-center-configuration-manager"></a>Задачи обслуживания для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager sites e hierarquias necessitam de manutenção regular e monitorização para fornecer serviços de forma eficaz e contínua. Manutenção regular assegura que o hardware, software e base de dados do Configuration Manager continuam a funcionar corretamente e de forma eficiente. Um desempenho ideal reduz significativamente o risco de falha.  
+Сайты и иерархии System Center Configuration Manager нуждаются в регулярном обслуживании и мониторинге для постоянной эффективной работы. Регулярное обслуживание гарантирует правильную и эффективную работу оборудования, программного обеспечения и базы данных Configuration Manager. При оптимальной производительностью существенно снижается риск сбоев.  
 
- Para configurar alertas e utilizar o sistema de estado para monitorizar o estado de funcionamento do Configuration Manager, consulte [utilizar alertas e o sistema de estado para o System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
+ Сведения о настройке оповещений и использовании системы состояния для мониторинга работоспособности Configuration Manager см. в статье [Использование оповещений и системы состояния для System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
--   [Tarefas de manutenção](#bkmk_MTs)  
+-   [Задачи обслуживания](#bkmk_MTs)  
 
-##  <a name="bkmk_MTs"></a>Tarefas de manutenção  
- Manutenção regular é importante certificar-se operações do site correto. Manter um registo de manutenção que documente manutenção as datas, que foram manutenção e quaisquer comentários relacionados com a manutenção sobre as tarefas.  
+##  <a name="bkmk_MTs"></a> Задачи обслуживания  
+ Регулярное обслуживание важно для правильной работы сайта. Ведите журнал обслуживания, чтобы записывать даты проведения обслуживания, исполнителей и все возможные замечания, связанные с задачами.  
 
-### <a name="when-to-do-common-maintenance-tasks"></a>Quando efetuar tarefas de manutenção comuns  
- Para manter o seu site, considere manutenção diária ou semanal. Algumas tarefas poderão exigir uma agenda diferentes. A manutenção comum pode incluir as tarefas de manutenção incorporadas e outras tarefas, como a conta de manutenção para manter a conformidade com as políticas da empresa.  
+### <a name="when-to-do-common-maintenance-tasks"></a>Когда следует выполнять общие задачи обслуживания  
+ Для поддержания работы сайта следует проводить регулярное обслуживание ежедневно и еженедельно. Для некоторых задач может потребоваться другое расписание. Общие задачи обслуживания включают как встроенные, так и прочие задачи обслуживания, такие как обслуживание учетных записей для поддержания соответствия политикам компании.  
 
- Utilize as seguintes informações como guia para ajudar a planear a realizar tarefas de manutenção diferente. Utilize estas listas como ponto de partida e adicione as tarefas que poderá necessitar.  
+ Используйте следующую информацию в качестве рекомендаций по планированию времени выполнения различных задач обслуживания. Используйте эти списки в качестве основы и добавляйте в них необходимые дополнительные задачи.  
 
-**Tarefas diárias**   
-Seguem-se tarefas de manutenção que pode considerar para uma agenda diária:  
+**Ежедневные задачи**   
+Следующие задачи обслуживания рекомендуется выполнять ежедневно.  
 
--   Verifique se as tarefas de manutenção agendadas para serem realizadas diariamente estão a funcionar com êxito.  
+-   Проверьте, что готовые задачи обслуживания, запланированные на ежедневный запуск, успешно запущены.  
 
--   Verifique o estado de base de dados do Configuration Manager.  
+-   Проверьте состояние базы данных Configuration Manager.  
 
--   Verifique o estado do servidor de site.  
+-   Проверьте состояние сервера сайта.  
 
--   Verifique o Configuration Manager site sistema nas pastas a receber de ficheiros pendentes.  
+-   Проверьте наличие необработанных файлов в папках системы сайта Configuration Manager.  
 
--   Verificar o estado de sistemas de sites.  
+-   Проверьте состояние систем сайта.  
 
--   Verifique os registos de eventos do sistema operativo nos sistemas de sites.  
+-   Проверьте журналы событий операционных систем на системах сайта.  
 
--   Verifique o registo de erros do SQL Server no computador da base de dados do site.  
+-   Проверьте журнал ошибок SQL Server на компьютере базы данных сайта.  
 
--   Verificar o desempenho do sistema.  
+-   Проверьте производительность системы.  
 
--   Verifique os alertas do Configuration Manager.  
+-   Проверьте оповещения Configuration Manager.  
 
-**Tarefas semanais**   
-Seguem-se tarefas de manutenção que pode considerar para uma agenda semanal:  
+**Еженедельные задачи**   
+Следующие задачи обслуживания рекомендуется выполнять еженедельно.  
 
--   Verifique se as tarefas de manutenção agendadas para serem realizadas semanalmente estão a funcionar com êxito.  
+-   Проверьте, что готовые задачи обслуживания, запланированные на еженедельный запуск, успешно запущены.  
 
--   Elimine ficheiros desnecessários dos sistemas de sites.  
+-   Удалите ненужные файлы из файловых систем.  
 
--   Produzir e distribuir relatórios do utilizador final, se necessário.  
+-   Подготовьте и распространите отчеты по конечным пользователям, если необходимо.  
 
--   Cópia de segurança de registos de eventos de aplicações, segurança e do sistema e limpar estes registos.  
+-   Создайте резервные копии журналов событий приложений, безопасности и систем, после чего очистите эти журналы.  
 
--   Verifique o tamanho de base de dados do site e verifique que existe espaço em disco disponível suficiente no servidor de base de dados do site para permitir que a base de dados do site cresça.  
+-   Проверьте размер базы данных сайта и убедитесь, что на сервере базы данных сайта достаточно свободного места на диске для увеличения размера базы данных.  
 
--   Faça a manutenção de base de dados do SQL Server na base de dados de site, de acordo com o plano de manutenção do SQL Server.  
+-   Проведите обслуживание базы данных сайта согласно плану обслуживания баз данных SQL Server.  
 
--   Verificar o espaço em disco disponível em todos os sistemas de sites.  
+-   Проверьте наличие свободного места на всех системах сайта.  
 
--   Execute as ferramentas de desfragmentação de disco em todos os sistemas de sites.  
+-   Проведите дефрагментацию дисков на всех системах сайта.  
 
-**Tarefas periódicas**   
-Algumas tarefas que não necessitam de manutenção diária ou semanal são importantes para garantir o estado de funcionamento global do site. Estas tarefas também Certifique-se de que os planos de recuperação de segurança e desastre estão atualizados. Seguem-se tarefas de manutenção que pode considerar para uma agenda mais periódica que as tarefas diárias ou semanais:  
+**Периодические задачи**   
+Некоторые задачи не следует выполнять в ходе ежедневного или еженедельного обслуживания, но они важны для обеспечения общей работоспособности сайта. Они также требуются для поддержания планов безопасности и восстановления в актуальном состоянии. Следующие задачи обслуживания следует выполнять периодически.  
 
--   Alterar contas e palavras-passe, se for necessário, de acordo com o plano de segurança.  
+-   Измените учетные записи и пароли согласно плану безопасности, если требуется.  
 
--   Rever o plano de manutenção para verificar que tarefas de manutenção agendadas estão agendadas correta e eficaz dependendo das definições de site configuradas.  
+-   Проверьте план обслуживания, чтобы убедиться в правильности и эффективности расписания задач обслуживания согласно настроенным параметрам сайта.  
 
--   Rever a estrutura de hierarquia do Configuration Manager para efetuar quaisquer alterações necessárias.  
+-   Проверьте структуру иерархии Configuration Manager на предмет необходимых изменений.  
 
--   Verificar o desempenho de rede para se certificar de que não foram feitas alterações que afetem as operações do site.  
+-   Проверьте производительность сети, чтобы убедиться, что изменения не повлияли на работу сайта.  
 
--   Certifique-se de que as definições do Active Directory que afetem as operações do site não foram alteradas. Por exemplo, verifique se as sub-redes que estão atribuídos a sites do Active Directory e que são utilizadas como limites de site do Configuration Manager não foram alteradas.  
+-   Убедитесь, что параметры Active Directory, влияющие на работу сайта, не были изменены. Например, проверьте, что подсети, назначенные сайтам Active Directory и служащие границами сайта Configuration Manager, не изменились.  
 
--   Rever o plano de recuperação de desastre para as alterações necessárias.  
+-   Проверьте план восстановления на предмет необходимых изменений.  
 
--   Efetue uma recuperação de site, de acordo com o plano de recuperação de desastres num laboratório de teste utilizando uma cópia de segurança da cópia de segurança mais recente que a tarefa de manutenção cópia de segurança servidor do Site criada.
+-   Проведите восстановление сайта согласно плану в тестовой лаборатории, используя резервную копию наиболее поздней копии, созданной с помощью задачи обслуживания "Резервное копирование сервера сайта".
 
--   Verificar se o hardware quaisquer erros ou atualizações de hardware disponíveis.  
+-   Проверьте оборудование на наличие ошибок и доступных обновлений для оборудования.  
 
--   Verifique o estado de funcionamento global do site.  
+-   Проверьте общую работоспособность сайта.  
 
-###  <a name="BKMK_UseMTs"></a>Manter o estado de funcionamento operacional da sua base de dados do site  
- Ao efetuar as tarefas agendadas e configurar a sua hierarquia e site do Configuration Manager, os componentes do site adicionam constantemente dados à base de dados do Configuration Manager. À medida que aumenta a quantidade de dados, desempenho de base de dados e o espaço de armazenamento livre na base de dados diminui. Pode configurar tarefas de manutenção do site para remover dados antigos que já não necessita.  
+###  <a name="BKMK_UseMTs"></a> Поддержка рабочего состояния базы данных сайта  
+ По мере выполнения на сайте Configuration Manager и в иерархии настроенных и запланированных задач, компоненты сайта непрерывно добавляют в базу данных Configuration Manager новые данные. По мере увеличения объема данных снижается производительность базы данных и уменьшается объем свободного места в базе данных отклонено. Можно настроить задачи по настройке обслуживания сайта, чтобы удалять устаревшие данные, которые больше не нужны.  
 
- Configuration Manager fornece tarefas de manutenção predefinidas que pode utilizar para manter o estado de funcionamento da base de dados do Configuration Manager. Nem todas as tarefas de manutenção estão disponíveis em cada site, por predefinição. Várias tarefas ativadas e alguns não foram e todas suportam uma agenda que pode configurar.  
+ Configuration Manager содержит ряд готовых задач обслуживания, которые можно использовать, чтобы поддерживать работоспособность базы данных Configuration Manager. Не все задачи обслуживания доступны для каждого сайта. Некоторые задачи включены, а остальные отключены. Но все они поддерживают расписание, которое можно настроить.  
 
- A maioria das tarefas de manutenção removem periodicamente dados desatualizados da base de dados do Configuration Manager. Reduzir o tamanho da base de dados removendo dados desnecessários melhora o desempenho e a integridade da base de dados, o que aumenta a eficiência do site e da hierarquia. Outras tarefas, como **reconstruir índices**, ajudar a manter a eficiência da base de dados. Outras tarefas, como o **cópia de segurança do servidor do Site** tarefa, ajudam a preparar-se para a recuperação de desastre.  
+ Большинство задач обслуживания предназначены для периодического удаления устаревших данных из базы данных Configuration Manager. Уменьшение размера базы данных за счет удаления ненужных данных повышает производительность и целостность базы данных, что, в свою очередь, повышает эффективность работы сайта и иерархии. Другие задачи, такие как **Перестроение индексов**, помогают поддерживать работоспособность базы данных. Некоторые задачи, например **Резервное копирование сервера сайта**, предназначены для восстановления в случае сбоев.  
 
 > [!IMPORTANT]  
->  Quando planear a agenda de qualquer tarefa que elimine dados, considere a utilização de dados em toda a hierarquia. Quando é executada uma tarefa elimina dados num site, as informações são removidas da base de dados do Configuration Manager e esta alteração é replicada para todos os sites na hierarquia. Esta eliminação pode afetar outras tarefas que dependem desses dados. Por exemplo, no site de administração central, poderá configurar deteção para ser executada uma vez por mês de forma a identificar computadores não clientes. Planeia instalar o cliente do Configuration Manager para estes computadores no prazo de duas semanas da deteção. No entanto, num site na hierarquia, um administrador configura a tarefa eliminar dados de deteção desatualizados para ser executada a cada sete dias. O resultado é que sete dias após são computadores não clientes, estes sejam eliminados da base de dados do Configuration Manager. Volta ao site de administração central, prepara-se para push instalar o cliente do Configuration Manager nestes novos computadores no dia 10. No entanto, porque a tarefa eliminar dados de deteção desatualizados foi recentemente executada e eliminou dados que é sete dias ou mais antiga, os computadores recentemente detetados já não estão disponíveis na base de dados.  
+>  При планировании любых задач, связанных с удалением данных, учитывайте возможное использование этих данных в иерархии. Когда задача удаляет данные с сайта, информация удаляется из базы данных Configuration Manager, и это изменение реплицируется на все сайты в иерархии. Это может повлиять на другие задачи, использующие эти данные. Например, на сайте центра администрирования можно настроить запуск обнаружения один раз в месяц для выявления компьютеров без клиента. Вы планируете установить клиент Configuration Manager на эти компьютеры в течение двух недель после обнаружения. При этом на одном сайте в иерархии администратор настраивает запуск задачи "Удаление устаревших данных обнаружения" через каждые семь дней. В результате через семь дней после обнаружения компьютеров без клиента они должны удаляться из базы данных Configuration Manager. На сайте центра администрирования вы готовитесь к принудительной установке клиента Configuration Manager на этих компьютерах на десятый день. Однако из-за того, что задача "Удаление устаревших данных обнаружения" недавно была запущена и удалила все данные с давностью хранения 7 дней или больше, недавно обнаруженные компьютеры теперь отсутствуют в базе данных.  
 
-Depois de instalar um site do Configuration Manager, reveja as tarefas de manutenção disponíveis e ative as tarefas necessárias às suas operações. Reveja a agenda predefinida de cada tarefa e, quando necessário, configure a agenda para otimizar a tarefa de manutenção para se ajustar a sua hierarquia e ambiente. Embora a agenda predefinida de cada tarefa se adequar maior parte dos ambientes, monitorizar o desempenho dos seus sites e a base de dados e ser necessário otimizar tarefas para aumentar a eficiência da sua implementação. Planear periodicamente rever o desempenho do site e base de dados e reconfigurar tarefas de manutenção e respetivas agendas para manter essa eficiência.  
+После установки сайта Configuration Manager проверьте доступные задачи обслуживания и включите те из них, которые требуются для вашей операционной системы. Проверьте расписание по умолчанию для каждой задачи, при необходимости настройте его, чтобы каждая задача обслуживания соответствовала существующей в вашей среде иерархии. Расписание по умолчанию для каждой задачи подходит для большинства сред, но все же рекомендуется отслеживать производительность работы сайтов и базы данных и быть готовым к дополнительной настройке задач для повышения эффективности развертывания. Запланируйте периодическую проверку сайта и производительности базы данных, приготовьтесь настраивать задачи обслуживания и их расписание для поддержания эффективности обслуживания.  
 
-#### <a name="set-up-maintenance-tasks"></a>Configurar tarefas de manutenção  
- Cada site do Configuration Manager suporta tarefas de manutenção que ajudam a manter a eficiência operacional da base de dados do site. Por predefinição, várias tarefas de manutenção estão ativadas em cada site e todas as tarefas suportam agendamentos independentes. Tarefas de manutenção são configuradas individualmente para cada site e aplicam-se a base de dados desse site. No entanto, algumas tarefas, como **eliminar dados de deteção desatualizados**, afeta as informações que está disponíveis em todos os sites numa hierarquia.  
+#### <a name="set-up-maintenance-tasks"></a>Настройка задач обслуживания  
+ Каждый сайт Configuration Manager поддерживает задачи обслуживания, позволяющие обеспечивать должный уровень операционной эффективности базы данных сайта. На каждом сайте по умолчанию включены некоторые задачи обслуживания, и все задачи поддерживают независимые расписания. Задачи обслуживания настраиваются отдельно для каждого сайта и применяются к базе данных на этом сайте. Тем не менее, некоторые задачи, такие как **Удаление устаревших данных обнаружения**, влияют на информацию, доступную на всех сайтах иерархии.  
 
- Apenas as tarefas de manutenção que pode configurar um site são apresentadas na consola do Configuration Manager. Para obter uma lista completa das tarefas de manutenção por tipo de site, consulte [tarefas de referência para a manutenção do System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
+ В консоли Configuration Manager отображаются только те задачи обслуживания, которые можно настроить на сайте. Полный список задач обслуживания по типу сайта см. в [справочнике по задачам обслуживания для System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
 
- Utilize o procedimento seguinte para o ajudar a configurar as definições comuns de tarefas de manutenção.  
+ Используйте следующую процедуру, чтобы настраивать общие параметры задач обслуживания.  
 
-###### <a name="to-set-up-maintenance-tasks-for-configuration-manager"></a>Para configurar tarefas de manutenção para o Configuration Manager  
+###### <a name="to-set-up-maintenance-tasks-for-configuration-manager"></a>Настройка задач обслуживания в Configuration Manager  
 
-1.  Na consola do Configuration Manager, vá para **administração** > **configuração do Site** >**Sites**.  
+1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация сайта** >**Сайты**.  
 
-2.  Escolha o site que tenha a tarefa de manutenção que pretende configurar.  
+2.  Выберите сайт, содержащий задачу обслуживания, которую требуется настроить.  
 
-3.  No **home page** separador o **definições** grupo, escolha **manutenção do Site**e, em seguida, escolha a tarefa de manutenção que pretende configurar.  
+3.  На вкладке **Главная** в группе **Параметры** выберите **Обслуживание сайта**, после чего выберите задачу обслуживания, которую требуется настроить.  
 
     > [!TIP]  
-    >  São apresentadas apenas as tarefas que estão disponíveis no site selecionado.  
+    >  Отображаются только задачи, доступные в выбранном месте.  
 
-4.  Para configurar a tarefa, escolha **editar**, certifique-se a **ativar esta tarefa** caixa de verificação está selecionada e configurar uma agenda para quando a tarefa é executada. Se a tarefa também elimina dados antigos, configure a idade dos dados que serão eliminadas da base de dados quando a tarefa é executada. Escolha **OK** para fechar a tarefa **propriedades**.  
+4.  Чтобы настроить задачу, щелкните **Изменить**, убедитесь, что установлен флажок **Включить эту задачу**, и настройте расписание выполнения задачи. Если задача также удаляет устаревшие данные, укажите возраст данных, которые будут удаляться из базы данных при выполнении задачи. Нажмите кнопку **ОК**, чтобы закрыть окно **Свойства** задачи.  
 
     > [!NOTE]  
-    >  Para **eliminar mensagens de estado Desatualizadas**, configurar a idade dos dados para eliminar quando configurar regras de filtro de estado.  
+    >  Для задачи **Удаление устаревших сообщений о состоянии** следует задать возраст удаляемых данных при настройке правил фильтра состояний.  
 
-5.  Para ativar ou desativar a tarefa sem editar as propriedades de tarefas, escolha o **ativar** ou **desativar** botão. A etiqueta do botão muda, consoante a configuração atual da tarefa.  
+5.  Чтобы включить или отключить задачу, не изменяя ее свойства, нажмите кнопку **Включить** или **Отключить**. Надпись на кнопке изменится в соответствии с текущими настройками задачи.  
 
-6.  Quando tiver terminado de configurar as tarefas de manutenção, escolha **OK** para concluir o procedimento.
+6.  По окончании настройки задач обслуживания нажмите кнопку **ОК**, чтобы завершить процедуру.

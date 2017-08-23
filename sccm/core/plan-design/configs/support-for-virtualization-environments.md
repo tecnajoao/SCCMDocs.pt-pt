@@ -1,6 +1,6 @@
 ---
-title: "Suporte para virtualização | Microsoft Docs"
-description: "Obter os requisitos para instalar funções de sistema de cliente e o site do System Center Configuration Manager num ambiente de virtualização."
+title: "Поддержка виртуализации | Документы Майкрософт"
+description: "Требования для установки клиента и ролей системы сайта System Center Configuration Manager в среде виртуализации."
 ms.custom: na
 ms.date: 1/12/2017
 ms.prod: configuration-manager
@@ -16,53 +16,53 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b49bd179da850cee35b2487a353bb1788df03d58
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="support-for-virtualization-environments-for-system-center-configuration-manager"></a>Suporte para ambientes de Virtualização do System Center Configuration Manager
+# <a name="support-for-virtualization-environments-for-system-center-configuration-manager"></a>Поддержка сред виртуализации для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-O Configuration Manager suporta a instalação do cliente e funções de sistema de sites nos sistemas operativos suportados que executar como uma máquinas virtuais nos ambientes de Virtualização que são apresentadas neste artigo. Este suporte existe mesmo quando o anfitrião da máquina virtual (ambiente de virtualização) não é suportado como cliente ou servidor do site.  
+Configuration Manager поддерживает установку клиента и ролей системы сайта в поддерживаемых операционных системах, которые работают как виртуальные машины в средах виртуализации, перечисленных в этом разделе. Эта поддержка остается даже тогда, когда узел виртуальной машины (среда виртуализации) не поддерживается как клиент или сервер сайта.  
 
- Por exemplo, se utilizar o Microsoft Hyper-V Server 2012 para alojar uma máquina virtual que executa o Windows Server 2012, pode instalar as funções do sistema cliente ou um site na máquina virtual (Windows Server 2012), mas não no anfitrião (Microsoft Hyper-V Server 2012).  
+ Например, если вы используете Microsoft Hyper-V Server 2012 для размещения виртуальной машины, на которой работает Windows Server 2012, вы можете установить роли клиента или системы сайта на виртуальной машине (Windows Server 2012), но не в узле (Microsoft Hyper-V Server 2012).  
 
-|Ambiente de virtualização|  
+|Среда виртуализации|  
 |--------------------------------|  
 |Windows Server 2008 R2|  
 |Microsoft Hyper-V Server 2008 R2|  
 |Windows Server 2012|  
 |Microsoft Hyper-V Server 2012|  
 |Windows Server 2012 R2|
-|Windows Server 2016 <sup>(consulte *tenha em atenção 1*)</sup>|
-|Microsoft Hyper-V Server 2016 <sup>(consulte *tenha em atenção 1*)|
--  *Tenha em atenção 1*: Gestor de configuração não suporta [virtualização aninhada](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/what-s-new-in-hyper-v-on-windows#a-namebkmknestedanested-virtualization-new), que é novo com o Windows Server 2016.
+|Windows Server 2016 <sup>(см. *примечание 1*)</sup>|
+|Microsoft Hyper-V Server 2016 <sup>(см. *примечание 1*)|
+-  *Примечание 1*. Configuration Manager не поддерживает [вложенную виртуализацию](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/what-s-new-in-hyper-v-on-windows#a-namebkmknestedanested-virtualization-new), которая появилась в Windows Server 2016.
 
 
- Cada computador virtual que utiliza tem de cumprir ou exceder os requisitos de software que utilizaria para um computador físico do Configuration Manager e o mesmo hardware.  
+ Каждый используемый виртуальный компьютер должен соответствовать требованиям к оборудованию и программному обеспечению, которые применялись бы для физического компьютера Configuration Manager (или превосходить их).  
 
- Pode validar que o seu ambiente de Virtualização é suportado para o Configuration Manager, utilizando o Server Virtualization Validation Program e o respetivo Virtualization Program Support Policy Wizard online. Para mais informações sobre o Server Virtualization Validation Program, consulte [Windows Server Virtualization Validation Program](https://www.windowsservercatalog.com/svvp.aspx).  
+ Можно проверить поддержку среды виртуализации в Configuration Manager, используя программу проверки виртуализации серверов (SVVP) и связанный с ней мастер политики поддержки программы виртуализации (Virtualization Program Support Policy Wizard) в Интернете. Дополнительные сведения о программе проверки виртуализации серверов см. в разделе [Программа проверки виртуализации Windows Server](https://www.windowsservercatalog.com/svvp.aspx).  
 
 > [!NOTE]  
->  O Configuration Manager não suporta Virtual PC ou o Virtual Server sistemas de operativos convidados que são executados em computadores Mac.  
+>  Configuration Manager не поддерживает гостевые операционные системы Virtual PC и Virtual Server, работающие на компьютерах Mac.  
 
-O Configuration Manager não consegue gerir máquinas virtuais a menos que estejam online. Não é possível atualizar uma imagem de máquina virtual offline, nem pode ser recolhido inventário, utilizando o cliente do Configuration Manager no computador anfitrião.  
+Configuration Manager не может управлять виртуальными машинами, если они недоступны в Интернете. Образ отключенной виртуальной машины нельзя обновить; также нельзя проводить сбор данных инвентаризации при помощи клиента Configuration Manager на основном компьютере.  
 
-Não existem considerações especiais para as máquinas virtuais. Por exemplo, o Configuration Manager poderá não determinar se uma atualização tem de ser novamente aplicada a uma imagem de máquina virtual se a máquina virtual foi parada e reiniciada sem guardar o estado da máquina virtual para que a atualização foi aplicada.  
+Виртуальные машины не обслуживаются особым образом. Например, Configuration Manager может не определить, необходимо ли повторно применить к образу виртуальной машины обновление, если виртуальная машина, к которой применялось обновление, была остановлена и перезапущена без сохранения состояния.  
 
-##  <a name="bkmk_Azure"></a> Máquinas virtuais do Microsoft Azure  
- O Configuration Manager pode executar em máquinas virtuais no Azure, tal como é executado no local dentro da sua rede empresarial física. Pode utilizar o Gestor de configuração de máquinas virtuais do Azure nos seguintes cenários:  
+##  <a name="bkmk_Azure"></a> Виртуальные машины Microsoft Azure  
+ Configuration Manager может выполняться на виртуальных машинах в Azure точно так же, как и локально в физической корпоративной сети. Вы можете использовать Configuration Manager с виртуальными машинами Azure в описанных ниже сценариях.  
 
--   **Cenário 1:** Pode executar o Configuration Manager numa máquina virtual do Azure e utilizá-lo para gerir clientes instalados noutras máquinas virtuais do Azure.  
+-   **Сценарий 1**. Вы можете запускать Configuration Manager на виртуальной машине Azure и использовать его для управления клиентами, установленными на других виртуальных машинах Azure.  
 
--   **Cenário 2:** Pode executar o Configuration Manager numa máquina virtual do Azure e utilizá-lo para gerir clientes que não estão em execução no Azure.  
+-   **Сценарий 2**. Вы можете запускать диспетчер Configuration Manager в виртуальной машине Azure и использовать его для управления клиентами, работающими за пределами Azure.  
 
--   **Cenário 3:** Pode executar diferentes funções do sistema de sites do Configuration Manager em máquinas virtuais do Azure enquanto executa outras funções na sua rede empresarial física (com conectividade de rede adequada a comunicações).  
+-   **Сценарий 3**. Вы можете запускать различные роли системы сайта Configuration Manager в виртуальных машинах Azure и одновременно запускать другие роли в своей физической корпоративной сети (с соответствующим сетевым подключением).  
 
-Os mesmos requisitos de System Center Configuration Manager para redes, configurações suportadas e requisitos de hardware aplicáveis à instalação do Configuration Manager no local na sua rede empresarial física também são aplicáveis à instalação em máquinas virtuais do Azure.  
+Те же требования System Center Configuration Manager для сетей, поддерживаемых конфигураций и требования к оборудованию, применяемые к установке Configuration Manager локально в физической корпоративной сети, применяются и к установке в виртуальных машинах Azure.  
 
-Para obter mais informações, consulte [do Configuration Manager no Azure – perguntas mais frequentes](/sccm/core/understand/configuration-manager-on-azure).
+Дополнительные сведения см. в разделе [Вопросы и ответы по использованию Configuration Manager в Azure](/sccm/core/understand/configuration-manager-on-azure).
 
 > [!IMPORTANT]  
->  Sites do Configuration Manager e os clientes executados em máquinas virtuais do Azure estão sujeitos aos mesmos requisitos de licença que as instalações no local.  
+>  На сайты и клиенты Configuration Manager, работающие на виртуальных машинах Azure, распространяются те же требования к лицензиям, что и на локальные установки.  

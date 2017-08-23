@@ -1,802 +1,799 @@
 ---
-title: "Pré-requisitos do site | Documentos do Microsoft"
-description: Saiba como configurar um computador com o Windows como um servidor de sistema de site do System Center Configuration Manager.
+title: "Предварительные требования для сайта | Документы Майкрософт"
+description: "Узнайте, как настроить компьютер Windows в качестве сервера системы сайта System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/17/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1392797b-76cb-46b4-a3e4-8f349ccaa078
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 42549b98dd7f418cc3f4543198aaeb90ea8a3efd
 ms.openlocfilehash: 0b1d2d619d6cdaf36cc22ef461ea1505b5cacc41
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Site e os pré-requisitos de sistema de sites para o System Center Configuration Manager
+# <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Предварительные требования для сайта и системы сайта в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
-
-
- Os computadores baseados em Windows requerem configurações específicas para suportar a utilização como servidores de sistema de sites do System Center Configuration Manager.  
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
- Para alguns produtos, como o Windows Server Update Services (WSUS) para o software de ponto de atualização, tem de referir-se a documentação do produto para identificar a pré-requisitos adicionais e limitações para utilizam esse produto. Estão incluídas apenas configurações diretamente aplicáveis para utilização com o Configuration Manager.   
+ Компьютерам с ОС Windows требуется особая конфигурация, чтобы поддерживать использование в качестве серверов системы сайта System Center Configuration Manager.  
+
+
+ Для некоторых продуктов, таких как службы Windows Server Update Services (WSUS) для точки обновления программного обеспечения, необходимо обратиться к документации по этому продукту, чтобы ознакомиться с дополнительными требованиями и ограничениями. Здесь приводятся конфигурации, которые непосредственно касаются использования Configuration Manager.   
 
 > [!NOTE]  
->  Em Janeiro de 2016, suporte expirou para o .NET Framework 4.0, 4.5 e 4.5.1. Para obter mais informações, veja [FAQ sobre a Política de Ciclo de Vida do Suporte Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update), em support.microsoft.com.  
+>  В январе 2016 г. завершилась поддержка .NET Framework 4.0, 4.5 и 4.5.1. Дополнительные сведения см. в статье [Часто задаваемые вопросы о политике поддержки жизненного цикла Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) на сайте support.microsoft.com.  
 
-## <a name="bkmk_generalprerewq"></a>Requisitos do servidor de sites geral e limitações
-**Aplicar o seguinte procedimento para todos os servidores de sistema de sites:**
+## <a name="bkmk_generalprerewq"></a> Общие требования и ограничения для сервера сайта
+**Перечисленные ниже требования относятся ко всем серверам системы сайта.**
 
--   Cada servidor de sistema de sites tem de utilizar um sistema operativo de 64 bits. A única exceção é a função ponto de distribuição site sistema, que pode instalar em alguns sistemas operativos de 32 bits.  
+-   Каждый сервер системы сайта должен работать под управлением 64-разрядной операционной системы. Единственным исключением является роль системы сайта точки распространения, которую можно установить в некоторых 32-разрядных операционных системах.  
 
--   Sistemas de sites não são suportados em instalações Server Core do qualquer sistema operativo. Uma exceção a isto é que instalações Server Core são suportadas para a função de sistema de sites do ponto de distribuição, sem PXE ou suporte multicast.  
+-   Системы сайта не поддерживаются в установках основных серверных компонентов любой операционной системе. Исключением является то, что установки основных серверных компонентов поддерживаются для роли системы сайта точки распространения без PXE или поддержки многоадресной рассылки.  
 
--   Depois de um servidor de sistema de sites está instalado, não é suportada para alterar:  
+-   Не допускается изменение следующих параметров после установки сервера системы сайта.  
 
-    -   O nome de domínio do domínio onde está localizado o computador do sistema de sites (também designado por um **mudar o nome de domínio**).  
+    -   Имя домена, в котором находится компьютер системы сайта (**переименование домена**)  
 
-    -   A associação de domínio do computador.  
+    -   Членство компьютера в домене  
 
-    -   O nome do computador.  
+    -   Имя компьютера.  
 
-  Se tiver de alterar qualquer uma destas, tem primeiro de remover a função de sistema de sites do computador e, em seguida, reinstale a função após a alteração seja concluída. Se esta ação afeta o computador do servidor do site, tem de desinstalar o site e, em seguida, reinstalar o site após a alteração seja concluída.  
+  Если нужно изменить какой-либо из этих параметров, следует сначала удалить роль системы сайта с компьютера, а затем заново установить ее после внесения изменения. Если это влияет на компьютер сервера сайта, необходимо удалить сайт, а затем заново установить его после внесения изменения.  
 
--   Funções do sistema de sites não são suportadas numa instância de um cluster do Windows. A única exceção a isto é o servidor de base de dados do site.  
+-   Роли систем сайта не поддерживаются в экземпляре кластера Windows Server. Единственным исключением является сервер базы данных сайта.  
 
--   Não é suportada para alterar o tipo de arranque ou "Início de sessão como" definições de qualquer serviço do Configuration Manager. Ao fazê-lo, poderá impedir que os serviços de chave a funcionar corretamente.  
+-   Не поддерживается изменение параметров "Тип запуска" и "Вход от имени" для любой службы Configuration Manager. Это может привести к неправильной работе ключевых служб.  
 
-##  <a name="bkmk_2012Prereq"></a>Pré-requisitos para o Windows Server 2012 e sistemas operativos posteriores  
-###  <a name="bkmk_2012sspreq"></a>Servidor do site: site de administração central e site primário  
-  **Funcionalidades e funções de servidor do Windows:**  
+##  <a name="bkmk_2012Prereq"></a> Необходимые компоненты для Windows Server 2012 и более поздних операционных систем  
+###  <a name="bkmk_2012sspreq"></a> Сервер сайта — сайт центра администрирования и первичный сайт  
+  **Роли и компоненты Windows Server:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
--   Compressão de diferencial remota  
+-   Удаленное разностное сжатие  
 
 **Windows ADK:**  
 
--   Antes de instalar ou atualizar um site de administração central ou site primário, tem de instalar a versão do Windows Assessment and Deployment Kit (ADK) que requer a versão do Configuration Manager que estiver a instalar ou atualizar para o.  
+-   Перед установкой или обновлением сайта центра администрирования или первичного сайта необходимо установить версию комплекта средств для развертывания и оценки Windows (Windows ADK), которая требуется для устанавливаемой или обновляемой версии Configuration Manager.  
 
-    -   A versão de 1511 do Configuration Manager requer a versão do Windows 10 RTM (10.0.10240) do Windows ADK.  
+    -   Для версии 1511 Configuration Manager требуется версия Windows 10 RTM (10.0.10240) комплекта Windows ADK.  
 
--   Para obter mais informações sobre este requisito, consulte o artigo [requisitos de infraestrutura de implementação do sistema operativo](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Дополнительные сведения об этом требовании см. в статье [Требования к инфраструктуре для развертывания операционной системы в System Center Configuration Manager](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-**Do Visual C++ Redistributable:**  
+**Распространяемый компонент Visual C++:**  
 
--   Configuration Manager instala o Microsoft Visual C++ 2013 Redistributable Package em cada computador que instala um servidor do site.  
+-   Configuration Manager устанавливает распространяемый пакет Microsoft Visual C++ 2013 на каждый компьютер, на который устанавливается сервер сайта.  
 
--   Sites de administração central e sites primários necessitam de ambas as versões x86 e x64 do ficheiro Redistributable aplicável.  
+-   Сайты центра администрирования и первичные сайты требуют версий x86 и x64 применимого файла распространяемого компонента.  
 
-###  <a name="bkmk_2012secpreq"></a>Servidor do site: site secundário  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012secpreq"></a> Сервер сайта — вторичный сайт  
+**Роли и компоненты Windows Server:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
--   Compressão de diferencial remota  
+-   Удаленное разностное сжатие  
 
-**Do Visual C++ Redistributable:**  
+**Распространяемый компонент Visual C++:**  
 
--   Configuration Manager instala o Microsoft Visual C++ 2013 Redistributable Package em cada computador que instala um servidor do site.  
+-   Configuration Manager устанавливает распространяемый пакет Microsoft Visual C++ 2013 на каждый компьютер, на который устанавливается сервер сайта.  
 
--   Os sites secundários requerem apenas o x64 versão.  
+-   Вторичные сайты требуют только 64-разрядных версий.  
 
-**Funções de sistema de sites predefinidas:**  
+**Роли систем сайта умолчанию:**  
 
--   Por predefinição, um site secundário é instalado um **ponto de gestão** e um **ponto de distribuição**.  
+-   По умолчанию вторичный сайт устанавливает **точку управления** и **точку распространения**.  
 
--   Certifique-se de que o servidor de site secundário cumpre os pré-requisitos para estas funções de sistema de sites.  
+-   Убедитесь в том, что сервер вторичного сайта соответствует необходимым условиям для этих ролей системы сайта.  
 
-###  <a name="bkmk_2012dbpreq"></a>Servidor de base de dados  
-**Serviço de registo remoto:**  
+###  <a name="bkmk_2012dbpreq"></a> Сервер базы данных  
+**Служба удаленного реестра:**  
 
--   Durante a instalação do site do Configuration Manager, tem de ativar o serviço registo remoto no computador que alojará a base de dados do site.  
+-   Во время установки сайта Configuration Manager необходимо включить службу удаленного реестра на компьютере, на котором будет размещена база данных сайта.  
 
 **SQL Server:**  
 
--   Antes de instalar um site de administração central ou site primário, tem de instalar uma versão suportada do SQL Server para alojar a base de dados do site.  
+-   Прежде чем устанавливать сайт центра администрирования или первичный сайт, необходимо установить поддерживаемую версию SQL Server для размещения базы данных сайта.  
 
--   Antes de instalar um site secundário, pode instalar uma versão suportada do SQL Server.  
+-   Перед установкой вторичного сайта можно установить поддерживаемую версию SQL Server.  
 
--   Se optar por ter o Configuration Manager instalar o SQL Server Express como parte da instalação do site secundário, certifique-se de que o computador cumpre os requisitos para executar o SQL Server Express.  
+-   Если вы хотите, чтобы Configuration Manager установил экспресс-выпуск SQL Server в рамках установки вторичного сайта, то компьютер должен соответствовать требованиям для запуска экспресс-выпуска SQL Server.  
 
-###  <a name="bkmk_2012smsprovpreq"></a>Servidor do fornecedor de SMS  
+###  <a name="bkmk_2012smsprovpreq"></a> Сервер поставщика SMS  
 **Windows ADK:**  
 
--   O computador onde irá instalar uma instância do fornecedor de SMS tem de ter a versão necessária do que requer a versão do Configuration Manager que estiver a instalar ou atualizar para o Windows ADK.  
+-   На компьютере, на котором устанавливается экземпляр поставщика SMS, должна быть установлена версия Windows ADK, которая требуется для устанавливаемой или обновляемой версии Configuration Manager.  
 
-    -   A versão de 1511 do Configuration Manager requer a versão do Windows 10 RTM (10.0.10240) do Windows ADK.  
+    -   Для версии 1511 Configuration Manager требуется версия Windows 10 RTM (10.0.10240) комплекта Windows ADK.  
 
--   Para obter mais informações sobre este requisito, consulte o artigo [requisitos de infraestrutura de implementação do sistema operativo](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Дополнительные сведения об этом требовании см. в статье [Требования к инфраструктуре для развертывания операционной системы в System Center Configuration Manager](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-###  <a name="bkmk_2012acwspreq"></a>Ponto de Web site do catálogo de aplicações  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012acwspreq"></a> Точка веб-сайта каталога приложений  
+**Роли и компоненты Windows Server:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
--   O .NET framework 4.5.2:  
+-   .NET Framework 4.5.2:  
 
     -   ASP.NET 4.5  
 
-**Configuração do IIS:**  
+**Конфигурация IIS:**  
 
--   Funcionalidades HTTP comuns:  
+-   Основные функции HTTP.  
 
-    -   Documento Predefinido  
+    -   Документ по умолчанию  
 
-    -   Conteúdo Estático  
+    -   Статическое содержимое  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   ASP.NET 3.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 3.5 (и автоматически выбранные параметры)  
 
-    -   ASP.NET 4.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 4.5 (и автоматически выбранные параметры)  
 
-    -   Extensibilidade .NET 3.5  
+    -   Расширяемость .NET 3.5  
 
-    -   Extensibilidade .NET 4.5  
+    -   Расширяемость .NET 4.5  
 
--   Segurança:  
+-   Безопасность:  
 
-    -   Autenticação do Windows  
+    -   Проверка подлинности Windows  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-###  <a name="bkmk_2012ACwsitepreq"></a>Ponto de serviço da web de catálogo de aplicações  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012ACwsitepreq"></a> Точка веб-службы каталога приложений  
+**Роли и компоненты Windows Server:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
--   O .NET framework 4.5.2:  
+-   .NET Framework 4.5.2:  
 
-    -   ASP.NET 4.5:  
+    -   ASP.NET 4.5:  
 
-        -   Ativação HTTP (e as opções selecionadas automaticamente)  
+        -   Активация HTTP (и автоматически выбранные параметры)  
 
-**Configuração do IIS:**  
+**Конфигурация IIS:**  
 
--   Funcionalidades HTTP comuns:  
+-   Основные функции HTTP.  
 
-    -   Documento Predefinido  
+    -   Документ по умолчанию  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   ASP.NET 3.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 3.5 (и автоматически выбранные параметры)  
 
-    -   Extensibilidade .NET 3.5  
+    -   Расширяемость .NET 3.5  
 
-    -   ASP.NET 4.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 4.5 (и автоматически выбранные параметры)  
 
-    -   Extensibilidade .NET 4.5  
+    -   Расширяемость .NET 4.5  
 
-**Memória do computador:**  
+**Объем памяти компьютера:**  
 
--   O computador que aloja esta função do sistema de sites tem de ter um mínimo de 5% de memória disponível do computador livre ativar a função de sistema de site para processar os pedidos.  
+-   На компьютере, на котором размещена эта роль системы сайта, должно быть свободно не менее 5 % доступной памяти для того, чтобы роль системы сайта могла обрабатывать запросы.  
 
--   Se esta função do sistema de sites estiver localizada conjuntamente com outra função de sistema de sites que tenham este requisito mesmo, este requisito de memória para o computador não aumenta, mas mantém-se como um mínimo de 5%.  
+-   Если эта роль системы сайта расположена на том же компьютере, что и другая роль системы сайта с таким же требованием к памяти, общее требование к памяти на компьютере не увеличивается, а остается таким же — минимум 5 %.  
 
-###  <a name="bkmk_2012AIpreq"></a>Ponto de sincronização do Asset Intelligence  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012AIpreq"></a> Точка синхронизации каталога аналитики активов  
+**Роли и компоненты Windows Server:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-###  <a name="bkmk_2012crppreq"></a>Ponto de registo de certificados  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012crppreq"></a> Точка регистрации сертификатов  
+**Роли и компоненты Windows Server:**  
 
--   O .NET framework 4.5.2:  
+-   .NET Framework 4.5.2:  
 
-    -   Ativação HTTP  
+    -   Активация по HTTP  
 
-**Configuração do IIS:**  
+**Конфигурация IIS:**  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   ASP.NET 3.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 3.5 (и автоматически выбранные параметры)  
 
-    -   ASP.NET 4.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 4.5 (и автоматически выбранные параметры)  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-    -   Compatibilidade com WMI do IIS 6  
+    -   Совместимость с WMI IIS 6  
 
-###  <a name="bkmk_2012dppreq"></a>Ponto de distribuição  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012dppreq"></a> Точка распространения  
+**Роли и компоненты Windows Server:**  
 
--   Compressão de diferencial remota  
+-   Удаленное разностное сжатие  
 
-**Configuração do IIS:**  
+**Конфигурация IIS:**  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   Extensões ISAPI  
+    -   Расширения ISAPI  
 
--   Segurança:  
+-   Безопасность:  
 
-    -   Autenticação do Windows  
+    -   Проверка подлинности Windows  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-    -   Compatibilidade com WMI do IIS 6  
+    -   Совместимость с WMI IIS 6  
 
 **PowerShell:**  
 
--   No Windows Server 2012 ou posterior, o PowerShell 3.0 ou 4.0 é necessário antes de instalar o ponto de distribuição.  
+-   До установки точки распространения на сервере Windows Server 2012 или более поздней версии требуется PowerShell 3.0 или 4.0.  
 
-**Do Visual C++ Redistributable:**  
+**Распространяемый компонент Visual C++:**  
 
--   Configuration Manager instala o Microsoft Visual C++ 2013 Redistributable Package em cada computador que aloja um ponto de distribuição.  
+-   Configuration Manager устанавливает распространяемый пакет Microsoft Visual C++ 2013 на каждый компьютер, на котором размещается точка распространения.  
 
--   A versão que está instalada depende da plataforma do computador (x86 ou x64).  
+-   Устанавливаемая версия зависит от платформы компьютера (x86 или x64).  
 
 **Microsoft Azure:**  
 
--   Pode utilizar um serviço em nuvem no Microsoft Azure para alojar um ponto de distribuição.  
+-   Для размещения точки распространения можно воспользоваться облачной службой Microsoft Azure.  
 
-**Para suportar PXE ou multicast:**  
+**Для поддержки PXE или многоадресной рассылки:**  
 
--   Instalar e configurar a função de servidor de Windows de serviços de implementação do Windows (WDS).  
+-   Установите и настройте роль Windows Server "Службы развертывания Windows (WDS)".  
 
     > [!NOTE]  
-    >  O WDS instala e configura automaticamente quando configura um ponto de distribuição para suportar PXE ou multicast num servidor que executa o Windows Server 2012 ou posterior.  
+    >  Службы развертывания Windows устанавливаются и настраиваются автоматически при настройке точки распространения для поддержки PXE или многоадресной рассылки на сервере Windows Server 2012 или более поздней версии.  
 
 > [!NOTE]  
-> A função de sistema de sites de ponto de distribuição não necessita de serviço de transferência inteligente em segundo plano em segundo plano (BITS). Quando o BITS é configurado no computador do ponto de distribuição, BITS no computador do ponto de distribuição não seja utilizada para facilitar a transferência de conteúdos por clientes que utilizam o BITS.  
+> Роль системы сайта точки распространения не требует фоновой интеллектуальной службы передачи (BITS). Если служба BITS настроена на компьютере точки распространения, BITS на компьютере точки распространения не используется для облегчения скачивания содержимого клиентами, использующими BITS.  
 
-###  <a name="bkmk_2012EPPpreq"></a>Ponto de Endpoint Protection  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012EPPpreq"></a> Точка Endpoint Protection  
+**Роли и компоненты Windows Server:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
-###  <a name="bkmk_2012Enrollpreq"></a>Ponto de inscrição  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012Enrollpreq"></a> Точка регистрации  
+**Роли и компоненты Windows Server:**  
 
--   .NET framework 3.5 (ou posterior)  
+-   .NET Framework 3.5 (или более поздней версии).  
 
--   O .NET framework 4.5.2:  
+-   .NET Framework 4.5.2:  
 
-     Quando instala esta função do sistema de sites, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um reinício de estado pendente. Quando está pendente um reinício para o .NET Framework, aplicações de .NET poderão falhar até depois reinicia o servidor e a conclusão da instalação.  
+     При установке этой роли системы сайта Configuration Manager автоматически устанавливает платформу .NET Framework 4.5.2. Эта установка может перевести сервер в состояние ожидания перезагрузки. Если ожидается перезагрузка для .NET Framework, то приложения .NET могут завершаться сбоем, пока сервер не выполнит перезагрузку и не завершит установку.  
 
-    -   Ativação HTTP (e as opções selecionadas automaticamente)  
+    -   Активация HTTP (и автоматически выбранные параметры)  
 
     -   ASP.NET 4.5  
 
 
-**Configuração do IIS:**  
+**Конфигурация IIS:**  
 
--   Funcionalidades HTTP comuns:  
+-   Основные функции HTTP.  
 
-    -   Documento Predefinido  
+    -   Документ по умолчанию  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   ASP.NET 3.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 3.5 (и автоматически выбранные параметры)  
 
-    -   Extensibilidade .NET 3.5  
+    -   Расширяемость .NET 3.5  
 
-    -   ASP.NET 4.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 4.5 (и автоматически выбранные параметры)  
 
-    -   Extensibilidade .NET 4.5  
+    -   Расширяемость .NET 4.5  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-**Memória do computador:**  
+**Объем памяти компьютера:**  
 
--   O computador que aloja esta função do sistema de sites tem de ter um mínimo de 5% de memória disponível do computador livre ativar a função de sistema de site para processar os pedidos.  
+-   На компьютере, на котором размещена эта роль системы сайта, должно быть свободно не менее 5 % доступной памяти для того, чтобы роль системы сайта могла обрабатывать запросы.  
 
--   Se esta função do sistema de sites estiver localizada conjuntamente com outra função de sistema de sites que tenham este requisito mesmo, este requisito de memória para o computador não aumenta, mas mantém-se como um mínimo de 5%.  
+-   Если эта роль системы сайта расположена на том же компьютере, что и другая роль системы сайта с таким же требованием к памяти, общее требование к памяти на компьютере не увеличивается, а остается таким же — минимум 5 %.  
 
-###  <a name="bkmk_2012EnrollProxpreq"></a>Ponto proxy de registo  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012EnrollProxpreq"></a> Прокси-точка регистрации  
+**Роли и компоненты Windows Server:**  
 
--   .NET framework 3.5 (ou posterior)  
+-   .NET Framework 3.5 (или более поздней версии).  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-     Quando instala esta função do sistema de sites, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um reinício de estado pendente. Quando está pendente um reinício para o .NET Framework, aplicações de .NET poderão falhar até depois reinicia o servidor e a conclusão da instalação.  
+     При установке этой роли системы сайта Configuration Manager автоматически устанавливает платформу .NET Framework 4.5.2. Эта установка может перевести сервер в состояние ожидания перезагрузки. Если ожидается перезагрузка для .NET Framework, то приложения .NET могут завершаться сбоем, пока сервер не выполнит перезагрузку и не завершит установку.  
 
-**Configuração do IIS:**  
+**Конфигурация IIS:**  
 
--   Funcionalidades HTTP comuns:  
+-   Основные функции HTTP.  
 
-    -   Documento Predefinido  
+    -   Документ по умолчанию  
 
-    -   Conteúdo Estático  
+    -   Статическое содержимое  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   ASP.NET 3.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 3.5 (и автоматически выбранные параметры)  
 
-    -   ASP.NET 4.5 (e as opções selecionadas automaticamente)  
+    -   ASP.NET 4.5 (и автоматически выбранные параметры)  
 
-    -   Extensibilidade .NET 3.5  
+    -   Расширяемость .NET 3.5  
 
-    -   Extensibilidade .NET 4.5  
+    -   Расширяемость .NET 4.5  
 
--   Segurança:  
+-   Безопасность:  
 
-    -   Autenticação do Windows  
+    -   Проверка подлинности Windows  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-**Memória do computador:**  
+**Объем памяти компьютера:**  
 
--   O computador que aloja esta função do sistema de sites tem de ter um mínimo de 5% de memória disponível do computador livre ativar a função de sistema de site para processar os pedidos.  
+-   На компьютере, на котором размещена эта роль системы сайта, должно быть свободно не менее 5 % доступной памяти для того, чтобы роль системы сайта могла обрабатывать запросы.  
 
--   Se esta função do sistema de sites estiver localizada conjuntamente com outra função de sistema de sites que tenham este requisito mesmo, este requisito de memória para o computador não aumenta, mas mantém-se como um mínimo de 5%.  
+-   Если эта роль системы сайта расположена на том же компьютере, что и другая роль системы сайта с таким же требованием к памяти, общее требование к памяти на компьютере не увеличивается, а остается таким же — минимум 5 %.  
 
-###  <a name="bkmk_2012FSPpreq"></a>Ponto de estado de contingência  
-A configuração predefinida do IIS é necessária com adições seguintes:  
+###  <a name="bkmk_2012FSPpreq"></a> Резервная точка состояния  
+Требуется конфигурация IIS по умолчанию со следующими дополнениями:  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-###  <a name="bkmk_2012MPpreq"></a>Ponto de gestão  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012MPpreq"></a> Точка управления  
+**Роли и компоненты Windows Server:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
--   Extensões de servidor de BITS (e automaticamente selecionadas opções) ou serviços de transferência inteligente em segundo plano em segundo plano (BITS) (e opções selecionadas automaticamente)  
+-   Серверные расширения BITS (и автоматически выбранные параметры) или фоновые интеллектуальные службы передачи (BITS) (и автоматически выбранные параметры)  
 
-**Configuração do IIS:**  
+**Конфигурация IIS:**  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   Extensões ISAPI  
+    -   Расширения ISAPI  
 
--   Segurança:  
+-   Безопасность:  
 
-    -   Autenticação do Windows  
+    -   Проверка подлинности Windows  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-    -   Compatibilidade com WMI do IIS 6  
+    -   Совместимость с WMI IIS 6  
 
-###  <a name="bkmk_2012RSpoint"></a>Ponto do Reporting services  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012RSpoint"></a> Точка служб отчетов  
+**Роли и компоненты Windows Server:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-**SQL Server Reporting Services:**  
+**Службы SQL Server Reporting Services**  
 
--   Tem de instalar e configurar pelo menos uma instância do SQL Server para suportar o SQL Server Reporting Services antes de instalar o reporting services ponto.  
+-   Перед установкой точки служб отчетов необходимо установить и настроить по крайней мере один экземпляр SQL Server для поддержки служб SQL Server Reporting Services.  
 
--   A instância que utiliza para SQL Server Reporting Services pode ser a mesma instância que utiliza para a base de dados do site.  
+-   Для служб SQL Server Reporting Services можно использовать тот же самый экземпляр, что и для базы данных сайта.  
 
--   Além disso, a instância que utiliza pode ser partilhada com outros produtos do System Center, desde que os outros produtos do System Center não possuem restrições para partilhar a instância do SQL Server.  
+-   Кроме того, применяемый экземпляр можно использовать совместно с другими продуктами System Center при условии, что другие продукты System Center не имеют ограничений на совместное использование экземпляра SQL Server.  
 
-###  <a name="bkmk_SCPpreq"></a>Ponto de ligação de serviço  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_SCPpreq"></a> Точка подключения службы  
+**Роли и компоненты Windows Server:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-     Quando instala esta função do sistema de sites, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um reinício de estado pendente. Quando está pendente um reinício para o .NET Framework, aplicações de .NET poderão falhar até depois reinicia o servidor e a conclusão da instalação.  
+     При установке этой роли системы сайта Configuration Manager автоматически устанавливает платформу .NET Framework 4.5.2. Эта установка может перевести сервер в состояние ожидания перезагрузки. Если ожидается перезагрузка для .NET Framework, то приложения .NET могут завершаться сбоем, пока сервер не выполнит перезагрузку и не завершит установку.  
 
-**Do Visual C++ Redistributable:**  
+**Распространяемый компонент Visual C++:**  
 
--   Configuration Manager instala o Microsoft Visual C++ 2013 Redistributable Package em cada computador que aloja um ponto de distribuição.  
+-   Configuration Manager устанавливает распространяемый пакет Microsoft Visual C++ 2013 на каждый компьютер, на котором размещается точка распространения.  
 
--   A função de sistema de sites requer o x64 versão.  
+-   Для роли системы сайта требуется версия x64.  
 
-###  <a name="bkmk_2012SUPpreq"></a>Ponto de atualização de software  
-**Funcionalidades e funções de servidor do Windows:**  
+###  <a name="bkmk_2012SUPpreq"></a> Точка обновления программного обеспечения  
+**Роли и компоненты Windows Server:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-A configuração predefinida do IIS é necessária.
+Требуется конфигурация IIS по умолчанию.
 
-**Windows Server Update Services:**  
+**Службы Windows Server Update Services (WSUS):**  
 
--   Tem de instalar a função de servidor do Windows do Windows Server Update Services num computador antes de instalar um ponto de atualização de software.  
+-   Перед установкой точки обновления программного обеспечения необходимо установить роль сервера Windows "Windows Server Update Services".  
 
--   Para obter mais informações, veja [Planear atualizações de software no System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
+-   Дополнительные сведения см. в разделе [Планирование обновлений программного обеспечения в System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
 
-### <a name="state-migration-point"></a>Ponto de migração de estado  
-A configuração predefinida do IIS é necessária.  
+### <a name="state-migration-point"></a>Точка миграции среды  
+Требуется конфигурация IIS по умолчанию.  
 
-##  <a name="bkmk_2008"></a>Pré-requisitos para o Windows Server 2008 R2 e Windows Server 2008  
-Windows Server 2008 e Windows Server 2008 R2 está agora em suporte alargado e já não estão em suporte base, conforme especificado pelo [ciclo de vida de suporte Microsoft](https://support.microsoft.com/lifecycle). Para obter mais informações sobre o suporte de futuro para estes sistemas operativos como servidores de sistema de sites com o Configuration Manager, consulte o artigo [Removed e funcionalidades preteridas para o System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+##  <a name="bkmk_2008"></a> Необходимые компоненты для Windows Server 2008 R2 и Windows Server 2008  
+Windows Server 2008 и Windows Server 2008 R2 больше не входят в основную фазу поддержки, а пользуются расширенной поддержкой, как описано в статье [Сроки поддержки продуктов Майкрософт](https://support.microsoft.com/lifecycle). Дополнительные сведения о дальнейшей поддержке этих операционных систем в качестве серверов системы сайта в Configuration Manager см. в разделе [Удаленные и устаревшие компоненты для System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
-**O seguinte procedimento aplica-se a todos os requisitos do .NET Framework:**  
+**Следующее относится ко всем требованиям .NET Framework:**  
 
--   Instale a versão completa do .NET Framework antes de instalar as funções de sistema de sites. Por exemplo, consulte o [o Microsoft .NET Framework 4 (programa de instalação autónoma)](http://go.microsoft.com/fwlink/p/?LinkId=193048). O .NET Framework 4 Client Profile é insuficiente para este requisito.  
+-   Установите полную версию .NET Framework перед установкой ролей системы сайта. См. пример в статье [Microsoft .NET Framework 4 (автономный установщик)](http://go.microsoft.com/fwlink/p/?LinkId=193048). Для соответствия этому требованию недостаточно профиля клиента .NET Framework 4.  
 
-**O seguinte procedimento aplica-se a todos os requisitos de ativação do Windows Communication Foundation (WCF):**  
+**Следующее относится ко всем требованиям для активации Windows Communication Foundation (WCF):**  
 
--   Pode configurar a ativação do WCF como parte da funcionalidade .NET Framework Windows no servidor do sistema de sites. Por exemplo, no Windows Server 2008 R2, execute o **Assistente para adicionar funcionalidades** para instalar funcionalidades adicionais no servidor. No **selecionar funcionalidades** página, expanda **funcionalidades NET Framework 3.5.1**, expanda **ativação do WCF**e, em seguida, marque as caixas para ambos **ativação HTTP** e **ativação HTTP não** para ativar estas opções.  
+-   Активацию WCF можно настроить как часть компонента .NET Framework ОС Windows на сервере системы сайта. Например, в Windows Server 2008 R2 можно запустить **мастер добавления компонентов**, чтобы установить дополнительные компоненты на сервере. На странице **Выбор компонентов** разверните узел **Компоненты .NET Framework 3.5.1**, затем разверните узел **Активация WCF**, после чего установите флажки **Активация по HTTP** и **Не-HTTP активация**, чтобы включить эти функции.  
 
-###  <a name="bkmk_2008sspreq"></a>Servidor do site: site de administração central e site primário  
-**.NET framework:**  
+###  <a name="bkmk_2008sspreq"></a> Сервер сайта — сайт центра администрирования и первичный сайт  
+**.NET Framework:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-**Funcionalidade do Windows:**  
+**Компонент Windows:**  
 
--   Compressão de diferencial remota  
+-   Удаленное разностное сжатие  
 
 **Windows ADK:**  
 
--   Antes de instalar ou atualizar um site de administração central ou site primário, tem de instalar a versão do Windows ADK, que requer a versão do Configuration Manager que estiver a instalar ou atualizar para o.  
+-   Перед установкой или обновлением сайта центра администрирования или первичного сайта необходимо установить версию Windows ADK, которая требуется для устанавливаемой или обновляемой версии Configuration Manager.  
 
-    -   A versão de 1511 do Configuration Manager requer a versão do Windows 10 RTM (10.0.10240) do Windows ADK.  
+    -   Для версии 1511 Configuration Manager требуется версия Windows 10 RTM (10.0.10240) комплекта Windows ADK.  
 
--   Para obter mais informações sobre este requisito, consulte o artigo [requisitos de infraestrutura de implementação do sistema operativo](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Дополнительные сведения об этом требовании см. в статье [Требования к инфраструктуре для развертывания операционной системы в System Center Configuration Manager](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-**Do Visual C++ Redistributable:**  
+**Распространяемый компонент Visual C++:**  
 
--   Configuration Manager instala o Microsoft Visual C++ 2013 Redistributable Package em cada computador que instala um servidor do site.  
+-   Configuration Manager устанавливает распространяемый пакет Microsoft Visual C++ 2013 на каждый компьютер, на который устанавливается сервер сайта.  
 
--   Sites de administração central e sites primários necessitam de ambas as versões x86 e x64 do ficheiro Redistributable aplicável.  
+-   Сайты центра администрирования и первичные сайты требуют версий x86 и x64 применимого файла распространяемого компонента.  
 
-###  <a name="bkmk_2008secpreq"></a>Servidor do site: site secundário  
-**.NET framework:**  
+###  <a name="bkmk_2008secpreq"></a> Сервер сайта — вторичный сайт  
+**.NET Framework:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-**Do Visual C++ Redistributable:**  
+**Распространяемый компонент Visual C++:**  
 
--   Configuration Manager instala o Microsoft Visual C++ 2013 Redistributable Package em cada computador que instala um servidor do site.  
+-   Configuration Manager устанавливает распространяемый пакет Microsoft Visual C++ 2013 на каждый компьютер, на который устанавливается сервер сайта.  
 
--   Os sites secundários requerem apenas o x64 versão.  
+-   Вторичные сайты требуют только 64-разрядных версий.  
 
-**Funções de sistema de sites predefinidas:**  
+**Роли систем сайта умолчанию:**  
 
--   Por predefinição, um site secundário é instalado um **ponto de gestão** e um **ponto de distribuição**.  
+-   По умолчанию вторичный сайт устанавливает **точку управления** и **точку распространения**.  
 
--   Certifique-se de que o servidor de site secundário cumpre os pré-requisitos para estas funções de sistema de sites.  
+-   Убедитесь в том, что сервер вторичного сайта соответствует необходимым условиям для этих ролей системы сайта.  
 
-###  <a name="bkmk_2008dbpreq"></a>Servidor de base de dados  
-**Serviço de registo remoto:**  
+###  <a name="bkmk_2008dbpreq"></a> Сервер базы данных  
+**Служба удаленного реестра:**  
 
--   Durante a instalação do site do Configuration Manager, tem de ativar o serviço registo remoto no computador que alojará a base de dados do site.  
+-   Во время установки сайта Configuration Manager необходимо включить службу удаленного реестра на компьютере, на котором будет размещена база данных сайта.  
 
 **SQL Server:**  
 
--   Antes de instalar um site de administração central ou site primário, tem de instalar uma versão suportada do SQL Server para alojar a base de dados do site.  
+-   Прежде чем устанавливать сайт центра администрирования или первичный сайт, необходимо установить поддерживаемую версию SQL Server для размещения базы данных сайта.  
 
--   Antes de instalar um site secundário, pode instalar uma versão suportada do SQL Server.  
+-   Перед установкой вторичного сайта можно установить поддерживаемую версию SQL Server.  
 
--   Se optar por ter o Configuration Manager instalar o SQL Server Express como parte da instalação do site secundário, certifique-se de que o computador cumpre os requisitos para executar o SQL Server Express.  
+-   Если вы хотите, чтобы Configuration Manager установил экспресс-выпуск SQL Server в рамках установки вторичного сайта, то компьютер должен соответствовать требованиям для запуска экспресс-выпуска SQL Server.  
 
-###  <a name="bkmk_2008smsprovpreq"></a>Servidor do fornecedor de SMS  
+###  <a name="bkmk_2008smsprovpreq"></a> Сервер поставщика SMS  
 **Windows ADK:**  
 
--   O computador onde irá instalar uma instância do fornecedor de SMS tem de ter a versão necessária do que requer a versão do Configuration Manager que estiver a instalar ou atualizar para o Windows ADK.  
+-   На компьютере, на котором устанавливается экземпляр поставщика SMS, должна быть установлена версия Windows ADK, которая требуется для устанавливаемой или обновляемой версии Configuration Manager.  
 
-    -   A versão de 1511 do Configuration Manager requer a versão do Windows 10 RTM (10.0.10240) do Windows ADK.  
+    -   Для версии 1511 Configuration Manager требуется версия Windows 10 RTM (10.0.10240) комплекта Windows ADK.  
 
--   Para obter mais informações sobre este requisito, consulte o artigo [requisitos de infraestrutura de implementação do sistema operativo](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Дополнительные сведения об этом требовании см. в статье [Требования к инфраструктуре для развертывания операционной системы в System Center Configuration Manager](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-###  <a name="bkmk_2008acwspreq"></a>Ponto de Web site do catálogo de aplicações  
-**.NET framework:**  
+###  <a name="bkmk_2008acwspreq"></a> Точка веб-сайта каталога приложений  
+**.NET Framework:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-**Configuração do IIS:**
+**Конфигурация IIS:**
 
-A configuração predefinida do IIS é necessária com adições seguintes:  
+Требуется конфигурация IIS по умолчанию со следующими дополнениями:  
 
--   Funcionalidades HTTP comuns:  
+-   Основные функции HTTP.  
 
-    -   Conteúdo Estático  
+    -   Статическое содержимое  
 
-    -   Documento Predefinido  
+    -   Документ по умолчанию  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   ASP.NET (e as opções selecionadas automaticamente)  
+    -   ASP.NET (и автоматически выбранные параметры)  
 
-         Em alguns cenários, tais como quando o IIS está instalado ou reconfigurar após instalação do .NET Framework versão 4.5.2, tem de ativar explicitamente ASP.NET versão 4.5. Por exemplo, num computador de 64 bits que é executado o .NET Framework versão 4.0.30319, execute o seguinte comando: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-ativar**  
+         В некоторых сценариях, например если службы IIS устанавливаются или повторно настраивается после установки .NET Framework версии 4.5.2, необходимо явным образом включать ASP.NET версии 4.5. Например, на 64-разрядном компьютере с .NET Framework версии 4.0.30319 необходимо выполнить следующую команду: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
--   Segurança:  
+-   Безопасность:  
 
-    -   Autenticação do Windows  
+    -   Проверка подлинности Windows  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-###  <a name="bkmk_2008ACwsitepreq"></a>Ponto de serviço da web de catálogo de aplicações  
-**.NET framework:**  
+###  <a name="bkmk_2008ACwsitepreq"></a> Точка веб-службы каталога приложений  
+**.NET Framework:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-**Ativação do Windows Communication Foundation (WCF):**  
+**Активация Windows Communication Foundation (WCF)**  
 
--   Ativação HTTP  
+-   Активация по HTTP  
 
--   Ativação HTTP não  
+-   Не-HTTP активация  
 
-**Configuração do IIS:**
+**Конфигурация IIS:**
 
-A configuração predefinida do IIS é necessária com adições seguintes:  
+Требуется конфигурация IIS по умолчанию со следующими дополнениями:  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   ASP.NET (e as opções selecionadas automaticamente)  
+    -   ASP.NET (и автоматически выбранные параметры)  
 
-         Em alguns cenários, tais como quando o IIS está instalado ou reconfigurar após instalação do .NET Framework versão 4.5.2, tem de ativar explicitamente ASP.NET versão 4.5. Por exemplo, num computador de 64 bits que é executado o .NET Framework versão 4.0.30319, execute o seguinte comando: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-ativar**  
+         В некоторых сценариях, например если службы IIS устанавливаются или повторно настраивается после установки .NET Framework версии 4.5.2, необходимо явным образом включать ASP.NET версии 4.5. Например, на 64-разрядном компьютере с .NET Framework версии 4.0.30319 необходимо выполнить следующую команду: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-**Memória do computador:**  
+**Объем памяти компьютера:**  
 
--   O computador que aloja esta função do sistema de sites tem de ter um mínimo de 5% de memória disponível do computador livre ativar a função de sistema de site para processar os pedidos.  
+-   На компьютере, на котором размещена эта роль системы сайта, должно быть свободно не менее 5 % доступной памяти для того, чтобы роль системы сайта могла обрабатывать запросы.  
 
--   Se esta função do sistema de sites estiver localizada conjuntamente com outra função de sistema de sites que tenham este requisito mesmo, este requisito de memória para o computador não aumenta, mas mantém-se como um mínimo de 5%.  
+-   Если эта роль системы сайта расположена на том же компьютере, что и другая роль системы сайта с таким же требованием к памяти, общее требование к памяти на компьютере не увеличивается, а остается таким же — минимум 5 %.  
 
-###  <a name="bkmk_2008AIpreq"></a>Ponto de sincronização do Asset Intelligence  
-**.NET framework:**  
+###  <a name="bkmk_2008AIpreq"></a> Точка синхронизации каталога аналитики активов  
+**.NET Framework:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-###  <a name="bkmk_2008crppreq"></a>Ponto de registo de certificados  
-**.NET framework:**  
+###  <a name="bkmk_2008crppreq"></a> Точка регистрации сертификатов  
+**.NET Framework:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
--   Ativação HTTP  
+-   Активация по HTTP  
 
-**Configuração do IIS:**
+**Конфигурация IIS:**
 
-A configuração predefinida do IIS é necessária com adições seguintes:  
+Требуется конфигурация IIS по умолчанию со следующими дополнениями:  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-    -   Compatibilidade com WMI do IIS 6  
+    -   Совместимость с WMI IIS 6  
 
-###  <a name="bkmk_2008dppreq"></a>Ponto de distribuição  
-**Configuração do IIS:**
+###  <a name="bkmk_2008dppreq"></a> Точка распространения  
+**Конфигурация IIS:**
 
-Pode utilizar a configuração predefinida do IIS ou uma configuração personalizada. Para utilizar uma configuração IIS personalizada, tem de ativar as seguintes opções do IIS:  
+Можно использовать конфигурацию IIS по умолчанию или настраиваемую конфигурацию. Для использования настраиваемой конфигурации IIS необходимо включить следующие параметры IIS.  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   Extensões ISAPI  
+    -   Расширения ISAPI  
 
--   Segurança:  
+-   Безопасность:  
 
-    -   Autenticação do Windows  
+    -   Проверка подлинности Windows  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-    -   Compatibilidade com WMI do IIS 6  
+    -   Совместимость с WMI IIS 6  
 
-Quando utiliza uma configuração personalizada do IIS, pode remover as opções que não são necessárias, tal como o seguinte:  
+При использовании настраиваемой конфигурации IIS можно удалить необязательные параметры, например указанные ниже.  
 
--   Funcionalidades HTTP comuns:  
+-   Основные функции HTTP.  
 
-    -   Redirecionamento HTTP  
+    -   Перенаправление HTTP  
 
--   Ferramentas e Scripts de gestão do IIS  
+-   Сценарии и средства управления IIS  
 
-**Funcionalidade do Windows:**  
+**Компонент Windows:**  
 
--   Compressão de diferencial remota  
+-   Удаленное разностное сжатие  
 
-**Do Visual C++ Redistributable:**  
+**Распространяемый компонент Visual C++:**  
 
--   Configuration Manager instala o Microsoft Visual C++ 2013 Redistributable Package em cada computador que aloja um ponto de distribuição.  
+-   Configuration Manager устанавливает распространяемый пакет Microsoft Visual C++ 2013 на каждый компьютер, на котором размещается точка распространения.  
 
--   A versão que está instalada depende da plataforma do computador (x86 ou x64).  
+-   Устанавливаемая версия зависит от платформы компьютера (x86 или x64).  
 
 **Microsoft Azure:**  
 
--   Pode utilizar um serviço em nuvem no Azure para alojar um ponto de distribuição.  
+-   Для размещения точки распространения можно воспользоваться облачной службой Azure.  
 
-**Para suportar PXE ou multicast:**  
+**Для поддержки PXE или многоадресной рассылки:**  
 
--   Instalar e configurar a função de servidor de Windows de serviços de implementação do Windows (WDS).  
+-   Установите и настройте роль Windows Server "Службы развертывания Windows (WDS)".  
 
     > [!NOTE]  
-    >  O WDS instala e configura automaticamente quando configura um ponto de distribuição para suportar PXE ou multicast num servidor que executa o Windows Server 2012 ou posterior.  
+    >  Службы развертывания Windows устанавливаются и настраиваются автоматически при настройке точки распространения для поддержки PXE или многоадресной рассылки на сервере Windows Server 2012 или более поздней версии.  
 
 > [!NOTE]  
-> A função de sistema de sites de ponto de distribuição não necessita de serviço de transferência inteligente em segundo plano em segundo plano (BITS). Quando o BITS é configurado no computador do ponto de distribuição, BITS no computador do ponto de distribuição não seja utilizada para facilitar a transferência de conteúdos por clientes que utilizam o BITS.  
+> Роль системы сайта точки распространения не требует фоновой интеллектуальной службы передачи (BITS). Если служба BITS настроена на компьютере точки распространения, BITS на компьютере точки распространения не используется для облегчения скачивания содержимого клиентами, использующими BITS.  
 
 
-###  <a name="bkmk_2008EPPpreq"></a>Ponto de Endpoint Protection  
-**.NET framework:**  
+###  <a name="bkmk_2008EPPpreq"></a> Точка Endpoint Protection  
+**.NET Framework:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
-###  <a name="bkmk_2008Enrollpreq"></a>Ponto de inscrição  
-**.NET framework:**  
+###  <a name="bkmk_2008Enrollpreq"></a> Точка регистрации  
+**.NET Framework:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-     Quando instala esta função do sistema de sites, se o servidor já não tem uma versão suportada do .NET Framework instalado, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um reinício de estado pendente. Quando está pendente um reinício para o .NET Framework, aplicações de .NET poderão falhar até depois reinicia o servidor e a conclusão da instalação.  
+     При установке этой роли системы сайта, если на сервере еще не установлена поддерживаемая версия платформы .NET Framework, Configuration Manager автоматически устанавливает .NET Framework 4.5.2. Эта установка может перевести сервер в состояние ожидания перезагрузки. Если ожидается перезагрузка для .NET Framework, то приложения .NET могут завершаться сбоем, пока сервер не выполнит перезагрузку и не завершит установку.  
 
-**Ativação do Windows Communication Foundation (WCF):**  
+**Активация Windows Communication Foundation (WCF)**  
 
--   Ativação HTTP  
+-   Активация по HTTP  
 
--   Ativação HTTP não  
+-   Не-HTTP активация  
 
-**Configuração do IIS:**
+**Конфигурация IIS:**
 
-A configuração predefinida do IIS é necessária com adições seguintes:  
+Требуется конфигурация IIS по умолчанию со следующими дополнениями:  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   ASP.NET (e as opções selecionadas automaticamente)  
+    -   ASP.NET (и автоматически выбранные параметры)  
 
-         Em alguns cenários, tais como quando o IIS está instalado ou reconfigurar após instalação do .NET Framework versão 4.5.2, tem de ativar explicitamente ASP.NET versão 4.5. Por exemplo, num computador de 64 bits que é executado o .NET Framework versão 4.0.30319, execute o seguinte comando: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-ativar**  
+         В некоторых сценариях, например если службы IIS устанавливаются или повторно настраивается после установки .NET Framework версии 4.5.2, необходимо явным образом включать ASP.NET версии 4.5. Например, на 64-разрядном компьютере с .NET Framework версии 4.0.30319 необходимо выполнить следующую команду: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
-**Memória do computador:**  
+**Объем памяти компьютера:**  
 
--   O computador que aloja esta função do sistema de sites tem de ter um mínimo de 5% de memória disponível do computador livre ativar a função de sistema de site para processar os pedidos.  
+-   На компьютере, на котором размещена эта роль системы сайта, должно быть свободно не менее 5 % доступной памяти для того, чтобы роль системы сайта могла обрабатывать запросы.  
 
--   Se esta função do sistema de sites estiver localizada conjuntamente com outra função de sistema de sites que tenham este requisito mesmo, este requisito de memória para o computador não aumenta, mas mantém-se como um mínimo de 5%.  
+-   Если эта роль системы сайта расположена на том же компьютере, что и другая роль системы сайта с таким же требованием к памяти, общее требование к памяти на компьютере не увеличивается, а остается таким же — минимум 5 %.  
 
-###  <a name="bkmk_2008EnrollProxpreq"></a>Ponto proxy de registo  
-**.NET framework:**  
+###  <a name="bkmk_2008EnrollProxpreq"></a> Прокси-точка регистрации  
+**.NET Framework:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-     Quando instala esta função do sistema de sites, se o servidor já não tem uma versão suportada do .NET Framework instalado, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um reinício de estado pendente. Quando está pendente um reinício para o .NET Framework, aplicações de .NET poderão falhar até depois reinicia o servidor e a conclusão da instalação.  
+     При установке этой роли системы сайта, если на сервере еще не установлена поддерживаемая версия платформы .NET Framework, Configuration Manager автоматически устанавливает .NET Framework 4.5.2. Эта установка может перевести сервер в состояние ожидания перезагрузки. Если ожидается перезагрузка для .NET Framework, то приложения .NET могут завершаться сбоем, пока сервер не выполнит перезагрузку и не завершит установку.  
 
-**Ativação do Windows Communication Foundation (WCF):**  
+**Активация Windows Communication Foundation (WCF)**  
 
--   Ativação HTTP  
+-   Активация по HTTP  
 
--   Ativação HTTP não  
+-   Не-HTTP активация  
 
-**Configuração do IIS:**
+**Конфигурация IIS:**
 
-A configuração predefinida do IIS é necessária com adições seguintes:  
+Требуется конфигурация IIS по умолчанию со следующими дополнениями:  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   ASP.NET (e as opções selecionadas automaticamente)  
+    -   ASP.NET (и автоматически выбранные параметры)  
 
-         Em alguns cenários, tais como quando o IIS está instalado ou reconfigurar após instalação do .NET Framework versão 4.5.2, tem de ativar explicitamente ASP.NET versão 4.5. Por exemplo, num computador de 64 bits que é executado o .NET Framework versão 4.0.30319, execute o seguinte comando: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-ativar**  
+         В некоторых сценариях, например если службы IIS устанавливаются или повторно настраивается после установки .NET Framework версии 4.5.2, необходимо явным образом включать ASP.NET версии 4.5. Например, на 64-разрядном компьютере с .NET Framework версии 4.0.30319 необходимо выполнить следующую команду: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
-**Memória do computador:**  
+**Объем памяти компьютера:**  
 
--   O computador que aloja esta função do sistema de sites tem de ter um mínimo de 5% de memória disponível do computador livre ativar a função de sistema de site para processar os pedidos.  
+-   На компьютере, на котором размещена эта роль системы сайта, должно быть свободно не менее 5 % доступной памяти для того, чтобы роль системы сайта могла обрабатывать запросы.  
 
--   Se esta função do sistema de sites estiver localizada conjuntamente com outra função de sistema de sites que tenham este requisito mesmo, este requisito de memória para o computador não aumenta, mas mantém-se como um mínimo de 5%.  
+-   Если эта роль системы сайта расположена на том же компьютере, что и другая роль системы сайта с таким же требованием к памяти, общее требование к памяти на компьютере не увеличивается, а остается таким же — минимум 5 %.  
 
-###  <a name="bkmk_2008FSPpreq"></a>Ponto de estado de contingência  
-**Configuração do IIS:**
+###  <a name="bkmk_2008FSPpreq"></a> Резервная точка состояния  
+**Конфигурация IIS:**
 
-A configuração predefinida do IIS é necessária com adições seguintes:  
+Требуется конфигурация IIS по умолчанию со следующими дополнениями:  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-###  <a name="bkmk_2008MPpreq"></a>Ponto de gestão  
-**.NET framework:**  
+###  <a name="bkmk_2008MPpreq"></a> Точка управления  
+**.NET Framework:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-**Configuração do IIS:**
+**Конфигурация IIS:**
 
-Pode utilizar a configuração predefinida do IIS ou uma configuração personalizada. Cada ponto de gestão que ative para suportar dispositivos móveis requer a configuração adicional do IIS para ASP.NET (e as opções da mesma automaticamente selecionadas).
+Можно использовать конфигурацию IIS по умолчанию или настраиваемую конфигурацию. Каждой точке управления, настроенной на поддержку мобильных устройств, требуется дополнительная настройка служб IIS для ASP.NET (и его автоматически выбранные параметры).
 
-Em alguns cenários, tais como quando o IIS está instalado ou reconfigurar após instalação do .NET Framework versão 4.5.2, tem de ativar explicitamente ASP.NET versão 4.5. Por exemplo, num computador de 64 bits que é executado o .NET Framework versão 4.0.30319, execute o seguinte comando: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-ativar**  
+В некоторых сценариях, например если службы IIS устанавливаются или повторно настраивается после установки .NET Framework версии 4.5.2, необходимо явным образом включать ASP.NET версии 4.5. Например, на 64-разрядном компьютере с .NET Framework версии 4.0.30319 необходимо выполнить следующую команду: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
 
-Para utilizar uma configuração IIS personalizada, tem de ativar as seguintes opções do IIS:  
+Для использования настраиваемой конфигурации IIS необходимо включить следующие параметры IIS.  
 
--   Desenvolvimento de aplicações:  
+-   Разработка приложения.  
 
-    -   Extensões ISAPI  
+    -   Расширения ISAPI  
 
--   Segurança:  
+-   Безопасность:  
 
-    -   Autenticação do Windows  
+    -   Проверка подлинности Windows  
 
--   IIS compatibilidade de gestão 6:  
+-   Совместимость управления IIS 6.  
 
-    -   Compatibilidade com Metabase do IIS 6  
+    -   Совместимость метабазы IIS 6  
 
-    -   Compatibilidade com WMI do IIS 6  
+    -   Совместимость с WMI IIS 6  
 
 
-Quando utiliza uma configuração personalizada do IIS, pode remover as opções que não são necessárias, tal como o seguinte:  
+При использовании настраиваемой конфигурации IIS можно удалить необязательные параметры, например указанные ниже.  
 
--   Funcionalidades HTTP comuns:  
+-   Основные функции HTTP.  
 
-    -   Redirecionamento HTTP  
+    -   Перенаправление HTTP  
 
--   Ferramentas e Scripts de gestão do IIS  
+-   Сценарии и средства управления IIS  
 
-**Funcionalidade do Windows:**  
+**Компонент Windows:**  
 
--   BITS extensões de servidor (e automaticamente selecionadas opções) ou serviços de transferência inteligente em segundo plano em segundo plano (BITS) (e opções selecionadas automaticamente)  
+-   Серверные расширения BITS (и автоматически выбранные параметры) или фоновые интеллектуальные службы передачи (BITS) (и автоматически выбранные параметры)  
 
-###  <a name="bkmk_2008RSpoint"></a>Ponto do Reporting services  
-**.NET framework:**  
+###  <a name="bkmk_2008RSpoint"></a> Точка служб отчетов  
+**.NET Framework:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-**SQL Server Reporting Services:**  
+**Службы SQL Server Reporting Services**  
 
--   Tem de instalar e configurar pelo menos uma instância do SQL Server para suportar o SQL Server Reporting Services antes de instalar o reporting services ponto.  
+-   Перед установкой точки служб отчетов необходимо установить и настроить по крайней мере один экземпляр SQL Server для поддержки служб SQL Server Reporting Services.  
 
--   A instância que utiliza para SQL Server Reporting Services pode ser a mesma instância que utiliza para a base de dados do site.  
+-   Для служб SQL Server Reporting Services можно использовать тот же самый экземпляр, что и для базы данных сайта.  
 
--   Além disso, a instância que utiliza pode ser partilhada com outros produtos do System Center, desde que os outros produtos do System Center não possuem restrições para partilhar a instância do SQL Server.  
+-   Кроме того, применяемый экземпляр можно использовать совместно с другими продуктами System Center при условии, что другие продукты System Center не имеют ограничений на совместное использование экземпляра SQL Server.  
 
-###  <a name="bkmk_2008SCPpreq"></a>Ponto de ligação de serviço  
-**.NET framework:**  
+###  <a name="bkmk_2008SCPpreq"></a> Точка подключения службы  
+**.NET Framework:**  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-     Quando instala esta função do sistema de sites, se o servidor já não tem uma versão suportada do .NET Framework instalado, o Configuration Manager instala automaticamente o .NET Framework 4.5.2. Esta instalação pode colocar o servidor para um reinício de estado pendente. Quando está pendente um reinício para o .NET Framework, aplicações de .NET poderão falhar até depois reinicia o servidor e a conclusão da instalação.  
+     При установке этой роли системы сайта, если на сервере еще не установлена поддерживаемая версия платформы .NET Framework, Configuration Manager автоматически устанавливает .NET Framework 4.5.2. Эта установка может перевести сервер в состояние ожидания перезагрузки. Если ожидается перезагрузка для .NET Framework, то приложения .NET могут завершаться сбоем, пока сервер не выполнит перезагрузку и не завершит установку.  
 
-**Do Visual C++ Redistributable:**  
+**Распространяемый компонент Visual C++:**  
 
--   Configuration Manager instala o Microsoft Visual C++ 2013 Redistributable Package em cada computador que aloja um ponto de distribuição.  
+-   Configuration Manager устанавливает распространяемый пакет Microsoft Visual C++ 2013 на каждый компьютер, на котором размещается точка распространения.  
 
--   A função de sistema de sites requer o x64 versão.  
+-   Для роли системы сайта требуется версия x64.  
 
-###  <a name="bkmk_2008SUPpreq"></a>Ponto de atualização de software  
-**.NET framework:**  
+###  <a name="bkmk_2008SUPpreq"></a> Точка обновления программного обеспечения  
+**.NET Framework:**  
 
--   .NET framework 3.5 SP1 (ou posterior)  
+-   .NET Framework 3.5 с пакетом обновления 1 (SP1) (или более поздней версии).  
 
--   O .NET framework 4.5.2  
+-   .NET Framework 4.5.2.  
 
-**Configuração do IIS:**
+**Конфигурация IIS:**
 
-A configuração predefinida do IIS é necessária.  
+Требуется конфигурация IIS по умолчанию.  
 
-**Windows Server Update Services:**  
+**Службы Windows Server Update Services (WSUS):**  
 
--   Tem de instalar a função de servidor Windows, Windows Server Update Services num computador antes de instalar um ponto de atualização de software.  
+-   Перед установкой точки обновления программного обеспечения необходимо установить роль Windows Server "Windows Server Update Services".  
 
--   Para obter mais informações, veja [Planear atualizações de software no System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).
+-   Дополнительные сведения см. в разделе [Планирование обновлений программного обеспечения в System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).
 
-###  <a name="bkmk_2008SMPpreq"></a>Ponto de migração de estado  
-**Configuração do IIS:**
+###  <a name="bkmk_2008SMPpreq"></a> Точка миграции состояния  
+**Конфигурация IIS:**
 
-A configuração predefinida do IIS é necessária.  
-
+Требуется конфигурация IIS по умолчанию.  

@@ -1,6 +1,6 @@
 ---
-title: "Suportado domínios do Active Directory | Microsoft Docs"
-description: "Obter os requisitos para a associação de um sistema de site do System Center Configuration Manager num domínio do Active Directory."
+title: "Поддерживаемые домены Active Directory | Документация Майкрософт"
+description: "Ознакомьтесь с требованиями к членству системы сайта System Center Configuration Manager в домене Active Directory."
 ms.custom: na
 ms.date: 3/23/2017
 ms.prod: configuration-manager
@@ -17,34 +17,34 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 2654ab4eaaaf6a4bf3bd7dca9908e7033647dc2c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-active-directory-domains-for-system-center-configuration-manager"></a>Domínios do Active Directory suportados para o System Center Configuration Manager
+# <a name="supported-active-directory-domains-for-system-center-configuration-manager"></a>Поддерживаемые домены Active Directory в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Todos os sistemas de site do System Center Configuration Manager tem de ser membros de um domínio do Windows Server Active Directory suportado. Computadores de cliente do Configuration Manager podem ser membros do domínio ou membros do grupo de trabalho.  
+Все системы сайта System Center Configuration Manager должны быть членами поддерживаемого домена Windows Server Active Directory. Клиентские компьютеры Configuration Manager могут быть членами домена или рабочей группы.  
 
- **Requisitos e limitações:**  
+ **Требования и ограничения**  
 
--   Associação ao domínio aplica-se a sistemas de sites que suportam a gestão de clientes baseada na Internet numa rede de perímetro (também conhecido como um DMZ, zona desmilitarizada e sub-rede filtrada).  
+-   Членство в домене распространяется на системы сайта, которые поддерживают управление клиентами через Интернет в сети периметра (также называемой промежуточной подсетью).  
 
--   Não é suportado para alterar as seguintes opções para um computador que aloje uma função de sistema de sites:  
+-   Для компьютера, на котором размещается роль системы сайта, не поддерживается изменение следующих параметров:  
 
-    -   Associação ao domínio  
+    -   Членство в домене  
 
-    -   Nome do domínio  
+    -   Имя домена  
 
-    -   Nome do computador  
+    -   Имя компьютера  
 
-Tem de desinstalar a função de sistema de sites (incluindo o site se for um servidor do site) antes de efetuar estas alterações.  
+Перед внесением таких изменений необходимо удалить роль системы сайта (включая сам сайт, если он является сервером сайта).  
 
-**São suportados domínios com os seguintes níveis funcionais de domínio:**  
-- Windows Server 2016
+**Поддерживаются домены со следующими режимами работы:**  
+- Windows Server 2016
 
-- Windows Server 2012 R2  
+- Windows Server 2012 R2  
 
 - Windows Server 2012
 
@@ -58,30 +58,30 @@ Tem de desinstalar a função de sistema de sites (incluindo o site se for um se
 
 
 
-##  <a name="bkmk_Disjoint"></a> Espaço de nomes não contíguo  
-O Configuration Manager suporta instalar sistemas de sites e clientes num domínio que tenha um espaço de nomes não contíguo.  
+##  <a name="bkmk_Disjoint"></a> Несвязанное пространство имен  
+Configuration Manager поддерживает установку систем сайта и клиентов в домене с несвязанным пространством имен.  
 
-Um cenário de espaço de nomes não contíguo é uma em que o sufixo de sistema de nomes de domínio (DNS) primário de um computador não corresponde ao nome de domínio DNS do Active Directory onde reside nesse computador. O computador que utiliza o sufixo DNS primário que não corresponde ao possui correspondências é denominado não contíguo. Outro cenário espaço de nomes não contíguo ocorre se o nome de domínio NetBIOS de um controlador de domínio não corresponde ao nome de domínio DNS do Active Directory.  
+Под несвязанным пространством имен понимается ситуация, когда основной DNS-суффикс компьютера не совпадает с DNS-именем домена Active Directory, в котором находится компьютер. Компьютер, использующий несовпадающий основной DNS-суффикс, называется несвязанным. Несвязанное пространство имен возникает также в случае, если NetBIOS-имя домена контроллера домена не совпадает с DNS-именем домена Active Directory.  
 
-A seguinte tabela identifica os cenários suportados de um espaço de nomes não contíguo.  
+В следующей таблице перечислены поддерживаемые сценарии возникновения несвязанного пространства имен.  
 
-|Cenário|Mais informações|  
+|Сценарий|Дополнительные сведения|  
 |--------------|----------------------|  
-|**Cenário 1:**<br /><br /> O sufixo DNS primário do controlador de domínio difere do nome de domínio DNS do Active Directory. Os computadores que são membros do domínio podem estar não contíguos ou contíguos.|Neste cenário, o sufixo DNS primário do controlador de domínio difere do nome de domínio do Active Directory. O controlador de domínio está não contíguo neste cenário. Os computadores que são membros do domínio, como servidores de sites e computadores, podem ter um sufixo DNS primário que corresponda ao sufixo DNS primário do controlador de domínio ou ao nome de domínio DNS do Active Directory.|  
-|**Cenário 2:**<br /><br /> Um computador membro num domínio do Active Directory é não contíguo, apesar de o controlador de domínio ser contíguo.|Neste cenário, o sufixo DNS primário de um computador membro no qual é instalado um sistema de sites difere do nome de domínio do Active Directory, apesar de o sufixo DNS primário do controlador de domínio ser o mesmo que o nome de domínio DNS do Active Directory. Neste cenário, tem um controlador de domínio que é contíguo e um computador membro que é não contíguo. Computadores de membro que executem o cliente do Configuration Manager podem ter um sufixo DNS primário que corresponda ao sufixo DNS principal do servidor do sistema de sites não contíguo ou corresponde ao nome de domínio DNS do Active Directory.|  
+|**Сценарий 1.**<br /><br /> Основной DNS-суффикс контроллера домена отличается от DNS-имени домена Active Directory. Компьютеры, входящие в домен, могут быть несвязанными или связанными.|В этом сценарии основной DNS-суффикс контроллера домена отличается от DNS-имени домена Active Directory. В этом сценарии контроллер домена является несвязанным. У компьютеров, входящих в домен, например у серверов и компьютеров сайта, основной DNS-суффикс может совпадать либо с основным DNS-суффиксом контроллера домена, либо с DNS-именем домена Active Directory.|  
+|**Сценарий 2.**<br /><br /> Компьютер, входящий в домен Active Directory, является несвязным, хотя контроллер домена таковым не является.|В этом сценарии основной DNS-суффикс входящего в домен компьютера, на котором установлена система сайта, отличается от доменного имени Active Directory DNS, хотя основной DNS-суффикс контроллера домена совпадает с доменным именем Active Directory. В этом сценарии рассматривается контроллер домена, не являющийся несвязным, и входящий в домен компьютер, являющийся несвязным. Основной DNS-суффикс компьютеров домена, на которых выполняется клиент Configuration Manager, может либо совпадать с основным DNS-суффиксом сервера системы несвязанного сайта, либо совпадать с доменным именем DNS Active Directory.|  
 
- Para permitir que um computador aceda a controladores de domínio que sejam não contíguos, tem de alterar o atributo do Active Directory **msDS-AllowedDNSSuffixes** no contentor de objetos do domínio. Tem de adicionar ambos os sufixos DNS para o atributo.  
+ Чтобы разрешить компьютеру доступ к несвязным контроллерам домена, необходимо изменить атрибут Active Directory **msDS-AllowedDNSSuffixes** в контейнере объекта домена. В атрибуте необходимо указать оба суффикса DNS.  
 
- Além disso, para se certificar de que a lista de pesquisa de sufixos DNS contém todos os os espaços de nomes DNS que são implementados na sua organização, tem de configurar a lista de pesquisa para cada computador no domínio que é não contíguo. Certifique-se de que inclui o seguinte na lista de espaços de nomes: o sufixo DNS primário do controlador de domínio, o nome de domínio DNS e quaisquer espaços de nomes adicionais para outros servidores que o Configuration Manager podem interagir com. Pode utilizar a consola de Gestão de Políticas de Grupo para configurar a **Lista de Pesquisa de Sufixos DNS (Sistema de Nomes de Domínio)** .  
+ Кроме того, чтобы убедиться в том, что список поиска DNS-суффикса содержит все пространства имен DNS, развернутые внутри организации, необходимо настроить список поиска для каждого компьютера в домене, являющемся несвязанным. Включите в список пространств имен следующее: основной DNS-суффикс контроллера домена, доменное имя DNS, а также любые дополнительные пространства имен для других серверов, с которыми может взаимодействовать Configuration Manager. Для настройки списка **Поиск суффикса DNS** можно использовать консоль управления групповой политикой.  
 
 > [!IMPORTANT]  
->  Quando referenciar um computador no Configuration Manager, introduza o computador utilizando o respetivo sufixo DNS primário. Este sufixo deve corresponder ao nome completamente qualificado domínio que está registado como o **dnsHostName** atributo no domínio do Active Directory e o nome do Principal de serviço que estão associados com o sistema.  
+>  В ссылках на компьютер в Configuration Manager указывайте компьютер, используя его основной DNS-суффикс. Этот суффикс должен совпадать с полным доменным именем, зарегистрированным в качестве атрибута **dnsHostName** в домене Active Directory, и именем субъекта-службы, связанным с системой.  
 
-##  <a name="bkmk_SLD"></a> Domínios de etiqueta única  
- O Configuration Manager suporta sistemas de sites e clientes num domínio de etiqueta única quando são cumpridos os seguintes critérios:  
+##  <a name="bkmk_SLD"></a> Одноуровневые домены  
+ Configuration Manager поддерживает системы сайта и клиенты в одноуровневом домене при выполнении указанных ниже условий.  
 
--   O domínio de etiqueta única nos serviços de domínio do Active Directory tem de ser configurado com um espaço de nomes DNS não contíguo que tenha um domínio de nível superior válido.  
+-   Одноуровневый домен в доменных службах Active Directory должен быть настроен с несвязанным пространством имен DNS с допустимым доменом верхнего уровня.  
 
-     **Por exemplo:** O domínio de etiqueta única da Contoso está configurado para ter um espaço de nomes não contíguo no DNS de contoso.com. Por conseguinte, quando especificar o sufixo DNS no Configuration Manager para um computador no domínio da Contoso, especifique "Contoso.com" e não "Contoso".  
+     **Например,** одноуровневый домен Contoso настроен на работу с несвязанным пространством имен в DNS домена contoso.com. Таким образом, при указании DNS-суффикса в Configuration Manager для компьютера из домена Contoso вы указываете Contoso.com, а не Contoso.  
 
--   As ligações de componente modelo DCOM (Distributed Object) entre servidores de sites no contexto do sistema tem de ser concluída com êxito utilizando a autenticação Kerberos.  
+-   DCOM-соединения между серверами сайта в контексте системы должны быть успешными с использованием проверки подлинности Kerberos.  

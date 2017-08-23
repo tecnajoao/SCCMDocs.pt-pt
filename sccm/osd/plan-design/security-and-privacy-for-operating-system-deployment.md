@@ -1,6 +1,6 @@
 ---
-title: "Segurança e privacidade para implementação do sistema de operativo | Microsoft Docs"
-description: "Saiba mais sobre segurança e as melhores práticas de privacidade para implementação do sistema operativo no System Center Configuration Manager."
+title: "Безопасность и конфиденциальность при развертывании операционных систем | Документы Майкрософт"
+description: "Ознакомьтесь с рекомендациями по обеспечению безопасности и конфиденциальности при развертывании операционных систем в System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,192 +17,192 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 5632a753fc565312a80b2ed69ce438335b3fad50
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Problemas de segurança e privacidade na implementação do sistema operativo no System Center Configuration Manager
+# <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность при развертывании операционных систем в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico contém informações de privacidade para implementação do sistema operativo no System Center Configuration Manager e de segurança.  
+В этом разделе приводятся сведения об обеспечении безопасности и конфиденциальности при развертывании операционных систем в System Center Configuration Manager.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a>Melhores práticas de segurança para a implementação do sistema operativo  
- Utilize as seguintes melhores práticas de segurança ao implementar sistemas operativos com o Configuration Manager:  
+##  <a name="BKMK_Security_HardwareInventory"></a> Рекомендации по обеспечению безопасности при развертывании операционных систем  
+ Ниже приведены рекомендации по обеспечению безопасности во время развертывания операционных систем с помощью Configuration Manager.  
 
--   **Implementar controlos de acesso para proteger os suportes de dados**  
+-   **Внедрите элементы управления доступом для защиты загрузочного носителя.**  
 
-     Ao criar suportes de dados de arranque, atribua sempre uma palavra-passe para ajudar a proteger os suportes de dados. No entanto, mesmo com uma palavra-passe, apenas os ficheiros que contêm informações sensíveis são encriptados, e todos os ficheiros podem ser substituídos.  
+     При создании загрузочного носителя необходимо всегда назначать пароль, который обеспечивает защиту содержимого носителя. Тем не менее, даже при наличии пароля шифруются только файлы, содержащие конфиденциальные данные. Кроме того, все файлы могут быть перезаписаны.  
 
-     Controle o acesso físico ao suporte de dados para impedir que um atacante utilize ataques criptográficos para obter o certificado de autenticação de cliente.  
+     Контроль физического доступа к носителю позволяет предотвратить криптографические атаки, направленные на получение сертификатов проверки подлинности клиентов.  
 
-     Para ajudar a impedir que um cliente instale conteúdo ou adultere a política de cliente, o conteúdo é protegido por hash e tem de ser utilizado com a política original.  Se o hash de conteúdo ou a verificação de que o conteúdo corresponde à política falharem, o cliente não utilizará o suporte de dados de arranque. Só o conteúdo é protegido por hash: a política não é, mas é encriptada e protegida se especificar uma palavra-passe, o que dificulta a modificação da política por um atacante.  
+     Чтобы помочь клиенту предотвратить установку незаконно измененного содержимого или клиентской политики, содержимое хэшируется и должно использоваться с исходной политикой.  Если хэш содержимого не удается подтвердить или после проверки выясняется, что содержание не соответствует политике, клиент не будет использовать загрузочный носитель. Хэшируется только содержимое; политика не хэшируется, но будет зашифрована и защищена, если указать пароль, что делает более сложным ее изменение для злоумышленников.  
 
--   **Utilizar uma localização protegida ao criar suportes de dados para imagens de sistema operativo**  
+-   **При создании носителя для образов операционных систем используйте защищенное расположение.**  
 
-     Se utilizadores não autorizados tiverem acesso à localização, poderão adulterar os ficheiros que criar. Além disso, poderão utilizar todo o espaço disponível no disco, provocando a falha da criação dos suportes de dados.  
+     Если несанкционированные пользователи получат доступ к расположению, они смогут изменить созданные файлы, а также использовать все доступное место на диске, что приведет к сбою создания носителя.  
 
--   **Proteger os ficheiros de certificado (. pfx) com uma palavra-passe segura e se os armazenar na rede, proteja o canal de rede ao importá-los para o Configuration Manager**  
+-   **Используйте для защиты файлов сертификатов (PFX) надежный пароль. Если они хранятся в сети, обеспечьте защиту сетевого канала при импорте сертификатов в Configuration Manager.**  
 
-     Exigir uma palavra-passe ao importar o certificado de autenticação de cliente utilizado para os suportes de dados de arranque ajuda a proteger o certificado contra eventuais atacantes.  
+     Требование указания пароля для импорта сертификата подлинности клиента, который используется для загрузочного носителя, позволяет защитить сертификат от атак злоумышленников.  
 
-     Utilize a assinatura SMB ou IPsec entre a localização de rede e o servidor de site para impedir que um atacante adultere o ficheiro de certificado.  
+     Используйте подписывание SMB или протокол IPsec при обмене данными между сетевым расположением и сервером сайта, чтобы предотвратить незаконное изменение файла сертификата.  
 
--   **Se o certificado de cliente for comprometido, bloqueie o certificado do Configuration Manager e revogue-o se se tratar de um certificado PKI**  
+-   **В случае компрометации сертификата клиента заблокируйте сертификат из среды Configuration Manager и отзовите его (если это PKI-сертификат).**  
 
-     Para implementar um sistema operativo utilizando suportes de dados de arranque e arranque PXE, terá de possuir um certificado de autenticação de cliente com uma chave privada. Se esse certificado for comprometido, bloqueie o certificado no nó **Certificados** da área de trabalho de **Administração**, nó **Segurança**.  
+     Для развертывания операционной системы с помощью загрузочного носителя и PXE-загрузки необходим сертификат проверки подлинности клиента с закрытым ключом. В случае компрометации сертификата заблокируйте его в узле **Сертификаты** рабочей области **Администрирование** (узел **Безопасность** ).  
 
--   **Quando o fornecedor de SMS num computador ou computadores que não seja o servidor do site, proteja o canal de comunicação para proteger as imagens de arranque**  
+-   **Если поставщик SMS размещается на компьютере, не являющемся сервером сайта, обеспечьте безопасность канала связи, чтобы защитить загрузочные образы.**  
 
-     Quando as imagens de arranque são modificadas e o Fornecedor de SMS se encontra em execução num servidor que não seja o servidor de site, as imagens de arranque estão vulneráveis a ataques. Proteja o canal de rede entre estes computadores utilizando a assinatura SMB ou IPsec.  
+     В случае изменения загрузочных образов при выполнении поставщика SMS на сервере, который не является сервером сайта, высока вероятность атак, направленных на загрузочные образы. Обеспечьте безопасность сетевого канала между такими компьютерами, используя подписывание SMB или протокол IPsec.  
 
--   **Ative pontos de distribuição para comunicação de cliente PXE apenas em segmentos de rede seguros**  
+-   **Включать поддержку обмена данными с клиентами по протоколу PXE для точек распространения можно только в защищенных сегментах сети.**  
 
-     Quando um cliente envia um pedido de arranque PXE, não tem nenhuma forma de garantir que o pedido é servido por um ponto de distribuição PXE ativado. Este cenário apresenta os seguintes riscos de segurança:  
+     При отправке клиентом запроса загрузки PXE невозможно подтвердить, что запрос обслуживается допустимой точкой распространения, поддерживающей PXE. Этот сценарий подразумевает следующие угрозы безопасности.  
 
-    -   Um ponto de distribuição não autorizado que responda a pedidos PXE poderia fornecer uma imagem adulterada aos clientes.  
+    -   Незаконная точка распространения, отвечающая на PXE-запросы, может передавать на клиенты измененные образы.  
 
-    -   Um atacante poderia lançar um ataque "man-in-the-middle" contra o protocolo TFTP utilizado pelo PXE e enviar código malicioso juntamente com os ficheiros do sistema operativo, ou criar um cliente não autorizado para fazer pedidos TFTP diretamente ao ponto de distribuição.  
+    -   Злоумышленник может запустить атаку "злоумышленник в середине", направленную на протокол TFTP, используемый протоколом PXE, и отправить вредоносный код вместе с файлами операционной системы. Кроме того, он может создать незаконный клиент, чтобы отправлять запросы TFTP непосредственно на точку распространения.  
 
-    -   Um atacante poderia utilizar um cliente malicioso para lançar um ataque denial-of-service contra o ponto de distribuição.  
+    -   Злоумышленник может использовать вредоносный клиент для запуска атаки типа "отказ в обслуживании", направленной на точку распространения.  
 
-     Utilize defesa em profundidade para proteger os segmentos de rede onde os clientes acederão aos pontos de distribuição para pedidos PXE.  
+     Используйте многоуровневый подход к обеспечению безопасности сегментов сети, в которых клиенты получают доступ к точкам распространения, используя PXE-запросы.  
 
     > [!WARNING]  
-    >  Devido a estes riscos de segurança, não ative um ponto de distribuição para comunicação PXE quando este se encontrar numa rede não fidedigna, tal como uma rede de perímetro.  
+    >  Учитывая перечисленные угрозы безопасности, не включайте для точки распространения поддержку обмена данными по протоколу PXE, если она находится в ненадежной сети, например в сети периметра.  
 
--   **Configurar pontos de distribuição com PXE ativado para responder a pedidos PXE apenas em interfaces de rede especificado**  
+-   **Настройте точки распространения, поддерживающие PXE, так, чтобы они отвечали на PXE-запросы только указанных сетевых интерфейсов.**  
 
-     Se permitir que o ponto de distribuição responda a pedidos PXE em todas as interfaces de rede, esta configuração poderá expor o serviço PXE a redes não fidedignas  
+     Если разрешить точке распространения отвечать на PXE-запросы всех сетевых интерфейсов, такая конфигурация может привести к тому, что доступ к службе PXE будет предоставлен ненадежным сетям.  
 
--   **Exigir uma palavra-passe para efetuar o arranque PXE**  
+-   **Настройте требование пароля для PXE-загрузки.**  
 
-     Ao exigir uma palavra-passe para o arranque PXE, esta configuração adiciona um nível adicional de segurança ao processo de arranque PXE, para ajudar a salvaguardar contra clientes não autorizados à hierarquia do Configuration Manager.  
+     Конфигурация, предусматривающая требование ввода пароля для PXE-загрузки, обеспечивает дополнительную безопасность для процесса PXE-загрузки, позволяя предотвратить присоединение незаконных клиентов к иерархии Configuration Manager.  
 
--   **Não incluir a linha de negócio aplicações ou de software que contenham dados confidenciais numa imagem que será utilizada para efetuar o arranque PXE ou multicast**  
+-   **Не включайте в образ, который будет использоваться для загрузки по сети (PXE) или многоадресной рассылки, бизнес-приложения или программное обеспечение, содержащие конфиденциальные данные.**  
 
-     Dados os riscos de segurança inerentes ao arranque PXE e multicast, reduza os riscos se o computador não autorizado transferir a imagem do sistema operativo.  
+     Учитывая специфические угрозы безопасности, связанные с PXE-загрузкой и многоадресной рассылкой, это позволит снизить риски в случае загрузки образа операционной системы на незаконный компьютер.  
 
--   **Não incluir aplicações empresariais ou de software que contenham dados confidenciais em pacotes de software que são instalados utilizando variáveis de sequências de tarefas de linha de**  
+-   **Не включайте бизнес-приложения и программное обеспечение, содержащее конфиденциальные данные, в пакеты программного обеспечения, которые устанавливаются с помощью переменных последовательностей задач.**  
 
-     Se implementar pacotes de software utilizando variáveis de sequência de tarefas, o software poderá ser instalado em computadores e para utilizadores que não estejam autorizados a recebê-lo.  
+     При развертывании пакетов программного обеспечения с помощью переменных последовательности задач программное обеспечение может быть установлено на компьютеры и для пользователей, неавторизованных для его получения.  
 
--   **Quando migrar o estado de utilizador, proteja o canal de rede entre o cliente e o ponto de migração de estado utilizando a assinatura SMB ou IPsec**  
+-   **При переносе пользовательской среды обеспечьте безопасность сетевого канала между клиентом и точкой миграции состояния, используя подписывание SMB или протокол IPsec.**  
 
-     Após a ligação inicial através de HTTP, os dados da migração de estado de utilizador são transferidos utilizando SMB.  Se não proteger o canal de rede, um atacante poderá ler e modificar esses dados.  
+     После того как будет установлено исходное подключение по HTTP, данные миграции пользовательской среды передаются по протоколу SMB.  Если не обеспечить защиту сетевого канала, злоумышленник может считать и изменить эти данные.  
 
--   **Utilizar a versão mais recente do utilizador State Migration Tool (USMT) que suporta o Configuration Manager**  
+-   **Используйте последнюю версию средства миграции пользовательской среды, поддерживаемую Configuration Manager.**  
 
-     A versão mais recente do USMT fornece melhoramentos de segurança e um maior controlo ao migrar dados de estado do utilizador.  
+     Последняя версия средства миграции пользовательской среды (USMT) обеспечивает значительные улучшения безопасности и дополнительный контроль над временем миграции данных пользовательской среды.  
 
--   **Elimine manualmente as pastas no ponto de migração de estado quando estas forem desativadas**  
+-   **Вручную удаляйте папки в точке миграции состояния после их списания.**  
 
-     Quando remover uma pasta de ponto de migração de estado na consola do Gestor de configuração nas propriedades do ponto de migração de estado, a pasta física não é eliminada. Para proteger os dados da migração de estado de utilizador contra divulgação de informações, terá de remover manualmente a partilha de rede e eliminar a pasta.  
+     При удалении папки точки миграции состояния в разделе свойств этой точки консоли Configuration Manager физическая папка не удаляется. Чтобы предотвратить раскрытие данных миграции пользовательской среды, необходимо вручную удалить сетевую или локальную папку.  
 
--   **Não configure a política de eliminação para eliminar imediatamente o estado do utilizador**  
+-   **Не настраивайте в политике удаления немедленное удаление пользовательской среды.**  
 
-     Se configurar a política de eliminação no ponto de migração de estado para remover os dados marcados para eliminação imediata e se um atacante conseguir obter os dados de estado do utilizador antes do computador válido, os dados de estado do utilizador poderão ser imediatamente eliminados. Defina o **Eliminar depois de**  intervalo de modo a ser suficientemente longo para verificar o sucesso do restauro dos dados de estado de utilizador.  
+     Если настройки политики удаления на точке миграции состояния предполагают немедленное удаление данных, помеченных для удаления, и если злоумышленнику удастся получить доступ к данным пользовательской среды прежде, чем это сделает законный компьютер, данные пользовательской среды будут удалены. Задайте для интервала **Удалить после** значение, которое позволит проверить успешность восстановления данных пользовательской среды.  
 
--   **Elimine manualmente as associações de computador quando o restauro de dados de migração de estado de utilizador estiver concluído e verificado**  
+-   **Вручную удаляйте ассоциации компьютеров после завершения и проверки восстановления данных миграции пользовательской среды.**  
 
-     O Configuration Manager não remove automaticamente as associações de computadores. Ajude a proteger a identidade dos dados de estado de utilizador eliminando manualmente as associações de computadores que já não sejam necessárias.  
+     Configuration Manager не удаляет ассоциации компьютеров автоматически. Удаление ненужных ассоциаций компьютеров вручную позволит защитить данные пользовательской среды.  
 
--   **Copiar manualmente os dados de migração de estado do utilizador no ponto de migração de estado**  
+-   **Вручную выполняйте резервное копирование данных миграции пользовательской среды в точке миграции состояния.**  
 
-     Cópia de segurança do Configuration Manager não inclui os dados de migração de estado do utilizador.  
+     Configuration Manager не выполняет резервное копирование данных миграции пользовательской среды.  
 
--   **Lembre-se de ativar o BitLocker depois do sistema operativo está instalado**  
+-   **Не забудьте включить шифрование BitLocker после установки операционной системы.**  
 
-     Se um computador suportar o BitLocker, terá de o desativar utilizando um passo de sequência de tarefas, se pretender instalar o sistema operativo em modo automático. O Configuration Manager não ativa o BitLocker depois do sistema operativo é instalado, pelo que tem o reativar manualmente.  
+     Если компьютер поддерживает шифрование BitLocker, для автоматической установки операционной системы эту функцию необходимо отключить с помощью шага последовательности задач. Configuration Manager не включает BitLocker после установки операционной системы, поэтому необходимо сделать это вручную.  
 
--   **Implementar controlos de acesso para proteger o suporte de dados pré-configurado**  
+-   **Внедрите элементы управления доступом для защиты предварительно подготовленных носителей.**  
 
-     Controle o acesso físico ao suporte de dados para impedir que um atacante utilize ataques criptográficos para obter o certificado de autenticação de cliente e dados confidenciais.  
+     Контроль физического доступа к носителю позволяет предотвратить криптографические атаки, направленные на получение сертификатов проверки подлинности клиентов и конфиденциальных данных.  
 
--   **Implementar controlos de acesso para proteger o computador de referência processo de processamento de imagens**  
+-   **Внедрите элементы управления доступом для защиты в процессе создания образа компьютера-образца.**  
 
-     Certifique-se de que o computador de referência utilizado para capturar as imagens do sistema operativo se encontra num ambiente seguro, com controlos de acesso adequados, para que não seja possível instalar nem incluir software inesperado ou malicioso na imagem capturada. Ao capturar a imagem, certifique-se de que a localização de partilha de ficheiros na rede de destino é segura, para que não seja possível adulterar a imagem após a respetiva captura.  
+     Убедитесь в том, что эталонный компьютер, который используется для снятия образов операционных систем, находится в защищенной среде, в которой имеются соответствующие элементы управления доступом. Это позволит предотвратить установку непредвиденного или вредоносного программного обеспечения и его случайное включение в записываемый образ. При снятии образа убедитесь в том, что конечная сетевая общая папка защищена, чтобы предотвратить незаконное изменение образа после его снятия.  
 
--   **Instalar sempre as atualizações de segurança mais recentes no computador de referência**  
+-   **Всегда устанавливайте на компьютер-образец последние обновления для системы безопасности.**  
 
-     Se o computador de referência tiver as atualizações de segurança mais recentes, isso ajudará a reduzir a janela de vulnerabilidade dos novos computadores durante o primeiro arranque.  
+     Наличие на эталонном компьютере текущих обновлений безопасности позволяет сократить "окно беззащитности" новых компьютеров при первом запуске.  
 
--   **Se tiver de implementar sistemas operativos num computador desconhecido, implemente controlos de acesso para impedir que computadores não autorizados a ligar à rede**  
+-   **Если развертывание операционной системы требуется выполнить на неизвестном компьютере, внедрите элементы управления доступом, чтобы предотвратить подключение к сети неавторизованных компьютеров.**  
 
-     Embora o aprovisionamento de computadores desconhecidos constitua um método cómodo para implementar novos computadores a pedido, poderá permitir que um atacante se torne, de forma eficiente, num cliente fidedigno na rede. Limite o acesso físico à rede e monitorize os clientes para detetar computadores não autorizados. Além disso, os computadores que respondam a implementações de sistema operativo iniciadas por PXE poderão ver todos os seus dados destruídos durante a implementação do sistema operativo, o que poderá resultar na redução da disponibilidade dos sistemas que sejam reformatados de forma inadvertida.  
+     Хотя инициализация неизвестных компьютеров обеспечивает удобный способ развертывания ОС на новых компьютерах по требованию, она также позволяет злоумышленнику с легкостью выдать незаконный компьютер за доверенный клиент в сети. Ограничьте физический доступ к сети и включите мониторинг клиентов, который позволит обнаруживать неавторизованные компьютеры. Кроме того, на компьютерах, отвечающих на запросы развертывания операционной системы, запускаемого по сети (PXE), во время развертывания ОС могут быть уничтожены все данные, что может привести к потере доступности случайно переформатированных систем.  
 
--   **Ativar a encriptação de pacotes multicast**  
+-   **Включите шифрование для пакетов многоадресной рассылки.**  
 
-     Para cada pacote de implementação do sistema operativo, tem a opção para ativar a encriptação quando o Configuration Manager transfere o pacote utilizando multicast. Esta configuração ajuda a impedir a adesão de computadores não autorizados à sessão multicast e a impedir atacantes de adulterarem a transmissão.  
+     Для каждого пакета развертывания операционной системы можно включить шифрование для того периода, когда Configuration Manager передает пакеты с помощью многоадресной рассылки. Эта конфигурация помогает предотвратить подключение незаконных компьютеров к сеансу многоадресной рассылки, а также незаконное изменение данных во время передачи.  
 
--   **Monitor de pontos de distribuição preparados para multicast não autorizados**  
+-   **Обеспечьте мониторинг неавторизованных точек распространения с поддержкой многоадресной рассылки.**  
 
-     Se os atacantes conseguirem aceder à rede, poderão configurar servidores multicast não autorizados para falsificar a implementação do sistema operativo.  
+     Если злоумышленник сможет получить доступ к сети, он сможет настроить незаконные серверы многоадресной рассылки, чтобы подделать пакеты развертывания операционных систем.  
 
--   **Ao exportar sequências de tarefas para uma localização de rede, proteja a localização e o canal de rede**  
+-   **Обеспечьте безопасность сетевого расположения и канала при экспорте последовательностей задач в сетевую папку.**  
 
-     Limite quem pode aceder à pasta de rede.  
+     Ограничьте доступ пользователей к сетевой папке.  
 
-     Utilize a assinatura SMB ou IPsec entre a localização de rede e o servidor de site para impedir que um atacante adultere a sequência de tarefas exportada.  
+     Используйте подписывание SMB или протокол IPsec при обмене данными между сетевым расположением и сервером сайта, чтобы предотвратить незаконное изменение экспортируемой последовательности задач.  
 
--   **Proteja o canal de comunicação ao carregar um disco rígido virtual no Virtual Machine Manager.**  
+-   **Обеспечьте безопасность канала связи при отправке виртуального жесткого диска в Virtual Machine Manager.**  
 
-     Para impedir a adulteração dos dados quando é transferido através da rede, utilize a segurança de protocolo de Internet (IPsec) ou bloco de mensagem de servidor (SMB) entre o computador que executa a consola do Configuration Manager e o computador com o Virtual Machine Manager.  
+     Чтобы предотвратить незаконное изменение данных, передаваемых по сети, используйте протокол IPsec или SMB для взаимодействия между компьютером с запущенной консолью Configuration Manager и компьютером с Virtual Machine Manager.  
 
--   **Se tiver de utilizar a tarefa de sequência de conta Run As, tome medidas adicionais de segurança**  
+-   **Если требуется использовать учетную запись запуска от имени для последовательности задач, примите дополнительные меры обеспечения безопасности.**  
 
-     Implemente as seguintes medidas de precaução se utilizar a Conta Run As de Sequência de Tarefas:  
+     Если используется учетная запись запуска от имени последовательности задач, примите следующие меры безопасности.  
 
-    -   Utilize uma conta com o mínimo de permissões necessárias.  
+    -   Используйте учетную запись с минимальным набором разрешений.  
 
-    -   Não utilize a conta de Acesso à Rede para esta conta.  
+    -   Не используйте учетную запись доступа к сети для этой учетной записи.  
 
-    -   Nunca torne a conta num administrador do domínio.  
+    -   Никогда не предоставляйте учетной записи права администратора домена.  
 
-     Além disso:  
+     Дополнительно  
 
-    -   Nunca configure perfis itinerantes para essa conta. Quando a sequência de tarefas for executada, transferirá o perfil itinerante para a conta, o que deixará o perfil vulnerável a acesso no computador local.  
+    -   Никогда не настраивайте профили роуминга для этой учетной записи. Профиль роуминга учетной записи будет загружен при выполнении последовательности задач, и это сделает профиль доступным на локальном компьютере и уязвимым.  
 
-    -   Limite o âmbito da conta. Por exemplo, crie Contas Run As de Sequência de Tarefas diferentes para cada sequência de tarefas, de modo a que, se uma conta for comprometida, apenas sejam comprometidos os computadores cliente a que essa conta tenha acesso. Se a linha de comandos exigir acesso administrativo no computador, considere a criação de uma conta de administrador local apenas para a Conta Run As de Sequência de Tarefas em todos os computadores que executarão a sequência de tarefas, eliminando-a assim que deixar de ser necessária.  
+    -   Ограничьте область действия учетной записи. Например, можно создать различные учетные записи запуска от имени последовательности задач для каждой последовательности задач, чтобы в случае компрометации одной учетной записи были затронуты только те компьютеры, к которым есть доступ у этой учетной записи. Если командной строке требуется административный доступ к компьютеру, рассмотрите возможность создания локальной учетной записи администратора исключительно для учетной записи запуска от имени последовательности задач на всех компьютерах, которые будут выполнять последовательность задач. Удалите эту учетную запись, как только необходимость в ней отпадет.  
 
--   **Restrinja e monitorize os utilizadores administrativos a quem são concedidos a função de segurança do Gestor de implementação do sistema operativo**  
+-   **Ограничьте число администраторов, которым назначается роль безопасности "Менеджер развертывания операционных систем", и отслеживайте их действия.**  
 
-     Os utilizadores administrativos a quem são concedidos a função de segurança do Gestor de implementação do sistema operativo podem criar certificados autoassinados, que podem ser utilizados para representar um cliente e obter política do cliente do Configuration Manager.  
+     Администраторы, которым предоставляются права роли безопасности "Менеджер развертывания операционных систем", могут создавать самозаверяющие сертификаты, которые затем можно использовать для олицетворения клиента и получения политики клиента из Configuration Manager.  
 
-### <a name="security-issues-for-operating-system-deployment"></a>Problemas de segurança na implementação do sistema operativo  
- Embora a implementação do sistema operativo possa constituir uma forma cómoda de implementar os sistemas operativos e configurações mais seguras em computadores da rede, apresenta os seguintes riscos de segurança:  
+### <a name="security-issues-for-operating-system-deployment"></a>Проблемы безопасности при развертывании операционных систем  
+ Хотя функция развертывания операционных систем представляет собой удобный способ развертывания самых надежных операционных систем и конфигураций для компьютеров в сети, с ней связаны следующие риски безопасности.  
 
--   Divulgação de informações e denial-of-service  
+-   Раскрытие информации и отказ в обслуживании  
 
-     Se um atacante obtiver o controlo da sua infraestrutura do Configuration Manager, poderá executar quaisquer sequências de tarefas, o que poderão incluir a formatação das unidades de disco rígidas de todos os computadores cliente. As sequências de tarefas podem ser configuradas para conter informações confidenciais, tais como contas que tenham permissões para aderir ao domínio e chaves de licenciamento em volume.  
+     Если злоумышленнику удастся получить контроль над инфраструктурой Configuration Manager, он сможет выполнить любые последовательности задач, включая форматирование жестких дисков на всех клиентских компьютерах. Последовательности задач могут содержать конфиденциальные данные, такие как учетные записи, имеющие разрешения на присоединение к домену, или ключи корпоративного лицензирования.  
 
--   Representação e elevação de privilégios  
+-   Олицетворение и повышение прав  
 
-     As sequências de tarefas permitem associar um computador ao domínio, o que poderá fornecer acesso autenticado de rede a um computador não autorizado. Outra consideração de segurança importante na implementação do sistema operativo é a proteção do certificado de autenticação de cliente utilizado para suportes de dados de sequências de tarefas de arranque e para implementação de arranque PXE. Ao capturar um certificado de autenticação de cliente, está a dar oportunidade a um atacante de obter a chave privada do certificado, passando a representar um cliente válido na rede.  
+     Последовательность задач может присоединять компьютеры к домену. Таким образом, незаконный компьютер может получить доступ к сети как прошедший проверку подлинности. Еще одним важным аспектом обеспечения безопасности развертываний операционных систем является защита сертификата проверки подлинности клиента, который используется для загрузочных носителей последовательностей задач и PXE-развертываний. При записи сертификата проверки подлинности клиента злоумышленник может получить закрытый ключ сертификата и затем олицетворить допустимый клиент в сети.  
 
-     Se um atacante obtiver o certificado de cliente que é utilizado para suportes de dados de sequência de tarefas de arranque e para implementação de arranque PXE, este certificado pode ser utilizado para representar um cliente válido para o Configuration Manager. Neste cenário, o computador não autorizado pode transferir a política, que pode conter dados confidenciais.  
+     Получение сертификата клиента, который используется для загрузочных носителей последовательностей задач и PXE-развертываний, позволит использовать его для олицетворения допустимого клиента в среде Configuration Manager. В этом случае незаконный компьютер может загрузить политику, например, содержащую конфиденциальные данные.  
 
-     Se os clientes utilizarem a Conta de Acesso à Rede para aceder a dados armazenados no ponto de migração de estado, estes clientes partilham efetivamente a mesma identidade e podem aceder aos dados de migração de estado de outro cliente que utilize a Conta de Acesso à Rede. Os dados são encriptados para poderem ser lidos apenas pelo cliente original, mas podem ser adulterados ou eliminados.  
+     Если учетная запись доступа к сети используется клиентами для доступа к данным, хранящимся на точка миграции состояний, эти клиенты фактически используют одно удостоверение и могут получать доступ к данным о миграции состояний от другого клиента, который использует учетную запись для доступа к сети. Шифрование данных гарантирует, что только оригинальный клиент может их читать, но данные могут быть перехвачены и изменены или удалены.  
 
--   Autenticação de cliente para o ponto de migração de estado é conseguida através da utilização de um token do Configuration Manager que é emitido pelo ponto de gestão.  
+-   Проверка подлинности клиентов в точке миграции состояния достигается с помощью токена Configuration Manager, выданного точкой управления.  
 
-     Além disso, o Configuration Manager não limita nem gere a quantidade de dados que estão armazenados no ponto de migração de estado e um intruso pode preencher o espaço em disco disponível e causar uma recusa de serviço.  
+     Кроме того, Configuration Manager не ограничивает и не контролирует объем сохраняемых в точке миграции состояний данных, и злоумышленник может заполнить данными все доступное место на диске, что приведет к отказу в обслуживании.  
 
--   Se utilizar variáveis de coleção, os administradores locais podem ler informações potencialmente confidenciais  
+-   При использовании переменных коллекции локальным администраторам может стать доступной потенциально конфиденциальная информация  
 
-     Embora as variáveis de coleção ofereçam um método flexível de implementar sistemas operativos, isto pode resultar em divulgação de informações.  
+     Хотя переменные коллекции — это гибкий метод для развертывания операционных систем, они могут привести к раскрытию информации.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a>Informações de privacidade para implementação do sistema operativo  
- Para além de implementar sistemas operativos em computadores sem sistema operativo, Configuration Manager pode ser utilizado para migrar ficheiros e definições de utilizadores de um computador para outro. O administrador configura as informações para transferência, incluindo ficheiros de dados pessoais, definições de configuração e cookies do browser.  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Обеспечение конфиденциальности при развертывании операционных систем  
+ Помимо развертывания операционных систем на компьютерах без операционной системы Configuration Manager можно использовать для миграции файлов и параметров пользователя с одного компьютера на другой. Администратор задает набор переносимых данных, включая файлы личных данных, параметры конфигурации и файлы cookie браузера.  
 
- As informações são armazenadas num ponto de migração de estado e encriptadas durante a transmissão e o armazenamento. As informações podem ser obtidas pelo novo computador associado às informações de estado. Se o novo computador perder a chave para obter as informações, um administrador do Configuration Manager com direito para Ver Informações de Recuperação em objetos de instância da associação do computador pode aceder às informações e associá-las a um novo computador. Depois do restauro das informações de estado pelo computador novo, por predefinição, este elimina os dados ao fim de um dia. Pode configurar o momento de remoção dos dados marcados para eliminação pelo ponto de migração de estado. As informações de migração de estado não são armazenadas na base de dados do site e não são enviadas à Microsoft.  
+ Данные хранятся на точке миграции состояния и шифруются во время передачи и хранения. Доступ к этим данным может получить новый компьютер, связанный с данными пользовательской среды. Если новый компьютер утрачивает ключ для получения данных, администратор Configuration Manager с правами "Просмотреть сведения о восстановлении" для объектов экземпляра ассоциации компьютеров может получить доступ к данным и связать их с новым компьютером. После того как новый компьютер восстановит данные пользовательской среды, он по умолчанию удаляет их на следующий день. Для точки миграции состояния можно настроить интервал удаления данных, помеченных для удаления. Данные миграции пользовательской среды не сохраняются в базе данных сайта и не отправляются в Майкрософт.  
 
- Se utilizar o suporte de dados de arranque para implementar imagens do sistema operativo, utilize sempre a opção predefinida para proteger por palavra-passe o suporte de dados de arranque. A palavra-passe encripta todas as variáveis armazenadas na sequência de tarefas, mas informações não armazenadas numa variável poderão ficar sujeitas a divulgação.  
+ Если для развертывания образов операционных систем используется загрузочный носитель, используйте настройку защиты загрузочного носителя паролем, предусмотренную по умолчанию. Пароль позволяет шифровать любые переменные, хранимые в последовательности задач, однако данные, которые не хранятся в переменной, могут быть раскрыты.  
 
- A implementação do sistema operativo pode utilizar sequências de tarefa para executar muitas tarefas diferentes durante o processo de implementação, que inclui a instalação de aplicações e atualizações de software. Quando configurar sequências de tarefas, também deve estar ciente das implicações de privacidade da instalação de software.  
+ В рамках процесса развертывания операционных систем могут использоваться последовательности задач, служащие для выполнения самых различных действий (например, установки приложений и обновления ПО). При настройке последовательностей задач необходимо принимать во внимание аспекты обеспечения конфиденциальности, связанные с установкой ПО.  
 
- Se carregar um disco rígido virtual para o Virtual Machine Manager sem primeiro utilizar o Sysprep para limpar a imagem, o disco rígido virtual carregado pode conter dados pessoais da imagem original.  
+ Если виртуальный жесткий диск передать в Virtual Machine Manager без предварительной очистки образа с помощью Sysprep, переданный виртуальный жесткий диск может содержать персональные данные из исходного образа.  
 
- O Configuration Manager não implementa a implementação do sistema operativo por predefinição e requer vários passos de configuração para recolher informações de estado de utilizador ou criar sequências de tarefas ou imagens de arranque.  
+ В Configuration Manager нет процесса развертывания ОС по умолчанию, и перед сбором данных пользовательской среды, созданием последовательностей задач или загрузочных образов требуется выполнить несколько шагов настройки.  
 
- Antes de configurar a implementação do sistema operativo, considere os requisitos de privacidade.  
+ Перед настройкой развертывания ОС следует изучить и учесть требования к конфиденциальности вашей организации.  

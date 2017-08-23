@@ -1,6 +1,6 @@
 ---
-title: "Monitorizar implementações do sistema de operativo | Microsoft Docs"
-description: "Para ajudar a monitorizar objetos de implementação do sistema operativo, a consola do Configuration Manager fornece alertas, relatórios e vários indicadores de estado."
+title: "Мониторинг развертываний операционных систем | Документы Майкрософт"
+description: "На консоли Configuration Manager доступны оповещения, отчеты и различные индикаторы состояния, упрощающие отслеживание объектов развертывания операционной системы."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,80 +17,80 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 154c0a286e6b9ccedc7545eb010967ac00d35407
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-operating-system-deployments-in-system-center-configuration-manager"></a>Monitorizar implementações do sistema operativo no System Center Configuration Manager
+# <a name="monitor-operating-system-deployments-in-system-center-configuration-manager"></a>Мониторинг развертываний операционных систем в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Consola do Configuration Manager fornece as seguintes opções para o ajudar a monitorizar objetos de implementação do sistema operativo.  
+Консоль Configuration Manager предоставляет следующие функции, упрощающие мониторинг объектов развертывания операционных систем.  
 
 
-##  <a name="BKMK_OSDAlerts"></a> Alertas para implementações de sistema operativo  
- Pode configurar um alerta nas definições de implementação de sequência de tarefas para notificar os utilizadores administrativos quando os níveis de conformidade da implementação estiverem abaixo da percentagem configurada.  
+##  <a name="BKMK_OSDAlerts"></a> Оповещения для развертываний операционных систем  
+ В параметрах развертывания для последовательности задач вы можете настроить оповещение пользователей с правами администраторов, когда показатель соответствия для развертывания опускается ниже заданного процента.  
 
- Depois de configurar as definições de alerta, se verifiquem as condições especificadas, o Configuration Manager gera um alerta. Pode rever os alertas de implementação da sequência de tarefas nas seguintes localizações:  
+ Если параметры оповещений настроены, то при наступлении указанных условий Configuration Manager создает оповещение. Оповещения развертывания для последовательности задач можно просмотреть в следующих расположениях:  
 
-1.  Reveja os alertas recentes no nó **Sistemas Operativos** da área de trabalho **Biblioteca de Software** .  
+1.  Просмотрите последние оповещения в узле **Операционные системы** рабочей области **Библиотека программного обеспечения** .  
 
-2.  Efetue a gestão dos alertas configurados no nó **Alertas** da área de trabalho **Monitorização** .  
+2.  Управление настроенными оповещениями осуществляется в узле **Оповещения** в рабочей области **Мониторинг** .  
 
-##  <a name="BKMK_TSDeployStatus"></a> Estado de implementação da sequência de tarefas  
- Depois de implementar uma sequência de tarefas, pode monitorizar o estado de implementação. Utilize o procedimento seguinte para monitorizar o estado de implementação de uma sequência de tarefas.  
+##  <a name="BKMK_TSDeployStatus"></a> Состояние развертывания для последовательности задач  
+ После развертывания последовательности задач можно отслеживать состояние развертывания. Следующая процедура позволяет осуществлять мониторинг состояния развертывания для последовательности задач.  
 
-#### <a name="to-monitor-deployment-status"></a>Para monitorizar o estado da implementação  
+#### <a name="to-monitor-deployment-status"></a>Мониторинг состояния развертывания  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  Na área de trabalho Monitorização, clique em **Implementações**.  
+2.  В рабочей области "Мониторинг" щелкните элемент **Развертывания**.  
 
-3.  Clique na sequência de tarefas para a qual pretende monitorizar o estado de implementação.  
+3.  Выберите последовательность задач, для которой требуется отслеживать состояние развертывания.  
 
-4.  No separador **Home Page** , no grupo **Implementação** , clique em **Ver Estado**.  
+4.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Просмотр состояния**.  
 
-##  <a name="BKMK_TSReports"></a> Relatórios de implementação do sistema operativo  
- Existem muitos relatórios de implementação do sistema operativo predefinidos disponíveis. Estes relatórios estão organizados em várias categorias e podem ser utilizados para reportar informações específicas sobre migração de estado e implementações de sequências de tarefas. Além de utilizar os relatórios pré-configurados, também pode criar relatórios de atualização de software personalizados, adequados às necessidades da sua empresa. Para obter mais informações, consulte [operações e manutenção de relatórios](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
+##  <a name="BKMK_TSReports"></a> Отчеты о развертывании операционных систем  
+ Существует множество предопределенных отчетов о развертывании операционных систем. Они распределены по нескольким категориям и могут использоваться для создания отчетов по конкретным сведениям, связанным с миграцией состояния и развертываниями последовательностей задач. Помимо предустановленных отчетов можно также создавать настраиваемые отчеты об обновлении программного обеспечения, адаптированные под нужды предприятия. Дополнительные сведения см. в статье [Использование и обслуживание для отчетов](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
 
-##  <a name="BKMK_MonitorContent"></a> Monitorizar conteúdo  
- Pode monitorizar os conteúdos na consola do Configuration Manager para rever o estado de todos os tipos de pacotes relativamente aos pontos de distribuição associados. Estas informações podem incluir o estado de validação do conteúdo do pacote, o estado dos conteúdos atribuídos a um grupo específico de pontos de distribuição, o estado dos conteúdos atribuídos a um ponto de distribuição e o estado das funcionalidades opcionais de cada ponto de distribuição (validação de conteúdos, PXE e multicast).  
+##  <a name="BKMK_MonitorContent"></a> Мониторинг содержимого  
+ Вы можете отслеживать содержимое в консоли Configuration Manager для анализа состояния всех типов пакетов и связанных с ними точек распространения. Имеется возможность контроля состояния проверки содержимого пакета, состояния содержимого, назначенного конкретной группе точек распространения, состояния содержимого, назначенного конкретной точке распространения и состояния дополнительных функций по каждой из точек распространения (проверка содержимого, PXE и многоадресная рассылка).  
 
-###  <a name="BKMK_ContentStatus"></a> Monitorização do estado do conteúdo  
- O nó **Estado do Conteúdo** da área de trabalho **Monitorização** disponibiliza informações sobre pacotes de conteúdos. Pode rever as informações gerais do pacote, o estado de distribuição do pacote e informações de estado detalhadas do pacote. Utilize o seguinte procedimento para ver o estado do conteúdo.  
+###  <a name="BKMK_ContentStatus"></a> Мониторинг состояния содержимого  
+ Узел **Состояние содержимого** в рабочей области **Мониторинг** содержит сведения о пакетах содержимого. Можно просмотреть общие сведения о пакете, состояние распространения пакета, а также детальные сведения о состоянии пакета. Для просмотра состояния содержимого следует использовать следующую процедуру.  
 
-#### <a name="to-monitor-content-status"></a>Para monitorizar o estado do conteúdo  
+#### <a name="to-monitor-content-status"></a>Мониторинг состояния содержимого  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  Na área de trabalho Monitorização, expanda **Estado da Distribuição**e clique em **Estado do Conteúdo**. Os pacotes são apresentados.  
+2.  В рабочей области "Мониторинг" разверните узел **Состояние распространения**и щелкните пункт **Состояние содержимого**. Отобразятся пакеты.  
 
-3.  Selecione o pacote cujas informações detalhadas de estado pretende visualizar.  
+3.  Выберите пакет, сведения о состоянии которого требуется получить.  
 
-4.  No separador **Home Page** , clique em **Ver Estado**. São apresentadas informações de estado detalhadas sobre o pacote.  
+4.  На вкладке **Главная** щелкните **Просмотр состояния**. Отобразятся подробные сведения о состоянии пакета.  
 
-###  <a name="BKMK_DPGroupStatus"></a> Estado do grupo de pontos de distribuição  
- O nó **Estado do Grupo de Pontos de Distribuição** na área de trabalho **Monitorização** fornece informações acerca dos grupos de pontos de distribuição. Pode rever informações gerais sobre o grupo de pontos de distribuição, tais como o estado e a taxa de compatibilidade do grupo de pontos de distribuição, assim como informações de estado detalhadas sobre o grupo de pontos de distribuição. Utilize o seguinte procedimento para ver o estado do grupo de pontos de distribuição.  
+###  <a name="BKMK_DPGroupStatus"></a> Состояние группы точек распространения  
+ Узел **Состояние группы точек распространения** в рабочей области **Мониторинг** содержит сведения о группах точек распространения. Здесь также можно просмотреть дополнительные сведения о группе точек распространения, например состояние и степень соответствия группы точек распространения, а также подробные сведения о ее состоянии. Следующая процедура предназначена для просмотра состояния группы точек распространения.  
 
-#### <a name="to-monitor-distribution-point-group-status"></a>Para monitorizar o estado do grupo de pontos de distribuição  
+#### <a name="to-monitor-distribution-point-group-status"></a>Мониторинг состояния группы точек распространения  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  Na área de trabalho de monitorização, expanda **Estado de Distribuição**e, em seguida, clique em **Estado do Grupo de Pontos de Distribuição**. Os grupos de pontos de distribuição são apresentados.  
+2.  В рабочей области "Мониторинг" разверните узел **Состояние распространения**и щелкните элемент **Состояние группы точек распространения**. Отобразятся группы точек распространения.  
 
-3.  Selecione o grupo de pontos de distribuição cujas informações detalhadas de estado pretende visualizar.  
+3.  Выберите группу точек распространения, сведения о состоянии которой требуется получить.  
 
-4.  No separador **Home Page** , clique em **Ver Estado**. São apresentadas informações detalhadas de estado para o grupo de pontos de distribuição.  
+4.  На вкладке **Главная** щелкните **Просмотр состояния**. Отобразятся подробные сведения для группы точек распространения.  
 
-###  <a name="BKMK_DPConfigStatus"></a> Estado da configuração do ponto de distribuição  
- O nó **Estado da Configuração do Ponto de Distribuição** na área de trabalho **Monitorização** fornece informações acerca do ponto de distribuição. Pode consultar quais os atributos que se encontram ativados no ponto de distribuição, incluindo PXE, Multicast e a validação de conteúdo. Também pode ver informações detalhadas de estado para o ponto de distribuição. Utilize o seguinte procedimento para ver o estado da configuração do ponto de distribuição.  
+###  <a name="BKMK_DPConfigStatus"></a> Состояние конфигурации точки распространения  
+ Узел **Состояние конфигурации точек распространения** в рабочей области **Мониторинг** содержит сведения о точке распространения. Вы можете анализировать включенные для точки распространения атрибуты, такие как PXE, многоадресная рассылка и проверка содержимого. Кроме того, можно отобразить подробные сведения о состоянии точки распространения. Следующая процедура предназначена для просмотра состояния конфигурации точки распространения.  
 
-#### <a name="to-monitor-distribution-point-configuration-status"></a>Para monitorizar o estado da configuração do ponto de distribuição  
+#### <a name="to-monitor-distribution-point-configuration-status"></a>Мониторинг состояния конфигурации точки распространения  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  Na área de trabalho de monitorização, expanda **Estado de Distribuição**e, em seguida, clique em **Estado da Configuração do Ponto de Distribuição**. Os pontos de distribuição são apresentados.  
+2.  В рабочей области "Мониторинг" разверните узел **Состояние распространения**и щелкните элемент **Состояние конфигурации точек распространения**. Отобразятся точки распространения.  
 
-3.  Selecione o ponto de distribuição do qual pretende ver informações sobre o estado do ponto de distribuição.  
+3.  Выберите точку распространения, сведения о состоянии которой требуется отобразить.  
 
-4.  No painel de resultados, clique no separador **Detalhes** . São apresentadas informações de estado para o ponto de distribuição.  
+4.  В области результатов откройте вкладку **Подробности** . Здесь отображаются сведения о состоянии точки распространения.  

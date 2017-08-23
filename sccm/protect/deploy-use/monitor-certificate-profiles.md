@@ -1,6 +1,6 @@
 ---
-title: Monitorizar perfis de certificado | Microsoft Docs
-description: Saiba como monitorizar o estado de compatibilidade dos perfis de certificado do System Center Configuration Manager.
+title: "Мониторинг профилей сертификатов | Документы Майкрософт"
+description: "Сведения об отслеживании состояния соответствия для профилей сертификатов в System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,65 +17,65 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 84e275fa5b17bc703da22fb686ef9050d17e557f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-certificate-profiles-in-system-center-configuration-manager"></a>Como monitorizar perfis de certificado no System Center Configuration Manager
+# <a name="how-to-monitor-certificate-profiles-in-system-center-configuration-manager"></a>Мониторинг профилей сертификатов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-##  <a name="view-compliance-results-in-the-configuration-manager-console"></a>Ver resultados de compatibilidade na consola do Configuration Manager  
+##  <a name="view-compliance-results-in-the-configuration-manager-console"></a>Просмотр результатов проверки на соответствие в консоли Configuration Manager  
 
-Para monitorizar a conformidade de certificado SCEP não utilize a consola, em vez disso, utilize [relatórios](#view-compliance-results-by-using-reports). 
+Для отслеживания соответствия сертификатов SCEP не следует использовать консоль. Для этой цели используйте [отчеты](#view-compliance-results-by-using-reports). 
 
-1.  Na consola do Configuration Manager, escolha **monitorização**>  **implementações**.  
+1.  В консоли Configuration Manager щелкните **Наблюдение**>  **Развертывания**.  
 
-3.  Selecione a implementação de perfil de certificado de interesse.  
+3.  Выберите необходимое развертывание профиля сертификата.  
 
-4.  Rever as informações de conformidade de certificado de resumo na página principal. Para informações mais detalhadas, selecione o perfil de certificado e, em seguida, no **home page** separador o **implementação** grupo, escolha **Ver estado** para abrir o **estado da implementação** página.  
+4.  Просмотрите сводные сведения о соответствии сертификата на главной странице. Для просмотра более подробных сведений выберите профиль сертификата, а затем на вкладке **Главная** в группе **Развертывание** выберите элемент **Просмотр состояния**, чтобы открыть страницу **Состояние развертывания**.  
 
-     A página **Estado da Implementação** contém os seguintes separadores:  
+     Страница **Состояние развертывания** содержит следующие вкладки.  
 
-    -   **Em conformidade**: Apresenta a compatibilidade do perfil de certificado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os utilizadores que são compatíveis com o perfil de certificado. O painel **Detalhes de Ativos** também apresenta os utilizadores que estão em conformidade com este perfil. Faça duplo clique num utilizador da lista para obter mais informações.  
+    -   **Соответствует.**Содержит сведения о соответствии профиля сертификата в зависимости от числа затронутых активов. Можно дважды щелкнуть правило, чтобы создать временный узел в узле **Пользователи** рабочей области **Активы и соответствие** . Этот узел будет включать всех пользователей, которые соответствуют профилю сертификата. В области **Сведения об активе** также отображаются пользователи, соответствующие данному профилю. Чтобы получить дополнительные сведения, дважды щелкните пользователя в списке.  
 
         > [!IMPORTANT]  
-        >  Um perfil de certificado não é avaliado se não for aplicável num dispositivo cliente. No entanto, é devolvido como compatível.  
+        >  Профиль сертификата не проверяется, если он неприменим к клиентскому устройству. Однако он возвращается как соответствующий.  
 
-    -   **Erro**: Mostra uma lista de todos os erros para a implementação de perfil de certificado selecionado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os utilizadores que geraram erros com este perfil. Quando selecionar um utilizador, o painel **Detalhes do Ativo** apresenta os utilizadores que são afetados pelo problema selecionado. Faça duplo clique num utilizador na lista para visualizar para obter mais informações.  
+    -   **Ошибка.**Содержит список всех ошибок для выбранного развертывания профиля сертификата в зависимости от числа затронутых активов. Можно дважды щелкнуть правило, чтобы создать временный узел в узле **Пользователи** рабочей области **Активы и соответствие** . Этот узел будет включать всех пользователей, которые создали ошибки, связанные с данным профилем. При выборе пользователя в области **Сведения об активе** отображаются пользователи, затронутые выбранной проблемой. Чтобы получить дополнительные сведения, дважды щелкните пользователя в списке.  
 
-    -   **Não conformes**: Mostra uma lista de todas as regras não compatíveis no perfil de certificado com base no número de ativos afetados. Pode fazer duplo clique numa regra para criar um nó temporário no nó **Utilizadores** da área de trabalho **Ativos e Compatibilidade** . Este nó contém todos os utilizadores que não são compatíveis com este perfil. Quando selecionar um utilizador, o painel **Detalhes do Ativo** apresenta os utilizadores que são afetados pelo problema selecionado. Faça duplo clique num utilizador da lista para visualizar mais informações sobre o problema.  
+    -   **Не соответствует.**Содержит список всех несоответствующих правил для профиля сертификата в зависимости от числа затронутых активов. Можно дважды щелкнуть правило, чтобы создать временный узел в узле **Пользователи** рабочей области **Активы и соответствие** . Этот узел будет включать всех пользователей, которые не соответствуют данному профилю. При выборе пользователя в области **Сведения об активе** отображаются пользователи, затронутые выбранной проблемой. Чтобы просмотреть дополнительные сведения о проблеме, дважды щелкните пользователя в списке.  
 
-    -   **Desconhecido**: Mostra uma lista de todos os utilizadores que não comunicaram compatibilidade para a implementação de perfil de certificado selecionado, juntamente com o estado atual do cliente dos dispositivos.  
+    -   **Неизвестно.**Содержит список всех пользователей, не передавших данные о соответствии для выбранного развертывания профиля сертификата, а также сведения о текущем состоянии клиента для устройств.  
 
-5.  No **estado da implementação** , reveja as informações detalhadas sobre a compatibilidade do perfil de certificado implementado. É criado um nó temporário no nó **Implementações** que o ajuda a localizar novamente estas informações de forma rápida.  
+5.  На странице **Состояние развертывания** просмотрите подробные сведения о соответствии развернутого профиля сертификата. В узле **Развертывания** создается временный узел, который упрощает повторный поиск этих сведений.  
 
-     O estado de inscrição do certificado é apresentado como um número. Utilize a tabela a seguir para compreender o que cada número significa:  
+     Состояние регистрации сертификата отображается в виде числа. Воспользуйтесь следующей таблицей, чтобы понять, что означает каждое число.  
 
-    |Estado de inscrição|Descrição|  
+    |Состояние регистрации|Описание|  
     |-----------------------|-----------------|  
-    |0x00000001|A inscrição foi efetuada com êxito e o certificado foi emitido.|  
-    |0x00000002|O pedido foi apresentado e o registo está pendente ou o pedido foi emitido fora da banda.|  
-    |0x00000004|A inscrição tem de ser adiada.|  
-    |0x00000010|Ocorreu um erro.|  
-    |0x00000020|O estado de inscrição é desconhecido.|  
-    |0x00000040|As informações de estado foram ignoradas. Isto pode ocorrer se uma autoridade de certificação da HIPERLIGAÇÃO "http://msdn.microsoft.com/en-us/windows/ms721572" \l "_security_certification_authority_gly" não for válida ou não tiver sido selecionada para a monitorização.|  
-    |0x00000100|A inscrição foi negada.|  
+    |0x00000001|Регистрация успешно завершена, и выдан сертификат.|  
+    |0x00000002|Запрос отправлен, и регистрация находится в состоянии ожидания, или запрос выдан вне диапазона.|  
+    |0x00000004|Регистрация должна быть отложена.|  
+    |0x00000010|Произошла ошибка.|  
+    |0x00000020|Состояние регистрации неизвестно.|  
+    |0x00000040|Сведения о состоянии пропущены. Это может произойти, если центр сертификации HYPERLINK "http://msdn.microsoft.com/en-us/windows/ms721572" \l "_security_certification_authority_gly" является недопустимым или не был выбран для мониторинга.|  
+    |0x00000100|В регистрации отказано.|  
 
-##  <a name="view-compliance-results-by-using-reports"></a>Ver resultados de compatibilidade através de relatórios
+##  <a name="view-compliance-results-by-using-reports"></a>Просмотр результатов проверки на соответствие с помощью отчетов
 
- As definições de compatibilidade no System Center Configuration Manager incluem relatórios incorporados que pode utilizar para monitorizar informações sobre perfis de certificado. Estes relatórios têm a categoria de relatório de **Gestão de Compatibilidade e Definições**.  
+ Параметры соответствия в System Center Configuration Manager включают встроенные отчеты, с помощью которых можно отслеживать сведения о профилях сертификатов. Такие отчеты относятся к категории **Управление соответствием и параметрами**.  
 
 > [!IMPORTANT]  
->  Deverá utilizar um caráter universal (%) ao utilizar os parâmetros **Filtro do dispositivo** e **Filtro do utilizador** nos relatórios de definições de compatibilidade.  
+>  При использовании параметров **Фильтр устройств** и **Фильтр пользователей** в отчетах о параметрах соответствия необходимо использовать подстановочный знак (%).  
 
-Para monitorizar a conformidade de certificado SCEP utilizar estes relatórios de certificado no nó de relatório **acesso a recursos da empresa**:  
+Для отслеживания соответствия сертификата SCEP используйте отчеты о сертификатах, которые находятся в узле отчетов **Доступ к ресурсам компании**.  
 
- -   Histórico de emissão de certificados  
- -   Lista de recursos com certificados prestes a expirar  
- -   Lista de recursos por estado de emissão de certificados  
+ -   Журнал выдачи сертификатов  
+ -   Список активов с сертификатами с истекающим сроком действия  
+ -   Список активов по состоянию выдачи сертификата  
 
 
 
- Para obter mais informações sobre como configurar relatórios no System Center Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Дополнительные сведения о настройке отчетов в System Center Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../core/servers/manage/reporting.md).  

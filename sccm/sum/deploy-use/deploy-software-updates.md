@@ -1,6 +1,6 @@
 ---
-title: "Implementar atualizações de software | Microsoft Docs"
-description: "Escolha as atualizações de software na consola do Configuration Manager para iniciar o processo de implementação manualmente ou implementar automaticamente atualizações."
+title: "Развертывание обновлений программного обеспечения | Документы Майкрософт"
+description: "Выберите обновления программного обеспечения в консоли Configuration Manager, чтобы вручную запустить процесс развертывания или развернуть обновления автоматически."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,60 +13,60 @@ ms.technology: configmgr-sum
 ms.assetid: 04536d51-3bf7-45e5-b4af-36ceed10583d
 ms.openlocfilehash: 70a0ad1da03a7ca88df206fec683ab1df2b531e1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_SUMDeploy"></a> Implementar atualizações de software  
+#  <a name="BKMK_SUMDeploy"></a> Развертывание обновлений программного обеспечения  
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-A fase de implementação da atualização de software é o processo de implementar as atualizações de software. Independentemente de como implementar atualizações de software, as atualizações, normalmente, são adicionadas a um grupo de atualização de software, as atualizações de software são transferidas para pontos de distribuição e o grupo de atualização é implementado para os clientes. Quando criar a implementação, uma política de atualização de software associado é enviada para computadores de cliente, o conteúdo de ficheiros são transferidos a partir de um ponto de distribuição para a cache local nos computadores cliente e, em seguida, as atualizações de software estão disponíveis para instalação do cliente de atualização de software. Os clientes na Internet transferem conteúdo a partir do Microsoft Update.  
-
-> [!NOTE]  
->  Pode configurar um cliente na intranet para transferir atualizações de software a partir do Microsoft Update se não existir um ponto de distribuição disponível.  
+Этап развертывания обновления программного обеспечения — это процесс развертывания обновлений. Вне зависимости от способа развертывания обновлений ПО обновления, как правило, добавляются в группу обновлений программного обеспечения, загружаются в точки распространения, а затем группа обновлений развертывается на клиентах. При создании развертывания на клиентские компьютеры отправляется связанная политика обновлений ПО, файлы содержимого обновлений загружаются из точки распространения в локальный кэш клиентских компьютеров, а затем обновления ПО становятся доступными для установки на клиенты. Клиенты в Интернете загружают содержимое из Центра обновления Майкрософт.  
 
 > [!NOTE]  
->  Ao contrário de outros tipos de implementação, as atualizações de software são todos transferidas para a cache do cliente, independentemente da definição de tamanho máximo da cache no cliente. Para obter mais informações sobre a definição da cache do cliente, veja [Configurar a Cache do Cliente para Clientes do Configuration Manager](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
+>  Вы можете настроить клиент в интрасети для скачивания обновлений ПО из Центра обновления Майкрософт в случае недоступности точки распространения.  
 
-Se configurar uma implementação da atualização de software necessária, as atualizações de software são instaladas automaticamente no prazo agendado. Em alternativa, o utilizador no computador cliente pode agendar ou iniciar a instalação da atualização de software antes do termo do prazo. Após a instalação tentada, os computadores cliente enviam mensagens de estado de volta para o servidor de site para indicar se a instalação da atualização de software foi concluída com êxito. Para obter mais informações sobre implementações de atualização de software, veja [Fluxos de trabalho de implementação de atualizações de software](../understand/software-updates-introduction.md#BKMK_DeploymentWorkflows).  
+> [!NOTE]  
+>  В отличие от других типов развертывания, все обновления ПО загружаются в кэш клиента вне зависимости от максимального размера кэша, заданного для клиента. Дополнительные сведения о параметрах кэша клиента см. в разделе [Настройка кэша клиента для клиентов Configuration Manager](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
 
-Existem dois cenários principais para implementar atualizações de software: implementação manual e implementação automática. Normalmente, começará por implementar manualmente atualizações de software para criar uma linha de base para o cliente, computadores e, em seguida, que irá gerir atualizações de software em clientes utilizando a implementação automática.  
+В случае настройки обязательного развертывания обновлений ПО эти обновления автоматически устанавливаются при наступлении запланированного крайнего срока. Пользователь клиентского компьютера также может запланировать или инициировать установку обновлений ПО перед наступлением крайнего срока. Когда попытка установки ПО завершается, клиенты отправляют на сервер сайта сообщения об успешной или неудавшейся установке обновления ПО, которое может быть успешно завершено или прерваться в результате сбоя. Дополнительные сведения о развертываниях обновлений программного обеспечения см. в разделе [Рабочие процессы развертывания обновлений программного обеспечения](../understand/software-updates-introduction.md#BKMK_DeploymentWorkflows).  
 
-## <a name="BKMK_ManualDeployment"></a>Implementar manualmente atualizações de software
-Pode selecionar as atualizações de software na consola do Configuration Manager e iniciar o processo de implementação manualmente. Normalmente, utiliza este método de implementação para garantir a atualização dos computadores cliente com atualizações de software necessárias antes de criar regras de implementação automática para gerir implementações mensais em curso de atualização de software, e para implementar requisitos de atualização de software fora de banda. A lista seguinte apresenta o fluxo de trabalho geral para a implementação manual de atualizações de software:  
+Существует два основных сценария развертывания обновлений программного обеспечения: развертывание вручную и автоматическое развертывание. Как правило, обновления ПО сначала развертываются вручную с целью создания базы для клиентских компьютеров, а затем с помощью автоматического развертывания осуществляется управление установкой обновлений на клиенты.  
 
-1. Filtre para atualizações de software que utilizam requisitos específicos. Por exemplo, pode fornecer critérios que obtém todas as atualizações de software de segurança ou críticas que são necessárias em mais de 50 computadores clientes.  
-2. Crie um grupo de atualização de software que contém as atualizações de software.  
-3. Transfira o conteúdo das atualizações de software no grupo de atualização de software.  
-4. Implemente manualmente o grupo de atualização de software.
+## <a name="BKMK_ManualDeployment"></a> Развертывание обновлений программного обеспечения вручную
+Вы можете выбрать обновления программного обеспечения в консоли Configuration Manager и вручную запустить процесс развертывания. Такой способ развертывания обычно используется для установки на клиентские компьютеры текущих обязательных обновлений ПО перед созданием правил автоматического развертывания, которые будут управлять ежемесячным развертыванием обновлений, и для внешнего развертывания обновлений. В следующем списке приводится описание общего процесса ручного развертывания обновлений программного обеспечения.  
 
-Para obter passos detalhados, consulte [implementar manualmente atualizações de software](manually-deploy-software-updates.md).
+1. Фильтр для обновлений программного обеспечения, использующих определенные требования. Например, можно создать условие, обеспечивающее получение всех обновлений безопасности или других важных обновлений, необходимых для более чем 50 клиентских компьютеров.  
+2. Создайте группу обновления программного обеспечения, которая содержит обновления программного обеспечения.  
+3. Загрузите содержимое обновлений программного обеспечения в группе обновлений программного обеспечения.  
+4. Вручную разверните группу обновления программного обеспечения.
 
-## <a name="automatically-deploy-software-updates"></a>Implementar automaticamente atualizações de software
-A implementação automática de atualizações de software é configurada utilizando uma regra de implementação automática (ADR). Este é um método comum de implementação para atualizações de software mensais (normalmente, denominadas "Patch Terça") e para gerir atualizações de definições. Quando a regra for executada, as atualizações são removidas do grupo de atualização de software (se existente a utilizar um grupo de atualização) do software, as atualizações de software que cumprem os critérios especificados (por exemplo, todas as atualizações de software de segurança publicadas no mês passado) são adicionadas a um grupo de atualização de software, os ficheiros de conteúdo para as atualizações de software são transferidos e copiados para pontos de distribuição e as atualizações de software são implementadas nos clientes da coleção de destino. A lista seguinte apresenta o fluxo de trabalho geral para implementar automaticamente atualizações de software:  
+Подробные инструкции см. в разделе [Развертывание обновлений программного обеспечения вручную](manually-deploy-software-updates.md).
 
-1.  Crie uma ADR que especifique as definições de implementação.
-2.  As atualizações de software são adicionadas a um grupo de atualização de software.  
-3.  O grupo de atualização de software é implementado nos computadores cliente da coleção de destino, se for especificada.  
+## <a name="automatically-deploy-software-updates"></a>Автоматическое развертывание обновлений программного обеспечения
+Автоматическое развертывание обновлений настраивается с помощью правила автоматического развертывания (ADR). Это общепринятый способ развертывания ежемесячных обновлений ПО (известный как "Вторник установки исправлений") и управления обновлениями определений. При выполнении правила обновления программного обеспечения удаляются из группы обновлений ПО (если используется существующая группа), обновления ПО, удовлетворяющие указанному условию (например, все обновления ПО безопасности, выпущенные за последний месяц), добавляются в группу обновлений программного обеспечения, файлы содержимого для обновлений ПО загружаются и копируются в точки распространения, а затем обновления ПО развертываются на клиентских компьютерах в целевой коллекции. В списке ниже приводится описание общего процесса автоматического развертывания обновлений ПО.  
 
-Tem de determinar qual a estratégia de implementação a utilizar no seu ambiente. Por exemplo, poderá criar a ADR e ter por alvo uma coleção de clientes de teste. Depois de verificar se as atualizações de software estão instaladas no grupo de teste, pode adicionar uma nova implementação à regra ou alterar a coleção na implementação automática para uma coleção de destino que inclua um conjunto maior de clientes. Os objetos de atualização de software que são criados pelas ADRs são interativos.  
+1.  Создается правило автоматического развертывания, определяющее параметры развертывания.
+2.  Обновления программного обеспечения добавляются к группе обновления программного обеспечения.  
+3.  Группа обновлений программного обеспечения развертывается на клиентских компьютерах в целевой коллекции, если она указана.  
 
--   As atualizações de software que foram implementadas através da utilização de uma ADR são implementadas automaticamente em novos clientes adicionados à coleção de destino.  
--   Novas atualizações de software adicionadas a um grupo de atualização de software são implementadas automaticamente aos clientes na coleção de destino.  
--   Pode ativar ou desativar implementações em qualquer altura para a ADR.  
+Необходимо определить, какая стратегия развертывания будет использоваться в среде. Например, можно создать правило автоматического развертывания и указать в качестве цели коллекцию тестовых клиентов. После проверки установки обновлений в тестовой группе можно добавить в правило новое развертывание или указать другую коллекцию в существующем развертывании, чтобы охватить большее число клиентов. Объекты обновления программного обеспечения, создаваемые правилами автоматического развертывания, являются интерактивными.  
 
-Depois de criar uma ADR, pode adicionar mais implementações à regra. Isto pode ajudá-lo a gerir a complexidade da implementação de diferentes atualizações em diferentes coleções. Cada nova implementação tem acesso a todas as funcionalidades e à experiência de monitorização da implementação e cada nova implementação que adiciona:  
+-   Обновления программного обеспечения, которые были развернуты с помощью правила автоматического развертывания, автоматически развертываются на новых клиентах, включенных в целевую коллекцию.  
+-   Новые обновления, добавленные в группу обновления программного обеспечения, автоматически развертываются на клиентах в целевой коллекции.  
+-   Развертывания для правила автоматического развертывания можно включать и отключать в любое время.  
 
--   Utiliza o mesmo grupo e pacote de atualização que é criado com as Regras de Implementação Automática são executadas pela primeira vez  
--   Pode especificar uma coleção diferente  
--   Suporta propriedades de implementação exclusivas, incluindo:  
-   -   Hora de ativação  
-   -   Prazo  
-   -   Mostra ou oculta experiência do utilizador final  
-   -   Separa alertas para esta implementação  
+После создания правила автоматического развертывания к нему можно добавить дополнительные развертывания. Это позволяет управлять сложным процессом развертывания различных обновлений для разных коллекций. Каждое новое развертывание имеет полный набор функций и средств мониторинга развертывания, а также:  
 
-Para obter passos detalhados, consulte [implementar automaticamente atualizações de software](automatically-deploy-software-updates.md)
+-   использует те же группу и пакет обновлений, который создается при первом запуске ADR;  
+-   может указывать другую коллекцию;  
+-   поддерживает уникальные свойства развертывания, в том числе:  
+   -   время активации;  
+   -   Крайний срок  
+   -   отображение или скрытие взаимодействия с конечным пользователем;  
+   -   отдельные предупреждения для этого развертывания.  
+
+Подробные инструкции см. в разделе [Автоматическое развертывание обновлений программного обеспечения](automatically-deploy-software-updates.md).
 
 <!-- ###  <a name="BKMK_ClientCache"></a> Client cache setting  
 The Configuration Manager client downloads the content for required software updates to the local client cache soon after it receives the deployment. However, the client waits to download the content until after the **Software available time** setting for the deployment. The client does not download software updates in optional deployments (deployments that do not have a scheduled installation deadline) until the user manually starts the installation. When the configured deadline passes, the software updates client agent performs a scan to verify that the software update is still required, then the software updates client agent checks the local cache on the client computer to verify that the software update source file is still available, and then installs the software update. If the content was deleted from the client cache to make room for another deployment, the client downloads the software updates to the cache. Software updates are always downloaded to the client cache regardless of the configured maximum client cache size. For other deployments, such as applications or packages, the client only downloads content that is within the maximum cache size that you configure for the client. Cached content is not automatically deleted, but it remains in the cache for at least one day after the client used that content.  -->

@@ -1,6 +1,6 @@
 ---
-title: Configurar o Asset Intelligence | Microsoft Docs
-description: Configure o Asset Intelligence no System Center Configuration Manager.
+title: "Настройка аналитики активов | Документы Майкрософт"
+description: "Настройка аналитики активов в System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,217 +17,217 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: d2704e0f93ad9748f7eb06d714b3754463cb3bdb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-asset-intelligence-in-system-center-configuration-manager"></a>Configurar o Asset Intelligence no System Center Configuration Manager
+# <a name="configure-asset-intelligence-in-system-center-configuration-manager"></a>Настройка аналитики активов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Asset Intelligence fará um inventário dos e gere a utilização de licenças de software.   
+Функция аналитики активов осуществляет инвентаризацию лицензий ПО и управляет их использованием.   
 
-## <a name="steps-to-configure-asset-intelligence"></a>Passos para configurar o Asset Intelligence  
+## <a name="steps-to-configure-asset-intelligence"></a>Этапы настройки аналитики активов  
    
 
-- **Passo 1**: para recolher os dados de inventário necessários para relatórios do Asset Intelligence, tem de ativar o agente de cliente de inventário de hardware, tal como descrito no [como expandir o inventário de hardware no System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).
-- **Passo 2**: [Ativar inventário de Hardware do Asset Intelligence Classes de relatório](#BKMK_EnableAssetIntelligence).  
-- **Passo 3**: [Instalar um ponto de sincronização do Asset Intelligence](#BKMK_InstallAssetIntelligenceSynchronizationPoint)
-- **Passo 4**: [Ativar a auditoria de eventos de início de sessão bem-sucedidos](#BKMK_EnableSuccessLogonEvents)  
-- **Passo 5**: [Importar informações de licença de Software](#BKMK_ImportSoftwareLicenseInformation)  
-- **Passo 6**: [Configurar tarefas de manutenção do Asset Intelligence](#BKMK_ConfigureMaintenanceTasks) 
+- **Шаг 1**. Для сбора данных инвентаризации, необходимых для отчетов аналитики активов, требуется включить агент клиента инвентаризации оборудования, как описано в разделе [Расширение инвентаризации оборудования в System Center Configuration Manager](../../../../core/clients/manage/inventory/extend-hardware-inventory.md).
+- **Шаг 2**. [Включение классов отчетов по инвентаризации оборудования для аналитики активов](#BKMK_EnableAssetIntelligence).  
+- **Шаг 3**. [Установка точки синхронизации аналитики активов](#BKMK_InstallAssetIntelligenceSynchronizationPoint)
+- **Шаг 4**. [Включение аудита событий успешного входа в систему](#BKMK_EnableSuccessLogonEvents)  
+- **Шаг 5**. [Импорт сведений о лицензиях на программное обеспечение](#BKMK_ImportSoftwareLicenseInformation)  
+- **Шаг 6**. [Настройка задач обслуживания аналитики активов](#BKMK_ConfigureMaintenanceTasks) 
 
 
 ###  <a name="BKMK_EnableAssetIntelligence"></a> Enable Asset Intelligence hardware inventory reporting classes  
- Para ativar o Asset Intelligence em sites do Configuration Manager, tem de ativar uma ou mais Asset Intelligence inventário de hardware classes de relatório. Pode ativar as classes na home page do **Asset Intelligence** ou, na área de trabalho **Administração** , no nó **Definições do Cliente** , nas propriedades de definições de cliente. Utilize um dos seguintes procedimentos.  
+ Чтобы включить аналитику активов на сайтах Configuration Manager, необходимо сделать доступным один или несколько классов отчетов по инвентаризации оборудования для аналитики активов. Это можно сделать на домашней странице **Аналитика активов** или в рабочей области **Администрирование** в разделе свойств параметров клиентов узла **Параметры клиентов** . Используйте одну из следующих процедур.  
 
-##### <a name="to-enable-asset-intelligence-hardware-inventory-reporting-classes-from-the-asset-intelligence-home-page"></a>Para ativar classes de relatório de inventário de hardware do Asset Intelligence a partir da home page do Asset Intelligence  
+##### <a name="to-enable-asset-intelligence-hardware-inventory-reporting-classes-from-the-asset-intelligence-home-page"></a>Включение классов отчетов по инвентаризации оборудования на домашней странице "Аналитика активов"  
 
-1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **do Asset Intelligence**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Аналитика активов**.  
 
-3.  No **home page** separador o **do Asset Intelligence** grupo, escolha **editar Classes de inventário**.   
+3.  На вкладке **Главная** в группе **Аналитика активов** выберите **Изменить классы инвентаризации**.   
 
-4.  Para ativar os relatórios do Asset Intelligence, selecione **ativar todos os relatório do Asset Intelligence classes** ou **ativar apenas do Asset Intelligence selecionadas classes de relatório**e selecione, pelo menos, uma classe de relatório a partir das classes apresentadas.  
-
-    > [!NOTE]  
-    >  Os relatórios do Asset Intelligence que dependem das classes de inventário de hardware que ativar através deste procedimento não apresentam dados até que os clientes tenham analisado e devolvido o inventário de hardware.  
-
-
-##### <a name="to-enable-asset-intelligence-hardware-inventory-reporting-classes-from-client-settings-properties"></a>Para ativar classes de relatório de inventário de hardware do Asset Intelligence a partir das propriedades de definições de cliente  
-
-1.  Na consola do Configuration Manager, escolha **administração** >  **as definições de cliente** > **agente predefinições de cliente**. Se tiver criado o cliente personalizado a definições, pode selecionar os em vez disso.  
-
-3.  No **home page** separador > **propriedades** grupo, escolha **propriedades**.   
-
-4.  Escolha **inventário de Hardware** > **definir Classes**. .  
-
-5.  Escolha **filtrar por categoria** > **Classes de relatório do Asset Intelligence**. A lista de classes é atualizada apenas com as classes de relatório de inventário de hardware do Asset Intelligence.  
-
-6.  Selecione pelo menos uma classe de relatório da lista.  
+4.  Чтобы включить отчеты аналитики активов, выберите **Включить все классы отчетов аналитики активов** или **Включить только выбранные классы отчетов аналитики активов** и выберите по крайней мере один класс отчетов в списке классов.  
 
     > [!NOTE]  
-    >  Os relatórios do Asset Intelligence que dependem das classes de inventário de hardware que ativar através deste procedimento não apresentam dados até que os clientes tenham analisado e devolvido o inventário de hardware.  
+    >  Отчеты по аналитике активов, которые зависят от классов инвентаризации оборудования, включаемых путем выполнения указанной процедуры, не будут содержать данных до тех пор, пока от клиентов не будут получены результаты инвентаризации оборудования.  
+
+
+##### <a name="to-enable-asset-intelligence-hardware-inventory-reporting-classes-from-client-settings-properties"></a>Включение классов отчетов по инвентаризации оборудования для аналитики активов в свойствах клиентских параметров  
+
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** >  **Параметры клиента** > **Параметры клиента по умолчанию**. Если вы создали пользовательские параметры клиента, можно выбрать их.  
+
+3.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.   
+
+4.  Выберите **Инвентаризация оборудования** > **Задать классы**. .  
+
+5.  Выберите **Фильтр по категориям** > **Классы создания отчетов аналитики активов**. В список классов будут добавлены только классы отчетов по инвентаризации оборудования аналитики активов.  
+
+6.  Выберите по крайней мере один класс отчетов в списке.  
+
+    > [!NOTE]  
+    >  Отчеты по аналитике активов, которые зависят от классов инвентаризации оборудования, включаемых путем выполнения указанной процедуры, не будут содержать данных до тех пор, пока от клиентов не будут получены результаты инвентаризации оборудования.  
   
 
 ###  <a name="BKMK_InstallAssetIntelligenceSynchronizationPoint"></a> Install an Asset Intelligence Synchronization Point  
 
-A função de sistema de sites do ponto de sincronização do Asset Intelligence é utilizada para ligar a sites do Configuration Manager para o System Center Online para sincronizar informações de catálogo do Asset Intelligence. O ponto de sincronização do Asset Intelligence só pode ser instalado num sistema de sites localizado no site de nível superior da hierarquia do Configuration Manager e requer acesso à Internet para sincronizar com o System Center Online utilizando a porta TCP 443.
+Роль системы сайта "Точка синхронизации аналитики активов" используется для подключения сайтов Configuration Manager к System Center Online с целью синхронизации сведений каталога аналитики активов. Точку синхронизации аналитики активов можно установить только в системе сайта, расположенной на сайте верхнего уровня в иерархии Configuration Manager, и только при наличии доступа к Интернету для синхронизации с System Center Online через TCP-порт 443.
 
-Para além de transferir novas informações do catálogo do Asset Intelligence, o ponto de sincronização do Asset Intelligence pode carregar informações personalizadas de títulos de software para o System Center Online para categorização. A Microsoft trata todos os títulos de software carregados como informações públicas. Certifique-se de que os títulos de software personalizados não contêm informações confidenciais ou proprietárias. Para obter mais informações sobre o pedido de categorização de títulos de software, consulte [pedir uma atualização de catálogo para títulos de software não categorizados](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_RequestCatalogUpdate).  
+Помимо загрузки новых сведений каталога аналитики активов, такая точка может отправлять названия программного обеспечения на сайт System Center Online для классификации. Корпорация Майкрософт рассматривает все отправляемые программы как общедоступные. Убедитесь в том, что ваши программы не содержат конфиденциальной или защищаемой информации. Дополнительные сведения об отправке запросов на классификацию наименований программного обеспечения см. в статье [Запрос обновления каталога для программ без категории](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_RequestCatalogUpdate).  
 
-##### <a name="to-install-an-asset-intelligence-synchronization-point-site-system-role"></a>Para instalar uma função de sistema de sites do ponto de sincronização do Asset Intelligence  
+##### <a name="to-install-an-asset-intelligence-synchronization-point-site-system-role"></a>Установка роли системы сайта "Точка синхронизации аналитики активов"  
 
-1.  Na consola do Configuration Manager, escolha **administração**> **configuração do Site** > **servidores e funções de sistema de sites**.  
+1.  В консоли Configuration Manager перейдите в раздел **Администрирование**> **Конфигурация сайта** > **Серверы и роли системы сайта**.  
 
-3.  Adicione a função de sistema de sites do ponto de sincronização do Asset Intelligence a um servidor de sistema de sites novo ou existente:  
+3.  Добавьте роль системы сайта "Точка синхронизации аналитики активов" на новый или существующий сервер системы сайта.  
 
-    -  Para um **novo servidor do sistema de sites**: No **home page** separador o **criar** grupo, escolha **criar servidor do sistema de sites** para iniciar o assistente.   
+    -  **Новый сервер системы сайта**: на вкладке **Главная** в группе **Создать** выберите **Создать сервер системы сайта**, чтобы запустить мастер.   
 
         > [!NOTE]  
-        >  Por predefinição, quando uma função de sistema de sites, o Configuration Manager instala os ficheiros de instalação são instalados na primeira disponível formatada com NTFS unidade de disco rígido que tenha o máximo livre no disco rígido. Para impedir que o Configuration Manager instalar em unidades específicas, crie um ficheiro vazio com o nome No_sms_on_drive.sms e copie-o para a pasta raiz da unidade antes de instalar o servidor de sistema de sites.  
+        >  Когда Configuration Manager устанавливает роль системы сайта, установочные файлы по умолчанию размещаются на первом доступном жестком диске с файловой системой NTFS, на котором имеется наибольший объем свободного пространства. Чтобы предотвратить установку Configuration Manager на определенных дисках, создайте пустой файл с именем No_sms_on_drive.sms и скопируйте его в корневую папку диска перед установкой сервера системы сайта.  
 
-    -  Para um **servidor de sistema de sites existente**: Selecione o servidor no qual pretende instalar a função de sistema de sites do ponto de sincronização do Asset Intelligence. Ao escolher um servidor, uma lista das funções de sistema de sites que já se encontram instaladas no servidor são apresentados no painel de detalhes.  
+    -  **Существующий сервер системы сайта**: выберите сервер, на котором требуется установить роль системы сайта "Точка синхронизации аналитики активов". При выборе сервера в области сведений выводится список ролей системы сайта, которые уже установлены на сервере.  
 
-         No **home page** separador o **servidor** grupo, escolha **Adicionar função de sistema de sites** para iniciar o assistente.  
+         На вкладке **Главная** в группе **Сервер** выберите элемент **Добавить роли системы сайта**.  
 
-4.  Concluir o **geral** página. Quando adiciona o ponto de sincronização do Asset Intelligence a um servidor do sistema de sites existente, verifique os valores que foram anteriormente configurados.  
+4.  Укажите сведения на странице **Общие**. При добавлении точки синхронизации аналитики активов на существующий сервер системы сайта проверьте ранее настроенные значения.  
 
-5.  No **seleção da função do sistema** página, selecione **ponto de sincronização do Asset Intelligence** da lista de funções disponíveis.  
+5.  На странице **Выбор системной роли** выберите **Точка синхронизации аналитики активов** в списке доступных ролей.  
 
-6.  No **definições de ligação do ponto de sincronização do Asset Intelligence** página, escolha **seguinte**.  
+6.  На странице **Параметры подключения точки синхронизации аналитики активов** нажмите кнопку **Далее**.  
 
-     Por predefinição, a definição **Utilizar este ponto de Sincronização do Asset Intelligence** está selecionada e não pode ser configurada nesta página. O System Center Online aceita tráfego de rede apenas através da porta TCP 443 e, por conseguinte, a definição **Número de porta SSL** não pode ser configurada nesta página do assistente.  
+     По умолчанию параметр **Использовать эту точку синхронизации аналитики активов** выбран и не может быть настроен на этой странице. Веб-сайт System Center Online принимает сетевой трафик только через TCP-порт 443, поэтому параметр **Номер SSL-порта** на этой странице мастера настроить невозможно.  
 
-7.  Opcionalmente, pode especificar um caminho para o ficheiro de certificado (. pfx) de autenticação System Center Online. Normalmente, não é necessário especificar um caminho para o certificado porque o certificado de ligação é automaticamente aprovisionado durante a instalação da função de site.  
+7.  Дополнительно можно указать путь к файлу сертификата проверки подлинности System Center Online (PFX-файлу). Как правило, путь для сертификата не указывается, так как во время установки роли сайта сертификат подключения инициализируется автоматически.  
 
-8.  No **definições do servidor Proxy** página, especifique se o ponto de sincronização do Asset Intelligence irá utilizar um servidor proxy ao ligar ao System Center Online para sincronizar o catálogo e se pretende utilizar credenciais para ligar ao servidor proxy.  
+8.  На странице **Параметры прокси-сервера** укажите, будет ли точка синхронизации аналитики активов использовать прокси-сервер при подключении к System Center Online для синхронизации каталога и следует ли использовать учетные данные для подключения к прокси-серверу.  
 
     > [!WARNING]  
-    >  Se for necessário um servidor proxy para ligar ao System Center Online, o certificado de ligação também pode ser eliminado se a palavra-passe da conta de utilizador expirar para a conta configurada para autenticação do servidor proxy.  
+    >  Если для подключения к System Center Online требуется прокси-сервер, сертификат подключения может быть также удален при истечении срока действия пароля учетной записи пользователя, настроенной для проверки подлинности прокси-сервера.  
 
-9. Na página **Agendamento da Sincronização** , especifique se pretende sincronizar catálogo do Asset Intelligence com base num agendamento. Quando ativar o agendamento da sincronização, especifique um agendamento de sincronização simples ou personalizado. Durante a sincronização agendada, o ponto de sincronização do Asset Intelligence liga ao System Center Online para obter o catálogo do Asset Intelligence mais recente. Pode sincronizar manualmente o catálogo do Asset Intelligence a partir do nó Asset Intelligence na consola do Configuration Manager. Para obter os passos sincronizar manualmente o catálogo do Asset Intelligence, consulte o [para sincronizar manualmente o catálogo do Asset Intelligence](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ManuallySynchronizeCatalog) secção o [operações do Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md).  
+9. На странице **Расписание синхронизации** укажите, следует ли выполнять синхронизацию каталога аналитики активов по расписанию. При включении расписания синхронизации вы выбираете, будет ли оно простым или настраиваемым. Во время запланированной синхронизации точка синхронизации аналитики активов подключается к System Center Online для получения самой последней версии каталога аналитики активов. Можно вручную синхронизировать каталог аналитики активов в соответствующем узле консоли Configuration Manager. Действия по синхронизации каталога аналитики активов вручную см. в разделе [Синхронизация каталога аналитики активов вручную](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md#BKMK_ManuallySynchronizeCatalog) статьи [Операции аналитики активов в System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/operations-for-asset-intelligence.md).  
 
-10. Concluir o assistente 
+10. Завершение работы мастера 
 
 ###  <a name="BKMK_EnableSuccessLogonEvents"></a> Enable auditing of success logon events  
- Quatro relatórios do Asset Intelligence apresentam informações recolhidas a partir de registos de eventos de Segurança do Windows nos computadores cliente. Eis como configurar definições do início de sessão de política de segurança do computador para ativar a auditoria de eventos de início de sessão bem-sucedidos.  
+ Четыре отчета аналитики активов отображают сведения, собираемые из журналов событий безопасности Windows на клиентских компьютерах. Ниже описано, как настроить параметры входа в рамках политики безопасности компьютера для обеспечения аудита событий успешного входа в систему.  
 
-##### <a name="to-enable-success-logon-event-logging-by-using-a-local-security-policy"></a>Para ativar o registo de eventos de início de sessão bem-sucedidos através de uma política de segurança local  
+##### <a name="to-enable-success-logon-event-logging-by-using-a-local-security-policy"></a>Настройка ведения журнала событий успешного входа в систему с помощью локальной политики безопасности  
 
-1.  Num computador cliente do Configuration Manager, escolha **iniciar** > **ferramentas administrativas** > **política de segurança Local**.  
+1.  На клиентском компьютере Configuration Manager последовательно выберите **Пуск** > **Администрирование** > **Локальная политика безопасности**.  
 
-2.  No **política de segurança Local** caixa de diálogo em **definições de segurança**, expanda **políticas locais**e, em seguida, escolha **política de auditoria**.  
+2.  В разделе **Параметры безопасности** диалогового окна **Локальная политика безопасности** разверните узел **Локальные политики** и выберите пункт **Политика аудита**.  
 
-3.  No painel de resultados, faça duplo clique **auditar eventos de início de sessão**, certifique-se de que o **êxito** caixa de verificação está selecionada e, em seguida, escolha **OK**.  
+3.  В области результатов дважды щелкните **Аудит входа в систему**, убедитесь в том, что флажок **Успешно** установлен, и нажмите кнопку **ОК**.  
 
-##### <a name="to-enable-success-logon-event-logging-by-using-an-active-directory-domain-security-policy"></a>Para ativar o registo de eventos de início de sessão bem-sucedidos através de uma política de segurança do domínio do Active Directory  
+##### <a name="to-enable-success-logon-event-logging-by-using-an-active-directory-domain-security-policy"></a>Настройка ведения журнала событий успешного входа в систему с помощью политики безопасности домена Active Directory  
 
-1.  Num computador de controlador de domínio, escolha **iniciar**, aponte para **ferramentas administrativas**e, em seguida, escolha **política de segurança do domínio**.  
+1.  На компьютере контроллера домена нажмите кнопку **Пуск**, наведите указатель на пункт **Администрирование** и выберите пункт **Политика безопасности домена**.  
 
-2.  No **política de segurança Local** caixa de diálogo em **definições de segurança**, expanda **políticas locais**e, em seguida, escolha **política de auditoria**.  
+2.  В разделе **Параметры безопасности** диалогового окна **Локальная политика безопасности** разверните узел **Локальные политики** и выберите пункт **Политика аудита**.  
 
-3.  No painel de resultados, faça duplo clique **auditar eventos de início de sessão**, certifique-se de que o **êxito** caixa de verificação está selecionada e, em seguida, escolha **OK**.  
+3.  В области результатов дважды щелкните **Аудит входа в систему**, убедитесь в том, что флажок **Успешно** установлен, и нажмите кнопку **ОК**.  
 
 ###  <a name="BKMK_ImportSoftwareLicenseInformation"></a> Import software license information  
- As secções seguintes descrevem os procedimentos necessários para importar Microsoft e informações de licenciamento de software geral para a base de dados do site do Configuration Manager, utilizando o Assistente para importar licenças de Software. Ao importar informações de licenças de software para a base de dados do site a partir de ficheiros de declaração de licença, a conta do computador do servidor de site requer permissões de **Controlo Total** do sistema de ficheiros NTFS para a partilha de ficheiros utilizada para importar informações de licença de software.  
+ В следующих разделах описаны процедуры, необходимые для импорта сведений о лицензировании программного обеспечения корпорации Майкрософт и других поставщиков в базу данных сайта Configuration Manager с помощью мастера импорта лицензий на программное обеспечение. Когда сведения о лицензировании программного обеспечения импортируются в базу данных сайта из файлов списка лицензий, учетной записи сервера сайта требуются разрешения на **Полный доступ** для файловой системы NTFS к файловому ресурсу, используемому для импорта сведений о лицензиях на программное обеспечение.  
 
 > [!IMPORTANT]  
->  Quando as informações de licença de software são importadas para a base de dados do site, as informações de licença de software existentes são substituídas. Certifique-se de que o ficheiro de informações de licença de software que utiliza com o Assistente Importar Licenças de Software contém uma lista completa de todas as informações de licença de software necessárias.  
+>  При импорте сведений о лицензиях на программное обеспечение в базу данных сайта существующие сведения о лицензиях перезаписываются. Убедитесь, что файл сведений о лицензиях на программное обеспечение, используемый при работе мастера импорта лицензий на программное обеспечение, содержит полный список всей необходимой информации.  
 
-##### <a name="to-import-software-license-information-into-the-asset-intelligence-catalog"></a>Para importar informações de licença de software para o catálogo do Asset Intelligence  
+##### <a name="to-import-software-license-information-into-the-asset-intelligence-catalog"></a>Импорт сведений о лицензиях на программное обеспечение в каталог аналитики активов  
 
-1.  No **ativos e compatibilidade** área de trabalho, escolha **do Asset Intelligence**.  
+1.  В рабочей области **Активы и соответствие** выберите пункт **Аналитика активов**.  
 
-2.  No **home page** separador o **do Asset Intelligence** grupo, escolha **importar licenças de Software**.   
+2.  На вкладке **Главная** в группе **Аналитика активов** выберите **Импортировать лицензии на программное обеспечение**.   
 
-4.  Na página **Importar** , especifique se está a importar um ficheiro de Licenciamento em Volume da Microsoft (MVLS) (.xml ou .csv) ou um ficheiro de Declaração de Licença Geral (.csv). Para obter mais informações sobre a criação de um ficheiro de Declaração de Licença Geral, consulte [Create a general license statement information file for import](#BKMK_CreateGeneralLicenseStatement) mais à frente neste tópico.  
+4.  На странице **Импорт** укажите, какой файл импортируется: файл корпоративного лицензирования Microsoft (MVLS) (XML или CSV) или файл общего списка лицензий (CSV). Дополнительные сведения о создании файла общего списка лицензий см. в подразделе [Create a general license statement information file for import](#BKMK_CreateGeneralLicenseStatement) далее в этом разделе.  
 
     > [!WARNING]  
-    >  Para transferir um ficheiro MVLS no formato .csv, que pode importar para o catálogo do Asset Intelligence, consulte [Microsoft Volume Licensing Service Center](http://go.microsoft.com/fwlink/p/?LinkId=226547). Para aceder a estas informações, tem de ter uma conta registada no site. Tem de contactar o seu representante de conta Microsoft para obter informações sobre como obter o seu ficheiro MVLS no formato .xml.  
+    >  Чтобы загрузить файл MVLS в формате CSV, который можно импортировать в каталог аналитики активов, см. страницу [центра поддержки корпоративных лицензий](http://go.microsoft.com/fwlink/p/?LinkId=226547). Для доступа к этой информации необходимо иметь зерегистрированную учетную запись на веб-сайте. Чтобы узнать, как получить файл MVLS в формате XML, обратитесь к представителю корпорации Майкрософт по работе с клиентами.  
 
-5.  Introduza o caminho UNC para o ficheiro de declaração de licença ou escolha **procurar** selecionar uma rede partilhada ficheiros e pastas.  
+5.  Введите UNC-путь к файлу списка лицензий или нажмите кнопку **Обзор**, чтобы выбрать сетевую общую папку и файл.  
 
     > [!NOTE]  
-    >  A pasta partilhada deve estar corretamente protegida para impedir o acesso não autorizado ao ficheiro de informações de licenciamento e a conta de computador do computador no qual o assistente está a ser executado tem de ter permissões de Controlo Total para a partilha que contém o ficheiro de importação de licença.  
+    >  Для общих папок необходимо обеспечить надлежащую защиту, чтобы предотвратить несанкционированный доступ к файлу, содержащему сведения о лицензиях. Кроме того, учетной записи компьютера, на котором выполняется мастер, должны быть присвоены разрешения уровня "полный доступ" для папки, в которой содержится файл импорта лицензий.  
 
-6. Conclua o assistente.  
+6. Завершите работу мастера.  
 
 ###  <a name="BKMK_CreateGeneralLicenseStatement"></a> Create a general license statement information file for import  
- Também é possível importar uma declaração de licença geral para o catálogo do Asset Intelligence, utilizando um ficheiro de importação de licença criado manualmente no formato de ficheiro delimitado por vírgulas (.csv).  
+ Общий список лицензий также можно импортировать в каталог аналитики активов с помощью созданного вручную файла импорта лицензий в формате CSV.  
 
 > [!NOTE]  
->  Embora apenas os campos **Nome**, **Fabricante**, **Versão**, e **QuantidadeEfetiva** tenham de conter dados, todos os campos têm de ser introduzidos na primeira linha do ficheiro de importação de licença. Todos os campos de data devem ser apresentados no seguinte formato: Mês/dia/ano, por exemplo, 08/04/2008.  
+>  Несмотря на то, что обязательными полями являются только **Имя**, **Издатель**, **Версия**и **Фактическое количество** , все поля должны быть введены в первой строке файла импорта лицензий. Все поля дат должны отображаться в следующем формате: месяц/день/год, например 08/04/2008.  
 
-O Asset Intelligence faz corresponder os produtos que especificar na declaração de licença geral, utilizando o nome do produto e a versão do produto, mas não o nome do fabricante. Tem de utilizar um nome de produto na declaração de licença geral que seja uma correspondência exata com o nome de produto armazenado na base de dados do site. Asset Intelligence demora a **Quantidadeefetiva** número fornecido na declaração de licença geral e compara o número com o número de produtos instalados encontrado no inventário do Configuration Manager.  
+Функция аналитики активов сопоставляет продукты, указанные в общем списке лицензий, на основе названия продукта и его версии, а не имени издателя. Название продукта, используемое в общем списке лицензий, должно в точности совпадать с названием, сохраненном в базе данных сайта. Аналитика активов сравнивает число, указанное в поле **Фактическое количество** файла общего списка лицензий, с количеством установленных продуктов, обнаруженных в данных инвентаризации Configuration Manager.  
 
 > [!TIP]  
->  Para obter uma lista completa dos nomes de produtos armazenados na base de dados do site do Configuration Manager, pode executar a consulta seguinte na base de dados do site: SELECT ProductName0 FROM v_GS_INSTALLED_SOFTWARE.  
+>  Для получения полного списка названий продуктов, хранимых в базе данных сайта Configuration Manager, вы можете запустить следующий запрос в базе данных сайта: SELECT ProductName0 FROM v_GS_INSTALLED_SOFTWARE.  
 
- Pode especificar as versões exatas de um produto ou especificar parte da versão, como, por exemplo, apenas a versão principal. Os exemplos seguintes fornecem as correspondências de versão resultantes para uma entrada de versão de declaração de licença geral para um produto específico.  
+ Можно указать точные версии продукта или часть номера версии, например только основной номер версии. Ниже приведены примеры найденных соответствий версий для записи версии общего списка лицензий для конкретного продукта.  
 
-|Entrada de declaração de licença geral|Entradas da base de dados do site correspondentes|  
+|Запись общего списка лицензий|Соответствующие записи базы данных сайта|  
 |-------------------------------------|------------------------------------|  
-|Nome: "MySoftware", ProductVersion0: "2"|ProductName0: "Mysoftware", ProductVersion0: "2.01.1234"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.02.5678"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.1234"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.5678"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.3579.000"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.10.1234"|  
-|Nome: "MySoftware", versão "2.05"|ProductName0: "MySoftware", ProductVersion0: "2.05.1234"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.5678"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.3579.000"|  
-|Nome: "Mysoftware", versão "2"<br /><br /> Nome: "Mysoftware", versão "2.05"|Erro durante a importação. A importação falha quando mais do que uma entrada corresponde à mesma versão de produto.|  
+|Name: "MySoftware", ProductVersion0:"2"|ProductName0: "Mysoftware", ProductVersion0: "2.01.1234"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.02.5678"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.1234"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.5678"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.3579.000"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.10.1234"|  
+|Name: "MySoftware", Version "2.05"|ProductName0: "MySoftware", ProductVersion0: "2.05.1234"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.5678"<br /><br /> ProductName0: "MySoftware", ProductVersion0: "2.05.3579.000"|  
+|Name: "Mysoftware", Version "2"<br /><br /> Name: "Mysoftware", Version "2.05"|Ошибка при импорте. При обнаружении нескольких записей, соответствующих одной версии продукта, происходит сбой импорта.|  
   
 
-##### <a name="to-create-a-general-license-statement-import-file-by-using-microsoft-excel"></a>Para criar um ficheiro de importação de declaração de licença geral utilizando o Microsoft Excel  
+##### <a name="to-create-a-general-license-statement-import-file-by-using-microsoft-excel"></a>Создание файла импорта общего списка лицензий с помощью Microsoft Excel  
 
-1.  Abra o Microsoft Excel e crie uma nova folha de cálculo.  
+1.  Откройте Microsoft Excel и создайте новую таблицу.  
 
-2.  Na primeira linha da nova folha de cálculo, introduza todos os nomes de campos de dados de licença de software.  
+2.  В первой строке новой таблицы введите все имена полей данных о лицензиях на программное обеспечение.  
 
-3.  Na segunda e subsequentes linhas da nova folha de cálculo, introduza as informações de licença de software conforme necessário. Certifique-se de que, pelo menos, todos os campos de dados de licença de software necessários são introduzidos nas linhas subsequentes para cada licença de software a importar. O nome do título de software introduzido na folha de cálculo tem de ser igual ao título de software que é apresentado no Explorador de Recursos para um computador cliente após a execução do inventário de hardware.  
+3.  Во второй и последующих строках новой таблицы введите необходимые сведения о лицензиях на ПО. Убедитесь, что для всех импортируемых лицензий на программное обеспечение заполнены все обязательные поля данных о лицензии в последующих строках. Наименование программного обеспечения в таблице должно в точности соответствовать названию, отображаемому в обозревателе ресурсов для клиентского компьютера, полученному после проведения инвентаризации оборудования.  
 
-4.  Guarde o ficheiro no formato. csv.  
+4.  Сохраните файл в формате CSV.  
 
-5.  Copie o ficheiro .csv para a partilha de ficheiros que é utilizada para importar informações de licença de software para o catálogo do Asset Intelligence.  
+5.  Скопируйте CSV-файл в общую папку, которая используется для импорта сведений о лицензиях на программное обеспечение в каталог аналитики активов.  
 
-6.  Na consola do Configuration Manager, utilize o Assistente para importar licenças de Software para importar o ficheiro. csv recentemente criado.  
+6.  В консоли Configuration Manager запустите мастер импорта лицензий на программное обеспечение, чтобы импортировать созданный CSV-файл.  
 
-7.  Execute o Asset Intelligence **licença 15A - relatório de reconciliação de Software de terceiros** para verificar que as informações de licenciamento foi importadas com êxito para o catálogo do Asset Intelligence.  
+7.  Запустите отчет аналитики активов **Лицензия 15A — общий отчет сверки лицензий**, чтобы проверить успешность импорта данных о лицензиях в каталог аналитики активов.  
 
 > [!NOTE]  
->  Para obter um exemplo de um ficheiro de licença de software geral que pode utilizar para fins de teste, consulte [ficheiro de importação de licença geral de exemplo Asset Intelligence no System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/example-asset-intelligence-general-license-import.md).  
+>  Пример файла общего списка лицензий на программное обеспечение, который можно использовать для тестирования, см. в статье [Пример файла импорта общего списка лицензий аналитики активов в System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/example-asset-intelligence-general-license-import.md).  
 
-#### <a name="sample-table-to-describe-software-licenses"></a>Tabela de exemplo para descrever as licenças de software  
- Ao criar um ficheiro de importação de declaração de licença geral, as informações na tabela seguinte podem ser utilizadas para descrever as licenças de software a importar para o catálogo do Asset Intelligence.  
+#### <a name="sample-table-to-describe-software-licenses"></a>Пример таблицы для описания лицензий на программное обеспечение  
+ При создании файла импорта общего списка лицензий данные, приведенные в следующей таблице, можно использовать для описания лицензий, импортируемых в каталог аналитики активов.  
 
-|Nome da coluna|Tipo de dados|Necessário|Exemplo|  
+|Имя столбца|Тип данных|Обязательное|Пример|  
 |-----------------|---------------|--------------|-------------|  
-|Nome|Até 255 carateres|Sim|Título de software|  
-|Fabricante|Até 255 carateres|Sim|Fabricante de software|  
-|Versão|Até 255 carateres|Sim|Versão do título de software|  
-|Linguagem|Até 255 carateres|Sim|Idioma do título de software|  
-|QuantidadeEfetiva|Valor inteiro|Sim|Número de licenças adquiridas|  
-|NúmeroDePO|Até 255 carateres|Não|Informações de nota de encomenda|  
-|NomeDoRevendedor|Até 255 carateres|Não|Informações do revendedor|  
-|DataDeCompra|Valor de data no seguinte formato: MM/DD/AAAA|Não|Data de compra da licença|  
-|SuporteAdquirido|Valor de bits|Não|0 ou 1: Introduza 0 para Sim ou 1 para não|  
-|DataDeExpiraçãoDoSuporte|Valor de data no seguinte formato: MM/DD/AAAA|Não|Data de fim do suporte adquirido|  
-|Comentários|Até 255 carateres|Não|Comentários opcionais|  
+|Имя|Не более 255 символов|Да|Наименование программного обеспечения|  
+|Издатель|Не более 255 символов|Да|Издатель программного обеспечения|  
+|Версия|Не более 255 символов|Да|Версия наименования программного обеспечения|  
+|Язык|Не более 255 символов|Да|Язык наименования программного обеспечения|  
+|Фактическое количество|Целое значение|Да|Число приобретенных лицензий|  
+|PONumber|Не более 255 символов|Нет|Сведения о заказе на поставку|  
+|ResellerName|Не более 255 символов|Нет|Информация о торговом посреднике|  
+|DateOfPurchase|Значение даты в следующем формате: ММ/ДД/ГГГГ|Нет|Дата приобретения лицензии|  
+|SupportPurchased|Битовое значение|Нет|0 или 1: "0" — "Да", "1" — "Нет"|  
+|SupportExpirationDate|Значение даты в следующем формате: ММ/ДД/ГГГГ|Нет|Дата окончания срока действия приобретенной поддержки|  
+|Комментарии|Не более 255 символов|Нет|Дополнительные комментарии|  
 
 ###  <a name="BKMK_ConfigureMaintenanceTasks"></a> Configure Asset Intelligence maintenance tasks  
- As seguintes tarefas de manutenção estão disponíveis para o Asset Intelligence:  
+ В SCCM ‎доступны перечисленные ниже задачи обслуживания аналитики активов.  
 
--   **Verificar o título da aplicação nas informações de inventário**: Verifica se o título de software comunicado no inventário de software é reconciliado com o título de software no catálogo do Asset Intelligence. Por predefinição, esta tarefa é ativada e agendada para ser executada no Sábado após as 00:00 e antes das 5:00. Esta tarefa de manutenção só está disponível no site de nível superior na hierarquia do Configuration Manager.  
+-   **Проверка названия приложения в соответствии с данными инвентаризации**: проверяет соответствие наименования программы, переданного в данных инвентаризации программного обеспечения, наименованию программы в каталоге аналитики активов. По умолчанию задача включена, и ее выполнение запланировано на субботу между полуночью и пятью часами утра. Эта задача обслуживания доступна только на сайте верхнего уровня в вашей иерархии Configuration Manager.  
 
--   **Resumir dados de Software instalado**: Fornece as informações que são apresentadas no **ativos e compatibilidade** área de trabalho, no **Software inventariado** nó, no **do Asset Intelligence** nó. Quando a tarefa é executada, o Configuration Manager recolhe uma contagem de todos os títulos de software inventariados no site primário. Por predefinição, esta tarefa é ativada e agendada para ser executada diariamente após as 00:00 e antes das 5:00. Esta tarefa de manutenção está disponível apenas em sites primários.  
+-   **Формирование сводных данных об установленном ПО**: выводит данные, отображаемые в узле **Инвентаризованное программное обеспечение** узла **Аналитика активов** рабочей области **Активы и соответствие**. При запуске этой задачи Configuration Manager собирает данные о числе всех инвентаризованных наименований программного обеспечения на первичном сайте. По умолчанию задача включена, и ее выполнение запланировано на каждый день между полуночью и пятью часами утра. Эта задача обслуживания доступна только на первичных сайтах.  
 
-##### <a name="to-configure-asset-intelligence-maintenance-tasks"></a>Para configurar tarefas de manutenção do Asset Intelligence  
+##### <a name="to-configure-asset-intelligence-maintenance-tasks"></a>Настройка задач обслуживания аналитики активов  
 
-1.  Na consola do Configuration Manager, escolha **administração** > **configuração do Site** > **Sites**.  
+1.  В консоли Configuration Manager выберите **Администрирование** > **Конфигурация сайта** > **Сайты**.  
 
-3.  Selecione o site no qual pretende configurar a tarefa de manutenção do Asset Intelligence.  
+3.  Выберите сайт, на котором требуется настроить задачу обслуживания аналитики активов.  
 
-4.  No **home page** separador o **definições** grupo, escolha **manutenção do Site**. Selecione uma tarefa e escolha **editar** para modificar as definições. 
+4.  На вкладке **Главная** в группе **Параметры** выберите элемент **Обслуживание сайта**. Выберите задачу и нажмите **Изменить**, чтобы изменить параметры. 
 
-    Recomendamos que defina o período de tempo para o horário de pico do site. O período de tempo corresponde ao intervalo de tempo em que a tarefa pode ser executada. É definido pelos campos **Iniciar após** e **Última hora de início** especificados na caixa de diálogo **Propriedades da Tarefa** .  
+    Рекомендуем запланировать выполнение на период времени, когда сайт наименее загружен. когда сайт наименее загружен. Интервал запуска задачи указывается в полях **Запуск после** и **Запуск не позднее** диалогового окна **Свойства задачи** .  
 
-    Pode iniciar a tarefa de imediato, selecionando o dia atual e definindo a hora em **Iniciar após** para alguns minutos após a hora presente.  
+    Задачу можно запустить в любой момент, выбрав текущий день и задав в поле **Запуск не позднее** время, на несколько минут отличающееся от текущего.  
 
-7.  Escolha **OK** para guardar as definições. A tarefa é agora executada de acordo com o respetivo agendamento.  
+7.  Нажмите кнопку **ОК**, чтобы сохранить параметры. Задача будет выполняться согласно расписанию.  
 
     > [!NOTE]  
-    >  Se não for possível executar na primeira tentativa de uma tarefa, o Configuration Manager tenta executar novamente a tarefa até que a tarefa é executada com êxito ou até ter passado o período de tempo no qual pode executar a tarefa.  
+    >  Если задачу не удается запустить с первой попытки, Configuration Manager пытается запустить ее повторно до тех пор, пока задача не будет успешно выполнена или пока не истечет период времени, заданный для запуска задачи.  

@@ -1,6 +1,6 @@
 ---
-title: Configurar o estado do cliente | Microsoft Docs
-description: "Selecione as definições de estado do cliente no System Center Configuration Manager."
+title: "Настройка состояния клиента | Документы Майкрософт"
+description: "Выбор параметров состояния клиента в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,97 +17,97 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 060d63ab8bce9c3bb39d2db404580b9f59416d33
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-status-in-system-center-configuration-manager"></a>Como configurar o estado do cliente no System Center Configuration Manager
+# <a name="how-to-configure-client-status-in-system-center-configuration-manager"></a>Настройка состояния клиента в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Antes de poder monitorizar o estado de cliente do System Center Configuration Manager e remediar problemas detetados, tem de configurar o seu site para especificar os parâmetros que são utilizados para marcar clientes como inativos e configurar opções para o alertar caso a atividade do cliente seja inferior a um limiar especificado. Também pode desativar computadores a partir de remediação automaticamente quaisquer problemas que encontre de estado do cliente.  
+Чтобы осуществлять мониторинг состояния клиента System Center Configuration Manager и устранять обнаруженные проблемы, необходимо настроить сайт, указав параметры, с помощью которых клиенты помечаются как неактивные. Кроме того, необходимо настроить параметры оповещения о ситуации, когда активность клиента падает ниже указанного порогового значения. Также можно отключить на компьютерах автоматическое устранение проблем, обнаруженных посредством состояния клиента.  
 
-##  <a name="BKMK_1"></a>Para configurar o estado do cliente  
+##  <a name="BKMK_1"></a> Настройка состояния клиента  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  No **monitorização** área de trabalho, clique em **estado do cliente**, em seguida, no **home page** separador o **estado do cliente** , clique em **as definições de estado do cliente**.  
+2.  В рабочей области **Мониторинг** выберите **Состояние клиента**, а затем на вкладке **Главная** в группе **Состояние клиента** выберите **Параметры состояния клиентов**.  
 
-3.  No **propriedades de definições de estado do cliente** diálogo caixa, especifique os valores seguintes para determinar a atividade do cliente:  
-
-    > [!NOTE]  
-    >  Se nenhuma das definições forem cumpridas, o cliente será marcado como inativo.  
-
-    -   **Pedidos de política de cliente durante os dias seguintes:** Especifique o número de dias desde que um cliente solicitou a política. O valor predefinido é **7** dias.  
-
-    -   **Deteção de heartbeat durante os dias seguintes:** Especifique o número de dias desde o computador cliente enviada um registo de deteção de heartbeat à base de dados do site. O valor predefinido é **7** dias.  
-
-    -   **Inventário de hardware durante os dias seguintes:** Especifique o número de dias desde que o computador cliente enviou um registo de inventário de hardware na base de dados do site. O valor predefinido é **7** dias.  
-
-    -   **Inventário de software durante os dias seguintes:** Especifique o número de dias desde que o computador cliente enviou um registo de inventário de software para a base de dados do site. O valor predefinido é **7** dias.  
-
-    -   **Mensagens de estado durante os dias seguintes:** Especifique o número de dias desde que o computador cliente enviou mensagens de estado na base de dados do site. O valor predefinido é **7** dias.  
-
-4.  No **propriedades de definições de estado do cliente** diálogo caixa, especifique o seguinte valor para determinar durante quanto os dados de histórico de estado do cliente são mantidos:  
-
-    -   **Manter histórico do Estado de cliente para o número de dias seguinte:** Especifique quanto pretende que o histórico de estado do cliente permaneça na base de dados do site. O valor predefinido é **31** dias.  
-
-5.  Clique em **OK** para guardar as propriedades e fechar o **propriedades de definições de estado do cliente** caixa de diálogo.  
-
-##  <a name="BKMK_Schedule"></a>Para configurar a agenda para o estado do cliente  
-
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
-
-2.  No **monitorização** área de trabalho, clique em **estado do cliente**, em seguida, no **home page** separador o **estado do cliente** , clique em **agendar atualização do Estado de cliente**.  
-
-3.  No **agenda de atualização do Estado do cliente** diálogo caixa, configure o intervalo no qual pretende que o estado do cliente para atualizar e, em seguida, clique em OK.  
+3.  В диалоговом окне **Свойства параметров состояния клиента** укажите следующие значения для определения активности клиента.  
 
     > [!NOTE]  
-    >  Quando alterar o agendamento para atualizações de estado do cliente, a atualização não terão efeito até que Atualize o estado do cliente agendada seguinte (para o agendamento configurado anteriormente).  
+    >  Если ни один параметр не подтверждается, клиент помечается как неактивный.  
 
-##  <a name="BKMK_2"></a>Para configurar alertas para o estado do cliente  
+    -   **Запросы политики клиента в течение следующего числа дней.** Укажите число дней с момента запроса политики клиентом. Значение по умолчанию — **7** дней.  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+    -   **Heartbeat-обнаружение в течение следующего числа дней.** Укажите число дней с момента отправки клиентским компьютером записи heartbeat-обнаружения в базу данных сайта. Значение по умолчанию — **7** дней.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Coleções de Dispositivos**.  
+    -   **Инвентаризация оборудования в течение следующего числа дней.** Укажите число дней с момента отправки клиентским компьютером записи инвентаризации оборудования в базу данных сайта. Значение по умолчанию — **7** дней.  
 
-3.  Na lista **Coleções de Dispositivos** , selecione a coleção para a qual pretende configurar alertas e, no separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+    -   **Инвентаризация программного обеспечения в течение следующих дней.** Укажите число дней с момента отправки клиентским компьютером записи инвентаризации программного обеспечения в базу данных сайта. Значение по умолчанию — **7** дней.  
+
+    -   **Сообщения о состоянии в течение следующего числа дней.** Укажите число дней с момента отправки клиентским компьютером сообщений о состоянии в базу данных сайта. Значение по умолчанию — **7** дней.  
+
+4.  В диалоговом окне **Свойства параметров состояния клиента** укажите следующие значения для определения срока хранения данных о состоянии клиента.  
+
+    -   **Хранить журнал состояния клиента в течение следующего числа дней.** Укажите срок, в течение которого журнал состояния клиента должен храниться в базе данных. Значение по умолчанию — **31** день.  
+
+5.  Нажмите кнопку **ОК** , чтобы сохранить свойства и закрыть диалоговое окно **Свойства параметров состояния клиента** .  
+
+##  <a name="BKMK_Schedule"></a> Настройка расписания для состояния клиента  
+
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
+
+2.  В рабочей области **Мониторинг** выберите **Состояние клиента**, а затем на вкладке **Главная** в группе **Состояние клиента** выберите **Расписание обновления состояния клиентов**.  
+
+3.  В диалоговом окне **Расписание обновления состояния клиентов** укажите интервал обновления состояния клиентов и нажмите кнопку ОК.  
 
     > [!NOTE]  
-    >  Não é possível configurar alertas de coleções de utilizadores.  
+    >  При изменении расписания обновления состояния клиентов новые параметры вступят в силу только при следующем запланированном обновлении состояния клиента (в соответствии с ранее заданным расписанием).  
 
-4.  No **alertas** separador do  *&lt;coleção nome\>***propriedades** caixa de diálogo, clique em **adicionar**.  
+##  <a name="BKMK_2"></a> Настройка оповещений о состоянии клиента  
+
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
+
+2.  В рабочей области **Активы и соответствие** щелкните **Коллекции устройств**.  
+
+3.  В списке **Коллекции устройств** выберите коллекцию, для которой требуется настроить оповещения, затем на вкладке **Главная** в группе **Свойства** щелкните элемент **Свойства**.  
 
     > [!NOTE]  
-    >  O separador **Alertas** só está visível se a função de segurança a que o utilizador está associado tiver permissões para alertas.  
+    >  Для коллекций пользователей оповещения настроить нельзя.  
 
-5.  Na caixa de diálogo **Adicionar Novos Alertas da Coleção** , escolha os alertas que pretende que sejam gerados quando os limites do estado do cliente são inferiores a um valor específico e, em seguida, clique em **OK**.  
+4.  На вкладке **Оповещения** в диалоговом окне *&lt;Свойства\>***имя коллекции** нажмите кнопку **Добавить**.  
 
-6.  Na lista **Condições** do separador **Alertas** , selecione cada um dos alertas do estado do cliente e especifique as informações seguintes.  
+    > [!NOTE]  
+    >  Вкладка **Оповещения** отображается только в том случае, если роль безопасности, с которой вы связаны, имеет разрешения на получение оповещений.  
 
-    -   **Nome do alerta** - aceite o nome predefinido ou introduza um novo nome para o alerta.  
+5.  В диалоговом окне **Добавить новые оповещения коллекций** выберите оповещения, которые должны генерироваться, если пороговые значения состояния клиентов падают ниже определенной величины. Затем нажмите кнопку **ОК**.  
 
-    -   **Gravidade do alerta** – na lista pendente, escolha o nível de alerta que será apresentado na consola do Configuration Manager.  
+6.  В списке **Условия** на вкладке **Оповещения** выберите каждое оповещение о состоянии клиента и затем укажите следующие сведения.  
 
-    -   **Emitir um alerta** -especifique a percentagem de limiar do alerta.  
+    -   **Имя оповещения** — примите имя по умолчанию или введите новое имя оповещения.  
 
-7.  Clique em **OK** para fechar o  *&lt;coleção nome\>***propriedades** caixa de diálogo.  
+    -   **Серьезность предупреждения** — в раскрывающемся списке выберите уровень оповещения, который будет отображаться в консоли Configuration Manager.  
 
-##  <a name="BKMK_3"></a>Para excluir computadores da remediação automática  
+    -   **Отображать оповещение** — укажите пороговое значение для оповещения (в процентах).  
 
-1.  Abra o editor de registo no computador cliente para o qual pretende desativar a remediação automática.  
+7.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *&lt;Свойства\>***имя коллекции**.  
+
+##  <a name="BKMK_3"></a> Запрет автоматического исправления компьютеров  
+
+1.  Откройте редактор реестра на клиентском компьютере, для которого требуется отключить автоматическое исправление.  
 
     > [!WARNING]  
-    >  A utilização incorreta do Editor de registo poderá causar problemas graves que poderão exigir a reinstalação do sistema operativo. A Microsoft não garante que consiga resolver os problemas resultantes da utilização incorreta do Editor de Registo. A utilização do Editor de Registo é da exclusiva responsabilidade do utilizador.  
+    >  При неправильном использовании редактора реестра могут возникнуть серьезные проблемы, из-за которых может понадобится переустановить операционную систему. Корпорация Майкрософт не гарантирует решения проблем, вызванных неправильным использованием редактора реестра. Ответственность за использование редактора реестра лежит на пользователе.  
 
-2.  Navegue para **HKEY_LOCAL_MACHINE\Software\Microsoft\CCM\CcmEval\NotifyOnly**.  
+2.  Перейдите к **HKEY_LOCAL_MACHINE\Software\Microsoft\CCM\CcmEval\NotifyOnly**.  
 
-3.  Introduza um dos seguintes valores para esta chave de registo:  
+3.  Введите одно из следующих значений для этого раздела реестра.  
 
-    -   **Verdadeiro** -o computador cliente não irá remediar automaticamente quaisquer problemas detetados. No entanto, pode ainda será alertado no **monitorização** área de trabalho sobre quaisquer problemas com este cliente.  
+    -   **True** — клиентский компьютер не будет автоматически устранять обнаруженные проблемы. Однако в рабочей области **Мониторинг** по-прежнему будут отображаться оповещения о проблемах, связанных с данным клиентом.  
 
-    -   **FALSO** -o computador cliente irá remediar automaticamente problemas quando estes forem detetados e o utilizador será alertado no **monitorização** área de trabalho. Esta é a predefinição.  
+    -   **False** — клиентский компьютер будет автоматически устранять обнаруженные проблемы, и в рабочей области **Мониторинг** будут отображаться соответствующие оповещения. Этот параметр используется по умолчанию.  
 
-4.  Feche o editor de registo.  
+4.  Закройте редактор реестра.  
 
- Também pode instalar clientes utilizando o CCMSetup **NotifyOnly** propriedade de instalação para os excluir da remediação automática. Para obter mais informações sobre esta propriedade de instalação de cliente, consulte [acerca das propriedades de instalação de cliente no System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+ Для отмены автоматического исправления клиенты также можно устанавливать с использованием параметра **NotifyOnly** программы установки CCMSetup. Дополнительные сведения о параметрах установки клиента см. в разделе [О свойствах установки клиента в System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  

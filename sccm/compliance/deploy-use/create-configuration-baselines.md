@@ -1,6 +1,6 @@
 ---
-title: "Criar linhas de base de configuração | Microsoft Docs"
-description: "Crie linhas de base de configuração no System Center Configuration Manager que pode implementar numa coleção."
+title: "Создание конфигурационных баз | Документы Майкрософт"
+description: "Создавайте конфигурационные базы в System Center Configuration Manager, которые можно развернуть в коллекции."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,55 +17,55 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 649942d3d468ec35c7246e08f741cdebd22fb3ac
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-configuration-baselines-in-system-center-configuration-manager"></a>Criar linhas de base de configuração no System Center Configuration Manager
+# <a name="create-configuration-baselines-in-system-center-configuration-manager"></a>Создание конфигурационных баз в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Linhas de base de configuração no System Center Configuration Manager contém itens de configuração predefinidos e, opcionalmente, outras linhas de base de configuração. Depois de criar uma linha de base de configuração, pode implementá-la numa coleção, para que os dispositivos nessa coleção a transfiram e avaliem a compatibilidade com a mesma.  
+Конфигурационные базы в System Center Configuration Manager содержат набор стандартных элементов конфигурации и иногда другие конфигурационные базы. Вы можете развернуть созданную конфигурационную базу в коллекции, чтобы устройства в этой коллекции скачали эту конфигурационную базу и произвели оценку соответствия ей.  
 
- Linhas de base de configuração no Configuration Manager podem conter revisões específicas de itens de configuração ou podem ser configuradas para utilizar sempre a versão mais recente de um item de configuração. Para obter mais informações sobre revisões de itens de configuração, consulte [tarefas de gestão de dados de configuração](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
+ Конфигурационные базы в Configuration Manager могут содержать определенные редакции элементов конфигурации. Также можно задать использование только последних версий элементов конфигурации. Дополнительные сведения о редакциях элементов конфигурации см. в разделе [Задачи управления для данных конфигурации](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
 
- Existem dois métodos que pode utilizar para criar linhas de base de configuração:  
+ Предусмотрено два способа создания шаблонов конфигурационных баз.  
 
--   Importar dados de configuração de um ficheiro. Para iniciar o **Assistente de Importação de Dados de Configuração**, no nó **Itens de Configuração** ou **Linhas de Base de Configuração** , na área de trabalho **Recursos e Compatibilidade** , clique em **Importar Dados de Configuração**.  
+-   Импорт данных конфигурации из файла. Чтобы запустить **Мастер импорта конфигурационных данных**, в узле **Элементы конфигурации** или **Шаблоны базовой конфигурации** рабочей области **Активы и соответствие** щелкните **Импорт конфигурационных данных**.  
 
--   Utilize a caixa de diálogo **Criar Linha de Base de Configuração** para criar uma nova linha de base de configuração.  
+-   Для создания нового шаблона конфигурации используйте диалоговое окно **Создать шаблон базовой конфигурации** .  
 
- Utilize o procedimento seguinte para criar uma linha de base de configuração com a caixa de diálogo **Criar Linha de Base de Configuração** .  
+ Ниже приведена процедура создания шаблона базовой конфигурации с помощью диалогового окна **Создать шаблон базовой конфигурации** .  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **linhas de base de configuração**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Шаблоны базовой конфигурации**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Linha de Base de Configuração**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать шаблон базовой конфигурации**.  
 
-4.  Na caixa de diálogo **Criar Linha de Base de Configuração** , introduza um nome único e uma descrição para a linha de base de configuração. Pode utilizar um máximo de 255 carateres para o nome e 512 carateres para a descrição.  
+4.  В диалоговом окне **Создать шаблон базовой конфигурации** введите уникальное имя и описание шаблона конфигурации. Максимальная длина имени — 255 символов, описания — 512 символов.  
 
-5.  A lista **Dados de configuração** apresenta todos os itens de configuração ou linhas de base de configuração que estão incluídos nesta linha de base de configuração. Clique em **Adicionar** para adicionar um novo item de configuração ou linha base de configuração à lista. Pode selecionar de entre o seguinte:  
+5.  В списке **Данные конфигурации** отображаются все элементы конфигурации или конфигурационные базы, включенные в эту конфигурационную базу. Нажмите кнопку **Добавить** , чтобы добавить новый элемент или шаблон конфигурации в список. Доступны следующие варианты.  
 
-    -   **Itens de Configuração**  
+    -   **Элементы конфигурации**  
 
-    -   **Atualizações de Software**  
+    -   **Обновления программного обеспечения**  
 
-    -   **Linhas de Base de Configuração**  
+    -   **Шаблоны базовой конфигурации**  
       > [!IMPORTANT]
-      > Tem de limitar cada linha de base de configuração para nenhum mais de 1000 atualizações de software.
-6.  Utilize a lista **Alterar Objetivo** para especificar o comportamento de um item de configuração que selecionou na lista **Dados de configuração** . Pode selecionar as seguintes opções:  
+      > Размер каждой конфигурационной базы должен быть ограничен 1000 обновлений ПО.
+6.  С помощью списка **Изменить намерение** вы можете указать поведение элемента конфигурации, выбранного в списке **Данные конфигурации** . Доступны следующие варианты.  
 
-    -   **Necessário** A linha de base de configuração é avaliada como não conforme se o item de configuração não for detetado num dispositivo cliente. Se for detetado, é avaliado para fins de compatibilidade  
+    -   **Обязательно** : если элемент конфигурации не будет обнаружен на клиентском устройстве, будет установлено несоответствие конфигурационной базы. При обнаружении элемента он проходит проверку соответствия.  
 
-    -   **Opcional** A compatibilidade do item de configuração é avaliada apenas se a aplicação a que faz referência for encontrada nos computadores cliente. Se a aplicação não for encontrada, a linha de base de configuração não é marcada como não compatível (apenas aplicável a itens de configuração de aplicação).  
+    -   **Необязательно** : соответствие элемента конфигурации будет проверяться, только если приложение, на которое он ссылается, будет обнаружено на клиентском компьютере. Если приложение не найдено на устройстве, конфигурационная база не помечается как несоответствующая требованиям (применимо только к элементам конфигурации приложений).  
 
-    -   **Proibido** A linha de base de configuração é avaliada como não compatível se o item de configuração for detetado em computadores cliente (apenas aplicável a itens de configuração de aplicação).  
+    -   **Запрещено** : при обнаружении этого элемента конфигурации на компьютерах (применимо только к элементам конфигурации приложений) будет установлено несоответствие конфигурационной базы.  
 
     > [!NOTE]
-    >  A lista **Alterar Objetivo** só está disponível se tiver clicado na opção **Este item de configuração contém as definições da aplicação** na página **Geral** do **Assistente de Criação de Item de Configuração**.  
+    >  Список **Изменить намерение** доступен, только если на странице **Общие** **мастера создания элемента конфигурации** установлен флажок **Этот элемент конфигурации содержит параметры приложения**.  
 
-7.  Utilize a lista **Alterar Revisão** para selecionar uma revisão específica ou a revisão mais recente do item de configuração para avaliar a compatibilidade nos dispositivos cliente ou selecione **Utilizar Sempre Mais Recente** para utilizar sempre a revisão mais recente. Para obter mais informações sobre revisões de itens de configuração, consulte [tarefas de gestão de dados de configuração](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
+7.  Используйте список **Изменить редакцию** , чтобы выбрать конкретную или последнюю редакцию элемента конфигурации для выполнения проверки соответствия на клиентских устройствах. Чтобы всегда использовать последнюю редакцию, выберите вариант **Всегда использовать последнюю** . Дополнительные сведения о редакциях элементов конфигурации см. в разделе [Задачи управления для данных конфигурации](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
 
-8.  Para remover um item de configuração de linha de base de configuração, selecione um item de configuração e, em seguida, clique em **remover**.  
+8.  Чтобы удалить элемент конфигурации из конфигурационной базы, выберите его и нажмите кнопку **Удалить**.  
 
-9. Clique em **OK** para fechar a caixa de diálogo **Criar Linha de Base de Configuração** e para criar a linha de base de configuração.  
+9. Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Создать шаблон базовой конфигурации** и создать шаблон конфигурации.  

@@ -1,629 +1,625 @@
 ---
-title: "Monitor e planear a gestão de energia | Documentos do Microsoft"
-description: "Saiba como monitorizar e planear a gestão do System Center Configuration Manager de energia."
+title: "Отслеживание и планирование управления питанием | Документы Майкрософт"
+description: "Узнайте, как отслеживать и планировать управление питанием в System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 507bf676-2679-4e4d-8831-3ffc9cf8557e
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: b308329635400438cebc4935efe79b46e607fd58
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-and-plan-for-power-management-in-system-center-configuration-manager"></a>Como monitorizar e planear a gestão de energia no System Center Configuration Manager
+# <a name="how-to-monitor-and-plan-for-power-management-in-system-center-configuration-manager"></a>Отслеживание и планирование управления питанием в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as seguintes informações para o ajudar a monitorizar e planear a gestão de energia no System Center Configuration Manager.  
+Приведенная ниже информация поможет вам в отслеживании и планировании управления питанием в System Center Configuration Manager.  
 
-##  <a name="BKMK_How_to_use_reports"></a> Como utilizar relatórios para a gestão de energia  
- Gestão de energia no Configuration Manager inclui vários relatórios para o ajudar a analisar o computador e o consumo de energia as definições de energia na sua organização. Os relatórios também podem ser utilizados para ajudar a resolver problemas.  
+##  <a name="BKMK_How_to_use_reports"></a> Использование отчетов для управления питанием  
+ Функции управления питанием в Configuration Manager включают различные отчеты для анализа энергопотребления и используемых схем управления питанием в организации. Эти отчеты также можно использовать для поиска и устранения неполадок.  
 
- Antes de poder utilizar os relatórios de gestão de energia, é necessário configurá-los na sua hierarquia. Para obter mais informações sobre os relatórios no Configuration Manager, consulte o artigo [Reporting no System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
+ Чтобы использовать отчеты управления питанием, необходимо сначала настроить функции создания отчетов для иерархии. Дополнительные сведения об отчетах в Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
 > [!NOTE]  
->  Informações de gestão de energia utilizadas pelos relatórios diários são retidas na base de dados do site do Configuration Manager para 31 dias.  
->           Informações de gestão de energia utilizadas pelos relatórios mensais são retidas na base de dados do site do Configuration Manager para 13 meses.  
+>  Данные управления питанием, используемые ежедневными отчетами, хранятся в базе данных сайта Configuration Manager 31 день.  
+>           Данные управления питанием, используемые ежемесячными отчетами, хранятся в базе данных сайта Configuration Manager 13 месяцев.  
 >   
->  Quando executar relatórios durante as fases de monitorização e planeamento e compatibilidade de gestão de energia, guardar ou exportar os resultados a partir de todos os relatórios para o qual pretende manter os dados para comparação posterior caso são mais à frente removidos pelo Configuration Manager.  
+>  При запуске отчетов на этапах планирования, мониторинга и обеспечения соответствия требованиям следует сохранять или экспортировать результаты выполнения всех отчетов, данные которых понадобятся для последующего сравнения, на случай их удаления из базы данных Configuration Manager.  
 
-## <a name="list-of-power-management-reports"></a>Lista de relatórios de gestão de energia  
- As listas seguintes fornece detalhes sobre os relatórios de gestão de energia que estão disponíveis no Configuration Manager.  
-
-> [!NOTE]  
->  Os relatórios de gestão de energia apresentam o número de computadores físicos e o número de computadores virtuais numa coleção selecionada. No entanto, são apresentadas apenas as informações de gestão de energia de computadores físicos nos relatórios de gestão de energia.  
-
-###  <a name="BKMK_Activity"></a> Relatório Atividade do Computador  
- O relatório **Atividade do Computador** mostra um gráfico que apresenta a seguinte atividade numa coleção especificada e num período de tempo especificado:  
-
--   **Computador Ativado** – O computador foi ativado.  
-
--   **Monitorização Ativada** – A monitorização foi ativada.  
-
--   **Utilizador Ativo** – Foi detetada atividade no rato do computador, no teclado do computador ou numa ligação de Ambiente de Trabalho Remoto para o computador  
-
- Este relatório é utilizado durante as fases de monitorização, planeamento e imposição para o ajudar a compreender o alinhamento entre a atividade do computador, a atividade de monitorização e a atividade do utilizador durante um período de 24 horas. Se executar o relatório sobre um determinado número de dias, os dados são agregados durante este período. Este relatório pode ajudá-lo a determinar as horas comerciais comuns (pico) e não comerciais (fora de pico) de uma coleção selecionada para o ajudar a decidir quando deve aplicar esquemas de gestão de energia configurados.  
-
- O gráfico mostra períodos de tempo em que um computador pode ser ativado, mas não existe nenhuma atividade do utilizador. Considere aplicar as definições de energia mais restritivas durante estas horas para poupar nos custos de energia dos computadores que estão ativados, mas não estão a ser utilizados. Um computador é contabilizado como estando ativo se tiver ocorrido atividade de monitorização, do computador ou do utilizador por um minuto ou mais de uma hora apresentada no gráfico. Se um computador não estiver a comunicar dados de gestão de energia, este não será incluído no relatório **Atividade do Computador** .  
-
- Utilize os parâmetros seguintes para configurar este relatório.  
-
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Data de início**|Na lista pendente, selecione a data de início para este relatório.|  
-|**Data de fim (Opcional)**|Na lista pendente, selecione uma data de fim opcional para este relatório.|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (ambiente de trabalho apenas computadores), e **portátil** (apenas computadores portáteis).|  
-
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
-
-#### <a name="report-links"></a>Ligações de relatórios  
- Se não for especificado um valor para a **Data de fim (opcional)** , este relatório contém uma ligação para o relatório seguinte que fornece informações adicionais.  
-
-|Nome do Relatório|Detalhes|  
-|-----------------|-------------|  
-|**Detalhes de Atividade do Computador**|Clique na ligação **Clique para obter informações detalhadas** para ver uma lista de computadores ativos, inativos e sem relatórios para a data especificada.<br /><br /> Para obter mais informações, consulte [Computer Activity Details Report](#BKMK_Activity_Details) neste tópico.|  
-
-###  <a name="BKMK_Comp_Activity_by_computer"></a> Relatório Atividade do Computador por Computador  
- O relatório **Atividade do Computador por Computador** mostra um gráfico que apresenta a seguinte atividade num computador especificado e numa data especificada:  
-
--   **Computador Ativado** – O computador foi ativado.  
-
--   **Monitorização Ativada** – A monitorização foi ativada.  
-
--   **Utilizador Ativo** –  foi detetada atividade no rato do computador, no teclado do computador ou numa ligação de Ambiente de Trabalho Remoto para o computador.  
-
- Este relatório pode ser executado de forma independente ou denominado pelo relatório **Detalhes de Atividade do Computador** .  
+## <a name="list-of-power-management-reports"></a>Список отчетов управления питанием  
+ В таблице ниже приведены отчеты об управлении питанием, доступные в Configuration Manager.  
 
 > [!NOTE]  
->  As informações sobre a atividade do computador são recolhidas de computadores cliente durante o inventário de hardware. Consoante o tempo em que o inventário de hardware é executado, a atividade pode ser recolhida durante um esquema de energia sem pico ou de pico aplicado.  
+>  В отчетах об управлении питанием отображается число физических компьютеров и виртуальных машин в выбранной коллекции. Тем не менее, данные управления питанием в этих отчетах отображаются только для физических компьютеров.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+###  <a name="BKMK_Activity"></a> Отчет "Активность компьютеров"  
+ Отчет **Активность компьютеров** содержит график, отображающий следующую активность указанной коллекции за выбранный период.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+-   **Компьютер включен** — компьютер был включен.  
 
-|Nome do Parâmetro|Descrição|  
+-   **Монитор включен** — монитор был включен.  
+
+-   **Пользователь активен** — активность определяется по использованию мыши, клавиатуры или подключения удаленного рабочего стола на компьютере.  
+
+ Этот отчет используется на этапе планирования и мониторинга, а также на этапе обеспечения соответствия, чтобы оценить связи между активностью компьютера, монитора и пользователя за сутки. При запуске отчета с указанием в качестве периода нескольких дней в нем отображаются сводные данные за этот период. Этот отчет поможет определить типичные рабочие (пиковые) и нерабочие (непиковые) часы для выбранной коллекции. Эти сведения помогут при выборе времени применения схем управления питанием.  
+
+ Диаграмма показывает периоды времени, когда компьютер может быть включен и при этом не использоваться. Следует рассмотреть возможность применить более ограничительную схему управления питанием в эти периоды, чтобы сократить затраты на электроэнергию компьютеров, которые включены, но не используются. Компьютер считается активным, если для отображаемого на графике часа имелась активность компьютера, пользователя или монитора в течение одной минут или более. Если компьютер не передает данные управления питанием, он не включается в отчет **Активность компьютеров** .  
+
+ Используйте приведенные ниже параметры для настройки этого отчета.  
+
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
+
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Data de relatório**|Na lista pendente, selecione a data para este relatório.|  
-|**Nome do computador**|Introduza um nome de computador para o qual pretende um relatório.|  
+|**Дата начала**|В раскрывающемся списке выберите дату начала для этого отчета.|  
+|**Дата окончания (необязательно)**|В раскрывающемся списке выберите дату окончания для отчета.|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Тип устройства**|В раскрывающемся списке выберите тип компьютеров, которые нужно включить в отчет. Допустимые значения: **Все** (настольные и переносные компьютеры), **Настольный компьютер** (только настольные компьютеры) и **Ноутбук** (только переносные компьютеры).|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório contém ligações para o relatório seguinte que fornece mais informações sobre o item selecionado.  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Если для параметра **Дата окончания (необязательно)** значение не указано, отчет будет включать ссылку на следующий отчет, содержащий дополнительные сведения.  
 
-|Nome do Relatório|Detalhes|  
+|Наименование отчета|Подробные сведения|  
 |-----------------|-------------|  
-|**Detalhes do Computador**|Clique na ligação **Clique para obter informações detalhadas** para ver as capacidades de energia, as definições de energia e os esquemas de energia aplicados ao computador selecionado.|  
+|**Подробные сведения об активности компьютеров**|Щелкните ссылку **Подробные сведения** , чтобы просмотреть список активных, неактивных и не передающих данные компьютеров на указанную дату.<br /><br /> Дополнительные сведения см. в разделе [Computer Activity Details Report](#BKMK_Activity_Details) этой статьи.|  
+
+###  <a name="BKMK_Comp_Activity_by_computer"></a> Отчет "Активность компьютеров по компьютерам"  
+ Отчет **Активность компьютеров для управления питанием по компьютерам** содержит график, отображающий следующую активность указанного компьютера на заданную дату.  
+
+-   **Компьютер включен** — компьютер был включен.  
+
+-   **Монитор включен** — монитор был включен.  
+
+-   **Пользователь активен** — активность определяется по использованию мыши, клавиатуры или подключения удаленного рабочего стола на компьютере.  
+
+ Этот отчет можно запускать отдельно или вызывать из отчета **Сведения об активности компьютеров** .  
+
+> [!NOTE]  
+>  Сведения об активности компьютеров собираются с клиентских компьютеров в ходе инвентаризации оборудования. В зависимости от времени выполнения инвентаризации оборудования может производиться сбор данных об активности при использовании пиковой или непиковой схемы управления питанием.  
+
+ Используйте приведенные ниже параметры для настройки этого отчета.  
+
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Дата отчета**|В раскрывающемся списке выберите дату для этого отчета.|  
+|**Имя компьютера**|Введите имя компьютера, для которого необходимо создать отчет.|  
+
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
+
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет содержит ссылки на следующий отчет, содержащий дополнительные сведения о выбранном элементе.  
+
+|Наименование отчета|Подробные сведения|  
+|-----------------|-------------|  
+|**Сведения о компьютере**|Щелкните ссылку **Щелкните, чтобы просмотреть подробные сведения** для просмотра возможностей управления питанием, параметров питания и примененных схем управления питанием для выбранного компьютера.|  
 
 ###  <a name="BKMK_Activity_Details"></a> Computer Activity Details report  
- O relatório **Detalhes de Atividade do Computador** apresenta uma lista de computadores ativos ou inativos com as respetivas capacidades de suspensão e reativação. Este relatório é denominado por [Computer Activity Report](#BKMK_Activity) e não foi concebido para ser executado diretamente pelo administrador do site.  
+ В отчете **Сведения об активности компьютеров** отображается список активных и неактивных компьютеров, а также сведения об их возможностях по переходу в спящий режим и выходу из него. Этот отчет вызывается через [Computer Activity Report](#BKMK_Activity) и не предназначен для непосредственного запуска администратором сайта.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+ Используйте приведенные ниже параметры для настройки этого отчета.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Data de relatório**|Na lista pendente, selecione a data a utilizar para este relatório.|  
-|**Hora do relatório**|Na lista pendente, selecione a hora a contar da data especificada na qual pretende executar este relatório. Os valores válidos são entre as **12:00** e as **23:00**.|  
-|**Estado do computador**|Na lista pendente, selecione o estado do computador no qual pretende executar este relatório. Os valores válidos são **todos os** (computadores que foram ativados ou desativada), **no** (computadores que foram ativados), e **desativar** (computadores que foram ativadas desativado, no modo de suspensão, ou em hibernação). Estes valores apenas são devolvidos para escolhida período de relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (ambiente de trabalho apenas computadores), e **portátil** (apenas computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
-|**Capacidade de suspensão**|Na lista pendente, selecione se pretende apresentar computadores com capacidade de suspensão no relatório. Os valores válidos são **todos os** (ambos os computadores compatíveis com e sem capacidade de suspensão), **não** (computadores que são incapacidade de suspensão), e **Sim** (computadores que são capazes de suspensão).|  
-|**Capacidade de reativação a partir da suspensão**|Na lista pendente, selecione se pretende apresentar computadores com capacidade de reativação a partir da suspensão no relatório. Os valores válidos são **todos os** (ambos os computadores compatíveis com e sem capacidade de reativação da suspensão), **não** (computadores que são incapacidade de reativação da suspensão), e **Sim** (computadores que são capazes de reativação da suspensão).|  
-|**Esquema de energia**|Na lista pendente, selecione os tipos de esquema de energia que pretende apresentar no relatório. Os valores válidos são **todos os** (computadores que não tem nenhum power planos de gestão aplicados, os computadores que tenham um plano de gestão de energia aplicado; computadores excluídos da gestão de energia), **não especificado** (computadores que não têm um esquema de gestão de energia aplicado), **definidas** (computadores que têm um esquema de gestão de energia aplicado), e **excluídas** (computadores que tenham sido excluídas da gestão de energia).|  
-|**Sistema operativo**|Na lista pendente, selecione os sistemas operativos dos computadores que pretende apresentar no relatório ou selecione **Todos** para apresentar todos os sistemas operativos.|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Дата отчета**|В раскрывающемся списке выберите дату для этого отчета.|  
+|**Время отчета**|В раскрывающемся списке выберите час указанного дня, для которого требуется получить данные отчета. Допустимые значения находятся в диапазоне от **12am** до **11pm**.|  
+|**Состояние компьютера**|В раскрывающемся списке выберите состояние компьютера, для которого требуется получить данные отчета. Допустимые значения: **Все** (компьютеры, которые были включены или выключены), **Включено** (компьютеры, которые были включены) и **Выключено** (компьютеры, которые были выключены, переведены в спящий режим или в режим гибернации). Эти значения возвращаются только за выбранный отчетный период.|  
+|**Тип устройства**|В раскрывающемся списке выберите тип компьютеров, которые нужно включить в отчет. Допустимые значения: **Все** (настольные и переносные компьютеры), **Настольный компьютер** (только настольные компьютеры) и **Ноутбук** (только переносные компьютеры). Эти значения возвращаются только за выбранный отчетный период.|  
+|**С поддержкой спящего режима**|Выберите в раскрывающемся списке значение, указывающее, нужно ли включать в отчет компьютеры, способные переходить в спящий режим. Допустимые значения: **Все** (компьютеры, как способные, так и не способные использовать спящий режим), **Нет** (компьютеры, не способные использовать спящий режим) и **Да** (компьютеры, способные использовать спящий режим).|  
+|**С поддержкой выхода из спящего режима**|Выберите в раскрывающемся списке значение, указывающее, нужно ли включать в отчет компьютеры, способные выходить из спящего режима. Допустимые значения: **Все** (компьютеры, как способные, так и не способные выходить из спящего режима), **Нет** (компьютеры, не способные выходить из спящего режима) и **Да** (компьютеры, способные выходить из спящего режима).|  
+|**Схема управления питанием**|В раскрывающемся списке выберите типы схем управления питанием, которые следует отображать в результатах отчета. Допустимые значения: **Все** (компьютеры, к которым не применена ни одна схема управления питанием, компьютеры, к которым применена схема управления питанием, и компьютеры, для которых управление питанием не выполняется), **Не указана** (компьютеры, к которым не применена ни одна схема управления питанием), **Задана** (компьютеры, к которым применена схема управления питанием) и **Исключена** (компьютеры, для которых управление питанием не выполняется).|  
+|**Операционная система**|В раскрывающемся списке выберите операционные системы компьютеров, которые необходимо включить в отчет, либо выберите значение **Все** для включения всех операционных систем.|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório contém ligações para o relatório seguinte que fornece mais informações sobre o item selecionado.  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет содержит ссылки на следующий отчет, содержащий дополнительные сведения о выбранном элементе.  
 
-|Nome do Relatório|Detalhes|  
+|Наименование отчета|Подробные сведения|  
 |-----------------|-------------|  
-|**Atividade do Computador por Computador**|Clique num nome de computador para ver a atividade específica para esse computador ao longo de uma período de relatório de escolhida. Estas atividades incluem **computador em** (com o computador foi ativado?), **monitorizar nos** (o monitor foi activou o?), e **utilizador ativa** (actividade foi detetada uma ligação de ambiente de trabalho remoto, teclado ou rato do computador).<br /><br /> Para obter mais informações, consulte [Computer Activity by Computer Report](#BKMK_Comp_Activity_by_computer) neste tópico.|  
+|**Активность компьютеров для управления питанием по компьютерам**|Щелкните имя компьютера для просмотра активности этого компьютера за указанный отчетный период. Возможные действия: **Компьютер включен** (компьютер был включен), **Монитор включен** (монитор был включен) и **Пользователь активен** (активность определяется по использованию мыши, клавиатуры или подключения удаленного рабочего стола).<br /><br /> Дополнительные сведения см. в разделе [Computer Activity by Computer Report](#BKMK_Comp_Activity_by_computer) этой статьи.|  
 
-###  <a name="BKMK_Computer_Details"></a> Relatório Detalhes do Computador  
- O relatório **Detalhes do Computador** mostra informações detalhadas sobre as funcionalidades de energia, definições de energia e esquemas de energia aplicados a um computador especificado. Este relatório é denominado pelos relatórios **Atividade do Computador por Computador** , **Computadores com Vários Esquemas de Energia** , **Capacidades de Energia** e **Detalhes das Definições de Energia** . Não foi concebido para ser executado diretamente pelo administrador do site.  
+###  <a name="BKMK_Computer_Details"></a> Отчет "Сведения о компьютере"  
+ Отчет **Сведения о компьютере** содержит подробную информацию о возможностях управления питанием, параметрах питания и примененных схемах управления питанием указанного компьютера. Этот отчет вызывается из отчетов **Активность компьютеров для управления питанием по компьютерам** , **Компьютеры с несколькими схемами управления питанием** , **Возможности электропитания** и **Сведения о параметрах** . Он не предназначен для непосредственного запуска.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Nome do computador**|Introduza um nome de computador para o qual pretende um relatório.|  
-|**Modo de energia**|Na lista pendente, selecione o tipo de definições de energia que pretende apresentar nos resultados do relatório. Selecione **Ligado** para ver as definições de energia configuradas quando o computador está ligado e **Com Bateria** para ver as definições de energia configuradas quando o computador está em execução com energia da bateria.|  
+|**Имя компьютера**|Введите имя компьютера, для которого необходимо создать отчет.|  
+|**Режим питания**|В раскрывающемся списке выберите тип параметров питания, которые следует отображать в результатах отчета. Выберите значение **От сети** для просмотра параметров питания, заданных для режима работы от сети, или значение **От батареи** для просмотра параметров для режима работы от батареи.|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório não está associado a quaisquer outros relatórios de gestão de energia.  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет не ссылается на другие отчеты по управлению питанием.  
 
-###  <a name="BKMK_Not_Reporting"></a> Relatório Computador Não Reporta Detalhes  
- O relatório **Computador Não Comunica Detalhes** apresenta uma lista de computadores numa coleção especificada que não comunicaram qualquer atividade de energia numa data e hora especificadas. Este relatório é denominado por **Computer Activity Report** e não foi concebido para ser executado diretamente pelo administrador do site.  
+###  <a name="BKMK_Not_Reporting"></a> Отчет "Не передающий сведения компьютер"  
+ Отчет **Не передающий сведения компьютер** содержит список компьютеров указанной коллекции, которые не передали данные активности на указанные дату и время. Этот отчет вызывается через **Computer Activity Report** и не предназначен для непосредственного запуска администратором сайта.  
 
 > [!NOTE]  
->  Os computadores comunicam informações de gestão de energia como parte da respetiva agenda de inventário de hardware. Antes de considerar que um computador não efetua relatórios, certifique-se de que este comunicou o inventário de hardware.  
+>  Компьютеры сообщают данные о питании в соответствии с расписанием инвентаризации оборудования. Перед тем как причислить компьютер к не передающим данные питания, убедитесь, что он передает данные инвентаризации оборудования.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+ Используйте приведенные ниже параметры для настройки этого отчета.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Data de relatório**|Na lista pendente, selecione a data para este relatório.|  
-|**Hora do relatório**|Na lista pendente, selecione a hora a contar da data especificada na qual pretende executar este relatório. Os valores válidos são entre as **12:00** e as **23:00**.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (ambiente de trabalho apenas computadores), e **portátil** (apenas computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Дата отчета**|В раскрывающемся списке выберите дату для этого отчета.|  
+|**Время отчета**|В раскрывающемся списке выберите час указанного дня, для которого требуется получить данные отчета. Допустимые значения находятся в диапазоне от **12am** до **11pm**.|  
+|**Тип устройства**|В раскрывающемся списке выберите тип компьютеров, которые нужно включить в отчет. Допустимые значения: **Все** (настольные и переносные компьютеры), **Настольный компьютер** (только настольные компьютеры) и **Ноутбук** (только переносные компьютеры). Эти значения возвращаются только за выбранный отчетный период.|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório não está associado a quaisquer outros relatórios de gestão de energia.  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет не ссылается на другие отчеты по управлению питанием.  
 
-###  <a name="BKMK_Excluded"></a> Computadores Excluídos  
- O **computadores excluídos** relatório apresenta uma lista de computadores numa coleção especificada que foram excluídos da gestão de energia do Configuration Manager.  
+###  <a name="BKMK_Excluded"></a> Исключенные компьютеры  
+ Отчет **Исключенные компьютеры** содержит список компьютеров в указанной коллекции, которые были исключены из управления питанием Configuration Manager.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+ Используйте приведенные ниже параметры для настройки этого отчета.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Recolha**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Motivo**|Na lista pendente, selecione por que motivo os computadores foram excluídos da gestão de energia. Pode apresentar **todos os** (todos os excluído computadores), **excluídos pelo administrador** (apenas os computadores que foram excluídos por um utilizador administrativo), e **excluídos pelo utilizador** (apenas os computadores que foram excluídos por um utilizador do Centro de Software).|  
+|**Коллекция**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Причина**|В раскрывающемся списке выберите причину, по которой компьютеры исключаются из управления питанием. Возможные значения: **Все** (все исключенные компьютеры), **Исключено администратором** (только компьютеры, исключенные пользователями с правами администратора) и **Исключено пользователем** (только компьютеры, исключенные пользователем центра программного обеспечения).|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório contém ligações para o relatório seguinte que fornece mais informações sobre o item selecionado.  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет содержит ссылки на следующий отчет, содержащий дополнительные сведения о выбранном элементе.  
 
-|Nome do Relatório|Detalhes|  
+|Наименование отчета|Подробные сведения|  
 |-----------------|-------------|  
-|**Detalhes do Computador de Energia**|Clique no nome do computador para ver as capacidades de energia, as definições de energia e esquemas de energia aplicados para o computador selecionado.<br /><br /> Para obter mais informações, consulte [Computer Details Report](#BKMK_Computer_Details) neste tópico.|  
+|**Сведения о питании компьютера**|Щелкните имя компьютера для просмотра возможностей и параметров управления питанием этого компьютера, а также примененных схем управления питанием.<br /><br /> Дополнительные сведения см. в разделе [Computer Details Report](#BKMK_Computer_Details) этой статьи.|  
 
-###  <a name="BKMK_Multiple"></a> Computadores com Vários Esquemas de Energia  
- O relatório **Computadores com Vários Esquemas de Energia** apresenta uma lista de computadores que são membros de várias coleções, cada um aplicando diferentes esquemas de energia. Para cada computador com as definições de energia potencialmente em conflito, o relatório apresenta o nome do computador e os esquemas de energia a serem aplicados para cada coleção de que o computador é membro.  
+###  <a name="BKMK_Multiple"></a> Компьютеры с несколькими схемами управления питанием  
+ Отчет **Компьютеры с несколькими схемами управления питанием** выводит список компьютеров, входящих в несколько коллекций, для которых применены разные схемы управления питанием. Для каждого компьютера с потенциально конфликтующими параметрами питания в отчете отображается имя, а также примененные схемы управления питанием для всех коллекций, в которые входит компьютер.  
 
 > [!IMPORTANT]  
->  Se um computador é um membro de várias coleções, onde cada coleção tem os esquemas de energia diferentes, em seguida, o menos restritivo do esquema de energia será aplicado.  
+>  Если компьютер входит в несколько коллекций, в которых применяются различные схемы управления питанием, используется наименее ограничительная схема.  
 >   
->  Se um computador é um membro de várias coleções, onde cada coleção tem tempos de reativação diferentes, será utilizado o tempo mais próximo da meia-noite.  
+>  Если компьютер входит в несколько коллекций, в которых заданы разные значения времени выхода из спящего режима, используется значение времени, наиболее близкое к полуночи.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+ Используйте приведенные ниже параметры для настройки этого отчета.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para este relatório.|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório contém ligações para o relatório seguinte que fornece mais informações sobre o item selecionado.  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет содержит ссылки на следующий отчет, содержащий дополнительные сведения о выбранном элементе.  
 
-|Nome do Relatório|Detalhes|  
+|Наименование отчета|Подробные сведения|  
 |-----------------|-------------|  
-|**Detalhes do Computador de Energia**|Clique no nome do computador para ver as capacidades de energia, as definições de energia e esquemas de energia aplicados para o computador selecionado.<br /><br /> Para obter mais informações, consulte [Computer Details Report](#BKMK_Computer_Details) neste tópico.|  
+|**Сведения о питании компьютера**|Щелкните имя компьютера для просмотра возможностей и параметров управления питанием этого компьютера, а также примененных схем управления питанием.<br /><br /> Дополнительные сведения см. в разделе [Computer Details Report](#BKMK_Computer_Details) этой статьи.|  
 
-###  <a name="BKMK_Consumption"></a> Relatório Consumo de Energia  
- O relatório **Consumo de Energia** apresenta as seguintes informações:  
+###  <a name="BKMK_Consumption"></a> Отчет "Энергопотребление"  
+ Отчет **Энергопотребление** содержит следующие сведения:  
 
--   Um gráfico que mostra o consumo de energia mensal total de computadores em kiloWatt por hora (kWh) na coleção especificada para o período de tempo especificado.  
+-   диаграмму, показывающая суммарное месячное энергопотребление в кВт*ч компьютеров выбранной коллекции за указанный период;  
 
--   Um gráfico que mostra o consumo médio de energia em kiloWatt por hora (kWh) de cada computador na coleção especificada para o período de tempo especificado.  
+-   диаграмму, показывающая среднее энергопотребление в кВт*ч каждого компьютера выбранной коллекции за указанный период;  
 
--   Uma tabela que mostra o consumo de energia mensal total de computadores em kiloWatt por hora (kWh) e o consumo médio de energia de computadores na coleção especificada para o período de tempo especificado.  
+-   таблицу, показывающая суммарное месячное энергопотребление в кВт*ч и среднее энергопотребление компьютеров выбранной коллекции за указанный период.  
 
- Estas informações podem ser utilizadas para ajudar a compreender as tendências de consumo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o consumo de energia dos computadores.  
-
-> [!NOTE]  
->  Se adicionar ou remover membros na coleção depois de ter aplicado um esquema de energia, isto irá afetar os resultados apresentados pelo relatório **Consumo de Energia** e poderá dificultar a comparação dos resultados da fase de monitorização e de planeamento e a fase de imposição.  
-
- Utilize os parâmetros seguintes para configurar este relatório.  
-
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Data de início**|Na lista pendente, selecione uma data de início para este relatório.|  
-|**Data de fim**|Na lista pendente, selecione uma data de fim para este relatório.|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (ambiente de trabalho apenas computadores), e **portátil** (apenas computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
-
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Computador de secretária ligado**|Especifique o consumo de energia de um computador de secretária quando está ligado. O valor predefinido é **0,07** kW por hora.|  
-|**Computador portátil ligado**|Especifique o consumo de energia de um computador portátil quando está ligado. O valor predefinido é **0,02** kW por hora.|  
-|**Computador de secretária suspenso**|Especifique o consumo de energia de um computador de secretária que entrou em suspensão. O valor predefinido é **0,003** kW por hora.|  
-|**Computador portátil suspenso**|Especifique o consumo de energia de um computador portátil que entrou em suspensão. O valor predefinido é **0,001** kW por hora.|  
-|**Computador de secretária desligado**|Especifique o consumo de energia de um computador de secretária quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Computador portátil desligado**|Especifique o consumo de energia de um computador portátil quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Monitor de secretária ligado**|Especifique o consumo de energia de um monitor de computador de secretária quando está ligado. O valor predefinido é **0,028** kW por hora.|  
-|**Monitor de portátil ligado**|Especifique o consumo de energia de um monitor de computador portátil quando está ligado. O valor predefinido é **0** kW por hora.|  
-
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório não está associado a quaisquer outros relatórios de gestão de energia.  
-
-###  <a name="BKMK_Consumption_by_Day"></a> Relatório Consumo de Energia por Dia  
- O relatório **Consumo de Energia por Dia** apresenta as seguintes informações:  
-
--   Um gráfico que mostra o consumo de energia diário total de computadores em kiloWatt por hora (kWh) na coleção especificada dos últimos 31 dias.  
-
--   Um gráfico que mostra o consumo médio diário de energia em kiloWatt por hora (kWh) de cada computador na coleção especificada dos últimos 31 dias.  
-
--   Uma tabela que mostra o consumo de energia diário total de computadores em kiloWatt por hora (kWh) e o consumo médio diário de energia de computadores na coleção especificada dos últimos 31 dias.  
-
- Estas informações podem ser utilizadas para ajudar a compreender as tendências de consumo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o consumo de energia dos computadores.  
+ Эти сведения можно использовать для оценки тенденций изменения энергопотребления в организации. После применения схемы управления питанием к компьютерам выбранной коллекции энергопотребление должно снизиться.  
 
 > [!NOTE]  
->  Se adicionar ou remover membros na coleção depois de ter aplicado um esquema de energia, isto irá afetar os resultados apresentados pelo relatório **Consumo de Energia** e poderá dificultar a comparação dos resultados da fase de monitorização e de planeamento e a fase de imposição.  
+>  Если после применения схемы управления питанием компьютеры добавлялись в коллекцию или удалялись из нее, это повлияет на результаты в отчете **Энергопотребление** и затруднит сравнение результатов этапа мониторинга и планирования и этапа обеспечения соответствия.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+ Используйте приведенные ниже параметры для настройки этого отчета.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Recolha**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Device Type**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (ambiente de trabalho apenas computadores), e **portátil** (apenas computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
+|**Дата начала**|В раскрывающемся списке выберите дату начала для этого отчета.|  
+|**Дата окончания**|В раскрывающемся списке выберите дату окончания для этого отчета.|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Тип устройства**|В раскрывающемся списке выберите тип компьютеров, которые нужно включить в отчет. Допустимые значения: **Все** (настольные и переносные компьютеры), **Настольный компьютер** (только настольные компьютеры) и **Ноутбук** (только переносные компьютеры). Эти значения возвращаются только за выбранный отчетный период.|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Для изменения режима работы данного отчета можно выбрать следующие необязательные скрытые параметры.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Computador de secretária ligado**|Especifique o consumo de energia de um computador de secretária quando está ligado. O valor predefinido é **0,07** kW por hora.|  
-|**Computador portátil ligado**|Especifique o consumo de energia de um computador portátil quando está ligado. O valor predefinido é **0,02** kW por hora.|  
-|**Computador de secretária suspenso**|Especifique o consumo de energia de um computador de secretária que entrou em suspensão. O valor predefinido é **0,003** kW por hora.|  
-|**Computador portátil suspenso**|Especifique o consumo de energia de um computador portátil que entrou em suspensão. O valor predefinido é **0,001** kW por hora.|  
-|**Computador de secretária desligado**|Especifique o consumo de energia de um computador de secretária quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Computador portátil desligado**|Especifique o consumo de energia de um computador portátil quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Monitor de secretária ligado**|Especifique o consumo de energia de um monitor de computador de secretária quando está ligado. O valor predefinido é **0,028** kW por hora.|  
-|**Monitor de portátil ligado**|Especifique o consumo de energia de um monitor de computador portátil quando está ligado. O valor predefinido é **0** kW por hora.|  
+|**Настольный компьютер включен**|Укажите энергопотребление включенного настольного компьютера. Значение по умолчанию — **0,07** кВт*ч.|  
+|**Ноутбук включен**|Укажите энергопотребление включенного ноутбука. Значение по умолчанию — **0,02** кВт*ч.|  
+|**Настольный компьютер в спящем режиме**|Укажите энергопотребление настольного компьютера в спящем режиме. Значение по умолчанию — **0,003** кВт*ч.|  
+|**Ноутбук в спящем режиме**|Укажите энергопотребление ноутбука в спящем режиме. Значение по умолчанию — **0,001** кВт*ч.|  
+|**Настольный компьютер выключен**|Укажите энергопотребление выключенного настольного компьютера. Значение по умолчанию — **0** кВт*ч.|  
+|**Ноутбук выключен**|Укажите энергопотребление выключенного ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Настольный монитор включен**|Укажите энергопотребление включенного монитора настольного компьютера. Значение по умолчанию — **0,028** кВт*ч.|  
+|**Монитор ноутбука включен**|Укажите энергопотребление включенного экрана ноутбука. Значение по умолчанию — **0** кВт*ч.|  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório não está associado a quaisquer outros relatórios de gestão de energia.  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет не ссылается на другие отчеты по управлению питанием.  
 
-###  <a name="BKMK_Cost"></a> Relatório Custo da Energia  
- O relatório **Custo da Energia** apresenta as seguintes informações:  
+###  <a name="BKMK_Consumption_by_Day"></a> Отчет "Энергопотребление по дням"  
+ Отчет **Энергопотребление по дням** содержит следующие сведения.  
 
--   Um gráfico que mostra o custo da energia mensal total de computadores na coleção especificada para o período de tempo especificado.  
+-   Диаграмма, показывающая суммарное суточное энергопотребление в кВт*ч компьютеров выбранной коллекции за последние 31 день.  
 
--   Um gráfico que mostra o custo da energia mensal médio de cada computador na coleção especificada para o período de tempo especificado.  
+-   Диаграмма, показывающая среднее суточное энергопотребление в кВт*ч каждого компьютера выбранной коллекции за последние 31 день.  
 
--   Uma tabela que mostra o custo da energia mensal total e o custo da energia médio mensal para computadores da coleção especificada nos últimos 31 dias.  
+-   Таблица, показывающая суммарное суточное энергопотребление в кВт*ч и среднее суточное энергопотребление компьютеров выбранной коллекции за последние 31 день.  
 
- Estas informações podem ser utilizadas para ajudar a compreender as tendências de custo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o custo de energia dos computadores.  
-
- Utilize os parâmetros seguintes para configurar este relatório.  
-
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Data de início**|Na lista pendente, selecione uma data de início para este relatório.|  
-|**Data de fim**|Na lista pendente, selecione uma data de fim para este relatório.|  
-|**Custo de KwH**|Especifique o custo por kWh de eletricidade. O valor predefinido é **0,09**.<br /><br /> Pode modificar a unidade de moeda utilizada por este relatório na secção de parâmetros ocultos.|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (ambiente de trabalho apenas computadores), e **portátil** (apenas computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
-
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Computador de secretária ligado**|Especifique o consumo de energia de um computador de secretária quando está ligado. O valor predefinido é **0,07** kW por hora.|  
-|**Computador portátil ligado**|Especifique o consumo de energia de um computador portátil quando está ligado. O valor predefinido é **0,02** kW por hora.|  
-|**Computador de secretária suspenso**|Especifique o consumo de energia de um computador de secretária que entrou em suspensão. O valor predefinido é **0,003** kW por hora.|  
-|**Computador portátil suspenso**|Especifique o consumo de energia de um computador portátil que entrou em suspensão. O valor predefinido é **0,001** kW por hora.|  
-|**Computador de secretária desligado**|Especifique o consumo de energia de um computador de secretária quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Computador portátil desligado**|Especifique o consumo de energia de um computador portátil quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Monitor de secretária ligado**|Especifique o consumo de energia de um monitor de computador de secretária quando está ligado. O valor predefinido é **0,028** kW por hora.|  
-|**Monitor de portátil ligado**|Especifique o consumo de energia de um monitor de computador portátil quando está ligado. O valor predefinido é **0** kW por hora.|  
-|**Moeda**|Especifique a etiqueta de moeda a utilizar para este relatório. O valor predefinido é **USD ($)**.|  
-
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório não está associado a quaisquer outros relatórios de gestão de energia.  
-
-###  <a name="BKMK_Cost_by_Day"></a> Relatório Custo da Energia por Dia  
- O relatório **Custo da Energia por Dia** apresenta as seguintes informações:  
-
--   Um gráfico que mostra o custo da energia diário total de computadores na coleção especificada dos últimos 31 dias.  
-
--   Um gráfico que mostra o custo da energia médio diário de cada computador na coleção especificada dos últimos 31 dias.  
-
--   Uma tabela que mostra o custo de energia diário total e o custo de energia médio diário para computadores da coleção especificada nos últimos 31 dias.  
-
- Estas informações podem ser utilizadas para ajudar a compreender as tendências de custo de energia no seu ambiente. Depois de aplicar um esquema de energia aos computadores na coleção selecionada, deve diminuir o custo de energia dos computadores.  
-
- Utilize os parâmetros seguintes para configurar este relatório.  
-
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (ambiente de trabalho apenas computadores), e **portátil** (apenas computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
-|**Custo de KwH**|Especifique o custo por kWh de eletricidade. O valor predefinido é **0,09**.<br /><br /> Pode modificar a unidade de moeda utilizada por este relatório na secção de parâmetros ocultos.|  
-
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Computador de secretária ligado**|Especifique o consumo de energia de um computador de secretária quando está ligado. O valor predefinido é **0,07** kW por hora.|  
-|**Computador portátil ligado**|Especifique o consumo de energia de um computador portátil quando está ligado. O valor predefinido é **0,02** kW por hora.|  
-|**Computador de secretária suspenso**|Especifique o consumo de energia de um computador de secretária que entrou em suspensão. O valor predefinido é **0,003** kW por hora.|  
-|**Computador portátil suspenso**|Especifique o consumo de energia de um computador portátil que entrou em suspensão. O valor predefinido é **0,001** kW por hora.|  
-|**Computador de secretária desligado**|Especifique o consumo de energia de um computador de secretária quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Computador portátil desligado**|Especifique o consumo de energia de um computador portátil quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Monitor de secretária ligado**|Especifique o consumo de energia de um monitor de computador de secretária quando está ligado. O valor predefinido é **0,028** kW por hora.|  
-|**Monitor de portátil ligado**|Especifique o consumo de energia de um monitor de computador portátil quando está ligado. O valor predefinido é **0** kW por hora.|  
-|**Moeda**|Especifique a etiqueta de moeda a utilizar para este relatório. O valor predefinido é **USD ($)**.|  
-
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório não está associado a quaisquer outros relatórios de gestão de energia.  
-
-###  <a name="BKMK_Environmental_Impact"></a> Relatório Impacto Ambiental  
- O relatório **Impacto Ambiental** apresenta as seguintes informações:  
-
--   Um gráfico que mostra o total CO2 mensal gerados (toneladas) em computadores numa coleção especificada, o período de tempo especificado.  
-
--   Um gráfico que mostra a média CO2 mensal gerados (toneladas) para cada computador da coleção especificada para o período de tempo especificado.  
-
--   Uma tabela que mostra o total CO2 mensais gerados e de CO2 mensais médio gerado para computadores da coleção especificada para o período de tempo especificado.  
-
- O **impacto ambiental** relatório calcula a quantidade de CO2 gerados (toneladas) utilizando a hora em que um computador ou o monitor foi ativado num período de 24 horas.  
-
- Utilize os parâmetros seguintes para configurar este relatório.  
-
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Data de início do relatório**|Na lista pendente, selecione uma data de início para este relatório.|  
-|**Data de fim do relatório**|Na lista pendente, selecione uma data de fim para este relatório.|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (ambiente de trabalho apenas computadores), e **portátil** (apenas computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
-
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Computador de secretária ligado**|Especifique o consumo de energia de um computador de secretária quando está ligado. O valor predefinido é **0,07** kW por hora.|  
-|**Computador portátil ligado**|Especifique o consumo de energia de um computador portátil quando está ligado. O valor predefinido é **0,02** kW por hora.|  
-|**Computador de secretária suspenso**|Especifique o consumo de energia de um computador de secretária que entrou em suspensão. O valor predefinido é **0,003** kW por hora.|  
-|**Computador portátil suspenso**|Especifique o consumo de energia de um computador portátil que entrou em suspensão. O valor predefinido é **0,001** kW por hora.|  
-|**Computador de secretária desligado**|Especifique o consumo de energia de um computador de secretária quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Computador portátil desligado**|Especifique o consumo de energia de um computador portátil quando está desligado. O valor predefinido é **0** kW por hora.|  
-|**Monitor de secretária ligado**|Especifique o consumo de energia de um monitor de computador de secretária quando está ligado. O valor predefinido é **0,028** kW por hora.|  
-|**Monitor de portátil ligado**|Especifique o consumo de energia de um monitor de computador portátil quando está ligado. O valor predefinido é **0** kW por hora.|  
-|**Fator de carbono (toneladas/kWh)** (CO2Mix)|Especifique o valor do fator de carbono (em toneladas/kWh) que, normalmente, pode obter a partir da sua empresa de energia. O valor predefinido é **0,0015** toneladas por kWh.|  
-
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório não está associado a quaisquer outros relatórios de gestão de energia.  
-
-###  <a name="BKMK_Environmental_Impact_by_Day"></a> Relatório Impacto Ambiental por Dia  
- O relatório **Impacto Ambiental por Dia** apresenta as seguintes informações:  
-
--   Um gráfico que mostra o total CO2 diárias gerados (toneladas) em computadores numa coleção especificada nos últimos 31 dias.  
-
--   Um gráfico que mostra o CO2 médio diário gerados (toneladas) para cada computador da coleção especificada nos últimos 31 dias.  
-
--   Uma tabela que mostra o total CO2 diárias gerados e médios diários CO2 generatedfor computadores na coleção especificada nos últimos 31 dias.  
-
- O **impacto ambiental por dia** relatório calcula a quantidade de CO2 gerados (toneladas) utilizando a hora em que um computador ou o monitor foi ativado num período de 24 horas.  
-
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Tipo de dispositivo**|Na lista pendente, selecione o tipo de computador para o qual pretende um relatório. Os valores válidos são **todos os** (computadores de secretária e portáteis), **ambiente de trabalho** (ambiente de trabalho apenas computadores), e **portátil** (apenas computadores portáteis). Estes valores apenas são devolvidos para escolhida período de relatório.|  
-
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Computador de secretária ligado**|Especifique o consumo de energia de um computador de secretária quando está ligado. O valor predefinido é **0,07** kWh.|  
-|**Computador portátil ligado**|Especifique o consumo de energia de um computador portátil quando está ligado. O valor predefinido é **0,02** kWh.|  
-|**Computador de secretária desligado**|Especifique o consumo de energia de um computador de secretária quando está desligado. O valor predefinido é **0** kWh.|  
-|**Computador portátil desligado**|Especifique o consumo de energia de um computador portátil quando está desligado. O valor predefinido é **0** kWh.|  
-|**Computador de secretária suspenso**|Especifique o consumo de energia de um computador de secretária que entrou em suspensão. O valor predefinido é **0,003** kWh.|  
-|**Computador portátil suspenso**|Especifique o consumo de energia de um computador portátil que entrou em suspensão. O valor predefinido é **0,001** kWh.|  
-|**Monitor de secretária ligado**|Especifique o consumo de energia de um monitor de computador de secretária quando está ligado. O valor predefinido é **0,028** kWh.|  
-|**Monitor de portátil ligado**|Especifique o consumo de energia de um monitor de computador portátil quando está ligado. O valor predefinido é **0** kWh.|  
-|**Fator de carbono (toneladas/kWh)** (CO2Mix)|Especifique um valor do fator de carbono (em toneladas/kWh) que, normalmente, pode obter a partir da sua empresa de energia. O valor predefinido é **0,0015** toneladas por kWh.|  
-
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório não está associado a quaisquer outros relatórios de gestão de energia.  
-
-###  <a name="BKMK_Insomnia_Computer_Details"></a> Relatório Detalhes do Computador com Insónia  
- O relatório **Detalhes do Computador com Insónia** apresenta uma lista de computadores que não entraram em modo de suspensão ou hibernação por um motivo específico durante um período de tempo especificado. Este relatório é denominado por **Relatório de Insónia** e não foi concebido para ser executado diretamente pelo administrador do site.  
-
- O **Relatório de Insónia** apresenta computadores como **Sem capacidade de suspensão** quando estes não têm capacidade de suspensão e foram ligados durante o intervalo completo de relatório especificado. O relatório apresenta computadores como **Sem capacidade de hibernação** quando estes não têm capacidade de hibernação e foram ligados durante o intervalo completo de relatório especificado.  
+ Эти сведения можно использовать для оценки тенденций изменения энергопотребления в организации. После применения схемы управления питанием к компьютерам выбранной коллекции энергопотребление должно снизиться.  
 
 > [!NOTE]  
->  A gestão de energia só pode recolher as causas que impediram que os computadores introduzissem o modo de suspensão ou hibernação de computadores com o Windows 7 ou o Windows Server 2008 R2.  
+>  Если после применения схемы управления питанием компьютеры добавлялись в коллекцию или удалялись из нее, это повлияет на результаты в отчете **Энергопотребление** и затруднит сравнение результатов этапа мониторинга и планирования и этапа обеспечения соответствия.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+ Используйте приведенные ниже параметры для настройки этого отчета.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Intervalo de relatório (dias)**|Especifique o número de dias do relatório. O valor predefinido é **7** dias.|  
-|**Causa da Insónia**|Na lista pendente, selecione uma das causas que podem impedir que os computadores introduzam o modo de suspensão ou hibernação.|  
+|**Коллекция**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Device Type**|В раскрывающемся списке выберите тип компьютеров, которые нужно включить в отчет. Допустимые значения: **Все** (настольные и переносные компьютеры), **Настольный компьютер** (только настольные компьютеры) и **Ноутбук** (только переносные компьютеры). Эти значения возвращаются только за выбранный отчетный период.|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Для изменения режима работы данного отчета можно выбрать следующие необязательные скрытые параметры.  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório contém ligações para o relatório seguinte que fornece mais informações sobre o item selecionado.  
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Настольный компьютер включен**|Укажите энергопотребление включенного настольного компьютера. Значение по умолчанию — **0,07** кВт*ч.|  
+|**Ноутбук включен**|Укажите энергопотребление включенного ноутбука. Значение по умолчанию — **0,02** кВт*ч.|  
+|**Настольный компьютер в спящем режиме**|Укажите энергопотребление настольного компьютера в спящем режиме. Значение по умолчанию — **0,003** кВт*ч.|  
+|**Ноутбук в спящем режиме**|Укажите энергопотребление ноутбука в спящем режиме. Значение по умолчанию — **0,001** кВт*ч.|  
+|**Настольный компьютер выключен**|Укажите энергопотребление выключенного настольного компьютера. Значение по умолчанию — **0** кВт*ч.|  
+|**Ноутбук выключен**|Укажите энергопотребление выключенного ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Настольный монитор включен**|Укажите энергопотребление включенного монитора настольного компьютера. Значение по умолчанию — **0,028** кВт*ч.|  
+|**Монитор ноутбука включен**|Укажите энергопотребление включенного экрана ноутбука. Значение по умолчанию — **0** кВт*ч.|  
 
-|Nome do Relatório|Detalhes|  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет не ссылается на другие отчеты по управлению питанием.  
+
+###  <a name="BKMK_Cost"></a> Отчет "Стоимость энергии"  
+ Отчет **Стоимость энергии** содержит следующие сведения:  
+
+-   диаграмму, показывающую суммарные месячные затраты на электроэнергию для компьютеров выбранной коллекции за указанный период;  
+
+-   диаграмму, показывающую средние месячные затраты на электроэнергию для каждого компьютера выбранной коллекции за указанный период;  
+
+-   таблицу, содержащая суммарные месячные затраты на электроэнергию и средние месячные затраты для компьютеров выбранной коллекции за последние 31 день.  
+
+ Эти сведения можно использовать для оценки тенденций изменения затрат на электроэнергию в организации. После применения схемы управления питанием к компьютерам выбранной коллекции затраты на электроэнергию должны снизиться.  
+
+ Используйте приведенные ниже параметры для настройки этого отчета.  
+
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Дата начала**|В раскрывающемся списке выберите дату начала для этого отчета.|  
+|**Дата окончания**|В раскрывающемся списке выберите дату окончания для этого отчета.|  
+|**Стоимость 1 кВт*ч**|Укажите стоимость 1 кВт*ч электроэнергии. Значение по умолчанию — **0,09**.<br /><br /> В разделе скрытых параметров можно изменить обозначение денежной единицы, используемое в этом отчете.|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Тип устройства**|В раскрывающемся списке выберите тип компьютеров, которые нужно включить в отчет. Допустимые значения: **Все** (настольные и переносные компьютеры), **Настольный компьютер** (только настольные компьютеры) и **Ноутбук** (только переносные компьютеры). Эти значения возвращаются только за выбранный отчетный период.|  
+
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Для изменения режима работы данного отчета можно выбрать следующие необязательные скрытые параметры.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Настольный компьютер включен**|Укажите энергопотребление включенного настольного компьютера. Значение по умолчанию — **0,07** кВт*ч.|  
+|**Ноутбук включен**|Укажите энергопотребление включенного ноутбука. Значение по умолчанию — **0,02** кВт*ч.|  
+|**Настольный компьютер в спящем режиме**|Укажите энергопотребление настольного компьютера в спящем режиме. Значение по умолчанию — **0,003** кВт*ч.|  
+|**Ноутбук в спящем режиме**|Укажите энергопотребление ноутбука в спящем режиме. Значение по умолчанию — **0,001** кВт*ч.|  
+|**Настольный компьютер выключен**|Укажите энергопотребление выключенного настольного компьютера. Значение по умолчанию — **0** кВт*ч.|  
+|**Ноутбук выключен**|Укажите энергопотребление выключенного ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Настольный монитор включен**|Укажите энергопотребление включенного монитора настольного компьютера. Значение по умолчанию — **0,028** кВт*ч.|  
+|**Монитор ноутбука включен**|Укажите энергопотребление включенного экрана ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Валюта**|Укажите обозначение денежной единицы для данного отчета. По умолчанию используется значение **Доллары США ($)**.|  
+
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет не ссылается на другие отчеты по управлению питанием.  
+
+###  <a name="BKMK_Cost_by_Day"></a> Отчет "Стоимость энергии по дням"  
+ Отчет **Стоимость энергии по дням** содержит следующие сведения:  
+
+-   диаграмму, показывающую суммарные затраты на электроэнергию для компьютеров выбранной коллекции за последние 31 день;  
+
+-   диаграмму, показывающую средние затраты на электроэнергию для каждого компьютера выбранной коллекции за последние 31 день;  
+
+-   таблицу, содержащую суммарные затраты на электроэнергию и средние дневные затраты для компьютеров выбранной коллекции за последние 31 день.  
+
+ Эти сведения можно использовать для оценки тенденций изменения затрат на электроэнергию в организации. После применения схемы управления питанием к компьютерам выбранной коллекции затраты на электроэнергию должны снизиться.  
+
+ Используйте приведенные ниже параметры для настройки этого отчета.  
+
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Тип устройства**|В раскрывающемся списке выберите тип компьютеров, которые нужно включить в отчет. Допустимые значения: **Все** (настольные и переносные компьютеры), **Настольный компьютер** (только настольные компьютеры) и **Ноутбук** (только переносные компьютеры). Эти значения возвращаются только за выбранный отчетный период.|  
+|**Стоимость 1 кВт*ч**|Укажите стоимость 1 кВт*ч электроэнергии. Значение по умолчанию — **0,09**.<br /><br /> В разделе скрытых параметров можно изменить обозначение денежной единицы, используемое в этом отчете.|  
+
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Для изменения режима работы данного отчета можно выбрать следующие необязательные скрытые параметры.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Настольный компьютер включен**|Укажите энергопотребление включенного настольного компьютера. Значение по умолчанию — **0,07** кВт*ч.|  
+|**Ноутбук включен**|Укажите энергопотребление включенного ноутбука. Значение по умолчанию — **0,02** кВт*ч.|  
+|**Настольный компьютер в спящем режиме**|Укажите энергопотребление настольного компьютера в спящем режиме. Значение по умолчанию — **0,003** кВт*ч.|  
+|**Ноутбук в спящем режиме**|Укажите энергопотребление ноутбука в спящем режиме. Значение по умолчанию — **0,001** кВт*ч.|  
+|**Настольный компьютер выключен**|Укажите энергопотребление выключенного настольного компьютера. Значение по умолчанию — **0** кВт*ч.|  
+|**Ноутбук выключен**|Укажите энергопотребление выключенного ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Настольный монитор включен**|Укажите энергопотребление включенного монитора настольного компьютера. Значение по умолчанию — **0,028** кВт*ч.|  
+|**Монитор ноутбука включен**|Укажите энергопотребление включенного экрана ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Валюта**|Укажите обозначение денежной единицы для данного отчета. По умолчанию используется значение **Доллары США ($)**.|  
+
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет не ссылается на другие отчеты по управлению питанием.  
+
+###  <a name="BKMK_Environmental_Impact"></a> Отчет "Воздействие на окружающую среду"  
+ Отчет **Воздействие на окружающую среду** содержит следующие сведения:  
+
+-   Диаграмма, показывающая суммарный месячный объем выбросов углекислого газа CO2 (в тоннах) для компьютеров указанной коллекции за выбранный период времени.  
+
+-   Диаграмма, показывающая средний месячный объем выбросов углекислого газа CO2 (в тоннах) для каждого компьютера в указанной коллекции за выбранный период времени.  
+
+-   Таблица, показывающая суммарный месячный объем выбросов углекислого газа CO2 и средний месячный объем выбросов углекислого газа CO2 для компьютеров указанной коллекции за выбранный период времени.  
+
+ В отчете **Воздействие на окружающую среду** рассчитывается объем выбросов CO2 (в тоннах) за те 24 часа, когда компьютер или монитор был включен.  
+
+ Используйте приведенные ниже параметры для настройки этого отчета.  
+
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Дата начала отчета**|В раскрывающемся списке выберите дату начала для этого отчета.|  
+|**Дата окончания отчета**|В раскрывающемся списке выберите дату окончания для этого отчета.|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Тип устройства**|В раскрывающемся списке выберите тип компьютеров, которые нужно включить в отчет. Допустимые значения: **Все** (настольные и переносные компьютеры), **Настольный компьютер** (только настольные компьютеры) и **Ноутбук** (только переносные компьютеры). Эти значения возвращаются только за выбранный отчетный период.|  
+
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Для изменения режима работы данного отчета можно выбрать следующие необязательные скрытые параметры.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Настольный компьютер включен**|Укажите энергопотребление включенного настольного компьютера. Значение по умолчанию — **0,07** кВт*ч.|  
+|**Ноутбук включен**|Укажите энергопотребление включенного ноутбука. Значение по умолчанию — **0,02** кВт*ч.|  
+|**Настольный компьютер в спящем режиме**|Укажите энергопотребление настольного компьютера в спящем режиме. Значение по умолчанию — **0,003** кВт*ч.|  
+|**Ноутбук в спящем режиме**|Укажите энергопотребление ноутбука в спящем режиме. Значение по умолчанию — **0,001** кВт*ч.|  
+|**Настольный компьютер выключен**|Укажите энергопотребление выключенного настольного компьютера. Значение по умолчанию — **0** кВт*ч.|  
+|**Ноутбук выключен**|Укажите энергопотребление выключенного ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Настольный монитор включен**|Укажите энергопотребление включенного монитора настольного компьютера. Значение по умолчанию — **0,028** кВт*ч.|  
+|**Монитор ноутбука включен**|Укажите энергопотребление включенного экрана ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Коэффициент пересчета в эквивалент CO2 (тонн/кВт*ч)** (CO2Mix)|Укажите коэффициент пересчета в эквивалент CO2 (в тоннах/кВт*ч), который можно узнать в местной энергокомпании. Значение по умолчанию — **0,0015** тонн на кВт.|  
+
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет не ссылается на другие отчеты по управлению питанием.  
+
+###  <a name="BKMK_Environmental_Impact_by_Day"></a> Отчет "Воздействие на окружающую среду по дням"  
+ Отчет **Воздействие на окружающую среду по дням** содержит следующие сведения:  
+
+-   Диаграмма, показывающая суммарный суточный объем выбросов углекислого газа CO2 (в тоннах) для компьютеров указанной коллекции за последний 31 день.  
+
+-   Диаграмма, показывающая средний суточный объем выбросов углекислого газа CO2 (в тоннах) для каждого компьютера в указанной коллекции за последний 31 день.  
+
+-   Таблица, показывающая суммарный суточный объем выбросов углекислого газа CO2 и средний суточный объем выбросов углекислого газа CO2 для компьютеров указанной коллекции за последний 31 день.  
+
+ В отчете **Воздействие на окружающую среду по дням** рассчитывается объем выбросов CO2 (в тоннах) за те 24 часа, когда компьютер или монитор был включен.  
+
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Тип устройства**|В раскрывающемся списке выберите тип компьютеров, которые нужно включить в отчет. Допустимые значения: **Все** (настольные и переносные компьютеры), **Настольный компьютер** (только настольные компьютеры) и **Ноутбук** (только переносные компьютеры). Эти значения возвращаются только за выбранный отчетный период.|  
+
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Для изменения режима работы данного отчета можно выбрать следующие необязательные скрытые параметры.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Настольный компьютер включен**|Укажите энергопотребление включенного настольного компьютера. Значение по умолчанию — **0,07** кВт*ч.|  
+|**Ноутбук включен**|Укажите энергопотребление включенного ноутбука. Значение по умолчанию — **0,02** кВт*ч.|  
+|**Настольный компьютер выключен**|Укажите энергопотребление выключенного настольного компьютера. Значение по умолчанию — **0** кВт*ч.|  
+|**Ноутбук выключен**|Укажите энергопотребление выключенного ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Настольный компьютер в спящем режиме**|Укажите энергопотребление настольного компьютера в спящем режиме. Значение по умолчанию — **0,003** кВт*ч.|  
+|**Ноутбук в спящем режиме**|Укажите энергопотребление ноутбука в спящем режиме. Значение по умолчанию — **0,001** кВт*ч.|  
+|**Настольный монитор включен**|Укажите энергопотребление включенного монитора настольного компьютера. Значение по умолчанию — **0,028** кВт*ч.|  
+|**Монитор ноутбука включен**|Укажите энергопотребление включенного экрана ноутбука. Значение по умолчанию — **0** кВт*ч.|  
+|**Коэффициент пересчета в эквивалент CO2 (тонн/кВт*ч)** (CO2Mix)|Укажите коэффициент пересчета в эквивалент CO2 (в тоннах/кВт*ч), который можно узнать в местной энергокомпании. Значение по умолчанию — **0,0015** тонн на кВт.|  
+
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет не ссылается на другие отчеты по управлению питанием.  
+
+###  <a name="BKMK_Insomnia_Computer_Details"></a> Отчет "Подробные сведения о компьютерах не переходящих в спящий режим"  
+ В отчете **Сведения о не переходящих в спящий режим компьютерах** содержится список компьютеров, которые не переходили в спящий режим или режим гибернации по определенной причине в течение указанного периода времени. Этот отчет вызывается через **отчет о компьютерах без спящего режима** и не предназначен для непосредственного запуска администратором сайта.  
+
+ В **отчете о компьютерах без спящего режима** компьютеры включаются в раздел **Без поддержки спящего режима** , если они не поддерживают спящий режим и остаются включенными в течение всего указанного интервала. В отчете компьютеры включаются в раздел **Не поддерживает режим гибернации** , если они не поддерживают режим гибернации и остаются включенными в течение всего указанного интервала.  
+
+> [!NOTE]  
+>  Определение причины, по которой компьютеры не переходят в спящий режим или режим гибернации, функциями управления питанием поддерживается только для компьютеров под управлением Windows 7 или Windows Server 2008 R2.  
+
+ Используйте приведенные ниже параметры для настройки этого отчета.  
+
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Интервал между отчетами (в днях)**|Укажите число дней для отчета. Значение по умолчанию — **7** дней.|  
+|**Причина невозможности перехода в спящий режим**|Выберите в раскрывающемся списке значений одну из причин, препятствующую переходу компьютеров в спящий режим или режим гибернации.|  
+
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
+
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет содержит ссылки на следующий отчет, содержащий дополнительные сведения о выбранном элементе.  
+
+|Наименование отчета|Подробные сведения|  
 |-----------------|-------------|  
-|**Detalhes do Computador**|Clique na ligação **Clique para obter informações detalhadas** para ver as capacidades de energia, as definições de energia e os esquemas de energia aplicados ao computador selecionado.<br /><br /> Para obter mais informações, consulte [Computer Details Report](#BKMK_Computer_Details) neste tópico.|  
+|**Сведения о компьютере**|Щелкните ссылку **Щелкните, чтобы просмотреть подробные сведения** для просмотра возможностей управления питанием, параметров питания и примененных схем управления питанием для выбранного компьютера.<br /><br /> Дополнительные сведения см. в разделе [Computer Details Report](#BKMK_Computer_Details) этой статьи.|  
 
 ###  <a name="BKMK_Insomnia"></a> Insomnia report  
- O **Relatório Insónia** mostra uma lista de causas comuns que impedem os computadores de entrarem em suspensão ou hibernação e o número de computadores que foram afetados por cada causa durante um período de tempo especificado. Existe um número de causas que poderá impedir que um computador entre em suspensão ou hibernação, tal como a execução de um processo no computador, uma sessão aberta de Ambiente de Trabalho Remoto ou o computador sem capacidade de suspensão ou hibernação. A partir deste relatório, pode abrir o relatório **Detalhes do Computador com Insónia** que apresenta uma lista dos computadores afetados por cada causa dos computadores que não entram em modo de suspensão ou hibernação.  
+ **Отчет о компьютерах без спящего режима** содержит список распространенных причин, препятствующих переходу компьютеров в спящий режим или режим гибернации, а также число компьютеров для каждой причины за указанный период времени. Существует ряд причин, которые могут препятствовать переходу компьютера в спящий режим и режим гибернации, например запущенный на компьютере процесс, открытое подключение удаленного рабочего стола или отсутствие поддержки спящего режима или режима гибернации. Из этого отчета можно открыть отчет **Сведения о не переходящих в спящий режим компьютерах** , содержащий список компьютеров для каждой причины неиспользования спящего режима или режима гибернации.  
 
- O relatório Insónia de Energia apresenta computadores como **Sem capacidade de suspensão** quando estes não têm capacidade de suspensão e foram ligados durante o intervalo completo de relatório especificado. O relatório apresenta computadores como **Sem capacidade de hibernação** quando estes não têm capacidade de hibernação e foram ligados durante o intervalo completo de relatório especificado.  
-
-> [!NOTE]  
->  A gestão de energia só pode recolher as causas que impediram que os computadores introduzissem o modo de suspensão ou hibernação de computadores com o Windows 7 ou o Windows Server 2008 R2.  
-
- Utilize os parâmetros seguintes para configurar este relatório.  
-
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Intervalo de relatório (dias)**|Especifique o número de dias do relatório. O valor predefinido é **7** dias. O valor máximo é **365** dias. Especifique **0** para executar o relatório hoje.|  
-
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
-
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório contém ligações para o relatório seguinte que fornece mais informações sobre o item selecionado.  
-
-|Nome do Relatório|Detalhes|  
-|-----------------|-------------|  
-|**Detalhes do Computador com Insónia**|Clique num número na coluna **Computadores Afetados** para ver uma lista dos computadores que não conseguiram entrar em modo de suspensão ou hibernação devido à causa selecionada.<br /><br /> Para obter mais informações, consulte [Insomnia Computer Details Report](#BKMK_Insomnia_Computer_Details) neste tópico.|  
-
-###  <a name="BKMK_Capabilites"></a> Relatório Capacidades de Energia  
- O relatório **Capacidades de Energia** mostra as funcionalidades de hardware de gestão de energia dos computadores na coleção especificada. Este relatório é geralmente utilizado na fase de monitorização de gestão de energia para determinar as capacidades de gestão de energia dos computadores na sua organização. As informações apresentadas no relatório podem então ser utilizadas para criar coleções de computadores para aplicar os esquemas de energia ou para excluir da gestão de energia. As capacidades de gestão de energia apresentadas neste relatório são:  
-
--   **Com Capacidade de Suspensão** - Indica se o computador tem a capacidade de entrar em suspensão se estiver configurado para tal.  
-
--   **Com Capacidade de Hibernação** – Indica se o computador pode entrar em hibernação se estiver configurado para tal.  
-
--   **Reativação da Suspensão** – Indica se o computador pode ser reativado da suspensão se estiver configurado para tal.  
-
--   **Reativação da Hibernação** – Indica se o computador pode ser reativado da hibernação se estiver configurado para tal.  
-
- Os valores indicados pelo relatório **Capacidades de Energia** indicam as capacidades de suspensão e hibernação de computadores, conforme comunicado pelo Windows. No entanto, os valores comunicados não refletem casos em que as definições do Windows ou o BIOS impedem estas funções de funcionarem.  
-
- Utilize os parâmetros seguintes para configurar este relatório.  
-
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
-
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**Recolha**|Na lista pendente, selecione uma coleção para este relatório.|  
-|**Filtro de Apresentação**|Na lista pendente, selecione **não suportada** para apresentar apenas os computadores na coleção especificada que são incapacidade de suspensão, hibernação, reativação da suspensão ou reativação da hibernação. Selecione **Mostrar tudo** para apresentar todos os computadores na coleção especificada.|  
-
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Este relatório não tem parâmetros ocultados que pode definir.  
-
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório contém ligações para o relatório seguinte que fornece mais informações sobre o item selecionado.  
-
-|Nome do Relatório|Detalhes|  
-|-----------------|-------------|  
-|**Detalhes do Computador**|Clique no nome do computador para ver as capacidades de energia, as definições de energia e esquemas de energia aplicados para o computador selecionado.<br /><br /> Para obter mais informações, consulte [Computer Details Report](#BKMK_Computer_Details) neste tópico.|  
-
-###  <a name="BKMK_Settings"></a> Relatório Definições de Energia  
- O relatório **Definições de Energia** mostra uma lista agregada de definições de energia utilizadas pelos computadores na coleção especificada. Para cada definição de energia, os modos possíveis de energia, valores e unidades são apresentados, juntamente com uma contagem do número de computadores que utilizam esses valores. Este relatório pode ser utilizado durante a fase de monitorização de gestão de energia para ajudar o administrador a compreender as definições de energia existentes utilizadas por computadores do site e para ajudar as definições de energia ideais do plano a serem aplicadas utilizando um esquema de gestão de energia. O relatório também é útil durante a resolução de problemas para validar as definições de energia aplicadas corretamente.  
+ В отчете о невозможности перехода компьютеров в спящий режим компьютеры включаются в раздел **Не поддерживает спящий режим** , если они не поддерживают спящий режим и остаются включенными в течение всего указанного интервала. В отчете компьютеры включаются в раздел **Не поддерживает режим гибернации** , если они не поддерживают режим гибернации и остаются включенными в течение всего указанного интервала.  
 
 > [!NOTE]  
->  As definições apresentadas são recolhidas de computadores cliente durante o inventário de hardware. Consoante o tempo em que o inventário de hardware é executado, as definições dos esquemas de energia sem pico ou de pico aplicado podem ser recolhidas.  
+>  Определение причины, по которой компьютеры не переходят в спящий режим или режим гибернации, функциями управления питанием поддерживается только для компьютеров под управлением Windows 7 или Windows Server 2008 R2.  
 
- Utilize os parâmetros seguintes para configurar este relatório.  
+ Используйте приведенные ниже параметры для настройки этого отчета.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Nome da coleção**|Na lista pendente, selecione uma coleção para este relatório.|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Интервал между отчетами (в днях)**|Укажите число дней для отчета. Значение по умолчанию — **7** дней. Значение по умолчанию равно **365** дням. Укажите значение **0** для запуска этого отчета для текущего дня.|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
 
-|Nome do Parâmetro|Descrição|  
-|--------------------|-----------------|  
-|**numberOfLocalizations**|Especifique o número de idiomas em que pretende ver os nomes de definição de energia comunicados pelos computadores cliente. Se pretender ver apenas o idioma mais popular, deixe esta definição com a predefinição de **1**. Para ver todos os idiomas, defina este valor para **0**.|  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет содержит ссылки на следующий отчет, содержащий дополнительные сведения о выбранном элементе.  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório contém ligações para o relatório seguinte que fornece mais informações sobre o item selecionado.  
-
-|Nome do Relatório|Detalhes|  
+|Наименование отчета|Подробные сведения|  
 |-----------------|-------------|  
-|**Detalhes das Definições de Energia**|Clique no número de computadores na coluna **Computadores** para ver uma lista de todos os computadores que utilizam as definições de energia nessa linha.<br /><br /> Para obter mais informações, consulte [Power Settings Details Report](#BKMK_Settings_Details) neste tópico.|  
+|**Сведения о не переходящих в спящий режим компьютерах**|Щелкните значение в столбце **Затронутые компьютеры** для просмотра списка компьютеров, которые не смогли перейти в спящий режим или режим гибернации по выбранной причине.<br /><br /> Дополнительные сведения см. в разделе [Insomnia Computer Details Report](#BKMK_Insomnia_Computer_Details) этой статьи.|  
+
+###  <a name="BKMK_Capabilites"></a> Отчет "Возможности электропитания"  
+ Отчет **Возможности электропитания** содержит перечень аппаратных возможностей управления питанием компьютеров указанной коллекции. Этот отчет обычно используется на этапе мониторинга данных питания для определения возможностей управления питанием компьютеров в организации. Затем данные этого отчета можно использовать для создания коллекций компьютеров, к которым будут применяться схемы управления питанием, а также коллекций, к которым схемы применяться не будут. Ниже приведены возможности управления питанием, отображаемые в этом отчете.  
+
+-   **С поддержкой спящего режима** — указывает, способен ли компьютер переходить в спящий режим при соответствующей настройке.  
+
+-   **С поддержкой режима гибернации** — указывает, способен ли компьютер переходить в режим гибернации при соответствующей настройке.  
+
+-   **Выход из спящего режима** — указывает, способен ли компьютер выходить из спящего режима при соответствующей настройке.  
+
+-   **Выход из режима гибернации** — указывает, способен ли компьютер выходить из режима гибернации при соответствующей настройке.  
+
+ В отчете **Возможности электропитания** отображаются значения поддержки спящего режима и режима гибернации, сообщаемые ОС Windows. Однако указанные значения не отражают ситуаций, когда параметры настройки ОС Windows или BIOS препятствуют использованию этих функций.  
+
+ Используйте приведенные ниже параметры для настройки этого отчета.  
+
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Коллекция**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**Фильтр отображения**|В раскрывающемся списке выберите пункт **Не поддерживается**, чтобы отобразить только компьютеры выбранной коллекции, не поддерживающие переход в спящий режим, режим гибернации, а также выход из этих режимов. Выберите пункт **Показать все**, чтобы отобразить все компьютеры в указанной коллекции.|  
+
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Этот отчет не имеет скрытых параметров, задаваемых пользователем.  
+
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет содержит ссылки на следующий отчет, содержащий дополнительные сведения о выбранном элементе.  
+
+|Наименование отчета|Подробные сведения|  
+|-----------------|-------------|  
+|**Сведения о компьютере**|Щелкните имя компьютера для просмотра возможностей и параметров управления питанием этого компьютера, а также примененных схем управления питанием.<br /><br /> Дополнительные сведения см. в разделе [Computer Details Report](#BKMK_Computer_Details) этой статьи.|  
+
+###  <a name="BKMK_Settings"></a> Отчет "Параметры управления питанием"  
+ В отчете **Параметры управления питанием** отображается сводный список параметров питания компьютеров указанной коллекции. Для каждого параметра отображаются возможные режимы питания, значения и единицы, а также число компьютеров, использующих эти значения. На этапе мониторинга управления питанием этот отчет помогает администратору проанализировать текущие параметры питания, используемые компьютерами сайта, и подобрать оптимальные параметры для применения в составе схемы управления питанием. В ходе устранения неполадок отчет позволяет проверить правильность применения параметров питания.  
+
+> [!NOTE]  
+>  Отображаемые параметры собираются с клиентских компьютеров в ходе инвентаризации оборудования. В зависимости от времени выполнения инвентаризации оборудования может производиться сбор параметров при использовании пиковой или непиковой схемы управления питанием.  
+
+ Используйте приведенные ниже параметры для настройки этого отчета.  
+
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**Название коллекции**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Для изменения режима работы данного отчета можно выбрать следующие необязательные скрытые параметры.  
+
+|Имя параметра|Описание|  
+|--------------------|-----------------|  
+|**numberOfLocalizations**|Указывает число языков, на которых требуется просматривать имена параметров питания, сообщаемых клиентскими компьютерами. Если необходимо просматривать имена только на самом распространенном языке, оставьте для этого параметра значение по умолчанию **1**. Для просмотра имен на всех языках используйте значение **0**.|  
+
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет содержит ссылки на следующий отчет, содержащий дополнительные сведения о выбранном элементе.  
+
+|Наименование отчета|Подробные сведения|  
+|-----------------|-------------|  
+|**Сведения о параметрах**|Щелкните количество компьютеров в столбце **Компьютеры** , чтобы просмотреть список всех компьютеров, использующих параметры питания, которые указаны в этой строке.<br /><br /> Дополнительные сведения см. в разделе [Power Settings Details Report](#BKMK_Settings_Details) этой статьи.|  
 
 ###  <a name="BKMK_Settings_Details"></a> Power Settings Details report  
- O relatório **Detalhes de Definições de Energia** apresenta informações adicionais sobre os computadores selecionados no relatório **Definições de Energia** . Este relatório é denominado pelo relatório **Definições de Energia** e não foi concebido para ser executado diretamente pelo administrador do site.  
+ Отчет **Сведения о параметрах** содержит дополнительные сведения о компьютерах, выбранных в отчете **Параметры питания** . Этот отчет вызывается через отчет **Параметры питания** и не предназначен для непосредственного запуска администратором сайта.  
 
-#### <a name="required-report-parameters"></a>Parâmetros de relatório necessários  
- Tem de especificar os parâmetros seguintes para executar este relatório.  
+#### <a name="required-report-parameters"></a>Обязательные параметры отчета  
+ Следующие параметры необходимо задать для запуска отчета.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**Recolha**|Na lista pendente, selecione uma coleção para utilizar para este relatório.|  
-|**Definição de Energia GUID**|Na lista pendente, selecione a definição de energia GUID em que pretende um relatório. Para obter uma lista de todas as definições de energia e as utilizações, consulte o artigo [as definições de plano de gestão de energia disponíveis](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) no tópico [como criar e aplicar os esquemas de energia no System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).|  
-|**Power Mode**|Na lista pendente, selecione o tipo de definições de energia que pretende apresentar nos resultados do relatório. Selecione **Ligado** para ver as definições de energia configuradas quando o computador está ligado e **Com Bateria** para ver as definições de energia configuradas quando o computador está em execução com energia da bateria.|  
-|**Índice de Definição**|Na lista pendente, selecione o valor do nome da definição de energia selecionado no qual pretende um relatório. Por exemplo, se pretender apresentar todos os computadores com a definição **desligar o disco rígido após** configurada para **10** minutos, selecione **desligar o disco rígido após** no **Nome da Definição de Energia** e **10** no **Índice de Definição**.|  
+|**Коллекция**|В раскрывающемся списке выберите коллекцию для этого отчета.|  
+|**GUID параметра питания**|В раскрывающемся списке выберите идентификатор GUID, который требуется присвоить этому отчету. Список всех параметров питания и описание их использования см. в подразделе [Доступные параметры схем управления питанием](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) раздела [Создание и применение схем управления питанием в System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).|  
+|**Power Mode**|В раскрывающемся списке выберите тип параметров питания, которые следует отображать в результатах отчета. Выберите значение **От сети** для просмотра параметров питания, заданных для режима работы от сети, или значение **От батареи** для просмотра параметров для режима работы от батареи.|  
+|**Индекс параметра**|В раскрывающемся списке выберите значение для выбранного имени параметра питания, для которого необходимо получить отчет. Например, если необходимо просмотреть все компьютеры, у которых для параметра **Отключать жесткий диск через** задано значение **10** минут, выберите для параметра **Имя параметра питания** значение **Отключать жесткий диск через** , а для параметра **Индекс параметра** — значение **10**.|  
 
-#### <a name="hidden-report-parameters"></a>Parâmetros de relatório ocultos  
- Os seguintes parâmetros ocultados podem ser, opcionalmente, especificados para alterar o comportamento deste relatório.  
+#### <a name="hidden-report-parameters"></a>Скрытые параметры отчета  
+ Для изменения режима работы данного отчета можно выбрать следующие необязательные скрытые параметры.  
 
-|Nome do Parâmetro|Descrição|  
+|Имя параметра|Описание|  
 |--------------------|-----------------|  
-|**numberOfLocalizations**|Especifique o número de idiomas em que pretende ver os nomes de definição de energia comunicados pelos computadores cliente. Se pretender ver apenas o idioma mais popular, deixe esta definição com a predefinição de **1**. Para ver todos os idiomas, defina este valor para **0**.|  
+|**numberOfLocalizations**|Указывает число языков, на которых требуется просматривать имена параметров питания, сообщаемых клиентскими компьютерами. Если необходимо просматривать имена только на самом распространенном языке, оставьте для этого параметра значение по умолчанию **1**. Для просмотра имен на всех языках используйте значение **0**.|  
 
-#### <a name="report-links"></a>Ligações de relatórios  
- Este relatório contém ligações para o relatório seguinte que fornece mais informações sobre o item selecionado.  
+#### <a name="report-links"></a>Ссылки на отчеты  
+ Этот отчет содержит ссылки на следующий отчет, содержащий дополнительные сведения о выбранном элементе.  
 
-|Nome do Relatório|Detalhes|  
+|Наименование отчета|Подробные сведения|  
 |-----------------|-------------|  
-|**Detalhes do Computador**|Clique no nome do computador para ver as capacidades de energia, as definições de energia e esquemas de energia aplicados para o computador selecionado.<br /><br /> Para obter mais informações, consulte [Computer Details Report](#BKMK_Computer_Details) neste tópico.|  
-
+|**Сведения о компьютере**|Щелкните имя компьютера для просмотра возможностей и параметров управления питанием этого компьютера, а также примененных схем управления питанием.<br /><br /> Дополнительные сведения см. в разделе [Computer Details Report](#BKMK_Computer_Details) этой статьи.|  

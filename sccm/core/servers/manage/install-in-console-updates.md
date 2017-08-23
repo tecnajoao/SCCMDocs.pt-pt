@@ -1,6 +1,6 @@
 ---
-title: "Atualizações na consola | Microsoft Docs"
-description: "System Center Configuration Manager sincroniza com a nuvem da Microsoft para obter atualizações que pode instalar a consola."
+title: "Обновления в консоли | Документация Майкрософт"
+description: "System Center Configuration Manager синхронизируется с облачной средой Майкрософт для получения обновлений, которые затем можно установить с помощью консоли."
 ms.custom: na
 ms.date: 06/13/2017
 ms.prod: configuration-manager
@@ -16,371 +16,371 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 2bbc8935bee306ed0bc312cc43b8f5374a8df7ff
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Instalar atualizações na consola para o System Center Configuration Manager
+# <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Установка обновлений в консоли для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager sincroniza com o serviço de nuvem da Microsoft para obter atualizações. Em seguida, pode instalar estas atualizações a partir da consola do Configuration Manager.
+System Center Configuration Manager синхронизируется с облачной средой Майкрософт для получения обновлений. После этого обновления можно установить из консоли Configuration Manager.
 
-## <a name="get-available-updates"></a>Obter as atualizações disponíveis
-Apenas as atualizações aplicáveis à sua infraestrutura e versão são transferidas e disponibilizadas na sua hierarquia. Esta sincronização pode ser automática ou manual, dependendo de como configurar o ponto de ligação de serviço para a sua hierarquia:
+## <a name="get-available-updates"></a>Получение доступных обновлений
+Загружаются и становятся доступными в иерархии только те обновления, которые относятся к вашей инфраструктуре и версии. Процесс синхронизации может быть автоматическим или выполняться вручную в зависимости от того, как настроить точку подключения службы для иерархии.
 
--   No **modo online**, o ponto de ligação de serviço liga automaticamente ao serviço em nuvem da Microsoft e transfere as atualizações aplicáveis.  
+-   В **режиме "в сети"** точка подключения службы автоматически подключается к облачной службе Майкрософт и загружает необходимые обновления.  
 
-     Por predefinição, o Configuration Manager verifica a existência de novas atualizações a cada 24 horas. Pode também verificar atualizações imediatamente escolhendo **procurar atualizações** no **administração** > **atualizações e manutenção** nó da consola do Configuration Manager. (Antes da versão 1702, este nó foi em **administração** > **serviços em nuvem**.)
+     По умолчанию Configuration Manager проверяет наличие новых обновлений каждые 24 часа. Вы также можете проверить наличие обновлений вручную, выбрав в консоли Configuration Manager в узле **Администрирование** > **Обновления и обслуживание** команду **Проверить обновления**. (До версии 1702 раздел "Обновления и обслуживание" находился в узле **Администрирование** > **Облачные службы**.)
 
--   No **modo offline**, o ponto de ligação de serviço não liga ao serviço de nuvem da Microsoft. Para transferir e, em seguida, importar as atualizações disponíveis, [utilizar a ferramenta de ligação de serviço do System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md).  
+-   В **автономном режиме** точка подключения службы не подключается к облачной службе Майкрософт. Чтобы скачать и импортировать доступные обновления, необходимо вручную [применить средство подключения службы для System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md).  
 
 > [!NOTE]  
->   Pode importar correções fora de banda para a consola. Para tal, utilize o [ferramenta de registo de atualização](/sccm/core/servers/manage/use-the-update-registration-tool-to-import-hotfixes). Estas correções fora de banda completam as atualizações que obtém ao sincronizar com o serviço Microsoft Cloud.
+>   В консоль можно импортировать внешние исправления. Для этого используйте [средство регистрации обновлений](/sccm/core/servers/manage/use-the-update-registration-tool-to-import-hotfixes). Эти внешние исправления дополняют обновления, которые вы получаете при синхронизации со службой Microsoft Cloud.
 
 
-Depois de sincronizar as atualizações, pode visualizá-las na consola do Configuration Manager, acedendo ao **administração** > **atualizações e manutenção** nó:  
+Синхронизированные обновления можно просмотреть в консоли Configuration Manager. Для этого откройте узел **Администрирование** > **Обновления и обслуживание**.  
 
--   As atualizações não instaladas são apresentadas como **Disponível**.
+-   Неустановленные обновления отображаются как **доступные**.
 
--   As atualizações instaladas são apresentadas como **Instalada**.  É apresentada apenas a atualização instalada mais recentemente. Pode escolher o **histórico** botão no friso para anteriormente ver atualizações instaladas.
-
-
-
-Antes de configurar o ponto de ligação de serviço, compreenda e planeie as utilizações adicionais. As seguintes utilizações podem afetar a forma como configura esta função de sistema de sites:  
-
--   O ponto de ligação de serviço é utilizado para carregar as informações de utilização sobre o seu site. Estas informações ajudam o serviço em nuvem da Microsoft a identificar as atualizações que estão disponíveis para a versão atual da sua infraestrutura. Para obter mais informações, consulte [diagnósticos e dados de utilização para o System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
-
--   O ponto de ligação de serviço é utilizado para gerir dispositivos com o Microsoft Intune e utilizando a gestão de dispositivos móveis no local do Configuration Manager. Para obter mais informações, consulte [gestão híbrida de dispositivos móveis (MDM) com o System Center Configuration Manager e o Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
-
-Para melhor compreender o que acontece quando as atualizações são transferidas, consulte:  
-
--   [Fluxograma - transferir atualizações para o System Center Configuration Manager](../../../core/servers/manage/download-updates-flowchart.md)
-
--   [Fluxograma - replicação de atualização para o System Center Configuration Manager](../../../core/servers/manage/update-replication-flowchart.md)  
-
-## <a name="assign-permissions-to-view-and-manage-updates-and-features"></a>Atribuir permissões para ver e gerir as atualizações e funcionalidades
-Para ver as atualizações na consola, um utilizador tem de ter uma função de segurança da administração baseada em funções que inclua a classe de segurança **pacotes de atualização**. Esta classe concede acesso para ver e gerir as atualizações na consola do Configuration Manager.    
-
-**Sobre a classe Pacotes de atualização:**  
-Por predefinição, **Pacotes de atualização** (SMS_CM_Updatepackages) faz parte dos seguintes direitos de acesso incorporados nas permissões listadas:
- -  **Administrador Total** com permissões de **Modificação** e **Leitura** :
-    -   Um utilizador com esta função de segurança e acesso para o **todos os** âmbito de segurança pode ver e instalar atualizações. O utilizador também pode ativar funcionalidades durante a instalação e ativar funcionalidades individuais, depois de instalada a atualização.
-    - Um utilizador com esta função de segurança e acesso para o **predefinido** âmbito de segurança pode ver e instalar atualizações. O utilizador também pode ativar funcionalidades durante a instalação e ver funcionalidades após uma atualização está instalada. Mas este utilizador não é possível ativar as funcionalidades, depois de instalada a atualização.
-
-- **Analista só de leitura** com permissões de **Leitura** :
-  -  Um utilizador com esta função de segurança e acesso para o **predefinido** âmbito pode ver as atualizações, mas não instalá-los. Este utilizador também pode ver as funcionalidades depois de uma atualização foi instalado mas não é possível ativá-los.
-
-**Permissões necessárias para as atualizações e manutenção:**   
-  - Utilize uma conta à qual esteja atribuído um direito de acesso que inclua a classe **Pacotes de atualização** com as permissões de **Modificação** e **Leitura** .
-  - O âmbito **Predefinição** tem de ser atribuído à conta.
-
-**Permissões para visualizar apenas atualizações**:
-  - Utilize uma conta à qual esteja atribuído um direito de acesso que inclua a classe **Pacotes de atualização** apenas com a permissão de **Leitura** .
-  - O âmbito **Predefinição** tem de ser atribuído à conta.
-
-**Permissões necessárias para ativar funcionalidades após as atualizações são instaladas:**
-  -  Utilize uma conta à qual esteja atribuído um direito de acesso que inclua a classe **Pacotes de atualização** com as permissões de **Modificação** e **Leitura** .
-  -  O âmbito **Tudo** tem de ser atribuído à conta.
+-   Установленные обновления отображаются как **установленные**.  Отображается только последнее установленное обновление. Для просмотра ранее установленных обновлений можно воспользоваться кнопкой **Журнал** на ленте.
 
 
 
-##  <a name="bkmk_beforeinstall"></a> Antes de instalar uma atualização na consola  
- Reveja os seguintes passos antes de instalar uma atualização a partir da consola do Configuration Manager.  
+Перед настройкой точки подключения службы определите и спланируйте область ее применения. Следующие варианты использования могут повлиять на выбор настроек для этой роли системы сайта.  
 
-###  <a name="bkmk_step1"></a>Passo 1: Reveja a lista de verificação de atualização  
-Reveja a lista de verificação de atualizações aplicável para ações a efetuar antes de iniciar a atualização:
+-   Точка подключения службы используется для отправки сведений об использовании для веб-сайта. Эти сведения помогают облачной службе Майкрософт определить обновления, доступные для текущей версии вашей инфраструктуры. Дополнительные сведения см. в разделе [Данные о диагностике и использовании для System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
 
-- Atualizar para 1606: Consulte [1606 de atualizar a lista de verificação para instalar](../../../core/servers/manage/checklist-for-installing-update-1606.md).  
+-   Точка подключения службы используется для управления устройствами с помощью Microsoft Intune, а также с помощью локального управления мобильными устройствами Configuration Manager. Дополнительные сведения см. в разделе [Гибридное управление мобильными устройствами (MDM) с помощью System Center Configuration Manager и Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
-- Atualizar para 1610 de qualquer um dos 1606: Consulte [atualizar a lista de verificação para instalar 1610](../../../core/servers/manage/checklist-for-installing-update-1610.md).  
+Чтобы лучше понять, что происходит при загрузке обновлений, см.  
 
-- Atualizar para 1702 1606 ou 1610: Consulte [atualizar a lista de verificação para instalar 1702](../../../core/servers/manage/checklist-for-installing-update-1702.md).
+-   [Блок-схема: скачивание обновлений для System Center Configuration Manager](../../../core/servers/manage/download-updates-flowchart.md)
+
+-   [Блок-схема: скачивание обновлений для System Center Configuration Manager](../../../core/servers/manage/update-replication-flowchart.md)  
+
+## <a name="assign-permissions-to-view-and-manage-updates-and-features"></a>Назначение разрешений для просмотра и управления обновлениями и компонентами
+Чтобы пользователь мог просматривать обновления в консоли, ему должна быть назначена роль безопасности ролевого администрирования, которая включает класс безопасности **Обновление пакетов**. Этот класс предоставляет доступ для просмотра обновлений и управления ими в консоли Configuration Manager.    
+
+**Сведения о классе "Пакеты обновления"**  
+По умолчанию класс **Пакеты обновления** (SMS_CM_Updatepackages) является частью следующих встроенных ролей безопасности с указанными разрешениями.
+ -  **Полный администратор** с разрешениями **Изменение** и **Чтение**
+    -   Пользователь с этой ролью безопасности и доступом к области безопасности **Все** может просматривать обновления и устанавливать их. Пользователь может также включать компоненты во время установки и отдельные компоненты после установки обновления.
+    - Пользователь с этой ролью безопасности и доступом к области безопасности **По умолчанию** может просматривать обновления и устанавливать их. Пользователь может также включать компоненты во время установки и просматривать отдельные компоненты после установки обновления. При этом включать функции после установки обновления пользователь не может.
+
+- **Аналитик с правами только для чтения** с разрешением **Чтение**
+  -  Пользователь с этой ролью безопасности и доступом к области **По умолчанию** может просматривать обновления, но не может их устанавливать. Кроме того, он может просматривать функции после установки обновления, но не может их включать.
+
+**Разрешения, необходимые для установки обновлений и обслуживания:**   
+  - Используйте учетную запись, которой назначена роль безопасности, включающая класс **Пакеты обновления** , с разрешениями **Изменение** и **Чтение** .
+  - Учетной записи должна быть назначена область **По умолчанию** .
+
+**Разрешения, позволяющие только просматривать обновления**
+  - Используйте учетную запись, которой назначена роль безопасности, включающая класс **Пакеты обновления** , только с разрешением **Чтение** .
+  - Учетной записи должна быть назначена область **По умолчанию** .
+
+**Разрешения, необходимые для включения функций после установки обновлений:**
+  -  Используйте учетную запись, которой назначена роль безопасности, включающая класс **Пакеты обновления** , с разрешениями **Изменение** и **Чтение** .
+  -  Учетной записи должна быть назначена область **Все** .
+
+
+
+##  <a name="bkmk_beforeinstall"></a> Перед установкой обновлений в консоли  
+ Прежде чем устанавливать обновления из консоли Configuration Manager, выполните указанные ниже действия.  
+
+###  <a name="bkmk_step1"></a> Шаг 1. Просмотрите контрольный список обновления.  
+Просмотрите контрольный список действий, которые необходимо выполнять перед запуском обновления.
+
+- Обновление до версии 1606: см. [контрольный список для установки обновления 1606](../../../core/servers/manage/checklist-for-installing-update-1606.md).  
+
+- Обновление с версии 1606 до версии 1610: см. [контрольный список для установки обновления 1610](../../../core/servers/manage/checklist-for-installing-update-1610.md).  
+
+- Обновление с версии 1606 или 1610 до версии 1702: см. [контрольный список для установки обновления 1702](../../../core/servers/manage/checklist-for-installing-update-1702.md).
 
 <!-- Removed as update guidance 6/6/2017. The Test DB Upgrade details are no longer recommended nor required. They live on in a new topic for customers who still want to use them. -->
 
-###  <a name="step-2-run-the-prerequisite-checker-before-installing-an-update"></a>Passo 2: Executar o Verificador de pré-requisitos antes de instalar uma atualização  
-Antes de instalar uma atualização, considere executar a verificação de pré-requisitos para essa atualização. Se executar o pré-requisito antes de instalar uma atualização:  
+###  <a name="step-2-run-the-prerequisite-checker-before-installing-an-update"></a>Шаг 2. Перед установкой обновления запустите средство проверки готовности  
+Перед установкой обновления рекомендуется выполнить проверку готовности к установке этого обновления. Если перед установкой обновления запустить средство проверки готовности, то будут выполнены следующие действия.  
 
--   Os ficheiros de atualização são replicados para outros sites antes de instalar a atualização.  
+-   Файлы обновления реплицируются на другие сайты до установки обновления.  
 
--   A verificação de pré-requisitos é executado automaticamente novo quando optar por instalar a atualização.  
+-   Средство проверки готовности автоматически запускается еще раз, если выбрать установку обновления.  
 
-Mais tarde, quando instala a atualização, pode configurar a atualização para ignorar os avisos de verificação de pré-requisitos.  
+Затем, при установке обновления, можно настроить процесс так, чтобы предупреждения средства проверки готовности игнорировались.  
 
-#### <a name="to-run-the-prerequisite-checker-before-installing-an-update"></a>Para executar o verificador de pré-requisitos antes de instalar uma atualização  
+#### <a name="to-run-the-prerequisite-checker-before-installing-an-update"></a>Выполните следующие действия, чтобы запустить средство проверки готовности перед установкой обновления.  
 
-1.  Na consola do Configuration Manager, vá para **administração** > **atualizações e manutenção**.   
+1.  В консоли Configuration Manager перейдите к узлу **Администрирования** > **Обновления и обслуживание**.   
 
-2.  Faça duplo clique no pacote de atualização que pretende executar a verificação de pré-requisitos.  
+2.  Щелкните правой кнопкой мыши пакет обновления, для которого требуется выполнить проверку готовности к установке.  
 
-3.  Escolha **Executar verificação de pré-requisitos**.  
+3.  Выберите пункт **Запустить проверку на наличие необходимых компонентов**.  
 
-     Quando executar a verificação de pré-requisitos, o conteúdo da atualização é replicado para sites subordinados.  Pode ver o ficheiro distmgr.log no site de servidor para confirmar que o conteúdo é a replicado com êxito.  
+     При выполнении проверки готовности к установке содержимое обновления реплицируется на подчиненные сайты.  Можно просмотреть журнал distmgr.log на сайте сервера, чтобы убедиться, что содержимое реплицируется успешно.  
 
-4.  Para ver os resultados da verificação, na consola do Configuration Manager, vá para **monitorização** > **atualizações e manutenção estado** e procure o estado dos pré-requisitos. Também pode ver o ConfigMgrPrereq.log no servidor do site para obter mais detalhes.  
-
-
-
-##  <a name="bkmk_install"></a> Instalar atualizações na consola  
- Quando estiver pronto para instalar as atualizações a partir da consola do Configuration Manager, começar com o site de nível superior da hierarquia. Este é o site de administração central ou um site primário autónomo.  
-
- Recomendamos que instale a atualização fora do horário comercial normal para cada site minimizar o efeito nas operações de negócio. Isto acontece porque a instalação da atualização pode incluir ações como reinstalar os componentes do site e funções de sistema do site.  
-
--   Os sites primários subordinados iniciam a atualização automaticamente, após o site de administração central concluir a instalação da atualização. Este é o predefinido e recomendado processo. No entanto, pode utilizar [windows para servidores de site do serviço](/sccm/core/servers/manage/service-windows) para controlar quando um site primário instala as atualizações.  
-
--   Atualize manualmente os sites secundários a partir da consola do Configuration Manager depois de concluída a atualização do site primário principal. A atualização automática dos servidores de site secundários não é suportada.  
-
--   Quando utiliza uma consola do Configuration Manager depois do site é atualizado, lhe for pedido para atualizar a consola.  
-
--  Depois do servidor do site concluir a instalação de uma atualização com êxito, atualiza automaticamente todas as funções de sistema de sites aplicáveis.  É a advertência apenas para pontos de distribuição. Ao instalar uma atualização, todos os pontos de distribuição não reinstalar e ficam offline para atualizar ao mesmo tempo. Em vez disso, o servidor de site utiliza as definições de distribuição de conteúdo do site para distribuir a atualização para um subconjunto dos pontos de distribuição de cada vez. O resultado é que alguns pontos de distribuição ficam offline para instalar a atualização. Pontos de distribuição que não ter sido iniciada atualizar ou que concluiu a atualização permanecerem online e é capaz de fornecer conteúdo aos clientes.
-
-
-###  <a name="bkmk_overview"></a> Descrição geral da instalação da atualização na consola  
-**1. Quando inicia a instalação da atualização**  
-É-lhe apresentado o Assistente de Atualizações, que apresenta uma lista de áreas de produto a cuja atualização se refere.  
-
--   Na página **Geral** do assistente, pode configurar **Avisos de pré-requisitos**.  
-      -   Os erros de pré-requisitos interrompem sempre a instalação da atualização. Corrija os erros antes de pode repetir a instalação da atualização com êxito. Veja [Repetir a instalação de uma atualização falhada](#bkmk_retry) para obter mais informações.  
-
-    -   Os avisos de pré-requisitos também podem interromper a instalação da atualização. Corrija os avisos antes de repetir a instalação da atualização. Para obter mais informações, consulte [repetir a instalação de uma atualização falhada](#bkmk_retry).  
-    -   A opção **ignorar quaisquer avisos de verificação de pré-requisitos e instalar esta atualização independentemente requisitos em falta** define uma condição para a instalação da atualização que ignora os avisos de pré-requisitos. Isto permite que a instalação da atualização continuar. Se não selecionar esta opção, a instalação da atualização para quando for detetado um aviso. A menos que executou anteriormente a verificação de pré-requisitos e os avisos de pré-requisitos fixos para um site, não é recomendada a utilização desta opção.  
-
-      Em ambos os **administração** e **monitorização** áreas de trabalho, as atualizações e manutenção nó inclui um botão no Friso denominado **ignorar os avisos de pré-requisitos**. Este botão fica disponível quando um pacote de atualização não é possível concluir a instalação devido a avisos de verificação de pré-requisitos. Por exemplo, instalar uma atualização sem utilizar a opção para ignorar os avisos de pré-requisitos (no Assistente para atualizações). Interrompe a instalação da atualização com o estado de aviso de pré-requisitos, mas sem erros. Mais tarde, pode escolher **ignorar os avisos de pré-requisitos** a partir do friso para acionar uma continuação automática que da instalação de atualização que ignora os avisos de pré-requisitos. Quando utiliza esta opção, a instalação da atualização continua automaticamente após alguns minutos.
+4.  Чтобы просмотреть результаты проверки, в консоли Configuration Manager выберите раздел **Наблюдение** > **Состояние обновлений и обслуживания** и просмотрите состояние готовности к установке. Дополнительные сведения можно просмотреть в журнале ConfigMgrPrereq.log на сервере сайта.  
 
 
 
--   Quando uma atualização se refere ao cliente do Configuration Manager, é-lhe apresentada a opção para testar a atualização do cliente com um conjunto limitado de clientes. Para obter mais informações, consulte [como testar as atualizações de cliente numa coleção de pré-produção no System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+##  <a name="bkmk_install"></a> Установка обновлений в консоли  
+ Когда все будет готово для установки обновлений с помощью консоли Configuration Manager, начните с сайта верхнего уровня иерархии. Это сайт центра администрирования или автономный первичный сайт.  
 
-**2. Durante a instalação da atualização**  
-Como parte da instalação da atualização do Configuration Manager:  
+ Рекомендуется планировать установку обновления для каждого сайта на нерабочее время, чтобы не прерывать бизнес-процессы. Дело в том, что во время установки обновлений могут выполняться такие действия, как переустановка компонентов сайта и ролей системы сайта.  
 
--   Reinstala os componentes afetados, como as funções do sistema de site ou consola do Configuration Manager.  
+-   Подчиненные первичные сайты запускают процесс обновления автоматически после того, как сайт центра администрирования завершит установку обновления. Это рекомендуемый процесс по умолчанию. Но вы можете использовать [периоды обслуживания для серверов сайта](/sccm/core/servers/manage/service-windows), чтобы управлять временем установки обновлений на первичном сайте.  
 
--   Gere as atualizações para clientes com base nas seleções que efetuou para testes de implementação de cliente e para [atualizações automáticas de cliente](https://technet.microsoft.com/library/mt627885.aspx).  
+-   Когда обновление родительского первичного сайта будет завершено, необходимо вручную обновить вторичные сайты из консоли Configuration Manager. Автоматическое обновление серверов вторичных сайтов не поддерживается.  
 
--   Não reiniciar os servidores de sistema de sites como parte da atualização, exceto se .NET estiver instalado como parte de um pré-requisito de funções de sistema do site.  
+-   При использовании консоли Configuration Manager после обновления сайта предлагается обновить консоль.  
+
+-  После того как на сервере сайта успешно завершается установка обновления, на нем автоматически обновляются все применимые роли системы сайта.  Единственным исключением являются точки распространения. При установке обновления ни одна из точек распространения не устанавливается заново; они одновременно переходят в автономный режим для обновления. Вместо этого сервер сайта использует параметры распространения содержимого сайта для одновременного распространения обновления в подмножество точек распространения за раз. В результате для установки обновления переходить в автономный режим будут только некоторые точки распространения. Точки распространения, для которых обновление еще не началось или уже завершилось, остаются в сети и предоставляют содержимое клиентам.
+
+
+###  <a name="bkmk_overview"></a> Общие сведения об установке обновления в консоли  
+**1. При запуске установки обновления**  
+Откроется мастер установки обновлений, в котором будет показан список областей продукта, к которым применяется обновление.  
+
+-   На странице мастера **Общие** можно настроить **Предупреждения по необходимым компонентам**.  
+      -   Ошибки при проверке на наличие необходимых компонентов всегда прерывают установку обновления. Чтобы повторно запустить установку обновления, устраните ошибки. Дополнительные сведения см. в разделе [Повторная попытка установки обновления в случае сбоя](#bkmk_retry) .  
+
+    -   Предупреждения о необходимых компонентах также могут остановить процесс установки обновления. Чтобы повторно запустить установку обновления, устраните проблемы, описанные в этих предупреждениях. Дополнительные сведения см. в разделе [Повторная попытка установки обновления в случае сбоя](#bkmk_retry).  
+    -   Если выбрать параметр **Игнорировать предупреждения проверки на наличие необходимых компонентов и продолжить установку**, при установке обновления будут игнорироваться предупреждения о необходимых компонентах. Это позволит вам продолжить установку обновления. Если этот параметр не выбран, установка обновления будет останавливаться при появлении предупреждений. Если ранее не выполнялась проверка готовности к установке и не были разрешены предупреждения о необходимых компонентах для сайта, то использовать этот параметр не рекомендуется.  
+
+      В рабочих областях **Администрирование** и **Мониторинг** в узле "Обновления и обслуживание" на ленте появилась новая кнопка **Пропускать предупреждения о необходимых компонентах**. Эта кнопка становится доступной, когда не удается завершить установку пакета обновления из-за предупреждения проверки готовности к установке. Например, если вы устанавливаете обновление, не настроив игнорирование предупреждений о необходимых компонентах (в мастере обновления). Установка обновления останавливается, если нет ошибок, но есть предупреждения о необходимых компонентах. Позже вы сможете выбрать на ленте параметр **Пропускать предупреждения о необходимых компонентах**, чтобы активировать автоматическое продолжение установки обновлений, которое игнорирует такие предупреждения. Если этот параметр используется, установка обновления продолжается автоматически через несколько минут.
+
+
+
+-   Когда обновление применяется к клиенту Configuration Manager, вам предоставляется возможность протестировать обновление клиента с ограниченным набором клиентов. Дополнительные сведения см. в разделе [Проверка обновления клиента в предварительной коллекции в System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+
+**2. Во время установки обновления**  
+В ходе установки обновления Configuration Manager выполняет указанные ниже действия.  
+
+-   Переустанавливает все затронутые обновлением компоненты, например роли системы сайта или консоль Configuration Manager.  
+
+-   Управляет обновлениями для клиентов на основе настроек, заданных для пилотной подготовки клиента и для [автоматического обновления клиента](https://technet.microsoft.com/library/mt627885.aspx).  
+
+-   В ходе обновления Configuration Manager не перезапускайте серверы системы сайта (при отсутствии установки .NET как части необходимых компонентов для ролей системы сайта).  
 
 > [!TIP]  
->  Quando as atualizações são instaladas, atualizações do Configuration Manager também CD. Pasta mais recente. Esta pasta é utilizada durante uma recuperação de site.  
+>  При установке обновлений Configuration Manager также обновляет папку CD.Latest, используемую при восстановлении сайтов.  
 
-**3. Monitorizar o progresso das atualizações de instalação**  
-Utilize o seguinte procedimento para monitorizar o progresso:  
+**3. Отслеживание хода выполнения обновлений по мере их установки**  
+Используйте следующие действия для отслеживания хода выполнения.  
 
--   Na consola do Configuration Manager: **Administração** > **atualizações e manutenção** nós. Este nó mostra o estado da instalação para todos os pacotes de atualização.
+-   В консоли Configuration Manager перейдите к узлу **Администрирования** > **Обновления и обслуживание**. В этом узле показано состояние установки для всех пакетов обновления.
 
 
--   Na consola do Configuration Manager: **Monitorização** > **descrição geral** > **atualizações e manutenção estado** nós. Este nó mostra o estado da instalação de apenas o pacote de atualização que está atualmente a ser instalado.  
+-   В консоли Configuration Manager перейдите к узлу **Наблюдение** > **Обзор** > **Состояние обновлений и обслуживания**. В этом узле показано состояние установки только того пакета обновления, который сейчас устанавливается.  
 
-    A instalação do pacote de atualização é reduzida para as seguintes fases para facilitar a monitorização. Para cada fase, detalhes adicionais incluem o ficheiro de registo para ver para obter mais informações:  
-    -   **Transferir** (nesta fase aplica-se apenas para o site de nível superior em que o site de ponto de ligação de serviço está instalado.)   
+    Для удобства отслеживания установка пакета обновления разбивается на следующие этапы. Дополнительные сведения на каждом этапе определяют файл журнала для просмотра.  
+    -   **Скачивание** (этот этап применяется только к сайту верхнего уровня, на котором установлен сайт точки подключения службы).   
 
-    -   **Replicação**   
+    -   **Репликация**   
 
-    -   **Verificação de Pré-requisitos**   
+    -   **Проверка готовности к установке**   
 
-    -   **Instalação**    
+    -   **Установка**    
 
-    -   **Após a instalação** ([tarefas de pós-instalação](#post-installation-tasks) disponíveis a partir versão 1610.)  
+    -   **После установки** ([задачи после установки](#post-installation-tasks) доступны начиная с версии 1610).  
 
--   Pode ver o **CMUpdate.log** ficheiros  **&lt;ConfigMgr_Installation_Directory > \Logs**  
+-   Файл **CMUpdate.log** можно просмотреть в каталоге **&lt;Каталог_установки_ConfigMgr>\Logs**.  
 
-**4. Quando a instalação da atualização é concluída**  
-Após a instalação da primeira atualização do site ser concluída:  
+**4. По завершении установки обновления**  
+После завершения установки обновления на первом сайте:  
 
--   Os sites primários subordinados instalam a atualização automaticamente. Não é necessária mais nenhuma ação.  
+-   Дочерние первичные сайты устанавливают обновление автоматически. В дальнейших действиях нет необходимости.  
 
--   Os sites secundários têm de ser manualmente atualizados da consola do Configuration Manager.
+-   Вторичные сайты необходимо обновить вручную с помощью консоли Configuration Manager.
 > [!TIP]
-> Embora a versão de um site secundário não for apresentado na consola, pode utilizar o SDK do Gestor de configuração para confirmar a versão de um site. Consulte [SMS_Site servidor WMI classe](https://technet.microsoft.com/library/hh442832(CMSDK.16).aspx).
+> Хотя версия вторичного сайта не отображается в консоли, вы можете использовать пакет SDK для Configuration Manager, чтобы проверить версию сайта. См. раздел [Серверный класс WMI SMS_Site Server](https://technet.microsoft.com/library/hh442832(CMSDK.16).aspx).
 
 
--   Até que todos os sites da hierarquia tenham sido atualizados para a nova versão, a hierarquia funciona num modo com versões mistas. Para obter mais informações, veja [Interoperabilidade entre diferentes versões do System Center Configuration Manager](../../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
+-   Пока все сайты в иерархии не будут обновлены до новой версии, иерархия будет работать в режиме смешанных версий. Дополнительные сведения см. в разделе [Взаимодействие различных версий System Center Configuration Manager](../../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
 
-**5.   Atualizar consolas do Configuration Manager**  
-Depois de um site de administração central ou site primário, cada consola do Configuration Manager que liga a esse site tem também de atualizar. Ser-lhe-á pedido para atualizar uma consola:  
+**5.   Обновление консолей Configuration Manager**  
+После обновления сайта центра администрирования или первичного сайта необходимо также обновить каждую консоль Configuration Manager, которая подключается к этому сайту. Обновить консоль предлагается в следующих случаях:  
 
--   Quando abrir a consola.  
+-   При открытии консоли.  
 
--   Quando acede a um novo nó numa consola aberta.  
+-   При переходе на новый узел в открытой консоли.  
 
-Recomendamos que instale a atualização imediatamente.  
+Рекомендуем установить это обновление незамедлительно.  
 
-Quando a atualização da consola estiver concluída, pode verificar se a versão da consola e do site está correta. Aceda a **sobre o System Center Configuration Manager** no canto superior esquerdo da consola.  
+После завершения обновления консоли можно убедиться, что версии консоли и сайта верные. Выберите пункт **О System Center Configuration Manager** в левом верхнем углу консоли.  
 
-###  <a name="bkmk_toptier"></a> Para iniciar a instalação da atualização no site de nível superior  
-No site de nível superior da hierarquia, na consola do Configuration Manager aceda a **administração** > **atualizações e manutenção**, selecione um **disponível** atualizar e, em seguida, clique em **Instalar pacote de atualizações**.  
+###  <a name="bkmk_toptier"></a> Запуск установки обновления на сайте верхнего уровня  
+На сайте верхнего уровня иерархии в консоли Configuration Manager перейдите к узлу **Администрирование** > **Обновления и обслуживание** выберите **доступное** обновление и щелкните **Установить пакет обновления**.  
 
-###  <a name="bkmk_secondary"></a> Para iniciar a instalação da atualização num site secundário  
-Depois de atualizações de site primário principal de um site secundário, pode atualizar o site secundário a partir da consola do Configuration Manager.  Para tal, utilize o **Assistente para Atualizar Site Secundário**.  
+###  <a name="bkmk_secondary"></a> Запуск установки обновления на вторичном сайте  
+Обновив родительский первичный сайт вторичного сайта, вы можете обновить вторичный сайт из консоли Configuration Manager.  Чтобы это сделать, используйте **мастер обновления вторичных сайтов**.  
 
-1.  Na consola do Configuration Manager, vá para **administração** > **configuração do Site** > **Sites**, selecione o site que pretende atualizar e, em seguida, na home page do separador, no **Site** grupo, escolha **atualizar**.  
+1.  В консоли Configuration Manager перейдите к узлу **Администрирование** > **Конфигурация сайта** > **Сайты**, выберите сайт, который требуется обновить, а затем на вкладке "Главная" в группе **Сайт** нажмите кнопку **Обновить**.  
 
-2.  Clique em **Sim** para iniciar a atualização do site secundário.  
+2.  Чтобы начать обновление вторичного сайта, нажмите кнопку **Да** .  
 
-Para monitorizar a instalação da atualização num site secundário, selecione o servidor de site secundário. Em seguida, no **home page** separador o **Site** grupo, escolha **Mostrar estado da instalação**. Também pode adicionar a coluna **Versão** ao ecrã da consola, de modo a que possa ver a versão de cada site secundário.  
+Для наблюдения за установкой обновления на дополнительный сайт выберите сервер вторичного сайта. Затем на вкладке **Главная** в группе **Сайт** выберите пункт **Показать состояние установки**. В представление консоли можно также добавить столбец **Версия** , чтобы иметь возможность просматривать версию каждого вторичного сайта.  
 
-Depois de um site secundário com êxito as atualizações, se o estado na consola do não atualiza ou sugere falhou a atualização, utilizam o **repetir a instalação** opção. Esta opção não reinstalar a atualização de um site secundário que instalar com êxito a atualização, mas que força a consola para atualizar o estado.
+Если после успешного обновления вторичного сайта состояние в консоли не изменяется или указывает на сбой обновления, используйте параметр **Повторить попытку установки**. Этот параметр не переустанавливает обновление для вторичного сайта, на котором оно было успешно установлено, но обновляет его состояние в консоли.
 
-### <a name="post-installation-tasks"></a>Tarefas de pós-instalação
-A partir da versão 1610, pode ver informações sobre as tarefas de pós-instalação.
+### <a name="post-installation-tasks"></a>Задачи, выполняемые после установки
+Начиная с версии 1610 можно просматривать сведения о задачах после установки.
 
-Quando um site instala uma atualização, existem várias tarefas que não é possível iniciar até após a conclusão da atualização instalação no servidor do site. Segue-se uma lista das tarefas de instalação post que são críticos para as operações de hierarquia e site. Uma vez que são críticos, são ativamente monitorizadas. Tarefas adicionais que não são monitorizadas diretamente incluem a reinstalação de funções de sistema de sites. Para ver o estado das tarefas de instalação post crítico, selecione **após a instalação** tarefas ao monitorizar a instalação da atualização para um site.
+Когда сайт устанавливает обновление, некоторые задачи нельзя выполнять, пока не завершится установка обновления на сервере сайта. Ниже приведен список задач, которые выполняются после установки и являются критическими для операций сайта и иерархии. Из-за своей важности они активно отслеживаются. Дополнительные задачи, которые непосредственно не отслеживаются, включают повторную установку ролей системы сайта. Чтобы просмотреть состояние важных задач, выполняемых после установки, выберите задачу **После установки** во время наблюдения за установкой обновления для сайта.
 
-Nem todas as tarefas concluírem imediatamente. Algumas tarefas não iniciada até a cada site concluir a instalação da atualização. Por conseguinte, novas funcionalidades que seria de esperar podem sofrer um atraso de até concluírem estas tarefas. Por exemplo, porque ativar novas funcionalidades não é iniciado até que todos os sites concluir a instalação da atualização, as novas funcionalidades podem não estar visíveis durante algum tempo.
+Не все задачи выполняются немедленно. Некоторые задачи не будут запущены до завершения установки обновления для каждого сайта. Таким образом, новые функциональные возможности могут появиться уже после завершения этих задач. Например, включение новых компонентов не начинается, пока все сайты не завершат установку обновления, поэтому новые возможности могут не отображаться некоторое время.
 
-As tarefas de pós-instalação incluem:
+Задачи, выполняемые после установки
 
--   **Instalar o serviço SMS_EXECUTIVE**
-  -   Serviço crítico que é executado no servidor do site.
-  -   Reinstalação deste serviço deve ser concluído rapidamente.
-
-
--   **Instalar o componente SMS_DATABASE_NOTIFICATION_MONITOR**
-  -   Thread do componente de críticos do site do serviço SMS_EXECUTIVE.
-  -   Reinstalação deste serviço deve ser concluído rapidamente.
+-   **Установка службы SMS_EXECUTIVE**
+  -   Важная служба, которая работает на сервере сайта.
+  -   Переустановка этой службы должна завершиться быстро.
 
 
--   **Instalar o componente SMS_HIERARCHY_MANAGER**
-  -   Componente de críticos do site que é executado no servidor do site.
-  -   Responsável por reinstalar funções do sistema de sites em servidores de sistema de sites.  Não apresentar o estado para reinstalação de função do sistema de sites individuais.
-  -   Reinstalação deste serviço deve ser concluído rapidamente.
+-   **Установка компонента SMS_DATABASE_NOTIFICATION_MONITOR**
+  -   Важные поток компонента сайта для службы SMS_EXECUTIVE.
+  -   Переустановка этой службы должна завершиться быстро.
 
 
--   **Instalar o componente SMS_REPLICATION_CONFIGURATION_MONITOR**
-  -   Componente de críticos do site que é executado no servidor do site.
-  -   Reinstalação deste serviço deve ser concluído rapidamente.
+-   **Установка компонента SMS_HIERARCHY_MANAGER**
+  -   Важный компонент сайта, который работает на сервере сайта.
+  -   Он отвечает за переустановку ролей системы сайта на серверах системы сайта.  Состояние переустановки отдельных ролей системы сайта не отображается.
+  -   Переустановка этой службы должна завершиться быстро.
 
 
--   **Instalar o componente SMS_POLICY_PROVIDER**
-  -   Componente de críticos do site que é executado apenas em sites primários.
-  -   Reinstalação deste serviço deve ser concluído rapidamente.
+-   **Установка компонента SMS_REPLICATION_CONFIGURATION_MONITOR**
+  -   Важный компонент сайта, который работает на сервере сайта.
+  -   Переустановка этой службы должна завершиться быстро.
 
 
--   **Monitorizar a inicialização da replicação**   
-  -   Esta ação apresenta apenas o site de administração central e sites primários subordinados.
-  -   O SMS_REPLICATION_CONFIGURATION_MONITOR dependente.
-  -   Deve ser concluído rapidamente.
+-   **Установка компонента SMS_POLICY_PROVIDER**
+  -   Важный компонент сайта, который работает только на первичных сайтах.
+  -   Переустановка этой службы должна завершиться быстро.
 
 
--   **Atualizar o pacote de pré-produção do cliente do Configuration Manager**    
-  -   Esta ação apresenta, mesmo quando cliente de pré-produção (também denominada cliente testes de implementação no) não está ativado para utilização.
-  -   Não é iniciado até que todos os sites na hierarquia de concluir a instalação da atualização.
+-   **Мониторинг инициализации репликации**   
+  -   Этот компонент отображается только на сайте центра администрирования и первичных дочерних сайтах.
+  -   Зависит от компонента SMS_REPLICATION_CONFIGURATION_MONITOR.
+  -   Должен установиться быстро.
 
 
--   **Pasta de atualização do cliente no servidor do Site**
-  -   Não é apresentado se utilizar o cliente em pré-produção.  
-  -   Deve ser concluído rapidamente.
+-   **Обновление подготовительного пакета клиента Configuration Manager**    
+  -   Этот компонент отображается, даже если предварительный клиент (пилотное развертывание клиента) не включен для использования.
+  -   Не запускается, пока все сайты в иерархии не завершат установку обновления.
 
 
--   **Atualizar o pacote de cliente do Configuration Manager**
-  -   Não é apresentado se utilizar o cliente em pré-produção.  
-  -   Acaba de apenas depois de todos os sites instalam a atualização.  
+-   **Обновление папки Client на сервере сайта**
+  -   Компонент не отображается, если вы используете клиент в предварительной среде.  
+  -   Должен установиться быстро.
 
 
--   **Ativar funcionalidades**
-  -   Esta ação apresenta apenas no site de nível superior da hierarquia.
-  -   Não é iniciado até que todos os sites na hierarquia de concluir a instalação da atualização.
-  -   Funcionalidades individuais não são apresentadas.
+-   **Обновление пакета клиента Configuration Manager**
+  -   Компонент не отображается, если вы используете клиент в предварительной среде.  
+  -   Устанавливается только после установки обновлений на все сайты.  
 
 
-##  <a name="bkmk_retry"></a> Repetir a instalação de uma atualização falhada  
-Quando a instalação de uma atualização falhar, reveja os comentários na consola para identificar resoluções de avisos e erros. Também pode ver o ConfigMgrPrereq.log no servidor do site para obter mais detalhes. Antes de repetir a instalação de uma atualização, é necessário corrigir os erros e deve corrigir os avisos.  
+-   **Включение компонентов**
+  -   Компонент отображается только на сайте верхнего уровня иерархии.
+  -   Не запускается, пока все сайты в иерархии не завершат установку обновления.
+  -   Отдельные компоненты не отображаются.
+
+
+##  <a name="bkmk_retry"></a> Повторная попытка установки обновления в случае сбоя  
+При сбое установки обновления просмотрите отчет об ошибках в консоли, чтобы определить, какие действия необходимы для устранения предупреждений и ошибок. Дополнительные сведения можно просмотреть в журнале ConfigMgrPrereq.log на сервере сайта. Перед повторной попыткой установки обновления необходимо устранить ошибки, а также устранить предупреждения.  
 
 > [!TIP]  
-> Se uma atualização tem problemas de transferir ou replicar, pode utilizar o [ferramenta de reposição de atualização](/sccm/core/servers/manage/update-reset-tool). Esta ferramenta é disponíveis a partir dos sites que executam a versão 1706 ou posterior. 
+> Если не удается скачать или реплицировать обновление, можно использовать [средство сброса обновления](/sccm/core/servers/manage/update-reset-tool). Это средство есть на сайтах с версией 1706 или более поздней версией. 
 
-Quando estiver pronto para repetir a instalação de uma atualização, selecione a atualização falhada e, em seguida, escolha uma opção aplicável. O comportamento de tentativas de instalação de atualização depende do nó onde deve começar a repetição e a opção de repetição que utilizar.  
+Когда вы будете готовы повторить установку обновления, выберите обновление, установка которого завершилась сбоем, а затем выберите соответствующий вариант. Режим повторной попытки установки обновления зависит от узла, с которого начинается повтор, и выбранного метода повторной попытки.  
 
-1.  **Repetir a instalação para a hierarquia:**  
-Pode repetir a instalação de uma atualização para toda a hierarquia quando a atualização se encontra num dos seguintes estados:  
+1.  **Повторная установка для иерархии.**  
+Можно повторить установку обновления для всей иерархии, если это обновление находится в одном из следующих состояний:  
 
-    -   Verificação de pré-requisitos passou com um ou mais avisos, e a opção para ignorar os avisos de verificação de pré-requisitos não foi definida no Assistente de atualização. (Valor da atualização para **ignorar aviso de pré** no **atualizações e manutenção** é nó **não**.)   
-    -   Falha no pré-requisito    
-    -   Falha na instalação
-    -   Falha na replicação do conteúdo para o site   
+    -   Проверка готовности пройдена с одним или несколькими предупреждениями, а параметр, позволяющий пропустить все ошибки проверки готовности в мастере обновлений не установлен. (Для параметра **Пропустить предупреждение о необходимых компонентах** в узле **Обновления и обслуживание** обновлению присвоено значение **Нет**.)   
+    -   Сбой проверки готовности к установке    
+    -   Сбой установки
+    -   Сбой репликации содержимого на сайт   
 
-    Aceda a **administração** > **atualizações e manutenção**, selecione a atualização e, em seguida, escolha uma das seguintes opções:  
+    Перейдите к узлу **Администрирование** > **Обновления и обслуживание**, выберите обновление и один из следующих параметров.  
 
-    -   **Repita** - quando executar **repita** partir deste nó, a instalação da atualização é iniciada novamente e automaticamente ignora os avisos de pré-requisitos. Conteúdo para a atualização também novamente replica se replicação tenha falhado anteriormente.
-    - **Ignorar os avisos de pré-requisitos** -a partir da versão 1606, se parar devido a um aviso de instalar a atualização, pode então escolher **ignorar os avisos de pré-requisitos**. Esta ação permite continuar a instalação da atualização (após alguns minutos) e utiliza a opção para ignorar avisos de pré-requisitos.   
+    -   **Повторить** — при выборе параметра **Повторить** в этом узле установка обновления начинается снова, а предупреждения о необходимых компонентах пропускаются автоматически. Выполняется повторная репликация содержимого обновления, если не удалось выполнить ее ранее.
+    - **Пропускать предупреждения о необходимых компонентах** — начиная с версии 1606, если установка обновления останавливается из-за предупреждения, можно нажать кнопку **Пропускать предупреждения о необходимых компонентах**. Это действие позволяет продолжить установку обновления (через несколько минут) и использует функцию пропуска предупреждений проверки.   
 
-2.  **Repetir a instalação para o site:**  
- Pode repetir a instalação de uma atualização num site específico quando a atualização se encontra num dos seguintes estados:  
+2.  **Повторная установка для сайта.**  
+ Можно повторить установку обновления для определенного сайта, если это обновление находится в одном из следующих состояний:  
 
-    -   Verificação de pré-requisitos passou com um ou mais avisos, e a opção para ignorar os avisos de verificação de pré-requisitos não foi definida no Assistente de atualização. (O valor das atualizações para **ignorar aviso de pré-requisitos** do nó atualizações e manutenção é **não**.)  
-    -   Falha no pré-requisito    
-    -   Falha na instalação    
+    -   Проверка готовности выполнена с одним или несколькими предупреждениями, а параметр, позволяющий пропустить все ошибки проверки готовности, в мастере обновлений не настроен. (Для параметра **Пропускать предупреждения о необходимых компонентах** в узле "Обновления и обслуживание" обновлению присвоено значение **Нет**).  
+    -   Сбой проверки готовности к установке    
+    -   Сбой установки    
 
-    Aceda a **monitorização** > **descrição geral** > **estado de manutenção do Site**, selecione a atualização e, em seguida, clique das seguintes opções:
+    Перейдите в раздел **Мониторинг** > **Обзор** > **Состояние обслуживания сайта**, выберите обновление, а затем один из следующих вариантов.
 
-       - **Repita** - quando executar **repita** partir deste nó, reiniciar a instalação da atualização apenas nesse site. Ao contrário de execução **repita** do **atualizações e manutenção** nó, esta repetição ignora os avisos de pré-requisitos.
-       -    **Ignorar os avisos de pré-requisitos** -a partir da versão 1606, se parar devido a um aviso de instalar a atualização, pode, em seguida, clicar em **ignorar os avisos de pré-requisitos**. Esta ação permite continuar a instalação da atualização (após alguns minutos) e utiliza a opção para ignorar avisos de pré-requisitos.
+       - **Повторить** — при выборе параметр **Повторить** в этом узле установка обновления перезапускается только для этого сайта. В отличие от применения параметра **Повторить** из узла **Обновления и обслуживание** в этом режиме предупреждения о необходимых компонентах не пропускаются.
+       -    **Пропускать предупреждения о необходимых компонентах** — начиная с версии 1606, если установка обновления останавливается из-за предупреждения, можно нажать кнопку **Пропускать предупреждения о необходимых компонентах**. Это действие позволяет продолжить установку обновления (через несколько минут) и использует функцию пропуска предупреждений проверки.
 
-##  <a name="bkmk_after"></a> Após uma site instalar uma atualização  
-Utilize a lista de verificação seguinte para concluir tarefas comuns e as configurações que são efetuadas após um site é atualizado.   
+##  <a name="bkmk_after"></a> После установки обновления на сайте  
+Используйте следующий контрольный список для выполнения общих задач и настроек, которые обычно применяются после обновления сайта.   
 
-**Confirme a replicação do site para site está ativa:** Na consola do Configuration Manager, vá para as localizações seguintes para ver o estado e certifique-se de que a replicação está ativa:  
+**Убедитесь в том, что межсайтовая репликация активна.** В консоли Configuration Manager перейдите к следующим разделам, чтобы просмотреть состояние и убедиться в том, что репликация активна.  
 
--   **Monitorização** > **Descrição geral** > **Hierarquia do Site**  
+-   **Мониторинг** > **Обзор** > **Иерархия сайта**  
 
--   **Monitorização** > **Descrição geral** > **Replicação de Base de Dados**  
+-   **Мониторинг** > **Обзор** > **Репликация базы данных**  
 
-Para obter mais informações, consulte [monitorizar a infraestrutura hierarquia e replicação no System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) e [sobre o analisador do Link de replicação](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA).  
+Дополнительные сведения см. в разделах [Мониторинг иерархии и инфраструктуры репликации в System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) и [Сведения об анализаторе канала репликации](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA).  
 
- **Confirme que os servidores de site e servidores do sistema de sites remoto reiniciaram (se necessário):** Reveja a infraestrutura de sites e certifique-se de que os servidores de sistema de sites e servidores de sites aplicáveis tem reiniciado com êxito. Normalmente, os servidores do site reiniciar apenas quando o Configuration Manager instala .NET como um pré-requisito para uma função de sistema de sites.  
+ **Убедитесь, что серверы сайта и удаленные серверы системы сайта были перезапущены (при необходимости).** Просмотрите инфраструктуру сайта и убедитесь, что соответствующие серверы сайта и серверы системы сайта успешно перезапущены. Как правило, серверы сайта перезапускаются, только если Configuration Manager устанавливает .NET в качестве необходимого компонента для роли системы сайта.  
 
- **Atualize consolas do Configuration Manager autónomo:** Certifique-se de que todas as consolas remotas do Configuration Manager estão a atualização para a mesma versão. Ser-lhe-á pedido para atualizar a consola quando:  
+ **Обновите автономные консоли Configuration Manager.** Убедитесь в том, что все удаленные консоли Configuration Manager обновлены до одной версии. Обновить консоль предлагается в следующих случаях:  
 
--   Ir para um novo nó na consola do.  
+-   При переходе на новый узел в консоли.  
 
--   Abra a consola.
+-   При открытии консоли.
 
-**Reconfigure réplicas de base de dados para pontos de gestão em sites primários:** Se utilizar réplicas de base de dados para pontos de gestão em sites primários, tem de desinstalar as réplicas de base de dados antes de atualizar o site. Após atualizar um site primário, reconfigure a réplica da base de dados para pontos de gestão. Para obter mais informações, veja [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+**Перенастройте реплики базы данных для точек управления на первичных сайтах** . При использовании реплик баз данных для точек управления на первичных сайтах необходимо удалить их перед обновлением сайта. После обновления первичного сайта перенастройте реплику базы данных для точек управления. Дополнительные сведения см. в разделе [Реплики базы данных для точек управления для System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
-**Reconfigure as tarefas de manutenção de base de dados que desativou antes da atualização:** Se tiver desativado a base de dados [tarefas de manutenção](../../../core/servers/manage/maintenance-tasks.md) num site antes de instalar a atualização, reconfigure essas tarefas no site. Utilize as mesmas definições que se encontravam em vigor antes da atualização.  
+**Перенастройте задачи обслуживания базы данных, которые были отключены перед началом обновления.** Если до выполнения обновления на сайте вы отключили [задачи обслуживания](../../../core/servers/manage/maintenance-tasks.md) базы данных, перенастройте эти задачи на сайте, используя те же параметры, которые использовались до обновления.  
 
-**Atualize clientes:** Para informações, consulte [como atualizar clientes em computadores Windows no System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+**Обновите клиенты.** Дополнительные сведения см. в статье [Обновление клиентов для компьютеров Windows в System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
 
-**Configurações adicionais:** Reveja as alterações efetuadas antes de iniciar a atualização e, em seguida, restaure essas configurações para sites e da hierarquia.  
+**Дополнительные настройки.** Просмотрите изменения, сделанные перед началом обновления, а затем восстановите эти настройки для своих сайтов и иерархии.  
 
-##  <a name="bkmk_options"></a> Ativar funcionalidades opcionais de atualizações  
-Quando uma atualização inclui um ou mais funcionalidades opcionais, terá a oportunidade de ativar essas funcionalidades na sua hierarquia.  Pode ativar funcionalidades quando instala a atualização, ou pode regressar à consola do mais tarde e ativar as funcionalidades opcionais.
+##  <a name="bkmk_options"></a> Включение дополнительных функций из обновлений  
+Если обновление содержит один или несколько дополнительных компонентов, можно включить эти компоненты в иерархии.  Это можно сделать во время установки обновления или вернуться в консоль позже, чтобы включить дополнительные компоненты.
 
-Para ver as funcionalidades disponíveis e o respetivo estado, na consola navegue para **administração** > **atualizações e manutenção** > **funcionalidades**.
+Чтобы просмотреть доступные компоненты и их состояние, перейдите в консоли к узлу **Администрирование** > **Обновления и обслуживание** > **Компоненты**.
 
-Quando uma funcionalidade não é opcional, é instalado automaticamente e não for apresentada a **funcionalidades** nós.  
-
-
-Quando ativa uma funcionalidade nova ou a funcionalidade de pré-lançamento, o Gestor da hierarquia do Configuration Manager (HMAN) tem de processar a alteração para que essa funcionalidade fica disponível. O processamento da alteração, muitas vezes, é imediato, mas pode demorar até 30 minutos a concluir, consoante o ciclo de processamento de HMAN. Após a alteração é processada, tem de reiniciar a consola antes de poder visualizar a nova IU relacionados com essa funcionalidade.
+Если компонент не является дополнительным, он устанавливается автоматически и не отображается в узле **Компоненты**.  
 
 
-##  <a name="bkmk_prerelease"></a> Utilizar as funcionalidades da versão de pré-lançamento de atualizações
-Funcionalidades de pré-lançamento estão incluídas no ramo atual para um teste antecipado num ambiente de produção. Pode utilizar estas funcionalidades no seu ambiente de produção, mas não são considerados produção pronto. Saiba mais sobre [funcionalidades de pré-lançamento](/sccm/core/servers/manage/pre-release-features), incluindo como ativá-los no seu ambiente.             
+При включении новой функции или функции предварительного выпуска диспетчер иерархии Configuration Manager (HMAN) должен обработать данное изменение, прежде чем эта функция станет доступной. Обработка изменения часто производится немедленно, но в зависимости от цикла обработки HMAN это может занять до 30 минут. После обработки изменения нужно перезапустить консоль, чтобы отобразить новый пользовательский интерфейс, связанный с этой функцией.
 
 
-## <a name="known-issues"></a>Problemas conhecidos
+##  <a name="bkmk_prerelease"></a> Использование функций предварительной версии из обновлений
+Компоненты предварительной версии включены в Current Branch для раннего тестирования в рабочей среде. Эти компоненты еще не полностью готовы, но их уже можно использовать в рабочей среде. См. дополнительные сведения о [компонентах предварительной версии](/sccm/core/servers/manage/pre-release-features), в том числе инструкции по их включению их в вашей среде.             
 
-###  <a name="bkmk_faq"></a>Por que motivo não vejo determinadas atualizações na consola?  
- Se não conseguir localizar uma atualização específica a consola depois de uma sincronização com êxito com o serviço de nuvem da Microsoft, tal poderá acontecer porque:  
 
--   A atualização requer uma configuração que a sua infraestrutura não utiliza ou a versão atual do produto não cumpre um pré-requisito para receber a atualização.  
+## <a name="known-issues"></a>Известные проблемы
 
-     Se achar que tem as configurações necessárias e pré-requisitos para uma atualização em falta, confirme que o ponto de ligação de serviço está no modo online. Em seguida, utilize o **procurar atualizações** opção o **atualizações e manutenção** nó para forçar uma verificação.  Se estiver no modo offline, tem de utilizar a ferramenta de ligação de serviço para sincronizar manualmente com o serviço em nuvem.  
+###  <a name="bkmk_faq"></a> Почему в консоли нет определенных обновлений?  
+ Если после успешной синхронизации с облачной службой Майкрософт в консоли не удается найти определенное обновление, это может быть вызвано следующими причинами.  
 
--   A conta não possui as permissões corretas de administração baseada em funções para ver as atualizações na consola do Configuration Manager.
+-   Для обновления требуется конфигурация, которую не использует ваша инфраструктура, или текущая версия продукта не удовлетворяет требованиям получения обновления.  
 
-    Veja [Permissões para gerir atualizações de](../../../core/servers/manage/install-in-console-updates.md#assign-permissions-to-view-and-manage-updates-and-features) neste tópico para obter informações sobre as permissões necessárias para ver atualizações e ativar funcionalidades a partir da consola.
+     Если вы считаете, что у вас есть необходимые конфигурации и необходимые компоненты отсутствующего обновления, убедитесь, что точка подключения службы подключена к сети. Затем выполните принудительную проверку, выбрав параметр **Проверить наличие обновлений** в узле **Обновления и обслуживание**.  В автономном режиме для ручной синхронизации с облачной службой используется инструмент подключения службы.  
 
-### <a name="why-do-i-see-two-updates-for-version-1610"></a>Por que razão vejo duas atualizações para a versão 1610?
-Ao visualizar as atualizações na consola, poderá ver duas atualizações a instalar a versão 1610. Estas atualizações tem datas diferentes. Ambos são apresentadas quando uma das seguintes condições for verdadeira:   
--   Instalou uma versão anterior (como 1606) após a disponibilização de versão 1610
+-   Ваша учетная запись не обладает разрешениями ролевого администрирования, необходимыми для просмотра обновлений в консоли Configuration Manager.
 
--   A hierarquia executa a versão 1511 ou 1602 e não tenham conseguido transferir a versão 1606
+    В подразделе [Разрешения для управления обновлениями](../../../core/servers/manage/install-in-console-updates.md#assign-permissions-to-view-and-manage-updates-and-features) этого раздела можно найти сведения о необходимых разрешениях для просмотра обновлений и включения компонентов из консоли.
 
-Existem dois atualização versões para versão 1610 porque esta atualização foi lançada novamente depois de algumas alterações secundárias para algumas binários de ficheiro foram efetuadas. Estas alterações não afetam a funcionalidade do Configuration Manager ou a atualização.
+### <a name="why-do-i-see-two-updates-for-version-1610"></a>Почему для версии 1610 отображаются два обновления?
+При просмотре обновлений в консоли могут отображаться два обновления для установки версии 1610. Они имеют разные даты. Два обновления могут отображаться в таких случаях:   
+-   вы установили более раннюю версию (например, 1606) после выхода версии 1610;
 
-Quando ambas as atualizações estão disponíveis na consola do seu, recomendamos que instale a atualização com a data mais recente. No entanto, porque as atualizações de fornecem a mesma funcionalidade, quando já tiver instalado uma delas não é necessário efetuar qualquer ação adicional.
--   Se tiver instalado anteriormente a atualização anterior, não tem de instalar a atualização com a data mais recente. No entanto, se instalar a atualização depois de instalar a primeira atualização mais recente, irão atualizar os binários em questão. Não ocorre nenhuma alteração adicional e não existem ações adicionais da sua parte são necessárias.
+-   в иерархии используется версия 1511 или 1602, и вам не удалось скачать версию 1606.
 
--   Se instalou anteriormente a atualização mais recente e, em seguida, instale a atualização com a data mais antiga, não é necessária nenhuma ação adicional. Isto acontece porque os binários da mais recentes já instalado não são substituídos por esses mesmos binários de atualização original.
+Для версии 1610 имеются два выпуска обновления, так как это обновление было повторно выпущено после внесения незначительных изменений в некоторые двоичные файлы. Эти изменения не влияют на функциональность Configuration Manager или обновления.
+
+Если оба обновления доступны в консоли, мы рекомендуем установить обновление с более поздней датой. Так как эти обновления обеспечивают одну и ту же функциональность, когда одно из них уже установлено, вам не нужно выполнять никаких действий.
+-   Если вы ранее установили более старое обновление, обновление с более поздней датой устанавливать не требуется. Но если установить новое обновление после первого обновления, соответствующие двоичные файлы обновятся. Этот происходит без участия пользователя и дополнительные изменения при этом не вносятся.
+
+-   Если вы ранее установили последний выпуск обновления, а затем установили обновление с более ранней датой, то дополнительных действий не требуется. Это связано с тем, что более новые версии двоичных файлов не будут перезаписаны версиями из исходного обновления.

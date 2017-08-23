@@ -1,6 +1,6 @@
 ---
-title: "Publicador de atualizações | Microsoft Docs"
-description: "Utilizar o System Center Updates Publisher para gerir as atualizações personalizadas"
+title: "Updates Publisher | Документация Майкрософт"
+description: "Используйте System Center Updates Publisher для управления пользовательскими обновлениями."
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,50 +17,50 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: f4951c204b32da58174b94a539b380c278fa9756
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="system-center-updates-publisher"></a>O System Center Updates Publisher
+# <a name="system-center-updates-publisher"></a>System Center Updates Publisher
 
-*Aplica-se a: O System Center Updates Publisher*
+*Область применения: System Center Updates Publisher*
 
-System Center Updates Publisher (Updates Publisher) é uma ferramenta autónoma que permite que os fabricantes independentes de software ou programadores de aplicações de linha de negócio gerir as atualizações personalizadas. Isto inclui atualizações que têm dependências, como controladores e pacotes de atualização.
+System Center Updates Publisher (Updates Publisher) — это автономное средство, позволяющее независимым поставщикам программного обеспечения или разработчикам бизнес-приложений управлять пользовательскими обновлениями. Сюда входят обновления, содержащие зависимые компоненты, такие как драйверы и пакеты обновления.
 
-Utilizar o Updates Publisher, pode:
+С помощью Updates Publisher вы можете:
 
--   Importar as atualizações de catálogos externos (catálogos de atualização de terceiros).
--   Modificar definições de atualização, incluindo a aplicabilidade e metadados de implementação.
--   Exporte as atualizações para catálogos externos.
--   Publica atualizações para um servidor de atualização.
+-   Импортировать обновления из внешних каталогов (каталоги сторонних обновлений).
+-   Изменять определения обновлений, включая применимость и метаданные развертывания.
+-   Экспортировать обновления во внешние каталоги.
+-   Публиковать обновления на сервере обновлений.
 
-Depois de publicar as atualizações para um servidor de atualização, em seguida, pode utilizar o System Center Configuration Manager para detetar e implementar essas atualizações nos seus dispositivos geridos.
+После публикации обновлений на сервере обновлений можно использовать System Center Configuration Manager, чтобы обнаружить и развернуть их на управляемых устройствах.
 
 > [!TIP]  
-> A versão anterior, [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/?LinkId=848111), permanece no suporte. Esta versão atualizada mantém a mesma funcionalidade, mas suporta sistemas operativos adicionais, novas funcionalidades para simplificar algumas tarefas e tem uma interface de utilizador atualizado.
+> Пока поддерживается предыдущая версия [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/?LinkId=848111). Эта обновленная версия включает те же функциональные возможности, но поддерживает дополнительные операционные системы и новые возможности, упрощающие некоторые задачи. В ней реализован новый пользовательский интерфейс.
 
-## <a name="workspaces"></a>Áreas de trabalho
-Quando abrir o Updates Publisher, assume como nó de descrição geral do *área de trabalho de atualizações.*
+## <a name="workspaces"></a>Рабочие области
+При открытии Updates Publisher по умолчанию используется узел "Обзор" *рабочей области "Обновления"*.
 
-![Consola do publicador de atualizações](media/console1.png)   
-
-
-Publicador de atualizações tem quatro áreas de trabalho para ajudar a organizá-lo.
+![Консоль Updates Publisher](media/console1.png)   
 
 
-**Área de trabalho de atualizações:** Utilize esta área de trabalho para [criar](/sccm/sum/tools/create-updates-with-updates-publisher) e [gerir](/sccm/sum/tools/manage-updates-with-updates-publisher) atualizações de software e os pacotes de atualizações. Isto inclui a atribuição de atualizações e os pacotes para uma publicação, publicar e exportar para o repositório do Updates Publisher outro a pedido.
-
-**Área de trabalho publicações:** Este é onde pode [gerir publicações](/sccm/sum/tools/updates-publisher-publications). Uma publicação é o grupo de atualizações cria para simplificar a exportação e a publicação de atualizações.
-
-Gerir publicações inclui a publicação de atualizações para um servidor para que os seus clientes podem encontrar e instalá-los, exportar as atualizações e os pacotes para utilização por outras instalações do Updates Publisher ou modificar o conteúdo ou detalhes de uma publicação.
+Для систематизации Updates Publisher включает четыре рабочие области.
 
 
+**Рабочая область "Обновления".** Используйте эту рабочую область для [создания](/sccm/sum/tools/create-updates-with-updates-publisher) обновлений программного обеспечения и пакетов обновлений, а также для [управления](/sccm/sum/tools/manage-updates-with-updates-publisher) ими. Сюда входит назначение пакетов и обновлений публикации, публикация и экспорт в другой репозиторий Updates Publisher.
 
-**Área de trabalho de regras:** Segue-se onde [gerir as regras de aplicabilidade](/sccm/sum/tools/updates-publisher-applicability-rules) que pode ser guardado e, em seguida, utilizado com as atualizações que implementar. Existem dois tipos de regras:
+**Рабочая область "Публикации"**. Здесь можно [управлять публикациями](/sccm/sum/tools/updates-publisher-publications). Публикация — это группа созданных обновлений, упрощающая экспорт и публикацию обновлений.
 
--   As regras de instaláveis – estas regras ajudar a determinar se um cliente deve instalar uma atualização.
--   Instalado regras – estas regras, verifique se uma atualização já está instalada.
+Управление публикациями предусматривает публикацию обновлений на сервере, чтобы клиенты могли находить и устанавливать их, экспорт обновлений и пакетов, необходимых для других установок Updates Publisher, а также изменение содержимого или сведений о публикации.
 
-**Área de trabalho de catálogos:** Utilize esta área de trabalho para adicionar e [gerir catálogos de atualização de software](/sccm/sum/tools/updates-publisher-catalogs). Isto inclui a importação de atualizações de software desses catálogos para o repositório do Updates Publisher.
-## <a name="first-steps"></a>Passos primeiro
-Para começar a utilizar, primeiro [instalar](/sccm/sum/tools/install-updates-publisher)e, em seguida, [configurar opções](/sccm/sum/tools/updates-publisher-options) para o Updates Publisher.
+
+
+**Рабочая область "Правила"**. Здесь вы [управляете правилами применимости](/sccm/sum/tools/updates-publisher-applicability-rules), которые можно сохранить, а затем использовать с развертываемыми обновлениями. Существует два типа правил:
+
+-   Устанавливаемые правила. Эти правила помогают определить, должен ли клиент установить обновление.
+-   Установленные правила. Используя эти правила можно проверить, установлено ли обновление.
+
+**Рабочая область "Каталоги"**. Используйте эту рабочую область для добавления каталогов обновлений программного обеспечения и [управления ими](/sccm/sum/tools/updates-publisher-catalogs). Сюда относится импорт обновлений программного обеспечения из этих каталогов в репозиторий Updates Publisher.
+## <a name="first-steps"></a>Первые шаги
+Чтобы начать работу, сначала [установите](/sccm/sum/tools/install-updates-publisher) Updates Publisher, а затем [настройте параметры](/sccm/sum/tools/updates-publisher-options) для этого средства.

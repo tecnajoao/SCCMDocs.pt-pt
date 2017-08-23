@@ -1,795 +1,791 @@
 ---
-title: "Lista de relatórios | Documentos do Microsoft"
-description: "Reveja uma lista de relatórios que são fornecidas com o Configuration Manager. Os relatórios são apresentados em várias categorias."
+title: "Список отчетов | Документы Майкрософт"
+description: "Просмотрите список отчетов, которые предоставляются Configuration Manager. Отчеты отображаются в различных категориях."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b7332ed3-8003-454b-bb12-1fdf8721425c
-caps.latest.revision: 10
-caps.handback.revision: 0
+caps.latest.revision: "10"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
 ms.openlocfilehash: 1480c38a6a3afef76b2e8759eaafd47d28f978f4
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="list-of-reports-in-system-center-configuration-manager"></a>Lista de relatórios no System Center Configuration Manager
+# <a name="list-of-reports-in-system-center-configuration-manager"></a>Список отчетов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Vários relatórios incorporados são fornecidos com o System Center Configuration Manager, que descreve o que muitas das tarefas de criação de relatórios que pode efetuar. Também pode utilizar as instruções SQL nestes relatórios para ajudá-lo a escrever os seus próprios relatórios. Utilize as informações deste tópico para saber mais sobre os relatórios que são fornecidos com o Configuration Manager.  
+В состав System Center Configuration Manager входит много встроенных отчетов, предназначенных для решения разнообразных задач. Также вы можете использовать в этих отчетах инструкции SQL, чтобы создавать собственные отчеты. В этом разделе описываются отчеты, поставляемые с Configuration Manager.  
 
-## <a name="list-of-built-in-configuration-manager-reports"></a>Lista de relatórios incorporados do Configuration Manager  
- Os seguintes relatórios são incluídos com o Configuration Manager. Os relatórios são apresentados em várias categorias.  
+## <a name="list-of-built-in-configuration-manager-reports"></a>Список встроенных отчетов Configuration Manager  
+ В Configuration Manager доступны следующие отчеты. Отчеты отображаются в различных категориях.  
 
-### <a name="administrative-security"></a>Segurança administrativa  
- São listados os seguintes relatórios sob o **segurança administrativa** categoria.  
+### <a name="administrative-security"></a>Административная безопасность  
+ Следующие отчеты перечисляются в категории **Административная безопасность** .  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Registo de atividade de administração**|Mostra um registo das alterações administrativas realizadas para utilizadores administrativos, direitos de acesso, âmbitos de segurança e coleções.|  
-|**Atribuições de segurança de utilizadores administrativos**|Mostra utilizadores administrativos, os respetivos direitos de acesso associados e os âmbitos de segurança associados a cada direito de acesso de cada utilizador.|  
-|**Objetos protegidos por um único âmbito de segurança**|Mostra objetos que estão protegidos por um âmbito de segurança especificado e que estão atribuídos apenas a esse âmbito de segurança. Este relatório não mostra objetos associados a mais do que um âmbito de segurança.|  
-|**Segurança para um objetos específicos ou múltiplos do Configuration Manager**|Mostra objetos com capacidade de segurança, os âmbitos de segurança associados aos objetos e os utilizadores administrativos com acesso aos objetos.|  
-|**Resumidas de funções de segurança**|Apresenta as funções de segurança e os administradores do Configuration Manager associados com cada função.|  
-|**Resumos de âmbitos de segurança**|Apresenta os âmbitos de segurança e a utilizadores administrativos do Configuration Manager e os grupos de segurança associados a cada âmbito.|  
+|**Журнал действий администратора**|Отображает записи административных изменений, внесенных для пользователей с правами администратора, ролей безопасности, областей и коллекций безопасности.|  
+|**Назначения безопасности пользователей**|Отображает пользователей с правами администратора, связанные роли безопасности и области безопасности, связанные с каждой ролью безопасности для каждого пользователя.|  
+|**Объекты в одной области безопасности**|Отображает объекты, защищенные указанной областью безопасности и назначенные только этой области безопасности. В этом отчете не отображаются объекты, связанные более чем с одной областью безопасности.|  
+|**Безопасность для заданных объектов Configuration Manager**|Отображает защищаемые объекты, области безопасности, связанные с объектами, и пользователей, имеющих право доступа к объектам.|  
+|**Сводка по ролям безопасности**|Отображает роли безопасности и администраторов Configuration Manager, связанных с каждой ролью.|  
+|**Сводка по областям безопасности**|Отображает области безопасности, а также пользователей с правами администраторов и группы безопасности Configuration Manager, связанные с каждой из областей.|  
 
-### <a name="alerts"></a>Alertas  
+### <a name="alerts"></a>Предупреждения  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Tabela de indicadores de alerta**|Mostra um resumo de todos os alertas adiados que foram gerados entre o início especificado e a data de conclusão.|  
-|**Alertas gerados mais frequentemente**|Mostra um resumo dos alertas gerados mais frequentemente entre o dia de hoje e a data anterior especificada na área de função especificada.|  
+|**Система показателей оповещения**|Отображает сводку всех отложенных оповещений, созданных между указанными начальной и конечной датами.|  
+|**Наиболее часто создаваемые оповещения**|Сводка предупреждений, которые чаще всего формировались с сегодняшнего дня до указанной даты для заданной функциональной области.|  
 
-### <a name="asset-intelligence"></a>Asset Intelligence  
+### <a name="asset-intelligence"></a>Аналитика активов  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Hardware 01A - resumo de computadores numa coleção específica**|Mostra uma vista de resumo de Asset Intelligence dos computadores numa coleção especificada por si.|  
-|**Hardware 03A - utilizadores principais do computador**|Mostra os utilizadores e em quantos computadores são o utilizador primário.|  
-|**Hardware 03B - computadores para um utilizador principal da consola específico**|Mostra todos os computadores em que um utilizador especificado é o utilizador primário da consola.|  
-|**Hardware 04A - computadores com utilizadores múltiplos (partilhados)**|Mostra os computadores que não têm um utilizador primário porque nenhum utilizador tem uma percentagem de tempo de sessão da consola superior a 66%.|  
-|**Hardware 05A - utilizadores da consola num computador específico**|Mostra todos os utilizadores da consola num computador especificado.|  
-|**Hardware 06A - computadores para a consola não foi possível determinar utilizadores**|Ajuda os utilizadores administrativos a identificar computadores que têm de ter o registo de segurança ativado.|  
-|**Hardware 07A - dispositivos USB por fabricante**|Mostra os dispositivos USB agrupados por fabricante.|  
-|**Hardware 07B - dispositivos USB por fabricante e descrição**|Mostra os dispositivos USB agrupados por fabricante e descrição.|  
-|**Hardware 07c - computadores com um dispositivo USB específico**|Mostra todos os computadores com um dispositivo USB especificado.|  
-|**Hardware 07d - dispositivos USB num computador específico**|Mostra todos os dispositivos USB num computador especificado.|  
-|**Hardware 08A - Hardware não está pronta para uma atualização de software**|Mostra o hardware que não cumpre os requisitos mínimos de hardware.|  
-|**Hardware 09A - pesquisar computadores**|Apresenta um resumo de manager asset dos computadores que correspondam aos filtros de palavra-chave em nome do computador, site do Configuration Manager, domínio, utilizador principal de consola, sistema operativo, fabricante ou modelo.|  
-|**Hardware 10A - computadores numa coleção especificada que foram alterados durante um período de tempo especificado**|Mostra uma lista de computadores numa coleção especificada onde uma classe de hardware foi alterada durante um período de tempo especificado.|  
-|**Hardware 10B - alterações num computador especificado durante um período de tempo especificado**|Mostra as classes alteradas num computador especificado durante um período de tempo especificado.|  
-|**Licença 01A - razão de licenciamento em Volume da Microsoft para instruções de licença da Microsoft**|Mostra um inventário de todos os títulos de software da Microsoft que estão disponíveis no programa de Licenciamento em Volume da Microsoft.|  
-|**Licença 01B - item do razão do licenciamento em Volume da Microsoft por canal de vendas**|Identifica e mostra o canal de vendas para software Microsoft Volume Licensing inventariado.|  
-|**Licença 01c - computadores com uma licença de Volume da Microsoft razão item e vendas canal específico**|Identifica e mostra os computadores com um item especificado a partir do ledger de licenciamento em Volume da Microsoft.|  
-|**Licença 01D - produtos de razão do licenciamento em Volume da Microsoft num computador específico**|Identifica e mostra todos os itens de ledger de Licenciamento em Volume da Microsoft num computador especificado.|  
-|**Licença 02A - contagem de licenças próximas da expiração por intervalos de tempo**|Mostra uma contagem das licenças prestes a expirar por um intervalo de tempo especificado. São apresentados os produtos cujas licenças são geridas pelo Serviço de Licenciamento de Software.|  
-|**Licença 02B - computadores com licenças próximas da expiração**|Mostra os computadores especificados com licenças prestes a expirar.|  
-|**Licença 02c - informações de licença num computador específico**|Mostra os produtos num computador especificado cujas licenças são geridas pelo Serviço de Licenciamento de Software.|  
-|**Licença 03A - contagem de licenças por Estado da licença**|Mostra os produtos, por estado de licença, cujas licenças são geridas pelo Serviço de Licenciamento de Software.|  
-|**Licença 03B - computadores com um Estado da licença específico**|Mostra os produtos, com um estado de licença especificado, cujas licenças são geridas pelo serviço de licenciamento de Software.|  
-|**Licença 04A - contagem de produtos geridos por licenciamento de software**|Mostra uma contagem de produtos cujas licenças são geridas pelo Serviço de Licenciamento de Software.|  
-|**Licença 04B - computadores com um produto específico gerido pelo serviço de licenciamento de Software**|Mostra os computadores, geridos pelo Serviço de Licenciamento de Software, que contêm um produto especificado.|  
-|**Licença 05A - computadores a fornecer serviço de gestão de chaves**|Mostra os computadores que atuam como Servidores de Gestão de Chaves.|  
-|**Licença 06A - processador contagens para os produtos licenciados por processador**|Mostra o número de processadores em computadores com produtos Microsoft que suportam o licenciamento por processador.|  
-|**Licença 06B - computadores com um produto específico que suporte licenciamento por processador**|Mostra uma lista dos computadores onde um produto Microsoft especificado que suporta o licenciamento por processador está instalado.|  
-|**Licença 14A - relatório de reconciliação de licenciamento em Volume da Microsoft**|Mostra a reconciliação das licenças de software adquiridas através do Contrato de Licenciamento em Volume da Microsoft e a contagem de inventário real.|  
-|**Licença 14B - lista de inventário de software da Microsoft não encontrado no MVLS**|Este relatório mostra os títulos de software da Microsoft em utilização que não se encontram no Contrato de Licenciamento em Volume da Microsoft.|  
-|**Licença 15A - relatório de reconciliação de licenças gerais**|Mostra a reconciliação das licenças de software gerais adquiridas e a contagem de inventário real.|  
-|**Licença 15B - relatório de reconciliação de licenças gerais pelo computador**|Mostra os computadores com o produto licenciado com uma versão especificada instalado.|  
-|**Software 01A - resumo de software instalado numa coleção específica**|Mostra um resumo do software instalado ordenado pelo número de instâncias encontradas no inventário.|  
-|**Software 02A - famílias de produtos para uma coleção específica**|Mostra as famílias de produtos e a contagem de software na família para uma coleção especificada.|  
-|**Software 02B - categorias de produto para uma família de produtos específica**|Mostra as categorias de produtos numa família de produto especificada e a contagem de software na categoria.|  
-|**Software 02c - Software numa família de produtos específica e categoria**|Mostra todos os softwares que se encontram na categoria e família de produtos especificadas.|  
-|**Software 02D - computadores com software específico instalado**|Mostra todos os computadores com um software especificado instalado.|  
-|**Software 02E - software instalado num computador específico**|Mostra todos os softwares instalados num computador especificado.|  
-|**Software 03A - software não categorizados**|Mostra o software categorizado como desconhecido ou sem categorização.|  
-|**Software 04A - Software configurado para executar automaticamente em computadores**|Mostra uma lista do software configurado para ser executado automaticamente em computadores.|  
-|**Software 04B - computadores com software específico configurado para executar automaticamente**|Mostra todos os computadores com software específico configurado para ser executado automaticamente.|  
-|**Software 04c - Software configurado para executar automaticamente num computador específico**|Mostra o software instalado que está configurado para ser executado automaticamente num computador especificado.|  
-|**Software 05A - objetos auxiliares de Browser**|Mostra os Objetos de Programa Auxiliar de Browser instalados em computadores numa coleção específica.|  
-|**Software 05B - computadores com um objeto de programa auxiliar de Browser específico**|Mostra todos os computadores com um Objeto de Programa Auxiliar de Browser especificado.|  
-|**Software 05c - objetos auxiliares de Browser num computador específico**|Mostra todos os Objetos de Programa Auxiliar de Browser no computador especificado.|  
-|**Software 06A - pesquisa do software instalado**|Este relatório fornece um resumo do software instalado, ordenado pelo número de instâncias com base nos critérios de pesquisa do nome do produto, fabricante ou versão.|  
-|**Software 06B - Software por nome de produto**|Mostra um resumo do software instalado, ordenado pelo número de instâncias com base no nome de um produto especificado.|  
-|**Software 07A - programas executáveis utilizados recentemente pela contagem de computadores**|Mostra os programas executáveis utilizados recentemente com uma contagem de computadores em que foram utilizados. Para ver este relatório, a medição de software deve estar ativada para este site.|  
-|**Software 07B - computadores que utilizaram recentemente um programa executável especificado**|Mostra os computadores nos quais um programa executável especificado foi utilizado recentemente, quando ativa a definição do cliente de medição de software.|  
-|**Software 07c - programas executáveis utilizados recentemente num computador especificado**|Mostra os ficheiros executáveis utilizados recentemente num computador especificado, quando ativa a definição do cliente de medição de software.|  
-|**Software 08A - programas executáveis utilizados recentemente pela contagem de utilizadores**|Mostra os programas executáveis utilizados recentemente com uma contagem dos utilizadores mais recentes dos mesmos, quando ativa a definição do cliente da medição de software.|  
-|**Software 08B - utilizadores que utilizaram recentemente um programa executável especificado**|Mostra os utilizadores que utilizaram recentemente um programa executável especificado, quando ativa a definição do cliente de medição de software.|  
-|**Software 08c - programas executáveis por um utilizador especificado recentemente utilizados**|Mostra os programas executáveis utilizados recentemente por um utilizador especificado, quando ativa a definição do cliente de software de medição.|  
-|**Software 09A - software raramente utilizado**|Mostra os títulos de software que não foram utilizados durante um período de tempo especificado.|  
-|**Software 09B - computadores com software raramente utilizado instalado**|Mostra os computadores com software instalado que não foi utilizado durante um período de tempo especificado. O período de tempo especificado é baseado no valor especificado no relatório " Software 09A - Software raramente utilizado".|  
-|**Software 10A - títulos de Software com múltiplas etiquetas personalizadas definidas**|Mostra os títulos de software com base na correspondência de todos os critérios das etiquetas personalizadas especificadas. Pode selecionar até três etiquetas personalizadas para refinar uma pesquisa de títulos de software.|  
-|**Software 10B - computadores com um título de software com etiqueta personalizada específica instalada**|Mostra todos os computadores nesta coleção que têm o título de software com etiqueta personalizada especificado instalado.|  
-|**Software 11A - títulos de Software com uma etiqueta personalizada específica definida**|Mostra os títulos de software com base na correspondência de, pelo menos, um dos critérios especificados da etiqueta personalizada.|  
-|**Software 12A - títulos de Software sem uma etiqueta personalizada**|Mostra todos os títulos de software que não têm uma etiqueta personalizada definida.|  
-|**Software 14A - procurar etiqueta de identificação de software software ativado**|Mostra a contagem do software instalado com uma etiqueta de identificação de software ativada.|  
-|**Software 14B - computadores com etiqueta de identificação de software específica ativada software instalado**|Mostra todos os computadores com software instalado com uma etiqueta de identificação de software especificada ativada.|  
-|**Instalado software 14C - software identificação software ativado por etiqueta num computador específico**|Mostra todos os softwares instalados com uma etiqueta de identificação de software especificada ativada num computador especificado.|  
+|**Оборудование 01A — сводная информация о компьютерах в указанной коллекции**|Отображает представление сводки аналитики активов для компьютеров в указанной коллекции.|  
+|**Оборудование 03A — основные пользователи компьютера**|Отображает пользователей и число компьютеров, на которых они являются основным пользователем.|  
+|**Оборудование 03B — компьютеры для указанного основного пользователя консоли**|Отображает все компьютеры, для которых указанный пользователь является основным пользователем консоли.|  
+|**Оборудование 04A — компьютеры с несколькими пользователями (совместно используемые)**|Отображает компьютеры без основного пользователя, поскольку отсутствуют пользователи, длительность входа в консоль которых больше 66 %.|  
+|**Оборудование 05A — пользователи консоли на указанном компьютере**|Отображает всех пользователей консоли на указанном компьютере.|  
+|**Оборудование 06A — не позволяющие определить пользователей консоли компьютеры**|Помогает администраторам определить компьютеры, на которых требуется включить ведение журнала безопасности.|  
+|**Оборудование 07A — USB-устройства по изготовителям**|Отображает USB-устройства, сгруппированные по изготовителю.|  
+|**Оборудование 07B — USB-устройства по изготовителям и описаниям**|Отображает USB-устройства, сгруппированные по изготовителю и описанию.|  
+|**Оборудование 07C — компьютеры с определенным USB-устройством**|Отображает все компьютеры с определенным USB-устройством.|  
+|**Оборудование 07D — USB-устройства на указанном компьютере**|Отображает все USB-устройства на указанном компьютере.|  
+|**Оборудование 08A — не готовое к обновлению программного обеспечения оборудование**|Отображает оборудование, которое не соответствует минимальным требованиям к оборудованию.|  
+|**Оборудование 09A — поиск компьютеров**|Отображает переданные диспетчером активов сводные данные по компьютерам в соответствии с фильтрами ключевых слов (имя компьютера, сайт Configuration Manager, домен, основной пользователь консоли, операционная система, производитель или модель).|  
+|**Оборудование 10А — изменившиеся в течение определенного периода времени компьютеры в указанной коллекции**|Отображает список компьютеров в указанной коллекции, класс оборудования которых был изменен в течение заданного периода времени.|  
+|**Оборудование 10B — изменения на указанном компьютере за определенный промежуток времени**|Отображает классы, которые были изменены на указанном компьютере в течение заданного периода.|  
+|**Лицензия 01А — список всего программного обеспечения Майкрософт, доступного по программам корпоративного лицензирования Майкрософт**|Список всего программного обеспечения Майкрософт, доступного по программам корпоративного лицензирования Майкрософт.|  
+|**Лицензия 01B — элемент списка ПО для корпоративного лицензирования Майкрософт по каналам продаж**|Определяет и отображает канал продаж для инвентаризованного программного обеспечения по программе корпоративного лицензирования Майкрософт.|  
+|**Лицензия 01C — компьютеры с заданным элементом главной книги корпоративных лицензий Майкрософт и каналом продаж**|Определяет и отображает компьютеры с указанным элементом из книги корпоративных лицензий Майкрософт.|  
+|**Лицензия 01D — продукты из списка корпоративного лицензирования Майкрософт на заданном компьютере**|Определяет и отображает все элементы книги корпоративных лицензий Майкрософт на указанном компьютере.|  
+|**Лицензия 02A — количество лицензий с истекающими сроками действия по диапазонам**|Число лицензий, срок действия которых скоро истекает, по заданному интервалу времени. Отображаются продукты, лицензиями которых управляет служба лицензирования программного обеспечения.|  
+|**Лицензия 02B — компьютеры с истекающими сроками действия лицензий**|Отображает указанные компьютеры, срок действия лицензии которых скоро истекает.|  
+|**Лицензия 02C — сведения о лицензиях на указанном компьютере**|Отображает продукты на указанном компьютере, лицензиями которых управляет служба лицензирования программного обеспечения.|  
+|**Лицензия 03A — количество лицензий по состояниям**|Отображает продукты, лицензиями которых управляет служба лицензирования программного обеспечения, по состоянию лицензии.|  
+|**Лицензия 03B — компьютеры с указанным состоянием лицензии**|Отображает продукты, лицензиями которых управляет служба лицензирования программного обеспечения, с указанным состоянием лицензии.|  
+|**Лицензия 04A — количество продуктов в службе лицензирования программного обеспечения**|Отображает число продуктов, лицензиями которых управляет служба лицензирования программного обеспечения.|  
+|**Лицензия 04B — компьютеры с определенным продуктом из службы лицензирования программного обеспечения**|Отображает компьютеры, управляемые службой лицензирования программного обеспечения, которые содержат указанный продукт.|  
+|**Лицензия 05A — обеспеченные службой управления ключами компьютеры**|Отображает компьютеры, которые действуют как серверы управления ключами.|  
+|**Лицензия 06A — число процессоров для продуктов с лицензиями на количество процессоров**|Отображает количество процессоров на компьютерах, использующих продукты Майкрософт, которые поддерживают лицензирование «на процессор».|  
+|**Лицензия 06B — компьютеры с определенным продуктом, поддерживающим схему лицензирования по количеству процессоров**|Отображает список компьютеров, где установлен указанный продукт Майкрософт, поддерживающий лицензирование «на процессор».|  
+|**Лицензия 14A — отчет сверки корпоративного лицензирования Майкрософт**|Отображает сверку лицензий на программное обеспечение, приобретенных по соглашению корпоративного лицензирования Майкрософт, и фактическое инвентарное количество.|  
+|**Лицензия 14B — список не найденного в MVLS программного обеспечения Майкрософт**|В этом отчете отображаются используемые программные продукты Майкрософт, не найденные в соглашении корпоративного лицензирования Майкрософт.|  
+|**Лицензия 15A — общий отчет сверки лицензий**|Отображает сверку по общим приобретенным лицензиям на программное обеспечение и фактическое инвентарное количество.|  
+|**Лицензия 15B — общий отчет сверки лицензий по компьютерам**|Отображает компьютеры, на которых установлен лицензированный продукт с указанной версией.|  
+|**Программное обеспечение 01A — сводная информация об установленном программном обеспечении в указанной коллекции**|Отображает сводку установленного программного обеспечения, упорядоченную по количеству экземпляров, найденных при инвентаризации.|  
+|**Программное обеспечение 02A — семейства продуктов для определенной коллекции**|Отображает семейства продуктов и количество программного обеспечения в семействе для заданной коллекции.|  
+|**Программное обеспечение 02B — категории продуктов для определенного семейства продуктов**|Отображает категории продуктов в указанном семействе продуктов и количество программного обеспечения в категории.|  
+|**Программное обеспечение 02C — программное обеспечение в определенном семействе и категории продуктов**|Отображает все программное обеспечение в указанном семействе и категории продуктов.|  
+|**Программное обеспечение 02D — компьютеры с указанным программным обеспечением**|Отображает все компьютеры с установленным указанным программным продуктом.|  
+|**Программное обеспечение 02E — установленное на указанном компьютере программное обеспечение**|Отображает все программное обеспечение, установленное на указанном компьютере.|  
+|**Программное обеспечение 03A — программное обеспечение без категорий**|Отображает программное обеспечение, которое классифицировано как неизвестное или не имеет классификации.|  
+|**Программное обеспечение 04A — программное обеспечение с автоматическим запуском на ПК**|Отображает список программного обеспечения, настроенного для автоматического запуска на компьютерах.|  
+|**Программное обеспечение 04B — компьютеры с указанным ПО с автоматическим запуском**|Отображает все компьютеры с указанным ПО с автоматическим запуском.|  
+|**Программное обеспечение 04C — программное обеспечение с автоматическим запуском на указанном компьютере**|Отображает установленное программное обеспечение, настроенное для автоматического запуска на указанном компьютере.|  
+|**Программное обеспечение 05A — вспомогательные объекты браузера**|Отображает вспомогательные объекты браузера, установленные на компьютерах в указанной коллекции.|  
+|**Программное обеспечение 05B — компьютеры со специфическим объектом модуля поддержки браузера**|Отображает все компьютеры с определенным вспомогательным объектом браузера.|  
+|**Программное обеспечение 05C — объекты модуля поддержки браузера на указанном компьютере**|Отображает все вспомогательные объекты браузера на определенном компьютере.|  
+|**Программное обеспечение 06A — поиск установленного программного обеспечения**|Этот отчет предоставляет сводку по установленному программному обеспечению, упорядоченную по количеству экземпляров на основе критериев поиска для имени продукта, издателя или версии.|  
+|**Программное обеспечение 06B — программы по названию продукта**|Отображает сводку установленного программного обеспечения, упорядоченную по количеству экземпляров на основе указанного имени продукта.|  
+|**Программное обеспечение 07A — недавно использованные исполняемые программы по числу компьютеров**|Отображает исполняемые программы, которые недавно были использованы, с количеством компьютеров, на которых они использовались. Для просмотра этого отчета для данного сайта должно быть включено отслеживание использования программного обеспечения.|  
+|**Программное обеспечение 07B — компьютеры с недавно использовавшейся заданной исполняемой программой**|Отображаются компьютеры, на которых указанная исполняемая программа недавно использовалась при включении параметра клиента отслеживания использования программного обеспечения.|  
+|**Программное обеспечение 07C — недавно использованные на указанном компьютере исполняемые программы**|Отображаются исполняемые файлы, которые недавно использовались на указанном компьютере при включении параметра клиента отслеживания использования программного обеспечения.|  
+|**Программное обеспечение 08A — недавно использованные исполняемые программы по числу пользователей**|Отображаются исполняемые программы, которые недавно использовались, с количеством пользователей, которые чаще всего применяли эти программы при включении параметра клиента отслеживания использования программного обеспечения.|  
+|**Программное обеспечение 08B — последние пользователи указанной исполняемой программы**|Отображаются пользователи, которые последними применяли указанную исполняемую программу при включении параметра клиента отслеживания использования программного обеспечения.|  
+|**Программное обеспечение 08C — недавно использованные указанным пользователем исполняемые программы**|Отображаются исполняемые программы, которые недавно применялись указанным пользователем при включении параметра клиента отслеживания использования программного обеспечения.|  
+|**Программное обеспечение 09A — нечасто используемое ПО**|Отображаются программные продукты, которые не использовались за указанный период времени.|  
+|**Программное обеспечение 09B — компьютеры с нечасто используемым установленным ПО**|Отображает компьютеры с установленным программным обеспечением, которое не использовалось в течение указанного периода времени. Указанный период времени основан на значении, заданном в отчете «Программное обеспечение 09A — нечасто используемое ПО».|  
+|**Программное обеспечение 10A — наименования программ с несколькими заданными пользовательскими ярлыками**|Отображаются программные продукты на основе сопоставления всех указанных критериев пользовательской метки. Для уточнения поиска программного обеспечения можно выбрать до трех пользовательских меток.|  
+|**Программное обеспечение 10B — компьютеры, на которых установлено ПО с указанными пользовательскими метками**|Отображаются все компьютеры в этой коллекции с установленным программным обеспечением с указанной пользовательской меткой.|  
+|**Программное обеспечение 11A — заголовки ПО с указанными конкретными пользовательскими метками**|Отображаются программные продукты на основе сопоставления по крайней мере одной пользовательской метки.|  
+|**Программное обеспечение 12A — программное обеспечение без пользовательского ярлыка**|Отображаются все программы без определенных пользовательских меток.|  
+|**Программное обеспечение 14A — поиск программ с поддержкой тегов идентификации программного обеспечения**|Счетчик установленного программного обеспечения с включенным тегом идентификации программного обеспечения.|  
+|**Программное обеспечение 14B — компьютеры, на которых установлена определенная программа с поддержкой тегов идентификации программного обеспечения**|Отображаются все компьютеры, на которых установлено программное обеспечение с включенным указанным тегом идентификации программного обеспечения.|  
+|**Программное обеспечение 14C — установленные программы с поддержкой тегов идентификации программного обеспечения на определенном компьютере**|Отображается все установленное программное обеспечение с включенным тегом идентификации указанного программного обеспечения на указанном компьютере.|  
 
-### <a name="client-push"></a>Cliente de Push  
+### <a name="client-push"></a>Принудительная установка клиента  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Detalhes do Estado de instalação de push de cliente**|Mostra as informações sobre o processo da instalação push do cliente para todos os sites.|  
-|**Detalhes do Estado de instalação de emissão do cliente relativo a um site específico**|Mostra as informações sobre o processo da instalação push do cliente para um site especificado.|  
-|**Resumo de estado da instalação de push de cliente**|Mostra uma vista de resumo do estado da instalação push do cliente para todos os sites.|  
-|**Estado de instalação de push de cliente resumo para um site especificado**|Mostra uma vista de resumo do estado da instalação push do cliente para um site especificado.|  
+|**Сведения о состоянии принудительной установки клиента**|Отображаются сведения о процессе принудительной установки клиента для всех сайтов.|  
+|**Сведения о состоянии принудительной установки клиента для указанного сайта**|Отображаются сведения о процессе принудительной установки клиента для указанного сайта.|  
+|**Сводка по состоянию принудительной установки клиента**|Отображается сводное представление состояния принудительной установки клиента для всех сайтов.|  
+|**Сводка по состоянию принудительной установки клиента для указанного сайта**|Отображается сводное представление состояния принудительной установки клиента для указанного сайта.|  
 
-### <a name="client-status"></a>Estado do cliente  
+### <a name="client-status"></a>Состояние клиента  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Detalhes de remediação do cliente**|Mostra os detalhes de remediação do cliente para uma coleção que especificar.|  
-|**Resumo da remediação do cliente**|Mostra um resumo das ações de remediação do cliente para uma coleção especificada.|  
-|**Histórico do Estado do cliente**|Mostra uma apresentação do histórico do estado geral de cliente no site.|  
-|**Resumo do Estado de cliente**|Mostra os resultados da verificação de clientes ativos para uma coleção específica.|  
-|**Hora do cliente a política de pedido**|Mostra a percentagem de clientes que realizaram um pedido de política pelo menos uma vez nos últimos 30 dias. Cada dia representa uma percentagem total de clientes que realizaram um pedido de política desde o primeiro dia do ciclo.|  
-|**Clientes com o cliente falhou a verificação de detalhes**|Mostra os detalhes sobre clientes cuja verificação de cliente falhou numa coleção especificada.|  
-|**Detalhes de clientes Inativos**|Mostra uma lista detalhada dos clientes inativos para uma determinada coleção.|  
+|**Сведения об исправлении клиентов**|Отображаются сведения о действиях по исправлению клиентов для указанной коллекции.|  
+|**Сводка по исправлению клиентов**|Отображается сводка о действиях по исправлению клиентов для указанной коллекции.|  
+|**Журнал состояния клиента**|Отображается журнал общего состояния клиентов на сайте.|  
+|**Сводка состояния клиента**|Отображает результаты проверки активных клиентов для данной коллекции.|  
+|**Время запроса политик клиентами**|Отображает процент клиентов, которые запросили политику по крайней мере один раз за последние 30 дней. Каждый день представляет процент от общего числа клиентов, которые запросили политики с первого дня в цикле.|  
+|**Сведения о не прошедших проверку клиентах**|Отображает сведения о клиентах, которые не прошли проверку для указанной коллекции.|  
+|**Сведения о неактивных клиентах**|Отображает подробный список неактивных клиентов для данной коллекции.|  
 
-### <a name="company-resource-access"></a>Acesso aos Recursos da Empresa  
+### <a name="company-resource-access"></a>Доступ к ресурсам компании  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Histórico de emissão de certificados**|Mostra o histórico dos certificados emitidos pelo ponto de registo de certificados para utilizadores e dispositivos no período de tempo especificado.|  
-|**Lista de ativos por Estado de emissão de certificados**|Mostra os utilizadores ou dispositivos num estado de emissão de certificados especificado depois da avaliação de um perfil de certificado especificado.|  
-|**Lista dos ativos com certificados prestes a expirar**|Mostra os dispositivos ou utilizadores com certificados que expiram na data especificada ou antes.|  
+|**Журнал выдачи сертификатов**|Отображает журнал сертификатов, которые были выданы точкой регистрации сертификатов пользователям и устройствам для заданного диапазона дат.|  
+|**Список активов по состоянию выдачи сертификата**|Отображает устройства или пользователей в указанном состоянии выдачи сертификатов после оценки заданного профиля сертификата.|  
+|**Список активов с сертификатами с истекающим сроком действия**|Отображает устройства или пользователей с сертификатами, срок действия которых истекает в указанную дату или до нее.|  
 
-### <a name="compliance-and-settings-management"></a>Gestão de Compatibilidade e Definições  
+### <a name="compliance-and-settings-management"></a>Управление соответствием и параметрами  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Histórico de conformidade de uma linha de base de configuração**|Mostra o histórico de alterações da conformidade de uma linha de base da configuração no período de tempo especificado.|  
-|**Histórico de conformidade de um item de configuração**|Mostra o histórico de alterações da conformidade de um item de configuração no período de tempo especificado.|  
-|**Detalhes de regras de conformidade dos itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre as regras que foram consideradas em conformidade para um item de configuração especificado, num dispositivo ou utilizador especificado.|  
-|**Detalhes de regras em conflito de itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre regras num item de configuração implementado num utilizador ou dispositivo especificado que estão em conflito com outras regras contidas no mesmo ou outro item de configuração implementado.|  
-|**Detalhes de erros de itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre erros gerados por um item de configuração especificado num dispositivo ou utilizador especificado.|  
-|**Detalhes de regras não conformes de itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre regras que foram consideradas incompatíveis para um item de configuração especificado, para um dispositivo ou utilizador especificado.|  
-|**Detalhes de regras remediados de itens de configuração numa linha de base de configuração para um recurso**|Mostra informações sobre regras que foram remediadas por um item de configuração especificado para um dispositivo ou utilizador especificado.|  
-|**Lista de ativos por Estado de conformidade para um item de configuração numa linha de base de configuração**|Mostra os dispositivos ou utilizadores num estado de conformidade especificado depois da avaliação de um item de configuração especificado.|  
-|**Lista de ativos por Estado de compatibilidade de uma linha de base de configuração**|Mostra os utilizadores ou dispositivos num estado de conformidade especificado depois da avaliação de uma linha de base da configuração especificada.|  
-|**Lista das regras em conflito com uma regra especificada para um recurso**|Mostra uma lista das regras em conflito com uma regra especificada para um item de configuração implementado num dispositivo especificado.|  
-|**Lista de recursos desconhecidos para uma linha de base de configuração**|Mostra uma lista dos dispositivos ou utilizadores que ainda não reportaram dados de conformidade para uma linha de base da configuração especificada.|  
-|**Lista de recursos desconhecidos de um item de configuração**|Mostra uma lista dos dispositivos ou utilizadores que ainda não forneceram dados de conformidade para um item de configuração especificado.|  
-|**Regras e erros resumo dos itens de configuração numa linha de base de configuração para um recurso**|Mostra um resumo do estado de conformidade das regras e erros de definições de um item de configuração especificado implementado num dispositivo ou utilizador especificado.|  
-|**Resumo de conformidade por linha base de configuração**|Mostra um resumo da conformidade geral das linhas de bases da configuração implementadas na hierarquia.|  
-|**Resumo de conformidade por itens de configuração para uma linha de base de configuração**|Mostra um resumo da conformidade dos itens de configuração numa linha de base da configuração especificada.|  
-|**Resumo de conformidade por políticas de configuração**|Mostra um resumo da conformidade das políticas de configuração.|  
-|**Resumo de conformidade de uma linha de base de configuração para uma coleção**|Mostra um resumo da conformidade geral de uma linha de base da configuração especificada implementada numa coleção especificada.|  
-|**Lista de aplicações e dispositivos para um utilizador especificado não compatíveis**|Apresenta informações sobre utilizadores e dispositivos que têm aplicações instaladas que não estão em conformidade com uma política especificada por si.|  
-|**Resumo dos utilizadores que têm aplicações não compatíveis**|Apresenta informações sobre utilizadores que têm aplicações instaladas que não estão em conformidade com uma política especificada por si.|  
-|**Aceitação de termos e condições**|Apresenta os itens de Termos e Condições e que versão foi aceite por cada utilizador.|  
+|**Журнал соответствия шаблонам базовой конфигурации**|Отображает журнал изменений в соответствии с базовой конфигурацией для заданного диапазона дат.|  
+|**Журнал соответствия элемента конфигурации**|Отображает журнал изменений в соответствии с элементом конфигурации для заданного диапазона дат.|  
+|**Сведения о соответствующих правилах элементов конфигурации в шаблонах базовых конфигураций для актива**|Отображает сведения о правилах, которые были оценены как соответствующие требованиям для указанного элемента конфигурации для заданного устройства или пользователя.|  
+|**Сведения о конфликтующих правилах элементов конфигурации в шаблоне базовой конфигурации для актива**|Отображает сведения о правилах в элементе конфигурации, который был развернут для указанного пользователя или устройства, конфликтующие с другими правилами в том же или другом развернутом элементе конфигурации.|  
+|**Сведения об ошибках элементов конфигурации в шаблонах базовых конфигураций для актива**|Отображает сведения об ошибках, вызванных указанным элементом конфигурации для заданного устройства или пользователя.|  
+|**Сведения о несоответствующих правилах элементов конфигурации в шаблоне базовых конфигураций для актива**|Отображает сведения о правилах, которые были оценены как не соответствующие требованиям для указанного элемента конфигурации для заданного устройства или пользователя.|  
+|**Сведения об исправленных правилах элементов конфигурации в шаблонах базовых конфигураций для актива**|Отображает сведения о правилах, исправленных указанным элементом конфигурации для заданного устройства или пользователя.|  
+|**Список активов по соответствию элементу конфигурации в шаблоне базовой конфигурации**|Отображает устройства или пользователей в указанном состоянии соответствия после оценки заданного элемента конфигурации.|  
+|**Список активов по состоянию соответствия шаблонам базовых конфигураций**|Отображает устройства или пользователей в указанном состоянии соответствия после оценки заданной базовой конфигурации.|  
+|**Список правил в конфликте с указанным правилом для актива**|Отображает список правил, которые конфликтуют с указанным правилом для элемента конфигурации, развернутого для заданного устройства.|  
+|**Список неизвестных активов для шаблонов базовых конфигураций**|Отображает список устройств или пользователей, которые еще не передали какие-либо данные о соответствии для указанной базовой конфигурации.|  
+|**Список неизвестных активов для элемента конфигурации**|Отображает список устройств или пользователей, которые еще не передали какие-либо данные о соответствии для указанного элемента конфигурации.|  
+|**Сводка по правилам и ошибкам элементов конфигурации в шаблонах базовых конфигураций для актива**|Отображает сводку состояния соответствия правил и все ошибки параметров для указанного элемента конфигурации, развернутого для заданного устройства или пользователя.|  
+|**Сводка соответствия по шаблонам базовых конфигураций**|Отображает сводку по общему соответствию развернутых шаблонов конфигурации в иерархии.|  
+|**Сводка по соответствию требованиям по элементам конфигурации для шаблона базовой конфигурации**|Отображает сводку соответствия элементов конфигурации в указанном шаблоне конфигурации.|  
+|**Сводка соответствия по политикам конфигурации**|Отображает сводку соответствия политикам конфигурации.|  
+|**Сводка по соответствию шаблонам базовых конфигураций для коллекции**|Отображает сводку общего соответствия указанному шаблону базовой конфигурации, развернутой в заданной коллекции.|  
+|**Список несовместимых приложений и устройств для указанного пользователя**|Отображает сведения о пользователях и устройствах, для которых установлены приложения, несовместимые с заданной политикой.|  
+|**Сводка пользователей, имеющих несовместимые приложения**|Отображает сведения о пользователях, для которых установлены приложения, несовместимые с заданной политикой.|  
+|**Принятие условий**|Отображает элементы условий, а также версию, принятую каждым из пользователей.|  
 
-### <a name="device-management"></a>Gestão de Dispositivos  
+### <a name="device-management"></a>Управление устройствами  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todos os clientes de dispositivo móvel**|Mostra informações sobre todos os clientes de dispositivos móveis. Não estão incluídos os dispositivos móveis geridos pelo conector do Exchange Server.|  
-|**Problemas de certificado em dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE e que não estão em bom estado**|Mostra informações detalhadas sobre problemas de certificado em dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
-|**Falha na implementação do cliente para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE**|Mostra informações detalhadas sobre falhas de implementação para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
-|**Detalhes de estado de implementação de cliente para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE**|Apresenta informações sobre o estado de dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
-|**Sucesso de implementação de cliente para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE**|Apresenta informações detalhadas sobre o sucesso de implementação para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
-|**Problemas de comunicação em dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE e que não estão em bom Estados**|Este relatório contém informações detalhadas sobre problemas de comunicação em dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
-|**Estado de conformidade para os dispositivos móveis que são geridos pelo conector do Exchange Server**|Mostra um resumo do estado de conformidade com a política de caixa de correio Predefinida do Exchange ActiveSync para os dispositivos móveis geridos pelo conector do Exchange Server.|  
-|**Contagem de dispositivos móveis por definições de visualização**|Este relatório mostra o número de dispositivos móveis por definições de visualização.|  
-|**Contagem de dispositivos móveis por sistema operativo**|Este relatório mostra o número de dispositivos móveis por sistema operativo.|  
-|**Contagem de dispositivos móveis por programa de memória**|Este relatório mostra o número de dispositivos móveis por memória de programa.|  
-|**Contagem de dispositivos móveis por configurações da memória de armazenamento**|Contagem de dispositivos móveis por configurações da memória de armazenamento|  
-|**Informações de estado de funcionamento para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE**|Apresenta informações detalhadas de estado de funcionamento de dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
-|**Estado de funcionamento resumo para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE**|Mostra informações de resumo de estado de funcionamento para dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
-|**Dispositivos móveis Inativos que são geridos pelo conector do Exchange Server**|Mostra os dispositivos móveis geridos pelo conector do Exchange Server e que não efetuaram ligação ao Exchange Server durante um número especificado de dias.|  
-|**Lista de dispositivos inscritos por utilizador no Microsoft Intune**|Apresenta todos os dispositivos que um utilizador inscreveu-se com o Microsoft Intune.|  
-|**Lista de dispositivos por Estado de acesso condicional**|Apresenta informações sobre o atual estado de acesso de conformidade e acesso condicional dos dispositivos. Pode utilizar este relatório com as políticas de acesso condicional. Este relatório está disponível a partir da versão 1602 do Configuration Manager.|  
-|**Compatibilidade de acesso condicional para o utilizador**|Fornece informações de conformidade de acesso condicional detalhadas para um utilizador específico, incluindo o nome do dispositivo e da plataforma, se o dispositivo estiver em conformidade e quando o dispositivo foi avaliado pela última vez. Este relatório está disponível a partir da versão 1602 do Configuration Manager.|  
-|**Problemas de cliente local em dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE e que não estão em bom estado**|Este relatório contém informações detalhadas sobre problemas do cliente local em dispositivos móveis que são geridos pelo cliente do Configuration Manager para Windows CE.|  
-|**Informações de cliente do dispositivo móvel**|Apresenta informações sobre os dispositivos móveis que tenham o cliente do Configuration Manager instalado. Pode utilizar este relatório para verificar que dispositivos móveis conseguem comunicar com um ponto de gestão com êxito.|  
-|**Detalhes de conformidade do dispositivo móvel para o conector do Exchange Server**|Mostra os detalhes da conformidade do dispositivo móvel para uma política de caixa de correio predefinida do Exchange ActiveSync, configurada com o conector do Exchange Server.|  
-|**Dispositivos móveis por sistema operativo**|Mostra os dispositivos móveis por sistema operativo.|  
-|**Dispositivos móveis que são desbloqueado por jailbreak ou um dispositivo desbloqueado por rooting**|Mostra os dispositivos móveis desbloqueados com jailbreak ou rooting.|  
-|**Dispositivos móveis que são geridos porque concluíram a inscrição mas não foi possível atribuir a um site**|Apresenta os dispositivos móveis que concluíram a inscrição com o Configuration Manager e tem um certificado, mas falha ao concluir a atribuição de site.|  
-|**Dispositivos móveis com uma quantidade específica de memória de programa livre**|Mostra todos os dispositivos móveis com a quantidade especificada de memória de programa livre.|  
-|**Dispositivos móveis com uma quantidade específica de memória de armazenamento amovível livre**|Mostra todos os dispositivos móveis com a quantidade especificada de memória de armazenamento amovível livre.|  
-|**Dispositivos móveis com problemas de renovação de certificado**|Mostra os dispositivos móveis inscritos cuja renovação de certificado falhou. Se o certificado não for renovado antes da data de expiração, os dispositivos móveis ficarão sem gestão.|  
-|**Dispositivos móveis com pouco espaço livre na memória (menos de tamanho em KB especificado) do programa**|Mostra os dispositivos móveis com memória de programa inferior a um tamanho em KB especificado.|  
-|**Dispositivos móveis com memória de armazenamento amovível livre baixa (menos de tamanho em KB especificado)**|Mostra os dispositivos móveis com memória de armazenamento amovível inferior a um tamanho em KB especificado.|  
-|**Número de dispositivos inscritos por utilizador no Windows Intune**|Este relatório apresenta os utilizadores ativados para a subscrição do Microsoft Intune e o número total de dispositivos inscritos para cada utilizador.|  
-|**Pedido de limpeza pendente para dispositivos móveis**|Mostra os pedidos para a ação apagar pendentes para dispositivos móveis.|  
-|**Dispositivos móveis recentemente inscritos e atribuídos**|Apresenta os dispositivos móveis inscritos recentemente com o Configuration Manager e atribuído com êxito a um site.|  
-|**Dispositivos móveis apagados com êxito recentemente**|Mostra a lista de dispositivos móveis apagados com êxito recentemente.|  
-|**Resumo das definições para dispositivos móveis que são geridos pelo conector do Exchange Server**|Mostra o número de dispositivos móveis que aplicam as definições para cada política de caixa de correio predefinida do ActiveSync, que é gerida pelo conector do Exchange Server.|  
-|**Estado detalhado das chaves de Sideload do Windows RT**|Mostra informações de estado detalhadas para uma chave de sideload especificada do Windows RT.|  
-|**Resumo das chaves de Sideload do Windows RT**|Mostra o estado das chaves de sideload do Windows RT.|  
+|**Все клиенты мобильных устройств**|Отображаются сведения о всех клиентах мобильных устройств. Устройства, управление которыми осуществляется с помощью коннектора Exchange Server, не включены.|  
+|**Проблемы с сертификатами на неработоспособных мобильных устройствах под управлением клиента Configuration Manager для Windows CE**|Отображаются подробные сведения о проблемах с сертификатами на мобильных устройствах, управляемых с помощью клиента Configuration Manager для Windows CE.|  
+|**Сбои развертывания клиента на мобильных устройствах под управлением клиента Configuration Manager для Windows CE**|Отображаются подробные сведения об ошибках развертывания на мобильных устройствах, управляемых с помощью клиента Configuration Manager для Windows CE.|  
+|**Сведения о состоянии развертывания клиентов на мобильных устройствах под управлением клиента Configuration Manager для Windows CE**|Отображаются сведения о состоянии мобильных устройств, управляемых с помощью клиента Configuration Manager для Windows CE.|  
+|**Успешность развертывания клиентов на мобильных устройствах под управлением клиента Configuration Manager для Windows CE**|Отображаются подробные сведения об успешности развертывания для мобильных устройств, управляемых с помощью клиента Configuration Manager для Windows CE.|  
+|**Проблемы связи на неработоспособных мобильных устройствах под управлением клиента Configuration Manager для Windows CE**|В этом отчете представлены подробные сведения о проблемах связи на мобильных устройствах, управляемых с помощью клиента Configuration Manager для Windows CE.|  
+|**Состояние соответствия требованиям мобильных устройств, управляемых с помощью коннектора Exchange Server**|Сводка состояния соответствия политике почтовых ящиков Exchange ActiveSync по умолчанию для мобильных устройств, управляемых с помощью коннектора Exchange Server.|  
+|**Число мобильных устройств по параметрам экрана**|В этом отчете отображается количество мобильных устройств по параметрам экрана.|  
+|**Число мобильных устройств по операционным системам**|Отображает количество мобильных устройств в операционной системе.|  
+|**Число мобильных устройств по объему памяти для программ**|Отображает количество мобильных устройств по объему памяти для программ.|  
+|**Число мобильных устройств по конфигурациям памяти для данных**|Число мобильных устройств по конфигурациям памяти для данных|  
+|**Сведения о работоспособности мобильных устройств под управлением клиента Configuration Manager для Windows CE**|Отображаются подробные сведения о работоспособности мобильных устройств под управлением клиента Configuration Manager для Windows CE.|  
+|**Сводка по работоспособности мобильных устройств под управлением клиента Configuration Manager для Windows CE**|Отображается сводка по работоспособности мобильных устройств под управлением клиента Configuration Manager для Windows CE.|  
+|**Неактивные мобильные устройства под управлением коннектора Exchange Server**|Отображает мобильные устройства, которые управляются коннектором Exchange Server и не были подключены к серверу Exchange Server в течение указанного числа дней.|  
+|**Список устройств, зарегистрированных для каждого пользователя в Windows Intune**|Отображаются все устройства, которые пользователь зарегистрировал в подписке Microsoft Intune.|  
+|**Список устройств по состоянию условного доступа**|Отображает сведения о текущем состоянии соответствия и состоянии условного доступа устройств. Этот отчет можно использовать с политиками условного доступа. Этот отчет доступен начиная с версии 1602 программы Configuration Manager.|  
+|**Соответствие требованиям условного доступа для пользователя**|Содержит подробные сведения о соответствии требованиям условного доступа для конкретного пользователя, включая имя устройства и платформу, является ли устройство совместимым и дату его последней проверки. Этот отчет доступен начиная с версии 1602 программы Configuration Manager.|  
+|**Проблемы с локальным клиентом на неработоспособных мобильных устройствах под управлением клиента Configuration Manager для Windows CE**|В этом отчете представлены подробные сведения о проблемах с локальным клиентом на мобильных устройствах, управляемых с помощью клиента Configuration Manager для Windows CE.|  
+|**Сведения о клиенте для мобильных устройств**|В этом отчете представлены сведения о мобильных устройствах с установленным клиентом Configuration Manager. Отчет можно использовать для проверки возможности связи определенных мобильных устройств с точкой управления.|  
+|**Сведения о соответствии мобильных устройств требованиям для коннектора Exchange Server**|Отображаются сведения о соответствии мобильных устройств политике почтовых ящиков Exchange ActiveSync по умолчанию, настроенной с помощью коннектора Exchange Server.|  
+|**Мобильные устройства по операционной системе**|В этом отчете представлены сведения о мобильных устройствах и типах используемых операционных систем.|  
+|**Мобильные устройства со снятой защитой или с административным доступом**|В этом отчете отображаются мобильные устройства со снятой защитой или с административным доступом.|  
+|**Неуправляемые мобильные устройства (прошедшие регистрацию и не назначенные сайту)**|В этом отчете представлены мобильные устройства, которые не удалось назначить сайту (но успешно зарегистрированные в Configuration Manager и имеющие сертификат).|  
+|**Мобильные устройства с заданным объемом свободной памяти для программ**|В этом отчете представлены все мобильные устройства с заданным объемом свободной памяти для программ.|  
+|**Мобильные устройства с заданным объемом свободной памяти на съемном носителе**|В этом отчете представлены все мобильные устройства с заданным объемом свободной памяти на съемном носителе.|  
+|**Мобильные устройства с проблемами обновления сертификата**|В этом отчете представлены зарегистрированные мобильные устройства с не продленными (из-за сбоя) сертификатами. По истечении срока действия непродленного сертификата мобильные устройства станут неуправляемыми.|  
+|**Мобильные устройства с нехваткой памяти для программ (меньше заданного значения в КБ)**|В этом отчете представлены мобильные устройства с объемом памяти для программ ниже указанного значения в КБ.|  
+|**Мобильные устройства с нехваткой памяти на съемном носителе (меньше заданного значения в КБ)**|В этом отчете представлены мобильные устройства с объемом памяти съемного носителя ниже указанного значения в КБ.|  
+|**Число зарегистрированных устройств для пользователя в Microsoft Intune**|В этом отчете содержатся сведения о пользователях, для которых включена подписка на Microsoft Intune, и общее число устройств, зарегистрированных для каждого пользователя.|  
+|**Ожидающие выполнения запросы на очистку мобильных устройств**|Отображаются ожидающие выполнения запросы на очистку мобильных устройств.|  
+|**Недавно зарегистрированные и назначенные мобильные устройства**|Отображаются мобильные устройства с недавней регистрацией в Configuration Manager и успешным назначением сайту.|  
+|**Недавно очищенные мобильные устройства**|В этом отчете представлен список недавно очищенных мобильных устройств.|  
+|**Сводка по параметрам мобильных устройств, управляемых с помощью коннектора Exchange Server**|В этом отчете представлено число мобильных устройств с применяемыми параметрами для каждой управляемой с помощью коннектора Exchange Server политики почтовых ящиков Exchange ActiveSync по умолчанию.|  
+|**Сведения о состоянии ключей для загрузки неопубликованных приложений Windows RT**|Этот отчет показывает подробную информацию о состоянии для выбранного ключа для загрузки неопубликованных приложений Windows RT.|  
+|**Сводная информация о ключах загрузки неопубликованных приложений Windows RT**|Этот отчет показывает состояние ключей для загрузки неопубликованных приложений Windows RT.|  
 
-### <a name="driver-management"></a>Gestão do Controlador  
+### <a name="driver-management"></a>Управление драйверами  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todos os controladores**|Mostra a lista de todos os controladores.|  
-|**Todos os controladores de uma plataforma específica**|Mostra todos os controladores de uma plataforma especificada.|  
-|**Todos os controladores numa imagem de arranque específica**|Mostra todos os controladores numa imagem de arranque especificada.|  
-|**Todos os controladores numa categoria específica**|Mostra todos os controladores numa categoria especificada.|  
-|**Todos os controladores num pacote específico**|Mostra todos os controladores num pacote especificado.|  
-|**Categorias para um controlador específico**|Mostra as categorias para um controlador especificado.|  
-|**Computadores que falharam ao instalar controladores para uma coleção específica**|Mostra os computadores nos quais ocorreu um erro ao instalar os controladores para uma coleção especificada.|  
-|**Relatório de uma coleção específica de correspondência do catálogo de controladores**|Mostra o relatório de correspondência do catálogo de controladores de uma coleção especificada.|  
-|**Relatório de um computador específico de correspondência do catálogo de controladores**|Mostra o relatório de correspondência do catálogo de controladores de um computador especificado.|  
-|**Relatório de um dispositivo específico num computador específico de correspondência do catálogo de controladores**|Mostra o relatório de correspondência do catálogo de controladores de um dispositivo especificado num computador especificado.|  
-|**Catálogo de controladores relatório para computadores numa coleção específica de correspondência com um dispositivo específico**|Mostra o relatório de correspondência do catálogo de controladores de computadores numa coleção especificada com um dispositivo especificado.|  
-|**Controladores que falharam ao instalar num computador específico**|Mostra os controladores cuja instalação falhou num computador especificado.|  
-|**Plataformas suportadas para um controlador específico**|Mostra as plataformas suportadas por um controlador especificado.|  
+|**Все драйверы**|Отображается список всех драйверов.|  
+|**Все драйверы для указанной платформы**|Отображаются все драйверы для указанной платформы.|  
+|**Все драйверы в указанном загрузочном образе**|Отображаются все драйверы в указанном загрузочном образе.|  
+|**Все драйверы в заданной категории**|Отображаются все драйверы в указанной категории.|  
+|**Все драйверы в указанном пакете**|Отображаются все драйверы в указанном пакете.|  
+|**Категории для заданного драйвера**|Отображаются категории для указанного драйвера.|  
+|**Компьютеры с ошибкой установки драйверов для указанной коллекции**|Отображаются компьютеры, на которых не удалось установить драйверы для указанной коллекции.|  
+|**Отчет о соответствии указанной коллекции каталогу драйверов**|Отображается отчет о соответствии указанной коллекции каталогу драйверов.|  
+|**Отчет о соответствии указанного компьютера каталогу драйверов**|Отображается отчет о соответствии указанного компьютера каталогу драйверов.|  
+|**Отчет о соответствии указанного устройства на указанном компьютере каталогу драйверов**|Отображается отчет о соответствии указанного устройства на указанном компьютере каталогу драйверов.|  
+|**Отчет о соответствии каталогу драйверов для компьютеров в указанной коллекции с указанным устройством**|Отображается отчет о соответствии каталогу драйверов для компьютеров в указанной коллекции с указанным устройством.|  
+|**Не установленные на указанном компьютере драйверы**|Отображаются драйверы, не установленные на указанном компьютере.|  
+|**Поддерживаемые платформы для заданного драйвера**|Отображаются платформы, поддерживаемые для заданного драйвера.|  
 
 ### <a name="endpoint-protection"></a>Endpoint Protection  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Relatório de atividade de proteção contra software maligno**|Mostra uma descrição geral da atividade antimalware.|  
-|**Estado geral da proteção contra software maligno e histórico**|Mostra uma descrição geral do estado e histórico da atividade antimalware.|  
-|**Detalhes de software maligno do computador**|Mostra detalhes sobre um computador especificado e a lista de software maligno encontrado no mesmo.|  
-|**Computadores infetados**|Mostra uma lista de computadores com uma ameaça especificada detetada.|  
-|**Principais utilizadores por ameaças**|Mostra a lista de utilizadores com o maior número de ameaças detetadas.|  
-|**Lista de ameaça de utilizador**|Mostra a lista de ameaças encontradas para uma conta de utilizador especificada.|  
+|**Отчет о действиях антивредоносной программы**|Отображает общие сведения о действиях антивредоносной программы.|  
+|**Общее состояние и журнал функции защиты от вредоносных программ**|Отображается общее состояние и журнал функции защиты от вредоносных программ.|  
+|**Сведения о вредоносных программах на компьютере**|Отображаются сведения об определенном компьютере и список вредоносных программ, обнаруженных на нем.|  
+|**Зараженные компьютеры**|Отображает список компьютеров, на которых обнаружена указанная угроза.|  
+|**Пользователи с наибольшим числом обнаруженных угроз**|Отображает список пользователей с максимальным числом обнаруженных угроз.|  
+|**Список угроз пользователя**|Отображает список угроз, обнаруженных для указанной учетной записи пользователя.|  
 
-### <a name="hardware---cd-rom"></a>Hardware - CD-ROM  
+### <a name="hardware---cd-rom"></a>Оборудование — устройства чтения компакт-дисков  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Informações de CD-ROM para um computador específico**|Mostra informações sobre as unidades de CD-ROM num computador especificado.|  
-|**Computadores para um fabricante de CD-ROM específico**|Mostra uma lista dos computadores com uma unidade de CD-ROM criada por um fabricante especificado por si.|  
-|**Unidades de CD-ROM de contagem por fabricante**|Mostra o número de unidades CD-ROM inventariadas por fabricante.|  
-|**Histórico - histórico de CD-ROM para um computador específico**|Mostra o histórico de inventário das unidades CD-ROM num computador especificado.|  
+|**Сведения об устройствах чтения компакт-дисков на определенном компьютере**|Отображаются сведения об устройствах чтения компакт-дисков на указанном компьютере.|  
+|**Компьютеры с устройствами чтения компакт-дисков определенного производителя**|Отображается список компьютеров с устройствами чтения компакт-дисков указанного производителя.|  
+|**Подсчет устройств чтения компакт-дисков по производителям**|Отображается количество инвентаризованных устройств чтения компакт-дисков по производителям.|  
+|**Журнал — журнал сведений об устройствах чтения компакт-дисков на определенном компьютере**|Отображается журнал инвентаризации устройств чтения компакт-дисков на определенном компьютере.|  
 
-### <a name="hardware---disk"></a>Hardware - disco  
+### <a name="hardware---disk"></a>Оборудование — диск  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores com um tamanho de disco rígido específico**|Mostra uma lista dos computadores com discos rígidos de um tamanho especificado.|  
-|**Computadores com pouco espaço livre em disco (menos de % livre especificada)**|Mostra uma lista de computadores numa coleção especificada que têm menos espaço livre em disco do que o especificado.|  
-|**Computadores com pouco espaço livre em disco (menor que especificada MB de espaço livre)**|Mostra uma lista de computadores e discos com pouco espaço livre em disco. A quantidade de espaço livre a verificar é especificada em MB.|  
-|**Configurações de disco físico de contagem**|Mostra o número de discos rígidos inventariados por capacidade de disco.|  
-|**Informações de disco para um computador específico - discos lógicos**|Mostra informações de resumo sobre os discos lógicos num computador especificado.|  
-|**Informações de disco para um computador específico - partições**|Mostra informações de resumo sobre as partições do disco num computador especificado.|  
-|**Informações de disco para um computador específico - discos físicos**|Mostra informações de resumo sobre os discos físicos num computador especificado.|  
-|**Histórico - histórico de espaço de disco lógico para um computador específico**|Mostra o histórico de inventário para unidades de disco lógicas num computador especificado.|  
+|**Компьютеры с определенным размером жесткого диска**|Отображается список компьютеров с заданным размером жесткого диска.|  
+|**Компьютеры с недостаточным свободным местом на дисках (свободно менее заданного объема в %)**|Отображается список компьютеров в указанной коллекции, объем свободного места на которых меньше указанного.|  
+|**Компьютеры с недостаточным свободным местом на дисках (свободно менее заданного количества МБ)**|Отображается список компьютеров и дисков с недостаточным свободным местом. Объем свободного места для проверки указывается в МБ.|  
+|**Подсчет конфигураций физических дисков**|Отображается число жестких дисков, инвентаризованных по емкости диска.|  
+|**Сведения о диске для определенного компьютера — логические диски**|Отображаются общие сведения о логических дисках на указанном компьютере.|  
+|**Сведения о диске для определенного компьютера — разделы**|Отображаются общие сведения о разделах дисков на указанном компьютере.|  
+|**Сведения о диске для определенного компьютера — физические диски**|Отображаются общие сведения о физических дисках на указанном компьютере.|  
+|**Журнал — журнал сведений об объеме логических дисков на определенном компьютере**|Отображается журнал инвентаризации логических дисков на определенном компьютере.|  
 
-### <a name="hardware---general"></a>Hardware – geral  
+### <a name="hardware---general"></a>Оборудование — общее  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Informações sobre o computador para um computador específico**|Mostra informações de resumo de um computador especificado.|  
-|**Computadores num domínio ou grupo de trabalho específico**|Mostra uma lista de computadores num Grupo de Trabalho ou domínio especificado.|  
-|**Classes de inventário atribuídas a uma coleção específica**|Mostra as classes de inventário que estão atribuídas a uma coleção especificada.|  
-|**Classes de inventário ativadas num computador específico**|Mostra as classes de inventário ativadas num computador especificado.|  
+|**Сведения об определенном компьютере**|Отображается сводка об определенном компьютере.|  
+|**Компьютеры определенного домена или рабочей группы**|Отображается список компьютеров в указанной рабочей группе или домене.|  
+|**Классы инвентаризации, назначенные заданной коллекции**|Отображаются классы инвентаризации, назначенные указанной коллекции.|  
+|**Включенные на заданном компьютере классы инвентаризации**|Отображаются классы инвентаризации, включенные на указанном компьютере.|  
 
-### <a name="hardware---memory"></a>Hardware - memória  
+### <a name="hardware---memory"></a>Оборудование — память  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores onde a memória física foi alterada**|Mostra uma lista de computadores onde a quantidade de RAM foi alterada desde o último ciclo de inventário.|  
-|**Computadores com uma quantidade específica de memória**|Mostra uma lista de computadores com uma quantidade especificada de RAM (Memória Física Total arredondada para o MB mais próximo).|  
-|**Computadores com memória insuficiente (menor ou igual ao valor de MB especificado)**|Mostra uma lista de computadores com memória insuficiente. A quantidade de memória a verificar é especificada em MB.|  
-|**Configurações da memória de contagem**|Mostra o número de computadores inventariados por quantidade de RAM.|  
-|**Informações de memória para um computador específico**|Mostra informações de resumo sobre a memória num computador especificado.|  
+|**Компьютеры с измененной физической памятью**|Отображается список компьютеров, на которых объем ОЗУ изменился с момента последнего цикла инвентаризации.|  
+|**Компьютеры с определенным объемом памяти**|Отображается список компьютеров с указанным объемом ОЗУ (округленный до ближайшего мегабайта общий объем физической памяти).|  
+|**Компьютеры с недостаточным объемом памяти (меньшим или равным заданному количеству МБ)**|Отображается список компьютеров, на которых не хватает памяти. Объем памяти для проверки указывается в МБ.|  
+|**Подсчет конфигураций памяти**|Отображается число компьютеров, инвентаризованных по объему ОЗУ.|  
+|**Сведения о памяти для определенного компьютера**|Отображаются общие сведения о памяти на указанном компьютере.|  
 
-### <a name="hardware---modem"></a>Hardware - Modem  
+### <a name="hardware---modem"></a>Оборудование — модем  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores para um fabricante de modems especificado**|Mostra uma lista de computadores com um modem criado por um fabricante especificado.|  
-|**Contagem de modems por fabricante**|Mostra o número de modems inventariados para cada fabricante de modems.|  
-|**Informações de modem para um computador específico**|Mostra informações de resumo sobre o modem num computador especificado.|  
+|**Компьютеры с модемами определенного производителя**|Отображается список компьютеров с модемами указанного производителя.|  
+|**Подсчет модемов по производителям**|Отображается количество модемов, инвентаризованных для каждого производителя модемов.|  
+|**Сведения о модеме для определенного компьютера**|Отображаются общие сведения о модеме на указанном компьютере.|  
 
-### <a name="hardware---network-adapter"></a>Hardware - placa de rede  
+### <a name="hardware---network-adapter"></a>Оборудование — сетевой адаптер  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores com um adaptador de rede específicas**|Mostra uma lista de computadores com uma placa de rede especificada.|  
-|**Contagem de placas de rede por tipo**|Mostra o número de placas de rede inventariadas de cada tipo.|  
-|**Informações da placa de rede para um computador específico**|Mostra informações sobre as placas de rede instaladas num computador especificado.|  
+|**Компьютеры с определенным сетевым адаптером**|Отображается список компьютеров с указанным сетевым адаптером.|  
+|**Подсчет сетевых адаптеров по типу**|Отображается число инвентаризованных сетевых адаптеров по типу.|  
+|**Сведения о сетевых адаптерах для определенного компьютера**|Отображаются сведения о сетевых адаптерах, установленных на указанном компьютере.|  
 
-### <a name="hardware---processor"></a>Hardware - processador  
+### <a name="hardware---processor"></a>Оборудование — процессор  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores para uma velocidade de processador específico**|Mostra uma lista de computadores que têm um processador com uma velocidade especificada.|  
-|**Computadores com processadores rápidos (maiores ou iguais a uma velocidade de relógio especificada)**|Mostra uma lista de computadores com processadores com uma velocidade que é mais rápida do que a velocidade especificada.|  
-|**Computadores com processadores lentos (menor ou igual a uma velocidade de relógio especificada)**|Mostra uma lista de computadores com processadores que são executados com uma velocidade de relógio igual ou mais lenta do que a especificada.|  
-|**Velocidades de processador de contagem**|Mostra o número de computadores inventariados por velocidade de processador.|  
-|**Informações do processador para um computador específico**|Mostra informações sobre os processadores instalados num computador especificado.|  
+|**Компьютеры с определенной скоростью процессора**|Отображается список компьютеров с заданной скоростью процессора.|  
+|**Компьютеры с быстродействующими процессорами (с тактовой частотой больше или равной заданной)**|Отображается список компьютеров с процессорами, тактовая частота которых больше указанной.|  
+|**Компьютеры с медленными процессорами (с тактовой частотой меньше или равной заданной)**|Отображается список компьютеров с процессорами, тактовая частота которых равна или меньше указанной.|  
+|**Подсчет частот процессоров**|Отображается число компьютеров, инвентаризованных по частоте процессора.|  
+|**Сведения о процессоре для определенного компьютера**|Отображаются сведения о процессорах, установленных на указанном компьютере.|  
 
-### <a name="hardware---scsi"></a>Hardware - SCSI  
+### <a name="hardware---scsi"></a>Оборудование — SCSI  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Tipo de computadores com um cartão SCSI especificado**|Mostra uma lista de computadores com um cartão de SCSI especificado instalado.|  
-|**Tipos de cartão SCSI de contagem**|Mostra o número de cartões de SCSI inventariados por tipo de cartão.|  
-|**Informações de cartão SCSI para um computador específico**|Mostra informações sobre os cartões SCSI instalados num computador especificado.|  
+|**Компьютеры с картами SCSI определенного типа**|Отображается список компьютеров с указанной картой SCSI.|  
+|**Подсчет типов карт SCSI**|Отображается число инвентаризованных карт SCSI по типу карты.|  
+|**Сведения о карте SCSI для определенного компьютера**|Отображаются сведения о картах SCSI, установленных на указанном компьютере.|  
 
-### <a name="hardware---sound-card"></a>Hardware - placa de som  
+### <a name="hardware---sound-card"></a>Оборудование — звуковая карта  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores com uma placa de som especificada**|Mostra uma lista de computadores com uma placa de som especificada.|  
-|**Contagem placas de som**|Mostra o número de computadores inventariados por cada tipo de placa de som.|  
-|**Informações da placa de som para um computador específico**|Mostra informações de resumo sobre as placas de som num computador especificado.|  
+|**Компьютеры с определенной звуковой картой**|Отображается список компьютеров с указанной звуковой картой.|  
+|**Количество звуковых карт**|Отображается число компьютеров, инвентаризованных по каждому типу звуковой карты.|  
+|**Сведения о звуковой карте для определенного компьютера**|Отображаются общие сведения о звуковых картах на указанном компьютере.|  
 
-### <a name="hardware---video-card"></a>Hardware - placa de vídeo  
+### <a name="hardware---video-card"></a>Оборудование — видеоадаптер  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores com uma placa de vídeo especificada**|Mostra uma lista de computadores com uma placa gráfica especificada.|  
-|**Contagem de placas de vídeo**|Mostra uma lista de todas as placas gráficas instaladas nos computadores e o número de cada tipo de placa gráfica.|  
-|**Informações da placa de vídeo para um computador específico**|Mostra informações de resumo sobre as placas gráficas instaladas num computador especificado.|  
+|**Компьютеры с определенным видеоадаптером**|Отображается список компьютеров с указанным видеоадаптером.|  
+|**Подсчет видеоадаптеров по типу**|Отображается список всех видеоадаптеров, установленных на компьютерах, а также число видеоадаптеров каждого типа.|  
+|**Сведения о видеоадаптере для определенного компьютера**|Отображаются сведения о видеоадаптерах, установленных на указанном компьютере.|  
 
-### <a name="migration"></a>Migração  
+### <a name="migration"></a>Миграция  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Clientes na lista de exclusão**|Mostra os clientes excluídos da migração.|  
-|**Dependência de uma coleção do Configuration manager**|Mostra os objetos que dependem de uma coleção da hierarquia de origem.|  
-|**Propriedades da tarefa de migração**|Este relatório mostra os conteúdos da tarefa de migração especificada.|  
-|**Tarefas de migração**|Este relatório mostra a lista de tarefas de migração.|  
-|**Objetos que falharam ao migrar**|Mostra uma lista de objetos cuja migração falhou durante a última tentativa.|  
+|**Клиенты в списке исключения**|Отображаются клиенты, исключенные из процесса миграции.|  
+|**Зависимость от коллекции Configuration Manager**|Отображаются объекты, зависящие от коллекции исходной иерархии.|  
+|**Свойства задания миграции**|В этом отчете отображается содержимое указанного задания миграции.|  
+|**Задания миграции**|Этот отчет содержит список заданий миграции.|  
+|**Объекты с ошибками миграции**|Отображается список объектов, которые не удалось перенести во время последней попытки.|  
 
-### <a name="network"></a>Rede  
+### <a name="network"></a>Сеть  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Contagem de endereços IP por sub-rede**|Mostra o número de endereços IP inventariados para cada sub-rede IP.|  
-|**IP - todas as sub-redes por máscara de sub-rede**|Mostra uma lista de sub-redes IP e de máscaras de sub-rede.|  
-|**IP - computadores numa sub-rede específica**|Mostra uma lista de computadores e informações de IP de uma sub-rede IP especificada.|  
-|**IP - informações para um computador específico**|Mostra informações de resumo sobre o IP de um computador especificado.|  
-|**IP - informações para um endereço IP específico**|Mostra informações de resumo sobre um endereço IP especificado.|  
-|**MAC - computadores para um endereço MAC específico**|Mostra o nome do computador e o endereço IP dos computadores com o endereço MAC especificado.|  
+|**Подсчет IP-адресов в подсети**|Отображается количество IP-адресов, инвентаризованных для каждой IP-подсети.|  
+|**IP — все подсети по маске**|Отображается список IP-подсетей и масок подсетей.|  
+|**IP — компьютеры в определенной подсети**|Отображается список компьютеров и сведения об IP-адресе для указанной IP-подсети.|  
+|**IP — сведения об определенном компьютере**|Отображаются общие сведения об IP-адресе на указанном компьютере.|  
+|**IP — сведения по определенному IP-адресу**|Отображаются общие сведения об указанном IP-адресе.|  
+|**MAC — компьютеры с определенным MAC-адресом**|Отображаются имена и IP-адреса компьютеров с указанным MAC-адресом.|  
 
-### <a name="network-access-protection"></a>Proteção de Acesso à Rede  
+### <a name="network-access-protection"></a>Защита доступа к сети  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Comparação das atualizações de software instaladas por implementações de atualização de software e remediação NAP.**|Mostra um resumo de comparação das atualizações de software instaladas por implementações de atualização de software e remediação NAP.|  
-|**Frequência de um computador tiver sido em remediação durante um período especificado**|Este relatório mostra com que frequência um computador foi remediado durante um período especificado.|  
-|**Lista de computadores que instalaram uma atualização de software específica através de remediação durante um período especificado**|Mostra os computadores com uma atualização de software específica instalada através de remediação durante um período de tempo especificado (dias).|  
-|**Lista de computadores que seria não conformes com base nas actualizações de software selecionadas**|Mostra todos os computadores que não estariam em conformidade com base nas atualizações de software selecionadas.|  
-|**Lista de computadores onde não foi possível detetar serviço NAP**|Mostra uma lista de computadores onde não foi possível detetar o serviço NAP.|  
-|**Lista de computadores elegíveis pelo NAP**|Mostra uma lista de computadores em que o serviço NAP não está a ser executado ou tem um estado desconhecido.|  
-|**Lista de políticas de proteção de acesso à rede**|Mostra as políticas de Proteção de Acesso à Rede com as respetivas datas efetivas.|  
-|**Lista de computadores não conformes em remediação no último intervalo de consulta**|Mostra uma lista de computadores não conformes em remediação com as horas das suas últimas avaliações conhecidas.|  
-|**Lista de computadores não conformes em remediação durante um período especificado**|Mostra uma lista de computadores não conformes em remediação durante um período de tempo especificado.|  
-|**Lista de falhas de remediação do período de tempo especificado**|Mostra uma lista de falhas de remediação num número especificado de dias.|  
-|**Lista das atualizações de software instaladas através de remediação**|Mostra as atualizações de software instaladas através de remediação durante um período especificado.|  
-|**Resumo de computadores não conformes em remediação no último intervalo de consulta**|Mostra um resumo dos computadores não conformes em remediação no último intervalo de consulta.|  
-|**Resumo de computadores não conformes em remediação durante um período especificado**|Mostra um resumo de computadores incompatíveis em remediação durante um período de tempo especificado.|  
+|**Сравнение обновлений программного обеспечения, установленных при помощи функции развертывания обновлений и функции исправлений NAP.**|Отображается сравнение обновлений программного обеспечения, установленных с помощью функции развертывания обновлений и функции исправлений NAP.|  
+|**Частота получения исправлений компьютером в заданный период**|В этом отчете отображается, как часто компьютер получал исправления в течение указанного периода.|  
+|**Список компьютеров, установивших указанное обновление программного обеспечения через функцию исправлений за определенный период времени**|Отображается список компьютеров, установивших указанное обновление программного обеспечения через функцию исправлений за определенный период времени.|  
+|**Список компьютеров, не соответствующих выбранному перечню обновлений программного обеспечения**|Отображаются все компьютеры, не соответствующие выбранному перечню обновлений программного обеспечения.|  
+|**Список компьютеров без обнаруженной службы защиты доступа к сети**|Отображается список компьютеров без обнаруженной службы защиты доступа к сети.|  
+|**Список компьютеров, на которых может быть включена функция защиты доступа к сети (NAP)**|Отображает список компьютеров, на которых служба NAP не запущена или ее состояние неизвестно.|  
+|**Список политик защиты доступа к сети**|Отображаются политики защиты доступа к сети с датами вступления в силу.|  
+|**Список несоответствующих компьютеров в состоянии исправления с последнего интервала опроса**|Отображается список несоответствующих компьютеров в состоянии исправления с момента последней известной оценки.|  
+|**Список несоответствующих компьютеров в состоянии исправления в определенный период**|Отображается список несоответствующих компьютеров в состоянии исправления в определенный период времени.|  
+|**Список отказов исправлений за указанный период времени**|Отображается список ошибок исправления за указанное число дней.|  
+|**Список обновлений программного обеспечения, установленных путем внесения исправлений**|Отображаются обновления программного обеспечения, установленные за указанный период.|  
+|**Сводка по несоответствующим компьютерам в состоянии исправления с последнего интервала опроса**|Отображается сводка по несоответствующим компьютерам в состоянии исправления с последнего интервала опроса.|  
+|**Сводка по несоответствующим компьютерам в состоянии исправления в определенный период**|Отображается сводка по несоответствующим компьютерам в состоянии исправления за определенный период времени.|  
 
-### <a name="operating-system"></a>Sistema Operativo  
+### <a name="operating-system"></a>Операционная система  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Histórico de versões de sistema operativo do computador**|Mostra o histórico de inventário do sistema operativo num computador especificado.|  
-|**Computadores com um sistema operativo específico**|Mostra os computadores com um sistema operativo especificado.|  
-|**Computadores com um sistema operativo específico e service pack**|Mostra os computadores com um sistema operativo e service pack especificados.|  
-|**Versões de sistema operativo de contagem**|Mostra o número de computadores inventariados por sistema operativo.|  
-|**Contagem de sistemas operativos e service packs**|Mostra o número de computadores inventariados por combinações de sistema operativo e service pack.|  
-|**Serviços - computadores com um serviço específico**|Mostra uma lista de computadores a executar um serviço especificado.|  
-|**Serviços - computadores com servidor de acesso remoto**|Mostra uma lista de computadores a executar o Servidor de Acesso Remoto.|  
-|**Serviços - informações de serviços para um computador específico**|Mostra informações de resumo sobre os serviços num computador especificado.|  
-|**Computadores Windows Server**|Mostra uma lista de computadores que executam os sistemas operativos Windows Server.|  
+|**Журнал версий операционной системы компьютера**|Отображается журнал инвентаризации для операционной системы на определенном компьютере.|  
+|**Компьютеры с определенной операционной системой**|Отображаются компьютеры с указанной операционной системой.|  
+|**Компьютеры с определенной операционной системой и пакетом обновления**|Отображаются компьютеры с определенной операционной системой и пакетом обновления.|  
+|**Подсчет версий операционной системы**|Отображается число компьютеров, инвентаризованных по операционной системе.|  
+|**Подсчет операционных систем и пакетов обновления**|Отображается число компьютеров, инвентаризованных по сочетанию операционной системы и пакета обновления.|  
+|**Службы — компьютеры с запущенной определенной службой**|Отображается список компьютеров под управлением указанной службы.|  
+|**Службы — компьютеры с запущенным сервером удаленного доступа**|Отображается список компьютеров с запущенным сервером удаленного доступа.|  
+|**Службы — сведения о службах для определенного компьютера**|Отображаются общие сведения о службах на указанном компьютере.|  
+|**Компьютеры с Windows Server**|Отображается список компьютеров под управлением операционных систем Windows Server.|  
 
-### <a name="out-of-band-management"></a>Gestão Fora de Banda  
+### <a name="out-of-band-management"></a>Использование аппаратного контроллера управления  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores com controladores de gestão fora de banda**|Mostra uma lista de computadores com controladores de gestão fora de banda.|  
-|**Atividade de consola de gestão fora de banda**|Mostra uma lista de mensagens de estado a identificar a atividade da consola de gestão fora de banda.|  
-|**Estado do cliente fora do aprovisionamento da gestão fora de banda**|Mostra uma lista de computadores aprovisionados para gestão fora de banda.|  
+|**Компьютеры с аппаратными контроллерами управления**|Отображается список компьютеров с контроллерами аппаратного контроллера управления.|  
+|**Действие консоли аппаратного контроллера управления**|Отображается список сообщений о состоянии, связанных с действиями консоли аппаратного контроллера управления.|  
+|**Состояние инициализации аппаратного контроллера управления клиентами**|Отображается список компьютеров, настроенных для использования аппаратного контроллера управления.|  
 
-### <a name="power-management"></a>Gestão de Energia  
+### <a name="power-management"></a>Управление питанием  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Gestão de energia - atividade do computador**|Mostra um gráfico com a atividade do monitor, computador e utilizador numa coleção especificada e num período de tempo especificado.|  
-|**Gestão de energia - atividade do computador por computador**|Mostra um gráfico com a atividade do monitor, computador e utilizador, num computador especificado e numa data especificada.|  
-|**Gestão de energia - detalhes de atividade do computador**|Mostra uma lista das funcionalidades de suspensão e reativação dos computadores na coleção especificada numa data e hora especificadas.|  
-|**Gestão de energia - detalhes do computador**|Mostra informações detalhadas sobre as funcionalidades de energia, definições de energia e esquemas de energia aplicados a um computador especificado.|  
-|**Gestão de energia - computador não transmite detalhes**|Mostra uma lista de computadores que não reportam atividade de energia numa data e hora especificadas.|  
-|**Gestão de energia - computadores excluídos**|Mostra uma lista de computadores excluídos do esquema de energia.|  
-|**Gestão de energia - computadores com vários planos de energia**|Mostra uma lista de computadores com múltiplas definições de energia em conflito aplicadas.|  
-|**Gestão de energia - consumo de energia**|Mostra o consumo mensal total de energia (em kWh) de uma coleção especificada num período de tempo especificado.|  
-|**Gestão de energia - consumo de energia por dia**|Mostra o consumo de energia total (em kWh) de uma coleção especificada nos últimos 31 dias.|  
-|**Gestão de energia - custo da energia**|Mostra o custo do consumo mensal total de energia de uma coleção especificada num período de tempo especificado.|  
-|**Gestão de energia - custo diário de energia**|Mostra o custo do consumo de energia total de uma coleção especificada nos últimos 31 dias.|  
-|**Gestão de energia - impacto ambiental**|Mostra um gráfico com as emissões de dióxido de carbono (CO2) geradas por uma coleção específica num dado período de tempo.|  
-|**Gestão de energia - impacto ambiental por dia**|Mostra um gráfico com as emissões de CO2 geradas por uma coleção específica nos últimos 31 dias.|  
-|**Gestão de energia - insónia do computador**|Mostra informações detalhadas sobre computadores que não entraram em suspensão ou hibernação num período de tempo especificado.|  
-|**Gestão de energia - relatório Insomnia**|Mostra uma lista de causas comuns que impedem os computadores de suspender ou hibernar e o número de computadores que foram afetados por cada causa durante um período de tempo especificado.|  
-|**Gestão de energia - capacidades de energia**|Mostra as funcionalidades de gestão de energia dos computadores na coleção especificada.|  
-|**Gestão de energia - as definições de energia**|Mostra uma lista agregada de definições de energia utilizadas pelos computadores numa coleção especificada.|  
-|**Gestão de energia - detalhes das definições de energia**|Utilizado para visualizar mais informações sobre computadores que foram especificados no **gestão de energia - as definições de energia** relatório.|  
+|**Управление питанием — активность компьютеров**|Диаграмма активности мониторов, компьютеров и пользователей для указанной коллекции в течение заданного периода.|  
+|**Управление питанием — активность компьютеров по компьютерам**|Диаграмма активности монитора, компьютера и пользователей для заданного компьютера за указанную дату.|  
+|**Управление питанием — сведения об активности компьютеров**|Список возможностей перехода в спящий режим и выхода из него для компьютеров в указанной коллекции на заданную дату и время.|  
+|**Управление питанием — сведения о компьютере**|Подробные сведения о возможностях, параметрах и схемах управления питанием определенного компьютера.|  
+|**Управление питанием — не передающий сведения компьютер**|Список компьютеров, не передающих сведения об активности питания на указанную дату и время.|  
+|**Управление питанием — исключенные компьютеры**|Список компьютеров, которые исключены из схемы управления питанием.|  
+|**Управление питанием — компьютеры с несколькими схемами управления питанием**|Список компьютеров с несколькими конфликтующими параметрами питания.|  
+|**Управление питанием — энергопотребление**|Общее месячное энергопотребление (кВт/ч) в указанной коллекции в течение заданного периода.|  
+|**Управление питанием — энергопотребление по дням**|Общее энергопотребление (кВт/ч) в указанной коллекции в течение последнего 31 дня.|  
+|**Управление питанием — стоимость энергии**|Общая месячная стоимость потребленной электроэнергии в указанной коллекции в течение заданного периода.|  
+|**Управление питанием — стоимость энергии по дням**|Общая стоимость потребленной электроэнергии в указанной коллекции за последний 31 день.|  
+|**Управление питанием — воздействие на окружающую среду**|Диаграмма излучения углекислого газа (CO2) указанной коллекцией в течение заданного периода времени.|  
+|**Управление питанием — воздействие на окружающую среду по дням**|Диаграмма излучения углекислого газа (CO2) указанной коллекцией в течение последнего 31 дня.|  
+|**Управление питанием — подробные сведения о компьютерах, не переходящих в спящий режим**|Подробные сведения о компьютерах, которые не переходили в спящий режим или режим гибернации в течение определенного периода.|  
+|**Управление питанием — отчет о компьютерах, которые не могут перейти в спящий режим**|Список распространенных причин, по которым компьютеры не переходят в спящий режим или режим гибернации, и количество затронутых компьютеров для каждой причины за указанный период.|  
+|**Управление питанием — возможности**|Сведения о возможностях управления питанием на компьютерах в указанной коллекции.|  
+|**Управление питанием — параметры электропитания**|Сводный список параметров питания компьютеров в указанной коллекции.|  
+|**Управление питанием — подробные сведения о параметрах электропитания**|Дополнительные сведения о компьютерах, которые были указаны в отчете **Управление питанием — параметры электропитания**.|  
 
-### <a name="replication-traffic"></a>Tráfego de Replicação  
+### <a name="replication-traffic"></a>Трафик репликации  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Global dados tráfego de replicação por ligação (gráfico de linhas)**|Mostra o tráfego total de replicação de dados globais numa ligação especificada para um número especificado de dias.|  
-|**Global dados tráfego de replicação por ligação (gráfico circular)**|Mostra o tráfego total de replicação de dados globais numa ligação especificada para um número especificado de dias.|  
-|**Tráfego de replicação de hierarquia por ligação**|Mostra o tráfego total de replicação para cada ligação na hierarquia para um número especificado de dias.|  
-|**Hierarquia início dez replicação grupos tráfego por ligação (gráfico circular)**|Mostra o tráfego de replicação dos dez principais grupos de replicação em toda a hierarquia identificada pela ligação.|  
-|**Tráfego de replicação da ligação**|Mostra o tráfego total de replicação para todos os dados relativamente a um número especificado de dias.|  
-|**Tráfego do grupo de replicação por ligação**|Mostra o tráfego de rede do grupo de replicação através de uma ligação de replicação da base de dados especificada para um número especificado de dias.|  
-|**Site dados tráfego de replicação por ligação (gráfico de linhas)**|Mostra o tráfego de replicação total de dados do site numa ligação especificada para um número especificado de dias.|  
-|**Site dados tráfego de replicação por ligação (gráfico circular)**|Mostra o tráfego de replicação total de dados do site numa ligação especificada para um número especificado de dias.|  
-|**Tráfego de replicação de hierarquia total (gráfico de linhas)**|Mostra a replicação de dados do site e os dados globais agregados da hierarquia para cada direção de cada ligação relativamente a um número especificado de dias.|  
-|**Tráfego de replicação de hierarquia total (gráfico circular)**|Mostra a replicação de dados do site e os dados globais agregados da hierarquia para cada direção de cada ligação relativamente a um número especificado de dias.|  
+|**Трафик репликации глобальных данных на канал (график)**|Отображается глобальный трафик репликации данных в указанном канале за заданное число дней.|  
+|**Трафик репликации глобальных данных на канал (круговая диаграмма)**|Отображается глобальный трафик репликации данных в указанном канале за заданное число дней.|  
+|**Трафик репликации иерархии по каналу**|Отображается общий трафик репликации для каждого канала в иерархии за указанное число дней.|  
+|**Трафик десяти основных групп репликации в иерархии по каналу (круговая диаграмма)**|Отображается трафик репликации для десяти основных групп репликации по всей иерархии, определенных по каналу.|  
+|**Трафик канала репликации**|Отображается общий трафик репликации для всех данных за указанное число дней.|  
+|**Трафик группы репликации на канал**|Отображается сетевой трафик группы репликации по указанному каналу репликации базы данных за заданное число дней.|  
+|**Трафик репликации данных сайта на канал (график)**|Отображается общий трафик репликации данных сайта в указанном канале за заданное число дней.|  
+|**Трафик репликации данных сайта на канал (круговая диаграмма)**|Отображается общий трафик репликации данных сайта в указанном канале за заданное число дней.|  
+|**Общий трафик репликации иерархии (график)**|Отображаются сводные сведения о репликации глобальных данных и данных сайтов иерархии для каждого направления каждого канала за указанный период времени (в днях).|  
+|**Общий трафик репликации иерархии (круговая диаграмма)**|Отображаются сводные сведения о репликации глобальных данных и данных сайтов иерархии для каждого направления каждого канала за указанный период времени (в днях).|  
 
-### <a name="site---client-information"></a>Site - informação de cliente  
+### <a name="site---client-information"></a>Сайт — сведения о клиентах  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Atribuição de cliente detalhadas relatório de estado**|Mostra informações detalhadas sobre o estado da atribuição do cliente.|  
-|**Detalhes de falha de atribuição de cliente**|Mostra informações detalhadas sobre as falhas da atribuição do cliente.|  
-|**Detalhes do Estado de atribuição de cliente**|Mostra informações gerais sobre o estado da atribuição do cliente.|  
-|**Detalhes de êxito de atribuição de cliente**|Mostra informações detalhadas sobre os clientes cujas atribuições tiveram êxito.|  
-|**Relatório de falha de implementação do cliente**|Mostra informações detalhadas para clientes cujas implementações falharam.|  
-|**Detalhes do Estado de implementação de cliente**|Mostra informações de resumo do estado das instalações do cliente.|  
-|**Relatório de sucesso de implementação do cliente**|Mostra informações detalhadas de clientes cujas implementações tiveram êxito.|  
-|**Clientes sem capacidade de comunicação HTTPS**|Mostra informações detalhadas sobre cada cliente no site que tenha executado a ferramenta HTTPS Communication Readiness e reportado incapacidade de comunicar por HTTPS.|  
-|**Computadores atribuídos mas não instalados para um site específico**|Mostra uma lista de computadores que foram atribuídos a um site especificado, mas que não comunicam com esse site.|  
-|**Computadores com uma versão de cliente específico do Configuration Manager**|Apresenta uma lista de computadores que executem uma versão especificada do software de cliente do Configuration Manager.|  
-|**Contagem de clientes e protocolo utilizado para comunicação**|Mostra um resumo dos métodos de comunicação utilizados pelos clientes (HTTP ou HTTPS).|  
-|**Contagem de clientes atribuídos e instalados para cada site**|Mostra o número de computadores atribuídos e instalados em cada site. Os clientes com uma localização de rede associada a múltiplos sites só serão contados como instalados se estiverem a comunicar com esse site.|  
-|**Contagem de clientes com capacidade de comunicação HTTPS**|Mostra informações detalhadas sobre cada cliente no site que tenha executado a ferramenta HTTPS Communication Readiness e reportado a sua capacidade ou incapacidade de comunicar por HTTPS.|  
-|**Contagem de clientes para cada site**|Apresenta o número de clientes do Configuration Manager instalados por código do site.|  
-|**Clientes de contagem do Configuration Manager por versões de cliente**|Apresenta o número de computadores detetados pela versão de cliente do Configuration Manager.|  
-|**Detalhes de problemas relatados ao ponto de estado de contingência de uma coleção especificada**|Mostra informações detalhadas sobre problemas reportados por clientes numa coleção especificada, se tiverem um ponto de estado de contingência atribuído.|  
-|**Detalhes de problemas relatados ao ponto de estado de contingência para um site especificado**|Mostra informações detalhadas sobre os problemas reportados pelos clientes num site especificado, se tiverem um ponto de estado de contingência atribuído.|  
-|**Resumo de problemas relatados ao ponto de estado de contingência**|Mostra informações sobre todos os problemas reportados pelos clientes, se tiverem um ponto de estado de contingência atribuído.|  
-|**Resumo de problemas relatados ao ponto de estado de contingência para uma coleção específica**|Mostra um resumo detalhado sobre os problemas reportados por clientes numa coleção especificada, se tiverem um ponto de estado de contingência atribuído.|  
+|**Подробный отчет о состоянии назначения клиентов**|Подробные сведения о состоянии назначения клиентов.|  
+|**Подробные сведения о сбоях при назначении клиентов**|Отображаются подробные сведения о сбоях при назначении клиентов.|  
+|**Подробные сведения о состоянии назначения клиента**|Отображаются общие сведения о состоянии назначения клиентов.|  
+|**Подробные сведения об успешных назначениях клиентов**|Отображаются подробные сведения об успешных назначениях клиентов.|  
+|**Отчет о сбоях при развертывании клиентов**|Отображаются подробные сведения о клиентах, которые не удалось развернуть.|  
+|**Подробные сведения о состоянии развертывания клиентов**|Сводные данные о состоянии установки клиента.|  
+|**Отчет об успешном развертывании клиентов**|Подробные сведения об успешно развернутых клиентах.|  
+|**Клиенты, не поддерживающие взаимодействие по HTTPS**|Подробные сведения о каждом клиенте на сайте, который запустил средство проверки готовности взаимодействия по HTTPS и сообщил об отсутствии поддержки связи по протоколу HTTPS.|  
+|**Назначенные и не установленные для определенного сайта компьютеры**|Отображается список компьютеров, которые были назначены определенному сайту, но не взаимодействуют с этим сайтом.|  
+|**Компьютеры с указанной версией клиента Configuration Manager**|Отображает список компьютеров с указанной версией клиентского ПО Configuration Manager.|  
+|**Число клиентов и используемый для взаимодействия протокол**|Сводка методов взаимодействия, используемых клиентами (HTTP или HTTPS).|  
+|**Число клиентов, назначенных и установленных для каждого из сайтов**|Отображается число компьютеров, назначенных и установленных для каждого сайта. Клиенты с сетевым расположением, связанным с несколькими сайтами, учитываются как установленные, только если они подчиняются этому сайту.|  
+|**Число клиентов с поддержкой взаимодействия по HTTPS**|Подробные сведения о каждом клиенте на сайте, который запустил средство проверки готовности взаимодействия по HTTPS и сообщил о поддержке связи по протоколу HTTPS или ее отсутствии.|  
+|**Число клиентов для каждого из сайтов**|Отображение числа установленных клиентов Configuration Manager по кодам сайтов.|  
+|**Число клиентов Configuration Manager по версии клиента**|Отображение числа компьютеров, обнаруженных версией клиента Configuration Manager.|  
+|**Переданные в резервную точку состояния сведения о проблемах для указанной коллекции**|Отображает подробные сведения о проблемах, о которых сообщили клиенты в указанной коллекции, если им была назначена резервная точка состояния.|  
+|**Переданные в резервную точку состояния сведения о проблемах для указанного сайта**|Отображает подробные сведения о проблемах, о которых сообщили клиенты на указанном сайте, если им была назначена резервная точка состояния.|  
+|**Сводка по проблемам, переданным в резервную точку состояния**|Отображает сведения о всех проблемах, о которых сообщили клиенты, если им была назначена резервная точка состояния.|  
+|**Сводка по проблемам, переданным в резервную точку состояния для указанной коллекции**|Отображает сводку о проблемах, о которых сообщили клиенты в указанной коллекции, если им была назначена резервная точка состояния.|  
 
-### <a name="site---discovery-and-inventory-information"></a>Site - informações do inventário e de deteção  
+### <a name="site---discovery-and-inventory-information"></a>Сайт — сведения об обнаружении и инвентаризации  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Clientes que não relataram recentemente (num número especificado de dias)**|Mostra uma lista de clientes que não reportaram dados de deteção, inventário de hardware ou inventário de software num número especificado de dias.|  
-|**Computadores detetados por um site específico**|Mostra uma lista de todos os computadores detetados por um site especificado e a data da deteção mais recente.|  
-|**Computadores detetados recentemente por método de deteção**|Mostra uma lista de computadores detetados num número especificado de dias e os agentes que os detetaram. Um computador pode aparecer mais do que uma vez nesta lista se for detetado por múltiplos agentes.|  
-|**Computadores não detetados recentemente (num número especificado de dias)**|Mostra uma lista de computadores que não foram detetados recentemente e o número de dias desde que foram detetados.|  
-|**Computadores não inventariados recentemente (num número especificado de dias)**|Mostra uma lista de computadores que não foram inventariados recentemente e as últimas vezes em que foram inventariados.|  
-|**Computadores que podem partilhar o mesmo identificador exclusivo do Configuration Manager**|Mostra uma lista de computadores cujos nomes foram alterados. Uma alteração de nome é um possível sintoma de que o computador partilha um identificador exclusivo do Configuration Manager com outro computador.|  
-|**Computadores com endereços MAC duplicados**|Mostra os computadores que partilham o endereço MAC.|  
-|**Contagem de computadores em grupos de trabalho ou domínios de recurso**|Mostra o número de computadores em cada domínio de recurso ou grupo de trabalho.|  
-|**Informações de deteção para um computador específico**|Mostra uma lista dos agentes e sites que detetaram um computador especificado.|  
-|**Datas de inventário para um computador específico**|Mostra a data e hora da execução mais recente do inventário num computador especificado.|  
+|**Клиенты, не присылающие отчеты (в течение определенного количества дней)**|Отображает список клиентов, которые не передавали данные обнаружения, инвентаризации оборудования или программного обеспечения за указанное число дней.|  
+|**Компьютеры, обнаруженные определенным сайтом**|Отображает список всех компьютеров, обнаруженных указанным сайтом, и дату последнего обнаружения.|  
+|**Обнаруженные недавно компьютеры (по методу обнаружения)**|Отображает список компьютеров, которые были обнаружены в течение указанного числа дней, и список агентов, которые их обнаружили. Компьютер может быть указан в списке несколько раз, если он был обнаружен несколькими агентами.|  
+|**Давно не обнаруживаемые компьютеры (в течение определенного количества дней)**|Отображает список компьютеров, которые не были обнаружены недавно, и количество дней с момента их обнаружения.|  
+|**Компьютеры, не присылающие данные инвентаризации (в течение определенного количества дней)**|Отображает список компьютеров, которые не были недавно инвентаризованы, и время их последней инвентаризации.|  
+|**Компьютеры с потенциально совпадающими уникальными идентификаторами Configuration Manager**|Отображает список компьютеров, имена которых были изменены. Изменение имени — возможный признак того, что компьютер использует такой же уникальный идентификатор Configuration Manager, что и другой компьютер.|  
+|**Компьютеры с дублирующимися MAC-адресами**|Отображает компьютеры с одинаковым MAC-адресом.|  
+|**Количество компьютеров в доменах или рабочих группах**|Отображает количество компьютеров в каждом домене или рабочей группе ресурса.|  
+|**Сведения обнаружения для определенного компьютера**|Отображает список агентов и сайтов, обнаруженных на указанном компьютере.|  
+|**Даты инвентаризации для определенного компьютера**|Отображает дату и время последней инвентаризации на указанном компьютере.|  
 
-### <a name="site---general"></a>Site - geral  
+### <a name="site---general"></a>Сайт — общее  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores num site específico**|Mostra uma lista dos computadores cliente num site especificado.|  
-|**Estado do site para a hierarquia**|Mostra a lista de sites na hierarquia com informações da versão do site e do estado do site.|  
-|**Estado da atualização do Configuration Manager na hierarquia**|Apresenta informações sobre atualizações de sites do Configuration Manager para a hierarquia.|  
+|**Компьютеры определенного сайта**|Отображается список клиентских компьютеров на указанном сайте.|  
+|**Состояние сайтов в иерархии**|Отображается список сайтов в иерархии с их версией и состоянием.|  
+|**Состояние обновлений Configuration Manager в иерархии**|Выводит сведения об обновлениях сайта Configuration Manager для иерархии.|  
 
-### <a name="site---server-information"></a>Site - informações do servidor  
+### <a name="site---server-information"></a>Сайт — сведения о сервере  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Funções de sistema de sites e servidores de sistema de sites para um site específico**|Mostra uma lista do servidor do sistema de sites e as respetivas funções do sistema de sites num site especificado.|  
+|**Роли и серверы системы сайта для определенного сайта**|Отображает список серверов системы и их ролей для указанного сайта.|  
 
-### <a name="software---companies-and-products"></a>Software - empresas e produtos  
+### <a name="software---companies-and-products"></a>Программы — компании и продукты  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todos os produtos inventariados para uma empresa de software específica**|Mostra uma lista dos produtos e versões de software inventariados de uma empresa de software especificada.|  
-|**Todas as empresas de software**|Mostra uma lista de todas as empresas que fabricam software inventariado.|  
-|**Todas as aplicações do Windows**|Mostra um resumo das aplicações do Windows instaladas, ordenadas pelo número de instância com base nos critérios de pesquisa de nome, arquitetura ou publicador da aplicação.|  
-|**Computadores com um produto específico**|Mostra uma lista de computadores nos quais um produto especificado está inventariado, bem como as versões desse produto.|  
-|**Computadores com um nome de produto específico e versão**|Mostra uma lista dos computadores nos quais uma versão especificada de um produto está inventariada.|  
-|**Computadores com software específico registado em Adicionar/remover programas**|Mostra um resumo de todos os computadores com software especificado e registado em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  
-|**Contagem de produtos e versões inventariados tudo**|Mostra uma lista dos produtos e versões de software inventariados e o número de computadores nos quais estão instalados.|  
-|**Contagem de produtos e versões de um produto específico inventariados**|Mostra uma lista das versões inventariadas de um produto especificado e o número de computadores nos quais estão instaladas.|  
-|**Contagem de todas as instâncias de software registado em Adicionar ou remover programas**|Mostra um resumo de todas as instâncias do software instalado e registado em Adicionar/Remover Programas ou em Programas e Funcionalidades nos computadores da coleção especificada.|  
-|**Contagem de instâncias de software específico registado em Adicionar ou remover programas**|Mostra uma contagem das instâncias dos pacotes de software especificados instalados e registados em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  
-|**Instalações de aplicações do Windows especificadas**|Este relatório mostra uma lista de todos os computadores com uma aplicação especificada do Windows|  
-|**Produtos num computador específico**|Mostra um resumo dos produtos de software inventariados e os seus fabricantes num computador especificado.|  
-|**Software registado em Adicionar/remover programas num computador específico**|Mostra um resumo do software instalado num computador especificado que esteja registado em Adicionar/Remover Programas ou em Programas e Funcionalidades.|  
-|**Aplicações do Windows instaladas para o utilizador especificado**|Mostra todas as aplicações do Windows instaladas para o utilizador especificado|  
+|**Все инвентаризованные продукты определенной компании-разработчика**|Отображает список инвентаризованных программных продуктов и версий от указанного поставщика программного обеспечения.|  
+|**Все компании-разработчики**|Отображает список всех компаний-разработчиков инвентаризованного программного обеспечения.|  
+|**Все приложения Windows**|Отображает сводку установленных приложений Windows, упорядоченных по номеру экземпляра на основе условий поиска для имени приложения, архитектуры или издателя.|  
+|**Компьютеры с определенным продуктом**|Отображает список компьютеров, на которых указанный продукт был инвентаризован, а также версии этого продукта.|  
+|**Компьютеры с определенным названием и версией продукта**|Отображает список компьютеров, на которых была инвентаризована указанная версия продукта.|  
+|**Компьютеры с определенным программным обеспечением в меню установки и удаления программ**|Отображает сводку всех компьютеров с указанным программным обеспечением, зарегистрированным в меню установки и удаления программ или оснастке «Программы и компоненты».|  
+|**Подсчет всех инвентаризованных продуктов и версий**|Отображает список инвентаризованных программных продуктов и их версий, а также число компьютеров, на которых установлен каждый продукт.|  
+|**Количество и версии определенного инвентаризованного программного продукта**|Отображает список инвентаризованных версий указанного продукта и число компьютеров, на которых установлена каждая из них.|  
+|**Количество экземпляров программного обеспечения в меню установки и удаления программ**|Отображает сводку всех экземпляров программного обеспечения, установленных и зарегистрированных в меню установки и удаления программ или оснастке «Программы и компоненты» на компьютерах в указанной коллекции.|  
+|**Количество экземпляров указанного программного обеспечения в меню установки и удаления программ**|Отображает число экземпляров указанных программных пакетов, установленных и зарегистрированных в меню установки и удаления программ или оснастке «Программы и компоненты».|  
+|**Установки указанного приложения Windows**|В этом отчете перечислены все компьютеры с указанным приложением Windows.|  
+|**Программные продукты на определенном компьютере**|Отображает сводку инвентаризованных программных продуктов и их производителей на указанном компьютере.|  
+|**Программное обеспечение в меню установки и удаления программ на определенном компьютере**|Отображает сводку всех программных продуктов, установленных на указанном компьютере и зарегистрированных в меню установки и удаления программ или оснастке «Программы и компоненты».|  
+|**Приложения Windows, установленные для указанного пользователя**|Отображает все приложения Windows, установленные для указанного пользователя.|  
 
-### <a name="software---files"></a>Software - Ficheiros  
+### <a name="software---files"></a>Программы — файлы  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todos os ficheiros inventariados para um produto específico**|Mostra um resumo dos ficheiros inventariados associados a um produto de software especificado.|  
-|**Todos os ficheiros inventariados num computador específico**|Mostra um resumo de todos os ficheiros inventariados num computador especificado.|  
-|**Comparar inventário de software em dois computadores**|Mostra as diferenças entre os inventários de software reportados em dois computadores especificados.|  
-|**Computadores com um ficheiro específico**|Mostra uma lista de computadores que recolheram o inventário de software de um nome de ficheiro especificado. Um computador pode aparecer mais do que uma vez na lista se tiver várias cópias do ficheiro.|  
-|**Contagem de computadores com um nome de ficheiro específico**|Mostra o número de computadores que recolheram o inventário de software de um ficheiro especificado.|  
+|**Все инвентаризованные файлы определенного продукта**|Отображает сводку об инвентаризованных файлах, связанных с указанным программным продуктом.|  
+|**Все инвентаризованные файлы определенного компьютера**|Отображает сводку о всех файлах, инвентаризованных на указанном компьютере.|  
+|**Сравнение инвентаризованных программных продуктов на двух компьютерах**|Отображает различия между инвентаризацией программного обеспечения для двух указанных компьютеров.|  
+|**Компьютеры с определенным файлом**|Отображает список компьютеров, которые собрали данные инвентаризации программного обеспечения для указанного имени файла. Компьютер может отображаться в списке несколько раз, если он содержит несколько копий файла.|  
+|**Количество компьютеров с заданным именем файла**|Отображает количество компьютеров, которые собрали данные инвентаризации программного обеспечения для указанного файла.|  
 
-### <a name="software-distribution---application-monitoring"></a>Distribuição de software - monitorização de aplicações  
+### <a name="software-distribution---application-monitoring"></a>Распространение ПО — отслеживание приложений  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todas as implementações de aplicações (avançadas)**|Mostra informações de resumo detalhadas de todas as implementações de aplicações.|  
-|**Todas as implementações de aplicações (básico)**|Mostra as informações de resumo de todas as implementações de aplicações.|  
-|**Compatibilidade de aplicação**|Mostra as informações de compatibilidade da aplicação especificada na coleção especificada.|  
-|**Implementações de aplicações por ativo**|Mostra as aplicações implementadas num dispositivo ou utilizador especificado.|  
-|**Erros de infra-estrutura de aplicações**|Mostra os erros da infraestrutura da aplicação.  Podem incluir erros da infraestrutura interna, assim como erros que resultem de regras de requisitos inválidas.|  
-|**Estado detalhado da utilização de aplicações**|Mostra os detalhes de utilização das aplicações instaladas.|  
-|**Estado de resumo de utilização de aplicações**|Mostra um resumo da utilização das aplicações instaladas.|  
-|**Implementações de sequência de tarefas que contêm aplicação**|Mostra as implementações de sequência de tarefas que instalam uma aplicação especificada.|  
-|**Pedidos de utilizador para uma aplicação Android**|Mostra os utilizadores que pediram para instalar uma aplicação Android.|  
-|**aplicações iOS implementação falhou (aplicação já instalada)**|Mostra informações de compatibilidade para a aplicação iOS selecionada que implementou como "Pacote de aplicação para iOS da App Store" que estava associada a uma política de gestão de aplicações móveis. Este relatório é utilizado para apresentar os utilizadores e dispositivos em relação aos quais não foi possível instalar a aplicação, porque tinha já foi instalada manualmente pelo utilizador.|  
+|**Все развертывания приложений (расширенный)**|Отображает подробную сводку для всех развертываний приложений.|  
+|**Все развертывания приложений (базовый)**|Отображает сводку для всех развертываний приложений.|  
+|**Соответствие приложения требованиям**|Отображает сведения о соответствии указанного приложения в указанной коллекции.|  
+|**Развертывания приложений на актив**|Отображает приложения, развернутые для заданного устройства или пользователя.|  
+|**Ошибки инфраструктуры приложений**|Отображает ошибки инфраструктуры приложений  К ним могут относиться ошибки внутренней инфраструктуры, а также ошибки, вызванные недопустимыми требованиями и правилами.|  
+|**Сведения о состоянии использования приложения**|Отображает подробные сведения об использовании установленных приложений.|  
+|**Сводка по состоянию использования приложения**|Отображает сводку об использовании установленных приложений.|  
+|**Развертывания последовательностей задач, содержащие приложения**|Отображает развертывания последовательности задач, которые устанавливают указанное приложение.|  
+|**Пользовательские запросы на приложениях Android**|Отображает пользователей, которые запросили установку приложения.|  
+|**Приложения iOS с неудачными развертываниями (приложение уже установлено)**|Отображает сведения о соответствии для выбранного приложения iOS, развернутого в виде "пакета приложения для iOS из Магазина приложений", которое было связано с политикой управления мобильными приложениями. Этот отчет используется для отображения пользователей и устройств, для которых приложение не удалось установить, поскольку оно уже было вручную установлено пользователем.|  
 
-### <a name="software-distribution---collections"></a>Distribuição de Software - Coleções  
+### <a name="software-distribution---collections"></a>Распространение программного обеспечения — коллекции  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todas as coleções**|Mostra todas as coleções na hierarquia.|  
-|**Todos os recursos numa coleção específica**|Mostra todos os recursos numa coleção especificada.|  
-|**Janelas de manutenção disponíveis para um cliente especificado**|Mostra todas as janelas de manutenção aplicáveis ao cliente especificado.|  
+|**Все коллекции**|Отображает все коллекции в иерархии.|  
+|**Все ресурсы в определенной коллекции**|Отображает все ресурсы в указанной коллекции.|  
+|**Доступные для указанного клиента периоды обслуживания**|Отображает все периоды обслуживания для указанного клиента.|  
 
-### <a name="software-distribution---content"></a>Distribuição de Software - Conteúdos  
+### <a name="software-distribution---content"></a>Распространение ПО — содержимое  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todas as distribuições de conteúdo ativas**|Mostra todos os pontos de distribuição nos quais estão a ser atualmente instalados ou removidos conteúdos.|  
-|**Todo o conteúdo**|Mostra todas as aplicações e pacotes num site.|  
-|**Todo o conteúdo no ponto de distribuição específico**|Mostra todos os conteúdos atualmente instalados no ponto de distribuição especificado.|  
-|**Todos os pontos de distribuição**|Mostra informações sobre os pontos de distribuição de cada site.|  
-|**Todas as mensagens de estado para um pacote específico num ponto de distribuição específico**|Mostra todas as mensagens de estado de um pacote especificado num ponto de distribuição especificado.|  
-|**Estado de distribuição de conteúdo da aplicação**|Mostra informações sobre o estado de distribuição dos conteúdos da aplicação.|  
-|**Aplicações direcionadas para o grupo de pontos de distribuição**|Mostra informações sobre os conteúdos da aplicação implementada num grupo de pontos de distribuição especificado.|  
-|**Grupo de pontos de aplicações que são sincronizadas num distribuição especificado**|Mostra as aplicações nas quais os ficheiros de conteúdos associados não foram atualizados com a versão mais recente num grupo de pontos de distribuição específico.|  
-|**Grupo de pontos de distribuição**|Mostra informações sobre um grupo de pontos de distribuição especificado.|  
-|**Resumo de utilização de ponto de distribuição**|Mostra o resumo da utilização do ponto de distribuição para cada ponto de distribuição.|  
-|**Estado de distribuição do pacote especificado**|Mostra o estado da distribuição dos conteúdos do pacote especificado em cada ponto de distribuição.|  
-|**Pacotes direcionados para o grupo de pontos de distribuição**|Mostra informações sobre os pacotes que visam um grupo de pontos de distribuição especificado.|  
-|**Grupo de pontos de pacotes que estão fora de sincronização na distribuição especificado**|Mostra os pacotes nos quais os ficheiros de conteúdos associados não foram atualizados com a versão mais recente num grupo de pontos de distribuição específico.|  
+|**Все активные операции распространения содержимого**|Отображает все точки распространения, в которых содержимое устанавливается или удаляется в настоящее время.|  
+|**Все содержимое**|Отображает все приложения и пакеты на сайте.|  
+|**Все содержимое в заданной точке распространения**|Отображает все содержимое, установленное в указанной точке распространения в текущий момент.|  
+|**Все точки распространения**|Отображает сведения о точках распространения для каждого сайта.|  
+|**Все сообщения об изменении состояния для определенного пакета в заданной точке распространения**|Отображает все сообщения об изменении состояния для определенного пакета в заданной точке распространения.|  
+|**Состояние распространения содержимого приложения**|Отображает сведения о состоянии распространения содержимого приложения.|  
+|**Приложения, назначенные для группы точек распространения**|Отображает сведения о содержимом приложения, которое было развернуто в указанной группе точек распространения.|  
+|**Несинхронизированные приложения для указанной группы точек распространения**|Отображает приложения, для которых связанные файлы не были обновлены с использованием последней версии в указанной группе точек распространения содержимого.|  
+|**Группа точек распространения**|Отображает сведения об указанной группе точек распространения.|  
+|**Сводка по использованию точки распространения**|Отображается сводка использования для каждой точки распространения.|  
+|**Состояние распространения указанного пакета**|Отображает состояние распространения указанного содержимого пакета в каждой точке распространения.|  
+|**Пакеты, назначенные для группы точек распространения**|Отображает сведения о пакетах для указанной группы точек распространения.|  
+|**Несинхронизированные пакеты для указанной группы точек распространения**|Отображает пакеты, для которых связанные файлы не были обновлены с использованием последней версии в указанной группе точек распространения содержимого.|  
 
-### <a name="software-distribution---package-and-program-deployment"></a>Distribuição de software – pacote e programa de implementação  
+### <a name="software-distribution---package-and-program-deployment"></a>Распространение ПО — развертывание пакетов и программ  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todas as implementações de um pacote e programa especificados**|Mostra informações sobre todas as implementações de um pacote e programa especificados.|  
-|**Todas as implementações de pacote e programa**|Mostra todas as implementações de pacotes e programas neste site.|  
-|**Todas as implementações de pacotes e programas numa coleção especificada**|Mostra todas as implementações de pacotes e programas de uma coleção especificada.|  
-|**Todas as implementações de pacote e programa num computador especificado**|Mostra todas as implementações de pacotes e programas aplicáveis a um computador especificado.|  
-|**Todas as implementações de pacote e programa num utilizador especificado**|Mostra todas as implementações de pacotes e programas de um utilizador especificado.|  
+|**Все развертывания для указанных пакета и программы**|Отображает сведения о всех развертываниях указанного пакета и программы.|  
+|**Все развертывания пакетов и программ**|Отображает все развертывания пакетов и программ на этом сайте.|  
+|**Все развертывания пакетов и программ для указанной коллекции**|Отображает все развертывания пакетов и программ для указанной коллекции.|  
+|**Все развертывания пакетов и программ для указанного компьютера**|Отображает все развертывания пакетов и программ на указанном компьютере.|  
+|**Все развертывания пакетов и программ для указанного пользователя**|Отображает все развертывания пакетов и программ для указанного пользователя.|  
 
-### <a name="software-distribution---package-and-program-deployment-status"></a>Distribuição de software – pacote e um Estado de implementação do programa  
+### <a name="software-distribution---package-and-program-deployment-status"></a>Распространение ПО — состояние развертывания пакетов и программ  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todos os recursos pacote e programa implementações do sistema com o Estado**|Mostra as implementações dos pacotes e programas no site com o estado de resumo de cada implementação.|  
-|**Todos os recursos do sistema para uma implementação de pacote e programa especificada num estado especificado**|Mostra uma lista de recursos num estado especificado para uma implementação de pacote e programa especificada.|  
-|**Gráfico - horária estado de conclusão de implementação de pacote e programa**|Mostra a percentagem de computadores nos quais o pacote foi instalado com êxito, de hora em hora desde que a implementação do pacote e programa foi criada. Pode ser utilizado para monitorizar o tempo médio de implementação de um pacote e programa.|  
-|**Estado de implementação de pacote e programa para um cliente e implementação especificados**|Mostra as mensagens de estado reportadas para um computador e implementação de pacote e programa especificados.|  
-|**Estado de uma implementação de pacote e programa especificada**|Mostra o estado de resumo de uma implementação do pacote e programa especificada.|  
+|**Все развертывания пакетов и программ системных ресурсов с указанием состояния**|Отображает все развертывания пакетов и программ для сайта с общим состоянием каждого развертывания.|  
+|**Все системные ресурсы для указанного развертывания пакета и программы в заданном состоянии**|Отображает список ресурсов, которые находятся в указанном состоянии, для заданного развертывания пакета и программы.|  
+|**Диаграмма — состояние выполнения развертывания пакета и программы по часам**|Отображает процент компьютеров, которые успешно установили пакет, для каждого часа с момента создания развертывания пакета и программы. Это можно использовать для отслеживания среднего времени для развертывания пакета и программы.|  
+|**Сообщения о состоянии развертывания пакета и программы для указанного клиента и развертывания**|Отображает сообщения о состоянии для указанного компьютера и развертывания пакета и программы.|  
+|**Состояние указанного развертывания пакета и программы**|Отображает сводку состояния для указанного развертывания пакета и программы.|  
 
-### <a name="software-metering"></a>Medição de Software  
+### <a name="software-metering"></a>Контроль за использованием программного обеспечения  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todas as regras aplicadas a este site de medição de software**|Mostra uma lista de todas as regras de medição de software no site.|  
-|**Os computadores que tenham um programa medido instalado mas que não executaram o programa desde uma data especificada**|Mostra todos os computadores que têm uma aplicação medida especificada instalada conforme reportados pelo inventário de software,  mas que não a executaram desde uma data especificada.|  
-|**Computadores que executaram um programa de software medido específico**|Mostra uma lista de computadores que executaram programas correspondentes à regra de medição do software selecionada no mês e ano especificados.|  
-|**Utilização em simultâneo de todos os programas de software medido**|Mostra o número máximo de utilizadores que executaram simultaneamente cada programa de software medido no mês e ano especificados.|  
-|**Análise de tendências de utilização simultânea de um programa de software medido específico**|Mostra o número máximo de utilizadores que executaram simultaneamente o programa de software medido especificado durante cada mês do ano passado.|  
-|**Base de instalação para todos os programas de software medido**|Mostra o número de computadores que têm programas de software medido instalados, como reportado pelo inventário de software. Este relatório precisa que o inventário de software seja recolhido nos computadores medidos.|  
-|**Progresso do resumo medição de software**|Mostra a hora do último processamento de dados de medição resumidos no servidor do site.  Só serão refletidos nos relatórios de medição de software os dados processados antes dessas datas.|  
-|**Hora de resumo de utilização de dia de um programa de software medido específico**|Mostra o número médio de utilizações de um programa em particular nos últimos 90 dias apresentadas por hora e dia|  
-|**Total de utilizações para todos os programas de software medido**|Mostra o número de utilizadores que executaram programas correspondentes a cada regra de medição do software, localmente ou através de Serviços de Terminal, no mês e ano especificados.|  
-|**Total de utilizações para todos os programas de software medido em servidores de Terminal do Windows**|Mostra o número de utilizadores que executaram programas correspondentes a cada regra de medição do software com Serviços de Terminal no mês e ano especificados.|  
-|**Análise de tendências de utilização total para um programa de software medido específico**|Mostra o número de utilizadores que executaram programas correspondentes a cada regra de medição do software, localmente ou através de Serviços de Terminal, durante cada mês do ano passado.|  
-|**Análise de tendências de utilização total para um programa de software medido específico de servidores de Terminal do Windows**|Mostra o número de utilizadores que executaram programas correspondentes a cada regra de medição do software com Serviços de Terminal durante cada mês do ano passado.|  
-|**Utilizadores que executaram um programa de software medido específico**|Mostra uma lista de utilizadores que executaram programas correspondentes à regra de medição do software selecionada no mês e ano especificados.|  
+|**Все правила отслеживания использования программного обеспечения для данного сайта**|Отображается список всех правил отслеживания использования программного обеспечения на сайте.|  
+|**Компьютеры с установленной и не запускавшейся с указанной даты отслеживаемой программой**|Отображаются все компьютеры, на которых, согласно данным инвентаризации программного обеспечения, установлено указанное отслеживаемое приложение, но программа не запускалась с указанной даты.|  
+|**Компьютеры с запускавшейся отслеживаемой программой**|Отображается список компьютеров, которые запускали программы, соответствующие указанному правилу отслеживания использования программного обеспечения за указанный месяц и год.|  
+|**Одновременное использование всех отслеживаемых программ**|Отображается максимальное число пользователей, которые одновременно запускали каждую отслеживаемую программу в течение указанного месяца и года.|  
+|**Анализ тенденций одновременного использования заданной отслеживаемой программы**|Отображается максимальное число пользователей, которые одновременно запускали указанную отслеживаемую программу каждый месяц прошлого года.|  
+|**Установочная база для всех отслеживаемых программных продуктов**|Отображается количество компьютеров, на которых, согласно данным инвентаризации программного обеспечения, установлено отслеживаемое программное обеспечение. Для этого отчета требуется сбор данных инвентаризации программного обеспечения на отслеживаемых компьютерах.|  
+|**Ход процесса отслеживания использования программного обеспечения**|Показывает, в какое время на сервере сайта были обработаны последние сведения об использовании программных продуктов.  В отчетах об отслеживании использования программного обеспечения будут отражены только те сведения, которые были обработаны до указанного времени.|  
+|**Сводка использования определенного отслеживаемого программного продукта по времени суток**|Отображается среднее количество использований конкретной программы за последние 90 дней с разбивкой на часы и дни.|  
+|**Использование всех отслеживаемых программных продуктов**|Отображает количество пользователей, которые локально запускали программы, удовлетворяющие всем правилам отслеживания использования программных продуктов, или пользовались для этого службами терминалов в течение заданного месяца и года.|  
+|**Использование всех отслеживаемых программных продуктов на терминальных серверах Windows**|Отображает количество пользователей, которые запускали программы, удовлетворяющие всем правилам отслеживания использования программных продуктов, при помощи служб терминалов в течение заданного месяца и года.|  
+|**Анализ тенденций применения заданной отслеживаемой программы**|Отображается число пользователей, которые запускали программы, соответствующие указанному правилу отслеживания использования программного обеспечения, локально или используя службы терминалов каждый месяц в прошлом году.|  
+|**Анализ тенденций применения заданной отслеживаемой программы на серверах терминалов Windows**|Отображается число пользователей, которые запускали программы, соответствующие указанному правилу отслеживания использования программного обеспечения, используя службы терминалов каждый месяц в прошлом году.|  
+|**Пользователи, запускавшие определенную отслеживаемую программу**|Отображается список пользователей, которые запускали программы, соответствующие указанному правилу отслеживания использования программного обеспечения, за указанный месяц и год.|  
 
-### <a name="software-updates---a-compliance"></a>Atualizações de software - conformidade  
+### <a name="software-updates---a-compliance"></a>Обновления ПО — А. Соответствие требованиям  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Conformidade 1 - conformidade global**|Mostra os dados gerais de conformidade para um grupo de atualização de software.|  
-|**Conformidade 2 - atualização de software específica**|Mostra os dados de conformidade de uma atualização de software especificada.|  
-|**Conformidade 3 - grupo de atualização (por atualização)**|Mostra os dados de conformidade das atualizações de software definidas num grupo de atualização de software.|  
-|**Conformidade 4 - atualizações por fabricante mês ano**|Mostra os dados de conformidade das atualizações de software disponibilizadas por um fornecedor durante um mês e ano especificados.|  
-|**Conformidade 5 - computador específico**|Este relatório devolve os dados de conformidade da atualização de software de um computador especificado.  Para limitar a quantidade de informações devolvidas, pode especificar a classificação do fabricante e da atualização de software.|  
-|**Conformidade 6 - Estados da atualização de software específica (secundário)**|Mostra a contagem e a percentagem de computadores em cada estado de conformidade para a atualização de software especificada.|  
-|**Conformidade 7 - computadores num Estado de conformidade específico para um grupo de atualização (secundário)**|Mostra todos os computadores numa coleção com um estado de conformidade geral especificado relativamente a um grupo de atualização de software.|  
-|**Conformidade 8 - computadores num conformidade específico estado para uma atualização (secundário)**|Mostra todos os computadores numa coleção com um estado de conformidade especificado de uma atualização de software.|  
+|**Соответствие 1 — общее соответствие**|Отображает общие данные соответствия для группы обновлений программного обеспечения.|  
+|**Соответствие 2 — заданное обновление программного обеспечения**|Отображает данные соответствия для указанного обновления программного обеспечения.|  
+|**Соответствие 3 — группа обновлений (на обновление)**|Отображает данные соответствия для обновлений программного обеспечения, указанных в группе обновлений.|  
+|**Соответствие 4 — обновления по поставщикам, месяцам, годам**|Отображает данные о соответствии обновлений программного обеспечения, выпущенных поставщиком за указанный месяц и год.|  
+|**Соответствие 5 — заданный компьютер**|В этом отчете отображаются данные о соответствии обновлений программного обеспечения для указанного компьютера.  Для ограничения объема возвращаемых сведений можно указать поставщика и классификацию обновления программного обеспечения.|  
+|**Соответствие 6 — состояния заданного обновления ПО (дополнительно)**|Отображается количество и процент компьютеров в каждом состоянии соответствия для конкретного обновления ПО.|  
+|**Соответствие 7 — компьютеры в заданном состоянии соответствия для группы обновлений (дополнительно)**|Отображаются все компьютеры в коллекции с указанным общим состоянием для группы обновлений программного обеспечения.|  
+|**Соответствие 8 — компьютеры в заданном состоянии соответствия обновления (дополнительно)**|Отображаются все компьютеры в коллекции с указанным состоянием соответствия для обновления программного обеспечения.|  
 
-### <a name="software-updates---b-deployment-management"></a>Atualizações de software - B gestão de implementação  
+### <a name="software-updates---b-deployment-management"></a>Обновления ПО — Б. Управление развертываниями  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Gestão 1 - implementações de um grupo de atualização**|Mostra as implementações que contêm todas as atualizações de software definidas num grupo de atualização de software especificado.|  
-|**Gestão 2 - atualizações necessárias, mas não implementadas**|Mostra todas as atualizações de software de um fabricante específico que foram detetadas nos clientes, como necessário, mas que não foram implementadas numa coleção específica.|  
-|**Gestão 3 - atualizações numa implementação**|Mostra as atualizações de software que estão contidas numa implementação especificada.|  
-|**Gestão 4 - implementações direcionadas para uma coleção**|Mostra todas as implementações de atualização de software que visam uma coleção especificada.|  
-|**Gestão 5 - implementações direcionadas para um computador**|Mostra todas as implementações de atualização de software que estão implementadas num computador especificado.|  
-|**Gestão 6 - implementações que contêm uma atualização específica**|Mostra todas as implementações que contêm uma atualização de software especificada, assim como a coleção de destino associada à implementação.|  
-|**Gestão 7 - atualizações numa implementação de conteúdos em falta**|Mostra as atualizações de software numa implementação especificada que não contêm todo o conteúdo associado obtido, impedindo os clientes de instalarem a atualização e de atingirem a total conformidade da implementação.|  
-|**Gestão 8 - computadores em falta conteúdo (secundário)**|Mostra todos os computadores que precisam de uma atualização de software especificada contida numa implementação especificada que não está aprovisionada num ponto de distribuição.|  
+|**Управление 1 — развертывания группы обновлений**|Отображаются все развертывания, которые содержат все обновления программного обеспечения, определенные в указанной группе обновлений.|  
+|**Управление 2 — необходимые, но не развернутые обновления**|Отображаются все зависящие от поставщика обновления, которые были обнаружены как обязательные для клиентов, но не были развернуты в указанной коллекции.|  
+|**Управление 3 — обновления в развертывании**|Отображаются обновления программного обеспечения, которые содержатся в указанном развертывании.|  
+|**Управление 4 — предназначенные для коллекции развертывания**|Отображаются все развертывания обновлений программного обеспечения, предназначенные для указанной коллекции.|  
+|**Управление 5 — предназначенные для компьютера развертывания**|Отображаются все развертывания обновлений программного обеспечения, развернутые на указанном компьютере.|  
+|**Управление 6 — содержащие заданное обновление развертывания**|Отображаются все развертывания, содержащие указанное обновление ПО и связанную целевую коллекцию для развертывания.|  
+|**Управление 7 — обновления с содержимым, отсутствующим в развертывании**|Отображаются обновления программного обеспечения в указанном развертывании, не все связанное содержимое которых было извлечено, что не дает клиентам установить обновления и завершить развертывание.|  
+|**Управление 8 — компьютеры без содержимого (дополнительно)**|Отображаются все компьютеры, для которых требуется указанное обновление, содержащееся в заданном развертывании, которое не предоставляется в точке распространения.|  
 
-### <a name="software-updates---c-deployment-states"></a>Atualizações de software - C Estados de implementação  
+### <a name="software-updates---c-deployment-states"></a>Обновления ПО — В. Состояние развертываний  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Estados 1 - Estados de imposição para uma implementação**|Mostra os estados de imposição de uma implementações de atualização de software, que é tipicamente a segunda fase de uma avaliação da implementação.|  
-|**Estados 2 - Estados de avaliação para uma implementação**|Mostra o estado de avaliação de uma implementação de atualização de software específica, que é tipicamente a primeira fase de uma avaliação da implementação.|  
-|**Estados 3 - Estados para uma implementação e o computador**|Mostra os estados de todas as atualizações de software na implementação especificada de um computador especificado.|  
-|**Estados 4 - computadores num estado específico de uma implementação (secundário)**|Mostra todos os computadores num estado especificado de uma implementação de atualização de software.|  
-|**Estados 5 - Estados para uma atualização numa implementação (secundário)**|Mostra um resumo dos estados de uma atualização de software especificada visada por uma implementação especificada.|  
-|**Estados 6 - computadores num Estado de imposição específico para uma atualização (secundário)**|Mostra todos os computadores num estado de imposição especificado de uma atualização de software especificada.|  
+|**Состояния 1 — состояния принудительного развертывания**|Отображаются состояния принудительного применения указанного развертывания обновления, что обычно представляет второй этап оценки развертывания.|  
+|**Состояния 2 — состояния оценки развертывания**|Отображается состояние оценки указанного развертывания обновления, что обычно представляет первый этап оценки развертывания.|  
+|**Состояния 3 — состояния развертывания и компьютера**|Отображаются состояния всех обновлений программного обеспечения в указанном развертывании для заданного компьютера.|  
+|**Состояния 4 — компьютеры в заданном состоянии для развертывания (дополнительно)**|Отображаются все компьютеры в указанном состоянии для развертывания обновления программного обеспечения.|  
+|**Состояния 5 — состояния обновления в развертывании (дополнительно)**|Отображается сводка состояния указанного обновления для заданного развертывания.|  
+|**Состояния 6 — компьютеры в заданном состоянии принудительного применения обновления (дополнительно)**|Отображаются все компьютеры в указанном состоянии принудительного применения для заданного обновления.|  
 
-### <a name="software-updates---d-scan"></a>Análise de atualizações de software - D  
+### <a name="software-updates---d-scan"></a>Обновления ПО — Г. Проверка  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Análise 1 - Estados da última análise por coleção**|Mostra a contagem de computadores numa coleção especificada em cada estado de análise de conformidade devolvido por clientes durante a última análise de conformidade.|  
-|**Análise 2 - Estados da última análise por site**|Mostra a contagem de computadores num site especificado em cada estado de análise de conformidade devolvido por clientes durante a última análise de conformidade.|  
-|**Análise 3 - clientes de uma coleção a relatar um estado específico (secundário)**|Mostra todos os computadores de uma coleção especificada e um estado de análise da conformidade especificado durante a última análise de compatibilidade.|  
-|**Análise 4 - clientes de um site a relatar um estado específico (secundário)**|Mostra todos os computadores de um site especificado e um estado de análise da conformidade especificado durante a última análise de compatibilidade.|  
+|**Сканирование 1 — последние состояния сканирований по коллекциям**|Отображается число компьютеров для указанной коллекции в каждом состоянии проверки соответствия, возвращенных клиентами во время последней проверки соответствия.|  
+|**Сканирование 2 — последние состояния сканирований по сайтам**|Отображается число компьютеров, назначенных указанному сайту в каждом состоянии проверки соответствия, возвращенных клиентами во время последней проверки соответствия.|  
+|**Сканирование 3 — клиенты в коллекции, передавшие данные о заданном состоянии (дополнительно)**|Отображаются все компьютеры для указанной коллекции и состояния проверки соответствия во время последней проверки соответствия.|  
+|**Сканирование 4 — клиенты сайта, передавшие данные о заданном состоянии (дополнительно)**|Отображаются все компьютеры, назначенные заданному сайту, с указанным состоянием проверки соответствия во время последней проверки соответствия.|  
 
-### <a name="software-updates---e-troubleshooting"></a>Atualizações de software - resolução de problemas do i  
+### <a name="software-updates---e-troubleshooting"></a>Обновления ПО — Д. Устранение неполадок  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**1 - erros de análise de resolução de problemas**|Mostra os erros de análise no site e uma contagem dos computadores com cada erro.|  
-|**2 - erros de implementação de resolução de problemas**|Mostra os erros de implementação no site e uma contagem dos computadores com cada erro.|  
-|**Resolução de problemas 3 - computadores em falha com um erro de análise específico (secundário)**|Mostra uma lista dos computadores cuja análise falhou devido a um erro especificado.|  
-|**Resolução de problemas 4 - computadores em falha com um erro de implementação específico (secundário)**|Mostra uma lista dos computadores nos quais a implementação da atualização está a falhar devido a um erro especificado.|  
+|**Устранение неполадок 1 — ошибки сканирования**|Отображаются ошибки проверки на сайте и число компьютеров, на которых наблюдается каждая ошибка.|  
+|**Устранение неполадок 2 — ошибки развертывания**|Отображаются ошибки развертывания на сайте и число компьютеров, на которых наблюдается каждая ошибка.|  
+|**Устранение неполадок 3 — компьютеры с заданной ошибкой сканирования (дополнительно)**|Отображается список компьютеров, которые не прошли проверку из-за указанной ошибки.|  
+|**Устранение неполадок 4 — компьютеры с заданной ошибкой развертывания (дополнительно)**|Отображается список компьютеров, на которых происходит сбой развертывания обновления из-за указанной ошибки.|  
 
-### <a name="state-migration"></a>Migração de Estado  
+### <a name="state-migration"></a>Миграция состояния  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Informações de migração de estado para um computador de origem específica**|Mostra informações de migração de estado de um computador de origem especificado.|  
-|**Informações de migração de estado para um ponto de migração de estado específico**|Mostra informações de migração de estado de um ponto de migração de estado especificado.|  
-|**Pontos de migração de estado para um site específico**|Mostra os pontos de migração de estado de um site específico|  
+|**Сведения о миграции состояния для определенного исходного компьютера**|Отображаются сведения миграции состояния для указанного компьютера.|  
+|**Сведения о миграции состояния для заданной точки миграции состояния**|Отображаются сведения о миграции состояния для заданной точки миграции состояния.|  
+|**Точки миграции состояния для определенного сайта**|Отображаются точки миграции состояния для указанного сайта.|  
 
-### <a name="status-messages"></a>Mensagens de Estado  
+### <a name="status-messages"></a>Сообщения о состоянии  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todas as mensagens para um ID de mensagem específico**|Mostra uma lista de mensagens de estado com um ID de mensagem especificado.|  
-|**Clientes relataram erros nas últimas 12 horas para um site específico**|Mostra uma lista de computadores e componentes que reportaram erros nas últimas 12 horas e o número de erros reportados.|  
-|**Mensagens de componente durante as últimas 12 horas**|Mostra uma lista de mensagens de componente nas últimas 12 horas para um código de site, computador e componente específicos.|  
-|**Mensagens de componente de última hora**|Apresenta uma lista de mensagens de estado criadas na última hora por um componente especificado num computador especificado, num site do Configuration Manager especificado.|  
-|**Mensagens de componente de contagem de última hora para um site específico**|Mostra o número de mensagens de estado por componente e gravidade reportadas na última hora num site especificado.|  
-|**Contagem de erros nas últimas 12 horas**|Mostra o número de mensagens de estado de erro do componente de servidor nas últimas 12 horas.|  
-|**Erros fatais (por componente)**|Mostra uma lista de computadores que reportaram erros fatais por componente.|  
-|**Erros fatais (por nome do computador)**|Mostra uma lista de computadores que reportaram erros fatais por nome do computador.|  
-|**1000 últimas mensagens para um computador específico (erros e avisos)**|Mostra um resumo das últimas 1 000 mensagens de estado de erro e aviso do componente num computador especificado.|  
-|**1000 últimas mensagens para um computador específico (erros avisos e informações)**|Mostra um resumo das últimas 1 000 mensagens de estado de erro, aviso e informativas do componente num computador especificado.|  
-|**1000 últimas mensagens para um computador específico (erros)**|Mostra um resumo das últimas 1 000 mensagens de estado de erro de servidor do componente num computador especificado.|  
-|**1000 últimas mensagens para um componente de servidor específico**|Mostra um resumo das 1 000 mensagens de estado mais recentes de um componente de servidor especificado.|  
+|**Все сообщения для определенного идентификатора сообщений**|Отображается список сообщений о состоянии с указанным ИД сообщения.|  
+|**Отчет об ошибках клиентов за последние 12 часов для определенного сайта**|Отображается список компьютеров и компонентов, сообщающих об ошибках за последние 12 часов, а также количество ошибок.|  
+|**Сообщения компонента за последние 12 часов**|Отображается список сообщений компонента за последние 12 часов для указанного кода сайта, компьютера и компонента.|  
+|**Сообщения компонента за последний час**|Отображается список сообщений о состоянии, созданных за последний час указанным компонентом на заданном компьютере указанного сайта Configuration Manager.|  
+|**Количество сообщений компонентов за последний час для определенного сайта**|Отображается количество сообщений о состоянии компонента и уровень серьезности за последний час на указанном сайте.|  
+|**Количество ошибок за последние 12 часов**|Отображается количество сообщений о состоянии ошибки компонента сервера за последние 12 часов.|  
+|**Неустранимые ошибки (по компоненту)**|Отображается список компьютеров, сообщающих о неустранимых ошибках по компонентам.|  
+|**Неустранимые ошибки (по имени компьютера)**|Отображается список компьютеров, сообщающих о неустранимых ошибках по имени компьютера.|  
+|**Последние 1000 сообщений для определенного компьютера (ошибки и предупреждения)**|Отображается сводка последних 1000 сообщений об ошибках и предупреждениях для указанного компьютера.|  
+|**Последние 1000 сообщений для заданного компьютера (ошибки, предупреждения и сведения)**|Отображается сводка последних 1000 сообщений об ошибках и предупреждениях, а также информационных сообщений для указанного компьютера.|  
+|**Последние 1000 сообщений для определенного компьютера (ошибки)**|Отображается сводка последних 1000 сообщений об ошибках для указанного компьютера.|  
+|**Последние 1000 сообщений для определенного компонента сервера**|Отображается сводка последних 1000 сообщений о состоянии для указанного серверного компонента.|  
 
-### <a name="status-messages---audit"></a>Mensagens de Estado - Auditoria  
+### <a name="status-messages---audit"></a>Сообщения об изменении состояния — аудит  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todas as mensagens de auditoria para um utilizador específico**|Mostra um resumo de todas as mensagens de estado de auditoria para um utilizador especificado. As mensagens de auditoria descrevem ações tomadas na consola do Configuration Manager que adicionar, modificarem ou eliminar objetos no Configuration Manager.|  
-|**Controlo remoto - todos os computadores controlados remotamente por um utilizador específico**|Mostra um resumo das mensagens de estado a indicar o controlo remoto dos computadores cliente por um utilizador especificado.|  
-|**Controlo remoto - todas as informações de controlo remoto**|Mostra um resumo das mensagens de estado relacionadas com o controlo remoto dos computadores cliente.|  
+|**Все сообщения аудита для определенного пользователя**|Отображается сводка всех сообщений о состоянии аудита для указанного пользователя. Сообщения аудита описывают действия, выполняемые в консоли Configuration Manager, которые добавляют, изменяют и удаляют объекты в Configuration Manager.|  
+|**Удаленное управление — все компьютеры, удаленно управляемые определенным пользователем**|Отображается сводка сообщений о состоянии, указывающих на удаленное управление клиентскими компьютерами заданным пользователем.|  
+|**Удаленное управление — все сведения об удаленном управлении**|Отображается сводка сообщений о состоянии об удаленном управлении клиентскими компьютерами.|  
 
-### <a name="task-sequence---deployment-status"></a>Sequência de tarefas - estado de implementação  
+### <a name="task-sequence---deployment-status"></a>Состояние развертывания для последовательности задач  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todos os recursos do sistema para uma implementação de sequência de tarefas num estado específico**|Mostra uma lista de computadores de destino para a implementação da sequência de tarefas especificada num estado de implementação especificado.|  
-|**Todos os recursos do sistema para uma implementação de sequência de tarefas que esteja num estado específico e que está disponível para computadores desconhecidos**|Mostra uma lista de computadores de destino para a implementação da sequência de tarefas especificada que está no estado de implementação especificado.|  
-|**Contagem de recursos do sistema com implementações de sequência de tarefas atribuídas mas ainda não executado**|Mostra o número de computadores que aceitaram sequências de tarefas, mas que não executaram a sequência de tarefas.|  
-|**Histórico de uma implementação de sequência de tarefas num computador**|Mostra o estado de cada passo da implementação da sequência de tarefas especificada no computador de destino especificado. Se não for devolvido nenhum valor, a sequência de tarefas não foi iniciada no computador.|  
-|**Lista de computadores que excederam um comprimento específico de tempo para executar uma implementação de sequência de tarefas**|Mostra a lista de computadores de destino que excederam o limite de tempo especificado para a execução de uma sequência de tarefas.|  
-|**Tempo de execução de uma implementação de sequência de tarefas específica num computador de destino específico**|Mostra o tempo total que uma sequência de tarefas especificada num computador especificado levou a ser concluída com êxito.|  
-|**Tempo de execução de cada passo da implementação de sequência de tarefas no computador de destino especificado**|Mostra o tempo que cada passo da implementação da sequência de tarefas especificada levou a ser concluído no computador de destino especificado.|  
-|**Estado de uma implementação de sequência de tarefas específica para um computador específico**|Mostra o resumo do estado de uma implementação de sequência de tarefas especificada num computador especificado.|  
-|**Estado da implementação de sequência de tarefas no computador de destino desconhecido**|Mostra o estado da implementação da sequência de tarefas especificada no computador de destino desconhecido especificado.|  
-|**Resumo de estado de uma implementação de sequência de tarefas específica**|Mostra um resumo do estado de todos os recursos que foram visados por uma implementação.|  
-|**Resumo de estado de implementação de sequência de tarefas específicas disponível para computadores desconhecidos**|Mostra o resumo do estado de todos os recursos que foram visados por uma implementação especificada que está disponível numa coleção que contém computadores desconhecidos.|  
+|**Все системные ресурсы для развертывания последовательности задач в указанном состоянии**|Список конечных компьютеров для указанного развертывания последовательности задач в заданном состоянии развертывания.|  
+|**Все системные ресурсы в указанном состоянии для заданного развертывания последовательности задач, доступного для неизвестных компьютеров**|Список конечных компьютеров для указанного развертывания последовательности задач в заданном состоянии развертывания.|  
+|**Количество системных ресурсов с назначенными, но еще не запущенными развертываниями последовательностей задач**|Отображается количество компьютеров, которые приняли последовательности задач, но еще не запустили их.|  
+|**Журнал развертывания последовательности задач на компьютере**|Отображается состояние каждого шага указанного развертывания последовательности задач на заданном конечном компьютере. Если ни одна запись не возвращается, последовательность задач не запущена на компьютере.|  
+|**Список компьютеров с превышенным указанным временем выполнения развертывания последовательности задач**|Отображается список конечных компьютеров, которые превысили заданное время для запуска последовательности задач.|  
+|**Время выполнения заданного развертывания последовательности задач на указанном конечном компьютере**|Отображается общее время, затраченное на успешное завершение указанной последовательности задач на заданном компьютере.|  
+|**Время выполнения каждого из шагов развертывания последовательности задач на указанном конечном компьютере**|Отображается время, затраченное на каждый шаг указанного развертывания последовательности задач на заданном конечном компьютере.|  
+|**Состояние заданного развертывания последовательности задач для указанного компьютера**|Отображается сводка состояния указанного развертывания последовательности задач на заданном компьютере.|  
+|**Состояние развертывания последовательности задач на неизвестном конечном компьютере**|Отображается состояние указанного развертывания последовательности задач на заданном неизвестном конечном компьютере.|  
+|**Сводка по состоянию заданного развертывания последовательности задач**|Отображается сводка состояния всех ресурсов, для которых предназначено развертывание.|  
+|**Сводка по состоянию заданного развертывания последовательности задач, доступного неизвестным компьютерам**|Отображается сводка состояния всех ресурсов, для которых предназначено указанное развертывание, доступное в коллекции, содержащей неизвестные компьютеры.|  
 
-### <a name="task-sequence---deployments"></a>Sequência de Tarefas - Implementações  
+### <a name="task-sequence---deployments"></a>Последовательность задач — развертывания  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todos os recursos do sistema um grupo ou fase específicos de uma implementação de sequência de tarefas específica**|Mostra uma lista de computadores que estão atualmente a ser executados num grupo ou fase especificado de uma implementação de sequência de tarefas especificada.|  
-|**Todos os recursos do sistema em que uma implementação de sequência de tarefas falha dentro de um grupo ou fase específicos**|Mostra uma lista de computadores nos quais ocorreu um erro no grupo/fase especificada da implementação da sequência de tarefas especificada.|  
-|**Todas as implementações de sequência de tarefas**|Mostra detalhes de todas as implementações de sequência de tarefas iniciadas a partir do site atual.|  
-|**Todas as implementações disponíveis para computadores desconhecidos da sequência de tarefas**|Mostra detalhes de todas as implementações de sequência de tarefas iniciadas a partir do site e que estão implementadas em coleções de sites que contêm computadores desconhecidos.|  
-|**Contagem de falhas em cada fase ou grupo de uma sequência de tarefas específica**|Mostra o número de falhas em cada fase ou grupo da sequência de tarefas especificada.|  
-|**Contagem de falhas em cada fase ou grupo de uma implementação de sequência de tarefas específica**|Mostra o número de falhas em cada fase ou grupo da implementação de sequência de tarefas especificada.|  
-|**Estado de implementação de todas as implementações de sequência de tarefas**|Mostra o progresso geral de todas as implementações de sequência de tarefas.|  
-|**Progresso de uma sequência de tarefas em execução**|Mostra o progresso da sequência de tarefas especificada.|  
-|**Progresso de uma implementação de sequência de tarefas em execução**|Mostra as informações de resumo da implementação da sequência de tarefas especificada.|  
-|**Progresso de todas as implementações de sequência de tarefas específica**|Mostra o progresso de todas as implementações de sequência de tarefas especificada.|  
-|**Relatório de resumo para uma implementação de sequência de tarefas**|Mostra as informações de resumo da implementação da sequência de tarefas especificada.|  
+|**Все системные ресурсы, находящиеся сейчас в заданной группе или фазе указанного развертывания последовательности задач**|Отображается список компьютеров, запущенных в текущее время в указанной группе или на указанном этапе развертывания последовательности задач.|  
+|**Все системные ресурсы со сбоями выполнения в заданной группе или фазе развертывания последовательности задач**|Отображается список компьютеров, вызвавших ошибку в указанной группе или на указанном этапе развертывания последовательности задач.|  
+|**Все развертывания последовательностей задач**|Отображаются все развертывания последовательностей задач, инициированные из текущего сайта.|  
+|**Все развертывания последовательностей задач для неизвестных компьютеров**|Отображаются все развертывания последовательностей задач, инициированные с сайта и развернутые в коллекциях, которые содержат неизвестные компьютеры.|  
+|**Количество сбоев в каждой фазе или группе заданной последовательности задач**|Отображается количество сбоев на каждой фазе или в каждой группе заданной последовательности задач.|  
+|**Количество сбоев в каждой фазе или группе заданного развертывания последовательности задач**|Отображается количество сбоев на каждой фазе или в каждой группе заданного развертывания последовательности задач.|  
+|**Состояние развертывания всех развертываний последовательностей задач**|Отображается общий ход выполнения всех развертываний последовательностей задач.|  
+|**Выполнение запущенной последовательности задач**|Отображается ход выполнения указанной последовательности задач.|  
+|**Ход выполнения текущего развертывания последовательности задач**|Отображаются сводные данные для указанного развертывания последовательности задач.|  
+|**Ход выполнения всех развертываний для заданной последовательности задач**|Отображается ход выполнения всех развертываний для заданной последовательности задач.|  
+|**Сводный отчет по развертыванию последовательности задач**|Отображаются сводные данные для указанного развертывания последовательности задач.|  
 
-### <a name="task-sequence---progress"></a>Sequência de Tarefas - Progresso  
+### <a name="task-sequence---progress"></a>Последовательность задач — выполнение  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Gráfico - progresso semanal de uma sequência de tarefas**|Mostra o progresso semanal de uma sequência de tarefas iniciado na data de implementação.|  
-|**Progresso de uma sequência de tarefas**|Mostra o progresso da sequência de tarefas especificada.|  
-|**Progresso de todas as sequências de tarefas**|Mostra um resumo do progresso de todas as sequências de tarefas.|  
-|**Progresso de sequências de tarefas para implementações do sistema operativo**|Mostra o progresso de todas as sequências de tarefas que implementam sistemas operativos.|  
-|**Estado de todos os computadores desconhecidos**|Mostra uma lista de computadores desconhecidos no momento da execução de uma implementação de sequência de tarefas e se os computadores são conhecidos.|  
+|**Диаграмма — выполнение последовательности задач по неделям**|Отображается еженедельный ход выполнения последовательности задач начиная с даты развертывания.|  
+|**Ход выполнения последовательности задач**|Отображается ход выполнения указанной последовательности задач.|  
+|**Выполнение всех последовательностей задач**|Отображается сводка о ходе выполнения всех последовательностей задач.|  
+|**Ход выполнения последовательностей задач для развертывания операционных систем**|Отображается ход выполнения всех последовательностей задач, которые развертывают операционные системы.|  
+|**Состояние всех неизвестных компьютеров**|Отображается список компьютеров, которые были неизвестны, когда они запускали развертывание последовательности задач, и сведения о том, известны ли они сейчас.|  
 
-### <a name="task-sequences---references"></a>Sequências de Tarefas - Referências  
+### <a name="task-sequences---references"></a>Последовательность задач — ссылки  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Conteúdo referenciado por uma sequência de tarefas específica**|Mostra os conteúdos referenciados por uma sequência de tarefas especificada.|  
+|**Содержимое, относящееся к заданной последовательности задач**|Отображается содержимое, на которое ссылается указанная последовательность задач.|  
 
-### <a name="upgrade-assessment"></a>Avaliação da Atualização  
+### <a name="upgrade-assessment"></a>Оценка обновления  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Estado da aplicação para um computador específico**|Mostra a compatibilidade das aplicações instaladas no sistema operativo específico de um computador.|  
-|**Estado da aplicação em computadores numa coleção específica**|Mostra o estado geral dos computadores numa coleção para que os possa analisar para atualizar para um determinado sistema operativo com base nas aplicações de cada computador. Utilize este relatório para determinar quais os computadores que têm aplicações compatíveis antes de implementar um sistema operativo.|  
-|**Resumo de estado da aplicação**|Mostra um resumo do estado da aplicação num sistema operativo especificado. Utilize este relatório para determinar a compatibilidade das aplicações antes de implementar um sistema operativo.|  
-|**Computadores com uma aplicação específica instalada**|Mostra os computadores com uma aplicação especificada instalada.|  
-|**Computadores com um dispositivo de hardware específico**|Mostra os computadores que têm um dispositivo de hardware específico.|  
-|**Estado do dispositivo de hardware para um computador específico**|Mostra o estado da compatibilidade dos dispositivos de hardware num sistema operativo especificado localizados num computador especificado.|  
-|**Estado do dispositivo de hardware para computadores numa coleção específica**|Mostra o estado geral dos dispositivos de hardware de um sistema operativo específico em computadores de uma coleção específica. Utilize este relatório para determinar a compatibilidade do hardware antes de implementar um sistema operativo.|  
-|**Estado do dispositivo de hardware resumo**|Mostra um resumo do estado do dispositivo de hardware num sistema operativo especificado. Pode utilizar este relatório para determinar a compatibilidade do dispositivo de hardware antes de implementar um sistema operativo.|  
-|**Requisitos de hardware do sistema operativo**|Mostra os critérios de hardware mínimos e recomendados para os sistemas operativos.|  
-|**Estado dos requisitos do sistema operativo para computadores numa coleção específica**|Mostra o estado dos requisitos do sistema operativo para o sistema operativo selecionado para computadores de uma coleção especificada. Utilize este relatório para determinar se um computador cumpre os requisitos especificados do sistema operativo relativamente à velocidade do processador da CPU, dimensão da memória e espaço no disco rígido.|  
-|**Atualizar resumo de avaliação**|Mostra o resumo da avaliação da atualização. Pode utilizar este relatório para avaliar o estado geral da compatibilidade da atualização.|  
+|**Состояние приложения для определенного компьютера**|Отображается информация о совместимости приложений, установленных на компьютере для определенной операционной системы.|  
+|**Состояние приложения для компьютеров в определенной коллекции**|Отображается общее состояние компьютеров в коллекции, что позволяет оценить возможность их обновления до определенной операционной системы в зависимости от приложений на каждом компьютере. Этот отчет используется для определения компьютеров с совместимыми приложениями до развертывания операционной системы.|  
+|**Сводка состояния приложения**|Отображается сводка состояния приложений для указанной операционной системы. Этот отчет используется для определения совместимости приложений до развертывания операционной системы.|  
+|**Компьютеры, на которых установлено определенное приложение**|Отображаются компьютеры, на которых установлено определенное приложение.|  
+|**Компьютеры с определенным устройством**|Отображаются компьютеры с указанным устройством.|  
+|**Состояние устройства для определенного компьютера**|Отображает состояние совместимости устройств для определенной операционной системы, найденных на указанном компьютере.|  
+|**Состояние устройства для компьютеров в определенной коллекции**|Отображается общее состояние устройств для определенной операционной системы для компьютеров в указанной коллекции. Этот отчет используется для определения совместимости оборудования до развертывания операционной системы.|  
+|**Сводка состояния устройства**|Отображается сводка состояния устройств для указанной операционной системы. Этот отчет используется для определения совместимости устройств до развертывания операционной системы.|  
+|**Требования операционной системы к оборудованию**|Отображаются минимальные и рекомендуемые требования к оборудованию для операционных систем.|  
+|**Состояние операционной системы для компьютеров в определенной коллекции**|Отображается состояние требований операционной системы для определенной операционной системы для компьютеров в указанной коллекции. Используйте этот отчет, чтобы определить, соответствует ли компьютер требованиям указанной операционной системы к частоте процессора, объему памяти и месту на жестком диске.|  
+|**Сводка по оценке обновления компьютера**|Отображается сводка оценки обновления. Этот отчет можно использовать для оценки общего состояния совместимости обновления.|  
 
-### <a name="user---device-affinity"></a>Utilizador - afinidade de dispositivo  
+### <a name="user---device-affinity"></a>Сопоставление пользователей и устройств  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Associações de afinidade de dispositivo de utilizador pendente por coleção**|Este relatório mostra todas as atribuições de afinidade dispositivo/utilizador pendentes, com base nos dados de utilização, para membros de uma coleção.|  
-|**Associações de afinidade de dispositivo de utilizador por coleção**|Mostra todas as associações de afinidade dispositivo/utilizador da coleção especificada e agrupa os resultados por tipo de coleção (por exemplo, por utilizador ou dispositivo).|  
+|**Ожидающие назначения сопоставления пользователей и устройств по коллекциям**|В этом отчете отображаются все ожидающие назначения сопоставления пользователей и устройств на основе данных об использовании для элементов коллекции.|  
+|**Сопоставление пользователей и устройств для коллекции**|Отображаются все сопоставления устройств пользователя для указанной коллекции. Результаты сгруппированы по типу коллекции (например, пользователю или устройству).|  
 
-### <a name="user-data-and-profiles-health"></a>Dados do Utilizador e Estado de Funcionamento dos Perfis  
+### <a name="user-data-and-profiles-health"></a>Работоспособность данных и профилей пользователя  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Relatório de estado de funcionamento de redirecionamento de pasta - detalhes**|Mostra os detalhes do estado de funcionamento do redirecionamento da pasta por cada uma das pastas redirecionadas por determinado utilizador.|  
-|**Roaming de relatório de estado de funcionamento de perfis de utilizador - detalhes**|Mostra os detalhes do estado de funcionamento do relatório de funcionamento de perfil de utilizador itinerante de um utilizador especificado.|  
-|**Dados de utilizador e o relatório de estado de funcionamento dos perfis - detalhes**|Mostra os detalhes de erro ou de aviso para o redirecionamento de pastas ou o perfil de utilizador itinerante ao aprofundar o nível de detalhe na contagem do relatório de resumo.|  
-|**Dados de utilizador e o relatório de estado de funcionamento dos perfis - resumo**|Mostra o resumo dos estados de funcionamento do redirecionamento de pastas e perfis de utilizador itinerante.|  
+|**Отчет о работоспособности перенаправления папок — сведения**|Отображает подробные сведения о состоянии работоспособности каждого перенаправления папок для данного пользователя.|  
+|**Отчет о работоспособности перемещаемых профилей пользователей — сведения**|Отображает подробные сведения о состоянии работоспособности перемещаемого профиля указанного пользователя.|  
+|**Отчет о работоспособности данных и профилей пользователей — сведения**|Отображает сведения об ошибках или предупреждениях, связанные с перенаправлением папок и перемещением профилей пользователей при детализации из сводного отчета.|  
+|**Отчет о работоспособности данных и профилей пользователей — сводка**|Отображает сводку состояний работоспособности для перенаправления папок и перемещения профилей пользователей.|  
 
-### <a name="users"></a>Utilizadores  
+### <a name="users"></a>Пользователи  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Computadores para um nome de utilizador específico**|Mostra uma lista dos computadores que foram utilizados por um utilizador especificado.|  
-|**Contagem de utilizadores por domínio**|Mostra o número de utilizadores em cada domínio.|  
-|**Utilizadores num domínio específico**|Mostra uma lista de utilizadores e os respetivos computadores num domínio especificado.|  
+|**Компьютеры для определенного имени пользователя**|Отображается список компьютеров, которые были использованы указанным пользователем.|  
+|**Количество пользователей по доменам**|Отображается число пользователей в каждом домене.|  
+|**Пользователи определенного домена**|Отображается список пользователей и их компьютеров в указанном домене.|  
 
-### <a name="virtual-applications"></a>Aplicações Virtuais  
+### <a name="virtual-applications"></a>Виртуальные приложения  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Resultados do ambiente Virtual de App-V**|Mostra informações sobre um ambiente virtual especificado que está num estado especificado para uma coleção especificada.|  
-|**Resultados do ambiente Virtual de App-V para ativo**|Mostra informações sobre um ambiente virtual especificado para um recurso especificado e qualquer tipo de implementação para o ambiente virtual especificado.|  
-|**Estado do ambiente Virtual de App-V**|Mostra informações de compatibilidade num ambiente virtual especificado para uma coleção especificada.|  
-|**Computadores com uma aplicação virtual específica**|Mostra um resumo dos computadores com o atalho da aplicação App-V especificada, criado com o Application Virtualization Management Sequencer.|  
-|**Computadores com um pacote de aplicação virtual específica**|Mostra um resumo dos computadores com o pacote da aplicação App-V especificada.|  
-|**Contagem de todas as instâncias de pacotes de aplicações virtuais**|Mostra uma contagem dos pacotes de aplicações App-V detetados.|  
-|**Contagem de todas as instâncias de aplicações virtuais**|Mostra uma contagem das aplicações App-V detetadas.|  
+|**Результаты виртуальной среды App-V**|Отображаются сведения об указанной виртуальной среде, находящейся в заданном состоянии для выбранной коллекции.|  
+|**Результаты виртуальной среды App-V для актива**|Отображаются сведения об указанной виртуальной среде для выбранного актива и всех типов развертывания заданной виртуальной среды.|  
+|**Состояние виртуальной среды App-V**|Отображаются сведения о соответствии для выбранной виртуальной среды указанной коллекции.|  
+|**Компьютеры с определенным виртуальным приложением**|Отображается список компьютеров с указанным ярлыком App-V, созданным с помощью средства Application Virtualization Management Sequencer.|  
+|**Компьютеры с определенным пакетом виртуального приложения**|Отображается сводка компьютеров, на которых установлен указанный пакет приложения App-V.|  
+|**Количество всех экземпляров пакетов виртуального приложения**|Отображается количество всех обнаруженных пакетов приложений App-V.|  
+|**Количество всех экземпляров виртуальных приложений**|Отображается количество всех обнаруженных приложений App-V.|  
 
-### <a name="wake-on-lan"></a>Reativação Por LAN  
+### <a name="wake-on-lan"></a>Пробуждение по локальной сети  
 
-|Nome do Relatório|Descrição|  
+|Наименование отчета|Описание|  
 |-----------------|-----------------|  
-|**Todos os computadores de destino para atividade de reativação por LAN**|Mostra uma lista dos computadores visados para atividade de Reativação por LAN durante uma implementação com tipo especificado por si.|  
-|**Todos os objetos pendentes de atividade de reativação**|Mostra os objetos agendados para reativação.|  
-|**Todos os sites que estão ativados para reativação por LAN**|Mostra uma lista de todos os sites na hierarquia com capacidade para Reativação por LAN.|  
-|**Erros recebidos durante o envio de pacotes de reativação durante um período de tempo definido**|Mostra os erros recebidos durante o envio de pacotes de reativação para computadores durante um período de tempo definido|  
-|**Histórico da atividade de reativação por LAN**|Mostra um histórico da atividade de reativação ocorrida desde um determinado período.|  
-|**Detalhes do Estado de implementação do Proxy de reativação**|Mostra informações sobre o estado de implementação do Proxy de Reativação de cada dispositivo de uma coleção especificada.|  
-|**Resumo do Estado de implementação do Proxy de reativação**|Mostra um resumo do estado de implementação do Proxy de Reativação numa coleção especificada.|  
-
+|**Все компьютеры, назначенные для пробуждения по локальной сети**|Отображается список компьютеров, предназначенных для пробуждения по локальной сети во время развертывания указанного типа.|  
+|**Все объекты, ожидающие действия пробуждения**|Отображаются объекты, которые запланированы для выхода из спящего режима.|  
+|**Все сайты с включенной функцией пробуждения по локальной сети**|Отображается список всех сайтов в иерархии, для которых включено пробуждение по локальной сети.|  
+|**Ошибки при отправке пакетов пробуждения на протяжении заданного периода времени**|Отображаются ошибки, возникшие при отправке компьютерам пакетов пробуждения на протяжении заданного периода времени.|  
+|**Журнал активности пробуждений по локальной сети**|Отображается журнал действий пробуждения с определенного периода.|  
+|**Сведения о состоянии развертывания прокси-сервера пробуждения**|Отображаются сведения о состоянии развертывания прокси-сервера пробуждения для каждого устройства в указанной коллекции.|  
+|**Сводная информация о состоянии развертывания прокси-сервера пробуждения**|Отображается сводка состояния развертывания прокси-сервера пробуждения для указанной коллекции.|  

@@ -1,6 +1,6 @@
 ---
-title: As regras de aplicabilidade | Microsoft Docs
-description: Gerir as regras de aplicabilidade para o System Center Updates Publisher
+title: "Правила применимости | Документация Майкрософт"
+description: "Управление правилами применимости в System Center Updates Publisher"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,22 +17,22 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 2925abda07abaa46ad56b9b433ce003c22aede5e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-applicability-rules-in-updates-publisher"></a>Gerir as regras de aplicabilidade Updates Publisher
+# <a name="manage-applicability-rules-in-updates-publisher"></a>Управление правилами применимости в Updates Publisher
 
-*Aplica-se a: O System Center Updates Publisher*
+*Область применения: System Center Updates Publisher*
 
-Com o Updates Publisher, as regras de aplicabilidade definem os requisitos que têm de ser cumpridos antes de um dispositivo pode instalar uma atualização. As regras também são utilizadas para determinar se o computador tem uma atualização instalada. Uma regra de aplicabilidade é complexa com várias partes é referida como uma regra de definida.
+С помощью Updates Publisher правила применимости определяют требования, которые должны быть выполнены, прежде чем на устройстве можно будет устанавливать обновления. Правила также используются, чтобы определить, установлено ли обновление на компьютере. Правило применимости, которое является относительно сложным и состоит из нескольких частей, называется набором правил.
 
-Os pacotes de atualizações não utilizam as regras de aplicabilidade.
+Пакеты обновлений не используют правила применимости.
 
-## <a name="overview-of-applicability-rules"></a>Descrição geral das regras de aplicabilidade
-Gerir as regras de aplicabilidade do **regras de área de trabalho**. Quando cria uma regra, especifica uma ou mais condições. Quando são especificadas várias condições, pode configurar as relações entre as condições, de modo a serem avaliados sequencialmente ou combinados lógica **e** ou **ou** instruções.
+## <a name="overview-of-applicability-rules"></a>Обзор правил применимости
+Управление правилами применимости осуществляется из **рабочей области правил**. При создании правила указывается одно или несколько условий. Если указано несколько условий, вы можете настроить связи между ними таким образом, чтобы они оценивались последовательно или были объединены в логические операторы **And** или **Or**.
 
-Por exemplo, o seguinte é um conjunto de regras que contém três regras. A primeira regra verifica se o *MyFile* ficheiro existe e as regras de segunda e terceira Certifique-se de que o idioma do sistema operativo Windows inglês ou japonês.
+Например, ниже приведен набор из трех правил. Используя первое правило, можно проверить, существует ли файл *MyFile*, а с помощью второго и третьего — убедится, что для операционной системы Windows используется английский или японский язык.
 
     And  
       File ‘\[PROGRAM\_FILES\] \\Microsoft\\MyFile’ exists  
@@ -40,54 +40,54 @@ Por exemplo, o seguinte é um conjunto de regras que contém três regras. A pri
         Windows Language is English   
         Windows Language is Japanese
 
-Todas as atualizações requerem, pelo menos, uma regra de aplicabilidade. Atualizações que importar já tem regras de aplicabilidade aplicadas e quando criar as suas próprias atualizações, tem de adicionar uma ou mais regras aos mesmos. Pode modificar e expanda nas regras de qualquer atualização numa Updates Publisher.
+Все обновления требуют наличия по крайней мере одного правила применимости. В импортированных обновлениях уже есть правила применимости, поэтому при создании собственных обновлений к ним необходимо добавить одно или несколько правил. Вы можете изменить и дополнить правила для любого обновления в Updates Publisher.
 
-Para ver as regras que criou, no **regras de área de trabalho**, selecione uma regra do **meu regras guardadas** lista. As condições individuais e lógicas operações dessa regra apresentam o **as regras de aplicabilidade** painel da consola. Regras para as atualizações que importar apenas podem ser visualizadas e modificadas quando edita essa atualização.
+Чтобы просмотреть созданные правила, в **рабочей области правил** выберите правило из списка **My saved rules** (Мои сохраненные правила). Отдельные условия и логические операции для этого правила отображаются на панели консоли **Applicability Rules** (Правила применимости). Правила для импортированных обновлений можно просмотреть и изменить только во время изменения обновления.
 
-Pode criar regras em duas localizações no publicador de atualizações:
+Вы можете создать правила в двух расположениях Updates Publisher:
 
--   No **área de trabalho de regras,** cria e **guardar** define a regra que pode utilizar mais tarde. Ao editar ou criar uma atualização, pode selecionar **guardado regra** como o **tipo de regra**e, em seguida, selecione de uma lista dos seus conjuntos de regras previamente criada.
+-   В **рабочей области правил** можно создать и **сохранить** наборы правил для последующего использования. При изменении или создании обновления в качестве **типа правила** можно указать **сохраненное правило**, а затем выбрать необходимые предварительно созданные наборы правил из списка.
 
--   Também pode criar novas regras no momento em que pode criar ou editar uma atualização. Regras que cria desta forma, não são guardadas para utilização futura.
+-   Вы также можете создать правила во время создания или изменения обновления. Правила, создаваемые таким образом, не сохраняются для последующего использования.
 
-## <a name="create-applicability-rule"></a>Criar regra de aplicabilidade
-As seguintes informações são semelhantes à forma como as regras a partir do [assistente criar atualizar](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-update-wizard). Mas, ao contrário do assistente, tem a opção para guardar os conjuntos de regras para utilização futura.
+## <a name="create-applicability-rule"></a>Создание правила применимости
+Следующая информация аналогична сведениям о создании правил статьи о [мастере создания обновлений](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-update-wizard). В мастере не предусмотрена возможность сохранения наборов правил для последующего использования, а у вас есть такая возможность.
 
-1.  No **regras de área de trabalho**, escolha **criar** para abrir o **criar regra** assistente.
+1.  В **рабочей области правил** выберите **Создать**, чтобы открыть мастер **создания правила**.
 
-2.  Especifique um nome para a regra e, em seguida, clique em ![nova regra](media/newrule.png). Esta ação abre o **regra de aplicabilidade** página onde pode configurar as regras.
+2.  Укажите имя для правила и щелкните ![Новое правило](media/newrule.png). Откроется страница **правил применимости**, на которой можно настроить правила.
 
-3.  Para **tipo, de regra** selecione um dos seguintes. As opções que tem de configurar variam para cada tipo:
+3.  Выберите один из указанных ниже вариантов для **типа правила**. Для каждого типа используются свои параметры.
 
-    -   **Ficheiro** – utilizar esta regra para exigir que um dispositivo tem um ficheiro com propriedades que cumprem um ou mais critérios que especificar antes desta atualização podem ser aplicados.
+    -   **Файл.** Используйте это правило, чтобы указать, что устройство содержит файл со свойствами, которые соответствуют одному или нескольким указанным требованиям, прежде чем установить данное обновление.
 
-    -   **Registo –** utilizar este tipo para especificar detalhes de registo que tem de existir antes de um dispositivo se qualificam instalar esta atualização.
+    -   **Реестр.** Используйте этот тип, чтобы указать сведения о реестре, которые необходимы для установки обновления на устройстве.
 
-    -   **Sistema –** esta regra utiliza detalhes de sistema para determinar a aplicabilidade. Pode escolher entre definir uma versão do Windows, um idioma do Windows, a arquitetura de processador ou especificar uma consulta WMI para identificar o sistema operativo de dispositivos.
+    -   **Система.** Это правило использует сведения о системе, чтобы определить применимость. Вы можете выбрать между определением версии Windows, языка Windows или архитектуры процессора или указать запрос WMI, чтобы определить тип операционной системы устройства.
 
-    -   **Windows Installer –** utilizar este tipo de regra para determinar a aplicabilidade com base num instalado. MSI ou do Windows Installer patch (. \\&LT;SERVERNAME&GT;\SMS_&LT;SITECODE&GT;\HOTFIX\&LT;KB). Também pode determinar se os componentes específicos ou funcionalidades são instaladas como parte do requisito.
+    -   **Установщик Windows.** Используйте этот тип правила, чтобы определить применимость на основе установленного MSI-файла или исправления установщика Windows (для MSP-файлов). Вы также можете определить, нужно ли в соответствии с некоторыми требованиями устанавливать конкретные компоненты или функции.
 
        > [!IMPORTANT]   
-       > No geridos deices, o Windows Update Agent não conseguiu detetar o Windows instalar pacotes que são instaladas por utilizador. Quando utilizar este tipo de regra, configure as regras de aplicabilidade adicionais, como as versões de ficheiro ou valores de chave de registo, para que o pacote Windows Installer pode ser detetado corretamente independentemente numa base por utilizador ou por sistema.
+       > На управляемых устройствах агент обновления Windows не может найти пакеты установки Windows, установленные для отдельных пользователей. При использовании этого типа правил настройте дополнительные правила применимости, например версии файлов или значения разделов реестра, чтобы пакет установщика Windows был обнаружен независимо от типа установки (для отдельного пользователя или для системы).
 
-    -   **Guardar a regra –** esta opção permite-lhe localizar e utilizar as regras que configurou anteriormente e foram guardadas.
+    -   **Saved rule** (Сохраненное правило). Этот параметр позволяет находить и использовать правила, настроенные и сохраненные ранее.
 
-4.  Continue a adicionar e configurar regras adicionais conforme pretendido.
+4.  Продолжайте добавлять и настраивать дополнительные правила по мере необходимости.
 
-5.  Utilize os botões de funcionamento lógico para ordenação e grupo de regras diferentes para criar as verificações de pré-requisitos mais complexas.
+5.  Используйте кнопки логических операций, чтобы упорядочить и группировать разные правила для создания более сложных проверок готовности.
 
-6.  Quando o conjunto de regras estiver concluído, clique em **OK** para guardá-lo. A regra que defina agora aparece no **meu regras guardadas** lista.
+6.  После завершения настройки набора правил нажмите кнопку **ОК**, чтобы сохранить изменения. Теперь набор правил отображается в списке **My saved rules** (Мои сохраненные правила).
 
-## <a name="edit-applicability-rule-sets"></a>Editar os conjuntos de regras de aplicabilidade
-Para editar uma regra de aplicabilidade, no **regras de área de trabalho** Selecione qualquer regra que é guardada no **meu regras guardadas** lista e, em seguida, escolha **editar** a partir do Friso. Esta ação abre o **Editar regra de** assistente.
+## <a name="edit-applicability-rule-sets"></a>Изменение наборов правил применимости
+Чтобы изменить правило применимости, в **рабочей области правил** выберите любое правило, сохраненное в списке **My saved rules** (Мои сохраненные правила), а затем на ленте выберите **Изменить**. Откроется мастер **изменения правила**.
 
-O **Editar regra de** assistente apresenta as regras atuais para o conjunto de regras. Editar as regras da mesma forma como utiliza o **criar regra** Assistente para criar novas regras. Pode utilizar este assistente para mudar o nome do conjunto de regras e eliminar regras, reordenar as regras e as relações ou adicionar novas regras.
+Мастер **изменения правила** отображает текущие правила для набора правил. Измените правила, используя те же методы, что и при создании правил с помощью мастера **создания правила**. Этот мастер можно использовать, чтобы переименовать набор правил, удалить правила, изменить порядок правил и связей или чтобы добавить новые правила.
 
-Depois de efetuar alterações, escolha **OK** para guardar as alterações e fechar o assistente.
+После внесения изменений выберите **ОК**, чтобы сохранить изменения и закрыть мастер.
 
-Para obter mais detalhes sobre como utilizar o Assistente de regra, consulte **passo 7**, a página de aplicabilidade, do [assistente criar atualizar](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-update-wizard).
+Дополнительные сведения об использовании мастера создания правила см. в **шаге 7** на странице правил применимости статьи о [мастере создания обновлений](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-update-wizard).
 
-## <a name="delete-applicability-rules"></a>Eliminar as regras de aplicabilidade
-Para eliminar uma regra de aplicabilidade guardado no **regras de área de trabalho** selecione a regra ou um conjunto a partir de regras a **meu regras guardadas** lista e, em seguida, escolha **eliminar** a partir do Friso. Esta ação remove a regra guardada ou a regra que defina do Updates Publisher.
+## <a name="delete-applicability-rules"></a>Удаление правил применимости
+Чтобы удалить сохраненное правило применимости, в **рабочей области правил** в списке **My saved rules** (Мои сохраненные правила) выберите правило или набор правил, а затем на ленте выберите **Удалить**. Сохраненное правило или набор правил будут удалены из Updates Publisher.
 
-Para eliminar uma regra a partir de uma atualização específica, tem de [editar a atualização](/sccm/sum/tools/manage-updates-with-updates-publisher#edit-updates-and-bundles).
+Чтобы удалить правило из конкретного обновления, необходимо [изменить обновление](/sccm/sum/tools/manage-updates-with-updates-publisher#edit-updates-and-bundles).

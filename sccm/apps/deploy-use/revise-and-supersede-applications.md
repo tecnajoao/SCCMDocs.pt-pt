@@ -1,6 +1,6 @@
 ---
-title: "Rever e substituir aplicações | Microsoft Docs"
-description: "Saiba como trabalhar com o System Center Configuration Manager versões da aplicação e substituir aplicações."
+title: "Изменение и замена приложений | Документы Майкрософт"
+description: "Узнайте, как работать с версиями приложений System Center Configuration Manager и заменять приложения."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,114 +17,114 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 28bea9210c9c58dabbb00a995e78cfedd1738291
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="revise-and-supersede-applications-in-system-center-configuration-manager"></a>Rever e substituir aplicações no System Center Configuration Manager
+# <a name="revise-and-supersede-applications-in-system-center-configuration-manager"></a>Изменение и замена приложений в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Neste tópico, irá aprender como trabalhar com versões de aplicações do System Center Configuration Manager e como substituir aplicações com uma nova versão.  
+В этом разделе вы узнаете, как работать с версиями приложений System Center Configuration Manager и заменять приложения новой версией.  
 
-##  <a name="application-revisions"></a>Revisões de aplicações  
- Quando são efetuadas revisões de uma aplicação ou um tipo de implementação que está contido numa aplicação, o Configuration Manager cria uma nova revisão da aplicação. É possível visualizar o histórico de cada revisão da aplicação. Também é possível ver as suas propriedades, restaurar uma revisão anterior de uma aplicação ou eliminar uma revisão antiga.  
+##  <a name="application-revisions"></a>Редакции приложений  
+ При внесении изменений в приложение или в тип развертывания приложения Configuration Manager создает новую редакцию приложения. Можно отобразить журнал каждой редакции приложения. Можно также просмотреть ее свойства, восстановить предыдущую редакцию приложения или удалить старую редакцию.  
 
-### <a name="to-display-an-application-revision-history"></a>Para visualizar um histórico de revisão da aplicação  
+### <a name="to-display-an-application-revision-history"></a>Отображение журнала редакций приложения  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**e, em seguida, escolha a aplicação que pretende.  
+1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**, а затем выберите нужное приложение.  
 
-3.  No **home page** separador o **aplicação** grupo, escolha **histórico de revisão** para abrir o **histórico de revisão da aplicação** caixa de diálogo.  
+3.  На вкладке **Главная** в группе **Приложение** щелкните **Журнал редакций**, чтобы открыть диалоговое окно **Журнал редакций приложения**.  
 
-### <a name="to-view-an-application-revision"></a>Para visualizar uma revisão da aplicação  
+### <a name="to-view-an-application-revision"></a>Просмотр редакции приложения  
 
-1.  No **histórico de revisão da aplicação** caixa de diálogo, selecione uma revisão da aplicação e, em seguida, escolha **vista**.  
+1.  В диалоговом окне **Журнал редакций приложения** выберите редакцию приложения, после чего нажмите кнопку **Просмотр**.  
 
-2.  Na caixa de diálogo **Propriedades** , examine as propriedades da aplicação selecionada.  
-
-    > [!NOTE]  
-    >  As propriedades da aplicação que são apresentadas são só de leitura.  
-
-3.  Feche a caixa de diálogo **Propriedades** .  
-
-### <a name="to-restore-an-application-revision"></a>Para restaurar uma revisão da aplicação  
-
-1.  No **histórico de revisão da aplicação** caixa de diálogo, selecione uma revisão da aplicação e, em seguida, escolha **restaurar**.  
-
-2.  No **Confirmar restauro da revisão** diálogo caixa, escolha **Sim** para restaurar a revisão da aplicação selecionada.  
-
-### <a name="to-delete-an-application-revision"></a>Para eliminar uma revisão da aplicação  
-
-1.  No **histórico de revisão da aplicação** caixa de diálogo, selecione uma revisão da aplicação e, em seguida, escolha **eliminar**.  
-
-2.  No **eliminar revisão da aplicação** diálogo caixa, escolha **Sim**.  
-
-> [!IMPORTANT]  
->  Só é possível eliminar a revisão da aplicação atual se a aplicação estiver retirada e tem sem referências.  
-
-##  <a name="application-supersedence"></a>Substituição de aplicações  
- Gestão de aplicações no Configuration Manager permite-lhe atualizar ou substituir as aplicações existentes utilizando uma relação de substituição. Se substituir uma aplicação, pode especificar um novo tipo de implementação para substituir o tipo de implementação da aplicação substituída e também decidir se atualizar ou desinstalar a aplicação substituída antes da aplicação substituta está instalado.  
-
-> [!IMPORTANT]  
->  Quando é selecionada a opção para desinstalar o tipo de implementação substituído, não é possível substituir um tipo de implementação por outro que foi implementado num tipo de coleção diferente.  Por exemplo, um tipo de implementação que foi implementado numa coleção de dispositivos não pode ser substituído por um tipo de implementação que foi implementado numa coleção de utilizadores se a opção para desinstalar o tipo de implementação substituído estiver selecionada.  
-
-### <a name="decide-whether-to-upgrade-or-replace-an-application"></a>Decidir se é melhor atualizar ou substituir uma aplicação  
- O utilizador especifica se quer atualizar ou substituir uma aplicação na caixa de diálogo **Especificar Relação de Substituição** das propriedades da aplicação. O tipo de substituição depende se seleciona a opção **Desinstalar** na caixa de diálogo:  
-
--   Se pretender atualizar para uma versão mais recente da mesma aplicação (com o mesmo ID de aplicação), **não** verifique **desinstalação**.  
-
--   Se pretende alterar para uma aplicação diferente (com um ID de aplicação diferente), selecione **Desinstalar**. Terá de remover a versão da aplicação substituída.  
-
-### <a name="supersede-dependent-applications"></a>Substituir aplicações dependentes  
- Neste exemplo, **principal aplicação** refere-se para a aplicação que estiver a implementar que tem as dependências.  
-
- Pode criar uma relação de substituição que atualize a aplicação dependente para uma nova versão.  
-
-1.  Certifique-se de que a nova aplicação dependente e a aplicação dependente estão no mesmo grupo de dependência da aplicação global.  
-
-2.  Crie uma relação de substituição que substitua a aplicação dependente original pela nova aplicação dependente.  
-
- Durante as novas instalações da aplicação global, a nova aplicação dependente está instalada. As instalações existentes da aplicação global são atualizadas com a nova aplicação dependente.  
-
- O resultado final é que todas as implementações da aplicação global utilizarem a nova aplicação dependente.  
-
-### <a name="further-considerations"></a>Considerações adicionais  
-
--   Pode especificar múltiplas relações de substituição para aplicações dependentes. A aplicação dependente na localização superior na cadeia de substituição será a aplicação instalada.  
-
--   Aplicações dependentes tem de ser implementadas no dispositivo onde a aplicação principal está instalada ou não irão obter instalada a aplicação dependente.  
-
--   Para novas instalações da aplicação global, se tiver múltiplas dependências, a ordem da dependência determina qual a versão da aplicação dependente que é instalada.  
-
-### <a name="to-specify-a-supersedence-relationship"></a>Para especificar uma relação de substituição  
-
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **aplicações**e, em seguida, escolha a aplicação que substitui outra aplicação.  
-
-3.  No **home page** separador o **propriedades** grupo, escolha **propriedades** para abrir o nome da aplicação **propriedades** caixa de diálogo.  
-
-4.  No **substituição** separador do *< nome da aplicação\>*  **propriedades** diálogo caixa, escolha **adicionar**.  
-
-5.  Na caixa de diálogo **Especificar Relação de Substituição** , clique em **Procurar**.  
-
-6.  No **escolher aplicação** diálogo caixa, escolha a aplicação que pretende substituir e, em seguida, escolha **OK**.  
-
-7.  No **especificar relação de substituição** caixa de diálogo, selecione o tipo de implementação que substitui a implementação do tipo da aplicação substituída.  
+2.  В диалоговом окне **Свойства** проверьте свойства выбранного приложения.  
 
     > [!NOTE]  
-    >  Por predefinição, o novo tipo de implementação não desinstala o tipo de implementação da aplicação substituída. Este cenário é utilizado normalmente quando se pretende implementar uma atualização numa aplicação existente. Selecione **Desinstalar** para remover o tipo de implementação existente antes da instalação do novo tipo de implementação. Se optar por atualizar uma aplicação, certifique-se de que testa primeiro este procedimento num ambiente de laboratório.  
+    >  Отображаемые свойства приложения доступны только для чтения.  
 
-8.  Escolha **OK** para fechar o **especificar relação de substituição** caixa de diálogo.  
+3.  Закройте диалоговое окно **Свойства** .  
 
-9. Escolha **OK** para fechar o *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
+### <a name="to-restore-an-application-revision"></a>Восстановление редакции приложения  
 
-### <a name="to-display-applications-that-supersede-the-current-application"></a>Para apresentar as aplicações que substituem a aplicação atual  
+1.  В диалоговом окне **Журнал редакций приложения** выберите редакцию приложения, после чего нажмите кнопку **Восстановить**.  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software**.  
+2.  В диалоговом окне **Подтверждение восстановление редакции** нажмите кнопку **Да**, чтобы восстановить выбранную редакцию приложения.  
 
-2.  No **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**, escolha **aplicações**e, em seguida, escolha a aplicação que pretende.  
+### <a name="to-delete-an-application-revision"></a>Удаление редакции приложения  
 
-3.  No **home page** separador o **propriedades** grupo, escolha **propriedades** para abrir o *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
+1.  В диалоговом окне **Журнал редакций приложения** выберите редакцию приложения, после чего нажмите кнопку **Удалить**.  
 
-4.  No **referências** separador do *< nome da aplicação\>*  **propriedades** diálogo caixa, escolha **as aplicações que substituem esta aplicação** do **tipo de relação** na lista pendente.  
+2.  В диалоговом окне **Удаление редакции приложения** нажмите кнопку **Да**.  
 
-5.  Reveja a lista de aplicações que substituem a aplicação selecionada e, em seguida, escolha **OK** para fechar o *< nome da aplicação\>*  **propriedades** caixa de diálogo.  
+> [!IMPORTANT]  
+>  Текущую редакцию приложения можно удалить только в том случае, если ее использование прекращено, и она не содержит ссылок.  
+
+##  <a name="application-supersedence"></a>Замена приложений  
+ Управление приложениями в Configuration Manager позволяет обновлять или заменять существующие приложения с помощью отношений замены. При замене приложения можно указать новый тип развертывания, заменяющий тип развертывания заменяемого приложения. Также можно выбрать, следует ли обновить заменяемое приложение или же удалить его перед установкой заменяющего приложения.  
+
+> [!IMPORTANT]  
+>  Если выбрано удаление замещаемого типа развертывания, тип развертывания не может быть замещен типом развертывания, развернутым в другом типе коллекции.  Например, тип развертывания, развернутый в коллекции устройств, не может быть заменен типом развертывания, развернутым в коллекции пользователей, если выбран параметр удаления заменяемого типа развертывания.  
+
+### <a name="decide-whether-to-upgrade-or-replace-an-application"></a>Принятие решения об обновлении или замене приложения  
+ Вы указываете, требуется заменить или обновить приложение, в диалоговом окне **Укажите отношение замены** в окне свойств приложения. Тип замены зависит то того, установлен ли флажок **Удаление** в этом диалоговом окне:  
+
+-   Если необходимо обновление до новой версии того же приложения (с тем же идентификатором приложения), **не** устанавливайте флажок **Удаление**.  
+
+-   Если приложение необходимо заменить на другое (с другим идентификатором приложения), установите флажок **Удаление**. Потребуется удалить замененную версию приложения.  
+
+### <a name="supersede-dependent-applications"></a>Замена зависимых приложений  
+ В этом примере **главным приложением** называется развертываемое приложение, которое содержит зависимости.  
+
+ Вы можете создать отношение замены, которое будет обновлять зависимое приложение до новой версии.  
+
+1.  Убедитесь, что новое зависимое приложение и исходное зависимое приложение находятся в одной и той же группе зависимостей главного приложения.  
+
+2.  Создайте отношение замены, которое заменяет исходное зависимое приложение на новое зависимое приложение.  
+
+ В рамках новых установок главного приложения будет установлено новое зависимое приложение. Существующие установки главного приложения будут обновлены новым зависимым приложением.  
+
+ В результате все развертывания главного приложения будут использовать новое зависимое приложение.  
+
+### <a name="further-considerations"></a>Дополнительные вопросы  
+
+-   Для зависимых приложений можно указать несколько отношений замены. Устанавливаться будет наивысшее зависимое приложение в цепочке замены.  
+
+-   Зависимые приложения должны быть развернуты на устройстве, где установлено главное приложение или где не будет устанавливаться зависимое приложение.  
+
+-   Для новых установок главного приложения, когда имеется несколько зависимостей, порядок зависимостей определяет версию зависимого приложения, которая будет установлена.  
+
+### <a name="to-specify-a-supersedence-relationship"></a>Определение отношения замены  
+
+1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Приложения**, а затем выберите приложение, заменяющее другое приложение.  
+
+3.  На вкладке **Главная** в группе **Свойства** щелкните **Свойства**, чтобы открыть диалоговое окно **Свойства <имя_приложения>**.  
+
+4.  На вкладке **Замена** в диалоговом окне *Свойства* **<имя приложения\>** нажмите кнопку **Добавить**.  
+
+5.  В диалоговом окне **Укажите отношение замены** нажмите кнопку **Обзор**.  
+
+6.  В диалоговом окне **Выбор приложения** выберите приложение, которое нужно заменить, и нажмите кнопку **ОК**.  
+
+7.  В диалоговом окне **Укажите отношение замены** выберите тип развертывания, заменяющий тип развертывания заменяемого приложения.  
+
+    > [!NOTE]  
+    >  По умолчанию новый тип развертывания не удаляет тип развертывания заменяемого приложения. Такой сценарий чаще всего используется для развертывания обновления существующего приложения. Выберите **Удалить** , чтобы удалить существующий тип развертывания перед установкой нового типа развертывания. При обновлении приложения его необходимо сначала протестировать в лабораторной среде.  
+
+8.  Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Укажите отношение замены**.  
+
+9. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *Свойства* **<имя_приложения\>**.  
+
+### <a name="to-display-applications-that-supersede-the-current-application"></a>Просмотр списка приложений, заменяющих текущее приложение  
+
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
+
+2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**, щелкните **Приложения** и выберите нужное приложение.  
+
+3.  На вкладке **Главная** в группе **Свойства** щелкните **Свойства**, чтобы открыть диалоговое окно *Свойства* **<имя_приложения\>**.  
+
+4.  На вкладке **Ссылки** в диалоговом окне *Свойства* **<имя_приложения\>** выберите пункт **Приложения, заменяющие это приложение** в раскрывающемся списке **Тип отношения**.  
+
+5.  Просмотрите список приложений, которые заменяют выбранное приложение, а затем нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *Свойства* **<имя_приложения\>**.  

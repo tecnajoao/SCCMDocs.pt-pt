@@ -1,6 +1,6 @@
 ---
-title: "Gerir dispositivos para gestão de dispositivos móveis no local | Microsoft Docs"
-description: "Gerir dispositivos para gestão de dispositivos móveis no local com o Configuration Manager."
+title: "Управление устройствами с помощью локального управления мобильными устройствами | Документация Майкрософт"
+description: "Управление устройствами с помощью локального управления мобильными устройствами в Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,14 +17,14 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 92009c96ccc5f4124b300873ff77088ea1712c19
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-devices-for-on-premises-mobile-device-management"></a>Gerir dispositivos para gestão de dispositivos móveis no local
+# <a name="manage-devices-for-on-premises-mobile-device-management"></a>Управление устройствами с помощью локального управления мобильными устройствами
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode gerir computadores e dispositivos com gestão de dispositivos móveis no local do System Center Configuration Manager (MDM). Para tal, o [dispositivos têm de estar inscritos](enroll-devices-on-premises-mdm.md) , para que o Configuration Manager podem comunicar com os dispositivos para tarefas de gestão.
+Вы можете управлять компьютерами и устройствами с помощью локального управления мобильными устройствами в System Center Configuration Manager. Для этого [следует зарегистрировать устройства](enroll-devices-on-premises-mdm.md), чтобы среда Configuration Manager могла взаимодействовать с устройствами для выполнения задач управления.
 
-Gestão de dispositivos no MDM no local é o mesmo que a gestão de dispositivos num ambiente híbrido MDM. [Gerir dispositivos no MDM híbrido](wipe-lock-reset-devices.md) fornece informações detalhadas sobre a gestão de dispositivos.
+Управление устройствами в локальной среде управления мобильными устройствами аналогично управлению устройствами в гибридной среде управления мобильными устройствами. Подробные сведения об управлении устройствами см. в статье [Защита данных с помощью функций удаленной очистки, блокировки или сброса секретного кода с помощью System Center Configuration Manager](wipe-lock-reset-devices.md).

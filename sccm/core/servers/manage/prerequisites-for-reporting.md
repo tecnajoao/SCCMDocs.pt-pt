@@ -1,6 +1,6 @@
 ---
-title: "Pré-requisitos para relatórios | Microsoft Docs"
-description: "Compreenda as várias dependências que afetam a sua utilização de relatórios no System Center Configuration Manager."
+title: "Необходимые условия для ведения отчетов | Документы Майкрософт"
+description: "Сведения о различных зависимостях, которые влияют на использование отчетов в System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,48 +17,48 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 2e624eb2ea061a4eb7d92365410fada335640224
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-reporting-in-system-center-configuration-manager"></a>Pré-requisitos para relatórios no System Center Configuration Manager
+# <a name="prerequisites-for-reporting-in-system-center-configuration-manager"></a>Необходимые условия для ведения отчетов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Relatórios no System Center Configuration Manager tem dependências externas e dependências no produto.  
+Функция отчетов в System Center Configuration Manager имеет внешние зависимости и зависимости в пределах продукта.  
 
-## <a name="dependencies-external-to-configuration-manager"></a>Dependências externas ao Configuration Manager  
- A tabela seguinte lista as dependências externas dos relatórios.  
+## <a name="dependencies-external-to-configuration-manager"></a>Внешние зависимости Configuration Manager  
+ В следующей таблице перечислены внешние зависимости для отчетов.  
 
-|Pré-requisito|Mais informações|  
+|Необходимое условие|Дополнительные сведения|  
 |------------------|----------------------|  
-|Serviços de Relatórios do SQL Server|Antes de poder utilizar relatórios no Configuration Manager, tem de instalar e configurar o SQL Server Reporting Services.<br /><br /> Para obter informações sobre o planeamento e implementação do Reporting Services no seu ambiente, consulte a secção [Reporting Services](http://go.microsoft.com/fwlink/p/?LinkId=212032) do SQL Server 2008 Books Online.|  
-|Dependências da função do sistema de sites para os computadores que executem o ponto do Reporting Services.|[Configurações suportadas para o System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md)|  
+|SQL Server Reporting Services|Перед использованием отчетов в Configuration Manager необходимо установить и настроить службы SQL Server Reporting Services.<br /><br /> Сведения о планировании и развертывании Reporting Services в вашей среде см. в разделе [Службы отчетов](http://go.microsoft.com/fwlink/p/?LinkId=212032) в документации к SQL Server 2008 в Интернете.|  
+|Зависимости ролей систем сайта для компьютеров, на которых находится точка служб отчетов.|[Поддерживаемые конфигурации для System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md)|  
 
-## <a name="dependencies-internal-to-configuration-manager"></a>Dependências internas do Configuration Manager  
- A tabela seguinte lista as dependências dos relatórios no Configuration Manager.  
+## <a name="dependencies-internal-to-configuration-manager"></a>Внутренние зависимости Configuration Manager  
+ В приведенной ниже таблице перечислены зависимости для отчетов в Configuration Manager.  
 
-|Pré-requisito|Mais informações|  
+|Необходимое условие|Дополнительные сведения|  
 |------------------|----------------------|  
-|Ponto do Reporting Services|Função de sistema de sites do ponto deve ser configurada antes de poder utilizar relatórios no Configuration Manager do Reporting Services. Para obter mais informações sobre como instalar e configurar um ponto do Reporting Services, consulte [configurar relatórios no System Center Configuration Manager](../../../core/servers/manage/configuring-reporting.md).|  
+|Точка служб отчетов|Чтобы создавать отчеты в Configuration Manager, необходимо настроить роль системы сайта "Точка служб отчетов". Дополнительные сведения об установке и настройке точки служб отчетов см. в разделе [Настройка отчетов в System Center Configuration Manager](../../../core/servers/manage/configuring-reporting.md).|  
 
-## <a name="supported-sql-server-versions-for-the-reporting-services-point"></a>Versões suportadas do SQL Server para o Ponto do Reporting Services  
- A base de dados do Reporting Services pode ser instalada na instância predefinida ou numa instância nomeada de uma instalação do SQL Server de 64 bits. A instância do SQL Server pode estar colocalizada com o servidor do sistema de sites ou encontrar-se num computador remoto.  
+## <a name="supported-sql-server-versions-for-the-reporting-services-point"></a>Поддерживаемые версии SQL Server для точки служб отчетов  
+ Базу данных служб отчетов можно установить на экземпляре по умолчанию или на именованном экземпляре 64-разрядной версии SQL Server. Экземпляр SQL Server может размещаться на одном компьютере с сервером системы сайта или на удаленном компьютере.  
 
- A tabela seguinte lista as versões do SQL Server suportadas pelo ponto do Reporting Services.  
+ В следующей таблице приведены версии SQL Server, поддерживаемые точками служб отчетов.  
 
-|Versão do SQL Server|Ponto do Reporting Services|  
+|Версия SQL Server|Точка служб отчетов|  
 |------------------------|------------------------------|  
-|SQL Server 2008 SP2 com pelo menos a atualização cumulativa 9<br /><br /> -Padrão<br />-Enterprise<br />-O Centro de dados|Sim|  
-|SQL Server 2008 SP3 com pelo menos a atualização cumulativa 4<br /><br /> -Padrão<br />-Enterprise<br />-O Centro de dados|Sim|  
-|SQL Server 2008 R2 com SP1 e com pelo menos a atualização cumulativa 6<br /><br /> -Padrão<br />-Enterprise<br />-O Centro de dados|Sim|  
-|SQL Server 2008 R2 com SP2<br /><br /> -Padrão<br />-Enterprise<br />-O Centro de dados|Sim|  
-|SQL Server Express 2008 R2 com SP1 e com pelo menos a atualização cumulativa 4|Não Suportado|  
-|SQL Server Express 2008 R2 com SP2|Não Suportado|  
-|SQL Server 2012 com pelo menos a atualização cumulativa 2<br /><br /> -Padrão<br />-Enterprise|Sim|  
-|SQL Server 2012 com SP1 sem atualização cumulativa mínima<br /><br /> -Padrão<br />-Enterprise|Sim|  
-|SQL Server 2014<br /><br /> -Padrão<br />-Enterprise|Sim|
-|SQL Server 2016<br /><br /> -Padrão<br />-Enterprise|Sim|
-|SQL Server 2016 com SP1<br /><br /> -Padrão<br />-Enterprise|Sim|
-## <a name="next-steps"></a>Passos seguintes
-[Operações e manutenção de relatórios](operations-and-maintenance-for-reporting.md)
+|SQL Server 2008 с пакетом обновления 2 (SP2) и минимальным накопительным пакетом обновления 9<br /><br /> — Standard<br />— Enterprise<br />— Datacenter|Да|  
+|SQL Server 2008 с пакетом обновления 3 (SP3) и минимальным накопительным пакетом обновления 4<br /><br /> — Standard<br />— Enterprise<br />— Datacenter|Да|  
+|SQL Server 2008 R2 с пакетом обновления 1 (SP1) и минимальным накопительным пакетом обновления 6<br /><br /> — Standard<br />— Enterprise<br />— Datacenter|Да|  
+|SQL Server 2008 R2 с пакетом обновления 2 (SP2)<br /><br /> — Standard<br />— Enterprise<br />— Datacenter|Да|  
+|SQL Server Express 2008 R2 с пакетом обновления 1 (SP1) и минимальным накопительным пакетом обновления 4|Не поддерживается|  
+|SQL Server Express 2008 R2 с пакетом обновления 2 (SP2)|Не поддерживается|  
+|SQL Server 2012 с минимальным накопительным пакетом обновления 2<br /><br /> — Standard<br />— Enterprise|Да|  
+|SQL Server 2012 с пакетом обновления 1 (SP1) и без минимального накопительного пакета обновления<br /><br /> — Standard<br />— Enterprise|Да|  
+|SQL Server 2014<br /><br /> — Standard<br />— Enterprise|Да|
+|SQL Server 2016<br /><br /> — Standard<br />— Enterprise|Да|
+|SQL Server 2016 с пакетом обновления 1 (SP1)<br /><br /> — Standard<br />— Enterprise|Да|
+## <a name="next-steps"></a>Дальнейшие действия
+[Использование и обслуживание отчетов](operations-and-maintenance-for-reporting.md)

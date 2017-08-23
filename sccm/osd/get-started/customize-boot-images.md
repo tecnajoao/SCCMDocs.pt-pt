@@ -1,6 +1,6 @@
 ---
-title: Personalizar imagens de arranque - Configuration Manager | Microsoft Docs
-description: "Saiba várias formas de utilizar a ferramenta de linha de comandos do Configuration Manager ou Deployment Image Servicing and Management (DISM) para personalizar uma imagem de arranque."
+title: "Настройка образов загрузки в Configuration Manager | Документы Майкрософт"
+description: "Сведения о нескольких способах настройки образа загрузки с помощью Configuration Manager или средства командной строки DISM."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,285 +17,285 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: ab2ecb64c9c80b4effed79ba08769c99473db0c4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="customize-boot-images-with-system-center-configuration-manager"></a>Personalizar imagens de arranque com o System Center Configuration Manager
+# <a name="customize-boot-images-with-system-center-configuration-manager"></a>Настройка образов загрузки для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Cada versão do Configuration Manager suporta uma versão específica do Windows Assessment and Deployment Kit (Windows ADK). Pode atualizar ou personalizar, imagens de arranque a partir da consola do Configuration Manager quando são baseadas numa versão do Windows PE da versão suportada do Windows ADK. Outras imagens de arranque devem ser personalizadas através de outro método, como a ferramenta de linha de comandos Gestão e Atualização de Imagens de Implementação (DISM) que faz parte do Windows AIK e do Windows ADK.  
+Каждая версия Configuration Manager поддерживает определенную версию комплекта средств для развертывания и оценки Windows (Windows ADK). Загрузочные образы можно обслуживать или настраивать в консоли Configuration Manager, если они были созданы на основе версии среды предустановки Windows из поддерживаемой версии Windows ADK. Для настройки остальных загрузочных образов необходимо использовать другой подход, например программу командной строки "Система обслуживания образов развертывания и управления ими (DISM)", которая входит в состав Windows AIK и Windows ADK.  
 
- O seguinte fornece a versão suportada do Windows ADK, a versão do Windows PE nas quais se baseia a imagem de arranque que pode ser personalizada a partir da consola do Configuration Manager e as versões do Windows PE na qual se baseia a imagem de arranque que pode personalizar com o DISM e depois adicione a imagem para o Configuration Manager.  
+ Ниже приведены поддерживаемая версия Windows ADK, версия среды предустановки Windows, используемая как основа образа загрузки, который может быть настроен в консоли Configuration Manager, и версии среды предустановки Windows, используемые как основа образов загрузки, которые могут быть настроены с помощью DISM, а затем добавлены в Configuration Manager.  
 
--   **Versão do Windows ADK**  
+-   **Версия Windows ADK**  
 
-     Windows ADK para Windows 10  
+     Windows ADK для Windows 10  
 
--   **Versões do Windows PE para imagens de arranque personalizáveis a partir da consola do Configuration Manager**  
+-   **Версии среды предустановки Windows для загрузочных образов с возможностью настройки в консоли Configuration Manager**  
 
      Windows PE 10  
 
--   **Versões do Windows PE para imagens de arranque não podem ser personalizadas na consola do Configuration Manager**  
+-   **Поддерживаемые версии среды предустановки Windows для загрузочных образов без возможности настройки в консоли Configuration Manager**  
 
-     Windows PE 3.1<sup>1</sup> e Windows PE 5  
+     Среда предустановки Windows 3.1<sup>1</sup> и среда предустановки Windows 5  
 
-     <sup>1</sup> só é possível adicionar uma imagem de arranque para o Configuration Manager quando se baseia no Windows PE 3.1. Instale o Suplemento do Windows AIK para o Windows 7 SP1 para atualizar o Windows AIK para o Windows 7 (baseado no Windows PE 3) com o Suplemento do Windows AIK para Windows 7 SP1 (baseado no Windows PE 3.1). Poderá transferir o Suplemento do Windows AIK para Windows 7 SP1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> Образ загрузки можно добавить в Configuration Manager, только если он был создан на основе среды предустановки Windows 3.1. Установите дополнительный компонент Windows AIK для Windows 7 с пакетом обновления 1 (SP1), чтобы обновить Windows AIK для Windows 7 (на основе среды предустановки Windows 3) с помощью дополнительного компонента Windows AIK для Windows 7 с пакетом обновления 1 (SP1) (на основе среды предустановки Windows 3.1). Дополнительный компонент Windows AIK для Windows 7 с пакетом обновления 1 (SP1) можно загрузить из [Центра загрузки Майкрософт](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Por exemplo, quando tiver do Configuration Manager, pode personalizar imagens de arranque do Windows ADK para Windows 10 (baseado no Windows PE 10) na consola do Configuration Manager. No entanto, embora as imagens de arranque baseadas no Windows PE 5 sejam suportadas, tem de personalizá-las a partir de um computador diferente e utilizar a versão do DISM que é instalada com o Windows ADK para Windows 8. Em seguida, pode adicionar a imagem de arranque à consola do Configuration Manager.  
+     Например, если используется Configuration Manager, загрузочные образы из Windows ADK для Windows 10 (на основе среды предустановки Windows 10) можно настраивать в консоли Configuration Manager. Однако несмотря на то что загрузочные образы на основе Windows PE 5 поддерживаются, их необходимо настраивать с другого компьютера и использовать версию DISM, установленную вместе с Windows ADK для Windows 8. После этого загрузочный образ можно будет добавить в консоль Configuration Manager.  
 
- Os procedimentos deste tópico demonstram como adicionar os componentes opcionais exigidos pelo Configuration Manager para a imagem de arranque, utilizando os seguintes pacotes do Windows PE:  
+ В этой статье описаны процедуры добавления дополнительных компонентов, необходимых для работы Configuration Manager, в загрузочный образ с помощью следующих пакетов среды предустановки Windows.  
 
--   **WinPE-WMI**: Adiciona suporte de Windows Management Instrumentation (WMI).  
+-   **WinPE-WMI**. Добавляет поддержку инструментария управления Windows (WMI).  
 
--   **WinPE-Scripting**: Adiciona suporte de Script anfitrião para WSH (Windows).  
+-   **WinPE-Scripting**. Добавляет поддержку сервера сценариев Windows (WSH).  
 
--   **WinPE-WDS-Tools**: Instala ferramentas dos serviços de implementação do Windows.  
+-   **WinPE-WDS-Tools**. Устанавливает средства служб развертывания Windows.  
 
- Existem outros pacotes do Windows PE disponíveis que pode adicionar. Os recursos seguintes fornecem mais informações sobre os componentes opcionais que pode adicionar à imagem de arranque.  
+ Для добавления также доступны другие пакеты среды предустановки Windows. Дополнительные сведения о дополнительных компонентах, которые могут быть добавлены в загрузочный образ, см. на следующих ресурсах.  
 
--   Para o Windows PE 5, consulte [WinPE: Adicionar pacotes (referência de componentes opcionais)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
+-   Для среды Windows PE 5 см. раздел [WinPE: добавление пакетов (Справочник по дополнительным компонентам)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
 
--   Para o Windows PE 3.1, veja o tópico [Adicionar um Pacote a uma Imagem do Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) na Biblioteca de Documentação do TechNet relativa ao Windows 7.  
+-   Для среды предустановки Windows 3.1 см. статью [Добавление пакета в образ Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) в библиотеке документации TechNet по Windows 7.  
 
 > [!NOTE]
->Quando executar o arranque do WinPE a partir de uma imagem de arranque personalizado que inclua ferramentas que adicionou, pode abrir uma linha de comandos a partir do WinPE e escrever o nome do ficheiro da ferramenta para executá-lo. A localização destas ferramentas são automaticamente adicionados à variável de caminho. Só é possível adicionar a linha de comandos se o **ativar suporte de comando (apenas teste)** definição está selecionada no **personalização** separador nas propriedades da imagem de arranque.
+>При загрузке WinPE из настроенного образа загрузки, содержащего добавленные вами инструменты, можно открыть командную строку в WinPE и ввести имя файла инструмента, чтобы запустить его. Расположение этих инструментов автоматически добавляется в переменную path. Командную строку можно добавить, только если на вкладке **Настройка** свойств образа загрузки выбран параметр **Включить поддержку командной строки (только для проверки)**.
 
-## <a name="customize-a-boot-image-that-uses-windows-pe-5"></a>Personalizar uma imagem de arranque que utiliza o Windows PE 5  
- Para personalizar uma imagem de arranque que utiliza o Windows PE 5, é necessário instalar o Windows ADK e utilizar a ferramenta de linha de comandos DISM para montar a imagem de arranque, adicionar componentes e controladores adicionais e consolidar as alterações da imagem de arranque. Utilize o procedimento seguinte para personalizar a imagem de arranque.  
+## <a name="customize-a-boot-image-that-uses-windows-pe-5"></a>Настройка образа загрузки, использующего среду предустановки Windows 5  
+ Чтобы настроить загрузочный образ, использующий Windows PE 5, необходимо установить Windows ADK и использовать программу командной строки DISM для подключения загрузочного образа, добавления дополнительных компонентов и драйверов и фиксации изменений в загрузочном образе. Ниже описана процедура настройки загрузочного образа.  
 
-#### <a name="to-customize-a-boot-image-that-uses-windows-pe-5"></a>Para personalizar uma imagem de arranque que utiliza o Windows PE 5  
+#### <a name="to-customize-a-boot-image-that-uses-windows-pe-5"></a>Процедура настройки загрузочного образа, использующего среду предустановки Windows 5  
 
-1.  Instalar o Windows ADK num computador que não tenha outra versão do Windows AIK ou Windows ADK, e não tem quaisquer componentes do Configuration Manager instalado.  
+1.  Установите Windows ADK на компьютере, на котором не установлена другая версия Windows AIK или Windows ADK и отсутствуют какие-либо компоненты Configuration Manager.  
 
-2.  Transfira o Windows ADK para Windows 8.1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=39982).  
+2.  Скачайте Windows ADK для Windows 8.1 из [Центра загрузки Майкрософт](http://www.microsoft.com/download/details.aspx?id=39982).  
 
-3.  Copie a imagem de arranque (wimpe.wim) da pasta de instalação Windows ADK (por exemplo, <*caminho de instalação*> \Windows Kits\\<*versão*> \Assessment e implementação Kit\Windows Preinstallation ambiente\\<*x86 ou amd64*>\\<*região*>) para uma pasta de destino no computador a partir do qual irá personalizar a imagem de arranque. Este procedimento utiliza C:\WinPEWAIK como o nome da pasta de destino.  
+3.  Скопируйте образ загрузки (wimpe.wim) из папки установки WindowsADK (например, <*путь_установки*>\Windows Kits\\\<*версия*>\Assessment and Deployment Kit\Windows Preinstallation Environment\\<*x86 или amd64*>\\<*язык*>) в конечную папку на компьютере, с которого будет выполняться настройка загрузочного образа. В этой процедуре в качестве имени конечной папки используется C:\WinPEWAIK.  
 
-4.  Utilize o DISM para montar a imagem de arranque numa pasta local do Windows PE. Por exemplo, escreva a seguinte linha de comandos:  
+4.  Используйте DISM для подключения загрузочного образа к локальной папке среды предустановки Windows. Например, введите следующую команду:  
 
-     **DISM.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
+     **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
-     Em que C:\WinPEWAIK é a pasta que contém a imagem de arranque e C:\WinPEMount é a pasta montada.  
-
-    > [!NOTE]
-    >  Para obter mais informações sobre o DISM, veja o tópico [Referência Técnica de Deployment Image Servicing and Management (DISM)](http://technet.microsoft.com/library/hh824821.aspx) na Biblioteca de Documentação do TechNet relativa ao Windows 8.1 e ao Windows 8.
-
-5.  Depois de montar a imagem de arranque, utilize o DISM para adicionar componentes opcionais à imagem de arranque. No Windows PE 5, os componentes opcionais de 64 bits estão localizados em <*Caminho de instalação*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs.  
+     где C:\WinPEWAIK — папка, содержащая загрузочный образ, а C:\WinPEMount — папка подключения.  
 
     > [!NOTE]
-    >  Este procedimento utiliza a seguinte localização para os componentes opcionais: C:\Programas\Microsoft ficheiros (x86) kits\8.1\assessment and Deployment Kit\Windows perguntas de environment\amd64\winpe_ocs. pré-instalação. O caminho utilizado pode ser diferente, dependendo da versão e das opções de instalação que escolher para o Windows ADK.  
+    >  Дополнительные сведения о DISM см. в статье [Техническое руководство по системе обслуживания образов развертывания и управления ими (DISM)](http://technet.microsoft.com/library/hh824821.aspx) в библиотеке документации TechNet по Windows 8.1 и Windows 8.
 
-     Escreva o seguinte para instalar os componentes opcionais:  
+5.  После подключения загрузочного образа используйте DISM для добавления в него дополнительных компонентов. В среде предустановки Windows 5 64-разрядные дополнительные компоненты находятся в папке <*путь_установки*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs.  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab"**  
+    > [!NOTE]
+    >  В этой процедуре используется следующее расположение дополнительных компонентов: C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs. Используемый путь может отличаться в зависимости от версии и параметров установки Windows ADK.  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-scripting.cab"**  
+     Введите следующие команды для установки дополнительных компонентов:  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wds-tools.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab"**  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-scripting.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-SecureStartup_** *<locale\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wds-tools.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-WMI_** *<locale\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-Scripting** *<locale\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<язык\>* **\WinPE-SecureStartup_** *<язык\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-WDS-Tools_** *<locale\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<язык\>* **\WinPE-WMI_** *<язык\>* **.cab"**  
 
-     Em que C:\WinPEMount é a pasta montada e região é a região dos componentes. Por exemplo, para a região **en-us**, teria de escrever:  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<язык\>* **\WinPE-Scripting** *<язык\>* **.cab"**  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-SecureStartup_en-us.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<язык\>* **\WinPE-WDS-Tools_** *<язык\>* **.cab"**  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"**  
+     Где C:\WinPEMount — подключенная папка, а языковой стандарт — языковой стандарт для компонентов. Например, для языкового стандарта **en-us** следует ввести:  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-Scripting_en-us.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-SecureStartup_en-us.cab"**  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Program Files (x86) kits\8.1\assessment e implementação Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WDS-Tools_en-us.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"**  
+
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-Scripting_en-us.cab"**  
+
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WDS-Tools_en-us.cab"**  
 
     > [!TIP]
-    >  Para obter mais informações sobre os componentes opcionais que pode adicionar à imagem de arranque, veja o tópico [Referência dos Componentes Opcionais do Windows PE](http://technet.microsoft.com/library/hh824926.aspx) na Biblioteca de Documentação do TechNet relativa ao Windows 8.1 e ao Windows 8.  
+    >  Дополнительные сведения о дополнительных компонентах, которые могут быть добавлены в загрузочный образ, см. в статье [Справочник по дополнительным компонентам среды предустановки Windows](http://technet.microsoft.com/library/hh824926.aspx) в библиотеке документации TechNet по Windows 8.1 и Windows 8.  
 
-6.  Utilize o DISM para adicionar controladores específicos à imagem de arranque, se for necessário. Escreva o seguinte para adicionar controladores à imagem de arranque:  
+6.  Используйте DISM для добавления в загрузочный образ специальных драйверов, если это необходимо. Введите следующую команду для добавления в загрузочный образ драйверов:  
 
-     **dism.exe /image:C:\WinPEMount /add-driver /driver:<** *caminho para o ficheiro .inf do controlador* **>**  
+     **dism.exe /image:C:\WinPEMount /add-driver /driver:&lt;** *путь_к_INF-файлу_драйвера* **>**  
 
-     Em que C:\WinPEMount é a pasta montada.  
+     где C:\WinPEMount — папка подключения.  
 
-7.  Escreva o seguinte para desmontar o ficheiro de imagem de arranque e confirmar as alterações.  
+7.  Введите следующую команду, чтобы отключить файл загрузочного образа и зафиксировать изменения:  
 
-     **DISM.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
+     **dism.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
 
-     Em que C:\WinPEMount é a pasta montada.  
+     где C:\WinPEMount — папка подключения.  
 
-8.  Adicione a imagem de arranque atualizada para o Configuration Manager para poder ser utilizada nas sequências de tarefas. Utilize os passos seguintes para importar a imagem de arranque atualizada:  
+8.  Добавьте обновленный загрузочный образ в Configuration Manager, чтобы он стал доступным для использования в последовательностях задач. Чтобы импортировать обновленный загрузочный образ, выполните следующие действия.  
 
-    1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+    1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-    2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Arranque**.  
+    2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите **Загрузочные образы**.  
 
-    3.  No separador **Home Page**, no grupo **Criar**, clique em **Adicionar Imagem de Arranque** para iniciar o Assistente Adicionar Imagem de Arranque.  
+    3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Добавить загрузочный образ** , чтобы запустить мастер добавления загрузочного образа.  
 
-    4.  Na página **Origem de Dados**, especifique as seguintes opções e clique em **Seguinte**.  
+    4.  На странице **Источник данных** настройте следующие параметры, затем нажмите кнопку **Далее**.  
 
-        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo:  **\\ \\ <**  *servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
+        -   В поле **Путь** укажите путь к обновленному файлу загрузочного образа. Указанный путь должен быть допустимым сетевым путем в формате UNC. Например: **\\\\<***имя_сервера***>\\<***общая папка WinPEWAIK***>\winpe.wim**.  
 
-        -   Selecione a imagem de arranque na lista pendente **Imagem de Arranque**. Se o ficheiro WIM contiver várias imagens de arranque, será listada cada imagem.  
+        -   В раскрывающемся списке **Загрузочный образ** выберите загрузочный образ. Если в WIM-файле содержится несколько загрузочных образов, все они указываются в списке.  
 
-    5.  Na página **Geral**, especifique as seguintes opções e clique em **Seguinte**.  
+    5.  На странице **Общие** укажите следующие параметры и нажмите кнопку **Далее**.  
 
-        -   Na caixa **Nome**, especifique um nome exclusivo para a imagem de arranque.  
+        -   В поле **Имя** введите уникальное имя загрузочного образа.  
 
-        -   Na caixa **Versão**, especifique um número de versão para a imagem de arranque.  
+        -   В поле **Версия** введите номер версии загрузочного образа.  
 
-        -   Na caixa **Comentário**, insira uma breve descrição do modo como a imagem de arranque é utilizada.  
+        -   В поле **Комментарий** введите краткое описание порядка использования загрузочного образа.  
 
-    6.  Conclua o assistente.  
+    6.  Завершите работу мастера.  
 
-9. Pode ativar uma shell de comandos na imagem de arranque para depuração e resolução de problemas da imagem de arranque no Windows PE. Utilize os passos seguintes para ativar a shell de comandos.  
+9. Можно включить в загрузочном образе командную оболочку для его отладки и устранения неполадок в среде предустановки Windows. Чтобы включить командную оболочку, выполните следующие действия.  
 
-    1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+    1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-    2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Arranque**.  
+    2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите **Загрузочные образы**.  
 
-    3.  Localize a nova imagem de arranque na lista e identifique o ID de pacote da imagem. O ID de pacote encontra-se na coluna **ID de imagem** da imagem de arranque.  
+    3.  Найдите в списке новый загрузочный образ и определите для него ИД пакета. ИД пакета можно найти в столбце **Идентификатор образа** напротив загрузочного образа.  
 
-    4.  Numa linha de comandos, escreva **wbemtest** para abrir o Recurso de Teste do Windows Management Instrumentation.  
+    4.  В командной строке введите команду **wbemtest** , чтобы открыть тестер инструментария управления Windows.  
 
-    5.  Tipo  **\\ \\ <**  *computador do fornecedor de SMS***> \root\sms\site_ <***sitecode*  **>**  no **espaço de nomes**e, em seguida, clique em **Connect**.  
+    5.  Введите **\\\\<***компьютер_поставщика_SMS***>\root\sms\site_<***код_сайта***>** в поле **Пространство имен** и нажмите кнопку **Подключить**.  
 
-    6.  Clique em **Abrir Instância**, escreva **sms_bootimagepackage.packageID="<packageID\>"** e, em seguida, clique em **OK**. Para packageID, introduza o valor que identificou no passo 3.  
+    6.  Нажмите кнопку **Открыть экземпляр**, введите **sms_bootimagepackage.packageID="<ИД_пакета\>"** и нажмите кнопку **ОК**. В качестве ИД пакета введите значение, определенное на шаге 3.  
 
-    7.  Clique em **Atualizar Objeto** e, em seguida, clique em **EnableLabShell** no painel **Propriedades**.  
+    7.  Нажмите кнопку **Обновить объект**и в области **Свойства** выберите свойство **EnableLabShell** .  
 
-    8.  Clique em **Editar Propriedade**, altere o valor para **VERDADEIRO** e clique em **Guardar Propriedade**.  
+    8.  Щелкните элемент **Изменить свойство**, измените значение на **TRUE**и выберите **Сохранить**.  
 
-    9. Clique em **Guardar Objeto** e, em seguida, saia do Recurso de Teste do Windows Management Instrumentation.  
+    9. Щелкните **Сохранить объект**и закройте тестер инструментария управления Windows.  
 
-10. É necessário distribuir a imagem de arranque para pontos de distribuição, grupos de pontos de distribuição ou coleções que estejam associadas a grupos de pontos de distribuição para poder utilizar a imagem de arranque numa sequência de tarefas. Utilize os passos seguintes para personalizar a imagem de arranque.  
+10. Прежде чем загрузочный образ можно будет использовать в последовательности задач, его необходимо распространить в точки распространения, группы точек распространения или коллекции, которые связаны с группами точек распространения. Чтобы распространить загрузочный образ, выполните следующие действия.  
 
-    1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+    1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-    2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Arranque**.  
+    2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите **Загрузочные образы**.  
 
-    3.  Clique na imagem de arranque identificada no passo 3.  
+    3.  Выберите загрузочный образ, определенный на шаге 3.  
 
-    4.  No separador **Home Page**, no grupo **Implementação**, clique em **Atualizar Pontos de Distribuição**.  
+    4.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Обновить точки распространения**.  
 
-## <a name="customize-a-boot-image-that-uses-windows-pe-31"></a>Personalizar uma imagem de arranque que utiliza o Windows PE 3.1  
- Para personalizar uma imagem de arranque que utiliza o WinPE 3.1, é necessário instalar o Windows AIK, instalar o suplemento do Windows AIK para Windows 7 SP1 e utilizar a ferramenta de linha de comandos DISM para montar a imagem de arranque, adicionar componentes e controladores adicionais e consolidar as alterações da imagem de arranque. Utilize o procedimento seguinte para personalizar a imagem de arranque.  
+## <a name="customize-a-boot-image-that-uses-windows-pe-31"></a>Настройка загрузочного образа, использующего среду предустановки Windows 3.1  
+ Чтобы настроить загрузочный образ, использующий среду предустановки Windows 3.1, необходимо установить Windows AIK, установить дополнительный компонент Windows AIK для Windows 7 с пакетом обновления 1 (SP1) и использовать программу командной строки DISM для подключения загрузочного образа, добавления дополнительных компонентов и драйверов и фиксации изменений в загрузочном образе. Ниже описана процедура настройки загрузочного образа.  
 
-#### <a name="to-customize-a-boot-image-that-uses-windows-pe-31"></a>Para personalizar uma imagem de arranque que utiliza o Windows PE 3.1  
+#### <a name="to-customize-a-boot-image-that-uses-windows-pe-31"></a>Процедура настройки загрузочного образа, использующего среду предустановки Windows 3.1  
 
-1.  Instalar o Windows AIK num computador que não tenha outra versão do Windows AIK ou Windows ADK, e não tem quaisquer componentes do Configuration Manager instalado. Transfira o Windows AIK a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5753).  
+1.  Установите Windows AIK на компьютере, на котором не установлена другая версия Windows AIK или Windows ADK и отсутствуют какие-либо компоненты Configuration Manager. Загрузите Windows AIK из [Центра загрузки Майкрософт](http://www.microsoft.com/download/details.aspx?id=5753).  
 
-2.  Instale o Suplemento do Windows AIK para Windows 7 com SP1 no computador do passo 1. Transfira o Suplemento do Windows AIK para Windows 7 SP1 a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+2.  Установите дополнительный компонент Windows AIK для Windows 7 с пакетом обновления 1 (SP1) на компьютере из шага 1. Скачайте дополнительный компонент Windows AIK для Windows 7 с пакетом обновления 1 (SP1) из [Центра загрузки Майкрософт](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-3.  Copie a imagem de arranque (wimpe.wim) da pasta de instalação do Windows AIK (por exemplo, <*CaminhoDaInstalação*>\Windows AIK\Tools\PETools\amd64\\) para uma pasta no computador a partir do qual irá personalizar a imagem de arranque. Este procedimento utiliza C:\WinPEWAIK como o nome da pasta.  
+3.  Скопируйте загрузочный образ (wimpe.wim) из папки установки Windows AIK (например, <*путь_установки*>\Windows AIK\Tools\PETools\amd64\\) в папку на компьютере, с которого будет выполняться настройка загрузочного образа. В этой процедуре в качестве имени папки используется C:\WinPEWAIK.  
 
-4.  Utilize o DISM para montar a imagem de arranque numa pasta local do Windows PE. Por exemplo, escreva a seguinte linha de comandos:  
+4.  Используйте DISM для подключения загрузочного образа к локальной папке среды предустановки Windows. Например, введите следующую команду:  
 
-     **DISM.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
+     **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
-     Em que C:\WinPEWAIK é a pasta que contém a imagem de arranque e C:\WinPEMount é a pasta montada.  
-
-    > [!NOTE]
-    >  Para obter mais informações sobre o DISM, veja o tópico [Referência Técnica de Deployment Image Servicing and Management](http://technet.microsoft.com/library/dd744256\(v=ws.10\).aspx) na Biblioteca de Documentação do TechNet relativa ao Windows 7.  
-
-5.  Depois de montar a imagem de arranque, utilize o DISM para adicionar componentes opcionais à imagem de arranque. No Windows PE 3.1, por exemplo, os componentes opcionais estão localizados em <*CaminhoDaInstalação*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
+     где C:\WinPEWAIK — папка, содержащая загрузочный образ, а C:\WinPEMount — папка подключения.  
 
     > [!NOTE]
-    >  Este procedimento utiliza a seguinte localização para os componentes opcionais: C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. O caminho utilizado pode ser diferente, dependendo da versão e das opções de instalação que escolher para o Windows AIK.  
+    >  Дополнительные сведения о DISM см. в статье [Технический справочник по системе обслуживания образов развертывания и управления ими](http://technet.microsoft.com/library/dd744256\(v=ws.10\).aspx) в библиотеке документации TechNet по Windows 7.  
 
-     Escreva o seguinte para instalar os componentes opcionais:  
+5.  После подключения загрузочного образа используйте DISM для добавления в него дополнительных компонентов. Например, в среде предустановки Windows 3.1 дополнительные компоненты находятся в папке <*путь_установки*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wmi.cab"**  
+    > [!NOTE]
+    >  В этой процедуре используется следующее расположение дополнительных компонентов: C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Используемый путь может отличаться в зависимости от версии и параметров установки Windows AIK.  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-scripting.cab"**  
+     Введите следующие команды для установки дополнительных компонентов:  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wds-tools.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wmi.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wmi_** *<locale\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-scripting.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-scripting_** *<locale\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wds-tools.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wds-tools_** *<locale\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<язык\>* **\winpe-wmi_** *<язык\>* **.cab"**  
 
-     Em que C:\WinPEMount é a pasta montada e região é a região dos componentes. Por exemplo, para a região **en-us**, teria de escrever:  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<язык\>* **\winpe-scripting_** *<язык\>* **.cab"**  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wmi_en-us.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<язык\>* **\winpe-wds-tools_** *<язык\>* **.cab"**  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-scripting_en-us.cab"**  
+     Где C:\WinPEMount — подключенная папка, а языковой стандарт — языковой стандарт для компонентов. Например, для языкового стандарта **en-us** следует ввести:  
 
-     **DISM.exe /image:C:\WinPEMount /add-package /packagepath: "C:\Programas\Microsoft Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wmi_en-us.cab"**  
+
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-scripting_en-us.cab"**  
+
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
 
     > [!TIP]
-    >  Para obter mais informações sobre os diferentes pacotes que pode adicionar à imagem de arranque, veja o tópico [Adicionar um Pacote a uma Imagem do Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) na Biblioteca de Documentação do TechNet relativa ao Windows 7.  
+    >  Дополнительные сведения о различных пакетах, которые могут быть добавлены в загрузочный образ, см. в статье [Добавление пакета в образ Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) в библиотеке документации TechNet по Windows 7.  
 
-6.  Utilize o DISM para adicionar controladores específicos à imagem de arranque, se for necessário. Escreva o seguinte para adicionar controladores à imagem de arranque, se for necessário:  
+6.  Используйте DISM для добавления в загрузочный образ специальных драйверов, если это необходимо. Введите следующую команду для добавления в загрузочный образ драйверов, если это необходимо:  
 
-     **dism.exe /image:C:\WinPEMount /add-driver /driver:<** *caminho para o ficheiro .inf do controlador* **>**  
+     **dism.exe /image:C:\WinPEMount /add-driver /driver:&lt;** *путь_к_INF-файлу_драйвера* **>**  
 
-     Em que C:\WinPEMount é a pasta montada.  
+     где C:\WinPEMount — папка подключения.  
 
-7.  Escreva o seguinte para desmontar o ficheiro de imagem de arranque e confirmar as alterações.  
+7.  Введите следующую команду, чтобы отключить файл загрузочного образа и зафиксировать изменения:  
 
-     **DISM.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
+     **dism.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
 
-     Em que C:\WinPEMount é a pasta montada.  
+     где C:\WinPEMount — папка подключения.  
 
-8.  Adicione a imagem de arranque atualizada para o Configuration Manager para poder ser utilizada nas sequências de tarefas. Utilize os passos seguintes para importar a imagem de arranque atualizada:  
+8.  Добавьте обновленный загрузочный образ в Configuration Manager, чтобы он стал доступным для использования в последовательностях задач. Чтобы импортировать обновленный загрузочный образ, выполните следующие действия.  
 
-    1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+    1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-    2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Arranque**.  
+    2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите **Загрузочные образы**.  
 
-    3.  No separador **Home Page**, no grupo **Criar**, clique em **Adicionar Imagem de Arranque** para iniciar o Assistente Adicionar Imagem de Arranque.  
+    3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Добавить загрузочный образ** , чтобы запустить мастер добавления загрузочного образа.  
 
-    4.  Na página **Origem de Dados**, especifique as seguintes opções e clique em **Seguinte**.  
+    4.  На странице **Источник данных** настройте следующие параметры, затем нажмите кнопку **Далее**.  
 
-        -   Na caixa **Caminho**, especifique o caminho para o ficheiro de imagem de arranque atualizado. O caminho especificado tem de ser um caminho de rede válido no formato UNC. Por exemplo:  **\\ \\ <**  *servername***>\\<***partilha WinPEWAIK***> \winpe.wim**.  
+        -   В поле **Путь** укажите путь к обновленному файлу загрузочного образа. Указанный путь должен быть допустимым сетевым путем в формате UNC. Например: **\\\\<***имя_сервера***>\\<***общая папка WinPEWAIK***>\winpe.wim**.  
 
-        -   Selecione a imagem de arranque na lista pendente **Imagem de Arranque**. Se o ficheiro WIM contiver várias imagens de arranque, será listada cada imagem.  
+        -   В раскрывающемся списке **Загрузочный образ** выберите загрузочный образ. Если в WIM-файле содержится несколько загрузочных образов, все они указываются в списке.  
 
-    5.  Na página **Geral**, especifique as seguintes opções e clique em **Seguinte**.  
+    5.  На странице **Общие** укажите следующие параметры и нажмите кнопку **Далее**.  
 
-        -   Na caixa **Nome**, especifique um nome exclusivo para a imagem de arranque.  
+        -   В поле **Имя** введите уникальное имя загрузочного образа.  
 
-        -   Na caixa **Versão**, especifique um número de versão para a imagem de arranque.  
+        -   В поле **Версия** введите номер версии загрузочного образа.  
 
-        -   Na caixa **Comentário**, insira uma breve descrição do modo como a imagem de arranque é utilizada.  
+        -   В поле **Комментарий** введите краткое описание порядка использования загрузочного образа.  
 
-    6.  Conclua o assistente.  
+    6.  Завершите работу мастера.  
 
-9. Pode ativar uma shell de comandos na imagem de arranque para depuração e resolução de problemas da imagem de arranque no Windows PE. Utilize os passos seguintes para ativar a shell de comandos.  
+9. Можно включить в загрузочном образе командную оболочку для его отладки и устранения неполадок в среде предустановки Windows. Чтобы включить командную оболочку, выполните следующие действия.  
 
-    1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+    1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-    2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Arranque**.  
+    2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите **Загрузочные образы**.  
 
-    3.  Localize a nova imagem de arranque na lista e identifique o ID de pacote da imagem. O ID de pacote encontra-se na coluna **ID de imagem** da imagem de arranque.  
+    3.  Найдите в списке новый загрузочный образ и определите для него ИД пакета. ИД пакета можно найти в столбце **Идентификатор образа** напротив загрузочного образа.  
 
-    4.  Numa linha de comandos, escreva **wbemtest** para abrir o Recurso de Teste do Windows Management Instrumentation.  
+    4.  В командной строке введите команду **wbemtest** , чтобы открыть тестер инструментария управления Windows.  
 
-    5.  Tipo  **\\ \\ <**  *computador do fornecedor de SMS***> \root\sms\site_ <***sitecode*  **>**  no **espaço de nomes**e, em seguida, clique em **Connect**.  
+    5.  Введите **\\\\<***компьютер_поставщика_SMS***>\root\sms\site_<***код_сайта***>** в поле **Пространство имен** и нажмите кнопку **Подключить**.  
 
-    6.  Clique em **Abrir Instância**, escreva **sms_bootimagepackage.packageID="<packageID\>"** e, em seguida, clique em **OK**. Para packageID, introduza o valor que identificou no passo 3.  
+    6.  Нажмите кнопку **Открыть экземпляр**, введите **sms_bootimagepackage.packageID="<ИД_пакета\>"** и нажмите кнопку **ОК**. В качестве ИД пакета введите значение, определенное на шаге 3.  
 
-    7.  Clique em **Atualizar Objeto** e, em seguida, clique em **EnableLabShell** no painel **Propriedades**.  
+    7.  Нажмите кнопку **Обновить объект**и в области **Свойства** выберите свойство **EnableLabShell** .  
 
-    8.  Clique em **Editar Propriedade**, altere o valor para **VERDADEIRO** e clique em **Guardar Propriedade**.  
+    8.  Щелкните элемент **Изменить свойство**, измените значение на **TRUE**и выберите **Сохранить**.  
 
-    9. Clique em **Guardar Objeto** e, em seguida, saia do Recurso de Teste do Windows Management Instrumentation.  
+    9. Щелкните **Сохранить объект**и закройте тестер инструментария управления Windows.  
 
-10. É necessário distribuir a imagem de arranque para pontos de distribuição, grupos de pontos de distribuição ou coleções que estejam associadas a grupos de pontos de distribuição para poder utilizar a imagem de arranque numa sequência de tarefas. Utilize os passos seguintes para personalizar a imagem de arranque.  
+10. Прежде чем загрузочный образ можно будет использовать в последовательности задач, его необходимо распространить в точки распространения, группы точек распространения или коллекции, которые связаны с группами точек распространения. Чтобы распространить загрузочный образ, выполните следующие действия.  
 
-    1.  Na consola do Configuration Manager, clique em **Biblioteca de Software**.  
+    1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-    2.  Na área de trabalho **Biblioteca de Software**, expanda **Sistemas Operativos** e clique em **Imagens de Arranque**.  
+    2.  В рабочей области **Библиотека программного обеспечения** разверните узел **Операционные системы**и выберите **Загрузочные образы**.  
 
-    3.  Clique na imagem de arranque identificada no passo 3.  
+    3.  Выберите загрузочный образ, определенный на шаге 3.  
 
-    4.  No separador **Home Page**, no grupo **Implementação**, clique em **Atualizar Pontos de Distribuição**.  
+    4.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Обновить точки распространения**.  

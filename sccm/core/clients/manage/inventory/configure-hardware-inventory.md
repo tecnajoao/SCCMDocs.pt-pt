@@ -1,6 +1,6 @@
 ---
-title: "Configurar o inventário de hardware | Microsoft Docs"
-description: "Configure o inventário de hardware para todos os clientes ou para uma coleção no System Center Configuration Manager."
+title: "Настройка инвентаризации оборудования | Документы Майкрософт"
+description: "Настройка инвентаризации оборудования для всех клиентов или для коллекции в System Center Configuration Manager."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -17,33 +17,33 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 0baadb95ec8dbb945f1a611ebb95a03cec3199bd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-hardware-inventory-in-system-center-configuration-manager"></a>Como configurar inventário de hardware no System Center Configuration Manager
+# <a name="how-to-configure-hardware-inventory-in-system-center-configuration-manager"></a>How to configure hardware inventory in System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este procedimento configura as predefinições de cliente para inventário de hardware e aplica-se a todos os clientes na sua hierarquia. Se pretender que estas definições se apliquem apenas a determinados clientes, crie uma definição personalizada do cliente do dispositivo e atribua-a a uma coleção que contenha os dispositivos que pretende que utilizem inventário de hardware. Consulte [como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+В ходе этой процедуры выполняется настройка параметров клиента по умолчанию для инвентаризации оборудования и их применение ко всем клиентам в иерархии. Если эти параметры требуется применить только к некоторым клиентам, создайте настраиваемые параметры клиентского устройства и назначьте их коллекции, которая содержит необходимые клиенты. См. раздел [Настройка параметров клиента в System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
 > [!NOTE]  
->  Se um dispositivo cliente receber definições de inventário de hardware de vários conjuntos de definições de cliente, as classes de inventário de hardware de cada conjunto de definições serão intercaladas quando o cliente comunicar o inventário de hardware.  
+>  Если клиентское устройство получает параметры инвентаризации из нескольких наборов клиентских параметров, классы инвентаризации оборудования из каждого набора параметров будут объединены при передаче клиентом данных инвентаризации оборудования.  
 
-### <a name="to-configure-hardware-inventory"></a>Para configurar o inventário de hardware  
+### <a name="to-configure-hardware-inventory"></a>Настройка инвентаризации оборудования  
 
-1.  Na consola do Configuration Manager, escolha **administração** > **as definições de cliente** > **predefinições de cliente**.  
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** > **Параметры клиента** > **Параметры клиента по умолчанию**.  
 
-4.  No **home page** separador o **propriedades** grupo, escolha **propriedades**.  
+4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
 
-5.  No **predefinições** diálogo caixa, escolha **inventário de Hardware**.  
+5.  В диалоговом окне **Параметры по умолчанию** выберите пункт **Инвентаризация оборудования**.  
 
-6.  Na lista **Definições do Dispositivo** , configure as seguintes definições:  
+6.  В списке **Параметры устройства** настройте следующие параметры.  
 
-    -   **Ativar inventário de hardware nos clientes** - selecione **verdadeiro**.  
+    -   **Включить инвентаризацию оборудования для клиентов** — выберите значение **True**.  
 
-    -   **Agenda de inventário de hardware** -clique em **agenda** para especificar o intervalo no qual os clientes recolhem o inventário de hardware.  
+    -   **Расписание инвентаризации оборудования** — щелкните **Расписание**, чтобы указать интервал сбора клиентами данных инвентаризации оборудования.  
 
-7.  Configurar outros [definições de cliente de inventário de hardware](../../../../core/clients/deploy/about-client-settings.md#hardware-inventory) que precisa.  
+7.  Настройте другие необходимые [параметры клиента, относящиеся к инвентаризации оборудования](../../../../core/clients/deploy/about-client-settings.md#hardware-inventory).  
 
-Os dispositivos cliente serão configurados com estas definições da próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, veja [Como gerir clientes no System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+Клиентские устройства будут настроены с использованием данных параметров при следующем скачивании ими клиентской политики. Чтобы инициировать получение политики для отдельного клиента, см. сведения в статье [Управление клиентами в System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  

@@ -1,6 +1,6 @@
 ---
-title: "Gerir aplicações da loja Windows para empresas | Microsoft Docs"
-description: "Gerir e implementar aplicações da loja Windows para empresas com o System Center Configuration Manager."
+title: "Управление приложениями, приобретенными в Магазине Windows для бизнеса | Документы Майкрософт"
+description: "Управление приложениями из Магазина Windows для бизнеса и их развертывание с помощью System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -16,129 +16,129 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 369b6a82a20a90ca534f9484c0be71096dd35a30
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-apps-from-the-windows-store-for-business-with-system-center-configuration-manager"></a>Gerir aplicações da Loja Windows para Empresas com o System Center Configuration Manager
-O [loja Windows para empresas](https://www.microsoft.com/business-store) é onde pode encontrar e adquirir aplicações do Windows para a sua organização, individualmente ou em volume. Ao ligar a loja ao Configuration Manager, pode sincronizar a lista de aplicações que comprou com o Configuration Manager. Em seguida, pode ver estas aplicações na consola do Configuration Manager e implementá-las como poderia implementar qualquer outra aplicação.
+# <a name="manage-apps-from-the-windows-store-for-business-with-system-center-configuration-manager"></a>Управление приложениями из Магазина Windows для бизнеса с помощью System Center Configuration Manager
+[Магазин Windows для бизнеса](https://www.microsoft.com/business-store) — это место, где вы можете найти и приобрести приложения Windows для своей организации, по отдельности или массово. Подключив магазин к Configuration Manager, вы сможете синхронизировать с ним список приобретенных вами приложений. Затем вы сможете просматривать их в консоли Configuration Manager и развертывать их так же, как и любые другие приложения.
 
 
-## <a name="online-and-offline-apps"></a>Aplicações online e offline
+## <a name="online-and-offline-apps"></a>Сетевые и автономные приложения
 
-Na loja Windows para empresas suportam dois tipos de aplicação:
+Магазин Windows для бизнеса поддерживает два типа приложений.
 
-- **Online** -requer que este tipo de licença aos utilizadores e dispositivos para ligar ao arquivo de obter uma aplicação e a sua licença. Dispositivos Windows 10 tem de ser do Azure Active Directory associados a um domínio.
-- **Offline** -permite-lhe cache aplicações e de licenças para implementar diretamente na sua rede no local, sem ligar ao arquivo de ou ter uma ligação à Internet.
+- **Сетевое** — этот тип лицензии требует подключения пользователей и устройств к магазину для получения приложения и его лицензии. Устройства Windows 10 должны быть присоединены к домену Azure Active Directory.
+- **Автономное** — позволяет кэшировать приложения и лицензии для развертывания их непосредственно в локальной сети без подключения к магазину или к Интернету.
 
-[Leia mais](https://technet.microsoft.com/itpro/windows/whats-new/windows-store-for-business-overview?f=255&MSPPError=-2147217396) sobre a loja Windows para empresas.
+[Дополнительные сведения](https://technet.microsoft.com/itpro/windows/whats-new/windows-store-for-business-overview?f=255&MSPPError=-2147217396) о Магазине Windows для бизнеса.
 
-O Configuration Manager suporta a gerir a loja Windows para aplicações empresariais em dispositivos Windows 10 com o cliente do Configuration Manager tanto também os dispositivos Windows 10 inscritos com o Microsoft Intune (conhecido como configuração híbrida). O Configuration Manager oferece as seguintes capacidades para aplicações online e offline.
+Configuration Manager поддерживает управление приложениями Магазина Windows для бизнеса на устройствах Windows 10, на которых выполняется клиент Configuration Manager, или на устройствах Windows 10, зарегистрированных в Microsoft Intune (гибридная конфигурация). Configuration Manager предоставляет следующие возможности для сетевых и автономных приложений.
 
 > [!IMPORTANT]
-> Para utilizar esta capacidade, dispositivos Windows 10 tem de executar a versão de Novembro de 2015 (versão 1511) ou posterior.
+> Для использования этой возможности на устройствах Windows 10 должен выполняться выпуск за ноябрь 2015 г. (1511) или более поздней версии.
 
 
-|Funcionalidade|Aplicações offline|Aplicações online|
+|Функция|Автономные приложения|Сетевые приложения|
 |------------|------------|------------|
-|Sincronizar os dados da aplicação para o Configuration Manager<br>(a sincronização ocorre a cada 24 horas)|Sim|Sim|
-|Criar aplicações do Configuration Manager a partir de aplicações da loja|Sim|Sim|
-|Suporta gratuitamente aplicações da loja|Sim|Sim|
-|Suporte para pagas aplicações da loja|Não|Sim|
-|Suporta as implementações necessárias para coleções de utilizadores ou dispositivos|Sim|Sim|
-|Suporta as implementações disponíveis para coleções de utilizadores ou dispositivos|Sim|Sim|
-|Suportar aplicações de linha de negócio da loja|Sim|Sim|
+|Синхронизация данных приложений с Configuration Manager<br>(синхронизация выполняется каждые 24 часа)|Да|Да|
+|Создание приложений Configuration Manager на основе приложений для магазина|Да|Да|
+|Поддержка бесплатных приложений из магазина|Да|Да|
+|Поддержка платных приложений из магазина|Нет|Да|
+|Поддержка обязательных развертываний для коллекций пользователей или устройств|Да|Да|
+|Поддержка доступных развертываний для коллекций пользователей или устройств|Да|Да|
+|Поддержка бизнес-приложений в магазине|Да|Да|
 
-Para implementar as aplicações licenciadas online para Windows 10 PCs com o cliente do Configuration Manager, tem de executar o Windows 10 criadores Update, ou posterior.
+Чтобы развернуть лицензированные сетевые приложения на компьютерах под управлением Windows 10 с помощью клиента Configuration Manager, на них должна быть установлена версия Windows 10 Creators Update и выше.
 
-## <a name="deploying-online-apps-using-the-windows-store-for-business-with-pcs-that-run-the-configuration-manager-client"></a>Implementação de aplicações online utilizando a loja Windows para empresas com computadores que executem o cliente do Configuration Manager
-Antes de implementar a loja Windows para empresas aplicações para computadores que executem o cliente do Configuration Manager completa, considere os seguintes pontos:
+## <a name="deploying-online-apps-using-the-windows-store-for-business-with-pcs-that-run-the-configuration-manager-client"></a>Развертывание сетевых приложений на ПК под управлением клиента Configuration Manager с помощью магазина Windows для бизнеса
+Прежде чем развертывать приложения из магазина Windows для бизнеса на компьютеры, где установлена полная версия клиента Configuration Manager, нужно учесть следующее.
 
-- Para uma funcionalidade completa, PCs tem de executar o Windows 10 criadores Update, ou posterior.
-- PCs têm de estar associados a um Azure Active Directory à área de trabalho e de estar no mesmo inquilino do AAD onde registada na loja Windows para empresas como uma ferramenta de gestão.
-- Quando PCs tem sessão iniciados com a conta de administrador incorporada, não vão conseguir aceder loja Windows para as aplicações da empresa.
-- PCs tem de ter uma ligação de internet em direto para a loja Windows para empresas.
+- Чтобы получить полный набор функций, на компьютерах должна работать версия Windows 10 Creators Update и выше.
+- Компьютеры должны быть присоединены к рабочей области Azure Active Directory и находиться в том же клиенте AAD, в котором вы зарегистрировали Магазин Windows для бизнеса как средство управления.
+- Если вход на компьютеры выполняется с встроенной учетной записью администратора, магазин Windows для бизнеса на них будет недоступен.
+- Чтобы использовать Магазин Windows для бизнеса, компьютер должен быть подключен к Интернету.
 
-### <a name="notes-for-pcs-running-earlier-versions-of-windows-10"></a>Notas para os computadores com versões anteriores do Windows 10
-Em computadores que executam uma versão anterior do que a atualização criadores (com o cliente do Configuration Manager) do Windows 10, aplica-se a seguinte funcionalidade:
-
-
-- Quando instalação é imposta ao utilizador instalar a aplicação, seja pela aplicação atingir o prazo de instalação ou por post instalação reavaliação para implementações necessárias:
-    - A aplicação é "imposta", iniciando a loja Windows para a aplicação de negócio. 
-    - O utilizador final tem de concluir, em seguida, a instalação a partir da loja, antes da aplicação está instalada
-    - O estado da aplicação nos relatórios de consola do Configuration Manager falhou com o erro "aplicação loja Windows foi aberta no cliente do PC e está à espera que o utilizador concluir a instalação."
-- No próximo ciclo de avaliação do aplicação:
-    - Se a aplicação foi instalada pelo utilizador final da loja, a aplicação comunica o estado **êxito**. 
-    - Se o utilizador final não tentou instalar a aplicação da loja:
-        - Necessário implementações tentar iniciar o arquivo e impor novamente a instalação da aplicação.
-        - As implementações disponíveis não são impostas novamente.
-
-#### <a name="further-notes-for-pcs-running-earlier-versions-of-windows-10"></a>Notas adicionais para computadores com versões anteriores do Windows 10:
-
-- Não é possível implementar aplicações de linha de negócio da loja Windows para empresas
-- Quando implementa pagas aplicações da loja, os utilizadores finais tem início de sessão para o arquivo de compra e a aplicação próprios.
-- Se tiver implementado um acesso de desativação de política de grupo para a versão de consumidor da loja Windows, as implementações da loja Windows para empresas não funcionam, mesmo que a loja Windows para empresas está ativada.
+### <a name="notes-for-pcs-running-earlier-versions-of-windows-10"></a>Заметки о компьютерах с более ранними версиями Windows 10
+На компьютерах под управлением более ранней версии Windows 10, чем Creators Update (с клиентом Configuration Manager), доступны следующие функциональные возможности.
 
 
-## <a name="set-up-windows-store-for-business-synchronization"></a>Configurar a loja Windows para a sincronização de negócio
+- Если установка выполняется по требованию пользователя, из-за наступления крайнего срока установки приложения либо в связи с повторной оценкой обязательных к развертыванию приложений после установки.
+    - Приложение устанавливается принудительно путем запуска приложения "Магазин Windows для бизнеса". 
+    - Для установки приложения пользователь должен полностью выполнить установку из магазина.
+    - Состояние приложения в консоли Configuration Manager будет отображаться как сбой с ошибкой "Приложение Магазина Windows открыто на клиентском компьютере и ожидает завершения установки пользователем".
+- При выполнении следующего цикла оценки приложений:
+    - Если приложение было установлено пользователем из магазина, для приложения отображается состояние **Успешно**. 
+    - если пользователь не пытался установить приложение из хранилища:
+        - Для обязательных к развертыванию приложений выполняется повторная попытка запустить Магазин Windows и установить приложение принудительно.
+        - Для необязательных развертываний повторная попытка принудительной установки не выполняется.
 
-### <a name="for-configuration-manager-versions-prior-to-1706"></a>Para versões do Configuration Manager antes de 1706
+#### <a name="further-notes-for-pcs-running-earlier-versions-of-windows-10"></a>Дополнительные заметки о компьютерах с более ранними версиями Windows 10.
 
-**No Azure Active Directory, registe o Configuration Manager como uma ferramenta de gestão "Aplicação Web e/ou API Web". Esta ação dá-lhe um ID de cliente que precisar mais tarde.**
-1. No nó do Active Directory da [https://manage.windowsazure.com](https://manage.windowsazure.com), selecione o seu Azure Active Directory, em seguida, clique em **aplicações** > **adicionar**.
-2.  Clique em **adicionar uma aplicação que a minha organização está a desenvolver**.
-3.  Introduza um nome para a aplicação, selecione **aplicação Web** e/ou **Web API**, em seguida, clique o **seguinte** seta.
-4.  Introduza o mesmo URL para ambos os **URL de início de sessão** e **URI de ID de aplicação**. O URL pode ser qualquer coisa e não precisa de resolver para um endereço real. Por exemplo, pode introduzir *https://yourdomain/sccm*.
-5.  Conclua o assistente.
-
-**No Azure Active Directory, crie uma chave de cliente para a ferramenta de gestão registado**
-1.  Realce a aplicação que criou e clique em **configurar**.
-2.  Em **chaves**, selecione uma duração da lista e, em seguida, clique em **guardar**. Esta ação cria uma nova chave de cliente. Não saia desta página até ter com êxito integrado na loja do Windows para empresas para o Configuration Manager.
-
-**Na loja Windows para empresas, configurar o Configuration Manager como a ferramenta de gestão de arquivo**
-1.  Abra [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/en-us/managementtools) e início de sessão se lhe for pedido.
-2.  Se o pedido de aceitar os termos de utilização.
-3.  Em **ferramentas de gestão**, clique em **adicionar uma ferramenta de gestão**.
-4.  No **pesquisar a ferramenta por nome**, escreva o nome da aplicação que criou anteriormente no AAD, em seguida, clique em **adicionar**.
-5.  Clique em **ativar** junto da aplicação que importou.
-6.  No **gerir > informações de conta** página, selecione **aplicações licenciadas offline** se pretender permitir que as aplicações licenciadas offline sejam compradas.
-
-**Adicione a conta de arquivo para o Configuration Manager**
-
-1. Certifique-se de que adquiriu, pelo menos, uma aplicação da loja Windows para empresas. No **administração** área de trabalho da consola do Configuration Manager, expanda **serviços em nuvem**, em seguida, clique em **loja Windows para empresas**.
-2.  No **home page** separador o **loja Windows para empresas** , clique em **adicionar da loja Windows para empresas conta**. 
-3.  Adicione o ID do inquilino, o id de cliente e a chave de cliente do Azure Active Directory, em seguida, conclua o assistente.
-4. Quando tiver terminado, pode ver a conta configurada no **loja Windows para empresas** lista na consola do Configuration Manager.
-
-### <a name="for-configuration-manager-version-1706-and-later"></a>Para o Configuration Manager versão 1706 e posterior
-
-1. Na consola, aceda a **administração** > **descrição geral** > **gestão de serviços em nuvem** > **Azure** > **serviços do Azure**e, em seguida, escolha **configurar os serviços do Azure** para iniciar o **Assistente de serviços do Azure**.
-2. No **serviços do Azure** página, selecione o serviço que pretende configurar e, em seguida, clique em **seguinte**.
-3. No **geral** página, forneça um nome amigável para o nome do serviço do Azure e uma descrição opcional e, em seguida, clique em **seguinte**.
-4. No **aplicação** página, especifique o seu ambiente do Azure e, em seguida, clique em **procurar** para abrir o **aplicação Server** janela.
-5. No **aplicação Server** janela, selecione a aplicação de servidor que pretende utilizar e, em seguida, clique em **OK**. Aplicações de servidor são as aplicações web do Azure que contêm as configurações para a sua conta do Azure, incluindo o ID de inquilino, ID de cliente e uma chave secreta para clientes. Se não tiver uma aplicação de servidor disponível, utilize um dos seguintes:
-    - **Crie:** Para criar uma nova aplicação de servidor, clique em **criar**. Forneça um nome amigável para a aplicação e de inquilino. Em seguida, depois, inicie sessão no Azure, o Configuration Manager cria a aplicação web no Azure para si, incluindo o ID de cliente e a chave secreta para utilização com a aplicação web. Mais tarde, pode ver estes do portal do Azure.
-    - **Importar:** Para utilizar uma aplicação web que já existe na sua subscrição do Azure, clique em **importação**. Forneça um nome amigável para a aplicação e de inquilino e, em seguida, especifique o ID do inquilino, ID de cliente e a chave secreta para a aplicação web do Azure que pretende utilizar o Configuration Manager. Depois de **verifique** informações, clique em **OK** para continuar. 
-6. Reveja o **informações** página e conclua quaisquer passos adicionais e configurações, conforme indicado. Estas configurações são necessárias para utilizar o serviço com o Configuration Manager. Por exemplo, para configurar a loja Windows para empresas:
-    - No Azure tem de registar o Configuration Manager como uma aplicação web ou a Web API e registar o ID de cliente. Também especificar uma chave de cliente para utilização pela ferramenta de gestão (que é o Configuration Manager).
-    - Na loja Windows para a consola de negócio tem de configurar o Configuration Manager como a ferramenta de gestão de armazenamento, ativar o suporte para aplicações licenciadas offline e, em seguida, comprar, pelo menos, uma aplicação. 
-7. Clique em **seguinte** quando estiver pronto para continuar.
-8. No **configurações aplicação** página, conclua as configurações de idioma e o catálogo de aplicações para este serviço e, em seguida, clique em **seguinte**.
-9. Depois de concluir o assistente, a consola do Configuration Manager mostra que configurou **loja Windows para empresas** como um **o tipo de serviço de nuvem**.
+- Вы не можете развертывать бизнес-приложения с помощью Магазина Windows для бизнеса.
+- Если вы развертываете из магазина платные приложения, пользователям нужно войти в магазин и приобрести приложение самостоятельно.
+- Если у вас развернута групповая политика, отключающая доступ к пользовательской версии Магазина Windows, развертывание из Магазина Windows для бизнеса работать не будет, даже если использовать Магазин Windows для бизнеса разрешено.
 
 
+## <a name="set-up-windows-store-for-business-synchronization"></a>Настройка синхронизации с Магазином Windows для бизнеса
+
+### <a name="for-configuration-manager-versions-prior-to-1706"></a>Для версий Configuration Manager до 1706
+
+**В Azure Active Directory зарегистрируйте Configuration Manager как средство управления "Веб-приложение и (или) веб-API". В результате этого действия вы получите идентификатор клиента, который потребуется позже.**
+1. В узле Active Directory по адресу [https://manage.windowsazure.com](https://manage.windowsazure.com) выберите свой каталог Azure Active Directory, а затем щелкните **Приложения** > **Добавить**.
+2.  Щелкните **Добавить приложение, разрабатываемое моей организацией**.
+3.  Введите имя приложения, выберите **Веб-приложение** и (или) **веб-API**, затем нажмите стрелку **Далее**.
+4.  Введите одинаковый URL-адрес в поля **URL-адрес входа** и **URI кода приложения**. URL-адрес может быть любым и не должен обязательно вести на действительный адрес. Например, можно ввести *https://yourdomain/sccm*.
+5.  Завершите работу мастера.
+
+**В Azure Active Directory создайте ключ клиента для зарегистрированного средства управления.**
+1.  Выделите созданное приложение и щелкните **Настроить**.
+2.  В разделе **Ключи** выберите из списка длительность и нажмите кнопку **Сохранить**. Будет создан ключ клиента. Не покидайте эту страницу, пока Магазин Windows для бизнеса не будет подключен к Configuration Manager.
+
+**В Магазине Windows для бизнеса настройте Configuration Manager в качестве средства управления магазином.**
+1.  Откройте [https://businessstore.microsoft.com/en-us/managementtools](https://businessstore.microsoft.com/en-us/managementtools) и выполните вход, если отобразится соответствующий запрос.
+2.  При необходимости примите условия использования.
+3.  В разделе **Средства управления** щелкните **Добавить средство управления**.
+4.  В поле **Поиск средства по имени** введите имя приложения, которое вы ранее создали в AAD, а затем нажмите кнопку **Добавить**.
+5.  Щелкните **Активировать** напротив импортированного приложения.
+6.  На странице **Управление > Сведения об учетной записи** выберите **Показывать приложения с автономными лицензиями**, если хотите разрешить приобретение приложений с автономными лицензиями.
+
+**Добавление учетной записи магазина в Configuration Manager**
+
+1. Приобретите хотя бы одно приложение в Магазине Windows для бизнеса. В рабочей области **Администрирование** консоли Configuration Manager разверните узел **Облачные службы** и щелкните **Магазин Windows для бизнеса**.
+2.  На вкладке **Главная** в группе **Магазин Windows для бизнеса** щелкните **Добавить учетную запись Магазина Windows для бизнеса**. 
+3.  Добавьте код клиента, идентификатор клиента и ключ клиента из Azure Active Directory, а затем завершите работу мастера.
+4. После завершения процедуры настроенная учетная запись будет отображаться в списке **Магазин Windows для бизнеса** консоли Configuration Manager.
+
+### <a name="for-configuration-manager-version-1706-and-later"></a>Для версий Configuration Manager 1706 и более поздних
+
+1. В консоли перейдите в **Администрирование** > **Обзор** > **Cloud Services Management** (Управление облачными службами) > **Azure** > **Службы Azure** и выберите **Configure Azure Services** (Настроить службы Azure), чтобы запустить **мастер служб Azure**.
+2. На странице **Службы Azure** выберите службу, которую нужно настроить, и нажмите кнопку **Далее**.
+3. На странице **Общие** укажите понятное имя в поле "Имя службы Azure" и необязательное описание, а затем нажмите кнопку **Далее**.
+4. На странице **Приложения** укажите среду Azure и нажмите кнопку **Обзор**, чтобы открыть окно **серверного приложения**.
+5. В окне **Server App** (Серверное приложение) выберите нужное серверное приложение и нажмите кнопку **ОК**. Серверные приложения — это веб-приложения Azure, содержащие конфигурации для вашей учетной записи Azure, включая идентификаторы клиента и секретный ключ для клиентов. Если у вас нет серверного приложения, используйте одну из следующих функций:
+    - **Создать**: чтобы создать серверное приложение, нажмите **Создать**. Укажите понятное имя для приложения и клиента. После вашего входа в Azure средство Configuration Manager создает веб-приложение, включая нужный идентификатор клиента и секретный ключ. Позже вы можете просмотреть их на портале Azure.
+    - **Импорт**: чтобы использовать веб-приложение, которое уже существует в вашей подписке Azure, нажмите **Импорт**. Введите понятное имя для приложения и клиента, а затем укажите идентификаторы клиента и секретный ключ для веб-приложения Azure, которые должен использовать Configuration Manager. **Проверив** сведения, нажмите кнопку **ОК** для продолжения. 
+6. Просмотрите страницу **Сведения** и завершите все дополнительные шаги и конфигурации, согласно инструкциям. Эти конфигурации нужны, чтобы использовать службу с Configuration Manager. Например, чтобы настроить Магазин Windows для бизнеса:
+    - В Azure вам нужно зарегистрировать Configuration Manager как средство управления "Веб-приложение и/или веб-API" и записать идентификатор клиента. Кроме того, укажите ключ клиента для использования средством управления (здесь им является Configuration Manager).
+    - В консоли Магазина Windows для бизнеса нужно настроить Configuration Manager в качестве средства управления магазином, включить поддержку автономных лицензированных приложений и приобрести хотя бы одно приложение. 
+7. Когда будете готовы продолжить, нажмите кнопку **Далее**.
+8. На странице **App Configurations** (Конфигурации приложений) настройте каталог приложений и язык для этой службы, а затем нажмите кнопку **Далее**.
+9. После завершения работы мастера консоль Configuration Manager показывает, что вы настроили **Магазин Windows для бизнеса** как **Тип облачной службы**.
 
 
-## <a name="create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-app"></a>Criar e implementar uma aplicação do Configuration Manager de uma loja Windows para a aplicação de negócio.
-1.  No **biblioteca de Software** área de trabalho da consola do Configuration Manager, expanda **gestão de aplicações**, em seguida, clique em **informações de licença para aplicações da loja**.
-2.  Escolha a aplicação que pretende implementar, em seguida, no **home page** separador o **criar** , clique em **Criar aplicação**.
-Uma aplicação do Configuration Manager é criada que contém a loja Windows para a aplicação de negócio. Em seguida, pode implementar e monitorizar esta aplicação como faria com qualquer outra aplicação do Configuration Manager.
+
+
+## <a name="create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-app"></a>Создайте и разверните приложение Configuration Manager на основе приложения для Магазина Windows для бизнеса.
+1.  В консоли Configuration Manager в рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**, а затем щелкните элемент **Информация о лицензиях для приложений из Магазина**.
+2.  Выберите приложение для развертывания, а затем на вкладке **Главная** в группе **Создать** щелкните **Создать приложение**.
+Будет создано приложение Configuration Manager, содержащее приложение Магазина Windows для бизнеса. Это приложение можно развертывать и отслеживать, как и любое другое приложение Configuration Manager.
 
 > [!IMPORTANT]
-> Para dispositivos inscritos no Intune, as aplicações implementadas só estão disponíveis ao utilizador que inscreveu originalmente o dispositivo. Não existem outros utilizadores podem aceder à aplicação.
+> Для устройств, зарегистрированных в Intune, развернутые приложения доступны только для пользователя, который первоначально зарегистрировал устройство. Другие пользователи не могут получить доступ к приложению.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Дальнейшие действия
 
-No **biblioteca de Software** área de trabalho, expanda **gestão de aplicações**, em seguida, clique em **informações de licença para aplicações da loja**.
+В рабочей области **Библиотека программного обеспечения** разверните узел **Управление приложениями**, а затем щелкните элемент **Информация о лицензиях для приложений Магазина**.
 
-Para cada aplicação da loja que gere, pode ver informações sobre a aplicação, incluindo o respetivo nome, plataforma e número de licenças para a aplicação que lhe pertence e o número de licenças que tem disponíveis.
+Для каждого управляемого приложения магазина можно просмотреть сведения о приложении, включая его имя, платформу, количество принадлежащих вам лицензий для приложения, а также количество доступных лицензий.

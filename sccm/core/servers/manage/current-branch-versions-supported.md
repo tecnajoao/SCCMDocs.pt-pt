@@ -1,6 +1,6 @@
 ---
-title: "Versões do Current Branch | Microsoft Docs"
-description: "Reveja o histórico da versão do System Center Configuration Manager e saber mais sobre as fases de serviço fornecido."
+title: "Версии Current Branch | Документация Майкрософт"
+description: "Просмотрите журнал версий System Center Configuration Manager и ознакомьтесь с предлагаемыми этапами обслуживания."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -17,38 +17,38 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 1c02d2c51964fed960ffab42175762c1b04e6445
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Suporte para versões de ramo atual do System Center Configuration Manager
+# <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Поддержка версий System Center Configuration Manager (Current Branch)
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Microsoft planos de lançamento atualizações para o ramo atual do System Center Configuration Manager algumas vezes por ano. Cada versão de atualização permanece no suporte de 12 meses a partir da respetiva data de lançamento de disponibilidade geral (DG). O suporte técnico é fornecido para os totalidade de 12 meses. No entanto, os nossa estrutura de suporte agora for dinâmica, evolução em duas fases distintas manutenção que dependem da disponibilidade da versão do ramo atual mais recente.  
+Корпорация Майкрософт планирует выпускать обновления версии Current Branch System Center Configuration Manager несколько раз в год. Каждая версия обновления будет поддерживаться в течение 12 месяцев с даты выпуска общедоступной версии. Техническая поддержка будет доступна в течение всех 12 месяцев. Однако структура поддержки стала динамической и состоит теперь из двух отдельных этапов обслуживания, которые зависят от доступности последней версии Current Branch.  
 
--   Segurança e manutenção de atualizações críticas fase - ao executar a versão mais recente de ramo atual do Configuration Manager, recebem atualizações críticas e de segurança.  
+-   Этап предоставления критических обновлений и обновлений для системы безопасности: при использовании последней версии Configuration Manager (Current Branch) вы будете получать критические обновления и обновления для системы безопасности.  
 
--   Atualizações de segurança (apenas) manutenção fase - depois de versões de uma nova versão do ramo atual, o suporte ramos anteriores irão reduzir as atualizações de segurança apenas para o resto do ciclo de vida de suporte de 12 meses (mostrado na figura 1).  
+-   Этап предоставления только обновлений для системы безопасности: после выпуска новой версии Current Branch поддержка предыдущих версий ограничивается обновлениями для системы безопасности в течение оставшегося времени 12-месячного жизненного цикла поддержки (см. рисунок 1).  
 
- ![CM &#95; Manutenção & #95 suporte &#95; linha cronológica](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
-Figura 1. Exemplo de sobreposição de ciclo de versão para filial atual de suporte de manutenção.
+ ![Временная шкала предоставления поддержки CM](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
+Рис. 1. Пример предоставления поддержки для версии Current Branch при перекрытии цикла выпусков.
 
 > [!NOTE]  
->  A versão do ramo atual mais recente é sempre na fase de manutenção de atualizações críticas e segurança. Isto significa que, no caso de ocorrer um defeito de código warrants uma atualização crítica, têm de ter a versão ramo atual mais recente instalada para receber uma correção. Todas as outras atual ramo versões suportadas são elegíveis para receber apenas as atualizações de segurança. Todos os suportam termina após o ciclo de vida de 12 meses para uma versão do ramo atual tenha expirado. Nessa altura, os clientes tem de atualizar para uma versão suportada de ramo atual.  
+>  Последняя версия Current Branch всегда находится на этапе предоставления критических обновлений и обновлений для системы безопасности. Это означает, что если вы обнаружили ошибку в коде, для которой требуется критическое обновление, то для получения исправления должна быть установлена последняя версия Current Branch. Все другие поддерживаемые версии Current Branch могут получать только обновления для системы безопасности. По истечении 12-месячного жизненного цикла поддержки для версии Current Branch поддержка полностью прекращается. Клиентам необходимо произвести обновление до поддерживаемой версии Current Branch.  
 
- **Histórico da versão**  
+ **Журнал версий**  
 
-|Versão|Data de disponibilidade|Data de fim de suporte|  
+|Версия|Дата доступности|Дата прекращения поддержки|  
 |-------------|-----------------------|----------------------|  
-|1706|31 de Julho de 2017|31 de Julho de 2018|
-|1702|27 de Março de 2017|27 de Março de 2018|
-|1610|18 de Novembro de 2016|18 de Novembro de 2017|
-|1606|22 de Julho de 2016| 22 de Julho de 2017|
-|1602|11 de Março de 2016|11 de Março de 2017|
-|1511|8 de Dezembro de 2015|8 de Dezembro de 2016|  
+|1706|31 июля 2017 г.|31 июля 2018 г.|
+|1702|27 марта 2017 г.|27 марта 2018 г.|
+|1610|18 ноября 2016 г.|18 ноября 2017 г.|
+|1606|22 июля 2016 г.| 22 июля 2017 г.|
+|1602|11 марта 2016 г.|11 марта 2017 г.|
+|1511|8 декабря 2015 г.|8 декабря 2016 г.|  
 
 
 
 
-Para obter informações sobre a disponibilidade como uma atualização na consola ou como uma linha de base e números de versão, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
+Сведения о номерах версий и доступности в качестве обновления в консоли или базовой версии см. в разделе [Базовые и обновленные версии](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).

@@ -1,6 +1,6 @@
 ---
-title: "Publicação e o esquema do Active Directory | Microsoft Docs"
-description: "Expanda o esquema do Active Directory para o System Center Configuration Manager, para simplificar o processo de implementação e configuração de clientes."
+title: "Публикация и схема Active Directory | Документы Майкрософт"
+description: "Расширение схемы Active Directory для System Center Configuration Manager для упрощения процесса развертывания и настройки клиентов."
 ms.custom: na
 ms.date: 2/6/2017
 ms.prod: configuration-manager
@@ -17,95 +17,95 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 58beef440db8e019a06ce7c4c8eaabc8e85ce954
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-active-directory-for-site-publishing"></a>Preparar o Active Directory para publicação de site
+# <a name="prepare-active-directory-for-site-publishing"></a>Подготовка Active Directory к публикации сайта
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Quando expande o esquema do Active Directory para o System Center Configuration Manager, introduz novas estruturas no Active Directory que são utilizados por sites do Configuration Manager para publicar informações chave numa localização segura onde os clientes possam aceder facilmente às-lo.  
+При расширении схемы Active Directory для System Center Configuration Manager вы вводите новые структуры Active Directory, используемые сайтами Configuration Manager для публикации основных сведений в безопасном месте, где клиенты могут легко получить к ним доступ.  
 
-É uma boa ideia utilizar o Configuration Manager com um esquema do Active Directory expandido quando gerir clientes no local. Um esquema expandido pode simplificar o processo de implementação e configuração de clientes. Um esquema expandido também permite que os clientes de forma eficiente localizar recursos, tais como servidores de conteúdos e serviços adicionais que fornecem as diferentes funções do sistema de site do Configuration Manager.  
+Рекомендуется использовать Configuration Manager с расширенной схемой Active Directory при управлении локальными клиентами. Расширенная схема может упростить процесс развертывания и настройки клиентов. Кроме того, она позволяет клиентам эффективно находить ресурсы, такие как серверы содержимого и дополнительные службы, предоставляемые различными ролями системы сайта Configuration Manager.  
 
--   Se não estiver familiarizado com que o esquema expandido fornece para uma implementação do Configuration Manager, pode ler sobre [extensões de esquema para o System Center Configuration Manager](../../../core/plan-design/network/schema-extensions.md) para ajudar a tomar esta decisão.  
+-   Если вы не знаете, что именно дает расширенная схема развертывания Configuration Manager, то можете прочитать раздел о [расширениях схемы для System Center Configuration Manager](../../../core/plan-design/network/schema-extensions.md), чтобы принять обоснованное решение.  
 
--   Quando não utiliza um esquema expandido, pode configurar outros métodos, como DNS e WINS para localizar serviços e servidores de sistema de sites. Estes métodos de localização de serviços necessitam de configurações adicionais e não são o método preferencial dos clientes para localização de serviços. Para obter mais informações, leia [compreender a forma como os clientes localizam os recursos de site e os serviços do System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md),  
+-   Если вы не используете расширенную схему, для обнаружения служб и серверов системы сайта можно настроить другие методы, такие как DNS и WINS. Эти методы обнаружения службы требуют дополнительной настройки и не являются предпочтительным способом обнаружения службы клиентами. Дополнительные сведения см. в разделе [Пояснения о том, как клиенты находят ресурсы и службы сайта для System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
--   Se o esquema do Active Directory foi expandido para o Configuration Manager 2007 ou o System Center 2012 Configuration Manager, não precisa de fazer mais. As extensões de esquema são iguais e já estarão implementadas.  
+-   Если схема Active Directory была расширена для Configuration Manager 2007 или System Center 2012 Configuration Manager, никаких других действий не требуется. Расширения схемы не изменяются и уже доступны для работы.  
 
-Expandir o esquema é uma ação única para qualquer floresta. Para expandir e, em seguida, utilize o esquema do Active Directory expandido, siga estes passos:  
+Расширение схемы выполняется однократно для любого леса. Для расширения схемы Active Directory и ее последующего использования выполните описанные ниже действия.  
 
-## <a name="step-1-extend-the-schema"></a>Passo 1. Expandir o esquema  
-Para expandir o esquema para o Configuration Manager:  
+## <a name="step-1-extend-the-schema"></a>Шаг 1. Расширение схемы  
+При расширении схемы для Configuration Manager потребуется выполнить следующие задачи:  
 
--   Utilize uma conta que seja membro do grupo de segurança Admins de esquema.  
+-   использовать учетную запись, которая является членом группы безопасности "Администраторы схемы";  
 
--   Iniciar sessão no controlador de domínio de mestre de esquema.  
+-   выполнить вход в контроллер домена хозяина схемы.  
 
--   Execute o **Extadsch.exe** ferramenta ou utilize o utilitário da linha de comandos LDIFDE com o **ConfigMgr_ad_schema.ldf** ficheiro. A ferramenta e o ficheiro estão no **SMSSETUP\BIN\X64** pasta no suporte de instalação do Configuration Manager.  
+-   Запустите средство **Extadsch.exe** или воспользуйтесь программой командной строки LDIFDE с файлом **ConfigMgr_ad_schema.ldf** . Средство и файл должны находиться в папке **SMSSETUP\BIN\X64** установочного носителя Configuration Manager.  
 
-#### <a name="option-a-use-extadschexe"></a>Opção a: Utilizar o Extadsch.exe  
+#### <a name="option-a-use-extadschexe"></a>Вариант А. Использование Extadsch.exe  
 
-1.  Execute o **extadsch.exe** para adicionar as novas classes e atributos ao esquema do Active Directory.  
+1.  Запустите файл **extadsch.exe** , чтобы добавить новые классы и атрибуты в схему Active Directory.  
 
     > [!TIP]  
-    >  Execute esta ferramenta a partir de uma linha de comandos para ver comentários durante a execução da mesma.  
+    >  Запустите это средство из командной строки, чтобы просмотреть выводимые им во время выполнения данные.  
 
-2.  Certifique-se de que a extensão do esquema foi bem sucedida, revendo extadsch.log na raiz da unidade do sistema.  
+2.  Убедитесь в успешном выполнении расширения схемы, просмотрев файл extadsch.log в корне системного диска.  
 
-#### <a name="option-b-use-the-ldif-file"></a>Opção b: Utilize o ficheiro LDIF  
+#### <a name="option-b-use-the-ldif-file"></a>Вариант Б. Использование LDIF-файла  
 
-1.  Editar o **ConfigMgr_ad_schema.ldf** ficheiro para definir o domínio de raiz do Active Directory que pretende expandir:  
+1.  Измените файл **ConfigMgr_ad_schema.ldf** для определения корневого домена Active Directory, который необходимо расширить.  
 
-    -   Substitua todas as instâncias do texto, **DC = x**, no ficheiro com o nome completo do domínio a expandir.  
+    -   Замените все текстовые строки **DC=x** в файле полным именем расширяемого домена.  
 
-    -   Por exemplo, se o nome completo do domínio a expandir for widgets.microsoft.com, altere todas as instâncias de DC = x no ficheiro para **DC = widgets, DC = microsoft, DC = com**.  
+    -   Например, если полное имя расширяемого домена — widgets.microsoft.com, измените все строки DC=x в файле на **DC=widgets, DC=microsoft, DC=com**.  
 
-2.  Utilize o utilitário de linha de comandos LDIFDE para importar os conteúdos a **ConfigMgr_ad_schema.ldf** ficheiro serviços de domínio do Active Directory:  
+2.  С помощью программы командной строки LDIFDE импортируйте содержимое файла **ConfigMgr_ad_schema.ldf** в доменные службы Active Directory:  
 
-    -   Por exemplo, a linha de comandos importa as extensões de esquema para serviços de domínio do Active Directory, ativa o registo verboso e cria um ficheiro de registo durante o processo de importação: **ldifde -i -f ConfigMgr_ad_schema.ldf - v -j &lt;localização para armazenar o ficheiro de registo\>**.  
+    -   Например, следующая командная строка импортирует расширения схемы в доменные службы Active Directory, включает режим подробного ведения журнала и создает файл журнала во время процесса импорта: **ldifde -i -f ConfigMgr_ad_schema.ldf -v -j &lt;расположение для хранения файла журнала\>**.  
 
-3.  Para verificar se a extensão do esquema foi bem sucedida, reveja o ficheiro de registo criado pela linha de comandos utilizada no passo anterior.  
+3.  Чтобы проверить успешность выполнения расширения схемы, просмотрите файл журнала, созданный в командной строке на предыдущем шаге.  
 
-## <a name="step-2--create-the-system-management-container-and-grant-sites-permissions-to-the-container"></a>Passo 2.  Criar o contentor de Gestão do Sistema e conceder permissões de sites ao contentor  
- Depois de expandir o esquema, tem de criar um contentor com o nome **System Management** nos serviços de domínio do Active Directory (AD DS):  
+## <a name="step-2--create-the-system-management-container-and-grant-sites-permissions-to-the-container"></a>Шаг 2.  Создание контейнера System Management и предоставление ему разрешений для сайтов  
+ После расширения схемы необходимо создать контейнер **System Management** в доменных службах Active Directory (AD DS).  
 
--   Cria este contentor uma vez em cada domínio que tenha um site primário ou secundário que irá publicar dados no Active Directory.  
+-   Этот контейнер создается один раз в каждом домене, где имеется первичный или вторичный сайт, который будет публиковать данные в Active Directory.  
 
--   Para cada contentor, conceder permissões para a conta de computador de cada servidor de site primário e secundário que irá publicar dados nesse domínio. Cada conta necessita **controlo total** para o contentor com a permissão avançada, **aplicam-se no**, igual a **este objeto e todos os objetos subordinados**.  
+-   Для каждого контейнера вы предоставляете разрешения учетной записи компьютера каждого сервера первичного или вторичного сайта, который будет публиковать данные в этом домене. Каждой учетной записи требуется разрешение **Полный доступ** для контейнера с расширенным разрешением **Применять**, имеющим значение **Этот объект и все дочерние объекты**.  
 
-#### <a name="to-add-the-container"></a>Adicionar o contentor  
+#### <a name="to-add-the-container"></a>Добавление контейнера  
 
-1.  Utilize uma conta que tenha a permissão **Criar Todos os Objetos Subordinados** no contentor **Sistema** nos Serviços de Domínio do Active Directory.  
+1.  Используйте учетную запись с разрешением **Создание всех дочерних объектов** для контейнера **System** в доменных службах Active Directory.  
 
-2.  Executar **ADSI Edit** (adsiedit.msc) e ligar ao domínio do servidor do site.  
+2.  Запустите файл **ADSI Edit** (adsiedit.msc) и подключитесь к домену сервера сайта.  
 
-3.  Crie o contentor:  
+3.  Создайте контейнер:  
 
-    -   Expanda **domínio** &lt;nome de domínio completamente qualificado\>, expanda &lt;nome distinto\>, faça duplo clique **CN = System**, escolha **novo**e, em seguida, escolha **objeto**.  
+    -   Последовательно разверните узлы **Домен** &lt;полное доменное имя компьютера\>, &lt;различающееся имя\>, щелкните правой кнопкой мыши **CN=System**, выберите пункт **Создать**, а затем — **Объект**.  
 
-    -   No **criar objeto** diálogo caixa, escolha **contentor**e, em seguida, escolha **seguinte**.  
+    -   В диалоговом окне **Создание объекта** выберите **Контейнер** и нажмите кнопку **Далее**.  
 
-    -   No **valor** box, introduza **System Management**e, em seguida, escolha **seguinte**.  
+    -   В поле **Значение** введите **System Management**, а затем нажмите кнопку **Далее**.  
 
-4.  Atribuir permissões:  
+4.  Назначьте разрешения:  
 
     > [!NOTE]  
-    >  Se preferir, pode utilizar outras ferramentas como a Active Directory computadores ferramenta administrativa utilizadores e (dsa.msc) para adicionar permissões ao contentor.  
+    >  При необходимости вы можете использовать для добавления разрешений в контейнер другие средства, такие как средство администрирования «Пользователи и компьютеры Active Directory» (dsa.msc).  
 
-    -   Clique com botão direito **CN = System Management**e, em seguida, escolha **propriedades**.  
+    -   Правой кнопкой мыши щелкните **CN=System Management** и выберите пункт **Свойства**.  
 
-    -   Escolha o **segurança** separador, escolha **adicionar**e, em seguida, adicione a conta de computador do servidor de site com o **controlo total** permissão.  
+    -   Откройте вкладку **Безопасность**, нажмите кнопку **Добавить**, а затем добавьте учетную запись компьютера сервера сайта с разрешением **Полный доступ**.  
 
-    -   Escolha **avançadas**, escolha a conta de computador do servidor do site e, em seguida, escolha **editar**.  
+    -   Щелкните **Дополнительно**, выберите учетную запись компьютера сервера сайта и нажмите кнопку **Изменить**.  
 
-    -   No **aplicam-se no** lista, escolha **este objeto e todos os objetos subordinados**.  
+    -   В списке **Применять** выберите **Этот объект и все дочерние объекты**.  
 
-5.  Escolha **OK** para fechar a consola e guardar a configuração.  
+5.  Нажмите кнопку **ОК**, чтобы закрыть консоль и сохранить конфигурацию.  
 
-## <a name="step-3-set-up-sites-to-publish-to-active-directory-domain-services"></a>Passo 3. Configurar sites para publicar nos serviços de domínio do Active Directory  
- Depois do contentor está configurada, são concedidas permissões, e tiver instalado um site primário do Configuration Manager, pode configurar esse site para publicar dados do Active Directory.  
+## <a name="step-3-set-up-sites-to-publish-to-active-directory-domain-services"></a>Шаг 3. Настройка сайтов для публикации в доменных службах Active Directory  
+ После настройки контейнера, назначения разрешений и установки первичного сайта Configuration Manager можно настроить этот сайт для публикации данных в Active Directory.  
 
- Para obter mais informações sobre a publicação, consulte [publicar dados do site para o System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md).  
+ Дополнительные сведения о публикации см. в разделе [Публикация данных сайта для System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md).  

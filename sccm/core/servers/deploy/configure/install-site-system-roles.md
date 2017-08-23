@@ -1,6 +1,6 @@
 ---
-title: "Instalar funções do sistema de site | Microsoft Docs"
-description: "Assistentes ajudam a adicionar funções do sistema de sites a um servidor de sistema de sites de nova ou existente no site."
+title: "Установка ролей системы сайта | Документы Майкрософт"
+description: "Мастеры помогают вам добавлять роли системы сайта на существующий или новый сервер системы сайта."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -16,68 +16,68 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 76b070f8e203cc0c751f35e5a4b4904504786c04
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-site-system-roles-for-system-center-configuration-manager"></a>Instalar funções do sistema de sites para o System Center Configuration Manager
+# <a name="install-site-system-roles-for-system-center-configuration-manager"></a>Установка ролей системы сайта для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-A consola do System Center Configuration Manager tem dois assistentes, que pode utilizar para instalar funções do sistema de sites:  
+В консоли System Center Configuration Manager есть два мастера, с помощью которых можно устанавливать роли системы сайта.  
 
--   **Adicionar Assistente de funções de sistema de Site**: Utilize este assistente para adicionar funções do sistema de sites para um servidor de sistema de sites existente no site.  
+-   **Мастер добавления ролей систем сайта**Используйте этот мастер, чтобы установить роли системы сайта на существующем сервере системы сайта.  
 
--   **Criar Assistente de servidor do sistema de Site**: Utilize este assistente para especificar um novo servidor como servidor de sistema de sites e, em seguida, instalar uma ou mais funções de sistema de sites no servidor. Este assistente é o mesmo que o **Adicionar Assistente de funções de sistema de Site**, exceto que na primeira página, tem de especificar o nome do servidor a utilizar e o site no qual pretende instalá-lo.  
+-   **Мастер создания сервера системы сайта**. Используйте этот мастер, чтобы указать новый сервер в качестве сервера системы сайта, а затем установите на этом сервере одну или несколько ролей системы сайта. Этот мастер аналогичен **мастеру добавления ролей системы сайта**, но в данном случае на первой странице необходимо указать имя сервера для использования и сайт, на котором нужно его установить.  
 
-Quando instala uma função de sistema de sites num computador remoto (incluindo uma instância do fornecedor de SMS), a conta de computador do computador remoto é adicionada a um grupo local no servidor do site. Quando o site é instalado num controlador de domínio, o grupo no servidor do site é um grupo de domínio em vez de um grupo local. Neste caso, a função do sistema de sites remoto não está operacional até que os reinícios de computador de função de sistema do site ou a permissão de Kerberos para a conta do computador remoto é atualizada. Para obter mais informações, veja [Contas utilizadas no System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md).  
+При установке роли системы сайта на удаленном компьютере (включая экземпляр поставщика SMS) учетная запись удаленного компьютера добавляется в локальную группу на сервере сайта. При установке сайта на контроллере домена группа на сервере сайта является группой домена, а не локальной группой. В этом случае роль удаленной системы сайта не будет работоспособна либо до перезапуска компьютера с ролью системы сайта, либо до обновления билета Kerberos для учетной записи удаленного компьютера. Дополнительные сведения см. в статье [Учетные записи, используемые в System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md).  
 
-Antes de instalar a função de sistema de sites, o Configuration Manager verifica o computador de destino para se certificar de que cumpre os pré-requisitos para as funções de sistema de sites que selecionou. Compreenda o seguinte sobre a instalação de funções de sistema de sites:  
+Перед установкой роли системы сайта Configuration Manager проверяет конечный компьютер на соответствие требованиям для выбранных ролей системы сайта. При установке ролей системы сайта необходимо принимать во внимание указанные ниже особенности.  
 
--   Por predefinição, quando uma função de sistema de sites, o Configuration Manager instala os ficheiros de instalação são instalados na primeira unidade de disco de formatada com NTFS disponível que tenha o mais espaço livre em disco. Para impedir que o Configuration Manager instalar em unidades específicas, crie um ficheiro vazio designado **no_sms_on_drive.sms**. Copie-o para a pasta raiz da unidade antes de instalar o servidor de sistema de sites.  
+-   Когда Configuration Manager устанавливает роль системы сайта, установочные файлы по умолчанию размещаются на первом доступном жестком диске с файловой системой NTFS, на котором имеется наибольший объем свободного места. Чтобы предотвратить установку Configuration Manager на определенных дисках, создайте пустой файл с именем **no_sms_on_drive.sms**. Скопируйте его в корневую папку диска перед установкой сервера системы сайта.  
 
--   O Configuration Manager utiliza o **conta de instalação do sistema de sites** para instalar funções do sistema de sites. Esta conta é especificada quando executa o assistente aplicável para criar um novo servidor de sistema de sites ou adicionar funções do sistema de sites para um servidor de sistema de sites existente. Por predefinição, esta conta é a conta de sistema local do computador do servidor do site, mas pode especificar uma conta de utilizador de domínio para utilização como conta de instalação do sistema de sites. Para obter mais informações, veja [Contas utilizadas no System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md).  
+-   Для установки ролей системы сайта Configuration Manager использует **учетную запись установки системы сайта**. Эту учетную запись следует указать при запуске соответствующего мастера для создания нового сервера системы сайта или добавления роли системы сайта к существующему серверу системы сайта. По умолчанию эта учетная запись является локальной системной учетной записью компьютера сервера сайта, но можно указать учетную запись пользователя домена для использования в качестве учетной записи установки системы сайта. Дополнительные сведения см. в статье [Учетные записи, используемые в System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md).  
 
-##  <a name="bkmk_Install"></a>Para instalar funções do sistema de sites num servidor de sistema de sites existente  
+##  <a name="bkmk_Install"></a> Установка ролей системы сайта на существующем сервере системы сайта  
 
-1.  Na consola do Configuration Manager, clique em **Administração**.  
+1.  В консоли Configuration Manager щелкните **Администрирование**.  
 
-2.  Na área de trabalho **Administração** , expanda a opção **Configuração do Site**e clique em **Servidores e Funções do Sistema de Sites**. Em seguida, selecione o servidor que pretende utilizar para as novas funções do sistema de sites.  
+2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Серверы и роли системы сайта**. Затем выберите сервер, который необходимо использовать для новых ролей системы сайта.  
 
-3.  No separador **Home Page** , no grupo **Servidor** , clique em **Adicionar Funções do Sistema de Sites**.  
+3.  На вкладке **Главная** в группе **Сервер** щелкните **Добавить роли системы сайта**.  
 
-4.  No **geral** página, reveja as definições e, em seguida, clique em **seguinte**.  
-
-    > [!TIP]  
-    >  Para aceder a função de sistema de sites da Internet, certifique-se de que especificou um nome de domínio completamente qualificado (FQDN) da Internet.  
-
-5.  No **Proxy** página, especifique as definições para um servidor proxy, se as funções de sistema de sites executadas neste servidor de sistema de sites exigirem um servidor de proxy para estabelecer ligação a localizações na Internet. Em seguida, clique em **Seguinte**.  
-
-6.  No **seleção da função do sistema** página, selecione as funções de sistema de sites que pretende adicionar e, em seguida, clique em **seguinte**.  
-
-7.  Conclua o assistente.  
-
-> [!TIP]  
->  O cmdlet do Windows PowerShell, New-CMSiteSystemServer, efetua a mesma função que este procedimento. Para obter mais informações, consulte [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) na documentação do System Center 2012 Configuration Manager SP1 Cmdlet referência.  
-
-## <a name="to-install-site-system-roles-on-a-new-site-system-server"></a>Para instalar funções de sistema de sites num novo servidor de sistema de sites  
-
-1.  Na consola do Configuration Manager, clique em **Administração**.  
-
-2.  Na área de trabalho **Administração** , expanda a opção **Configuração do Site**e clique em **Servidores e Funções do Sistema de Sites**.  
-
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Servidor do Sistema de Sites**.  
-
-4.  Na página **Geral** , especifique as definições gerais do sistema de sites e clique em **Seguinte**.  
+4.  На странице **Общие** просмотрите параметры и нажмите кнопку **Далее**.  
 
     > [!TIP]  
-    >  Para aceder a nova função de sistema de sites da Internet, certifique-se de que especifica um FQDN de Internet.  
+    >  Чтобы получить доступ к роли системы сайта из Интернета, убедитесь в том, что указано полное доменное имя в Интернете.  
 
-5.  No **Proxy** página, especifique as definições para um servidor proxy, se as funções de sistema de sites executadas neste servidor de sistema de sites exigirem um servidor de proxy para estabelecer ligação a localizações na Internet. Em seguida, clique em **Seguinte**.  
+5.  На странице **Прокси-сервер** укажите параметры прокси-сервера, если ролям системы сайта на этом сервере требуется прокси-сервер для подключения к Интернету. Нажмите кнопку **Далее**.  
 
-6.  No **seleção da função do sistema** página, selecione as funções de sistema de sites que pretende adicionar e, em seguida, clique em **seguinte**.  
+6.  На странице **Выбор системной роли** выберите роли системы сайта, которые нужно добавить, затем нажмите кнопку **Далее**.  
 
-7.  Conclua o assistente.  
+7.  Завершите работу мастера.  
 
 > [!TIP]  
->  O cmdlet do Windows PowerShell, New-CMSiteSystemServer, efetua a mesma função que este procedimento. Para obter mais informações, consulte [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) na documentação do System Center 2012 Configuration Manager SP1 Cmdlet referência.  
+>  Командлет Windows PowerShell New-CMSiteSystemServer выполняет ту же функцию, что и эта процедура. Дополнительные сведения см. в разделе [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) справочника по командлетам System Center 2012 Configuration Manager с пакетом обновления 1 (SP1).  
+
+## <a name="to-install-site-system-roles-on-a-new-site-system-server"></a>Установка ролей системы сайта на новом сервере системы сайта.  
+
+1.  В консоли Configuration Manager щелкните **Администрирование**.  
+
+2.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Серверы и роли системы сайта**.  
+
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать сервер системы сайта**.  
+
+4.  На странице **Общие** укажите общие параметры для системы сайта и нажмите кнопку **Далее**.  
+
+    > [!TIP]  
+    >  Чтобы получить доступ к новой роли системы сайта из Интернета, убедитесь, что указано полное доменное имя в Интернете.  
+
+5.  На странице **Прокси-сервер** укажите параметры прокси-сервера, если ролям системы сайта на этом сервере требуется прокси-сервер для подключения к Интернету. Нажмите кнопку **Далее**.  
+
+6.  На странице **Выбор системной роли** выберите роли системы сайта, которые нужно добавить, затем нажмите кнопку **Далее**.  
+
+7.  Завершите работу мастера.  
+
+> [!TIP]  
+>  Командлет Windows PowerShell New-CMSiteSystemServer выполняет ту же функцию, что и эта процедура. Дополнительные сведения см. в разделе [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) справочника по командлетам System Center 2012 Configuration Manager с пакетом обновления 1 (SP1).  

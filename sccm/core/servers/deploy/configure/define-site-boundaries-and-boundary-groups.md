@@ -1,6 +1,6 @@
 ---
-title: Utilizar limites e grupos de limites | Microsoft Docs
-description: "Utilizar limites e grupos de limites para definir as localizações de rede e sistemas de sites acessível para dispositivos que gere."
+title: "Работа с границами и группами границ | Документация Майкрософт"
+description: "Определите сетевые расположения и доступные системы сайта для управляемых устройств, используя границы и группы границ."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -16,49 +16,49 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0fea1dece0768a2b7bcd3fcedc2288ea2d52e73d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="define-site-boundaries-and-boundary-groups-for-system-center-configuration-manager"></a>Definir limites de site e grupos de limites para o System Center Configuration Manager
+# <a name="define-site-boundaries-and-boundary-groups-for-system-center-configuration-manager"></a>Определение границ сайта и групп границ для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Limites para o System Center Configuration Manager definem localizações de rede na sua intranet que pode conter dispositivos que pretende gerir. Grupos de limites são grupos lógicos de limites que configurar.
+Границы для System Center Configuration Manager определяют сетевые расположения в интрасети, содержащие устройства, которыми вы хотите управлять. Группы границ представляют собой логические группы настроенных вами границ.
 
- Uma hierarquia pode incluir qualquer número de grupos de limites e cada grupo de limites pode conter qualquer combinação dos seguintes tipos de limites:  
+ Иерархия может содержать любое количество групп границ, и каждая группа границ может содержать любое сочетание следующих типов границ:  
 
--   Sub-rede IP  
--   Nome do site do Active Directory  
--   Prefixo IPv6  
--   Intervalo de endereços IP  
+-   IP-подсеть  
+-   Имя сайта Active Directory  
+-   Префикс IPv6  
+-   Диапазон IP-адресов  
 
-Os clientes na intranet avaliam a respetiva localização de rede atual e, em seguida, utilizam essa informação para identificar os grupos de limites a que pertencem.  
+Клиенты в интрасети оценивают свое текущее расположение в сети и затем используют эти сведения для определения групп границ, к которым они принадлежат.  
 
- Os clientes utilizam grupos de limites para:  
--   **Localize um site atribuído:** Grupos de limites permitem aos clientes localizar um site primário para atribuição de cliente (atribuição automática de site).  
--   **Localize determinadas funções de sistema de sites podem utilizar:** Quando associa um grupo de limites a determinadas funções de sistema de sites, o grupo de limites fornece aos clientes essa lista dos sistemas de sites para utilização durante a localização de conteúdo e como pontos de gestão preferenciais.  
+ Клиенты используют группы границ в следующих целях:  
+-   **Поиск назначенного сайта:** группы границ позволяют клиентам находить первичный сайт для назначения (автоматическое назначение сайта).  
+-   **Поиск определенных ролей системы сайта, доступных для использования:** если сопоставить группу границ с определенными ролями системы сайта, эта группа границ будет предоставлять клиентам список систем сайта, которые они могут использовать как во время поиска содержимого, так и в качестве предпочтительных точек управления.  
 
-Os clientes que estão na Internet ou configurados como clientes apenas da Internet não utilizam informações de limites. Estes clientes não podem utilizar a atribuição automática de sites e podem sempre transferir conteúdo de qualquer ponto de distribuição do seu site atribuído, quando o ponto de distribuição está configurado para permitir ligações de cliente a partir da Internet.  
+Клиенты, расположенные в Интернете или настроенные как работающие только из Интернета, не используют сведения о границах. Они не могут использовать автоматическое назначение сайтов и всегда скачивают содержимое из точки распространения с назначенного им сайта, если к точке распространения разрешено подключение клиентов из Интернета.  
 
-**Para começar a utilizar:**
-- Primeiro, [definem localizações de rede como limites](/sccm/core/servers/deploy/configure/boundaries).
-- Em seguida, continue a [configurar grupos de limites](/sccm/core/servers/deploy/configure/boundary-groups) para associar clientes nesses limites para os servidores do sistema de sites podem utilizar.
+**Перед началом работы**
+- Сначала [определите сетевые расположения как границы](/sccm/core/servers/deploy/configure/boundaries).
+- Затем [настройте группы границ](/sccm/core/servers/deploy/configure/boundary-groups) и сопоставьте клиенты в этих границах с серверами систем сайта, которые эти клиенты могут использовать.
 
 
 
-##  <a name="BKMK_BoundaryBestPractices"></a>Melhores práticas de limites e grupos de limites  
+##  <a name="BKMK_BoundaryBestPractices"></a>Рекомендации по работе с границами и группами границ  
 
--   **Utilize uma combinação de limites a menos que as suas necessidades:**  
-   No passado, recomendamos a utilização de alguns tipos de limites através de outros utilizadores. Com as alterações para melhorar o desempenho, iremos agora Recomendamos que utilize qualquer tipo de limite ou tipos escolher que funcionam para o seu ambiente e que lhe permitem utilizam o menor número de limites, pode para simplificar as tarefas de gestão.      
+-   **Используйте минимальный набор границ, удовлетворяющий ваши требования.**  
+   В прошлом мы рекомендовали использовать некоторые типы границ как более предпочтительные. В связи с изменениями, повышающими производительность, теперь мы рекомендуем использовать любые подходящие для вашей среды типы границ, которые позволяют свести к минимуму общее количество для упрощения управления.      
 
--   **Evite limites de sobreposição na atribuição automática de sites:**  
-     Embora cada grupo de limites suporte configurações de atribuição de site e de localização de conteúdo, é uma melhor prática criar um conjunto de grupos de limites separado a utilizar apenas na atribuição de sites. Significado: certifique-se de que cada limite num grupo de limites não é um membro de outro grupo de limites com uma atribuição de site diferente. Isto acontece porque:  
+-   **Избегайте перекрытия границ для автоматического назначения сайта:**  
+     Хотя каждая группа границ поддерживает как конфигурации назначения сайта, так и конфигурации расположения содержимого, рекомендуется создать отдельный набор групп границ, используемый только для назначения сайта. В связи с этим следует убедиться в том, что ни одна граница в группе границ не включена в другую группу границ, которой назначен другой сайт. Это вызвано следующими соображениями.  
 
-    -   Um único limite pode ser incluído em vários grupos de limites  
+    -   Одна граница может быть включена в несколько групп границ.  
 
-    -   Cada grupo de limites pode ser associado a outro site primário para atribuição de sites  
+    -   Каждая группа границ может быть сопоставлена с разными первичными сайтами в рамках назначения сайта.  
 
-    -   Um cliente num limite que seja membro de dois grupos de limites diferentes com atribuições de sites diferentes selecionará aleatoriamente um site para associação, que pode não ser o site ao qual pretende que o cliente seja associado.  Esta configuração denomina-se limites de sobreposição.  
+    -   Клиент на границе, которая является членом двух разных групп границ с разными назначениями сайта, произвольно выбирает сайт для присоединения, который может отличаться от предусмотренного вами.  Такая конфигурация называется перекрывающимися границами.  
 
-     Os limites de sobreposição não são um problema para a localização de conteúdo. Pelo contrário, trata-se frequentemente de uma configuração desejada que fornece aos clientes recursos adicionais ou localizações de conteúdo que podem utilizar.  
+     Перекрывающиеся границы не являются проблемой для расположения содержимого, наоборот, такая конфигурация часто создается намеренно, чтобы предоставить клиентам дополнительные ресурсы или расположения содержимого, которые они могут использовать.  

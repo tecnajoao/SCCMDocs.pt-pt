@@ -1,6 +1,6 @@
 ---
-title: "Tarefas comuns para linhas de base de configuração - Configuration Manager | Microsoft Docs"
-description: "Saiba mais sobre como criar e implementar linhas de base de configuração de System Center Configuration Manager."
+title: "Типичные задачи, связанные с конфигурационными базами, в Configuration Manager | Документы Майкрософт"
+description: "Сведения о создании шаблонов базовых конфигураций в System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/12/2017
 ms.prod: configuration-manager
@@ -17,71 +17,71 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 5bf4457af6bedf7bc9cd73c879f1857209c0725d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="common-tasks-for-creating-and-deploying-configuration-baselines-with-system-center-configuration-manager"></a>Tarefas comuns para criar e implementar linhas de base de configuração com o System Center Configuration Manager
+# <a name="common-tasks-for-creating-and-deploying-configuration-baselines-with-system-center-configuration-manager"></a>Типичные задачи, связанные с созданием и развертыванием конфигурационных баз с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico contém os cenários comuns para o ajudar a saber mais sobre como criar e implementar linhas de base de configuração de System Center Configuration Manager.  
+Эта статья содержит общие сценарии, помогающие узнать о том, как создать и развернуть шаблоны базовых конфигураций System Center Configuration Manager.  
 
- Se já estiver familiarizado com as definições de compatibilidade, pode encontrar documentação detalhada sobre todas as funcionalidades que utilize o [criar linhas de base de configuração](../../compliance/deploy-use/create-configuration-baselines.md) e [implementar linhas de base de configuração](../../compliance/deploy-use/deploy-configuration-baselines.md) tópicos.  
+ Если вы уже знакомы с параметрами соответствия, подробные инструкции по всем используемым функциям см. в статьях [Создание конфигурационных баз в System Center Configuration Manager](../../compliance/deploy-use/create-configuration-baselines.md) и [Развертывание конфигурационных баз в System Center Configuration Manager](../../compliance/deploy-use/deploy-configuration-baselines.md).  
 
- Antes de começar, leia [introdução às definições de compatibilidade no System Center Configuration Manager](../../compliance/get-started/get-started-with-compliance-settings.md) para obter algumas noções básicas sobre as definições de compatibilidade e leia também [planear e configurar as definições de compatibilidade](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) para implementar os pré-requisitos necessários.  
+ Перед началом работы изучите статью [Приступая к работе с параметрами соответствия в System Center Configuration Manager](../../compliance/get-started/get-started-with-compliance-settings.md), чтобы узнать некоторые основные сведения о параметрах соответствия, а также ознакомьтесь со статьей [Планирование и настройка параметров соответствия](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) для выполнения всех необходимых условий.  
 
-## <a name="create-a-configuration-baseline"></a>Criar uma linha de base de configuração  
- Neste exemplo, criou um item de configuração para apenas PCs Windows 10 que executam o cliente do Configuration Manager.  
+## <a name="create-a-configuration-baseline"></a>Создание конфигурационной базы  
+ В этом примере создан элемент конфигурации только для компьютеров под управлением Windows 10, где выполняется клиент Configuration Manager.  
 
- Este item de configuração impõe uma palavra-passe obrigatória de, pelo menos, 6 carateres em PCs Windows 10. O item de configuração tem o nome **Imposição de Palavras-passe do Windows 10**.  
+ Этот элемент конфигурации требует использования на компьютерах с Windows 10 обязательного пароля длиной не менее 6 символов. Данный элемент конфигурации имеет имя **Windows 10 Password Enforcement**(Принудительное использование пароля Windows 10).  
 
-Utilize o procedimento seguinte para saber como adicionar este item de configuração para uma linha de base de configuração para prepará-la para implementação.  
+Из следующей процедуры вы узнаете, как добавить этот элемент конфигурации в конфигурационную базу, чтобы подготовиться к развертыванию.  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **linhas de base de configuração**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Шаблоны базовой конфигурации**.  
 
-3.  No separador **Home Page** , no grupo **Criar** , clique em **Criar Linha de Base de Configuração**.  
+3.  На вкладке **Главная** в группе **Создать** щелкните элемент **Создать шаблон базовой конфигурации**.  
 
-4.  No **criar linha de base de configuração** diálogo caixa, configure as seguintes definições:  
+4.  В диалоговом окне **Создать шаблон базовой конфигурации** настройте следующие параметры:  
 
-    -   **Nome** - Introduza **Palavras-passe do Windows 10** (ou outro nome à sua escolha)  
+    -   **Имя** : введите **Пароли Windows 10** (или другое имя по вашему выбору).  
 
-5.  Clique em **Adicionar** > **Itens de Configuração**.  
+5.  Щелкните **Добавить** > **Элементы конфигурации**(Принудительное использование пароля Windows 10).  
 
-6.  Na caixa de diálogo **Adicionar Itens de Configuração** , selecione o item de configuração **Imposição de Palavras-passe do Windows 10** anteriormente criado e, em seguida, clique em **Adicionar**.  
+6.  В диалоговом окне **Добавить элементы конфигурации** выберите созданный ранее элемент конфигурации **Windows 10 Password Enforcement** , а затем нажмите кнопку **Добавить**.  
 
-7.  Clique em OK para fechar o **adicionar itens de configuração** caixa de diálogo e voltar para o **criar linha de base de configuração** caixa de diálogo.
+7.  Нажмите кнопку "ОК", чтобы закрыть диалоговое окно **Добавить элементы конфигурации** и вернуться в диалоговое окно **Создать шаблон базовой конфигурации**.
 
-8.  Clique em **OK** para fechar a caixa de diálogo **Criar Linha de Base de Configuração** .  
+8.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Создать шаблон базовой конфигурации** .  
 
- Agora, pode ver a linha de base de configuração no **linhas de base de configuração** nós da consola do Configuration Manager.  
+ Теперь вы можете просмотреть базовую конфигурацию в узле **Шаблоны базовой конфигурации** консоли Configuration Manager.  
 
-## <a name="deploy-the-configuration-baseline"></a>Implementar a linha de base de configuração  
- Neste exemplo, implementar a linha de base de configuração que criou no procedimento anterior numa coleção de computadores.  
+## <a name="deploy-the-configuration-baseline"></a>Развертывание шаблона базовой конфигурации  
+ В этом примере вы развернете конфигурационную базу, созданную в предыдущей процедуре, в коллекции компьютеров.  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** > **as definições de compatibilidade** > **linhas de base de configuração**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Параметры соответствия** > **Шаблоны базовой конфигурации**.  
 
-3.  Na lista de linhas de base de configuração, selecione **Palavras-passe do Windows 10**.  
+3.  В списке конфигурационных баз выберите **Пароли Windows 10**.  
 
-4.  No separador **Home Page** , no grupo **Implementação** , clique em **Implementar**.  
+4.  На вкладке **Главная** в группе **Развертывание** нажмите кнопку **Развернуть**.  
 
-5.  No **implementar linhas de base de configuração** diálogo caixa, configure as seguintes definições:  
+5.  В диалоговом окне **Развертывание шаблонов базовой конфигурации** настройте следующие параметры:  
 
-    -   **Linhas de base de configuração selecionadas** - Certifique-se de que a linha base de configuração **Palavras-passe do Windows 10** foi adicionada automaticamente a esta lista.  
+    -   **Выбранные шаблоны базовой конфигурации** : убедитесь, что конфигурационная база **Пароли Windows 10** была автоматически добавлена в этот список.  
 
-    -   **Remediar regras incompatíveis quando suportado** - verifique esta caixa para se certificar de que, se as definições corretas não estiverem presentes nos dispositivos visados, em seguida, estes são remediados pelo Configuration Manager.  
+    -   **Remediate noncompliant rules when supported** (Исправлять несоответствующие параметры, когда это возможно). Установите этот флажок, если правильные параметры отсутствуют на целевых устройствах, после чего они будут исправлены Configuration Manager.  
 
-    -   **Coleção** -clique em **procurar** para escolher a coleção de computadores em que a linha de base de configuração é avaliada e remediada para compatibilidade. Neste exemplo, a linha de base de configuração foi implementada na coleção **Todos os Clientes de Servidor e de Ambiente de Trabalho** incorporada.  
+    -   **Коллекция.** Нажмите кнопку **Обзор**, чтобы выбрать коллекцию компьютеров, на которых конфигурационная база будет оцениваться и исправляться для обеспечения соответствия. В этом примере конфигурационная база была развернута во встроенную коллекцию **Все клиенты — настольные компьютеры и серверы** .  
 
         > [!TIP]  
-        >  Não se preocupe se a coleção que escolheu contiver computadores ou dispositivos que não executam o Windows 10. Desde que tenha configurado plataformas suportadas no item de configuração que criou, apenas a PCs Windows 10 são avaliados para compatibilidade.  
+        >  Не беспокойтесь, если выбранная коллекция содержит компьютеры или устройства без Windows 10. Если вы настроите поддерживаемые платформы в созданном элементе конфигурации, на соответствие будут проверяться только компьютеры под управлением Windows 10.  
 
-    -   Se necessário, configure o agendamento através do qual a linha de base de configuração é avaliada. Caso contrário, mantenha a predefinição de **7 Dias**.  
+    -   При необходимости настройте расписание, согласно которому будет оцениваться конфигурационная база. В противном случае оставьте значение **7 дней**.  
 
-7.  Clique em **OK** para fechar a caixa de diálogo **Implementar Linhas de Base de Configuração** e criar a implementação.  
+7.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Развертывание шаблонов базовой конфигурации** и создать развертывание.  
 
- Se pretender ver rapidamente as estatísticas de compatibilidade para esta implementação, na área de trabalho **Monitorização** , clique em **Implementações**. Na parte inferior do ecrã, verá um **as estatísticas de compatibilidade** gráfico.  
+ Если требуется просмотреть краткие статистические данные о соответствии для этого развертывания, в рабочей области **Мониторинг** щелкните элемент **Развертывания**. В нижней части экрана отображается диаграмма **Статистические данные по соответствию**.  
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Дальнейшие действия 
 
-Para obter mais informações sobre como monitorizar linhas de base de configuração, consulte [monitorizar as definições de compatibilidade](../../compliance/deploy-use/monitor-compliance-settings.md).  
+Дополнительные сведения о мониторинге шаблонов базовых конфигураций см. в статье [Мониторинг параметров соответствия требованиям в System Center Configuration Manager](../../compliance/deploy-use/monitor-compliance-settings.md).  

@@ -1,6 +1,6 @@
 ---
-title: Desinstalar sites | Microsoft Docs
-description: Utilize estes detalhes como guia para desinstalar um site do System Center Configuration Manager.
+title: "Удаление сайтов | Документы Майкрософт"
+description: "Используйте эти сведения в качестве руководства по удалению сайта System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,123 +17,123 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 6ad06753dc0e1d0958f7131afbf3ecb75eecb2e3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="uninstall-sites-and-hierarchies-in-system-center-configuration-manager"></a>Desinstalar sites e hierarquias no System Center Configuration Manager
+# <a name="uninstall-sites-and-hierarchies-in-system-center-configuration-manager"></a>Удаление сайтов и иерархий в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as seguintes informações como guia se precisar de desinstalar um site do System Center Configuration Manager.  
+Используйте следующие сведения в качестве руководства при необходимости удалить сайт System Center Configuration Manager.  
 
-Para desativar uma hierarquia com múltiplos sites, a sequência de remoção é importante. Comece por desinstalar os sites na parte inferior da hierarquia e, em seguida, mova para cima:  
+Чтобы списать иерархию с несколькими сайтами, важно соблюдать последовательность удаления. Начните с удаления сайтов в нижней части иерархии, а затем продвигайтесь наверх.  
 
-1.  Remova sites secundários ligados a sites primários.  
-2.  Remova os sites primários.
-3.  Depois de todos os sites primários serem removidos, pode desinstalar o site de administrações centrais.  
+1.  Сначала удалите вторичные сайты, подключенные к первичным сайтам.  
+2.  Затем удалите первичные сайты.
+3.  После удаления всех первичных сайтов можно удалить сайт центра администрирования.  
 
 
-##  <a name="BKMK_RemoveSecondarysite"></a> Remover um site secundário de uma hierarquia  
-Não é possível mover um site secundário ou reatribuir um site secundário para um novo site primário principal. A remoção de uma hierarquia, um site secundário tem de ser eliminado do respetivo site principal direto. Utilize o assistente eliminar de Site a secundário da consola do Configuration Manager para remover um site secundário. Ao remover um site secundário, tem de escolher se pretende eliminá-lo ou desinstale-a:  
+##  <a name="BKMK_RemoveSecondarysite"></a> Удаление вторичного сайта из иерархии  
+Невозможно переместить вторичный сайт или переназначить вторичные сайт в новый родительский первичный сайт. Чтобы удалить вторичный сайт из иерархии, его нужно удалить из непосредственного родительского сайта. Для удаления вторичных сайтов используйте мастер удаления вторичных сайтов в консоли Configuration Manager. При удалении вторичного сайта необходимо выбрать его удаление либо деинсталляцию.  
 
--   **Desinstalar o site secundário**. Utilize esta opção para remover um site secundário funcional acessível a partir da rede. Esta opção desinstala o Configuration Manager a partir do servidor do site secundário e, em seguida, elimina todas as informações sobre o site e os respetivos recursos da hierarquia de site do Configuration Manager. Se o Configuration Manager instalado o SQL Server Express como parte da instalação do site secundário, o Configuration Manager desinstalará o SQL Express quando desinstalar o site secundário. Se o SQL Server Express foi instalado antes de instalar o site secundário, o Configuration Manager será desinstalado não SQL Server Express.  
+-   **Деинсталлировать вторичный сайт**. С помощью этого параметра можно удалить работающий вторичный сайт, доступный в сети. Этот параметр удаляет Configuration Manager с сервера вторичного сайта, а затем всю информацию о сайте и его ресурсы из иерархии сайтов Configuration Manager. Если в процессе установки вторичного сайта был установлен экспресс-выпуск SQL Server, Configuration Manager удалит его при удалении вторичного сайта. Если экспресс-выпуск SQL Server был установлен до установки вторичного сайта, Configuration Manager не удаляет его.  
 
--   **Eliminar o site secundário**. Utilize esta opção se uma das seguintes opções for verdadeira:  
+-   **Удалить вторичный сайт**. Этот параметр следует применять, если одно из следующих условий верно.  
 
-    -   Não foi possível instalar um site secundário  
-    -   O site secundário continua a ser apresentada na consola do Configuration Manager após a desinstalação
+    -   Вторичный сайт не удалось установить.  
+    -   Вторичный сайт продолжает отображаться в консоли Configuration Manager после его удаления.
 
-    Esta opção elimina todas as informações sobre o site e os respetivos recursos da hierarquia do Configuration Manager, mas mantém o Configuration Manager instalado no servidor do site secundário.  
+    Этот параметр удаляет всю информацию о сайте и его ресурсы из иерархии Configuration Manager, но сохраняет установку Configuration Manager на сервере вторичного сайта.  
 
     > [!NOTE]  
-    >  Também pode utilizar a ferramenta manutenção da hierarquia e a **/DELSITE** opção para eliminar um site secundário. Para obter mais informações, veja [Ferramenta Manutenção da Hierarquia (Preinst.exe) para o System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
+    >  Можно также использовать средство обслуживания иерархии и параметр **/DELSITE** для удаления вторичного сайта. Дополнительные сведения см. в разделе [Средство обслуживания иерархии (Preinst.exe) в System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
 
-#### <a name="to-uninstall-or-delete-a-secondary-site"></a>Para desinstalar ou eliminar um site secundário  
+#### <a name="to-uninstall-or-delete-a-secondary-site"></a>Удаление или деинсталляция вторичного сайта  
 
-1.  Certifique-se de que o utilizador administrativo que executa o Programa de Configuração possui os seguintes direitos de segurança:  
+1.  Убедитесь, что пользователь, запускающий программу установки, имеет следующие права безопасности:  
 
-    -   Direitos administrativos no computador do site secundário  
-    -   Direitos de administrador local no servidor de base de dados do site remoto para o site primário, se for remoto  
-    -   Função de segurança de administrador de infraestrutura ou administrador total no site primário principal  
-    -   Direitos sysadmin na base de dados do site do site secundário  
+    -   права администратора на компьютере вторичного сайта;  
+    -   права локального администратора на удаленном сервере базы данных сайта для первичного сайта, если он является удаленным;  
+    -   роль администратора инфраструктуры или полного администратора на родительском первичном сайте.  
+    -   права sysadmin в базе данных вторичного сайта.  
 
-2.  Na consola do Configuration Manager, selecione **administração**.  
-3.  No **administração** área de trabalho, expanda **configuração do Site**e, em seguida, selecione **Sites**.  
-4.  Selecione o servidor de site secundário que pretende remover.  
-5.  No **home page** separador o **Site** grupo, selecione **eliminar**.  
-6.  Na página **Geral** , selecione se pretende desinstalar ou eliminar o site secundário e clique em **Seguinte**.  
-7.  No **resumo** página, verifique as definições e, em seguida, selecione **seguinte**.  
-8.  No **conclusão** página, selecione **fechar** para sair do assistente.  
+2.  В консоли Configuration Manager щелкните **Администрирование**.  
+3.  В рабочей области **Администрирование** разверните узел **Конфигурация сайта** и выберите **Сайты**.  
+4.  Выберите сервер вторичного сайта, который требуется удалить.  
+5.  На вкладке **Главная** в группе **Сайт** нажмите кнопку **Удалить**.  
+6.  На странице **Общие** укажите, следует ли удалить или деинсталлировать вторичный сайт, а затем нажмите кнопку **Далее**.  
+7.  На странице **Сводка** просмотрите параметры и нажмите кнопку **Далее**.  
+8.  На странице **Завершение** нажмите кнопку **Закрыть**, чтобы закрыть окно мастера.  
 
-##  <a name="BKMK_UninstallPrimary"></a> Desinstalar um site primário  
-Pode executar a configuração do Configuration Manager para desinstalar um site primário que não tenha um site secundário associado. Antes de desinstalar um site primário, considere o seguinte:  
+##  <a name="BKMK_UninstallPrimary"></a> Удаление первичного сайта  
+Программу установки Configuration Manager можно запустить для удаления первичного сайта, которому не назначен вторичный сайт. Перед удалением первичного сайта примите во внимание следующее.  
 
--   Quando os clientes do Configuration Manager estão dentro dos limites configurados no site e o site primário é parte de uma hierarquia do Configuration Manager, considere adicionar os limites a outro site primário na hierarquia antes de desinstalar o site primário.  
--   Quando o servidor do site primário deixa de estar disponível, tem de utilizar a Ferramenta de Manutenção da Hierarquia no site de administração central para eliminar o site primário da base de dados do site. Para obter mais informações, veja [Ferramenta Manutenção da Hierarquia (Preinst.exe) para o System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
+-   Если клиенты Configuration Manager находятся в пределах границ сайта и первичный сайт является частью иерархии Configuration Manager, рекомендуется добавить границы в другой первичный сайт в иерархии перед удалением исходного первичного сайта.  
+-   Если сервер первичного сайта недоступен, необходимо использовать средство обслуживания иерархии на сайте центра администрирования для удаления первичного сайта из базы данных сайта. Дополнительные сведения см. в разделе [Средство обслуживания иерархии (Preinst.exe) в System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
 
-Utilize o procedimento seguinte para desinstalar um site primário.  
+Выполните следующую процедуру для удаления первичного сайта.  
 
-#### <a name="to-uninstall-a-primary-site"></a>Para desinstalar um site primário  
+#### <a name="to-uninstall-a-primary-site"></a>Удаление первичного сайта  
 
-1.  Certifique-se de que o utilizador administrativo que executa o Programa de Configuração possui os seguintes direitos de segurança:  
+1.  Убедитесь, что пользователь, запускающий программу установки, имеет следующие права безопасности:  
 
-    -   Direitos de administrador local no servidor do site de administração central  
-    -   Direitos de administrador local no servidor de base de dados do site remoto para o site de administração central, se for remoto
-    -   Direitos sysadmin na base de dados do site do site de administração central  
-    -   Direitos de administrador local no computador do site primário  
-    -   Direitos de administrador local no servidor de base de dados do site remoto para o site primário, se for remoto  
-    -   Um nome de utilizador associado ao direito de segurança administrador de infraestrutura ou administrador total no site de administração central  
+    -   права локального администратора на сервере сайта центра администрирования;  
+    -   права локального администратора на удаленном сервере базы данных сайта для сайта центра администрирования, если он является удаленным;
+    -   права sysadmin в базе данных сайта центра администрирования;  
+    -   права локального администратора на компьютере первичного сайта;  
+    -   права локального администратора на удаленном сервере базы данных сайта для первичного сайта, если он является удаленным;  
+    -   имя пользователя, связанное с ролью безопасности "Администратор инфраструктуры" или "Полный администратор" на сайте центра администрирования.  
 
-2.  Inicie a configuração do Configuration Manager no servidor do site primário utilizando um dos seguintes métodos:  
+2.  Запустите программу установки Configuration Manager на сервере первичного сайта одним из следующих способов.  
 
-    -   No **iniciar**, selecione **configuração do Configuration Manager**.  
-    -   Abra Setup.exe a partir &lt; *Suportededadosdeinstalaçãodoconfigmgr*> \SMSSETUP\BIN\X64.  
-    -   Abra Setup.exe a partir &lt; *Caminhodeinstalaçãodoconfigmgr*> \BIN\X64.  
+    -   В меню **Запустить**выберите пункт **Установка Configuration Manager**.  
+    -   Откройте программу Setup.exe в папке &lt;*установочный_носитель_Configuration_Manager*>\SMSSETUP\BIN\X64.  
+    -   Откройте программу Setup.exe в папке &lt;*путь_установки_Configuration_Manager*>\BIN\X64.  
 
-3.  No **antes de começar** página, selecione **seguinte**.  
-4.  No **introdução** página, selecione **desinstalar um site do Configuration Manager**e, em seguida, selecione **seguinte**.  
-5.  No **desinstalar o Site do Configuration Manager**, especifique se pretende remover a base de dados do site do servidor do site primário e se pretende remover a consola do Configuration Manager. Por predefinição, a Configuração remove ambos os itens.  
-
-    > [!IMPORTANT]  
-    >  Quando um site secundário está associado ao site primário, tem de remover o site secundário antes de poder desinstalar o site primário.  
-
-6.  Selecione **Sim** para confirmar a desinstalação do site primário do Configuration Manager.  
-
-##  <a name="BKMK_UninstallPrimaryDistViews"></a> Desinstalar um site primário configurado com vistas distribuídas  
- Antes de desinstalar um site primário subordinado que possui vistas ativadas para a ligação de replicação para o site de administração central distribuídas, tem de desativar as vistas distribuídas na sua hierarquia. Utilize as seguintes informações para desativar as vistas distribuídas antes de desinstalar um site primário.  
-
-#### <a name="to-uninstall-a-primary-site-that-is-configured-with-distributed-views"></a>Para desinstalar um site primário configurado com vistas distribuídas  
-
-1.  Antes de desinstalar qualquer site primário, tem de desativar as vistas distribuídas de cada ligação na hierarquia entre o site de administração central e um site primário.  
-2.  Depois de desativar as vistas distribuídas de cada ligação, confirme que os dados do site primário é concluída reinicialização no site de administração central. Para monitorizar a inicialização dos dados, na consola do Configuration Manager, no **monitorização** área de trabalho, ver a ligação no **replicação de base de dados** nós.  
-3.  Após a reinicialização bem-sucedida dos dados com o site de administração central, pode desinstalar o site primário. Para desinstalar um site primário, consulte [desinstalar um site primário](#BKMK_UninstallPrimary).  
-4.  Quando o site primário está completamente desinstalado, pode reconfigurar as vistas distribuídas em ligações aos sites primários.  
+3.  На странице **Перед началом работы** нажмите кнопку **Далее**.  
+4.  На странице **Приступая к работе** выберите **Удалить сайт Configuration Manager**, а затем нажмите кнопку **Далее**.  
+5.  На странице **Удаление сайта Configuration Manager** укажите необходимость удаления базы данных сайта с сервера первичного сайта и необходимость удаления консоли Configuration Manager. По умолчанию программа установки удаляет и то, и то.  
 
     > [!IMPORTANT]  
-    >  Se desinstalar o site primário antes de desativar as vistas distribuídas em cada site ou antes dos dados do site primário reinicializa com êxito no site de administração central, poderá falhar a replicação dos dados entre sites primários e o site de administração central. Neste cenário, tem de desativar as vistas distribuídas de cada ligação na sua hierarquia do site e, em seguida, após os reinicialização bem-sucedida dos dados com o site de administração central, pode reconfigurar as vistas distribuídas.  
+    >  Если к первичному сайту присоединены вторичные, необходимо удалить их перед удалением первичного сайта.  
 
-##  <a name="BKMK_UninstallCAS"></a> Desinstalar o site de administração central  
- Pode executar a configuração do Configuration Manager para desinstalar um site de administração central que não tenha sites primários subordinados. Utilize o procedimento seguinte para desinstalar o site de administração central.  
+6.  Нажмите кнопку **Да**, чтобы подтвердить удаление первичного сайта Configuration Manager.  
 
-#### <a name="to-uninstall-a-central-administration-site"></a>Para desinstalar um site de administração central  
+##  <a name="BKMK_UninstallPrimaryDistViews"></a> Удаление первичного сайта с настроенными распределенными представлениями  
+ Перед удалением дочернего первичного сайта с распределенными представлениями в канале репликации с сайтом центра администрирования необходимо отключить в вашей иерархии распределенные представления. Используйте следующую информацию, чтобы отключить распределенные представления перед удалением первичного сайта.  
 
-1.  Certifique-se de que o utilizador administrativo que executa o Programa de Configuração detém os seguintes direitos de segurança:  
+#### <a name="to-uninstall-a-primary-site-that-is-configured-with-distributed-views"></a>Удаление первичного сайта с распределенными представлениями  
 
-    -   Direitos de administrador local no servidor do site de administração central  
-    -   Direitos de administrador local no servidor de base de dados do site para o site de administração central, se o servidor de base de dados do site não está instalado no servidor do site 
-
-2.  Inicie a configuração do Configuration Manager no servidor do site de administração central utilizando um dos seguintes métodos:  
-
-    -   Em **Iniciar**, clique em **Configuração do Configuration Manager**.  
-    -   Abra Setup.exe a partir &lt; *Suportededadosdeinstalaçãodoconfigmgr*> \SMSSETUP\BIN\X64.  
-    -   Abra Setup.exe a partir &lt; *Caminhodeinstalaçãodoconfigmgr*> \BIN\X64.  
-
-3.  No **antes de começar** página, selecione **seguinte**.  
-4.  No **introdução** página, selecione **desinstalar um site do Configuration Manager**e, em seguida, selecione **seguinte**.  
-5.  No **desinstalar o Site do Configuration Manager**, especifique se pretende remover a base de dados do site do servidor do site de administração central e se pretende remover a consola do Configuration Manager. Por predefinição, a Configuração remove ambos os itens.  
+1.  Перед удалением первичного сайта необходимо отключить распределенные представления по каждому из каналов в иерархии между сайтом центра администрирования и первичным сайтом.  
+2.  После отключения всех распределенных представлений по каждому каналу убедитесь, что для данных с первичного сайта завершилась повторная инициализация на сайте центра администрирования. Чтобы отслеживать инициализацию данных, в консоли Configuration Manager можно просматривать канал в узле **Репликация базы данных** в рабочей области **Мониторинг**.  
+3.  После повторной инициализации данных на сайте центра администрирования можно удалить первичный сайт. Сведения об удалении первичного сайта см. в разделе [Удаление первичного сайта](#BKMK_UninstallPrimary).  
+4.  После полного удаления первичного сайта можно перенастроить распределенные представления по каналам для первичных сайтов.  
 
     > [!IMPORTANT]  
-    >  Quando existe um site primário associado ao site de administração central, tem de desinstalar o site primário antes de poder desinstalar o site de administração central.  
+    >  Если удалить первичный сайт перед отключением распределенных представлений на каждом сайте или перед тем, как данные с первичного сайта успешно пройдут повторную инициализацию на сайте центра администрирования, репликация данных между первичными сайтами и сайтом центра администрирования может нарушиться. В этой ситуации необходимо отключить для каждого канала в иерархии распределенные представления, а затем после успешной повторной инициализации данных на сайте центра администрирования перенастроить распределенные представления.  
 
-6.  Selecione **Sim** para confirmar a desinstalação do site de administração central do Configuration Manager.  
+##  <a name="BKMK_UninstallCAS"></a> Удаление сайта центра администрирования  
+ Программу установки Configuration Manager можно запустить для удаления сайта центра администрирования, у которого нет дочерних первичных сайтов. Следующая процедура используется для удаления сайта центра администрирования.  
+
+#### <a name="to-uninstall-a-central-administration-site"></a>Удаление сайта центра администрирования  
+
+1.  Убедитесь, что пользователь, запускающий программу установки, имеет следующие права безопасности:  
+
+    -   права локального администратора на сервере сайта центра администрирования;  
+    -   права локального администратора на сервере базы данных сайта для сайта центра администрирования, если сервер базы данных сайта не установлен на сервере сайта. 
+
+2.  Запустите программу установки Configuration Manager на сервере сайта центра администрирования одним из следующих способов.  
+
+    -   В меню **Запустить**выберите пункт **Установка Configuration Manager**.  
+    -   Откройте программу Setup.exe в папке &lt;*установочный_носитель_Configuration_Manager*>\SMSSETUP\BIN\X64.  
+    -   Откройте программу Setup.exe в папке &lt;*путь_установки_Configuration_Manager*>\BIN\X64.  
+
+3.  На странице **Перед началом работы** нажмите кнопку **Далее**.  
+4.  На странице **Приступая к работе** выберите **Удалить сайт Configuration Manager**, а затем нажмите кнопку **Далее**.  
+5.  На странице **Удаление сайта Configuration Manager** укажите необходимость удаления базы данных сайта с сервера сайта центра администрирования и необходимость удаления консоли Configuration Manager. По умолчанию программа установки удаляет и то, и то.  
+
+    > [!IMPORTANT]  
+    >  При наличии первичных сайтов, присоединенного к сайту центра администрирования, необходимо удалить их перед удалением сайта центра администрирования.  
+
+6.  Нажмите кнопку **Да**, чтобы подтвердить удаление сайта центра администрирования Configuration Manager.  

@@ -1,6 +1,6 @@
 ---
-title: "Utilização do controlo remoto de auditoria | Microsoft Docs"
-description: "Utilização do controlo remoto no System Center Configuration Manager de auditoria."
+title: "Аудит использования удаленного управления | Документы Майкрософт"
+description: "Осуществляйте аудит использования удаленного управления в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,46 +17,46 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 4259ecfca48ccdffa83247e9ab5a65b3f006c5d9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-audit-remote-control-usage-in-system-center-configuration-manager"></a>Como a auditoria da utilização do controlo remoto no System Center Configuration Manager
+# <a name="how-to-audit-remote-control-usage-in-system-center-configuration-manager"></a>Аудит использования удаленного управления в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode utilizar os relatórios do System Center Configuration Manager para ver as informações de auditoria do controlo remoto.  
+С помощью отчетов System Center Configuration Manager можно просматривать сведения об аудите удаленного управления.  
 
- Para obter mais informações sobre como configurar relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
+ Дополнительные сведения о настройке отчетов в Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
- Os dois relatórios seguintes estão disponíveis com a categoria **Mensagens de Estado – Auditoria**:  
+ В категории **Сообщения об изменении состояния - аудит**доступны следующие два отчета.  
 
--   **Controlo remoto - todos os computadores controlados remotamente por um utilizador específico** -mostra um resumo da atividade de controlo remoto iniciado a um utilizador específico.  
+-   **Удаленное управление — все компьютеры, удаленно управляемые определенным пользователем**: содержит сводные данные по действиям удаленного управления, инициированным заданным пользователем.  
 
--   **Controlo remoto - todas as informações de controlo remoto** -mostra um resumo das mensagens de estado sobre o controlo remoto dos computadores cliente.  
+-   **Удаленное управление — все сведения об удаленном управлении**: содержит сводку сообщений о состоянии, связанных с удаленным управлением клиентскими компьютерами.  
 
-### <a name="to-run-the-report-remote-control---all-computers-remote-controlled-by-a-specific-user"></a>Para executar o relatório controlo remoto - todos os computadores controlados remotamente por um utilizador específico  
+### <a name="to-run-the-report-remote-control---all-computers-remote-controlled-by-a-specific-user"></a>Запуск отчета "Удаленное управление — все компьютеры, удаленно управляемые определенным пользователем"  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  Na área de trabalho **Monitorização** , expanda **Comunicar**e clique em **Relatórios**.  
+2.  В рабочей области **Мониторинг** разверните узел **Отчеты**и щелкните элемент **Отчеты**.  
 
-3.  No nó **Relatórios** , clique na coluna **Categoria** para ordenar os relatórios de modo a que possa encontrá-los mais facilmente na categoria **Mensagens de Estado – Auditoria**.  
+3.  В узле **Отчеты** щелкните столбец **Категория** , чтобы применить к отчетам сортировку, упрощающую поиск отчетов в категории **Сообщения об изменении состояния - аудит**.  
 
-4.  Selecione o relatório **Controlo Remoto - Todos os computadores controlados remotamente por um utilizador específico**e, em seguida, no separador **Início** , em **Grupo de Relatórios**, clique em **Executar**.  
+4.  Выберите отчет **Удаленное управление: все компьютеры, удаленно управляемые определенным пользователем**, затем на вкладке **Главная** в области **Группа отчетов**нажмите кнопку **Запустить**.  
 
-5.  Na lista **Nome de Utilizador** de **Controlo Remoto - Todos os computadores controlados remotamente por um utilizador específico**, especifique o utilizador para o qual pretende reportar as informações de auditoria e, em seguida, clique em **Ver Relatório**.  
+5.  В раскрывающемся списке **Имя пользователя** отчета **Удаленное управление: все компьютеры, удаленно управляемые определенным пользователем**укажите пользователя, для которого будет составлен отчет с данными аудита, и нажмите кнопку **Просмотреть отчет**.  
 
-6.  Quando terminar de visualizar os dados no relatório, feche a janela do relatório.  
+6.  Завершив просмотр данных в отчете, закройте окно отчета.  
 
-### <a name="to-run-the-report-remote-control---all-remote-control-information"></a>Para executar o relatório controlo remoto - todas as informações de controlo remoto  
+### <a name="to-run-the-report-remote-control---all-remote-control-information"></a>Запуск отчета "Удаленное управление — все сведения об удаленном управлении"  
 
-1.  Na consola do Configuration Manager, clique em **monitorização**.  
+1.  В консоли Configuration Manager щелкните элемент **Мониторинг**.  
 
-2.  Na área de trabalho **Monitorização** , expanda **Comunicar**e clique em **Relatórios**.  
+2.  В рабочей области **Мониторинг** разверните узел **Отчеты**и щелкните элемент **Отчеты**.  
 
-3.  No nó **Relatórios** , clique na coluna **Categoria** para ordenar os relatórios de modo a que possa encontrá-los mais facilmente na categoria **Mensagens de Estado – Auditoria**.  
+3.  В узле **Отчеты** щелкните столбец **Категория** , чтобы применить к отчетам сортировку, упрощающую поиск отчетов в категории **Сообщения об изменении состояния - аудит**.  
 
-4.  Selecione o relatório **Controlo Remoto - Todas as informações de controlo remoto**e, em seguida, no separador **Início** , em **Grupo de Relatórios**, clique em **Executar** para abrir a janela **Controlo Remoto - Todas as informações de controlo remoto** .  
+4.  Выберите отчет **Удаленное управление: все сведения об удаленном управлении**, затем на вкладке **Главная** в области **Группа отчетов**нажмите кнопку **Запустить** , чтобы открыть окно **Удаленное управление: все сведения об удаленном управлении** .  
 
-5.  Quando terminar de visualizar os dados no relatório, feche a janela do relatório.  
+5.  Завершив просмотр данных в отчете, закройте окно отчета.  

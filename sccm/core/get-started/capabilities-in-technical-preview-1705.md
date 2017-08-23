@@ -1,6 +1,6 @@
 ---
-title: "Pré-visualização técnica 1705 | Microsoft Docs"
-description: "Saiba mais sobre as funcionalidades disponíveis na versão de pré-visualização técnica 1705 para o System Center Configuration Manager."
+title: "Technical Preview 1705 | Документация Майкрософт"
+description: "Сведения о функциях, доступных в Technical Preview версии 1705 для System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
@@ -15,20 +15,20 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b977a79baec73999caa21648adcb6fcfec4a4935
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1705 do System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1705 для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+*Применимо к: System Center Configuration Manager (Technical Preview)*
 
-Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1705. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. Antes de instalar esta versão do technical preview, reveja [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md) para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.    
+В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager версии 1705. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager. Перед установкой этой версии прочтите статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md). Там приведены общие требования и ограничения на использование ознакомительной технической версии, а также сведения о том, как выполнять обновления и оставлять отзывы о функциях этого выпуска.    
 
-**Problemas conhecidos neste Technical Preview:**
--   **Conector do Operations Manager Suite não atualizar**. Ao atualizar de uma versão anterior do Technical Preview que tinha o conector do OMS configurado, esse conector não está atualizado e já não está disponível na consola do. Após a atualização, tem de [utilizar o Assistente de serviços do Azure](capabilities-in-technical-preview-1705.md#use-azure-services-wizard-to-configure-a-connection-to-oms) e restabelecer a ligação à sua área de trabalho do OMS.
--   **Superfície controladores não sincronize com êxito**. Embora suporte para controladores superfície constam **Novidades** na consola do Configuration Manager para technical preview, esta funcionalidade não ainda funciona conforme esperado.
--   **Não é possível criar o Windows Update para políticas de diferimento por empresas**. Apesar da capacidade de configurar o Windows Update para políticas de diferimento por empresas está listada no **Novidades** na consola do Configuration Manager para technical preview, o assistente não for aberto e não é possível configurar as políticas.
+**Известные проблемы в этой версии Technical Preview:**
+-   **Соединитель Operations Manager Suite не обновляется**. При обновлении с предыдущей версии Technical Preview настроенный для нее соединитель OMS не обновляется и становится недоступным в консоли. После обновления необходимо [запустить мастер служб Azure](capabilities-in-technical-preview-1705.md#use-azure-services-wizard-to-configure-a-connection-to-oms) и повторно подключиться к рабочей области OMS.
+-   **Не выполняется синхронизация драйверов поверхности**. Хотя поддержка драйверов поверхности заявлена в **списке новых возможностей** для консоли Configuration Manager в выпуске Technical Preview, эта возможность пока не работает должным образом.
+-   **Невозможно создать политики отсрочки центра обновления Windows для бизнеса**. Хотя возможность создавать политики отсрочки центра обновления Windows для бизнеса заявлена в **списке новых возможностей** для консоли Configuration Manager в выпуске Technical Preview, мастер не открывается и вы не можете настроить эти политики.
 
 
 <!--  Known Issues Template
@@ -37,7 +37,7 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
     Workaround details.
 -->
 
-**Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
+**Ниже перечислены новые возможности, доступные в этой версии.**  
 
 <!--  Rough Section Template
 ##  FEATURE
@@ -49,253 +49,253 @@ Este artigo apresenta as funcionalidades que estão disponíveis no Technical Pr
  -  Task 2              
 -->
 
-## <a name="update-reset-tool"></a>Ferramenta de reposição de atualização  
-Pode utilizar a ferramenta Configuration Manager Update repor, **CMUpdateReset.exe**, para corrigir os problemas quando as atualizações na consola tem problemas de transferir ou a replicar. Esta ferramenta está incluída com a versão de pré-visualização técnica 1705. Pode encontrá-lo no servidor do site do seu site de pré-visualização técnica depois de instalar a pré-visualização no ***\cd.latest\SMSSETUP\TOOLS*** pasta.
+## <a name="update-reset-tool"></a>Средство сброса обновлений  
+Средство Configuration Manager для сброса обновлений **CMUpdateReset.exe** можно использовать для устранения проблем с загрузкой или репликацией обновлений в консоли. Это средство включено в версию Technical Preview 1705. После установки в предварительной версии вы найдете его на сервере сайта в папке ***\cd.latest\SMSSETUP\TOOLS***.
 
-Pode utilizar esta ferramenta com versões do Technical Preview 1606 ou posteriores. Este efeitos suporte é fornecido para a ferramenta pode ser utilizada com cenários de atualização de um intervalo de pré-visualização técnica e sem ter de aguardar até a próxima pré-visualização técnica fica disponível.
+Это средство можно использовать в Technical Preview 1606 или более поздней версии. Обратная совместимость обеспечена для того, чтобы средство можно было использовать в разных сценариях обновления, не дожидаясь выпуска следующей версии Technical Preview.
 
-Pode utilizar esta ferramenta quando uma atualização na consola ainda não tiver instalada e se encontra em estado de falha. Estado de falha pode significar a transferência da atualização continua em curso, mas está bloqueada e demorar uma hora excessivamente longa, talvez horas exceder as expetativas históricas para pacotes de atualização do tamanho semelhante. Também pode ser uma falha ao replicar a atualização para sites primários subordinados.  
+Вы можете использовать это средство, даже если обновление в консоли еще не установлено или находится в неисправном состоянии. Состояние считается неисправным, если загрузка обновлений продолжается, но не может завершиться в течение долгого времени, например выполняется на несколько часов дольше, чем обычно занимала загрузка пакетов обновления сравнимого размера. Также сюда относится сбой репликации обновлений на дочерние первичные сайты.  
 
-Quando executar a ferramenta, é executada relativamente a atualização que especificou. Por predefinição, a ferramenta não elimina atualizações instaladas ou transferidas com êxito.  
+Средство выполняется для того обновления, которое вы укажете при запуске. По умолчанию средство не удаляет успешно установленные или загруженные обновления.  
 
-### <a name="prerequisites"></a>Pré-requisitos
-A conta que utiliza para executar a ferramenta requer as seguintes permissões:
--   **Leitura** e **escrever** permissões para a base de dados do site do site de administração central e cada site primário na sua hierarquia. Para definir estas permissões, pode adicionar a conta de utilizador como membro do **db_datawriter** e **db_datareader** [fixo funções de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) na base de dados do Configuration Manager de cada site. A ferramenta não interage com os sites secundários.
--   **Administrador local** no site de nível superior da hierarquia.
--   **Administrador local** no computador que aloja o ponto de ligação de serviço.
+### <a name="prerequisites"></a>Предварительные требования
+Учетная запись для запуска средства должна иметь следующие разрешения:
+-   Разрешения на **чтение** и **запись** для баз данных сайта, размещенных на сайте центра администрирования и на каждом первичном сайте в используемой иерархии. Чтобы установить эти разрешения, учетной записи пользователя можно назначить [предопределенные роли базы данных](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) **db_datawriter** и **db_datareader** для базы данных Configuration Manager каждого сайта. Средство не будет взаимодействовать со вторичными сайтами.
+-   **Локальный администратор** на сайте верхнего уровня в иерархии.
+-   **Локальный администратор** на компьютере, где размещается точка подключения службы.
 
-Terá do GUID do pacote de atualização que pretende repor. Para obter o GUID:
--   Na consola, aceda a **administração** > **atualizações e manutenção** e, em seguida, no painel de visualização, faça duplo clique no cabeçalho de uma das colunas (como **estado**), em seguida, selecione **Guid de pacote**. Esta ação adiciona essa coluna à apresentação de e a coluna mostra o GUID do pacote de atualização.
+Вам нужно знать глобальный уникальный идентификатор (GUID) пакета обновления, который необходимо сбросить. Чтобы получить GUID, выполните следующие действия.
+-   В консоли перейдите в раздел **Администрирование** > **Обновления и обслуживание**, а затем на панели отображения щелкните правой кнопкой мыши заголовок любого столбца (например, **Состояние**) и выберите пункт **Идентификатор пакета**. Выбранный столбец будет добавлен на панель отображения. В нем вы увидите GUID пакета обновления.
 
 > [!TIP]  
-> Para copiar o GUID, selecione a linha para o pacote de atualização que pretende repor e, em seguida, utilize CTRL + C para copiar nessa linha. Se colar a seleção copiada para um editor de texto, em seguida, pode copiar apenas o GUID para utilização como um parâmetro de linha de comandos quando executar a ferramenta.
+> Чтобы скопировать значение GUID, выберите строку нужного пакета обновления и скопируйте ее в буфер обмена с помощью клавиш CTRL+C. Теперь эту строку можно вставить в любой текстовый редактор, а затем скопировать из полученных данных код GUID и вставить его в качестве параметра в командную строку для запуска средства.
 
-### <a name="run-the-tool"></a>Execute a ferramenta    
-A ferramenta tem de ser executada no site de nível superior da hierarquia.
+### <a name="run-the-tool"></a>Запуск программы    
+Средство необходимо запускать на сайте верхнего уровня иерархии.
 
-Quando executar a ferramenta, utilize os parâmetros da linha de comandos para especificar o SQL Server no site de nível superior da hierarquia, o nome de base de dados do site e o GUID do pacote de atualização que pretende repor. A ferramenta, em seguida, identifica os servidores adicionais, tem de aceder, com base no estado de atualizações.   
+При запуске средства вы можете с помощью параметров командной строки указать SQL Server на сайте верхнего уровня иерархии, имя базы данных и идентификатор GUID для пакета обновления, который вы хотите сбросить. Средство самостоятельно определит дополнительные серверы, к которым требуется доступ, исходя из состояния обновлений.   
 
-Se o pacote de atualização está a ser um *após a transferência* Estado, a ferramenta de limpeza não configurar o pacote. Como opção, pode forçar a remoção de uma atualização transferida com êxito utilizando o parâmetro de eliminação de imposição (consulte parâmetros de linha de comandos posteriormente neste tópico).
+Если пакет обновления находится в состоянии *после загрузки*, средство не очищает такой пакет. В этом случае можно принудительно удалить успешно загруженное обновление, используя параметр force delete (параметры командной строки описаны далее в этой статье).
 
-Depois da ferramenta é executada:
--   Se um pacote foi eliminado, reinicie o serviço do SMS_Executive de sites de nível superior e, em seguida, verifique a existência de atualizações a transferir o pacote novamente.
--   Se um pacote não foi eliminado, não terá de efetuar qualquer ação, tal como a atualização será reinicializar e reinicie a instalação ou a replicação.
+После запуска средства выполните следующие действия.
+-   Если пакет был удален, перезапустите службу SMS_Executive на узлах верхнего уровня и выполните проверку обновлений, чтобы заново загрузить пакет.
+-   Если пакет не был удален, никакие действия не требуются. Инициализация и повторный запуск или репликация будут выполнены для этого обновления автоматически.
 
-**Parâmetros de linha de comandos:**  
+**Параметры командной строки.**  
 
-| Parâmetro        |Descrição                 |  
+| Параметр        |Описание                 |  
 |------------------|----------------------------|  
-|**-S &lt;FQDN do SQL Server do seu site de nível superior >** | *Necessário* <br> Tem de especificar o FQDN do SQL Server que aloja a base de dados do site para o site de nível superior da hierarquia.    |  
-| **-D &lt;nome de base de dados >**                        | *Necessário* <br> Tem de especificar o nome da base de dados de sites de nível superior.  |  
-| **-P &lt;GUID do pacote >**                         | *Necessário* <br> Tem de especificar o GUID para o pacote de atualização que pretende repor.   |  
-| **-I &lt;nome de instância do SQL Server >**             | *Opcional* <br> Utilize esta opção para identificar a instância do SQL Server que aloja a base de dados do site. |
-| **-FDELETE**                              | *Opcional* <br> Utilize esta opção para forçar a eliminação de um pacote de atualização transferido com êxito. |  
- **Exemplos:**  
- Um cenário típico, que pretende repor uma atualização que tem problemas de transferência. O FQDN de servidores SQL é *server1.fabrikam.com*, a base de dados do site *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ 61F16B3C-F1F6-4F9F-8647-2A524B0C802C -P***
+|**-S &lt;полное доменное имя сервера SQL Server для сайта верхнего уровня>** | *Обязательное* <br> Укажите полное доменное имя сервера SQL Server, на котором размещена база данных сайта для сайта верхнего уровня иерархии.    |  
+| **-D &lt;имя базы данных >**                        | *Обязательное* <br> Укажите имя базы данных сайта верхнего уровня.  |  
+| **-P &lt;идентификатор GUID пакета >**                         | *Обязательное* <br> Укажите идентификатор GUID для пакета обновления, который необходимо сбросить.   |  
+| **-I &lt;имя экземпляра SQL Server>**             | *Необязательный* <br> Используйте для определения экземпляра SQL Server, на котором размещается база данных сайта. |
+| **-FDELETE**                              | *Необязательный* <br> Используйте для принудительного удаления пакета обновления, который был успешно загружен. |  
+ **Примеры:**  
+ Чаще всего требуется сбросить обновление, для которого возникли проблемы с загрузкой. Допустим, что полное доменное имя SQL Server — *server1.fabrikam.com*, база данных сайта — *CM_XYZ*, а GUID пакета — *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Тогда вам нужно выполнить такую команду: ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
- Num cenário mais extremos, pretender forçar a eliminação do pacote de atualização problemáticas. O FQDN de servidores SQL é *server1.fabrikam.com*, a base de dados do site *CM_XYZ*e o pacote GUID é *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Execute: ***CMUpdateReset.exe - FDELETE -S server1.fabrikam.com -D CM_XYZ 61F16B3C-F1F6-4F9F-8647-2A524B0C802C -P***
+ В более серьезных случаях вы можете принудительно удалить проблемный пакет обновления. Допустим, что полное доменное имя SQL Server — *server1.fabrikam.com*, база данных сайта — *CM_XYZ*, а GUID пакета — *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Тогда вам нужно выполнить такую команду: ***CMUpdateReset.exe  -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
-### <a name="test-the-tool-with-the-technical-preview"></a>Testar a ferramenta com o Technical Preview  
-Pode utilizar esta ferramenta com versões do Technical Preview 1606 ou posteriores. Isto efeitos suporte é fornecido para que a ferramenta pode ser utilizada com um grande número de cenários de atualização de pré-visualização técnica, sem ter de aguardar até a próxima versão de pré-visualização técnica está disponível.
+### <a name="test-the-tool-with-the-technical-preview"></a>Проверка средства в Technical Preview  
+Это средство можно использовать в Technical Preview 1606 или более поздней версии. Обратная совместимость обеспечена для того, чтобы средство можно было использовать в самых разных сценариях обновления, не дожидаясь следующей версии Technical Preview.
 
-Execute a ferramenta num pacote de atualização para uma versão de pré-visualização técnica antes que a atualização a concluir a verificação de pré-requisitos. Um Estado de verificação de pré-requisitos concluída é identificado por um dos seguintes Estados para o pacote no **administração** > **atualizações e manutenção**:  
--   **Passada na verificação de pré-requisitos**
--   **Verificação de pré-requisito aprovada com aviso**
--   **Falha na verificação de pré-requisitos**
-
-
-## <a name="high-dpi-console-support"></a>Suporte da consola PPP elevado
-
-Com esta versão, problemas com como a consola do Configuration Manager dimensiona e apresenta as diferentes partes da IU quando são visualizados em dispositivos de PPP elevados (como uma superfície book) devem ser corrigidos.
+Запустите средство для пакета обновления Technical Preview прежде, чем завершится проверка готовности к установке этого обновления. На завершение проверки готовности к установке указывает одно из следующих состояний пакета в разделе **Администрирование** > **Обновления и обслуживание**:  
+-   **Проверка необходимых компонентов пройдена**
+-   **Проверка необходимых компонентов пройдена с предупреждением**
+-   **Проверка необходимых компонентов не пройдена**
 
 
-## <a name="peer-cache-improvements"></a>Melhorias da Cache ponto a ponto
-Começando com esta pré-visualização técnica, a Cache ponto a ponto [já não utiliza a conta de acesso de rede](/sccm/core/plan-design/hierarchy/client-peer-cache) para autenticar pedidos de transferência de elementos.
+## <a name="high-dpi-console-support"></a>Консольная поддержка высоких значений DPI
+
+В этом выпуске должны быть исправлены проблемы с масштабированием консоли Configuration Manager и отображением некоторых частей пользовательского интерфейса при просмотре на устройстве с высоким значением DPI (например, книги Surface).
 
 
-## <a name="improvements-for-sql-server-always-on-availability-groups"></a>Melhoramentos para o SQL Server Always On nos grupos de disponibilidade  
-Com esta versão, agora, pode utilizar réplicas com consolidação assíncrona na SQL Server Always On nos grupos de disponibilidade que utilizar com o Configuration Manager.  Isto significa que pode adicionar réplicas adicionais para os grupos de disponibilidade para utilizar como as cópias de segurança (remotas) fora das instalações e, em seguida, utilizá-los num cenário de recuperação após desastre.  
+## <a name="peer-cache-improvements"></a>Усовершенствования однорангового кэша
+Начиная с этой версии Technical Preview одноранговый кэш [больше не использует учетную запись доступа к сети](/sccm/core/plan-design/hierarchy/client-peer-cache) для аутентификации запросов на загрузку от одноранговых узлов.
 
--   O Configuration Manager suporta utilizando a réplica de consolidação assíncrona para recuperar a réplica síncrona.  Consulte [opções de recuperação de base de dados do site](/sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) no tópico cópia de segurança e recuperação para obter informações sobre como efetuar este procedimento.
 
--   Esta versão não suporta a ativação pós-falha para utilizar a réplica de consolidação assíncrona como a base de dados do site.
+## <a name="improvements-for-sql-server-always-on-availability-groups"></a>Улучшения прослушивателя групп доступности SQL Server AlwaysOn  
+В этом выпуске теперь можно использовать реплики с асинхронной фиксацией в группах доступности SQL Server AlwaysOn, которые используются с Configuration Manager.  Это позволяет добавлять дополнительные реплики в группы доступности и использовать их в качестве удаленных (вынесенных за пределы сети) резервных копий, которые могут пригодиться для аварийного восстановления.  
+
+-   Configuration Manager поддерживает использование реплик с асинхронной фиксацией для восстановления синхронных реплик.  Сведения о том, как это сделать, см. в описании [параметров восстановления базы данных сайта](/sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption) в статье о резервном копировании и восстановлении.
+
+-   Этот выпуск не поддерживает использование реплики с асинхронной фиксацией в качестве базы данных сайта при отработке отказа.
 > [!CAUTION]  
-> Porque o Configuration Manager não valide o estado da réplica de consolidação assíncrona para confirmar a sua atual, e [por predefinição, este tipo uma réplica pode ser sincronizada](https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), utilização de uma réplica de consolidação assíncrona, como a base de dados do site pode colocar a integridade do seu site e os dados em risco.  
+> Так как Configuration Manager не проверяет состояние и актуальность реплики с асинхронной фиксацией, которая [в силу конструктивных особенностей может быть не синхронизирована](https://msdn.microsoft.com/library/ff877884(SQL.120).aspx(d=robot)#Availability%20Modes), использование такой реплики в качестве базы данных сайта может нарушить целостность сайта или данных.  
 
--   Pode utilizar o mesmo número e tipo de réplicas num grupo de disponibilidade como suportada pela versão do SQL Server que utilizar.   (Suporte anterior estava limitado a duas réplicas com consolidação síncrona.)
+-   Число и тип реплик, которые вы можете использовать в группе доступности, определяются характеристиками используемой версии SQL Server.   (Ранее ограничение составляло две реплики с синхронной фиксацией.)
 
-### <a name="configure-an-asynchronous-commit-replica"></a>Configurar uma réplica de consolidação assíncrona
-Para adicionar uma réplica assíncrona para uma [grupo de disponibilidade utilizar com o Configuration Manager](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database), não terá de executar os scripts de configuração necessários para configurar uma réplica síncrona. (Isto acontece porque não são suportadas para utilizar essa réplica assíncrona como a base de dados do site.) Consulte [documentação do SQL Server](https://msdn.microsoft.com/library/hh213247(v=sql.120).aspx(d=robot)) para obter informações sobre como adicionar réplicas secundárias para grupos de disponibilidade.
+### <a name="configure-an-asynchronous-commit-replica"></a>Настройка реплики с асинхронной фиксацией
+Чтобы добавить асинхронную реплику в [группу доступности, используемую с Configuration Manager](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database), не нужно выполнять скрипты конфигурации, которые необходимы для настройки синхронной реплики. (Это связано с тем, что асинхронную реплику нельзя использовать в качестве базы данных сайта.) Инструкции по добавлению вторичных реплик в группы доступности см. в [документации по SQL Server](https://msdn.microsoft.com/library/hh213247(v=sql.120).aspx(d=robot)).
 
-### <a name="use-the-asynchronous-replica-to-recover-your-site"></a>Utilizar a réplica assíncrona para recuperar o site
-Antes de utilizar uma réplica assíncrona para recuperar a base de dados do site, tem de parar o site primário Active Directory para impedir que escritas adicionais para a base de dados do site. Depois de parar o site, pode utilizar uma réplica assíncrona em vez de utilizar um [base de dados recuperada manualmente](/sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption).
+### <a name="use-the-asynchronous-replica-to-recover-your-site"></a>Использование асинхронных реплик для восстановления сайта
+Прежде чем использовать асинхронную реплику для восстановления базы данных сайта, необходимо остановить работу первичного сайта, чтобы предотвратить выполнение дополнительных операций записи в базу данных сайта. После остановки сайта вы можете применить асинхронную реплику вместо [вручную восстановленной базы данных](/sccm/protect/understand/backup-and-recovery#BKMK_SiteDatabaseRecoveryOption).
 
-Para parar o site, pode utilizar o [ferramenta manutenção da hierarquia](/sccm/core/servers/manage/hierarchy-maintenance-tool-preinst.exe) parar os serviços de chaves no servidor do site. Utilize a linha de comandos: **Preinst.exe /stopsite**   
+Чтобы остановить сайт, можно остановить ключевые службы на сервере сайта с помощью [средства обслуживания иерархии](/sccm/core/servers/manage/hierarchy-maintenance-tool-preinst.exe). Используйте такую командную строку: **Preinst.exe /stopsite**.   
 
-Parar o site é equivalente ao parar o serviço do Gestor de componentes do Site (sitecomp) seguido pelo serviço do SMS_Executive, no servidor do site.
+Для остановки сайта нужно остановить на сервере сайта службу диспетчера компонентов сайта (sitecomp), а затем службу SMS_Executive.
 
 > [!TIP]  
-> Se utilizar uma réplica primária passiva (introduzidas nesta pré-visualização técnica como [disponibilidade elevada da função de servidor do Site](#site-server-role-high-availability)), não terá de parar a réplica passiva. Tem de ser parado apenas o site primário Active Directory.
+> Если вы используете первичную пассивную реплику (которая появилась в этой версии Technical Preview в качестве [роли сервера сайта с высоким уровнем доступности](#site-server-role-high-availability)), такую реплику останавливать не нужно. Достаточно остановить активный первичный сайт.
 
 
 
-## <a name="improved-user-notifications-for-office-365-updates"></a>Melhorado notificações de utilizador para atualizações do Office 365
-Foram efetuados melhoramentos ao tirar partido a experiência de utilizador do Office Clique para execução quando um cliente instala uma atualização do Office 365. Isto inclui uma experiência de contagem decrescente e notificações de pop-up e na aplicação. Antes desta versão, quando uma atualização do Office 365 foi enviada para um cliente, as aplicações do Office que tiverem sido abertas foram fechadas automaticamente sem aviso. Depois desta atualização, aplicações do Office serão já não é possível fechar inesperadamente.
+## <a name="improved-user-notifications-for-office-365-updates"></a>Улучшенные уведомления пользователя об обновлениях Office 365
+Внесены улучшения, позволяющие использовать технологию Office "нажми и работай" при установке обновлений клиента Office 365. Сюда входят всплывающие элементы, уведомления в приложении и обратный отсчет времени. В предыдущих версиях при отправке клиенту обновлений Office 365 все открытые приложения Office закрывались автоматически и без предупреждения. После этого обновления приложения Office перестанут закрываться неожиданно.
 
-### <a name="prerequisites"></a>Pré-requisitos
-Esta atualização aplica-se aos clientes do Office 365 ProPlus.
+### <a name="prerequisites"></a>Предварительные требования
+Это обновление предназначено для клиентов Office 365 профессиональный плюс.
 
-### <a name="known-issues"></a>Problemas conhecidos
-Quando um cliente avalia uma atribuição de atualizações para a primeira vez e a atualização possui um prazo agendado no passado, agendada imediatamente ou agendada dentro de 30 minutos do Office 365, a experiência de utilizador do Office 365 pode ser inconsistente. Por exemplo, o cliente pode receber uma caixa de diálogo de contagem decrescente até 30 minutos para a atualização, mas foi possível iniciar a imposição real antes do fim de contagem decrescente. Para evitar este comportamento, considere o seguinte:
-- Implemente a atualização do Office 365 com um prazo que esteja agendada para mais de 60 minutos antes do tempo atual.
-- Configurar uma janela de manutenção durante horas na coleção ou configurar um período de tolerância de imposição na implementação.
+### <a name="known-issues"></a>Известные проблемы
+Клиент может в первый раз оценивать назначенное обновление Office 365, для которого установлено одно из следующих значений срока обновления: в прошедшее время, немедленное выполнение или выполнение через 30 минут. В этом случае взаимодействие с пользователем Office 365 может оказаться несогласованным. Например, за 30 минут до обновления появится диалоговое окно с обратным отсчетом, но фактическое начало обновления произойдет до завершения обратного отсчета. Чтобы избежать подобной реакции на события, учтите следующие рекомендации.
+- Разворачивайте обновления Office 365 с крайним сроком не менее 60 минут от текущего момента.
+- Настройте период обслуживания для коллекции на нерабочее время или предоставьте льготный период принудительного применения для развертывания.
 
-### <a name="try-it-out"></a>Experimente!
-Experimente concluir as seguintes tarefas e, em seguida, envie-nos **comentários** do **home page** separador do friso para nos informar como correu:
-- Implemente um cliente de uma atualização do Office 365 com um prazo definido para um período de tempo, pelo menos, 60 minutos antes do tempo atual. Observe o comportamento de novo no cliente.
-
-
-## <a name="configure-and-deploy-windows-defender-application-guard-policies"></a>Configurar e implementar políticas de proteção de aplicações do Windows Defender
-
-[Proteção de aplicações do Windows Defender](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) é uma nova funcionalidade do Windows que ajuda a proteger os seus utilizadores abrindo não fidedignos web sites num contentor isolado seguro que não pode ser acedido por outras partes do sistema operativo. Esta pré-visualização técnica, adicionámos suporte para configurar esta funcionalidade utilizando as definições de compatibilidade do Configuration Manager que configurar e, em seguida, implementar numa coleção.
-Esta funcionalidade será lançada em pré-visualização para a versão de 64 bits da atualização do Windows 10 Creator (nome: RS2). Para testar esta funcionalidade agora, tem de utilizar uma versão de pré-visualização desta atualização.
+### <a name="try-it-out"></a>Попробуйте!
+Попробуйте выполнить следующие задачи, а затем отправьте нам **отзыв** с помощью вкладки на ленте **Главная**, чтобы сообщить о результатах.
+- Разверните для клиента обновление Office 365 с крайним сроком не менее чем через 60 минут от текущего момента. Отследите выполнение на клиенте.
 
 
-### <a name="before-you-start"></a>Antes de começar
+## <a name="configure-and-deploy-windows-defender-application-guard-policies"></a>Настройка и развертывание политик Application Guard в Защитнике Windows
 
-Para criar e implementar políticas de proteção de aplicações do Windows Defender, os dispositivos Windows 10 nos quais implementou a política tem de ser configurados com uma política de isolamento de rede. Para obter mais detalhes, consulte o blogue post referenciado mais tarde.
-Esta capacidade funciona apenas com atuais compilações do Windows 10 internas. Para testar, os clientes tem de executar um recente Windows 10 Insider criar.
-
-### <a name="try-it-out"></a>Experimente!
-
-Certifique-se de que leu a mensagem de blogue para compreender as noções básicas sobre proteção de aplicações do Windows Defender.
-
-Para criar uma política e, para procurar as definições disponíveis:
-
-1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade**.
-2.  No **ativos e compatibilidade** área de trabalho, escolha **descrição geral** > **Endpoint Protection** > **Guard de aplicação do Windows Defender**.
-3.  No **home page** separador o **criar** , clique em **criar Windows Defender Guard política aplicações**.
-4.  Utilizar a mensagem de blogue como uma referência, pode procurar e configurar as definições disponíveis para experimentar a funcionalidade.
-5.  Quando tiver terminado, conclua o assistente e implementar a política para um ou mais dispositivos do Windows 10.
-
-### <a name="further-reading"></a>Ler mais
-
-Para ler mais informações sobre proteção de aplicações do Windows Defender, consulte [esta mensagem de blogue]( https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#BmJGKPfSjHHzsMmI.97).
-Além disso, para saber mais sobre o modo autónomo de proteção de aplicações do Windows Defender, consulte o artigo [esta mensagem de blogue](https://techcommunity.microsoft.com/t5/Windows-Insider-Program/Windows-Defender-Application-Guard-Standalone-mode/td-p/66903).
+[Application Guard в Защитнике Windows](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) — это новая функция Windows, которая помогает защитить пользователей, открывая ненадежные веб-узлы в безопасном изолированном контейнере, который никак не взаимодействует с другими частями операционной системы. В этом выпуске Technical Preview мы добавили возможность настроить эту функцию с помощью параметров соответствия Configuration Manager. Вы можете настроить их и развернуть в коллекции.
+Эта функция будет выпущена в предварительной версии для 64-разрядной версии Windows 10 Creator (кодовое имя RS2). Чтобы проверить ее в работе, необходимо использовать предварительную версию этого обновления.
 
 
+### <a name="before-you-start"></a>Перед началом работы
+
+Чтобы создавать и развертывать политики Application Guard в Защитнике Windows, для соответствующих устройств Windows 10 должны быть настроены политики сетевой изоляции. Дополнительные сведения см. в упомянутой ниже записи блога.
+Эта возможность поддерживается только в текущих сборках Windows 10 Insider. Чтобы проверить ее работу, на клиентах должна быть запущена последняя сборка Windows 10 Insider.
+
+### <a name="try-it-out"></a>Попробуйте!
+
+Обязательно прочитайте эту запись блога, чтобы понять принцип работы Application Guard в Защитнике Windows.
+
+Чтобы создать политику и просмотреть доступные параметры, сделайте следующее.
+
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.
+2.  В рабочей области **Активы и соответствие** выберите пункты **Обзор** > **Endpoint Protection** > **Application Guard в Защитнике Windows**.
+3.  На вкладке **Главная** в группе **Создать** щелкните **Создать политику Application Guard в Защитнике Windows**.
+4.  Вы можете просмотреть и настроить доступные параметры, а также испытать функцию в работе, используя запись блога в качестве инструкции.
+5.  Когда вы закончите настройку, завершите работу мастера и разверните политику на одном или нескольких устройствах Windows 10.
+
+### <a name="further-reading"></a>Дополнительные сведения
+
+Дополнительные сведения об Application Guard в Защитника Windows см. в [этой записи блога]( https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#BmJGKPfSjHHzsMmI.97).
+Кроме того, в [этой записи блога](https://techcommunity.microsoft.com/t5/Windows-Insider-Program/Windows-Defender-Application-Guard-Standalone-mode/td-p/66903) см. дополнительные сведения об изолированном режиме Application Guard в Защитнике Windows.
 
 
-## <a name="new-capabilities-for-azure-ad-and-cloud-management"></a>Novas funcionalidades para o Azure AD e gestão de nuvem
-
-Nesta versão, pode configurar os serviços de nuvem para utilizar o Azure AD para suportar o seguinte cenário:
-
-- Instalar o cliente do Configuration Manager a partir da internet e que o atribua a um site do Configuration Manager manualmente.
-- Utilize o Intune para implementar o cliente do Configuration Manager para dispositivos na internet.
-
-### <a name="advantages"></a>Vantagens
-
-Utilizar serviços em nuvem e do Azure AD remove a necessidade de utilizar certificados de autenticação de cliente.
-
-Pode detetar os utilizadores do Azure AD para o site para utilizar em coleções e outras operações do Configuration Manager.
-
-### <a name="before-you-start"></a>Antes de começar
-
-- Tem de ter um inquilino do Azure AD.
-- Os seus dispositivos tem de executar o Windows 10 e ser do Azure AD associado.  Os clientes também podem ser associado a um além para o Azure AD associada ao domínio).
-- Para além de [pré-requisitos existentes](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) para função de sistema de sites do ponto de gestão, deve adicionalmente garantir que **ASP.NET 4.5** (e quaisquer outras opções selecionadas automaticamente com esta) estão ativados no computador que aloja esta função de sistema de sites.
-- Para utilizar o Microsoft Intune para implementar o cliente do Configuration Manager:
-    - Tem de ter um inquilino do Intune (Configuration Manager e efetue Intune não devem estar ligados).
-    - No Intune, tem de criar e implementar uma aplicação que contém o cliente do Configuration Manager. Para obter mais informações sobre como fazê-lo, consulte como instalar clientes em dispositivos Windows geridos por MDM do Intune.
-- Para utilizar o Configuration Manager para implementar o cliente:
-    - Pelo menos um ponto de gestão tem de ser configurado para o modo HTTPS.
-    - Tem de configurar um Gateway de gestão de nuvem.
 
 
-### <a name="set-up-the-cloud-management-gateway"></a>Configurar o Gateway de gestão de nuvem
+## <a name="new-capabilities-for-azure-ad-and-cloud-management"></a>Новые возможности Azure AD и управления в облаке
 
-Configure o Gateway de gestão de nuvem para permitir que os clientes aceder ao site do Configuration Manager através da internet sem utilizar certificados.
+Этот выпуск позволяет настраивать облачные службы для использования Azure AD, то есть поддерживает следующий сценарий.
 
-Encontrará ajuda sobre como fazê-lo nos seguintes tópicos:
+- Вы можете вручную установить из Интернета клиент Configuration Manager и присвоить его сайту Configuration Manager.
+- Затем с помощью Intune клиент Configuration Manager можно развернуть на устройствах через Интернет.
 
-- [Planear para o gateway de gestão de nuvem no Configuration Manager](/sccm/core/clients/manage/plan-cloud-management-gateway).
-- [Configurar o gateway de gestão de nuvem para o Configuration Manager](/sccm/core/clients/manage/setup-cloud-management-gateway).
-- [Gateway de gestão de nuvem de monitor no Configuration Manager](/sccm/core/clients/manage/monitor-clients-cloud-management-gateway).
+### <a name="advantages"></a>Преимущества
 
-### <a name="set-up-the-azure-services-app-in-configuration-manager-cloud-services"></a>Configurar a aplicação de serviços do Azure nos serviços de nuvem do Configuration Manager
+Использование облачных служб и Azure AD позволяет обойтись без сертификатов проверки подлинности клиента.
 
-Esta ação liga o site do Configuration Manager para o Azure AD e é um pré-requisito para todas as outras operações nesta secção. Para efetuar este procedimento:
+Вы можете выполнить обнаружение пользователей Azure AD на сайте, чтобы включать их в коллекции и другие операции Configuration Manager.
 
-1.  No **administração** área de trabalho da consola do Configuration Manager, expanda **serviços em nuvem**e, em seguida, clique em **serviços do Azure**.
-2.  No **home page** separador o **serviços do Azure** , clique em **configurar os serviços do Azure**.
-3.  No **serviços do Azure** página do Assistente de serviços do Azure, selecione **gestão de nuvem** para permitir que os clientes autenticar com a hierarquia de utilizar o Azure AD.
-4.  No **geral** página do assistente, especifique um nome e uma descrição para o serviço do Azure.
-5.  No **aplicação** página do assistente, selecione o seu ambiente do Azure da lista e clique em **procurar** para selecionar as aplicações de servidor e cliente que serão utilizadas para configurar o serviço do Azure:
-    - No **aplicação Server** janela, selecione a aplicação de servidor que pretende utilizar e, em seguida, clique em **OK**. Aplicações de servidor são as aplicações web do Azure que contêm as configurações para a sua conta do Azure, incluindo o ID de inquilino, ID de cliente e uma chave secreta para clientes. Se não tiver uma aplicação de servidor disponível, utilize um dos seguintes:
-        - **Criar**: Para criar uma nova aplicação de servidor, clique em **criar**. Forneça um nome amigável para a aplicação e de inquilino. Em seguida, depois, inicie sessão no Azure, o Configuration Manager cria a aplicação web no Azure para si, incluindo o ID de cliente e a chave secreta para utilização com a aplicação web. Mais tarde, pode ver estes do portal do Azure.
-        - **Importar**: Para utilizar uma aplicação web que já existe na sua subscrição do Azure, clique em **importação**. Forneça um nome amigável para a aplicação e de inquilino e, em seguida, especifique o ID do inquilino, ID de cliente e a chave secreta para a aplicação web do Azure que pretende utilizar o Configuration Manager. Depois de verificar as informações, clique em **OK** para continuar. Este opton não está atualmente disponível nesta pré-visualização técnica.
-    - Repita o mesmo processo para a aplicação de cliente.
+### <a name="before-you-start"></a>Перед началом работы
 
-  Tem de conceder a *ler os dados de diretório* permissão de aplicação ao utilizar a importação de aplicação, para definir as permissões corretas no portal. Se utilizar a criação da aplicação as permissões são automaticamente criadas com a aplicação, mas ainda tem de dar consentimento para a aplicação no portal do Azure.
-6.  No **deteção** página do assistente, opcionalmente **ativar o Azure Active Directory deteção de utilizadores**e, em seguida, clique em **definições**.
-No **definições de deteção de utilizador do Azure AD** diálogo caixa, configure uma agenda para quando ocorre a deteção. Também pode ativar a deteção de diferenças que verifica a existência de apenas novos ou alterados contas no Azure AD.
-7.  Conclua o assistente.
-
-Neste momento, ligou-se o site do Configuration Manager para o Azure AD.
+- Вам потребуется клиент Azure AD.
+- Устройства должны работать под управлением Windows 10 и быть присоединены к Azure AD.  Клиенты могут быть присоединены не только к Azure AD, но и к домену.
+- Кроме [обязательных требований](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) для роли системы сайта точки управления, на соответствующем компьютере нужно включить **ASP.NET 4.5** (и другие компоненты, которые автоматически выбираются вместе с этим).
+- Предварительные условия для развертывания клиента Configuration Manager с помощью Microsoft Intune:
+    - Необходим работающий клиент Intune (подключение Configuration Manager к Intune не требуется).
+    - В Intune вы должны создать и развернуть приложение, содержащее клиент Configuration Manager. См. дополнительные сведения об установке клиентов на устройствах Windows под управлением Intune MDM.
+- Предварительные условия для развертывания клиента с помощью Configuration Manager:
+    - Должна быть настроена по крайней мере одна точка управления в режиме HTTPS.
+    - Должен быть настроен шлюз управления облачными клиентами.
 
 
-### <a name="install-the-cm-client-from-the-internet"></a>Instalar o cliente CM a partir da Internet
+### <a name="set-up-the-cloud-management-gateway"></a>Настройка шлюза управления облачными клиентами
 
-Antes de começar, certifique-se de que os ficheiros de origem de instalação do cliente são armazenados localmente no dispositivo para o qual pretende instalar o cliente.
-Em seguida, utilize as instruções no [como implementar clientes em computadores Windows no System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#a-namebkmkmanuala-how-to-install-clients-manually) utilizando a seguinte linha de comandos de instalação (substituir os valores de exemplo com os seus próprios valores):
+Настройте шлюз управления облачными клиентами так, чтобы клиенты могли обращаться к сайту Configuration Manager из Интернета без использования сертификатов.
 
-**ccmsetup.exe /NoCrlCheck /Source:C:\CLIENT CCMHOSTNAME=SCCMPROXYCONTOSO.CLOUDAPP.NET/CCM_Proxy_ServerAuth/72457598037527932 SMSSiteCode = HEC AADTENANTID = 780433B5-E05E-4B7D-BFD1-E8013911E543 AADTENANTNAME = contoso AADCLIENTAPPID =<GUID> AADRESOURCEURI = https://contososerver**
+Дополнительные сведения см. в следующих ресурсах:
 
-- **/ /Nocrlcheck**: Se na nuvem ou ponto de gestão de gateway de gestão utiliza um certificado de servidor não público, em seguida, o cliente poderá não ser capaz de alcançar a localização da CRL.
-- **/ Origem**: Pasta local:   Localização dos ficheiros de instalação de cliente.
-- **CCMHOSTNAME**: O nome do seu ponto de gestão de Internet. Pode encontrá-lo executando **gwmi - espaço de nomes root\ccm\locationservices-classe SMS_ActiveMPCandidate** numa linha de comandos num cliente gerido.
-- **SMSMP**: O nome do seu ponto de gestão de pesquisa – Isto pode ser na sua intranet.
-- **SMSSiteCode**: O código do site do site do Configuration Manager.
-- **AADTENANTID**, **AADTENANTNAME**: O ID e nome do inquilino do Azure AD ligado para o Configuration Manager. Pode encontrar isto executando dsregcmd.exe /status numa linha de comandos num Azure AD associada ao dispositivo.
-- **AADCLIENTAPPID**: O ID de aplicação de cliente do Azure AD. Para ajudar a encontrar isto, consulte [portal de utilização para criar um Azure Active Directory principal de serviço e aplicação que pode aceder aos recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-application-id-and-authentication-key).
-- **AADResourceUri**: O identificador URI da aplicação de servidor integradas do Azure AD.
+- [Планирование работы шлюза управления облачными клиентами в Configuration Manager](/sccm/core/clients/manage/plan-cloud-management-gateway).
+- [Настройка шлюза управления облаком для Configuration Manager](/sccm/core/clients/manage/setup-cloud-management-gateway).
+- [Мониторинг шлюза управления облаком в Configuration Manager](/sccm/core/clients/manage/monitor-clients-cloud-management-gateway).
 
-## <a name="use-azure-services-wizard-to-configure-a-connection-to-oms"></a>Utilize o Assistente de serviços do Azure para configurar uma ligação à OMS
-Começando com a versão de pré-visualização técnica 1705, utilize o **Assistente de serviços do Azure** para configurar a ligação do Configuration Manager para o serviço de nuvem do Operations Management Suite (OMS). O assistente substitui o anteriores fluxos de trabalho para configurar esta ligação.
+### <a name="set-up-the-azure-services-app-in-configuration-manager-cloud-services"></a>Настройка приложения служб Azure в облачных службах Configuration Manager
 
--   O assistente é utilizado para configurar os serviços em nuvem para o Configuration Manager, como o OMS, a loja Windows para empresas (WSfB) e o Azure Active Directory (Azure AD).  
+Эта операция подключает сайт Configuration Manager к Azure AD, что является необходимым условием для всех остальных операций, описанных в этой статье. Для этого выполните следующие действия.
 
--   O Configuration Manager liga-se ao OMS para funcionalidades como [Log Analytics](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite), ou [atualizar preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics).
+1.  В рабочей области **Администрирование** консоли Configuration Manager разверните узел **Облачные службы** и щелкните **Службы Azure**.
+2.  На вкладке **Главная** в группе **Службы Azure** щелкните **Настроить службы Azure**.
+3.  На странице **Службы Azure** в мастере служб Azure выберите **Управление облаком**, чтобы разрешить клиентам выполнять аутентификацию в иерархии с помощью Azure AD.
+4.  На странице мастера **Общие** укажите имя и описание для службы Azure.
+5.  На странице мастера **Приложение** выберите в списке среду Azure и нажмите кнопку **Обзор**, чтобы выбрать серверные и клиентские приложения для настройки службы Azure:
+    - В окне **Server App** (Серверное приложение) выберите нужное серверное приложение и нажмите кнопку **ОК**. Серверные приложения — это веб-приложения Azure, содержащие конфигурации для вашей учетной записи Azure, включая идентификаторы клиента и секретный ключ для клиентов. Если у вас нет серверного приложения, используйте одну из следующих функций:
+        - **Создать**: чтобы создать серверное приложение, щелкните **Создать**. Укажите понятное имя для приложения и клиента. После вашего входа в Azure средство Configuration Manager создает веб-приложение, включая нужный идентификатор клиента и секретный ключ. Позже вы можете просмотреть их на портале Azure.
+        - **Импорт**: чтобы использовать веб-приложение, которое уже существует в вашей подписке Azure, щелкните **Импорт**. Введите понятное имя для приложения и клиента, а затем укажите идентификаторы клиента и секретный ключ для веб-приложения Azure, которые должен использовать Configuration Manager. Проверьте всю информацию и нажмите кнопку **ОК**, чтобы продолжить. Эта возможность пока недоступна в текущей версии Technical Preview.
+    - Повторите этот процесс для клиентского приложения.
 
-### <a name="prerequisites-for-the-oms-connector"></a>Pré-requisitos para o conector do OMS
-Pré-requisitos para configurar uma ligação ao OMS são iguais às [documentados para a versão do ramo atual 1702](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#prerequisites). Essas informações são repetidas aqui:  
+  Если вы используете операцию импорта приложения, чтобы настроить на портале необходимые разрешения, нужно предоставить приложению разрешения *на чтение данных каталога*. Если вы используете операцию создания приложения, все разрешения для приложения создаются автоматически, но вам нужно подтвердить на портале Azure согласие для приложения.
+6.  На странице мастера **Обнаружение** при желании вы можете **включить обнаружение пользователей Azure Active Directory**. Затем щелкните **Параметры**.
+В диалоговом окне **Параметры обнаружения пользователей Azure AD** настройте расписание для обнаружения. Также можно включить обнаружение изменений, при котором проверяется только наличие новых или измененных учетных записей в Azure AD.
+7.  Завершите работу мастера.
 
--   Conceder permissão de Gestor de configuração à OMS.
+Итак, вы подключили сайт Configuration Manager к Azure AD.
 
--   O conector do OMS tem de estar instalado no computador que aloja um [ponto de ligação de serviço](/sccm/core/servers/deploy/configure/about-the-service-connection-point) que está a ser [modo online](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation).
 
--   Tem de instalar um agente de monitorização da Microsoft para OMS instalado no ponto de ligação de serviço juntamente com o conector do OMS. O agente e o conector do OMS tem de ser configurados para utilizar o mesmo **área de trabalho OMS**. Para instalar o agente, consulte [transferir e instalar o agente](/azure/log-analytics/log-analytics-sccm#download-and-install-the-agent) na documentação do OMS.
--   Depois de instalar o conector e o agente, tem de configurar o OMS para utilizar os dados do Configuration Manager. Para tal, no Portal do OMS, [Gestor de configuração importar coleções](/azure/log-analytics/log-analytics-sccm#import-collections).
+### <a name="install-the-cm-client-from-the-internet"></a>Установка клиента CM из Интернета
 
-### <a name="use-the-azure-services-wizard-to-configure-the-connection-to-oms"></a>Utilize o Assistente de serviços do Azure para configurar a ligação ao OMS
+Перед началом этой операции убедитесь, что исходные установочные файлы клиента хранятся локально на том устройстве, на котором вы хотите установить клиент.
+Следуйте инструкциям в из статьи [Развертывание клиентов на компьютерах Windows в System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#a-namebkmkmanuala-how-to-install-clients-manually), выполнив следующую командную строку установки (замените приведенные в примере значения собственными):
 
-1.  Na consola, aceda a **administração** > **descrição geral** > **serviços em nuvem** > **serviços do Azure**e, em seguida, escolha **configurar os serviços do Azure** do **home page** separador do Friso, para iniciar o **Assistente de serviços do Azure**.
+**ccmsetup.exe /NoCrlCheck /Source:C:\CLIENT  CCMHOSTNAME=SCCMPROXYCONTOSO.CLOUDAPP.NET/CCM_Proxy_ServerAuth/72457598037527932 SMSSiteCode=HEC AADTENANTID=780433B5-E05E-4B7D-BFD1-E8013911E543 AADTENANTNAME=contoso  AADCLIENTAPPID=<GUID> AADRESOURCEURI=https://contososerver**
 
-2.  No **serviços do Azure** página, selecione o serviço de nuvem operação Management Suite. Forneça um nome amigável para o **nome do serviço do Azure** e uma descrição opcional e, em seguida, clique em **seguinte**.
+- **/NoCrlCheck**. Если точка управления или шлюз управления облаком использует сертификат сервера, не являющийся открытым, возможно, клиент не сможет обратиться к списку отзыва сертификатов.
+- **/Source**. Это расположение (локальная папка) файлов установки на клиенте.
+- **CCMHOSTNAME**. Имя точки управления, доступной в Интернете. Чтобы получить это имя, выполните команду **gwmi -namespace root\ccm\locationservices -class SMS_ActiveMPCandidate** из командной строки на управляемом клиенте.
+- **SMSMP**. Имя точки управления подстановки, которая может располагаться в интрасети.
+- **SMSSiteCode**. Код сайта для нужного сайта Configuration Manager.
+- **AADTENANTID** и **AADTENANTNAME**. Идентификатор и имя клиента Azure AD, связанного с Configuration Manager. Чтобы узнать эти параметры, запустите команду dsregcmd.exe /status из командной строки на устройстве, подключенном к Azure AD.
+- **AADCLIENTAPPID**. Идентификатор клиентского приложения Azure AD. См. дополнительные сведения о [создании приложения Azure Active Directory и субъекта-службы с доступом к ресурсам с помощью портала](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-application-id-and-authentication-key).
+- **AADResourceUri**. Идентификатор URI подключенного серверного приложения Azure AD.
 
-3.  No **aplicação** página, especifique o seu ambiente do Azure (technical preview suporta apenas na nuvem pública). Em seguida, clique em **procurar** para abrir a janela de aplicação de servidor.
+## <a name="use-azure-services-wizard-to-configure-a-connection-to-oms"></a>Использование мастера служб Azure для настройки подключения к OMS
+Начиная с версии Technical Preview 1705 вы можете использовать **мастер служб Azure** для настройки подключения Configuration Manager к облачной службе Operations Management Suite (OMS). Мастер заменяет собой все рабочие процессы, которые раньше использовались для настройки этого подключения.
 
-4.  Selecione uma aplicação web:
+-   Мастер позволяет настраивать облачные службы для Configuration Manager, например OMS, Магазин Windows для бизнеса и Azure Active Directory.  
 
-    -   **Importar**: Para utilizar uma aplicação web que já existe na sua subscrição do Azure, clique em **importação**. Forneça um nome amigável para a aplicação e de inquilino e, em seguida, especifique o ID do inquilino, ID de cliente e a chave secreta para a aplicação web do Azure que pretende utilizar o Configuration Manager. Depois de **verifique** informações, clique em **OK** para continuar.   
+-   Configuration Manager использует такие функции OMS, как [Log Analytics](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) и [Проверка готовности к обновлению](/sccm/core/clients/manage/upgrade/upgrade-analytics).
+
+### <a name="prerequisites-for-the-oms-connector"></a>Предварительные требования для использования соединителя OMS
+Предварительные требования для настройки подключения к OMS не отличаются от тех, которые [описаны для версии Current Branch 1702](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#prerequisites). Здесь мы перечислим их снова.  
+
+-   Предоставление Configuration Manager разрешений в OMS.
+
+-   Соединитель OMS следует устанавливать на компьютере, на котором размещается [точка подключения службы](/sccm/core/servers/deploy/configure/about-the-service-connection-point) в [оперативном режиме](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation).
+
+-   Вместе с соединителем OMS в точке подключения службы необходимо установить Microsoft Monitoring Agent для OMS. Агент мониторинга и соединитель OMS должны быть настроены на использование одной **рабочей области OMS**. Процесс установки агента описан в разделе [Загрузка и установка агента](/azure/log-analytics/log-analytics-sccm#download-and-install-the-agent) документации OMS.
+-   Когда вы завершите установку соединителя и агента, следует настроить OMS для использования данных Configuration Manager. Для этого [импортируйте коллекции Configuration Manager](/azure/log-analytics/log-analytics-sccm#import-collections) на портале OMS.
+
+### <a name="use-the-azure-services-wizard-to-configure-the-connection-to-oms"></a>Использование мастера служб Azure для настройки подключения к OMS
+
+1.  В консоли последовательно выберите **Администрирование** > **Обзор** > **Облачные службы** > **Службы Azure** и щелкните **Настроить службы Azure** на вкладке ленты **Главная**, чтобы запустить **Мастер служб Azure**.
+
+2.  На странице **Службы Azure** выберите облачную службу Operation Management Suite. Введите понятное имя в поле **Имя службы Azure** и необязательное описание, а затем нажмите кнопку **Далее**.
+
+3.  На странице **Приложение** укажите среду Azure (ознакомительная техническая версия поддерживает только общедоступное облако). Нажмите кнопку **Обзор**, чтобы открыть окно приложения сервера.
+
+4.  Выберите веб-приложение.
+
+    -   **Импорт**: чтобы использовать веб-приложение, которое уже существует в вашей подписке Azure, щелкните **Импорт**. Введите понятное имя для приложения и клиента, а затем укажите идентификаторы клиента и секретный ключ для веб-приложения Azure, которые должен использовать Configuration Manager. **Проверив** сведения, нажмите кнопку **ОК** для продолжения.   
 
     > [!NOTE]   
-    > Quando configura o OMS com esta pré-visualização, OMS só suporta o *importar* função para uma aplicação web. Criar uma nova aplicação web não é suportada. Da mesma forma, não é possível reutilizar uma aplicação existente para OMS.
+    > Когда вы настраиваете OMS в этой предварительной версии, OMS поддерживает для веб-приложения только функцию *Импорт*. Создание веб-приложений не поддерживается. Также вы не сможете использовать для OMS уже существующие приложения.
 
-5.  Se lhe conseguido todos os outros procedimentos com êxito, em seguida, as informações no **configuração da ligação OMS** ecrã serão apresentadas automaticamente nesta página. As informações para as definições de ligação devem aparecer para sua **subscrição do Azure**, **grupo de recursos do Azure**, e **área de trabalho do Operations Management Suite**.
+5.  Когда вы выполните все процедуры, на этой странице автоматически отобразятся все сведения из раздела **Настройка подключения к OMS**. Здесь вы должны увидеть сведения о подключении для **подписки Azure**, **группы ресурсов Azure** и **рабочей области Operations Management Suite**.
 
-6.  O assistente liga ao serviço do OMS utilizando as informações que tenha de entrada. Selecione as coleções de dispositivos que pretende sincronizar com o OMS e, em seguida, clique em **adicionar**.
+6.  Мастер подключится к службе OMS, используя указанные вами сведения. Выберите коллекции устройств, которые хотите синхронизировать с OMS, и нажмите кнопку **добавить**.
 
-7.  Verifique as definições de ligação no **resumo** ecrã, em seguida, selecione **seguinte**. O **progresso** ecrã mostra o estado da ligação, em seguida, deve **concluída**.
+7.  Проверьте параметры подключения на экране **Сводка**, а затем выберите **Далее**. На экране **Выполняется** отобразится состояние подключения, которое затем изменится на **Завершено**.
 
-8.  Depois de concluir o assistente, a consola do Configuration Manager mostra que configurou **operação Management Suite** como um **o tipo de serviço de nuvem**.
+8.  Когда мастер завершит работу, в консоли Configuration Manager будет указано, что вы настроили **Operation Management Suite** как **Тип облачной службы**.

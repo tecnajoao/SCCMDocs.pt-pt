@@ -1,6 +1,6 @@
 ---
-title: "Interoperabilidade entre versões do Configuration Manager | Microsoft Docs"
-description: "Saiba como evitar conflitos entre várias hierarquias do System Center Configuration Manager na mesma rede."
+title: "Взаимодействие различных версий Configuration Manager | Документация Майкрософт"
+description: "Узнайте, как избежать конфликтов между несколькими иерархиями в одной сети System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/30/2017
 ms.prod: configuration-manager
@@ -16,70 +16,70 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 28593d271603ff9775425327996d844d7ed358cd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="interoperability-between-different-versions-of-system-center-configuration-manager"></a>Interoperabilidade entre diferentes versões do System Center Configuration Manager
+# <a name="interoperability-between-different-versions-of-system-center-configuration-manager"></a>Взаимодействие различных версий System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode instalar e operar, várias hierarquias independentes do System Center Configuration Manager, na mesma rede. No entanto, porque hierarquias diferentes do Configuration Manager não interagir fora do processo de migração, cada hierarquia necessita de configurações para impedir conflitos entre as mesmas. Além disso, pode criar determinadas configurações para ajudar a recursos que gere interagem com os sistemas de sites da hierarquia correta.  
+Возможна установка и эксплуатация сразу нескольких независимых иерархий System Center Configuration Manager в одной сети. Но, так как разные иерархии Configuration Manager не взаимодействуют вне процесса миграции, для каждой иерархии необходимо создать конфигурации, предотвращающие конфликты между ними. Кроме того, можно создать разные конфигурации, чтобы облегчить взаимодействие управляемых вами ресурсов с системами сайтов из правильной иерархии.  
 
- As secções seguintes fornecem informações sobre a utilização de diferentes versões do Configuration Manager na mesma rede:  
+ Следующие разделы содержат сведения об использовании разных версий Configuration Manager в одной сети.  
 
--   [Interoperabilidade entre o System Center Configuration Manager e versões anteriores do produto](#BKMK_SupConfigInterop)  
+-   [Взаимодействие между System Center Configuration Manager и более ранними версиями продукта](#BKMK_SupConfigInterop)  
 
--   [Interoperabilidade para a Consola do Configuration Manager](#BKMK_ConsoleInterop)  
+-   [Взаимодействие с консолью Configuration Manager](#BKMK_ConsoleInterop)  
 
--   [Limitações do Configuration Manager numa hierarquia com várias versões](#bkmk_mixed)  
+-   [Ограничения возможностей Configuration Manager в иерархии со смешанными версиями](#bkmk_mixed)  
 
-##  <a name="BKMK_SupConfigInterop"></a> Interoperabilidade entre o System Center Configuration Manager e versões anteriores do produto  
- Sites de diferentes versões não podem coexistir na mesma hierarquia, exceto durante o processo de atualização do System Center 2012 Configuration Manager para o System Center Configuration Manager ou a partir de uma versão do System Center Configuration Manager para uma versão mais recente (utilizando as atualizações na consola).   
+##  <a name="BKMK_SupConfigInterop"></a> Взаимодействие между System Center Configuration Manager и более ранними версиями продукта  
+ Сайты разных версий не могут сосуществовать в одной иерархии за исключением процесса обновления с System Center 2012 Configuration Manager до System Center Configuration Manager или с какой-либо версии System Center Configuration Manager до более поздней версии (с помощью обновлений в консоли).   
 
- Uma vez que pode implementar um site do System Center Configuration Manager e a hierarquia do lado do lado a lado com um site existente do System Center 2012 Configuration Manager ou a hierarquia, recomendamos que planeie impedir que os clientes de uma das versões tentem aderir um site a partir de outra versão.
+ Так как иерархию и сайт System Center Configuration Manager можно развернуть параллельно с существующей иерархией или сайтом System Center 2012 Configuration Manager, рекомендуется предотвратить попытки клиентов любой из версий присоединиться к сайту другой версии.
 
-Por exemplo, se duas ou mais hierarquias do Configuration Manager tiverem sobreposição de limites (consulte [sobreposição de limites](/sccm/core/servers/deploy/configure/boundary-groups#overlapping-boundaries)) que incluam as mesmas localizações de rede, é uma melhor prática para atribuir cada novo cliente a um site específico em vez de utilizar a atribuição automática de site. Para obter informações sobre a atribuição automática de site no System Center 2012 Configuration Manager, consulte [como atribuir clientes a um site no System Center Configuration Manager](../../../core/clients/deploy/assign-clients-to-a-site.md).  
+Например, если две и больше иерархий Configuration Manager имеют перекрывающиеся границы (подробные сведения см. [здесь](/sccm/core/servers/deploy/configure/boundary-groups#overlapping-boundaries)), которые включают одни и те же сетевые расположения, каждый новый клиент лучше назначить конкретному сайту и не использовать автоматическое назначение сайта. Сведения об автоматическом назначении сайтов в System Center 2012 Configuration Manager см. в разделе [Назначение клиентов сайту в System Center Configuration Manager](../../../core/clients/deploy/assign-clients-to-a-site.md).  
 
- Além disso, não é possível instalar um cliente do System Center 2012 Configuration Manager num computador que aloje uma função de sistema de sites do System Center Configuration Manager, nem pode instalar um cliente do System Center Configuration Manager num computador que aloje uma função de sistema de site do System Center 2012 Configuration Manager.  
+ Кроме того, невозможность установить клиент из System Center 2012 Configuration Manager на компьютере, где размещается роль системы сайта из System Center Configuration Manager, или клиент System Center Configuration Manager на компьютере, где размещается роль системы сайта из System Center 2012 Configuration Manager.  
 
- Da mesma forma, os seguintes clientes e a seguinte ligação de rede privada Virtual (VPN) não são suportadas:  
+ Также не поддерживаются следующие клиенты и следующее VPN-подключение:  
 
--   Qualquer System Center 2012 Configuration Manager ou a versão anterior do cliente de computador  
+-   Все версии компьютерных клиентов не старше System Center 2012 Configuration Manager.  
 
--   Qualquer System Center 2012 Configuration Manager ou o cliente de gestão de dispositivos anterior  
+-   Все версии System Center 2012 Configuration Manager или более ранняя версия клиента управления устройством.  
 
--   Cliente de gestão de dispositivos para Windows CE Platform Builder (qualquer versão)  
+-   Клиент управления устройством Windows CE Platform Builder (любая версия).  
 
--   Ligação VPN do System Center Mobile Device Manager  
+-   VPN-подключение диспетчера мобильных устройств System Center.  
 
-###  <a name="BKMK_SupConfigSiteAssignment"></a> Considerações sobre a atribuição de sites a clientes  
- Os clientes do System Center Configuration Manager podem ser atribuídos a um único site primário. Quando a atribuição automática de sites é utilizada para atribuir clientes a um site durante a instalação do cliente e mais do que um grupo de limites incluir o mesmo limite, tendo os grupos de limites diferentes sites atribuídos, não é possível prever a verdadeira atribuição de site de um cliente.  
+###  <a name="BKMK_SupConfigSiteAssignment"></a> Рекомендации по назначению сайта клиента  
+ Клиенты System Center Configuration Manager могут назначаться только одному первичному сайту. Если для назначения клиентов сайту используется автоматическое назначение во время установки клиента, и одна и та же граница входит в несколько групп границ, а группам границ назначены разные сайты, фактическое назначение сайта для клиента предсказать невозможно.  
 
- Se existir sobreposição de limites em vários sites do Configuration Manager e hierarquias, os clientes poderão não ser atribuídos ao site esperado ou poderão não ser atribuídos a um site de todo.  
+ Если границы перекрываются в нескольких сайтах и иерархиях Configuration Manager, клиенты могут получить неправильное назначение сайту или вообще его не получить.  
 
- Os clientes do System Center Configuration Manager verificar a versão do site do Configuration Manager antes de concluir a atribuição de site e não pode ser atribuídos a uma versão anterior, quando e se existir sobreposição de limites de site. No entanto, as clientes do System Center 2012 Configuration Manager podem ser atribuídos incorretamente a um site do System Center Configuration Manager.  
+ Клиенты System Center Configuration Manager проверяют версию сайта Configuration Manager до завершения назначения сайта и в случае перекрывающихся границ не получают назначения предыдущей версии. Но клиенты System Center 2012 Configuration Manager могут быть неправильно назначены сайту System Center Configuration Manager.  
 
- Para impedir que os clientes atribuição não intencional para o site incorreto quando duas hierarquias tiverem sobreposição de limites, recomendamos que configure parâmetros de instalação de cliente do Configuration Manager para atribuir clientes a um site específico.  
+ Чтобы предотвратить случайное назначение клиентов сайту при наличии перекрывающихся границ двух иерархий, рекомендуется настроить параметры установки клиента Configuration Manager для назначения клиентам конкретного сайта.  
 
-##  <a name="bkmk_mixed"></a>Limitações do Configuration Manager numa hierarquia com várias versões  
- Quando estiver no processo de atualização de um site do System Center Configuration Manager, existem vezes quando diversos sites serão têm versões diferentes. Por exemplo, poderá atualizar um site de administração central para uma nova versão mas, devido a janelas de manutenção do site, um ou mais sites primários podem não atualizar até uma hora e data posterior.  
+##  <a name="bkmk_mixed"></a> Ограничения возможностей Configuration Manager в иерархии со смешанными версиями  
+ В процессе обновления сайта System Center Configuration Manager разные сайты могут находиться в различных версиях. Например, сайт центра администрирования может быть обновлен до новой версии, но из-за периодов обслуживания сайта один или несколько первичных сайтов могут не обновиться в течение какого-то времени.  
 
- Quando diversos sites de uma única hierarquia executam versões diferentes, algumas funcionalidades não se encontram disponíveis. Isto pode afetar o modo como gere objetos do Configuration Manager na consola do Configuration Manager e que funcionalidades estão disponíveis para os clientes. Normalmente, as funcionalidades da versão mais recente do Configuration Manager não está acessível em sites ou para clientes que executam uma versão inferior do service pack.  
+ Когда разные сайты в одной иерархии имеют различные версии, некоторые функциональные возможности становятся недоступными. Это может влиять на управление объектами Configuration Manager в консоли Configuration Manager и на доступные клиентам функциональные возможности. Обычно функциональные возможности более новой версии Configuration Manager недоступны на сайтах или в клиентах с предыдущими версиями пакетов обновления.  
 
-### <a name="limitations-when-upgrading--configuration-manager"></a>Limitações ao atualizar o Configuration Manager  
+### <a name="limitations-when-upgrading--configuration-manager"></a>Ограничения при обновлении Configuration Manager  
 
-|Objeto|Detalhes|  
+|Объект|Подробные сведения|  
 |------------|-------------|  
-|Conta de acesso à rede|**Quando efetuar a atualização do System Center 2012 Configuration Manager para o System Center Configuration Manager:** Ao visualizar os detalhes de conta de acesso à rede de uma consola do Configuration Manager que está ligada a um site de administração central que foi atualizado para o System Center Configuration Manager, a consola não apresenta detalhes de contas configuradas num site primário que executa o System Center 2012 Configuration Manager. Depois de atualizar o site primário para a mesma versão que o site de administração central, os detalhes da conta são visíveis na consola.<br /><br /> **Ao atualizar entre versões do System Center Configuration Manager:** Ao visualizar os detalhes de conta de acesso à rede de uma consola do Configuration Manager que está ligada a um site de administração central que foi atualizado para uma nova versão do System Center Configuration Manager, a consola não apresenta detalhes de contas configuradas num site primário que executa uma versão anterior. Depois de atualizar o site primário para a mesma versão que o site de administração central, os detalhes da conta são visíveis na consola.|  
-|Imagens de arranque para implementação de sistemas operativos|**Quando efetuar a atualização do System Center 2012 Configuration Manager para o System Center Configuration Manager:**  Quando o site de nível superior de uma hierarquia atualiza para o System Center Configuration Manager, as imagens de arranque predefinidas são automaticamente atualizadas para imagens com base no Windows Assessment and Deployment Kit 10 (Windows ADK) de arranque. Utilize estas imagens de arranque apenas para implementações em clientes localizados em sites do System Center Configuration Manager. Para obter mais informações, veja [Planear a interoperabilidade da implementação do sistema operativo no System Center Configuration Manager](../../../osd/plan-design/planning-for-operating-system-deployment-interoperability.md).<br /><br /> **Ao atualizar entre versões do System Center Configuration Manager:** Desde que novas versões do cm6long não atualizem a versão do Windows ADK, que está a ser utilizado, há sem qualquer efeito nas imagens de arranque.|  
-|Novos passos de sequência de tarefas|Quando cria uma sequência de tarefas com um passo introduzido numa versão do Configuration Manager que não está disponível numa versão anterior, podem ocorrer os seguintes problemas:<br /><br /> Ocorre um erro quando tenta editar a sequência de tarefas a partir de um site que está a executar uma versão anterior do Configuration Manager.<br /><br /> A sequência de tarefas não é executado num computador que executa uma versão anterior do cliente do Configuration Manager.|  
-|Cliente para comunicações de ponto de gestão de nível inferior|Um cliente de Configuration Manager que comunica com um ponto de gestão a partir de um site que executa uma versão inferior do cliente só pode utilizar a funcionalidade que suporta a versão de nível inferior do Configuration Manager. Por exemplo, se implementar conteúdo de um site do System Center Configuration Manager que foi atualizado recentemente para um cliente que comunica com um ponto de gestão que ainda não atualizado para essa versão, esse cliente não é possível utilizar novas funcionalidades da versão mais recente.|  
+|Учетная запись доступа к сети|**При обновлении System Center 2012 Configuration Manager до System Center Configuration Manager.** При использовании консоли Configuration Manager, подключенной к сайту центра администрирования, который был обновлен до System Center Configuration Manager, для просмотра учетной записи доступа к сети консоль не выводит сведения об учетных записях, настроенных на первичном сайте, где выполняется System Center 2012 Configuration Manager. После обновления первичного сайта до той же версии, которую имеет сайт центра администрирования, учетные данные будут отображаться в консоли.<br /><br /> **При обновлении версий System Center Configuration Manager.** При использовании консоли Configuration Manager, подключенной к сайту центра администрирования, который был обновлен до новой версии System Center Configuration Manager, для просмотра учетной записи доступа к сети консоль не выводит сведения об учетных записях, настроенных на первичном сайте, где выполняется предыдущая версия. После обновления первичного сайта до той же версии, которую имеет сайт центра администрирования, учетные данные будут отображаться в консоли.|  
+|Загрузочные образы для развертывания операционной системы|**При обновлении System Center 2012 Configuration Manager до System Center Configuration Manager.** При обновлении сайта верхнего уровня в иерархии до System Center Configuration Manager образы загрузки по умолчанию автоматически обновляются до образов загрузки на основе комплекта средств для развертывания и оценки Windows (Windows ADK 10). Используйте эти образы загрузки только для развертываний в клиентах на сайтах System Center Configuration Manager. Дополнительные сведения см. в разделе [Планирование взаимодействия для развертывания операционных систем в System Center Configuration Manager](../../../osd/plan-design/planning-for-operating-system-deployment-interoperability.md).<br /><br /> **При обновлении версий System Center Configuration Manager.** До появления новых версий cm6long не обновляйте используемую версию Windows ADK: это не повлияет на образы загрузки.|  
+|Новые шаги последовательности задач|При создании последовательности задач, содержащей шаг последовательности задач, представленный в одной версии Configuration Manager, но недоступный в более ранней версии, могут возникнуть перечисленные ниже проблемы.<br /><br /> Возникает ошибка при попытке изменить последовательность задач с сайта, на котором работает предыдущая версия Configuration Manager.<br /><br /> Последовательность задач не будет выполняться на компьютере, на котором запущена предыдущая версия клиента Configuration Manager.|  
+|Обмен данными между клиентом и точкой управления нижнего уровня|Клиент Configuration Manager, который обменивается данными с точкой управления на сайте с версией пакета обновления ниже, чем версия пакета обновления на клиенте, может использовать только функциональные возможности, поддерживаемые этой более низкой версией Configuration Manager. Например, при развертывании содержимого с недавно обновленного сайта System Center Configuration Manager на клиенте, который обменивается данными с точкой управления, которая еще не была обновлена до этой версии, этот клиент не может использовать новые функциональные возможности последней версии.|  
 
-##  <a name="BKMK_ConsoleInterop"></a>Interoperabilidade para a consola do Configuration Manager  
- A tabela seguinte contém informações sobre a utilização da consola do Configuration Manager num ambiente com várias versões do Configuration Manager.  
+##  <a name="BKMK_ConsoleInterop"></a> Взаимодействие с консолью Configuration Manager  
+ Приведенная ниже таблица содержит сведения об использовании консоли Configuration Manager в среде с различными версиями Configuration Manager.  
 
-|Ambiente de interoperabilidade|Mais informações|  
+|Среда взаимодействия|Дополнительные сведения|  
 |----------------------------------|----------------------|  
-|Um ambiente com o System Center 2012 Configuration Manager e o System Center Configuration Manager|Para gerir um site do Configuration Manager, a consola e o site, que a consola liga tem de executar a mesma versão do Configuration Manager. Por exemplo, não é possível utilizar uma consola do System Center 2012 Configuration Manager para gerir um site do System Center Configuration Manager, ou vice versa.<br /><br /> Não é suportada para instalar a consola do System Center 2012 Configuration Manager e a consola do System Center Configuration Manager no mesmo computador.|  
-|Um ambiente com múltiplas versões do System Center Configuration Manager|System Center Configuration Manager não suporta a instalação de mais do que uma única consola do Configuration Manager num computador. Para utilizar várias consolas específicas de versões diferentes do System Center Configuration Manager, tem de instalar as consolas diferentes em computadores separados.<br /><br /> Durante o processo de atualização de sites numa hierarquia para uma nova versão, pode ligar uma consola a um site que executa uma versão mais recente e visualizar informações sobre outros sites dessa hierarquia. No entanto, esta configuração não é recomendada, pois é possível que as diferenças entre a versão da consola e versão do site do Configuration Manager podem originar problemas de dados de e algumas funcionalidades que estão disponíveis na versão mais recente do produto não estarão disponíveis na consola do. <br /></br / > não é suportada para gerir um site quando utiliza uma consola com uma versão que não corresponde à versão do site. Se o fizer, poderá causar perda de dados e pode colocar o seu site em risco. Por exemplo, não é suportado para utilizar uma consola de versão 1610 para gerir um site que executa a versão 1606. |
+|Среда, в которой используются обе версии: System Center 2012 Configuration Manager и System Center Configuration Manager|Для управления сайтом Configuration Manager как консоль, так и сайт, к которому подключается консоль, должны использовать одну и ту же версию Configuration Manager. Например, консоль System Center 2012 Configuration Manager нельзя использовать для управления сайтом System Center Configuration Manager, и наоборот.<br /><br /> Установка консоли System Center 2012 Configuration Manager и консоли System Center Configuration Manager на одном компьютере не поддерживается.|  
+|Среда, в которой используются несколько версий System Center Configuration Manager|System Center Configuration Manager не поддерживает установку нескольких консолей Configuration Manager на одном компьютере. Чтобы использовать несколько консолей для разных версий System Center Configuration Manager, разные консоли необходимо установить на отдельных компьютерах.<br /><br /> В процессе обновления сайтов в иерархии до новой версии можно подключить консоль к сайту, на котором запущена более новая версия, и ознакомиться с информацией о других сайтах в конкретной иерархии. Тем не менее эта конфигурация не рекомендуется, так как различия между версией консоли и версией сайта Configuration Manager могут привести к проблемам с данными, а некоторые функции, доступные в последней версии продукта, не будут доступны в консоли. <br /></br /> Управление сайтом с консоли, версия которой не совпадает с версией сайта, не поддерживается. Если так делать, можно потерять данные и поставить сайт под угрозу. Например, использовать консоль версии 1610 для управления сайтом версии 1606 не следует. Такая схема использования не поддерживается. |

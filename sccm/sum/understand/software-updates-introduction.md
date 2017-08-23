@@ -1,6 +1,6 @@
 ---
-title: "Introdução às atualizações de software | Microsoft Docs"
-description: "Aprender as noções básicas de atualizações de software no System Center Configuration Manager."
+title: "Введение в обновления программного обеспечения | Microsoft Docs"
+description: "Основные сведения об обновлениях программного обеспечения в System Center Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,269 +13,269 @@ ms.technology: configmgr-sum
 ms.assetid: e9778b13-c8a3-40eb-8655-34ac8ce9cdaa
 ms.openlocfilehash: 2904b904bbaf155f016f55fbd36af80308a42d76
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Introdução às atualizações de software no System Center Configuration Manager
+# <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Общие сведения об обновлениях программного обеспечения в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-As atualizações de software no System Center Configuration Manager fornece um conjunto de ferramentas e recursos que podem ajudar a gerir a complexa tarefa de controlar e aplicar atualizações de software em computadores cliente na empresa. É necessário um processo de gestão de atualizações de software eficaz para manter a eficiência operacional, ultrapassar problemas de segurança e manter a estabilidade da infraestrutura de rede. No entanto, devido à natureza evolutiva da tecnologia e ao aparecimento contínuo de novas ameaças de segurança, a gestão eficiente das atualizações de software exige uma atenção consistente e contínua.  
+Обновления программного обеспечения в System Center Configuration Manager предоставляют набор инструментов и ресурсов, которые могут помочь в решении сложной задачи отслеживания и установки обновлений программного обеспечения на клиентских компьютерах предприятия. Эффективный процесс управления обновлениями ПО необходим для поддержания высокой производительности работы, защиты от проблем безопасности и поддержания стабильности сетевой инфраструктуры. Однако постоянное развитие технологий и непрерывное возникновение новых угроз безопасности требует применения согласованного подхода к решению данных проблем, а также постоянного внимания к этой области.  
 
-Para um cenário de exemplo que mostra como poderá implementar atualizações de software no seu ambiente, consulte [cenário de exemplo para implementar atualizações de software de segurança](../deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md).  
+Пример возможного сценария, показывающий развертывание обновлений программного обеспечения в вашей среде, см. в разделе [Пример сценария развертывания обновлений программного обеспечения](../deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md).  
 
-##  <a name="BKMK_Synchronization"></a> Sincronização de atualizações de software  
- Sincronização de atualizações de software no Configuration Manager liga-se ao Microsoft Update para obter os metadados de atualizações de software. O site de nível superior (site de administração central ou site primário autónomo) sincroniza com o Microsoft Update, com base num agendamento ou quando é iniciada manualmente a sincronização da consola do Configuration Manager. Quando o Gestor de configuração é concluída a sincronização de atualizações de software no site de nível superior, sincronização de atualizações de software é iniciada nos sites subordinados, caso existam. Quando a sincronização estiver concluída em todos os sites primários ou secundários, será criada uma política ao nível do site que fornecerá aos computadores cliente a localização dos pontos de atualização de software.  
-
-> [!NOTE]  
->  As atualizações de software estão ativadas por predefinição nas definições de cliente. No entanto, se definir a definição de cliente **Ativar atualizações de software nos clientes** para **Não** para desativar as atualizações de software numa coleção ou nas predefinições, a localização dos pontos de atualização de software não é enviada aos clientes associados. Para obter mais informações, consulte [as definições de cliente de atualizações de software](../../core/clients/deploy/about-client-settings.md#software-updates).  
-
- Após o cliente receber a política, o cliente inicia uma verificação da compatibilidade das atualizações de software e escreve as informações no Windows Management Instrumentation (WMI). As informações de compatibilidade são depois enviadas para o ponto de gestão que, por sua vez, as envia para o servidor do site. Para mais informações sobre a avaliação de compatibilidade, consulte a secção [Software updates compliance assessment](#BKMK_SUMCompliance) deste tópico.  
-
- Pode instalar vários pontos de atualização de software num site primário. O primeiro ponto de atualização de software instalado é configurado como origem de sincronização. Isto sincroniza a partir do Microsoft Update ou de um servidor WSUS não na hierarquia do Configuration Manager. Os outros pontos de atualização de software do site utilizam o primeiro ponto de atualização de software como origem de sincronização.  
+##  <a name="BKMK_Synchronization"></a> Синхронизация обновлений программного обеспечения  
+ Функция синхронизации обновлений программного обеспечения в Configuration Manager подключается к Центру обновления Майкрософт, чтобы получать метаданные обновлений. Сайт верхнего уровня (сайт центра администрирования или автономный первичный сайт) синхронизируется с Центром обновления Майкрософт согласно расписанию или при запуске синхронизации вручную с помощью консоли Configuration Manager. Когда Configuration Manager завершает синхронизацию обновлений ПО на сайте верхнего уровня, синхронизация обновлений ПО начинается на подчиненных сайтах, если они существуют. После завершения синхронизации на каждом из первичных или вторичных сайтов создается политика, с помощью которой клиентским компьютерам предоставляются сведения о расположении точек обновления программного обеспечения. Эта политика действует в масштабах всего сайта, на котором она размещена.  
 
 > [!NOTE]  
->  Quando o processo de sincronização de atualizações de software estiver concluído no site de nível superior, os metadados de atualizações de software são replicados para os sites subordinados através de replicação de base de dados. Quando ligar uma consola do Configuration Manager para o site subordinado, o Configuration Manager apresenta os metadados de atualizações de software. No entanto, até instalar e configurar um ponto de atualização de software no site, os clientes não analisarão a compatibilidade de atualizações de software, não comunicarão as informações de compatibilidade para o Configuration Manager e não é possível implementar com êxito as atualizações de software.  
+>  Обновления программного обеспечения включены в параметрах клиента по умолчанию. Однако, если присвоить параметру клиента **Включить обновления программного обеспечения для клиентов** значение **Нет** , чтобы отключить обновления программного обеспечения для коллекции или в параметрах по умолчанию, то соответствующим клиентам не будет отправлено расположение точек обновления программного обеспечения. Подробные сведения см. в разделе [Параметры клиентов для обновлений программного обеспечения](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
-### <a name="synchronization-on-the-top-level-site"></a>Sincronização no site de nível superior  
- O processo de sincronização de atualizações de software no site de nível superior obtém no Microsoft Update os metadados de atualizações de software que satisfazem os critérios especificados nas propriedades do Componente do Ponto de Atualização de Software. Os critérios são configurados apenas no site de nível superior.  
+ Получив политику, клиент запускает процедуру проверки соответствия обновлений программного обеспечения требованиям и записывает собранные сведения в инструментарий управления Windows (WMI). Сведения о соответствии требованиям передаются точке управления, которая отправляет их серверу сайта. Дополнительные сведения об оценке соответствия требованиям см. в разделе [Software updates compliance assessment](#BKMK_SUMCompliance) этой статьи.  
+
+ На первичном сайте можно установить несколько точек обновления программного обеспечения. Первая установленная точка обновления настраивается в качестве источника синхронизации. Она синхронизируется с Центром обновления Майкрософт или с сервером WSUS, расположенным вне иерархии Configuration Manager. Другие точки обновления программного обеспечения на этом сайте используют первую точку обновления программного обеспечения в качестве источника синхронизации.  
 
 > [!NOTE]  
->  Pode especificar um servidor WSUS existente que não esteja na hierarquia do Configuration Manager em vez do Microsoft Updates como origem de sincronização.  
+>  После завершения процесса синхронизации обновлений программного обеспечения на сайте верхнего уровня производится репликация метаданных обновлений программного обеспечения на дочерние сайты путем репликации базы данных. При подключении консоли Configuration Manager к подчиненному сайту Configuration Manager отображает метаданные обновлений ПО. Однако до тех пор, пока на сайте не будет установлена и настроена точка обновления программного обеспечения, клиенты не будут проверять соответствие обновлений ПО требованиям, а также передавать сведения о соответствии в Configuration Manager, и вы не сможете успешно развертывать обновления ПО.  
 
- A lista seguinte descreve os passos básicos do processo de sincronização no site de nível superior:  
+### <a name="synchronization-on-the-top-level-site"></a>Синхронизация на сайте верхнего уровня  
+ Процедура синхронизации обновлений программного обеспечения на сайте верхнего уровня предусматривает получение от Microsoft Update метаданных обновлений программного обеспечения, которые соответствуют критериям, указанным в свойствах компонента "Точка обновления программного обеспечения". Критерии настраиваются только на сайте верхнего уровня.  
 
-1.  A sincronização de atualizações de software é iniciada.  
+> [!NOTE]  
+>  Вместо Центра обновления Майкрософт в качестве источника синхронизации можно указать существующий сервер WSUS, не входящий в иерархию Configuration Manager.  
 
-2.  O Gestor de Sincronização WSUS envia um pedido ao WSUS em execução no ponto de atualização de software para iniciar a sincronização com o Microsoft Update.  
+ В следующем списке приведены основные этапы процедуры синхронизации на сайте верхнего уровня:  
 
-3.  Os metadados de atualizações de software são sincronizados a partir do Microsoft Update e as alterações são inseridas ou atualizadas na base de dados do WSUS.  
+1.  Запускается синхронизация обновлений программного обеспечения.  
 
-4.  Quando o WSUS concluir a sincronização, o Gestor de sincronização WSUS sincroniza os metadados de atualizações de software da base de dados do WSUS para a base de dados do Configuration Manager e as alterações após a última sincronização são inseridas ou atualizadas na base de dados do site. Os metadados de atualizações de software são armazenados na base de dados do site como um item de configuração.  
+2.  Диспетчер синхронизации WSUS отправляет запрос в службы WSUS, запущенные в точке обновления программного обеспечения, чтобы запустить синхронизацию с Центром обновления Майкрософт.  
 
-5.  Os itens de configuração de atualizações de software são enviados aos sites subordinados através de replicação de base de dados.  
+3.  Метаданные обновлений ПО синхронизируются с Центром обновления Майкрософт, все изменения добавляются в базу данных WSUS или обновляются в ней.  
 
-6.  Quando a sincronização tiver sido concluída com sucesso, o Gestor de Sincronização do WSUS cria a mensagem de estado 6702.  
+4.  После того как WSUS завершает синхронизацию, диспетчер синхронизации WSUS синхронизирует метаданные обновлений ПО, хранимые в базе данных WSUS, с базой данных Configuration Manager, и любые изменения с момента последней синхронизации попадают в эту базу путем вставки или обновления. Метаданные обновлений программного обеспечения хранятся в базе данных сайта в качестве элемента конфигурации.  
 
-7.  O Gestor de Sincronização WSUS envia um pedido de sincronização a todos os sites subordinados.  
+5.  Элементы конфигурации для обновлений программного обеспечения пересылаются дочерним сайтам с помощью репликации базы данных.  
 
-8.  O Gestor de Sincronização WSUS envia um pedido de cada vez para o WSUS em execução noutros pontos de atualização de software no site. Os servidores WSUS nos outros pontos de atualização de software estão configurados para serem réplicas dos WSUS em execução no ponto de atualização de software predefinido do site.  
+6.  После успешного завершения синхронизации диспетчер синхронизации WSUS создает сообщение о состоянии 6702.  
 
-### <a name="synchronization-on-child-primary-and-secondary-sites"></a>Sincronização em sites primários e secundários subordinados  
- Durante o processo de sincronização de atualizações de software no site de nível superior, os itens de configuração de atualizações de software são replicados para sites subordinados através de replicação de base de dados. No final do processo, o site de nível superior envia um pedido de sincronização ao site subordinado e este inicia a sincronização do WSUS. A lista seguinte fornece os passos básicos para o processo de sincronização num site primário ou secundário subordinado:  
+7.  Диспетчер синхронизации WSUS отправляет запрос на синхронизацию на все дочерние сайты.  
 
-1.  O Gestor de Sincronização WSUS recebe um pedido de sincronização do site de nível superior.  
+8.  Диспетчер синхронизации WSUS по очереди направляет запросы серверам WSUS, работающим на других точках обновления программного обеспечения этого сайта. Серверы WSUS на других точках обновления программного обеспечения настроены в качестве реплик сервера WSUS, запущенного на точке обновления программного обеспечения по умолчанию, предусмотренной для этого сайта.  
 
-2.  A sincronização de atualizações de software é iniciada.  
+### <a name="synchronization-on-child-primary-and-secondary-sites"></a>Синхронизация на дочерних первичных и вторичных сайтах  
+ В ходе процедуры синхронизации обновлений программного обеспечения на сайте верхнего уровня происходит репликация элементов конфигурации обновлений программного обеспечения на дочерние сайты с помощью репликации базы данных. После завершения этой процедуры сайт верхнего уровня отправляет дочернему сайту запрос на синхронизацию, а дочерний сайт запускает синхронизацию WSUS. Следующий список содержит базовые шаги процесса синхронизации на дочернем первичном сайте или на вторичном сайте.  
 
-3.  O Gestor de Sincronização WSUS envia ao WSUS em execução no ponto de atualização de software um pedido para iniciar a sincronização.  
+1.  Диспетчер синхронизации WSUS получает запрос на синхронизацию от сайта верхнего уровня.  
 
-4.  O WSUS em execução no ponto de atualização de software no site subordinado sincroniza os metadados de atualizações de software a partir do WSUS em execução no ponto de atualização de software com o site principal.  
+2.  Запускается синхронизация обновлений программного обеспечения.  
 
-5.  Quando a sincronização tiver sido concluída com sucesso, o Gestor de Sincronização do WSUS cria a mensagem de estado 6702.  
+3.  Диспетчер синхронизации WSUS отправляет запрос в службы WSUS, запущенные в точке обновления программного обеспечения, чтобы запустить синхронизацию.  
 
-6.  A partir de um site primário, o Gestor de Sincronização WSUS envia um pedido de sincronização a qualquer site secundário subordinado. O site secundário inicia a sincronização de atualizações de software com o site primário principal. O site secundário está configurado como uma réplica do WSUS em execução no site principal.  
+4.  Службы WSUS, запущенные в точке обновления ПО на дочернем сайте, выполняют синхронизацию метаданных обновлений со службами WSUS, запущенными в точке обновления на родительском сайте.  
 
-7.  O Gestor de Sincronização WSUS envia um pedido de cada vez para o WSUS em execução noutros pontos de atualização de software no site. Os servidores WSUS nos outros pontos de atualização de software estão configurados para serem réplicas dos WSUS em execução no ponto de atualização de software predefinido do site.  
+5.  После успешного завершения синхронизации диспетчер синхронизации WSUS создает сообщение о состоянии 6702.  
+
+6.  Работающий на первичном сайте диспетчер синхронизации WSUS отправляет запрос синхронизации всем дочерним вторичным сайтам. Вторичные сайты запускают процесс синхронизации обновлений программного обеспечения с родительским первичным сайтом. Вторичный сайт настраивается в качестве реплики сервера WSUS, запущенного на родительском сайте.  
+
+7.  Диспетчер синхронизации WSUS по очереди направляет запросы серверам WSUS, работающим на других точках обновления программного обеспечения этого сайта. Серверы WSUS на других точках обновления программного обеспечения настроены в качестве реплик сервера WSUS, запущенного на точке обновления программного обеспечения по умолчанию, предусмотренной для этого сайта.  
 
 ##  <a name="BKMK_SUMCompliance"></a> Software updates compliance assessment  
- Antes de implementar atualizações de software para computadores cliente no Configuration Manager, inicie uma análise de compatibilidade de atualizações de software nos computadores cliente. Para cada atualização de software, é criada uma mensagem de estado que contém o estado de compatibilidade da atualização. As mensagens de estado são enviadas em massa para o ponto de gestão e depois para o servidor do site, onde o estado de compatibilidade é introduzido na base de dados do site. O estado de conformidade para atualizações de software é apresentado na consola do Configuration Manager. É possível implementar e instalar atualizações de software em computadores que necessitem das atualizações. As secções seguintes fornecem informações sobre os estados de compatibilidade e descrevem o processo de análise de compatibilidade das atualizações de software.  
+ Перед развертыванием обновлений ПО на клиентских компьютерах в Configuration Manager необходимо запустить проверку соответствия обновлений ПО требованиям на клиентских компьютерах. Для каждого обновления ПО создается сообщение о состоянии, содержащее состояние соответствие этого обновления ПО требованиям. Сообщения о состоянии отправляются пакетами на точку управления, а затем на сервер сайта, где данные состояния соответствия требованиям добавляются в базу данных сайта. Состояние соответствия обновлений программного обеспечения требованиям отображается в консоли Configuration Manager. Можно развернуть и установить обновления ПО на компьютерах, которым требуются эти обновления. В следующих разделах содержатся сведения о состояниях соответствия требованиям и описывается процесс проверки соответствия обновлений ПО.  
 
-### <a name="software-updates-compliance-states"></a>Estados de conformidade das atualizações de software  
- A seguinte lista e descreve cada Estado de compatibilidade, que é apresentado na consola do Configuration Manager para atualizações de software.  
+### <a name="software-updates-compliance-states"></a>Состояния соответствия обновлений программного обеспечения  
+ Ниже перечисляются и описываются все состояния соответствия требованиям, которые отображаются в консоли Configuration Manager для обновлений ПО.  
 
--   **Necessário**  
+-   **Обязательное**  
 
-     Especifica que a atualização de software é aplicável e necessária no computador cliente. Qualquer uma das seguintes condições poderá ser verdadeira quando o estado de atualização de software for **Necessária**:  
+     Указывает, что обновление программного обеспечения применимо и требуется на клиентском компьютере. Если обновление ПО имеет состояние **Требуется**, то может выполняться любое из перечисленных ниже условий.  
 
-    -   A atualização de software não foi implementada para o computador cliente.  
+    -   Обновление ПО не развернуто на клиентском компьютере.  
 
-    -   A atualização de software foi instalada no computador cliente. No entanto, a mensagem de estado mais recente ainda não foi inserida na base de dados do servidor do site. O computador cliente volta a analisar a atualização após a conclusão da instalação. Pode existir um atraso máximo de dois minutos para que o cliente envie o estado atualizado para o ponto de gestão, que depois reencaminha o estado atualizado para o servidor do site.  
+    -   Обновление ПО установлено на клиентском компьютере. Однако наиболее актуальное сообщение о состоянии еще не добавлено в базу данных на сервере сайта. Клиентский компьютер повторно проверяет наличие обновления ПО после завершения установки. Возможна задержка на одну или две минуты, возникающая перед отправкой клиентом обновленного состояния на точку управления, которая затем пересылает обновленное состояние серверу сайта.  
 
-    -   A atualização de software foi instalada no computador cliente. No entanto, a instalação da atualização de software necessita de um reinício do computador para que a atualização seja concluída.  
+    -   Обновление ПО установлено на клиентском компьютере. Однако установка точки обновления требует перезапуска компьютера перед завершением обновления.  
 
-    -   A atualização de software foi implementada no computador cliente, mas ainda não foi instalada.  
+    -   Точка обновления развернута на клиентском компьютере, но еще не установлена.  
 
--   **Não Necessária**  
+-   **Не требуется**  
 
-     Especifica que a atualização de software não é aplicável no computador cliente. Por conseguinte, a atualização de software não é necessária.  
+     Указывает на неприменимость этого обновления программного обеспечения к клиентскому компьютеру. В связи с этим обновление программного обеспечения не требуется.  
 
--   **Instalada**  
+-   **Установлено**  
 
-     Especifica que a atualização de software é aplicável no computador cliente e que o computador cliente já tem a atualização de software instalada.  
+     Указывает, что обновление программного обеспечения применимо и уже установлено на клиентском компьютере.  
 
--   **Desconhecido**  
+-   **Неизвестно**  
 
-     Especifica que o servidor do site não recebeu uma mensagem de estado do computador cliente, normalmente por um dos seguintes motivos:  
+     Указывает, что сервер сайта не получил сообщение о состоянии от клиентского компьютера, как правило, по одной из следующих причин.  
 
-    -   O computador cliente não analisou com sucesso a compatibilidade das atualizações de software.  
+    -   На клиентском компьютере не выполнена проверка обновлений ПО на соответствие требованиям.  
 
-    -   A análise foi concluída com sucesso no computador cliente. No entanto, a mensagem de estado ainda não foi processada no servidor do site, possivelmente devido a uma mensagem de estado pendente.  
+    -   Сканирование успешно завершено на клиентском компьютере. Однако сообщение о состоянии еще не обработано сервером сайта, возможная причина – наличие журнала ожидания сообщений о состоянии.  
 
-    -   A análise foi concluída com sucesso no computador cliente, mas a mensagem de estado não foi recebida do site subordinado.  
+    -   Проверка обновлений на соответствие требованиям на клиентском компьютере успешно завершена, но не получено сообщение о состоянии с дочернего сайта.  
 
-    -   A análise foi concluída com sucesso no computador cliente, mas o ficheiro de mensagem de estado estava danificado de alguma forma e não pôde ser processado.  
+    -   Проверка обновлений на соответствие требованиям на клиентском компьютере успешно завершена, но сообщение о состоянии было повреждено, и его не удалось обработать.  
 
-### <a name="scan-for-software-updates-compliance-process"></a>Análise do processo de compatibilidade de atualizações de software  
- Quando o ponto de atualização de software é instalado e sincronizado, é criada uma política de computador ao nível do site que informa os computadores cliente que as atualizações de software do Configuration Manager foi ativada para o site. Quando um cliente recebe a política de computador, é agendada uma análise da avaliação da compatibilidade para ser iniciada aleatoriamente nas duas horas seguintes. Quando a análise é iniciada, um processo do Agente de Cliente de Atualizações de Software limpa o histórico de análise, envia um pedido para localizar o servidor WSUS que deve ser utilizado na análise e atualiza a Política de Grupo local com a localização do servidor WSUS.  
+### <a name="scan-for-software-updates-compliance-process"></a>Процесс проверки соответствия обновлений программного обеспечения  
+ В ходе установки и синхронизации точки обновления программного обеспечения создается политика компьютера, которая действует на уровне всего сайта и сообщает клиентским компьютерам о том, что для сайта включено обновление программного обеспечения с помощью Configuration Manager. Когда клиент получает политику компьютера, запуск проверки соответствия требованиям планируется на произвольный момент времени в течение двух следующих часов. При запуске проверки процесс агента клиента обновлений очищает историю проверки, отправляет запрос на поиск сервера WSUS, который нужно использовать для проверки, и обновляет локальную групповую политику, указывая расположение сервера WSUS.  
 
 > [!NOTE]  
->  Os clientes baseados na Internet devem ligar ao servidor WSUS utilizando SSL.  
+>  Интернет-клиенты должны подключаться к серверу WSUS по протоколу SSL.  
 
- Um pedido de análise é transmitido ao Windows Update Agent (WUA). O WUA liga-se à localização do servidor WSUS listada na política local, obtém os metadados de atualizações de software que foram sincronizados no servidor WSUS e analisa o computador cliente para a existência de atualizações. Um processo do Agente de Cliente de Atualizações de Software deteta que a análise da compatibilidade terminou e cria mensagens de estado para cada atualização do software que sofreu uma mudança no estado de compatibilidade após a última análise. As mensagens de estado são enviadas para o ponto de gestão em massa, em 15 minutos. Em seguida, o ponto de gestão reencaminha as mensagens de estado para o servidor local, onde as mensagens de estado são inseridas na base de dados do servidor de sites.  
+ Запрос на проверку передается агенту обновления Windows (WUA). Затем WUA подключается к указанному в локальной политике расположению сервера WSUS, получает метаданные обновлений программного обеспечения, синхронизированные с сервером WSUS, и сканирует клиентский компьютер на наличие обновлений. Процесс агента клиента обновлений программного обеспечения обнаруживает, что проверка соответствия требованиям завершена, и создает сообщения о состоянии для каждого обновления ПО, состояние соответствия требованиям которого изменилось после последней проверки. Пакеты сообщений о состоянии отправляются на точку управления каждые 15 минут. Затем точка управления передает сообщения состояния на сервер сайта, где они записываются в базу данных сервера сайта.  
 
- Depois da análise inicial da compatibilidade das atualizações de software, a análise é iniciada de acordo com o agendamento configurado da análise. No entanto, se o cliente tiver realizado uma análise para a compatibilidade das atualizações de software dentro do prazo temporal indicado pelo valor tempo restante (TTL - Time to Live), o cliente utiliza os metadados de atualizações de software armazenados a nível local. Quando a última análise se situa fora do TTL, o cliente tem de se ligar ao WSUS em execução no ponto de atualização de software e atualizar os metadados de atualizações de software armazenados no cliente.  
+ После первоначальной проверки соответствия обновлений ПО требованиям дальнейшие проверки запускаются по заданному расписанию. Однако, если клиент был просканирован на соответствие требованиям обновлений программного обеспечения до истечения периода времени, указанного в параметре истечения срока ожидания (TTL), то клиент использует локально хранимые метаданные обновлений программного обеспечения. Если последнее сканирование происходит после истечения времени TTL, то клиент должен подключиться к серверу WSUS, запущенному на точке обновления программного обеспечения, и обновить хранящиеся на клиенте метаданные обновлений программного обеспечения.  
 
- Incluindo o agendamento da análise, a análise para a compatibilidade das atualizações de software pode ser iniciada das seguintes formas:  
+ Проверка соответствия обновлений ПО требованиям может быть запущена в следующих случаях (в том числе и по расписанию проверки).  
 
--   **Agenda de análise de atualizações de software**: A análise de software compatibilidade das atualizações agendamento configurado da análise configurado nas definições do agente de cliente de atualizações de Software. Para obter mais informações sobre como configurar as definições de cliente de atualizações de Software, consulte [as definições de cliente de atualizações de software](../../core/clients/deploy/about-client-settings.md#software-updates).  
+-   **Расписание проверки обновлений программного обеспечения**. Сканирование для проверки соответствия требованиям обновлений программного обеспечения начинается согласно расписанию сканирования, настроенному в параметрах агента клиента обновлений ПО. Дополнительные сведения о настройке параметров клиента обновлений ПО см. в разделе [Параметры клиента обновления программного обеспечения](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
--   **Ação de propriedades do Configuration Manager**: O utilizador pode iniciar o **ciclo de análise de atualizações de Software** ou **ciclo de avaliação da implementação de atualizações de Software** ação no **ação** separador o **propriedades do Configuration Manager** caixa de diálogo no computador cliente.  
+-   **Действие на странице свойств Configuration Manager**. Пользователь может запустить действие **Цикл проверки обновлений программ** или **Цикл оценки развертывания обновлений программ** на вкладке **Действие** в диалоговом окне **Свойства Configuration Manager** на клиентском компьютере.  
 
--   **Agendamento de reavaliação da implementação**: A avaliação da implementação e a análise de software compatibilidade das atualizações a agenda de reavaliação de implementação configurado, o que está configurado nas definições do agente de cliente de atualizações de Software. Para obter mais informações sobre as definições de cliente de atualizações de Software, consulte [as definições de cliente de atualizações de software](../../core/clients/deploy/about-client-settings.md#software-updates).  
+-   **Расписание повторной оценки развертывания**. Оценка и проверка развертывания на соответствие обновлений требованиям запускается по расписанию повторной проверки развертывания, настроенному в параметрах агента клиента обновлений ПО. Дополнительные сведения о параметрах клиента обновлений ПО см. в разделе [Параметры клиента обновления программного обеспечения](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
--   **Antes da transferência de ficheiros de atualização**: Quando um computador cliente recebe uma política de atribuição para uma nova implementação necessária, o agente de cliente de atualizações de Software transfere os ficheiros de atualização de software para a cache do cliente local. Antes de transferir os ficheiros de atualização de software, o agente de cliente inicia uma análise para verificar se a atualização de software é ainda necessária.  
+-   **Перед загрузкой файлов обновлений программного обеспечения**. Когда клиентский компьютер получает политику назначения для нового обязательного развертывания, агент клиента обновлений ПО загружает файлы обновлений ПО в локальный кэш клиента. Перед загрузкой файлов обновлений ПО агент клиента обновлений ПО запускает проверку, чтобы убедиться, что данное обновление ПО по-прежнему требуется.  
 
--   **Antes de software da instalação da atualização**: Imediatamente antes da instalação da atualização de software, o agente de cliente de atualizações de Software inicia uma análise para verificar se as atualizações de software ainda são necessárias.  
+-   **Перед установкой обновления программного обеспечения**. Непосредственно перед установкой обновления агент клиента обновлений ПО запускает проверку, чтобы убедиться, что данные обновления ПО по-прежнему требуются.  
 
--   **Instalação da atualização depois de software**: Depois de uma instalação de atualização de software estiver concluída, o agente de cliente de atualizações de Software inicia uma análise para verificar se as atualizações de software já não são necessárias e cria uma nova mensagem de estado que indica que a atualização de software está instalada. Quando a instalação estiver terminada, mas se for necessário um reinício, a mensagem de estado indica um reinício pendente no computador cliente.  
+-   **После установки обновления программного обеспечения**. Сразу после завершения установки обновления ПО агент клиента обновлений ПО запускает проверку, чтобы убедиться, что данное обновление больше не требуется, и создает сообщение о состоянии, указывающее, что данное обновление ПО установлено. Если установка завершена, но требуется перезапуск, сообщение о состоянии будет указывать, что клиентский компьютер ожидает перезапуска.  
 
--   **Depois de sistema reinicie**: Quando um computador cliente está pendente um reinício do sistema para o atualização de software concluir a instalação, o agente de cliente de atualizações de Software inicia uma análise após o reinício para verificar se a atualização de software já não é necessária e cria uma mensagem de estado que indica que a atualização de software está instalada.  
+-   **После перезапуска системы**. Если клиентский компьютер ожидает перезапуска для завершения установки обновления ПО, агент клиента обновлений ПО запускает проверку после перезапуска, чтобы убедиться, что данное обновление больше не требуется, и создает сообщение о состоянии, указывающее, что данное обновление установлено.  
 
-#### <a name="time-to-live-value"></a>Valor de TTL  
- Os metadados de atualizações de software que são necessários para a análise da compatibilidade das atualizações de software são armazenados no computador cliente local e, por predefinição, são relevantes até um máximo de 24 horas. Este valor é conhecido como o tempo restante (TTL).  
+#### <a name="time-to-live-value"></a>Значение срока жизни  
+ Метаданные об обновлениях ПО, необходимые для проверки обновлений ПО на соответствие требованиям, хранятся на локальном клиентском компьютере и по умолчанию действительны в течение 24 часов. Это значение называется сроком жизни.  
 
-#### <a name="scan-for-software-updates-compliance-types"></a>Análise dos tipos de compatibilidade de atualizações de software  
- O cliente analisa a compatibilidade de atualizações de software utilizando uma análise online ou offline e uma análise forçada ou não forçada, dependendo do modo como a análise da compatibilidade das atualizações de software é iniciada. O seguinte descreve os métodos para iniciar a análise estão online ou offline e se a análise é forçada ou não forçada.  
+#### <a name="scan-for-software-updates-compliance-types"></a>Типы проверки соответствия обновлений программного обеспечения  
+ Клиент проверяет соответствие обновлений ПО требованиям с помощью интерактивной или автономной проверки и принудительной или необязательной проверки (в зависимости от того, как была создана проверка соответствия обновлений ПО). Ниже описываются интерактивные и автономные способы запуска проверки, а также указывается, является ли проверка принудительной.  
 
--   **Agenda de análise de atualizações de software** (análise online não forçada)  
+-   **Расписание проверки обновлений программного обеспечения** (необязательная проверка в подключенном режиме)  
 
-     No agendamento configurado da análise, o cliente liga-se ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software apenas quando a última análise se situou fora do valor TTL.  
+     В соответствии с настроенным расписанием повторной оценки развертывания клиент подключается к службам WSUS, запущенным на активной точке обновления ПО, для получения метаданных об обновлениях ПО, только если последняя проверка была выполнена после истечения срока жизни.  
 
--   **Ciclo de análise de atualizações de software** ou **ciclo de avaliação da implementação de atualizações de Software** (análise online forçada)  
+-   **Цикл проверки обновлений программ** или **Цикл оценки развертывания обновлений программ** (принудительная проверка в подключенном режиме)  
 
-     O computador cliente liga-se sempre ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software antes de o computador cliente analisar a compatibilidade das atualizações de software. Uma vez concluída a análise, o contador TTL é reposto. Por exemplo, se o TTL corresponder a 24 horas, após um utilizador iniciar uma análise para a compatibilidade das atualizações de software, o TTL é reposto para 24 horas.  
+     Компьютер клиента всегда подключается к серверу WSUS, запущенному на точке обновления программного обеспечения, для получения метаданных обновлений программного обеспечения прежде, чем компьютер клиента выполняет проверку соответствия обновлений программного обеспечения установленным требованиям. После завершения сканирования счетчик срока жизни обнуляется. Например, если значение срока жизни равно 24 часам, то после выполнения пользователем проверки обновлений ПО на соответствие требованиям значение срока жизни сбрасывается на 24 часа.  
 
--   **Agendamento de reavaliação da implementação** (análise online não forçada)  
+-   **Расписание повторной оценки развертывания** (необязательная проверка в подключенном режиме)  
 
-     No agendamento configurado de reavaliação da implementação, o cliente liga-se ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software apenas quando a última análise se situou fora do valor TTL.  
+     В соответствии с настроенным расписанием повторной оценки развертывания клиент подключается к службам WSUS, запущенным на активной точке обновления ПО, для получения метаданных об обновлениях ПО, только если последняя проверка была выполнена после истечения срока жизни.  
 
--   **Antes da transferência de ficheiros de atualização** (análise online não forçada)  
+-   **Перед загрузкой файлов обновлений** (необязательная проверка в подключенном режиме)  
 
-     Antes de o cliente poder transferir ficheiros de atualização nas implementações necessárias, o cliente liga-se ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software apenas quando a última análise se situou fora do valor TTL.  
+     Перед началом загрузки файлов обновлений в требуемых развертываниях клиент подключается к службам WSUS, запущенным на активной точке обновления ПО, для получения метаданных об обновлениях ПО, только если последняя проверка была выполнена после истечения срока жизни.  
 
--   **Antes de software da instalação da atualização** (análise online não forçada)  
+-   **Перед установкой обновления программного обеспечения** (необязательная проверка в подключенном режиме)  
 
-     Antes de o cliente instalar atualizações de software nas implementações necessárias, o cliente liga-se ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software apenas quando a última análise se situou fora do valor TTL.  
+     Перед началом установки файлов обновлений программного обеспечения в требуемых развертываниях клиент подключается к службам WSUS, запущенным на активной точке обновления ПО, для получения метаданных об обновлениях ПО, только если последняя проверка была выполнена после истечения срока жизни.  
 
--   **Instalação da atualização depois de software** (análise offline forçada)  
+-   **После установки обновления программного обеспечения** (принудительная автономная проверка)  
 
-     Depois da instalação de uma atualização de software, o Agente de Cliente de Atualizações de Software inicia uma análise utilizando os metadados locais. O cliente nunca se liga ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software.  
+     После установки обновления ПО агент клиента обновлений ПО начинает проверку, используя локальные метаданные. Клиент никогда не подключается к службам WSUS, запущенным на активной точке обновления ПО, для получения метаданных обновлений программного обеспечения.  
 
--   **Depois de sistema reinicie** (análise offline forçada)  
+-   **После перезапуска системы** (принудительная автономная проверка)  
 
-     Depois da instalação de uma atualização de software e do reinício do computador, o Agente de Cliente de Atualizações de Software inicia uma análise utilizando os metadados locais. O cliente nunca se liga ao WSUS em execução no ponto de atualização de software para obter os metadados de atualizações de software.  
+     После установки обновления программного обеспечения и перезапуска компьютера агент клиента обновлений ПО начинает проверку, используя локальные метаданные. Клиент никогда не подключается к службам WSUS, запущенным на активной точке обновления ПО, для получения метаданных обновлений программного обеспечения.  
 
-##  <a name="BKMK_DeploymentPackages"></a> Pacotes de implementação de atualização de software  
- Um pacote de implementação de atualização de software é o veículo utilizado para transferir atualizações de software para uma pasta de rede partilhada e copiar os ficheiros de origem de atualização de software para a biblioteca de conteúdos em servidores de sites e em pontos de distribuição que estão definidos na implementação. Utilizando o Assistente para Transferir Atualizações, pode transferir atualizações de software e adicioná-las a pacotes de implementação antes de implementá-las. Este assistente permite-lhe aprovisionar atualizações de software em pontos de distribuição e verificar se esta parte do processo de implementação é bem-sucedida antes de implementar as atualizações de software em clientes.  
+##  <a name="BKMK_DeploymentPackages"></a> Пакеты развертывания обновлений программного обеспечения  
+ Пакет развертывания обновлений программного обеспечения — это средство для загрузки обновлений ПО в общую сетевую папку и для копирования исходных файлов обновлений ПО в библиотеку содержимого на серверах сайта и в точках распространения, указанных в развертывании. С помощью мастера загрузки обновлений можно загружать обновления ПО и добавлять их в пакеты развертывания перед развертыванием. Этот мастер позволяет подготавливать обновления ПО в точках распространения и проверять успешность этого этапа процесса развертывания перед развертыванием обновлений ПО на клиентах.  
 
- Quando implementa atualizações de software transferidas utilizando o Assistente para Implementar Atualizações de Software, a implementação utiliza automaticamente o pacote de implementação que contém as atualizações de software. Quando são implementadas atualizações de software que não foram transferidas, terá de especificar um pacote de implementação novo ou existente no Assistente para Implementar Atualizações de Software, e as atualizações de software são transferidas quando o assistente termina.  
-
-> [!IMPORTANT]  
->  Tem de criar manualmente a pasta de rede partilhada para os ficheiros de origem do pacote de implementação antes de especificá-la no assistente. Cada pacote de implementação tem de utilizar uma pasta de rede partilhada diferente.  
+ После развертывания загруженных обновлений ПО с помощью мастера развертывания обновлений развертывание автоматически использует пакет развертывания, содержащий обновления программного обеспечения. При развертывании обновлений ПО, которые не были загружены, необходимо указать новый или существующий пакет развертывания в мастере развертывания обновлений программного обеспечения. В этом случае обновления ПО будут загружены после завершения работы мастера.  
 
 > [!IMPORTANT]  
->  A conta de computador do Fornecedor de SMS e o utilizador administrativo que transfere verdadeiramente as atualizações de software requerem ambos permissões de **Escrita** para a origem do pacote. Restrinja o acesso à origem do pacote para reduzir o risco de um intruso adulterar os ficheiros de origem das atualizações de software na origem do pacote.  
+>  Необходимо вручную создать общую сетевую папку для исходных файлов пакета развертывания, а затем указать эту папку в мастере. Каждый пакет развертывания должен использовать отдельную общую сетевую папку.  
 
- Quando é criado um novo pacote de implementação, a versão do conteúdo é definida para 1 antes de serem transferidas quaisquer atualizações de software. Quando os ficheiros de atualização do software são transferidos utilizando o pacote, a versão do conteúdo é aumentada para 2. Portanto, todos os novos pacotes de implementação começam com a versão de conteúdo 2. Sempre que o conteúdo é alterado num pacote de implementação, a versão de conteúdo é aumentada em 1. Para obter mais informações, consulte [conceitos fundamentais da gestão de conteúdos](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+> [!IMPORTANT]  
+>  Для учетных записей компьютера поставщика SMS и пользователя с правами администратора, который фактически загружает обновления ПО, требуются права на **запись** для источника пакета. Следует ограничить доступ к источнику пакета, чтобы снизить риск подмены злоумышленником исходных файлов обновления ПО.  
 
- Os clientes instalam atualizações de software numa implementação através da utilização de qualquer ponto de distribuição que tenha as atualizações de software disponíveis, independentemente do pacote de implementação. Mesmo se um pacote de implementação for eliminado para uma implementação ativa, os clientes podem ainda instalar as atualizações de software na implementação desde que cada atualização tenha sido transferida para pelo menos um outro pacote de implementação e esteja disponível num ponto de distribuição ao qual se pode aceder a partir do cliente. Quando é eliminado o último pacote de implementação que contém uma atualização de software, os computadores cliente não conseguem obter a atualização de software até a atualização ser transferida novamente para um pacote de implementação. As atualizações de software aparecem com uma seta vermelha na consola do Configuration Manager quando os ficheiros de atualização não se encontram em quaisquer pacotes de implementação. As implementações aparecem com uma seta dupla vermelha se contiverem quaisquer atualizações nesta condição.  
+ При создании нового пакета развертывания до загрузки любых обновлений ПО для содержимого устанавливается номер версии 1. При загрузке файлов обновления программного обеспечения с использованием пакета версия содержимого увеличивается до 2. Поэтому у всех новых пакетов развертывания версия содержимого равняется 2. При каждом изменении содержимого в пакете развертывания версия содержимого увеличивается на 1. Дополнительные сведения о см. в разделе [Основные принципы управления содержимым](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-##  <a name="BKMK_DeploymentWorkflows"></a> Fluxos de trabalho de implementação de atualizações de software  
- Existem dois cenários principais para implementar atualizações de software no seu ambiente, implementação manual e implementação automática. Normalmente, implementa manualmente as atualizações de software para criar uma linha base para computadores cliente e, de seguida, gere as atualizações de software em clientes utilizando a implementação automática. As secções seguintes fornecem um resumo do fluxo de trabalho para a implementação manual e automática para atualizações de software.  
+ Клиенты устанавливают обновления программного обеспечения в развертывании с помощью любой точки распространения, в которой доступны обновления ПО, вне зависимости от пакета развертывания. Даже если пакет развертывания удален из активного развертывания, клиенты могут по-прежнему устанавливать обновления, содержащиеся в этом развертывании, если каждое обновление загружено по крайней мере в еще один пакет развертывание и доступно в точке распространения, доступной для клиента. После удаления последнего пакета развертывания с обновлением клиентские компьютеры не смогут получать это обновление, пока оно не будет снова загружено в пакет развертывания. Если файлы обновлений ПО отсутствуют в пакетах развертывания, то такие обновления отображаются в консоли Configuration Manager с красной стрелкой. Развертывания отображаются с двойной красной стрелкой, если они содержат обновления ПО в таком состоянии.  
 
-###  <a name="BKMK_ManualDeployment"></a> Implementação manual de atualizações de software  
- Implementação manual de atualizações de software é o processo de selecionar atualizações de software na consola do Configuration Manager e iniciar manualmente o processo de implementação. Normalmente, utiliza este método de implementação para garantir a atualização dos computadores cliente com atualizações de software necessárias antes de criar regras de implementação automática para gerir implementações mensais em curso de atualização de software, e para implementar requisitos de atualização de software fora de banda. A lista seguinte apresenta o fluxo de trabalho geral para a implementação manual de atualizações de software:  
+##  <a name="BKMK_DeploymentWorkflows"></a> Рабочие процессы развертывания обновлений программного обеспечения  
+ Существует два основных сценария развертывания обновлений программного обеспечения в среде: развертывание вручную и автоматическое развертывание. Как правило, обновления развертываются вручную с целью создания базовой инфраструктуры для клиентских компьютеров, а затем с помощью автоматического развертывания осуществляется управление установкой обновлений на клиенты. В следующих разделах приводятся сводные данные о рабочем процессе для ручного и автоматического развертывания обновлений программного обеспечения.  
 
-1.  Filtre para atualizações de software que utilizam requisitos específicos. Por exemplo, pode fornecer critérios que obtém todas as atualizações de software de segurança ou críticas que são necessárias em mais de 50 computadores clientes.  
+###  <a name="BKMK_ManualDeployment"></a> Ручное развертывание обновлений программного обеспечения  
+ При развертывании обновлений ПО вручную необходимо выбирать обновления с помощью консоли Configuration Manager и затем вручную запускать процесс развертывания. Такой способ развертывания обычно используется для установки на клиентские компьютеры текущих обязательных обновлений ПО перед созданием правил автоматического развертывания, которые будут управлять ежемесячным развертыванием обновлений, и для внешнего развертывания обновлений. В следующем списке приводится описание общего процесса ручного развертывания обновлений программного обеспечения.  
 
-2.  Crie um grupo de atualização de software que contém as atualizações de software.  
+1.  Фильтр для обновлений программного обеспечения, использующих определенные требования. Например, можно создать условие, обеспечивающее получение всех обновлений безопасности или других важных обновлений, необходимых для более чем 50 клиентских компьютеров.  
 
-3.  Transfira o conteúdo das atualizações de software no grupo de atualização de software.  
+2.  Создайте группу обновления программного обеспечения, которая содержит обновления программного обеспечения.  
 
-4.  Implemente manualmente o grupo de atualização de software.  
+3.  Загрузите содержимое обновлений программного обеспечения в группе обновлений программного обеспечения.  
 
-###  <a name="BKMK_AutomaticDeployment"></a> Implementação automática de atualizações de software  
- A implementação automática de atualizações de software é configurada utilizando uma regra de implementação automática (ADR). Normalmente, utiliza este método de implementação para as atualizações de software mensais (geralmente conhecidas como Patch de Terça-feira) e para gerir atualizações de definição. Quando a regra é executada, as atualizações de software são removidas do grupo de atualização de software (se utilizar um grupo existente), as atualizações de software que cumprem os critérios especificados (por exemplo, todas as atualizações de software de segurança lançadas na última semana) são adicionadas a um grupo de atualização de software, os ficheiros de conteúdos das atualizações de software são transferidos e copiados para pontos de distribuição e as atualizações de software são implementadas em computadores cliente na coleção de destino. A lista seguinte apresenta o fluxo de trabalho geral para a implementação automática de atualizações de software:  
+4.  Вручную разверните группу обновления программного обеспечения.  
 
-1.  Crie uma ADR que especifique as definições de implementação, tais como as seguintes:  
+###  <a name="BKMK_AutomaticDeployment"></a> Автоматическое развертывание обновлений программного обеспечения  
+ Автоматическое развертывание обновлений настраивается с помощью правила автоматического развертывания (ADR). Такой метод развертывания, как правило, используется для ежемесячных обновлений программного обеспечения (обычно во второй вторник каждого месяца) и для управления обновлениями определений. При выполнении правила обновления программного обеспечения удаляются из группы обновления программного обеспечения (если используется существующая группа), обновления программного обеспечения, удовлетворяющие указанным критериям (например, все обновления программного обеспечения безопасности, выпущенные за последнюю неделю), добавляются в группу обновлений программного обеспечения, файлы содержимого для обновлений программного обеспечения загружаются и копируются в точки распространения, а затем обновления программного обеспечения развертываются на клиентских компьютерах в целевой коллекции. В следующем списке приводится описание общего процесса автоматического развертывания обновлений программного обеспечения.  
 
-    -   Coleção de destino  
+1.  Создается правило автоматического развертывания, определяющее следующие параметры развертывания:  
 
-    -   Decida se pretende ativar a implementação ou um relatório sobre a compatibilidade das atualizações de software para os computadores cliente na coleção de destino  
+    -   Целевая коллекция  
 
-    -   Critérios de atualizações de software  
+    -   Принятие решения о том, что необходимо включить – развертывание или отчеты о соответствии обновлений для клиентских компьютеров в целевой коллекции.  
 
-    -   Agendas de avaliação e implementação  
+    -   Условия обновления программного обеспечения  
 
-    -   Experiência de utilizador  
+    -   Расписания оценки и развертывания  
 
-    -   Transferir propriedades  
+    -   Взаимодействие с пользователем  
 
-2.  As atualizações de software são adicionadas a um grupo de atualização de software.  
+    -   Загрузка свойств  
 
-3.  O grupo de atualização de software é implementado nos computadores cliente da coleção de destino, se for especificada.  
+2.  Обновления программного обеспечения добавляются к группе обновления программного обеспечения.  
 
- Tem de determinar qual a estratégia de implementação a utilizar no seu ambiente. Por exemplo, poderá criar a ADR e ter por alvo uma coleção de clientes de teste. Depois de verificar se as atualizações de software estão instaladas no grupo de teste, pode adicionar uma nova implementação à regra ou alterar a coleção na implementação automática para uma coleção de destino que inclua um conjunto maior de clientes. Os objetos de atualização de software que são criados pelas ADRs são interativos.  
+3.  Группа обновлений программного обеспечения развертывается на клиентских компьютерах в целевой коллекции, если она указана.  
 
--   As atualizações de software que foram implementadas através da utilização de uma ADR são implementadas automaticamente em novos clientes adicionados à coleção de destino.  
+ Необходимо определить, какая стратегия развертывания будет использоваться в среде. Например, можно создать правило автоматического развертывания и указать в качестве цели коллекцию тестовых клиентов. После проверки установки обновлений в тестовой группе можно добавить в правило новое развертывание или указать другую коллекцию в существующем развертывании, чтобы охватить большее число клиентов. Объекты обновления программного обеспечения, создаваемые правилами автоматического развертывания, являются интерактивными.  
 
--   Novas atualizações de software adicionadas a um grupo de atualização de software são implementadas automaticamente aos clientes na coleção de destino.  
+-   Обновления программного обеспечения, которые были развернуты с помощью правила автоматического развертывания, автоматически развертываются на новых клиентах, включенных в целевую коллекцию.  
 
--   Pode ativar ou desativar implementações em qualquer altura para a ADR.  
+-   Новые обновления, добавленные в группу обновления программного обеспечения, автоматически развертываются на клиентах в целевой коллекции.  
 
- Depois de criar uma ADR, pode adicionar mais implementações à regra. Isto pode ajudá-lo a gerir a complexidade da implementação de diferentes atualizações em diferentes coleções. Cada nova implementação tem acesso a todas as funcionalidades e à experiência de monitorização da implementação e cada nova implementação que adiciona:  
+-   Развертывания для правила автоматического развертывания можно включать и отключать в любое время.  
 
--   Utiliza o mesmo grupo e pacote de atualização que é criado com as Regras de Implementação Automática são executadas pela primeira vez  
+ После создания правила автоматического развертывания к нему можно добавить дополнительные развертывания. Это позволяет управлять сложным процессом развертывания различных обновлений для разных коллекций. Каждое новое развертывание имеет полный набор функций и средств мониторинга развертывания, а также:  
 
--   Pode especificar uma coleção diferente  
+-   использует те же группу и пакет обновлений, который создается при первом запуске ADR;  
 
--   Suporta propriedades de implementação exclusivas, incluindo:  
+-   может указывать другую коллекцию;  
 
-    -   Hora de ativação  
+-   поддерживает уникальные свойства развертывания, в том числе:  
 
-    -   Prazo  
+    -   время активации;  
 
-    -   Mostra ou oculta experiência do utilizador final  
+    -   Крайний срок  
 
-    -   Separa alertas para esta implementação  
+    -   отображение или скрытие взаимодействия с конечным пользователем;  
 
-##  <a name="BKMK_DeploymentProcess"></a> Processo de implementação de atualizações de software  
- Depois de implementar atualizações de software ou quando uma regra de implementação automática é executada e implementa atualizações de software, é adicionada uma política de atribuição de política à política da máquina para o site. As atualizações de software são transferidas da localização de transferência, Internet ou pasta de rede partilhada, para a origem do pacote. As atualizações de software são copiadas da origem do pacote para a biblioteca de conteúdos no servidor de sites e, em seguida, copiadas para a biblioteca de conteúdos no ponto de distribuição.  
+    -   отдельные предупреждения для этого развертывания.  
 
- Quando um computador cliente na coleção de destino da implementação recebe a política da máquina, o Agente do Cliente de Atualização de Software inicia uma pesquisa de avaliação. O agente do cliente transfere o conteúdo das atualizações de software necessárias a partir de um ponto de distribuição para a cache do cliente local poucos instantes após receber a implementação, embora aguarde pela definição **Hora de disponibilização do software** da implementação para que as atualizações de software fiquem disponíveis para instalação. As atualizações de software de implementações opcionais (implementações que não tenham um prazo de instalação) não são transferidas até que um utilizador inicie manualmente a instalação.  
+##  <a name="BKMK_DeploymentProcess"></a> Процесс развертывания обновлений программного обеспечения  
+ После развертывания обновлений программного обеспечения или при развертывании обновлений правилом автоматического развертывания к политике компьютера сайта добавляется политика назначения развертываний. Обновления программного обеспечения загружаются из расположения загрузки, Интернета или общей сетевой папки в исходную папку пакета. Обновления копируются из исходной папки пакета в библиотеку содержимого на сервере сайта, после чего они копируются в библиотеку содержимого на точке распространения.  
 
- Após o prazo configurado, o Agente do Cliente de Atualizações de Software executa uma verificação para verificar se as atualizações de software ainda são necessárias. Em seguida, verifica a cache local do computador cliente para verificar se os ficheiros de origem de atualização de software ainda estão disponíveis. Por fim, o cliente instala as atualizações de software. Se o conteúdo tiver sido eliminado da cache do cliente para criar espaço para outra implementação, o cliente volta a transferir as atualizações de software a partir do ponto de distribuição para a cache do cliente. As atualizações de software são sempre transferidas para a cache do cliente, independentemente do tamanho máximo de cache configurado no cliente. Após a conclusão da instalação, o agente do cliente confirma se as atualizações de software já não são necessárias e, em seguida, envia ao ponto de gestão uma mensagem de estado a indicar que as atualizações de software estão atualmente instaladas no cliente.  
+ Когда клиентский компьютер в целевой коллекции развертывания получает политику компьютера, агент клиента обновления программного обеспечения запускает оценочное сканирование. Агент клиента загружает содержимое требуемых обновлений программного обеспечения из точки распространения в локальный кэш клиента вскоре после получения развертывания, однако дальнейшие действия не выполняются до тех пор, пока не истечет указанный в параметре развертывания **Время доступности программного обеспечения** период, в течение которого обновления становятся доступными для установки. Обновления программного обеспечения для необязательных развертываний (развертываниях, для которых не задан срок установки) не загружаются до тех пор, пока пользователь не запустит установку вручную.  
 
-### <a name="required-system-restart"></a>Reinício de sistema necessário  
- Por predefinição, quando as atualizações de software necessárias de uma implementação são instaladas no computador cliente e é necessário um reinício do sistema para concluir a instalação, o reinício do sistema é iniciado. No caso de atualizações de software que tenham sido instaladas antes do prazo, o reinício automático do sistema é adiado até à data limite, a menos que o computador seja, por algum motivo, reiniciado antes dessa data. No caso de servidores e estações de trabalho, o reinício do sistema pode ser suprimido. Estas definições são configuradas na página **Experiência do Utilizador** do Assistente de Implementação de Atualização de Software ou do Assistente de Criação de Regra de Atualizações Automáticas.  
+ По истечении заданного срока агент клиента обновления программного обеспечения выполняет сканирование для проверки того, что обновления все еще требуются. Затем выполняется проверка локального кэша на клиентском компьютере с целью подтверждения доступности исходных файлов обновления. Наконец, клиент устанавливает обновления программного обеспечения. Если содержимое было удалено из кэша клиента с целью освобождения дискового пространства для другого развертывания, клиент повторно загружает обновления из точки распространения в кэш клиента. Обновления программного обеспечения всегда загружаются в кэш клиента, независимо от заданного максимального размера кэша. После завершения установки агент клиента проверяет отсутствие требуемых обновлений программного обеспечения, а затем отправляет сообщение состояния для точки управления, в котором указывается факт завершения установки обновлений программного обеспечения на клиенте.  
 
-### <a name="deployment-reevaluation-cycle"></a>Ciclo de reavaliação de implementações  
- Por predefinição, os computadores cliente iniciam um ciclo de reavaliação de implementações com intervalos de 7 dias. Durante este ciclo de avaliação, o computador cliente verifica a existência de atualizações de software que tenham sido anteriormente implementadas e instaladas. Se existirem atualizações de software em falta, as atualizações de software serão reinstaladas a partir da cache local. Se uma atualização de software já não estiver disponível na cache local, será transferida a partir de um ponto de distribuição e, em seguida, instalada. Pode configurar a agenda de reavaliação na página **Atualizações de Software** das definições de cliente do site.  
+### <a name="required-system-restart"></a>Обязательная перезагрузка системы  
+ Перезапуск системы производится по умолчанию, когда он необходим для завершения установки обновлений программного обеспечения на компьютере клиента с помощью обязательного развертывания. Для всех обновлений программного обеспечения, которые были установлены до наступления крайнего срока, автоматический перезапуск системы откладывается до этого момента, если только перезапуск компьютера не производится раньше по какой-либо другой причине. Можно подавить перезагрузку системы для серверов и рабочих станций. Соответствующие параметры настраиваются на странице **Взаимодействие с пользователем** мастера развертывания обновлений программного обеспечения или мастера создания правил автоматического обновления.  
 
-##  <a name="BKMK_EmbeddedDevices"></a> Suporte para dispositivos Windows Embedded que utilizam filtros de escrita  
- Ao implementar atualizações de software em dispositivos Windows Embedded que tenham o filtro de escrita ativado, pode especificar se pretende desativar o filtro de escrita no dispositivo durante a implementação e reiniciar o dispositivo após a implementação. Se o filtro de escrita não estiver desativado, o software será implementado numa sobreposição temporária e deixará de ser instalado quando o dispositivo for reiniciado, a menos que outra implementação force a persistência das alterações.  
+### <a name="deployment-reevaluation-cycle"></a>Цикл переоценки развертывания  
+ По умолчанию клиентские компьютеры запускают цикл переоценки развертывания каждые 7 дней. В ходе этого цикла оценки компьютер клиента проверяет наличие ранее развернутых и установленных обновлений программного обеспечения. Если какие-либо обновления не обнаруживаются, они переустанавливаются из локального кэша. Если обновление больше не доступно в локальном кэше, оно загружается из точки распространения, поле чего происходит его установка. Расписание повторной оценки можно настроить на странице **Обновления программного обеспечения** параметров клиента для сайта.  
+
+##  <a name="BKMK_EmbeddedDevices"></a> Поддержка устройств Windows Embedded, использующих фильтры записи  
+ При развертывании обновлений программного обеспечения на устройства Windows Embedded с включенными фильтрами записи вы можете указать необходимость отключения фильтров записи на устройстве в ходе развертывания, а после развертывания перезапустить устройство. Если фильтр записи не отключен, то программное обеспечение развертывается во временный оверлей, а его установка не будет завершена после перезапуска устройства, если только другое развертывание не обеспечит принудительного применения изменений.  
 
 > [!NOTE]  
->  Ao implementar uma atualização de software num dispositivo Windows Embedded, certifique-se de que o dispositivo é membro de uma coleção que tenha uma janela de manutenção configurada. Desta forma, poderá gerir a desativação e a ativação do filtro de escrita, bem como o reinício do dispositivo.  
+>  При развертывании обновления программного обеспечения на устройство Windows Embedded убедитесь, что устройство входит в коллекцию, для которой настроено окно обслуживания. Это позволит управлять включением и отключением фильтра записи, а также перезапуском устройства.  
 
- A definição de experiência de utilizador que controla o comportamento do filtro de escrita consiste numa caixa de verificação designada **Confirmar alterações dentro do prazo ou durante a janela de manutenção (requer reinicialização)**.  
+ Элемент пользовательского интерфейса, отвечающий за режим работы фильтра записи, представляет собой флажок под названием **Зафиксировать изменения после истечения крайнего срока или в окне обслуживания (необходим перезапуск)**.  
 
- Para obter mais informações sobre como o Gestor de configuração gere dispositivos incorporados que utilizem filtros de escrita, consulte [planear a implementação do cliente em dispositivos Windows Embedded](../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
+ Дополнительные сведения о том, как Configuration Manager управляет устройствами Windows Embedded с фильтрами записи, см. в разделе [Планирование развертывания клиентов на устройствах Windows Embedded](../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
-##  <a name="BKMK_ExtendSoftwareUpdates"></a> Expandir atualizações de software no Configuration Manager  
- Utilize o System Center Updates Publisher para gerir atualizações de software que não estão disponíveis no Microsoft Update. Depois de publicar as atualizações de software para o servidor de atualização e sincronizar as atualizações de software no Configuration Manager, pode implementar as atualizações de software em clientes do Configuration Manager. Para obter mais informações sobre o Updates Publisher, consulte [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
+##  <a name="BKMK_ExtendSoftwareUpdates"></a> Расширение обновлений программного обеспечения в Configuration Manager  
+ Используйте System Center Updates Publisher для управления обновлениями программного обеспечения, недоступными в Центре обновления Майкрософт. После завершения публикации обновлений ПО на сервере обновлений и синхронизации обновлений ПО в Configuration Manager можно развернуть обновления ПО на клиентах Configuration Manager. Дополнительные сведения об Updates Publisher см в статье [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
 
-## <a name="next-steps"></a>Passos seguintes
-[Planear as atualizações de software](../plan-design/plan-for-software-updates.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Планирование обновлений программного обеспечения](../plan-design/plan-for-software-updates.md)

@@ -1,6 +1,6 @@
 ---
-title: "Coleções de melhores práticas | Microsoft Docs"
-description: "Obter as melhores práticas para coleções no System Center Configuration Manager."
+title: "Рекомендации для коллекций | Документы Майкрософт"
+description: "Воспользуйтесь приведенными далее рекомендациями по работе с коллекциями в System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,26 +17,26 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: fd62af3910c0745e0f1105417701b894e10cbbac
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="best-practices-for-collections-in-system-center-configuration-manager"></a>Melhores práticas para coleções no System Center Configuration Manager
+# <a name="best-practices-for-collections-in-system-center-configuration-manager"></a>Рекомендации для коллекций в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as seguintes melhores práticas para coleções no System Center Configuration Manager.  
+Воспользуйтесь приведенными далее рекомендациям по работе с коллекциями в System Center Configuration Manager.  
 
-## <a name="do-not-use-incremental-updates-for-a-large-number-of-collections"></a>Não utilizar atualizações incrementais num grande número de coleções  
- Quando ativa a opção **Utilizar atualizações incrementais para esta coleção** , esta configuração poderá causar atrasos de avaliação se a ativar em muitas coleções. O limite é de cerca de 200 coleções na sua hierarquia. O número exato depende dos seguintes fatores:  
+## <a name="do-not-use-incremental-updates-for-a-large-number-of-collections"></a>Не используйте добавочные обновления для большого числа коллекций.  
+ Установка флажка **Использовать добавочные обновления для этой коллекции** может привести к задержке оценки, если эта конфигурация задана для многих коллекций. Пороговое значение — около 200 коллекций в иерархии. Точное число зависит от следующих факторов:  
 
--   O número total de coleções  
+-   общее число коллекций,  
 
--   A frequência de novos recursos a ser adicionados e alterados na hierarquia  
+-   частота добавления и изменения ресурсов в иерархии,  
 
--   O número de clientes na hierarquia  
+-   число клиентских устройств в иерархии,  
 
--   A complexidade das regras de associação de coleções na hierarquia  
+-   сложность правил членства в коллекции в иерархии.  
 
-## <a name="make-sure-that-maintenance-windows-are-large-enough-to-deploy-critical-software-updates"></a>Certifique-se de que as janelas de manutenção são suficientemente abrangentes para implementar atualizações de software críticas  
- Pode configurar as janelas de manutenção para coleções de dispositivos restringir o número de vezes que o Configuration Manager pode instalar software nestes dispositivos. Se configurar a janela de manutenção para um período pequeno, o cliente pode não conseguir instalar as atualizações de software críticas, o que deixará o cliente vulnerável ao ataque que seria mitigado pela atualização de software.  
+## <a name="make-sure-that-maintenance-windows-are-large-enough-to-deploy-critical-software-updates"></a>Убедитесь, что периоды обслуживания обладают достаточной длительностью для развертывания критических обновлений программного обеспечения.  
+ Можно настроить периоды обслуживания для коллекций устройств, чтобы ограничить интервалы времени, в течение которых Configuration Manager может устанавливать программное обеспечение на устройства. Если установить слишком маленький период обслуживания, клиент может не успеть установить важные обновления программного обеспечения и останется уязвимым для атак, для защиты от которых и предназначены обновления.  

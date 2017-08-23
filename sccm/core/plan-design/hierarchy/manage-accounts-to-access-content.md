@@ -1,6 +1,6 @@
 ---
-title: "As contas para aceder a conteúdo no System Center Configuration Manager | Microsoft Docs"
-description: "Saiba mais sobre as contas de onde os clientes acedem aos conteúdos do System Center Configuration Manager."
+title: "Учетные записи, используемые для доступа к содержимому в System Center Configuration Manager | Документы Майкрософт"
+description: "Дополнительные сведения об учетных записях, с помощью которых клиенты обращаются к содержимому System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/6/2017
 ms.reviewer: na
@@ -16,106 +16,106 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0e982d08d54af39b13f553fc531a200f921e94a6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Gerir contas para aceder a conteúdo no System Center Configuration Manager
+# <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Управление учетными записями, используемыми для доступа к содержимому в System Center Configuration Manager.
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Antes de implementar o conteúdo no System Center Configuration Manager, considere a forma como os clientes acedem a esse conteúdo de pontos de distribuição. Este artigo descreve as seguintes contas utilizadas para esta finalidade:
+Перед развертыванием содержимого в System Center Configuration Manager определите, как клиенты будут получать доступ к этому содержимому из точек распространения. В этом разделе описываются следующие учетные записи, используемые для этой цели:
 
--   **Conta de acesso de rede**. Utilizada pelos clientes para ligar a um ponto de distribuição e aceder ao conteúdo. Por predefinição, os clientes tentar primeiro a respetiva conta de computador.
+-   **Учетная запись доступа к сети**. Используется клиентами для подключения к точке распространения и доступа к содержимому. По умолчанию клиенты сначала пытаются использовать свою учетную запись компьютера.
 
-     Esta conta é também utilizada pelos pontos de distribuição de extração para obter conteúdo de um ponto de distribuição de origem numa floresta remota.  
+     Эта учетная запись также используется точками распространения по запросу для получения содержимого из исходной точки распространения в удаленном лесу.  
 
--   **Conta de acesso a pacote**. Por predefinição, o Configuration Manager concede acesso a conteúdo num ponto de distribuição para as contas incorporadas com o nome **utilizadores** e **administradores**. Pode configurar permissões adicionais para restringir o acesso.  
+-   **Учетная запись доступа к пакетам**. По умолчанию Configuration Manager предоставляет доступ к содержимому в точке распространения встроенным учетным записям **Пользователи** и **Администраторы**. Вы можете настроить дополнительные разрешения для ограничения доступа.  
 
--   **Conta de ligação de multicast**. Utilizado para implementações do sistema operativo.  
+-   **Учетная запись многоадресной рассылки**. Используется для развертываний операционных систем.  
 
-##  <a name="bkmk_NAA"></a>Conta de acesso de rede  
- Computadores cliente utilizam a conta de acesso à rede quando estes não podem utilizar a respetiva conta de computador local para aceder ao conteúdo em pontos de distribuição. Por exemplo, isto aplica-se a clientes e computadores de grupo de trabalho de domínios não fidedignos. Esta conta também pode ser utilizada durante a implementação do sistema operativo quando o computador a instalar o sistema operativo ainda não possui uma conta de computador no domínio.  
+##  <a name="bkmk_NAA"></a> Учетная запись для доступа к сети  
+ Применяется клиентскими компьютерами, когда они не могут использовать учетную запись локального компьютера для доступа к содержимому в точках распространения. Например, это касается клиентов рабочих групп и компьютеров из недоверенных доменов. Данная учетная запись также может использоваться при развертывании операционной системы, если у компьютера, на котором устанавливается ОС, еще нет учетной записи в домене.  
 
--   Os clientes utilizam apenas a conta de acesso de rede para aceder a recursos na rede.  
+-   Клиенты используют для доступа к сетевым ресурсам только учетную запись доступа к сети.  
 
--   Em cada site primário, pode configurar várias contas para utilização como uma conta de acesso à rede.  
+-   На каждом первичном сайте в качестве учетной записи доступа к сети можно настроить несколько учетных записей.  
 
--   Os clientes tentam pela primeira vez para aceder ao conteúdo num ponto de distribuição utilizando o respetivo *computername*conta $. Se esta conta falhar, os clientes tentam, em seguida utilizar uma conta de acesso de rede. Os clientes continuam a tentar utilizar a conta de acesso de rede, mesmo que tenha falhado anteriormente.  
+-   Сначала клиенты пытаются получить доступ к содержимому в точке распространения с помощью своей учетной записи *имя_компьютера*$. Если эта учетная запись выдает сбой, клиенты пытаются использовать учетную запись доступа к сети. Клиенты пытаются использовать учетную запись доступа к сети, даже если ранее она выдавала сбой.  
 
-### <a name="permissions"></a>Permissões
-Conceda a esta conta as permissões mínimas adequadas para aceder ao software para o conteúdo que o cliente requer.  
+### <a name="permissions"></a>Разрешения
+Этой учетной записи следует предоставить минимальный набор необходимых разрешений для доступа к программному обеспечению, требуемому клиенту.  
 
--   A conta deve ter o **aceder a este computador a partir da rede** à direita no ponto de distribuição.  
+-   Учетной записи должно быть предоставлено право **Подключаться к этому компьютеру из сети** в отношении точки распространения.  
 
--   Crie a conta em qualquer domínio que fornece o acesso necessário a recursos. A Conta de Acesso à Rede tem de incluir sempre um nome de domínio. Segurança pass-through não é suportada para esta conta. Se existirem pontos de distribuição em vários domínios, crie a conta num domínio fidedigno.  
+-   Следует создать учетную запись в любом домене, предоставляющем доступ к необходимым ресурсам. Учетная запись доступа к сети всегда должна включать имя домена. Сквозная безопасность не поддерживается для этой учетной записи. Если точки распространения присутствуют в нескольких доменах, следует создать учетную запись в доверенном домене.  
 
 > [!TIP]  
->  Para evitar bloqueios de conta, não altere a palavra-passe de uma Conta de Acesso à Rede existente. Em vez disso, crie uma nova conta e configure a nova conta no Configuration Manager. Quando tiver passado o tempo suficiente para todos os clientes receberem os detalhes da nova conta, remova a conta antiga a partir das pastas partilhadas na rede e eliminar a conta.  
+>  Для предотвращения блокировки учетной записи не следует изменять пароль существующей учетной записи доступа к сети. Вместо этого следует создать учетную запись и настроить ее в Configuration Manager. Когда пройдет достаточно времени и все клиенты получат данные новой учетной записи, удалите старую учетную запись из общих сетевых папок и удалите учетную запись.  
 
 > [!IMPORTANT]  
->  Não conceda a esta conta de direitos interativos ao iniciar sessão.  
+>  Не предоставляйте этой учетной записи права на интерактивный вход в систему.  
 >   
->  Não conceda a esta conta o direito de associar computadores ao domínio. Se tiver de associar computadores ao domínio durante uma sequência de tarefas, utilize a Conta de Adesão ao Domínio do Editor de Sequência de Tarefas.  
+>  Не предоставляйте этой учетной записи право присоединения компьютеров к домену. Если требуется присоединить компьютеры к домену во время выполнения последовательности задач, используйте учетную запись присоединения доменов редактора последовательностей задач.  
 
-### <a name="to-configure-the-network-access-account"></a>Para configurar a conta de acesso de rede  
+### <a name="to-configure-the-network-access-account"></a>Настройка учетной записи доступа к сети  
 
-1.  Na consola do Configuration Manager, escolha **administração** >   **configuração do Site** >  **Sites**e, em seguida, selecione o site.  
+1.  В консоли Configuration Manager последовательно выберите **Администрирование** >   **Конфигурация сайта** >  **Сайты**, а затем выберите сайт.  
 
-2.  No **definições** grupo, escolha **configurar componentes do Site** > **distribuição de Software**.  
+2.  В группе **Параметры** выберите **Настройка компонентов сайта** > **Распространение программного обеспечения**.  
 
-3.  Escolha o **conta de acesso à rede** separador. Configurar uma ou mais contas e, em seguida, escolha **OK**.  
+3.  Откройте вкладку **Учетная запись сетевого доступа**. Настройте одну или несколько учетных записей и нажмите кнопку **ОК**.  
 
-##  <a name="bkmk_Paa"></a>Contas de acesso do pacote  
- Contas de acesso a pacote permitem-lhe definir permissões do sistema de ficheiros NTFS para especificar os utilizadores e grupos de utilizadores que podem aceder a conteúdo de pacote em pontos de distribuição. Por predefinição, o Configuration Manager concede acesso apenas às genérica **utilizadores** e **administradores** contas. Pode controlar o acesso para computadores cliente, no entanto, através da utilização de contas do Windows ou grupos adicionais. Dispositivos móveis não utilizem as contas de acesso do pacote, porque estes dispositivos sempre obtêm conteúdo do pacote de forma anónima.  
+##  <a name="bkmk_Paa"></a> Учетные записи доступа к пакетам  
+ Учетные записи доступа к пакетам позволяют задавать разрешения файловой системы NTFS для указания пользователей и групп пользователей, которые могут обращаться к содержимому пакетов в точках распространения. По умолчанию Configuration Manager предоставляет доступ только к общим учетным записям **Пользователи** и **Администраторы**. Однако контролировать доступ клиентских компьютеров можно с помощью дополнительных учетных записей или групп Windows. Мобильные устройства не используют учетные записи доступа к пакетам, так как они всегда получают содержимое пакетов анонимно.  
 
- Por predefinição, quando o Configuration Manager copia os ficheiros de conteúdo de um pacote para um ponto de distribuição, concede acesso **leitura** acesso local **utilizadores** grupo e **controlo total** local **administradores** grupo. As permissões reais que são necessárias dependem do pacote. Se tiver clientes localizados em grupos de trabalho ou em florestas não fidedignas, esses clientes utilizam a Conta de Acesso à Rede para aceder ao conteúdo dos pacotes. Certifique-se de que a conta de acesso de rede tem permissões para o pacote utilizando as contas de acesso do pacote definidas.  
+ По умолчанию когда Configuration Manager копирует файлы содержимого пакета в точку распространения, он предоставляет право на **чтение** локальной группе **Пользователи** и право **Полный доступ** локальной группе **Администраторы**. Фактические необходимые разрешения зависят от пакета. Клиенты, находящиеся в рабочих группах или лесах, не имеющих доверия, для доступа к содержимому пакета используют учетную запись доступа к сети. С помощью определенных учетных записей пакетного доступа проверьте, что учетная запись доступа к сети имеет разрешения для доступа к пакету.  
 
- Utilize contas de um domínio que tenham acesso aos pontos de distribuição. Se criar ou alterar a conta após a criação do pacote, necessitará de redistribuir o pacote. A atualização do pacote não altera as permissões do sistema de ficheiros NTFS no pacote.  
+ Используйте учетные записи в домене, который может обращаться к точкам распространения. Если после создания пакета происходит создание или изменение учетной записи, пакет необходимо распространить повторно. Обновление пакета не приводит к изменению разрешений файловой системы NTFS в пакете.  
 
- Não é necessário adicionar a conta de acesso de rede como uma conta de acesso do pacote, porque a associação do **utilizadores** grupo adiciona automaticamente. Restringir a Contas de Acesso a Pacotes Apenas à Conta de Acesso à Rede não impedirá o acesso dos clientes ao pacote.  
+ Добавлять учетную запись доступа к сети в качестве учетной записи пакетного доступа не требуется, поскольку благодаря принадлежности к группе **Пользователи** она добавляется автоматически. Если учетная запись пакетного доступа ограничивается только учетной записью доступа к сети, клиенты могут и далее обращаться к пакету.  
 
-### <a name="to-manage-access-accounts"></a>Para gerir contas de acesso  
+### <a name="to-manage-access-accounts"></a>Управление учетными записями доступа  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software**.  
+1.  В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.  
 
-2.  No **biblioteca de Software** área de trabalho, determinar o tipo de conteúdo para o qual pretende gerir contas de acesso e siga os passos fornecidos:  
+2.  В рабочей области **Библиотека программного обеспечения** определите тип содержимого, для которого будет осуществляться управление учетными записями доступа, а затем следуйте предоставленным инструкциям.  
 
-    -   **Aplicações**: Expanda **gestão de aplicações**, escolha **aplicações**e, em seguida, selecione as aplicações cujas contas de acesso pretende gerir.  
+    -   **Приложения**. Разверните узел **Управление приложениями**, щелкните **Приложения**, а затем выберите приложения, для которых требуется управление учетными записями доступа.  
 
-    -   **Pacotes**: Expanda **gestão de aplicações**, escolha **pacotes**e, em seguida, selecione os pacotes cujas contas de acesso pretende gerir.  
+    -   **Пакеты**. Разверните узел **Управление приложениями**, щелкните **Пакеты**, а затем выберите пакеты, для которых требуется управление учетными записями доступа.  
 
-    -   **Pacotes de implementação**: Expanda **atualizações de Software**, escolha **pacotes de implementação**e, em seguida, selecione os pacotes de implementação cujas contas de acesso pretende gerir.  
+    -   **Пакеты развертывания**. Разверните узел **Обновления программного обеспечения**, щелкните **Пакеты развертывания**, а затем выберите пакеты развертывания, для которых требуется управление учетными записями доступа.  
 
-    -   **Pacotes de controladores**: Expanda **sistemas operativos**, escolha **pacotes de controladores**e, em seguida, selecione os pacotes de controladores cujas contas de acesso pretende gerir.  
+    -   **Пакеты драйверов**. Разверните узел **Операционные системы**, щелкните **Пакеты драйверов**, а затем выберите пакеты драйверов, для которых требуется управление учетными записями доступа.  
 
-    -   **Imagens de sistema operativo**: Expanda **sistemas operativos**, escolha **imagens do sistema operativo**e, em seguida, selecione as imagens de sistema operativo para o qual pretende gerir contas de acesso.  
+    -   **Образы операционной системы**. Разверните узел **Операционные системы**, щелкните **Образы операционной системы**, а затем выберите образы операционной системы, для которых требуется управление учетными записями доступа.  
 
-    -   **Instaladores do sistema operativo**: Expanda **sistemas operativos**, escolha **instaladores do sistema operativo**e, em seguida, selecione os instaladores do sistema operativo para o qual pretende gerir contas de acesso.  
+    -   **Установщики операционной системы**. Разверните узел **Операционные системы**, щелкните **Установщики операционной системы**, а затем выберите установщики операционной системы, для которых требуется управление учетными записями доступа.  
 
-    -   **Imagens de arranque**: Expanda **sistemas operativos**, escolha **imagens de arranque**e, em seguida, selecione as imagem de arranque cujas contas de acesso pretende gerir.  
+    -   **Загрузочные образы**. Разверните узел **Операционные системы**, щелкните **Загрузочные образы**, а затем выберите загрузочные образы, для которых требуется управление учетными записями доступа.  
 
-3.  Faça duplo clique o objeto selecionado e, em seguida, escolha **gerir contas de acesso**.  
+3.  Щелкните правой кнопкой мыши выбранный объект и выберите пункт **Управление учетными записями доступа**.  
 
-4.  No **adicionar conta** diálogo caixa, especifique o tipo de conta que será concedido acesso ao conteúdo e, em seguida, especifique os direitos de acesso associados à conta.  
+4.  В диалоговом окне **Добавление учетной записи** укажите тип учетной записи, которой будет предоставлен доступ к содержимому, а затем задайте права доступа, связанные с учетной записью.  
 
     > [!NOTE]  
-    >  Quando adicionar um nome de utilizador para a conta e do Configuration Manager localiza uma conta de utilizador local e uma conta de utilizador de domínio com esse nome, o Configuration Manager Define direitos de acesso da conta de utilizador de domínio.  
+    >  Если при добавлении имени пользователя для учетной записи Configuration Manager находит учетную запись локального пользователя и учетную запись пользователя домена с таким именем, Configuration Manager задает права доступа для учетной записи пользователя домена.  
 
-##  <a name="bkmk_multi"></a>Conta de ligação de multicast  
- A conta de ligação de Multicast é utilizada pelos pontos de distribuição que estão configurados para o multicast ler informações da base de dados do site.  
+##  <a name="bkmk_multi"></a> Учетная запись многоадресной рассылки  
+ Учетная запись многоадресной рассылки используется точками распространения, настроенными для многоадресной передачи с целью чтения информации из базы данных сайта.  
 
--   Especifique uma conta a utilizar quando configurar ligações de base de dados do Configuration Manager para multicast.  
+-   Вы можете указать учетную запись для использования при настройке подключений к базе данных Configuration Manager для многоадресной рассылки.  
 
--   Por predefinição, é utilizada a conta de computador do ponto de distribuição, mas pode configurar uma conta de utilizador em vez disso.  
+-   По умолчанию используется учетная запись компьютера точки распространения, но можно настроить использование учетной записи пользователя вместо нее.  
 
--   Tem de especificar uma conta de utilizador sempre que a base de dados do site estiver numa floresta não fidedigna.  
+-   Необходимо указать учетную запись пользователя, если база данных сайта находится в недоверенном лесу.  
 
--   A conta deve ter **leitura** permissões para a base de dados do site.  
+-   Эта учетная запись должна иметь разрешения **Чтение** для базы данных сайта.  
 
-Por exemplo, se o seu centro de dados possuir uma rede de perímetro numa floresta que não é o servidor do site e a base de dados do site, pode utilizar esta conta para ler as informações de multicast da base de dados do site.
+Например, если в центре обработки данных сеть периметра находится не в том же лесу, что и сервер сайта и база данных сайта, можно использовать эту учетную запись для чтения многоадресной информации из базы данных сайта.
 
-Se criar esta conta, crie-o como um com direitos restritos, uma conta local no computador que executa o Microsoft SQL Server.  
+Если вы решили создать эту учетную запись, создайте локальную учетную запись с ограниченными правами на компьютере с Microsoft SQL Server.  
 
 > [!IMPORTANT]  
->  Não conceda a esta conta de direitos interativos ao iniciar sessão.  
+>  Не предоставляйте этой учетной записи права на интерактивный вход в систему.  

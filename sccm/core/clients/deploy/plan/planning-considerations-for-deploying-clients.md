@@ -1,6 +1,6 @@
 ---
-title: "Planeamento da implementação do cliente | Microsoft Docs"
-description: Planeia implementar clientes e preparar a infraestrutura no System Center Configuration Manager.
+title: "Планирование развертывания клиентов | Документы Майкрософт"
+description: "Спланируйте развертывание клиентов и подготовьте инфраструктуру в System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,28 +16,28 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 3da19c15ef5c002313493558580175b98a90bb59
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-considerations-for-deploying-clients-in-system-center-configuration-manager"></a>Considerações sobre planeamento para implementar clientes no System Center Configuration Manager
+# <a name="planning-considerations-for-deploying-clients-in-system-center-configuration-manager"></a>Вопросы планирования для развертывания клиентов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Antes de instalar clientes em PCs, servidores e outros dispositivos no System Center Configuration Manager, deve considerar como implementar o software de cliente e preparar a infraestrutura do Configuration Manager em conformidade.  
+Перед установкой клиентов на ПК, серверы и другие устройства в System Center Configuration Manager следует определить способ развертывания клиентского программного обеспечения и соответствующим образом подготовить инфраструктуру Configuration Manager.  
 
- As páginas seguintes nesta secção fornecem informações sobre o planeamento de vários métodos de instalação de cliente e os vários detalhes da implementação do cliente em plataformas diferentes na sua organização:  
+ Ниже в этом разделе приведена информация о планировании для различных методах установки клиентов и сведения о развертывании клиентов на различных платформах в вашей организации.  
 
--   [Métodos de instalação de cliente no System Center Configuration Manager](../../../../core/clients/deploy/plan/client-installation-methods.md)  
+-   [Методы установки клиента в System Center Configuration Manager](../../../../core/clients/deploy/plan/client-installation-methods.md)  
 
--   [Melhores práticas para a implementação do cliente no System Center Configuration Manager](../../../../core/clients/deploy/plan/best-practices-for-client-deployment.md)  
+-   [Рекомендации по развертыванию клиентов в System Center Configuration Manager](../../../../core/clients/deploy/plan/best-practices-for-client-deployment.md)  
 
--   [Determinar se deve bloquear clientes no System Center Configuration Manager](../../../../core/clients/deploy/plan/determine-whether-to-block-clients.md)  
+-   [Определение необходимости блокировки клиентов в System Center Configuration Manager](../../../../core/clients/deploy/plan/determine-whether-to-block-clients.md)  
 
--   [Pré-requisitos para implementar clientes em computadores Windows no System Center Configuration Manager](../../../../core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.md)  
+-   [Необходимые условия для развертывания клиентов на компьютерах с Windows в System Center Configuration Manager](../../../../core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.md)  
 
--   [Planear a implementação do cliente para computadores Linux e UNIX no System Center Configuration Manager](../../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md)  
+-   [Планирование развертывания клиентов на компьютерах Linux и UNIX в System Center Configuration Manager](../../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md)  
 
--   [Planear a implementação do cliente para computadores Mac no System Center Configuration Manager](../../../../core/clients/deploy/plan/planning-for-client-deployment-to-mac-computers.md)  
+-   [Планирование развертывания клиентов на компьютерах Mac в System Center Configuration Manager](../../../../core/clients/deploy/plan/planning-for-client-deployment-to-mac-computers.md)  
 
--   [Planear a implementação do cliente em dispositivos Windows Embedded no System Center Configuration Manager](../../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md)  
+-   [Планирование развертывания клиентов на устройствах Windows Embedded в System Center Configuration Manager](../../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md)  

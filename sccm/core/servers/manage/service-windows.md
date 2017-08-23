@@ -1,6 +1,6 @@
 ---
-title: "Serviço Windows | Microsoft Docs"
-description: "Utilize as janelas de serviço para controlar quando o System Center Configuration Manager sites instalam atualizações."
+title: "Периоды обслуживания | Документы Майкрософт"
+description: "Используйте периоды обслуживания для управления тем, когда сайты System Center Configuration Manager устанавливают обновления."
 ms.custom: na
 ms.date: 1/11/2017
 ms.prod: configuration-manager
@@ -17,28 +17,28 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: d06a2a955ff59fa84bb844033fe31874fc735087
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="service-windows-for-site-servers"></a>Janelas de serviço dos servidores de site
+#  <a name="service-windows-for-site-servers"></a>Периоды обслуживания для серверов сайта
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode configurar as janelas de serviço em sites de administração central e sites primários para controlar quando podem instalar atualizações na consola.  Pode configurar várias janelas, com a janela de permissão para instalar as atualizações que está a ser determinadas por uma combinação de todas as janelas de serviço para esse servidor de site.
+Вы можете настроить периоды обслуживания на сайтах центра администрирования и первичных сайтах для управления тем, когда устанавливаются обновления в консоли.  Можно настроить несколько периодов, в которых разрешена установка обновлений инфраструктуры, определенных комбинацией всех настроенных периодов для этого сервера сайта.
 
-Quando não estiver configurada nenhuma janela de serviço:
-- **No seu site de nível superior** (um site de administração central ou site primário autónomo) que escolher quando iniciar a instalação da atualização.
-- **Num site primário subordinado**, a atualização instala automaticamente após a conclusão da atualização instalação no site de administração central.
-- **Num site secundário**, as atualizações nunca iniciam automaticamente. Em vez disso, tem de iniciar manualmente a instalação de atualização a partir da consola, depois do site primário principal tem de instalar a atualização.
+Если период обслуживания не настроен:
+- **На сайте верхнего уровня** (сайте центра администрирования или автономном первичном сайте) выберите время запуска установки обновлений.
+- **На подчиненном первичном сайте** обновление устанавливается автоматически после того, как сайт центра администрирования завершит обновление.
+- **На вторичном сайте** обновления никогда не запускаются автоматически. Вместо этого по завершении установки обновления на родительском первичном сайте необходимо вручную запустить установку обновления в консоли.
 
-Quando uma janela de serviço estiver configurada:
-- **No seu site de nível superior**, não será possível iniciar a instalação de qualquer nova atualização a partir da consola do Configuration Manager. Mesmo com uma janela de serviço configurada, o site transfere automaticamente as atualizações para estas estão prontas para instalação.  
-- **Num site primário subordinado**, as atualizações que têm instalado um site de administração central irão transferir para o site primário, mas não o fizer automaticamente início. Não é possível iniciar manualmente a instalação de uma atualização durante um período de tempo que está bloqueado pela utilização de uma janela de serviço. Cada vez quando janelas de serviço já não bloco da instalação da atualização, a atualização são instalados automaticamente é iniciado.
-- **Os sites secundários** não suportam janelas de serviço e instalar atualizações automaticamente. Depois do site primário principal de um site secundário instala uma atualização, pode iniciar a atualização do site secundário da consola do.
+Если период обслуживания настроен:
+- **На сайте верхнего уровня** вы не сможете запустить установку новых обновлений из консоли Configuration Manager. Даже если период обслуживания настроен, сайт автоматически скачивает обновления, которые становятся доступны для установки.  
+- **На подчиненном первичном сайте** обновления, установленные на сайте центра администрирования, скачиваются на первичный сайт, но не запускаются автоматически. Вы не можете вручную запустить установку обновления в течение времени, которое блокируется периодом обслуживания. Как только периоды обслуживания перестанут блокировать установку обновления, его установка начнется автоматически.
+- **Вторичные сайты** не поддерживают периоды обслуживания и не устанавливают обновления автоматически. После того как обновление установится на первичном родительском сайте вторичного сайта, вы можете начать обновление вторичного сайта из консоли.
 
-## <a name="to-configure-a-service-window"></a>Para configurar uma janela de serviço
+## <a name="to-configure-a-service-window"></a>Настройка периода обслуживания
 
-1.  Na consola do Configuration Manager abra **administração** > **configuração do Site** > **Sites**e, em seguida, selecione o servidor do site onde pretende configurar uma janela de serviço.  
+1.  В консоли Configuration Manager перейдите в узел **Администрирование** > **Конфигурация сайта** > **Сайты** и выберите сервер сайта, для которого требуется настроить период обслуживания.  
 
-2.  Em seguida, edite as **Propriedades** dos servidores do site e selecione o separador **Período de Administração** , onde pode configurar um ou mais períodos de administração para esse servidor do site.  
+2.  Затем измените **свойства** сервера сайта и откройте вкладку **Период обслуживания** , где можно задать один или несколько периодов обслуживания для этого сервера сайта.  

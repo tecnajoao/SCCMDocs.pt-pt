@@ -1,6 +1,6 @@
 ---
-title: "Preparar a implementação do sistema de operativo | Microsoft Docs"
-description: "Ler estes artigos para saber mais sobre o que deve fazer no Configuration Manager para se preparar para implementações do sistema operativo."
+title: "Подготовка к развертыванию операционной системы | Документы Майкрософт"
+description: "В этой статье приводятся сведения о действиях, которые необходимо выполнить в Configuration Manager для подготовки к развертыванию операционных систем."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,26 +16,26 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: dcc35f39b6ece8b466fc3770c6b9f304180eb42a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-for-operating-system-deployment-in-system-center-configuration-manager"></a>Preparar a implementação do sistema operativo no System Center Configuration Manager
+# <a name="prepare-for-operating-system-deployment-in-system-center-configuration-manager"></a>Подготовка к развертыванию операционной системы в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Existem várias coisas que deve fazer no Configuration Manager antes de poder implementar sistemas operativos. Utilize os seguintes tópicos para o ajudar a preparar a implementação do sistema operativo:  
+Перед развертыванием операционных систем в Configuration Manager необходимо выполнить ряд задач. В следующих разделах содержатся сведения, которые помогут вам подготовиться к развертыванию операционной системы.  
 
--   [Gerir imagens de arranque](manage-boot-images.md)  
+-   [Управление загрузочными](manage-boot-images.md) образами  
 
--   [Gerir imagens de sistema operativo](manage-operating-system-images.md)  
+-   [Управление образами операционных систем](manage-operating-system-images.md)  
 
--   [Gerir pacotes de atualização do sistema operativo](manage-operating-system-upgrade-packages.md)  
+-   [Управление пакетами обновления операционной системы](manage-operating-system-upgrade-packages.md)  
 
--   [Gerir controladores](manage-drivers.md)  
+-   [Управление драйверами](manage-drivers.md)  
 
--   [Gerir o estado do utilizador](manage-user-state.md)  
+-   [Управление пользовательской средой](manage-user-state.md)  
 
--   [Preparar implementações de computadores desconhecidos](prepare-for-unknown-computer-deployments.md)  
+-   [Подготовка развертываний на неизвестные компьютеры](prepare-for-unknown-computer-deployments.md)  
 
--   [Associar utilizadores a um computador de destino](associate-users-with-a-destination-computer.md)  
+-   [Связывание пользователей с конечным компьютером](associate-users-with-a-destination-computer.md)  

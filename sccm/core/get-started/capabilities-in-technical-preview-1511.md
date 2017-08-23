@@ -1,6 +1,6 @@
 ---
-title: Funcionalidades no Technical Preview 1511 do Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1511."
+title: "Возможности в Technical Preview 1511 для Configuration Manager"
+description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1511."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,171 +17,171 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: d0bde2c085cc9b330bc772e68081d629ca9e2f11
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1511-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1511 do System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1511-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1511 для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+*Применимо к: System Center Configuration Manager (Technical Preview)*
 
-Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1511. Esta versão é uma linha de base de instalação do technical preview que pode utilizar instalar um novo site de pré-visualização técnica ou para atualizar a partir de uma versão anterior do technical preview.   Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](/sccm/core/get-started/technical-preview), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.  
+В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1511. Эта версия является базовой установкой ознакомительной технической версии, которую можно использовать для установки нового сайта в режиме технической оценки или для обновления с более ранней версии ознакомительной технической версии.   Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](/sccm/core/get-started/technical-preview), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.  
 
-Seguem-se novas funcionalidades que pode experimentar com esta versão.  
+Ниже перечислены новые возможности, доступные в этой версии.  
 
-##  <a name="BKMK_WUfB"></a>Integração com o Windows Update for Business no Windows 10  
- O Configuration Manager tem agora capacidade para diferenciar computadores Windows 10 que estejam ligados diretamente através do Windows Update for Business (WUfB) por oposição aos que estão ligados ao WSUS para obter atualizações do Windows 10 e melhoramentos.  Para os computadores ligados através de WUfB, as atualizações e melhoramentos podem ser geridos de cadência definida por um utilizador administrativo através das políticas de políticas de grupo ou a MDM e estas atualizações/melhoramentos podem ser instalados diretamente a partir do WUfB.    
-Nos computadores ligados através de WUfB, o Configuration Manager não poderá comunicar o estado de conformidade (incluindo atualizações do Windows ou atualizações de definições). Também do Configuration Manager não poderá implementar Updates da Microsoft ou 3rd atualizações de terceiros nestes computadores.  
+##  <a name="BKMK_WUfB"></a> Интеграция с Центром обновления Windows для бизнеса в Windows 10  
+ Configuration Manager теперь способен отличить компьютер Windows 10, который подключен напрямую через Центр обновления Windows для бизнеса (WUfB), от компьютеров, которые подключены к службам WSUS для получения обновлений Windows 10.  Для компьютеров, подключенных через Центр обновления Windows для бизнеса, обновлениями можно управлять с периодичностью, заданной пользователем с правами администратора посредством групповых политик или политик MDM, и такие обновления можно установить непосредственно из Центра обновления Windows для бизнеса.    
+Для компьютеров, подключенных через Центр обновления Windows для бизнеса, Configuration Manager не сможет предоставлять сведения о состоянии соответствия (включая обновления Windows и определений). Кроме того, Configuration Manager не сможет развертывать на этих компьютерах обновления Майкрософт или сторонних разработчиков.  
 
- **Pré-requisitos para este cenário:**  
+ **Предварительные требования для данного сценария**  
 
--   Windows 10 Desktop Pro ou Windows 10 Enterprise Edition, versão 1511 ou posterior  
+-   Windows 10 Desktop Pro или Windows 10 Корпоративная версии 1511 или более поздней  
 
--   Computadores que serão geridos através de [Windows Update for Business](https://technet.microsoft.com/library/mt622730\(v=vs.85\).aspx).  
+-   Компьютеры, которыми необходимо управлять через [Центр обновления Windows для бизнеса](https://technet.microsoft.com/library/mt622730\(v=vs.85\).aspx).  
 
-### <a name="try-it-out"></a>Experimente!  
- Experimente concluir a seguinte tarefa e, em seguida, utilize as informações de feedback perto da parte superior deste tópico para nos informar como correu:  
+### <a name="try-it-out"></a>Попробуйте!  
+ Попробуйте выполнить следующую задачу, а затем используйте информацию для обратной связи, расположенную ближе к началу этой статьи, чтобы сообщить нам о полученном результате.  
 
-1.  Desative o Agente do Windows Update para que não faça análises no WSUS, se tiver sido ativado previamente.   
-    A chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\useWSUSServer** pode ser definida para indicar se o computador está a analisar no WSUS ou no Windows Update.  Quando o valor é 2, não está a analisar no WSUS.  
+1.  Отключите агент Центра обновления Windows, чтобы он не выполнял сканирование служб WSUS (если он был включен ранее).   
+    В разделе реестра **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\useWSUSServer** можно указать, выполняет ли компьютер сканирование служб WSUS или Центра обновления Windows.  Если значение равно 2, сканирование служб WSUS не выполняется.  
 
-2.  Tome nota do novo atributo **UseWUServer**, sob o **Windows Update** nó no Explorador de recursos do Configuration Manager.  
+2.  Запишите новый атрибут **UseWUServer**в узле **Windows Update** обозревателя ресурсов Configuration Manager.  
 
-3.  Crie uma coleção com base no atributo **UseWUServer** para todos os computadores ligados através de WUfB para obter atualizações e melhoramentos.  
+3.  Создайте коллекцию на основе атрибута **UseWUServer** для всех компьютеров, подключенных через Центр обновления Windows для бизнеса, чтобы выполнить обновления.  
 
-4.  Crie uma definição de agente de cliente para desativar o fluxo de trabalho de atualização de software e implemente-a na coleção de computadores ligados diretamente ao WUfB.  
+4.  Создайте параметр агента клиента для отключения рабочего процесса обновления программного обеспечения и разверните этот параметр в коллекции компьютеров, которые подключены непосредственно к Центру обновления Windows для бизнеса.  
 
-5.  O estado de conformidade dos computadores geridos através de WUfB é **Desconhecido** e estes não serão considerados parte da percentagem de conformidade geral.  
+5.  Компьютеры, управляемые через Центр обновления Windows для бизнеса, имеют состояние соответствия требованиям **Неизвестно** и учитываются в общем проценте соответствия.  
 
-##  <a name="BKMK_Office365ProPlus"></a>Gerir o Office 365 ProPlus Client Update através do System Center Configuration Manager  
- O Configuration Manager tem agora capacidade para gerir atualizações de cliente de ambiente de trabalho do Office 365 utilizando o fluxo de trabalho de gestão de atualizações de Software do Configuration Manager.    
-Quando a Microsoft publica uma nova atualização de cliente de ambiente de trabalho do Office 365 para Windows Server atualizações Services (WSUS), o Configuration Manager será capaz de sincronizar a atualização com o respetivo catálogo se a atualização do Office 365 estiver configurada como parte da sincronização do catálogo.  O servidor do site do Configuration Manager irá transferir as atualizações de cliente do Office 365 e distribuir o pacote para pontos de distribuição do Configuration Manager.  O cliente do Configuration Manager irá, em seguida, informar os clientes de ambiente de trabalho do Office 365 para obter as atualizações onde e quando iniciar o processo de instalação de atualização.  
+##  <a name="BKMK_Office365ProPlus"></a> Управление обновлением клиента Office 365 профессиональный плюс через System Center Configuration Manager  
+ Configuration Manager теперь может управлять обновлениями настольного клиента Office 365 с помощью рабочего процесса управления обновлениями программного обеспечения Configuration Manager.    
+Когда корпорация Майкрософт публикует новое обновление настольного клиента Office 365 в службах Windows Server Update Services (WSUS), Configuration Manager сможет синхронизировать это обновление со своим каталогом, если обновление Office 365 настроено как часть синхронизации каталогов.  Сервер сайта Configuration Manager загрузит обновления клиента Office 365 и передаст пакет в точки распространения Configuration Manager.  Затем клиент Configuration Manager сообщит настольным клиентам Office 365, где можно получить обновления и когда следует запускать процесс установки обновлений.  
 
-**Pré-requisitos para este cenário:**  
+**Предварительные требования для данного сценария**  
 
-### <a name="try-it-out"></a>Experimente!  
- Experimente concluir a seguinte tarefa e, em seguida, utilize as informações de feedback perto da parte superior deste tópico para nos informar como correu:  
+### <a name="try-it-out"></a>Попробуйте!  
+ Попробуйте выполнить следующую задачу, а затем используйте информацию для обратной связи, расположенную ближе к началу этой статьи, чтобы сообщить нам о полученном результате.  
 
-1.  Pode sincronizar as atualizações do Office 365 para o servidor de site do Configuration Manager e visualizá-los a partir da consola do Configuration Manager.  
+1.  Вы можете синхронизировать обновления Office 365 с сервером сайта Configuration Manager и просматривать их из консоли Configuration Manager.  
 
-2.  Pode aprovar e implementar atualizações do Office 365 com êxito.  
+2.  Вы можете утвердить и развернуть обновления Office 365.  
 
-3.  Pode transferir e do Office 365 atualizado com êxito para os clientes.  
+3.  Вы можете скачать и развернуть обновления Office 365 для клиентов.  
 
-4.  Pode verificar a conformidade para atualizações do Office 365, utilizando a monitorização na consola ou relatórios.  
+4.  Вы можете проверить соответствие обновлений Office 365 с помощью функций мониторинга или отчетов в консоли.  
 
- Para obter passos detalhados, consulte [atualizações do cliente gerir o Office 365 com o System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/mt628083.aspx).  
+ Подробные инструкции см. в разделе [Управление обновлениями клиента Office 365 с помощью System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/mt628083.aspx).  
 
-##  <a name="BKMK_AlwasyOn"></a>Suporte para o SQL Server AlwaysOn para bases de dados altamente disponíveis  
- O Configuration Manager suporta agora a grupos de Disponibilidade AlwaysOn do SQL Server a utilizar para alojar a base de dados do site.  Quando instala um novo site, pode direcionar a configuração para utilizar o grupo de disponibilidade em vez de uma instância normal do SQL Server.  
+##  <a name="BKMK_AlwasyOn"></a> Поддержка SQL Server AlwaysOn для высокодоступных баз данных  
+ Теперь Configuration Manager позволяет использовать группы доступности SQL Server AlwaysOn для размещения базы данных сайта.  При установке нового сайта можно настроить программу установки для использования группы доступности вместо обычного экземпляра SQL Server.  
 
 > [!NOTE]  
->  Configuração com êxito e a utilização de grupos de disponibilidade requer que esteja confortável com a configuração de grupos de disponibilidade do SQL Server e baseia-se na documentação e procedimentos indicados na biblioteca de documentação do SQL Server.  
+>  Чтобы успешно настроить и использовать группы доступности, необходимо обладать достаточными навыками в области настройки групп доступности SQL Server и следовать документации и процедурам, представленным в библиотеке документации SQL Server.  
 
-O processo de alto nível para configurar e utilizar grupos de disponibilidade inclui:  
+Обобщенный процесс настройки и использования групп доступности включает в себя следующее.  
 
-1.  Configure o grupo de disponibilidade no SQL Server.  
+1.  Настроить группы доступности в SQL Server.  
 
-2.  Instalar um novo site do Configuration Manager e durante a configuração, reencaminhar o site para utilizar o grupo de disponibilidade ao especificar os grupos de ponto final.  
+2.  Установить новый сайт Configuration Manager и в ходе настройки выбрать вариант использования группы доступности путем указания конечной точки в группе.  
 
-**Pré-requisitos para este cenário:**  
+**Предварительные требования для данного сценария**  
 
--   Requer uma versão do SQL Server suportada pelo Configuration Manager Technical Preview  
+-   Требуется версия SQL Server, поддерживаемая версией Configuration Manager Technical Preview.  
 
--   Tem de criar e configurar o grupo de disponibilidade do SQL Server antes de instalar o Configuration Manager  
+-   Перед установкой Configuration Manager необходимо создать и настроить группу доступности SQL Server.  
 
--   O grupo de disponibilidade tem de ter uma réplica primária e pode ter até duas réplicas secundárias síncronas  
+-   Группа доступности должна иметь одну первичную реплику и может иметь не более двух синхронных вторичных реплик.  
 
--   O grupo de disponibilidade tem de ter, pelo menos, um ponto final  
+-   Группа доступности должна иметь минимум одну конечную точку.  
 
--   Tem de ter uma localização de rede que cada SQL Server no grupo de disponibilidade possa aceder. Esta localização é utilizada pela configuração ao configurar o grupo de disponibilidade e pode ser removida após a conclusão da configuração.  
+-   Необходимо иметь сетевую папку, к которой может иметь доступ каждый SQL Server в группе доступности. Эта папка используется программой установки при настройке группы доступности и может быть удалена после завершения установки.  
 
-**Problemas conhecidos desta versão:**  
+**Известные проблемы в этом выпуске:**  
 
--   Não é possível adicionar com êxito um novo membro de réplica para um grupo de disponibilidade que já está a ser utilizado como uma base de dados do site. Em vez disso, tem de reinstalar o site depois do novo membro de réplica é adicionado.  
+-   Новый член реплики не может быть добавлен в группу доступности, которая уже используется в качестве базы данных сайта. Вместо этого после добавления нового члена реплики необходимо переустановить сайт.  
 
--   Para este cenário poderá ter de instalar o **cliente nativo do SQL Server 2012** ([do SQL Server 2012 Feature Pack](http://www.microsoft.com/download/details.aspx?id=29065)) no servidor de ponto de gestão. Isto impede que os erros de conexão SQL (que ficam registados no **mp_getauth.log** no servidor de ponto de gestão).  
+-   В этом сценарии может потребоваться установить **собственный клиент SQL Server 2012** ([из пакета дополнительных компонентов SQL Server 2012](http://www.microsoft.com/download/details.aspx?id=29065)) на сервере точки управления. Это позволит предотвращать ошибки подключения SQL (которые регистрируются в файле **mp_getauth.log** на сервере точки управления).  
 
-### <a name="try-it-out"></a>Experimente!  
-Experimente concluir as seguintes tarefas e, em seguida, utilize as informações de feedback perto da parte superior deste tópico para nos informar como correu:  
+### <a name="try-it-out"></a>Попробуйте!  
+Попробуйте выполнить следующие задачи, а затем используйте информацию для обратной связи, расположенную ближе к началу этой статьи, чтобы сообщить нам о полученном результате.  
 
--   Pode instalar um site primário que utiliza um servidor de base de dados configurado para grupos de disponibilidade do AlwaysOn de SQL  
+-   Я могу установить первичный сайт, который использует сервер базы данных, настроенный для групп доступности SQL AlwaysOn.  
 
--   Consegui meu disponibilidade do AlwaysOn SQL de grupo para uma nova réplica no grupo de ativação pós-falha e o site primário ainda está operacional  
+-   Мне удалось переключить свою группу доступности SQL AlwaysOn на новую реплику в группе, и первичный сайт по-прежнему работает.  
 
-### <a name="configuring-sql-server-alwayson-for-configuration-manager"></a>Configurar AlwaysOn do SQL Server para o Configuration Manager  
- Utilize os seguintes procedimentos para primeiro criar e configurar o grupo de disponibilidade e, em seguida, instale um novo site do Configuration Manager que utiliza o grupo de disponibilidade.  
+### <a name="configuring-sql-server-alwayson-for-configuration-manager"></a>Настройка SQL Server AlwaysOn для Configuration Manager  
+ Для создания и настройки группы доступности, а затем установки нового сайта Configuration Manager, использующего данную группу доступности, используйте следующие процедуры.  
 
-#### <a name="to-create-a-sql-server-alwayson-availability-group"></a>Para criar um grupo de Disponibilidade AlwaysOn do SQL Server  
-O processo para [criar um grupo de disponibilidade do SQL Server](https://technet.microsoft.com/library/ff878265\(v=sql.120\).aspx) está documentado na biblioteca de documentação do SQL Server.  Quando cria o grupo de disponibilidade, certifique-se de que são cumpridos os seguintes requisitos para utilização com o Configuration Manager:  
+#### <a name="to-create-a-sql-server-alwayson-availability-group"></a>Создание группы доступности SQL Server AlwaysOn  
+Процесс [создания группы доступности SQL Server](https://technet.microsoft.com/library/ff878265\(v=sql.120\).aspx) описан в библиотеке документации по SQL Server.  При создании группы доступности убедитесь в соблюдении следующих требований для использования с Configuration Manager.  
 
--   Um máximo de três membros:  
+-   Максимум три члена:  
 
-    -   Uma réplica primária e até duas réplicas secundárias  
+    -   Одна первичная реплика и до двух вторичных реплик  
 
-    -   As réplicas secundárias têm de ser síncronas.  
+    -   Вторичные реплики должны быть синхронными.  
 
         > [!TIP]  
-        >  Recomendamos que as réplicas secundárias sejam configuradas como só de leitura. Isto permite-lhe utilizar uma réplica secundária para funções como o registo enquanto mantém a réplica primária para operações do site.  
+        >  Рекомендуется настроить доступ к вторичным репликам только на чтение. Это позволит использовать вторичную реплику для отдельных функций, например для создания отчетов, и одновременно обеспечивать требуемую производительность первичной реплики для работы сайта.  
 
--   Pelo menos um ponto final. O nome virtual deste ponto final será utilizado quando instalar o site do Configuration Manager.  
-
-    > [!TIP]  
-    >  Apesar do grupo pode conter múltiplos pontos finais, o Configuration Manager só pode efetuar utilizar um.  
-
-#### <a name="to-install-a-configuration-manager-site-that-uses-the-availability-group"></a>Para instalar um site do Configuration Manager que utiliza o grupo de disponibilidade  
-Para instalar um site que utiliza um grupo de disponibilidade do SQL Server:  
-
-1.  Substitua o seguinte quando solicitado pelo programa de configuração do Configuration Manager:  
-
-    -   **Nome do SQL Server**: Introduza o nome virtual para o ponto final que configurou quando criou o grupo de disponibilidade. O nome virtual deve ser um nome DNS completo, como  **&lt;endpointServer\>. fabrikam.com**.  
-
-    -   **Instância**:  Este valor deve permanecer em branco. Não há nenhuma instância nesta configuração.  
-
-    -   **Base de dados**: Introduza o nome da base de dados que criou na réplica primária do grupo de disponibilidade.  
-
-2.  Em seguida, tem de fornecer uma localização de rede que cada SQL Server no grupo possa aceder:  
-
-    -   A conta de computador e a conta de serviço a partir de cada SQL Server necessitam de acesso de controlo total para esta localização.  
-
-    -   Esta localização só é utilizada durante a configuração e pode ser partilhada ou eliminada depois de concluída a configuração e a instalação do site.  
-
-3.  Depois de fornecer estas informações, conclua a configuração com o seu e configurações normais.  
-
-##  <a name="BKMK_ClusterServerUpdates"></a>Um cluster de servidores de serviço  
-Pode agora criar uma coleção que contém servidores num cluster e, em seguida, configure as definições de cluster para utilizar quando implementa atualizações para o cluster. Pode controlar a percentagem de servidores que estão online em qualquer momento, bem como configurar os scripts do PowerShell de pré-implementação e pós-implementação para executar ações personalizadas.  
-
-**Problemas conhecidos desta versão:**  
-
--   Reporting Services não estão disponível para verificar o estado de implementação de atualizações de software para servidores de cluster.  
-
--   A opção de sequência de manutenção no **definições do Cluster** página está desativada e não está disponível nesta versão.  
-
-### <a name="try-it-out"></a>Experimente!  
-Experimente concluir a seguinte tarefa e, em seguida, utilize as informações de feedback perto da parte superior deste tópico para nos informar como correu:  
-
--   Pode criar uma coleção que representa um cluster de servidores. Para este teste, pode configurar as regras de associação recolhidas para ter 2 computadores nesta coleção.  
-
--   Consigo especificar que apenas 50% dos servidores do cluster pode ser offline em qualquer momento no cluster de manutenção. Utilize os scripts de exemplo no procedimento para especificar os scripts de pré-implementação e pós-implementação.  
-
--   Implemente uma atualização para esta coleção. Consulte os ficheiros de hora e end.txt em C:\temp e verifique se os tempos de início e de fim para a implementação nos servidores no cluster. Reveja o ficheiro UpdatesDeployment.log para mais informações.  
-
-#### <a name="to-create-a-collection-for-a-server-cluster"></a>Para criar uma coleção para um cluster de servidores  
-
-1.  [Criar uma coleção de dispositivos](https://technet.microsoft.com/library/gg712295.aspx) que contenha os servidores no cluster.  
-
-2.  No **ativos e compatibilidade** área de trabalho, clique em **coleções de dispositivos**, faça duplo clique na coleção que contém os servidores no cluster e, em seguida, clique em **propriedades**.  
-
-3.  No **geral** separador, selecione **todos os dispositivos fazem parte do mesmo cluster de servidor**e, em seguida, clique em **definições**.  
-
-4.  No **definições do Cluster** página, selecione a percentagem de servidores que podem ser colocados offline ao mesmo tempo das atualizações de software instaladas. Um servidor de cluster pode ser colocado offline a um período de tempo, independentemente da percentagem que indicar. O Configuration Manager irá arredondar para baixo quando selecionar o número de servidores em simultâneo de serviço. Por exemplo, se escolher 51% e existirem 4 servidores no cluster, 2 servidores serão colocados offline ao mesmo tempo.  
-
-5.  Especifique se pretende utilizar um script de pré-implementação (drenagem do nó) ou um script de pós-implementação (retoma do nó).  
+-   Минимум одна конечная точка. При установке сайта Configuration Manager будет использоваться виртуальное имя этой конечной точки.  
 
     > [!TIP]  
-    >  Seguem-se exemplos que pode utilizar no teste de pré-implementação e pós-implementação scripts que escrevem a hora atual para um ficheiro de texto:  
+    >  Несмотря на то, что группа может содержать несколько конечных точек, Configuration Manager может использовать только одну.  
+
+#### <a name="to-install-a-configuration-manager-site-that-uses-the-availability-group"></a>Установка сайта Configuration Manager, который использует группу доступности  
+Для установки сайта, использующего группу доступности SQL Server  
+
+1.  Замените следующие значения по запросу программы установки Configuration Manager.  
+
+    -   **Имя SQL Server**: введите виртуальное имя для конечной точки, настроенной при создании группы доступности. Виртуальное имя должно представлять собой полное DNS-имя, например **&lt;endpointServer\>.fabrikam.com**.  
+
+    -   **Экземпляр**: это значение должно остаться пустым. В такой конфигурации экземпляры отсутствуют.  
+
+    -   **База данных**: введите имя базы данных, созданной в первичной реплике группы доступности.  
+
+2.  Затем необходимо указать сетевую папку, к которой может иметь доступ каждый SQL Server в группе:  
+
+    -   Учетная запись компьютера и учетная запись службы из каждого SQL Server должны иметь полный доступ к этой папке.  
+
+    -   Эта папка используется только во время установки и может быть закрыта для общего доступа или удалена после завершения работы программы настройки и установки самого сайта.  
+
+3.  После ввода этих сведений завершите настройку обычным образом.  
+
+##  <a name="BKMK_ClusterServerUpdates"></a> Обслуживание кластера серверов  
+Теперь можно создать коллекцию, содержащую серверы в кластере, а затем настроить параметры кластера для использования при развертывании обновлений в кластере. Можно контролировать процентную долю серверов, которые находятся в сети в любой заданный момент времени, а также настраивать сценарии PowerShell перед развертыванием и после развертывания для выполнения настраиваемых действий.  
+
+**Известные проблемы в этом выпуске:**  
+
+-   Недоступны отчеты для проверки состояния развертывания обновлений программного обеспечения для серверов в кластере.  
+
+-   Параметр последовательности обслуживания на странице **Параметры кластера** выключен и недоступен в этом выпуске.  
+
+### <a name="try-it-out"></a>Попробуйте!  
+Попробуйте выполнить следующую задачу, а затем используйте информацию для обратной связи, расположенную ближе к началу этой статьи, чтобы сообщить нам о полученном результате.  
+
+-   Я могу создать коллекцию, которая представляет кластер серверов. Для этого теста можно настроить правила членства в коллекции таким образом, чтобы данная коллекция содержала 2 компьютера.  
+
+-   Я могу указать, что только 50 % серверов в кластере могут находиться в автономном режиме в любой точке при обслуживании кластера. Используйте примеры сценариев в процедуре, чтобы указать сценарии, выполняемые перед развертыванием и после развертывания.  
+
+-   Разверните обновление для этой коллекции. Просмотрите файлы start.txt и end.txt в каталоге C:\temp и проверьте время начала и окончания развертывания на серверах в кластере. Просмотрите файл UpdatesDeployment.log для получения дополнительных сведений.  
+
+#### <a name="to-create-a-collection-for-a-server-cluster"></a>Создание коллекции для кластера серверов  
+
+1.  [Создайте коллекцию устройств](https://technet.microsoft.com/library/gg712295.aspx), содержащую серверы в кластере.  
+
+2.  В рабочей области **Активы и соответствие** выберите **Коллекции устройств**, щелкните правой кнопкой мыши коллекцию, содержащую серверы в кластере, и выберите пункт **Свойства**.  
+
+3.  На вкладке **Общие** выберите **Все устройства являются частью одного кластера серверов**, а затем щелкните элемент **Параметры**.  
+
+4.  На странице **Параметры кластера** выберите процент серверов, которые можно одновременно перевести в автономный режим для установки обновлений программного обеспечения. Какое бы значение вы ни указали, одновременно можно перевести в автономный режим один сервер в кластере. Configuration Manager округляет значение при выборе количества серверов для обслуживания за один раз. Например, если выбрать 51 % и в кластере имеется 4 сервера, одновременно будут отключены 2 сервера.  
+
+5.  Укажите, следует ли использовать сценарий, выполняемый перед развертыванием (очистка узла), или сценарий, выполняемый после развертывания (возобновление работы узла).  
+
+    > [!TIP]  
+    >  Ниже приведены примеры того, как можно использовать при тестировании сценарии, выполняемые до и после развертывания, которые записывают текущее время в текстовый файл.  
     >   
-    >  **Pré-implementação**  
+    >  **Перед развертыванием**  
     >   
     >  `#Start`  
     >   
@@ -191,7 +191,7 @@ Experimente concluir a seguinte tarefa e, em seguida, utilize as informações d
     >   
     >  `Out-File C:\temp\start.txt`  
     >   
-    >  **Pós-implementação**  
+    >  **После развертывания**  
     >   
     >  `#End`  
     >   
@@ -201,8 +201,8 @@ Experimente concluir a seguinte tarefa e, em seguida, utilize as informações d
     >   
     >  `Out-File C:\temp\end.txt`  
 
-#### <a name="to-deploy-software-updates-to-the-server-cluster"></a>Para implementar atualizações de software para o cluster de servidor  
+#### <a name="to-deploy-software-updates-to-the-server-cluster"></a>Развертывание обновлений программного обеспечения в кластере серверов  
 
-1.  [Implementar atualizações de software](https://technet.microsoft.com/library/gg712304.aspx) à coleção de cluster de servidor.  
+1.  [Разверните обновления программного обеспечения](https://technet.microsoft.com/library/gg712304.aspx) в коллекции кластера серверов.  
 
-2.  [Monitorizar a implementação de atualização de software](https://technet.microsoft.com/library/gg712304.aspx).  
+2.  [Осуществляйте мониторинг развертывания обновлений программного обеспечения](https://technet.microsoft.com/library/gg712304.aspx).  

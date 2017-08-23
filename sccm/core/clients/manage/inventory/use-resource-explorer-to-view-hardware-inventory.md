@@ -1,6 +1,6 @@
 ---
-title: "Ver o inventário de hardware | Microsoft Docs | Explorador de recursos"
-description: "Utilize o Explorador de recursos para ver o inventário de hardware no System Center Configuration Manager."
+title: "Просмотр данных инвентаризации оборудования | Документы Майкрософт | Обозреватель ресурсов"
+description: "Обозреватель ресурсов в System Center Configuration Manager используется для просмотра данных инвентаризации оборудования."
 ms.custom: na
 ms.date: 01/03/2017
 ms.prod: configuration-manager
@@ -16,36 +16,36 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: e39fa60a5d215fa1b0a98d4463058497e63a4d4f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-resource-explorer-to-view-hardware-inventory-in-system-center-configuration-manager"></a>Como utilizar o Explorador de Recursos para ver o inventário de hardware no System Center Configuration Manager
+# <a name="how-to-use-resource-explorer-to-view-hardware-inventory-in-system-center-configuration-manager"></a>Использование обозревателя ресурсов для просмотра данных инвентаризации оборудования в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize o Explorador de recursos no System Center Configuration Manager para ver informações sobre o inventário de hardware que tenha sido recolhida de clientes na sua hierarquia.  
+Обозреватель ресурсов в System Center Configuration Manager позволяет просматривать информацию об инвентаризации оборудования, полученную с клиентов в иерархии.  
 
 > [!NOTE]  
->  O Explorador de Recursos não apresentará quaisquer dados de inventário até ser executado um ciclo de inventário de hardware no cliente ao qual está a ligar.  
+>  Обозреватель ресурсов не отображает данные инвентаризации, пока цикл инвентаризации оборудования не будет выполнен на нужном клиентском компьютере.  
 
- Explorador de recursos tem as seguintes secções relacionadas com o inventário de hardware:  
+ Обозреватель ресурсов содержит перечисленные ниже разделы, связанные с инвентаризацией оборудования.  
 
--   **Hardware** -contém o inventário de hardware mais recente recolhido do dispositivo cliente especificado.  **Estado da estação de trabalho** tem a hora e data quando o dispositivo efetuado pela última vez inventário de hardware.  
+-   **Оборудование** — содержит последние данные инвентаризации оборудования, собранные с указанного клиентского устройства.  **Состояние рабочей станции** — содержит дату и время последнего сбора данных инвентаризации оборудования с этого устройства.  
 
--   **Histórico de hardware** -contém um histórico dos itens inventariados que foram alterados desde o último inventário de hardware demorou local. Cada item contém um **atual** nós e um ou mais *< data\>*  nós. Pode comparar as informações no nó atual para um de nós do histórico para detetar os itens que foram alterados.  
+-   **Журнал оборудования** — содержит журнал элементов инвентаризации, изменившихся с момента выполнения последней инвентаризации оборудования. Каждый элемент содержит узел **Текущий** и один или несколько узлов *<дата\>*. Данные в текущем узле можно сравнить с любым из исторических узлов, чтобы узнать, какие элементы подверглись изменениям.  
 
     > [!NOTE]  
-    >  O Configuration Manager mantém o histórico de inventário de hardware para o número de dias que especificar no **eliminar histórico de inventário desatualizado** tarefa de manutenção do site  
+    >  Configuration Manager хранит журнал инвентаризации оборудования в течение срока, указанного в задаче обслуживания сайта **Удаление устаревших данных инвентаризации**.  
 
 > [!NOTE]  
->  Para obter informações sobre como visualizar o inventário de hardware a partir de clientes que executam o Linux e UNIX, veja [Como monitorizar clientes para servidores Linux e UNIX no System Center Configuration Manager](../../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md).  
+>  Сведения о просмотре инвентаризации оборудования с клиентов под управлением Linux и UNIX см. в разделе [Мониторинг клиентов для серверов Linux и UNIX в System Center Configuration Manager](../../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md).  
 
-### <a name="how-to-run-resource-explorer-from-the-configuration-manager-console"></a>Como executar o Explorador de Recursos a partir da consola do Configuration Manager  
+### <a name="how-to-run-resource-explorer-from-the-configuration-manager-console"></a>Запуск обозревателя ресурсов из консоли Configuration Manager  
 
-1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **dispositivos**, ou abra qualquer coleção que apresente dispositivos.  
+1.  В консоли Configuration Manager выберите **Активы и соответствие** > **Устройства** или откройте любую коллекцию, содержащую устройства.  
 
-3.  Escolha o computador que contém o inventário que pretende visualizar e, em seguida, no **home page** separador > **dispositivos** grupo, escolha **iniciar** >  **Explorador de recursos**.   
+3.  Выберите компьютер, содержащий инвентаризацию, которую требуется просмотреть, а затем на вкладке **Главная** в группе **Устройства** выберите **Запустить** >  **Обозреватель ресурсов**.   
 
-4.  Clique com o botão direito qualquer item no painel da direita do **Explorador de recursos** janela e escolha **propriedades** para abrir o *< nome do item\>***propriedades** caixa de diálogo para ver as informações de inventário recolhidas num formato mais legível.  
+4.  Щелкните правой кнопкой мыши любой элемент в правой части окна **обозревателя ресурсов**, а затем выберите пункт **Свойства**, чтобы открыть диалоговое окно *Свойства***<имя_элемента\>** для просмотра собранных данных инвентаризации в более удобном для чтения формате.  
 

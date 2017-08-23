@@ -1,6 +1,6 @@
 ---
-title: "Testar a atualização de base de dados | Microsoft Docs"
-description: "Teste de atualização de base de dados do site quando instalar atualizações para o Configuration Manager."
+title: "Тестовое обновление базы данных | Документация Майкрософт"
+description: "Тестовое обновление базы данных сайта при установке обновлений для Configuration Manager."
 ms.custom: na
 ms.date: 06/13/2017
 ms.prod: configuration-manager
@@ -16,55 +16,55 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 6b76c97cd205bb02683a7bfa1eb378471a75551d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="test-the-database-upgrade-when-installing-an-update"></a>Testar a atualização de base de dados quando instalar uma atualização
+# <a name="test-the-database-upgrade-when-installing-an-update"></a>Тестовое обновление базы данных при установке обновлений
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-As informações neste tópico podem ajudar a executar um teste de atualização de base de dados antes de instalar uma atualização na consola para o ramo atual do Configuration Manager. No entanto, o teste de atualização já não é necessária ou Recomendamos passo, a menos que a base de dados é suspeita ou é modificado pelo personalizações explicitamente não suportadas pelo Configuration Manager.
+Этот раздел посвящен тестовому обновлению базы данных перед установкой обновления в консоли для текущей ветви Configuration Manager. Теперь тестовое обновление не является требуемым или рекомендуемым шагом, если база данных не отмечена как подозрительная или для нее не заданы настройки, которые Configuration Manager не поддерживает в явной форме.
 
-## <a name="do-i-need-to-run-a-test-upgrade"></a>É necessário executar um teste de atualização?
-Descontinuação de teste de atualização é disponibilizada devido a alterações que foram introduzidas com o System Center Configuration Manager. Estas alterações simplificam o processo e a velocidade a que um ambiente de produção pode ser atualizado para versões mais recentes. Este recriar foi efetuada para ajudar os clientes Mantenha-se atualizado com menor o risco e menos sobrecarga operacional quando instalar cada atualização de novo.
+## <a name="do-i-need-to-run-a-test-upgrade"></a>Нужно ли мне выполнять тестовое обновление?
+Устаревание тестового обновления обусловлено изменениями в System Center Configuration Manager. Эти изменения упрощают и ускоряют обновление рабочей среды до более новых версий. Повторное проектирование помогает поддерживать актуальность систем с меньшим риском, а также сокращать операционные издержки при каждой установке обновления.
 
-As alterações são a forma como a instalação de atualizações, incluindo lógica automaticamente reverte uma atualização falhada sem a necessidade de executar uma recuperação de site. Estas alterações permitem a utilização da consola para gerir as instalações de atualizações e inclui uma opção para [repetir a instalação de uma atualização falhada](/sccm/core/servers/manage/install-in-console-updates#bkmk_retry).
+Изменения касаются способа установки обновлений, включая логику, которая автоматически откатывает обновление в случае сбоя без необходимости восстанавливать сайт. Эти изменения позволяют управлять установкой обновлений из консоли и выполнять [повторные попытки установки обновлений в случае сбоя](/sccm/core/servers/manage/install-in-console-updates#bkmk_retry).
 
 > [!TIP]
-> Quando atualizar para o System Center Configuration Manager a partir de um produto mais antigo, como o System Center 2012 Configuration Manager, [atualizações da base de dados de teste permanecem um passo recomendado](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager#a-namebkmktesta-test-the-site-database-upgrade).
+> При обновлении до System Center Configuration Manager от более ранних продуктов, таких как System Center 2012 Configuration Manager, [тестовое обновление базы данных остается рекомендуемым шагом](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager#a-namebkmktesta-test-the-site-database-upgrade).
 
-Se pretender testar a atualização da base de dados do site quando instala uma atualização na consola, as seguinte suplementos de informações ainda o [orientações sobre como instalar uma atualização na consola](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates).
+Если вы все же планируете выполнить тестовое обновление базы данных сайта при установке обновления в консоли, см. [руководство по установке обновления в консоли](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates).
 
-## <a name="prepare-to-run-a-test-database-upgrade"></a>Preparar para executar um teste de atualização de base de dados  
-Antes de instalar uma nova atualização na sua hierarquia, como a atualização 1702, pode testar a atualização da sua base de dados do site.
+## <a name="prepare-to-run-a-test-database-upgrade"></a>Подготовка к тестовому обновлению базы данных  
+Перед установкой нового обновления в иерархии, например версии 1702, можно выполнить тестовое обновление базы данных сайта.
 
-Para executar o teste de atualização, utilize o programa de configuração do Configuration Manager dos ficheiros de origem do [CD. Pasta mais recente](/sccm/core/servers/manage/the-cd.latest-folder) de um site que executa a versão do Configuration Manager que estão a atualizar a. Este requisito significa que para testar a atualização de base de dados para a atualização para 1702:
--   Tem de ter pelo menos um site que executa a versão 1702 da qual pode obter antes esse CD. Pasta mais recente.
--   Se não tiver um site que executa a versão necessária, considere a instalação de um site num ambiente de laboratório e, em seguida, atualizar esse site para a nova versão. Esta ação cria o CD. Pasta mais recente com a versão correta dos ficheiros de origem.
+Чтобы запустить тестовое обновление, используйте программу установки Configuration Manager из исходных файлов в [папке CD.Latest](/sccm/core/servers/manage/the-cd.latest-folder) на сайте под управлением версии Configuration Manager, до которой выполняется обновление. Это означает, что для тестового обновления базы данных до версии 1702:
+-   требуется хотя бы один сайт под управлением версии 1702, на котором можно получить папку CD.Latest;
+-   если сайта под управлением требуемой версии нет, рекомендуется установить его в лабораторной среде и обновить до новой версии. При этом создается папка CD.Latest с нужной версией исходных файлов.
 
-O teste de atualização é executado em relação a uma cópia de segurança da sua base de dados do site restaurada para uma instância separada do SQL Server.  Execute a configuração a partir de **CD. Mais recente** pasta com o **testdbupgrade** comutador da linha de comandos para testar a atualização restaurada da cópia da base de dados. Depois de concluir o teste da atualização, a base de dados atualizada é rejeitado. Não pode ser utilizado por um site do Configuration Manager.
+Тестовое обновление выполняется для резервной копии базы данных сайта, восстановленной в отдельном экземпляре SQL Server.  Запустите программу установки из папки **CD.Latest** с параметром командной строки **testdbupgrade** для тестового обновления восстановленной копии базы данных. По завершении тестового обновления обновленная база данных удаляется. Она не может использоваться сайтом Configuration Manager.
 
-Se uma atualização instalar falhar, deve não terá de recuperar o site. Em vez disso, pode tentar novamente a instalação de atualização a partir da consola.
+Если установка обновления завершается сбоем, вам не нужно восстанавливать сайт. Вместо этого можно попробовать повторно установить обновление из консоли.
 
-##  <a name="run-the-test-upgrade"></a>Executar o teste da atualização    
-1.  Utilize o Gestor de configuração do programa de configuração e os ficheiros de origem do **CD. Mais recente** pasta de um site que executa a versão que pretende atualizar.  
+##  <a name="run-the-test-upgrade"></a>Выполнение тестового обновления    
+1.  Используйте программу установки Configuration Manager и исходные файлы из папки **CD.Latest** сайта, где используется версия, до которой планируется выполнить обновление.  
 
-2.  Copiar o **CD. Mais recente** pasta para uma localização na instância do SQL Server que irá utilizar para executar o teste de atualização de base de dados.
+2.  Затем скопируйте папку **CD.Latest** в расположение на экземпляре сервера SQL Server, которое будет использоваться для тестового обновления базы данных.
 
-3.  Crie uma cópia de segurança da base de dados do site que pretende testar a atualização. Em seguida, restaure uma cópia dessa base de dados para uma instância do SQL Server que não aloje um site do Configuration Manager. Instância do SQL Server tem de utilizar a mesma edição do SQL Server como a base de dados do site.  
+3.  Создайте резервную копию базы данных сайта для тестового обновления. Затем восстановите копию базы данных на экземпляре SQL Server, где не размещен сайт Configuration Manager. Для экземпляра сервера SQL Server должен использоваться тот же выпуск SQL Server, что и для базы данных сайта.  
 
-4.  Depois de restaurar a cópia da base de dados, execute **configuração** partir do CD. Pasta mais recente que contém os ficheiros de origem da versão que está a atualizar. Ao executar a Configuração, utilize a opção da linha de comandos **/TESTDBUPGRADE** . Se a instância do SQL Server que aloja a cópia da base de dados não for a instância predefinida, fornece os argumentos da linha de comandos para identificar a instância que aloja a cópia da base de dados de site.   
+4.  Восстановив копию базы данных, запустите **программу установки** из папки CD.Latest с исходными файлами версии, до которой обновляется система. При запуске программы установки используйте параметр командной строки **/TESTDBUPGRADE** . Если экземпляр SQL Server, на котором размещена копия базы данных, не является экземпляром по умолчанию, укажите аргументы командной строки, чтобы указать экземпляр, на котором размещена копия базы данных сайта.   
 
-  Por exemplo, tem uma base de dados do site com o nome de base de dados *SMS_ABC*. Restaurar uma cópia desta base de dados do site para uma instância suportada do SQL Server com o nome de instância *DBTest*. Para testar uma atualização desta cópia da base de dados do site, use a seguinte linha de comandos: **Setup.exe /testdbupgrade. DBtest\CM_ABC**.  
+  Например, у вас есть база данных сайта с именем *SMS_ABC*. Следует восстановить копию этой базы данных сайта на поддерживаемом экземпляре SQL Server с именем экземпляра *DBTest*. Чтобы проверить обновление этой копии базы данных сайта, используйте следующую командную строку: **Setup.exe /TESTDBUPGRADE DBtest\CM_ABC**.  
 
-  Pode encontrar o Setup.exe na seguinte localização no suporte de dados de origem para o System Center Configuration Manager: **SMSSETUP\BIN\X64**.  
+  Setup.exe можно найти в следующем каталоге исходного носителя System Center Configuration Manager: **SMSSETUP\BIN\X64**.  
 
-5.  Na instância do SQL Server em que executou o teste de atualização, monitorizar o *ConfigMgrSetup.log* na raiz da unidade do sistema para o progresso e êxito.  
+5.  На экземпляре SQL Server, где запущено тестовое обновление, выполните мониторинг журнала *ConfigMgrSetup.log* в корневом каталоге системного диска.  
 
-     Se o teste da atualização falhar, corrija quaisquer problemas relacionados com a falha de atualização de base de dados de site. Em seguida, crie uma nova cópia de segurança da base de dados do site e testar a atualização da nova cópia da base de dados.  
+     Если тестовое обновление не удается выполнить, устраните неполадки, связанные со сбоем обновления базы данных сайта. Затем создайте резервную копию базы данных сайта и выполните ее тестовое обновление.  
 
 
 
-## <a name="next-steps"></a>Passos seguintes
-Concluído com êxito a atualização de base de dados de teste, elimine a base de dados atualizado. Não pode ser utilizado por um site do Configuration Manager. Em seguida, pode regressar ao seu site do Active Directory e [começar a instalação da atualização](/sccm/core/servers/manage/install-in-console-updates).
+## <a name="next-steps"></a>Дальнейшие действия
+Завершив тестовое обновление базы данных, удалите ее. Она не может использоваться сайтом Configuration Manager. Затем можно вернуться к активному сайту и [начать установку обновления](/sccm/core/servers/manage/install-in-console-updates).

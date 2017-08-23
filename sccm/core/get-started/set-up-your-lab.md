@@ -1,403 +1,399 @@
 ---
-title: "Configurar o seu laboratório do System Center Configuration Manager | Documentos do Microsoft"
-description: "Configure um laboratório de avaliação do Configuration Manager com atividades de reais simuladas."
+title: "Настройка лаборатории System Center Configuration Manager | Документы Майкрософт"
+description: "Настройте лабораторию для оценки Configuration Manager с помощью имитируемых реальных действий."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b1970688-0cd2-404f-a17f-9e2aa4a78758
-caps.latest.revision: 11
-caps.handback.revision: 0
+caps.latest.revision: "11"
+caps.handback.revision: "0"
 author: brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 0dc7992f35f488f99138a618bc4a408e8e0b837f
 ms.openlocfilehash: 11f5d0c3c61d675a8182e985f82e6af363b34592
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurar o seu laboratório do System Center Configuration Manager
+# <a name="set-up-your-system-center-configuration-manager-lab"></a>Настройка лаборатории System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Seguir as instruções neste tópico lhe irá permitir configurar um laboratório de avaliação do Configuration Manager com atividades de reais simuladas.  
+Следуйте инструкциям в этом разделе, чтобы настроить лабораторию для оценки Configuration Manager с помощью имитируемых реальных действий.  
 
-##  <a name="BKMK_LabCore"></a> Componentes principais  
- Definir o seu ambiente para o System Center Configuration Manager necessita de alguns componentes principais para suportar a instalação do Configuration Manager.    
+##  <a name="BKMK_LabCore"></a> Компоненты ядра  
+ Для настройки среды для System Center Configuration Manager требуются некоторые компоненты ядра, обеспечивающие поддержку установки Configuration Manager.    
 
--   **O ambiente de laboratório utiliza o Windows Server 2012 R2**, no qual é instalar o System Center Configuration Manager.  
+-   **В лабораторной среде используется Windows Server 2012 R2**, где будет установлен System Center Configuration Manager.  
 
-     Pode transferir uma versão de avaliação do Windows Server 2012 R2 a partir de [Centro de avaliação TechNet](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012).  
+     Вы можете скачать ознакомительную версию Windows Server 2012 R2 из [центра оценки TechNet](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012).  
 
-     Considere modificar ou desativar a configuração de segurança avançada do Internet Explorer para aceder mais facilmente a algumas das transferências referenciadas em toda a realização destas experimenta. Reveja [Internet Explorer: Avançada de configuração de segurança](https://technet.microsoft.com/en-us/library/dd883248\(v=ws.10\).aspx) para obter informações adicionais.  
+     Рассмотрите возможность изменения или отключения конфигурации усиленной безопасности Internet Explorer для упрощения доступа к некоторым скачиваемым файлам, требуемым при выполнении следующих упражнений. Дополнительные сведения о WCF см. в статье [Internet Explorer: усиленная конфигурация безопасности](https://technet.microsoft.com/en-us/library/dd883248\(v=ws.10\).aspx) .  
 
--   **O ambiente de laboratório utiliza o SQL Server 2012 SP2** para a base de dados do site.  
+-   **В лабораторной среде используется SQL Server 2012 с пакетом обновления 2** для базы данных сайта.  
 
-     Pode transferir uma versão de avaliação do SQL Server 2012 a partir de [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=29066).  
+     Вы можете скачать ознакомительную версию SQL Server 2012 из [Центра загрузки Майкрософт](https://www.microsoft.com/en-us/download/details.aspx?id=29066).  
 
-     SQL Server tem [suportadas versões do SQL Server](../../core/plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLVersions) que deverão ser satisfeitas para utilização com o System Center Configuration Manager.  
+     SQL Server имеет [поддерживаемые версии SQL Server](../../core/plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLVersions), которые следует учитывать при использовании с System Center Configuration Manager.  
 
-    -   O Configuration Manager requer uma versão de 64 bits do SQL Server para alojar a base de dados do site.  
+    -   Для работы Configuration Manager требуется 64-разрядная версия SQL Server для размещения базы данных сайта.  
 
-    -   **SQL_Latin1_General_CP1_CI_AS** como classe do **Agrupamento SQL** . A  
+    -   **SQL_Latin1_General_CP1_CI_AS** в качестве класса **параметров сортировки SQL** .  
 
-    -   **Autenticação do Windows**, [em vez da autenticação SQL](https://technet.microsoft.com/en-us/library/ms144284.aspx), é necessária.  
+    -   **Требуется проверка подлинности Windows**, [а не проверка подлинности SQL](https://technet.microsoft.com/en-us/library/ms144284.aspx).  
 
-    -   Um dedicado **instância do SQL Server** é necessária.  
+    -   Необходим выделенный **экземпляр SQL Server**.  
 
-    -   Não limitam o **memória do sistema endereçável** para o SQL Server.  
+    -   Не ограничивайте **адресуемую память системы** для SQL Server.  
 
-    -   Configurar o **conta de serviço do SQL Server** para ser executada utilizando o **utilizador de domínio local** conta.  
+    -   Настройте **учетную запись службы SQL Server** для запуска с использованием учетной записи **локального пользователя домена**.  
 
-    -   Tem de instalar **do SQL Server reporting services**.  
+    -   Необходимо установить **SQL Server Reporting Services**.  
 
-    -   **Comunicações entre locais** utiliza o SQL Server Service Broker na porta predefinida TCP 4022. As  
+    -   **Для межсайтового взаимодействия** используется SQL Server Service Broker с TCP-портом 4022 по умолчанию.  
 
-    -   **As comunicações** entre o motor de base de dados do SQL Server e o sistema de sites do Configuration Manager Selecione funções de utilizam a porta TCP 1433 predefinida.  
+    -   **Для внутрисайтового взаимодействия** между ядром СУБД SQL Server и выбранными ролями системы сайта Configuration Manager используется порт TCP 1433 по умолчанию.  
 
--   **O controlador de domínio utiliza o Windows Server 2008 R2** com serviços de domínio do Active Directory instalado. O controlador de domínio também funciona como o anfitrião para o DHCP e os servidores DNS para utilizam com um nome de domínio completamente qualificado.  
+-   **Контроллер домена использует Windows Server 2008 R2** с установленными доменными службами Active Directory. Контроллер домена также выступает в качестве узла для серверов DNS и DHCP с использованием по полному доменному имени.  
 
-     Para obter informações adicionais, reveja este [descrição geral dos serviços de domínio do Active Directory](https://technet.microsoft.com/en-us/library/hh831484).  
+     Дополнительные сведения см. в этом [обзоре доменных служб Active Directory](https://technet.microsoft.com/en-us/library/hh831484).  
 
--   **Hyper-V é utilizado com algumas máquinas virtuais** para verificar que os passos de gestão executados estes experimenta estão a funcionar conforme esperado. É recomendado um mínimo de três máquinas virtuais, com o Windows 7 (ou posterior) instalado.  
+-   **Hyper-V используется совместно с виртуальными машинами**, чтобы обеспечить правильное выполнение действий по управлению в этих упражнениях. Рекомендуется иметь не менее трех виртуальных машин с Windows 7 (или более поздней версии).  
 
-     Para obter informações adicionais, reveja este [descrição geral do Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx).  
+     Дополнительные сведения см. в этом [обзоре Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx).  
 
--   **permissões de administrador** são necessárias para todos estes componentes. O  
+-   **Права администратора** потребуются для всех этих компонентов.  
 
-    -   O Configuration Manager requer um administrador com permissões locais dentro do ambiente do Windows Server  
+    -   Configuration Manager требует наличия в среде Windows Server администратора с локальными разрешениями.  
 
-    -   do Active Directory requer um administrador com permissões para modificar o esquema  
+    -   Active Directory требует наличия администратора с разрешениями на изменение схемы.  
 
-    -   Máquinas virtuais requerem permissões locais nas próprias máquinas  
+    -   Виртуальным машинам требуются локальные разрешения на самих этих машинах.  
 
-Apesar de não requerida para esta laboratório, pode rever [configurações suportadas para o System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) para obter informações adicionais sobre os requisitos para implementar o System Center Configuration Manager. Consulte a documentação para versões de software diferentes daqueles referenciado aqui.  
+Хотя это и не требуется для выполнения данной лабораторной работы, вы можете просмотреть раздел [Поддерживаемые конфигурации для System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) на предмет дополнительных требований для реализации System Center Configuration Manager. См. документацию по версиям программного обеспечения, отличающимся от указанных здесь.  
 
-Assim que tiver instalado todas destes componentes, existem passos adicionais, que tem de efetuar para configurar o ambiente do Windows para o Configuration Manager:  
+После установки всех этих компонентов необходимо выполнить дополнительные действия, чтобы настроить среду Windows для Configuration Manager.  
 
-###  <a name="BKMK_LabADPrep"></a> Preparar o conteúdo do Active Directory para o laboratório  
- Para este laboratório, irá criar um grupo de segurança, em seguida, adicionar um utilizador de domínio ao mesmo.  
+###  <a name="BKMK_LabADPrep"></a> Подготовка содержимого Active Directory для лабораторной работы  
+ Для этой лабораторной работы создается группа безопасности, после чего в нее добавляется пользователь домена.  
 
--   Grupo de segurança: **Avaliação**  
+-   Группа безопасности: **Evaluation**  
 
-    -   Âmbito de grupo: **Universal**  
+    -   Область группы: **Universal**  
 
-    -   Tipo de grupo: **Segurança**  
+    -   Тип группы: **Security**  
 
--   Utilizador de domínio: **ConfigUser**  
+-   Пользователь домена: **ConfigUser**  
 
-     Em circunstâncias normais, não concederia acesso universal a todos os utilizadores no seu ambiente. Está a fazê-lo com este utilizador para simplificar a colocação do seu laboratório online.  
+     В обычных условиях вам бы не потребовалось предоставлять универсальный доступ всем пользователям в вашей среде. Вы поступаете так с этим пользователем, чтобы упростить выполнение лабораторной работы.  
 
-Os passos necessários para permitir que os clientes do Configuration Manager consulta Active Directory Domain Services para localizarem recursos de site são listados sobre os procedimentos seguintes.  
+Дальнейшие действия, позволяющие разрешить клиентам Configuration Manager запрашивать доменные службы Active Directory для поиска ресурсов сайта, перечислены в следующих процедурах.  
 
-###  <a name="BKMK_CreateSysMgmtLab"></a> Criar o contentor de Gestão do Sistema.  
- O Configuration Manager não criará automaticamente o contentor de gestão do sistema necessário nos serviços de domínio do Active Directory quando o esquema é expandido. Por conseguinte, irá criar este para o laboratório. Este passo irá solicitar-lhe que [instale o Editor de ADSI.](https://technet.microsoft.com/en-us/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit)  
+###  <a name="BKMK_CreateSysMgmtLab"></a> Создание контейнера System Management  
+ При расширении схемы Configuration Manager не создает автоматически необходимый контейнер System Management в доменных службах Active Directory. Поэтому вы сами создадите его для своей лабораторной работы. Для выполнения этого действия вам необходимо [установить редактор ADSI](https://technet.microsoft.com/en-us/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit)  
 
- Certifique-se de que iniciou sessão com uma conta que tenha a permissão **Criar Todos os Objetos Subordinados** no recipiente **Sistema** nos Serviços de Domínio do Active Directory.  
+ Убедитесь, что выполнен вход в систему с использованием учетной записи с правами на **Создание всех дочерних объектов** контейнера **Система** в доменных службах Active Directory.  
 
-##### <a name="to-create-the-system-management-container"></a>Para criar o contentor de Gestão do Sistema:  
+##### <a name="to-create-the-system-management-container"></a>Порядок создания контейнера System Management:  
 
-1.  Execute o **Editor de ADSI**e estabeleça ligação ao domínio em que reside o servidor de site.  
+1.  Запустите оснастку **ADSI Edit**и подключитесь к домену, в котором находится сервер сайта.  
 
-2.  Expanda **domínio&lt;computador nome de domínio completamente qualificado\>**, expanda **< nome único\>**, com o botão direito **CN = System**, clique em **novo**e, em seguida, clique em **objeto**.  
+2.  Последовательно разверните узлы **Домен&lt;полное доменное имя компьютера\>**, **<различающееся имя\>**, щелкните правой кнопкой мыши **CN=System**, выберите команду **Создать**, а затем — пункт **Объект**.  
 
-3.  Na caixa de diálogo **Criar Objeto** , selecione **Contentor**e clique em **Seguinte**.  
+3.  В диалоговом окне **Создание объекта** выберите **Контейнер**и нажмите кнопку **Далее**.  
 
-4.  Na caixa **Valor** , escreva **System Management**e, em seguida, clique em **Seguinte**.  
+4.  В поле **Значение** введите **System Management**, а затем нажмите кнопку **Далее**.  
 
-5.  Clique em **Concluir** para concluir o procedimento.  
+5.  Нажмите кнопку **Готово** , чтобы завершить процедуру.  
 
-###  <a name="BKMK_SetSecPermLab"></a> Definir permissões de segurança no contentor de Gestão do Sistema  
- Conceda à conta do computador do servidor de site as permissões necessárias para publicar informações do site no contentor. Irá utilizar também o Editor de ADSI para esta tarefa.  
-
-> [!IMPORTANT]  
->  Certifique-se de que está ligado ao domínio do servidor de site antes de iniciar o procedimento seguinte.  
-
-##### <a name="to-set-security-permissions-for-the-system-management-container"></a>Para definir permissões de segurança no contentor de Gestão do Sistema:  
-
-1.  No painel de consola, expanda o **domínio do servidor do site**, expanda **DC =&lt;nome do servidor único\>**e, em seguida, expanda **CN = System**. Clique com o botão direito do rato em **CN=System Management**e clique em **Propriedades**.  
-
-2.  Na caixa de diálogo **CN=Propriedades de gestão do sistema** , clique no separador **Segurança** e, em seguida, clique em **Adicionar** para adicionar a conta de computador do servidor de site. Conceda permissões de **Controlo Total** à conta.  
-
-3.  Clique em **avançadas**, selecione a conta de computador do servidor de site e, em seguida, clique em **editar**.  
-
-4.  Na lista **Aplicar em** , selecione **Este objeto e os objetos subordinados**.  
-
-5.  Clique em **OK** para fechar a consola **Editor de ADSI** e conclua o procedimento.  
-
-     Para informações adicional sobre este procedimento, reveja [expandir o esquema do Active Directory para o System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md)  
-
-###  <a name="BKMK_ExtADSchLab"></a> Expandir o esquema do Active Directory utilizando ExtADSch.exe  
- Irá expandir o esquema do Active Directory para este laboratório, como isto permite-lhe utilizar todas as funcionalidades do Configuration Manager e a funcionalidade com o mínimo de sobrecarga administrativa. A extensão do esquema do Active Directory é uma configuração de toda a floresta e só pode ser efetuada uma vez por floresta. Expandir o esquema permanentemente modifica o conjunto de classes e atributos na configuração base do Active Directory. Esta ação é irreversível. Expandir o esquema permite que o Configuration Manager para aceder a componentes que irão permitir à função de forma mais eficaz dentro do ambiente de laboratório.  
+###  <a name="BKMK_SetSecPermLab"></a> Настройка разрешений безопасности для контейнера System Management  
+ Предоставьте учетной записи компьютера сервера сайта разрешения, необходимые для публикации сведений сайта в контейнере. Для выполнения этой задачи вы также будете использовать редактор ADSI.  
 
 > [!IMPORTANT]  
->  Certifique-se de que iniciou sessão no controlador de domínio principal do esquema com uma conta que seja membro do grupo de segurança **Admins de esquemas** . Qualquer tentativa de utilizar credenciais alternativas irá falhar.  
+>  Перед началом следующей процедуры убедитесь, что вы подключены к домену сервера сайта.  
 
-##### <a name="to-extend-the-active-directory-schema-using-extadschexe"></a>Para expandir o esquema do Active Directory utilizando ExtADSch.exe:  
+##### <a name="to-set-security-permissions-for-the-system-management-container"></a>Порядок настройки разрешений безопасности для контейнера System Management:  
 
-1.  Crie uma cópia de segurança do Estado do sistema do controlador de domínio principal de esquema. Para obter mais informações sobre como fazer uma cópia de segurança do controlador de domínio principal, consulte [Cópia de Segurança do Windows Server](https://technet.microsoft.com/en-us/library/cc770757.aspx)  
+1.  На панели консоли последовательно разверните узлы **домена сервера сайта**, **DC=&lt;различающееся имя сервера\>** и **CN=System**. Правой кнопкой мыши щелкните **CN=System Management**и выберите пункт **Свойства**.  
 
-2.  Navegue para **\SMSSETUP\BIN\X64** no suporte de dados de instalação.  
+2.  В диалоговом окне **Свойства: CN=System Management** откройте вкладку **Безопасность** , а затем нажмите кнопку **Добавить** , чтобы добавить учетную запись компьютера сервера сайта. Предоставьте учетной записи разрешения **Полный доступ** .  
 
-3.  Execute o **extadsch.exe**.  
+3.  Щелкните **Дополнительно**, выберите учетную запись компьютера сервера сайта и нажмите кнопку **Изменить**.  
 
-4.  Certifique-se de que a extensão do esquema foi bem sucedida, revendo o **extadsch.log** localizado na pasta de raiz da unidade do sistema.  
+4.  В списке **Применять** выберите **Этот объект и все дочерние объекты**.  
 
-     Para informações adicional sobre este procedimento, reveja [expandir o esquema do Active Directory para o System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md).  
+5.  Нажмите кнопку **ОК** , чтобы закрыть консоль **Редактор ADSI** и завершить процедуру.  
 
-###  <a name="BKMK_OtherTasksLab"></a> Outras tarefas necessárias  
- Também terá de realizar as seguintes tarefas antes da instalação.  
+     Дополнительные сведения об этой процедуре см. в разделе [Расширение схемы Active Directory для System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md).  
 
- **Criar uma pasta para armazenar todas as transferências**  
+###  <a name="BKMK_ExtADSchLab"></a> Расширение схемы Active Directory с помощью файла extadsch.exe  
+ Вы расширите схему Active Directory для этой лабораторной работы, так как это позволяет использовать все функции и возможности Configuration Manager при минимальной административной нагрузке. Расширение схемы Active Directory распространяется на весь лес и выполняется всего один раз для каждого леса. Расширение схемы на постоянной основе изменяет набор классов и атрибутов в базовой конфигурации Active Directory. Это действие необратимо. Расширение схемы позволяет Configuration Manager получить доступ к компонентам, которые обеспечивают наиболее эффективную работу в лабораторной среде.  
 
- Durante este exercício, é provável que sejam necessárias várias transferências para os componentes do suporte de instalação. Antes de iniciar os procedimentos de instalação, determine uma localização que não requeira a transferência destes ficheiros até que decida desativar o laboratório. É recomendável utilizar uma única pasta com subpastas separadas para armazenar estas transferências.  
+> [!IMPORTANT]  
+>  Выполните вход в контроллер домена хозяина схемы с использованием учетной записи, входящей в группу безопасности **Администраторы схемы** . Попытка использовать другие учетные данные завершится окажется неудачной.  
 
- **Instale o .NET e ative a Windows Communication Foundation**  
+##### <a name="to-extend-the-active-directory-schema-using-extadschexe"></a>Порядок расширения схемы Active Directory с помощью файла extadsch.exe:  
 
- Tem de instalar duas .NET Frameworks: primeiro, a .NET 3.5.1 e depois a .NET 4.5.2+. Terá também de ativar a WCF (Windows Communication Foundation). A WCF foi concebida para oferecer uma abordagem para cálculo distribuído, interoperabilidade abrangente e suporte direto para orientação do serviço e simplifica a programação de aplicações ligadas através de um modelo de programação orientado para o serviço. Reveja [O que é a Windows Communication Foundation?](https://technet.microsoft.com/en-us/subscriptions/ms731082\(v=vs.90\).aspx) para informações adicionais sobre a WCF.  
+1.  Создайте резервную копию состояния системы основного контроллера домена схемы. Дополнительные сведения о резервном копировании основного контроллера домена см. в статье [Архивация Windows Server](https://technet.microsoft.com/en-us/library/cc770757.aspx)  
 
-##### <a name="to-install-net-and-activate-windows-communication-foundation"></a>Para instalar o .NET e ativar a Windows Communication Foundation:  
+2.  Перейдите в папку **\SMSSETUP\BIN\X64** на установочном носителе.  
 
-1.  Abra o **Server Manager**e depois navegue para **Gerir**. Clique em **Adicionar Funções e Funcionalidades** para abrir o **Assistente para Adicionar Funções e Funcionalidades.**  
+3.  Выполнить команду **extadsch.exe**.  
 
-2.  Reveja as informações fornecidas no painel **Antes de Começar** e, em seguida, clique em **Seguinte**.  
+4.  Убедитесь в успешном выполнении расширения схемы, просмотрев файл **extadsch.log** , находящийся в корневой папке системного диска.  
 
-3.  Selecione **Instalação baseada em funções ou funcionalidades**e, em seguida, clique em **Seguinte**.  
+     Дополнительные сведения об этой процедуре см. в разделе [Расширение схемы Active Directory для System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md).  
 
-4.  Selecione o servidor em **Agrupamento de Servidores**e, em seguida, clique em **Seguinte**.  
+###  <a name="BKMK_OtherTasksLab"></a> Другие необходимые задачи  
+ Кроме того, перед установкой необходимо выполнить следующие задачи.  
 
-5.  Reveja o painel **Funções de Servidor** e, em seguida, clique em **Seguinte**.  
+ **Создание папки для хранения всех скачиваемых файлов**  
 
-6.  Adicione as seguintes **Funcionalidades** selecionando-as na lista:  
+ В рамках этого упражнения для компонентов с установочного носителя потребуется скачать несколько файлов. Перед началом любых процедур установки определите расположение, которые позволит вам не перемещать эти файлы до тех пор, пока вы не перестанете использовать эту лабораторную работу. Для хранения этих скачиваемых файлов рекомендуется использовать одну папку с отдельными вложенными папками.  
 
-    -   **Funcionalidades do .NET Framework 3.5**  
+ **Установка .NET и активация Windows Communication Foundation**  
 
-        -   **.NET Framework 3.5 (inclui .NET 2.0 e 3.0)**  
+ Вам потребуется установить две платформы .NET Framework — .NET 3.5.1, а затем .NET 4.5.2+. Также потребуется активировать Windows Communication Foundation (WCF). WCF предлагает удобный подход к использованию распределенных вычислений, широкие возможности взаимодействия и прямую поддержку ориентации на службы, а также упрощает разработку подключенных приложений за счет модели программирования, ориентированной на службы. Дополнительные сведения о WCF см. в статье [Что такое Windows Communication Foundation?](https://technet.microsoft.com/en-us/subscriptions/ms731082\(v=vs.90\).aspx) .  
 
-    -   **Funcionalidades do .NET Framework 4.5**  
+##### <a name="to-install-net-and-activate-windows-communication-foundation"></a>Порядок установки .NET и активации Windows Communication Foundation:  
+
+1.  Откройте **Server Manager**, а затем перейдите к элементу **Управление**. Щелкните **Добавить роли и компоненты** , чтобы открыть **Мастер добавления ролей и компонентов.**  
+
+2.  Просмотрите сведения, представленные на панели **Перед началом работы** , и нажмите кнопку **Далее**.  
+
+3.  Выберите **Установка ролей или компонентов**и нажмите кнопку **Далее**.  
+
+4.  Выберите сервер в поле **Пул серверов**и нажмите кнопку **Далее**.  
+
+5.  Просмотрите сведения на панели **Роли сервера** и нажмите кнопку **Далее**.  
+
+6.  Добавьте следующие **Компоненты** , выбрав их в списке:  
+
+    -   **Компоненты .NET Framework 3.5**  
+
+        -   **.NET Framework 3.5 (включает в себя .NET 2.0 и 3.0)**  
+
+    -   **Компоненты .NET Framework 4.5**  
 
         -   **.NET Framework 4.5**  
 
-        -   **ASP.NET 4.5**  
+        -   **ASP.NET 4,5**  
 
-        -   **Serviços WCF**  
+        -   **Службы WCF**  
 
-            -   **Ativação HTTP**  
+            -   **Активация по HTTP**  
 
-            -   **Partilha de portas TCP**  
+            -   **Совместное использование TCP-портов**  
 
-7.  Reveja **Função de Servidor Web (IIS)** e o ecrã **Serviços de Função** e, em seguida, clique em **Seguinte**.  
+7.  Просмотрите экран **Роль веб-сервера (IIS)** и **Службы ролей** , а затем нажмите кнопку **Далее**.  
 
-8.  Reveja o ecrã **Confirmação** e, em seguida, clique em **Seguinte**.  
+8.  Просмотрите экран **Подтверждение** , а затем нажмите кнопку **Далее**.  
 
-9. Clique em **Instalar** e certifique-se de que a instalação foi concluída corretamente no painel **Notificações** do **Gestor de Servidores**.  
+9. Щелкните элемент **Установить** и убедитесь, что установка завершена должным образом, просмотрев сведения в области **Уведомления** **Server Manager**.  
 
-10. Depois de concluída a instalação base do .NET, navegue para o [Centro de Transferências da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=42643) para obter o instalador da Web para o .NET Framework 4.5.2. Clique no botão **Transferir** e, em seguida, em **Executar** para iniciar o instalador. O instalador irá detetar e instalar automaticamente os componentes necessários no idioma selecionado.  
+10. После завершения базовой установки .NET перейдите в [Центр загрузки Майкрософт](https://www.microsoft.com/en-us/download/details.aspx?id=42643) , чтобы получить веб-установщик для платформы .NET Framework 4.5.2. Нажмите кнопку **Загрузка** , а затем кнопку **Запуск** для запуска установщика. Он автоматически обнаруживает и устанавливает необходимые компоненты на выбранном языке.  
 
-Para obter mais informações, consulte os seguintes artigos para saber porque motivo estes .NET Frameworks são necessários:  
+Дополнительные сведения о том, для чего необходимы эти платформы .NET Framework, см. в следующих статьях:  
 
--   [Versões e dependências do .NET Framework](https://technet.microsoft.com/en-us/library/bb822049.aspx)  
+-   [Версии и зависимости платформы .NET Framework](https://technet.microsoft.com/en-us/library/bb822049.aspx)  
 
--   [Instruções de Compatibilidade de Aplicações do .NET Framework 4 RTM](https://technet.microsoft.com/en-us/library/dd889541.aspx)  
+-   [Пошаговое руководство по обеспечению совместимости приложений для .NET Framework 4 RTM](https://technet.microsoft.com/en-us/library/dd889541.aspx)  
 
--   [Como: Atualizar uma aplicação ASP.NET Web para ASP.NET 4](https://technet.microsoft.com/en-us/library/dd483478\(VS.100\).aspx)  
+-   [Практическое руководство. Обновление веб-приложения ASP.NET до ASP.NET 4](https://technet.microsoft.com/en-us/library/dd483478\(VS.100\).aspx)  
 
--   [Perguntas Frequentes sobre a Política de Ciclo de Vida do Microsoft .NET Framework](https://support.microsoft.com/en-us/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update)  
+-   [Часто задаваемые вопросы о политике жизненного цикла поддержки Microsoft .NET Framework](https://support.microsoft.com/en-us/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update)  
 
--   [CLR Inside Out - dentro do processo lado a lado](https://msdn.microsoft.com/en-us/magazine/ee819091.aspx)  
+-   [Среда CLR вдоль и поперек: In-Process Side-by-Side](https://msdn.microsoft.com/en-us/magazine/ee819091.aspx)  
 
-**Ativar BITS, IIS e RDC**  
+**Включение BITS, IIS и RDC**  
 
-O [Serviço de Transferência Inteligente em Segundo Plano (BITS)](https://technet.microsoft.com/en-us/library/dn282296.aspx) é utilizado para aplicações que têm de transferir ficheiros assíncronos entre um cliente e um servidor. Ao medir o fluxo de transferências em primeiro e segundo plano, o BITS mantém a capacidade de resposta de outras aplicações de rede. Retoma também automaticamente as transferências de ficheiros se uma sessão de transferência for interrompida.  
+[Фоновая интеллектуальная служба передачи (BITS)](https://technet.microsoft.com/en-us/library/dn282296.aspx) используется для приложений, которым требуется асинхронно передавать файлы между клиентом и сервером. Измеряя поток передач на переднем плане и в фоновом режиме, BITS позволяет другим сетевым приложениям реагировать на запросы. Она также автоматически возобновляет передачи файлов в случае прерывания сеанса передачи.  
 
-O utilizador deve instalar o BITS para este laboratório, porque este servidor de site será também utilizado como ponto de gestão.  
+Вы установите BITS для этой лабораторной работы, и этот сервер сайта также будет использоваться в качестве точки управления.  
 
-Serviços de Informação Internet (IIS) é um servidor Web flexível e escalável que pode ser utilizado para alojar tudo na Web. É utilizado pelo Configuration Manager para um número de funções do sistema de sites. Para obter informações adicionais no IIS, reveja [os Web sites para servidores de sistema de sites no System Center Configuration Manager](../../core/plan-design/network/websites-for-site-system-servers.md).  
+Службы IIS представляют собой гибкий масштабируемый веб-сервер, который можно использовать для размещения чего угодно в Интернете. Он используется Configuration Manager для нескольких ролей системы сайта. Дополнительные сведения о службах IIS см. в разделе [Веб-сайты для серверов системы сайта в System Center Configuration Manager](../../core/plan-design/network/websites-for-site-system-servers.md).  
 
-[Compressão de Diferencial Remota (RDC)](https://technet.microsoft.com/en-us/library/cc754372.aspx) é um conjunto de API que as aplicações podem utilizar para determinar se foram efetuadas quaisquer alterações a um conjunto de ficheiros. A RDC permite que a aplicação replique apenas as partes alteradas de um ficheiro, mantendo o tráfego de rede para um mínimo.  
+[Удаленное разностное сжатие (RDC)](https://technet.microsoft.com/en-us/library/cc754372.aspx) — это набор API-интерфейсов, которые используются приложениями, чтобы определить, были ли внесены изменения в набор файлов. RDC позволяет приложению реплицировать только измененные части файла, сводя сетевой трафик к минимуму.  
 
-##### <a name="to-enable-bits-iis-and-rdc-site-server-roles"></a>Para ativar as funções de servidor de site BITS, IIS e RDC:  
+##### <a name="to-enable-bits-iis-and-rdc-site-server-roles"></a>Порядок включения ролей сервера сайта BITS, IIS и RDC:  
 
-1.  No servidor de site, abra **Server Manager**. Navegue para **Gerir**. Clique em **Adicionar Funções e Funcionalidades** para abrir o **Assistente para Adicionar Funções e Funcionalidades**.  
+1.  На сервере сайта откройте **Server Manager**. Перейдите к элементу **Управление**. Щелкните **Добавить роли и компоненты** , чтобы открыть **Мастер добавления ролей и компонентов.**  
 
-2.  Reveja as informações fornecidas no painel **Antes de Começar** e, em seguida, clique em **Seguinte**.  
+2.  Просмотрите сведения, представленные на панели **Перед началом работы** , и нажмите кнопку **Далее**.  
 
-3.  Selecione **Instalação baseada em funções ou funcionalidades**e, em seguida, clique em **Seguinte**.  
+3.  Выберите **Установка ролей или компонентов**и нажмите кнопку **Далее**.  
 
-4.  Selecione o servidor em **Agrupamento de Servidores**e, em seguida, clique em **Seguinte**.  
+4.  Выберите сервер в поле **Пул серверов**и нажмите кнопку **Далее**.  
 
-5.  Adicione as seguintes **Funções de Servidor** selecionando-as na lista:  
+5.  Добавьте следующие **Роли сервера** , выбрав их в списке:  
 
-    -   **Servidor Web (IIS)**  
+    -   **Веб-сервер (IIS)**  
 
-        -   **Funcionalidades HTTP Comuns**  
+        -   **Общие функции HTTP**  
 
-            -   **Documento Predefinido**  
+            -   **Документ по умолчанию**  
 
-            -   **Navegação nos Diretórios**  
+            -   **Просмотр каталогов**  
 
-            -   **Erros de HTTP**  
+            -   **Ошибки HTTP**  
 
-            -   **Conteúdo Estático**  
+            -   **Статическое содержимое**  
 
-            -   **Redirecionamento HTTP**  
+            -   **Перенаправление HTTP**  
 
-        -   **Estado de Funcionamento e de Diagnóstico**  
+        -   **Проверка работоспособности и диагностика**  
 
-            -   **Registo HTTP**  
+            -   **Ведение журнала HTTP**  
 
-            -   **Ferramentas de Registo**  
+            -   **Средства ведения журнала**  
 
-            -   **Monitor de Pedidos**  
+            -   **Монитор запросов**  
 
-            -   **Rastreio**  
+            -   **Трассировка**  
 
-    -   **Desempenho**  
+    -   **Производительность**  
 
-        -   **Compressão de Conteúdo Estático**  
+        -   **Сжатие статического содержимого**  
 
-        -   **Compressão de Conteúdo Dinâmico**  
+        -   **Сжатие динамического содержимого**  
 
     -   **Security**  
 
-        -   **Filtragem de Pedidos**  
+        -   **Фильтрация запросов**  
 
-        -   **Autenticação Básica**  
+        -   **Обычная проверка подлинности**  
 
-        -   **Autenticação por Mapeamento de Certificados de Clientes**  
+        -   **Проверка подлинности с сопоставлением сертификата клиента**  
 
-        -   **Restrições de Domínio e de IP**  
+        -   **Ограничения IP-адресов и доменов**  
 
-        -   **Autorização de URL**  
+        -   **Авторизация URL-адреса**  
 
-        -   **Autorização do Windows**  
+        -   **Авторизация Windows**  
 
-    -   **Programação de Aplicações**  
+    -   **Разработка приложения**  
 
-        -   **.NET Extensibility 3.5**  
+        -   **Расширяемость .NET 3.5**  
 
-        -   **.NET Extensibility 4.5**  
+        -   **Расширяемость .NET 4.5**  
 
         -   **ASP**  
 
         -   **ASP.NET 3.5**  
 
-        -   **ASP.NET 4.5**  
+        -   **ASP.NET 4,5**  
 
-        -   **Extensões ISAPI**  
+        -   **Расширения ISAPI**  
 
-        -   **Filtros ISAPI**  
+        -   **Фильтры ISAPI**  
 
-        -   **O Lado do Servidor Inclui**  
+        -   **Включения на стороне сервера**  
 
-    -   **Servidor FTP**  
+    -   **FTP-сервер**  
 
-        -   **Serviço FTP**  
+        -   **Служба FTP**  
 
-    -   **Ferramentas de Gestão**  
+    -   **Средства управления**  
 
-        -   **Consola de Gestão do IIS**  
+        -   **Консоль управления IIS**  
 
-        -   **Compatibilidade de Gestão do IIS 6**  
+        -   **Совместимость управления IIS 6**  
 
-            -   **Compatibilidade com Metabase do IIS 6**  
+            -   **Совместимость метабазы IIS 6**  
 
-            -   **Consola de Gestão do IIS 6**  
+            -   **Консоль управления IIS 6**  
 
-            -   **Ferramentas de Scripts do IIS 6**  
+            -   **Инструменты для работы со сценариев IIS 6**  
 
-            -   **Compatibilidade com WMI do IIS 6**  
+            -   **Совместимость с WMI IIS 6**  
 
-        -   **Scripts e Ferramentas de Gestão do IIS 6**  
+        -   **Сценарии и средства управления IIS 6**  
 
-        -   **Serviço de Gestão**  
+        -   **Служба Служба Management Service**  
 
-6.  Adicione as seguintes **Funcionalidades** selecionando-as na lista:  
+6.  Добавьте следующие **Компоненты** , выбрав их в списке:  
 
-    -   -   **Serviço de Transferência Inteligente em Segundo Plano (BITS)**  
+    -   -   **Фоновая интеллектуальная служба передачи (BITS)**  
 
-            -   **Extensão de Servidor IIS**  
+            -   **Расширение сервера IIS**  
 
-        -   **Ferramentas de Administração Remota do Servidor**  
+        -   **Средства удаленного администрирования сервера**  
 
-            -   **Ferramentas de Administração de Funcionalidades**  
+            -   **Средства администрирования компонентов**  
 
-                -   **Ferramentas de Extensões de Servidor BITS**  
+                -   **Средства серверных расширений BITS**  
 
-7.  Clique em **Instalar** e certifique-se de que a instalação foi concluída corretamente no painel **Notificações** do **Gestor de Servidores**.  
+7.  Щелкните элемент **Установить** и убедитесь, что установка завершена должным образом, просмотрев сведения в области **Уведомления** **Server Manager**.  
 
-Por predefinição, o IIS bloqueia vários tipos de extensões de ficheiro e localizações de pastas contra o acesso através de comunicação HTTP ou HTTPS. Para permitir que estes ficheiros sejam distribuídos a sistemas cliente, terá de configurar a filtragem de pedidos do IIS no ponto de distribuição. Para obter mais informações, consulte [IIS filtragem de pedidos para pontos de distribuição](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
+По умолчанию службы IIS блокируют доступ к нескольким типам расширений имен файлов и расположений папок для подключений по протоколу HTTP или HTTPS. Чтобы разрешить распространение этих файлов на клиентские системы, необходимо настроить фильтрации запросов для служб IIS на точке распространения. Дополнительные сведения см. в разделе [Фильтрация запросов служб IIS для точек распространения](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
 
-##### <a name="to-configure-iis-filtering-on-distribution-points"></a>Para configurar a filtragem de IIS nos pontos de distribuição:  
+##### <a name="to-configure-iis-filtering-on-distribution-points"></a>Порядок настройки фильтрации на точках распространения IIS:  
 
-1.  Abra **IIS Manager** e selecione o nome do seu servidor na barra lateral. Esta ação permite-lhe aceder ao ecrã **Início** .  
+1.  Откройте **IIS Manager** и выберите имя сервера на боковой панели. Отображается **Главный** экран.  
 
-2.  Certifique-se de que **Vista de Funcionalidades** está selecionada na parte inferior do ecrã **Início** . Navegue para **IIS** e abra **Filtragem de Pedidos**.  
+2.  Убедитесь, что в нижней части экрана **Главная** выбран элемент **Просмотр возможностей** . Перейдите к **IIS** и откройте **Фильтрация запросов**.  
 
-3.  No painel **Ações** , clique em **Permitir Extensão de Nome de Ficheiro…**  
+3.  В области **Действия** щелкните **Разрешить расширение имени файла...**  
 
-4.  Introduza **.msi** na caixa de diálogo e clique em **OK**.  
+4.  Введите **.msi** в диалоговом окне и нажмите кнопку **ОК**.  
 
-###  <a name="BKMK_InstallCMLab"></a> Instalar o Gestor de Configuração  
-Irá criar um [determinar quando deve utilizar um site primário](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary) para gerir diretamente clientes. Isto permitirá que o seu ambiente de laboratório suportar a gestão de [escala de sistema de sites](/sccm/core/plan-design/configs/size-and-scale-numbers) de potenciais dispositivos.  
-Durante este processo, irá também instalar a consola do Configuration Manager, que será utilizada para gerir os dispositivos de avaliação a partir de agora.  
+###  <a name="BKMK_InstallCMLab"></a> Установка Configuration Manager  
+Вы создадите [Определение необходимости использования первичного сайта](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary) для непосредственного управления клиентами. Это позволит лабораторной среде поддерживать управление потенциальными устройствами на уровне [Масштабирование системы сайта](/sccm/core/plan-design/configs/size-and-scale-numbers).  
+В ходе этого процесса вы также установите консоль Configuration Manager, которая будет использоваться для управления оценкой устройств.  
 
-Antes de iniciar a instalação, inicie o [Verificador de pré-requisitos](/sccm/core/servers/deploy/install/prerequisite-checker) no servidor utilizando o Windows Server 2012 para confirmar que todas as definições tiverem sido ativadas corretamente.  
+Прежде чем начать установку, запустите [средство проверки готовности](/sccm/core/servers/deploy/install/prerequisite-checker) на сервере Windows Server 2012, чтобы убедиться в том, что все параметры заданы правильно.  
 
-##### <a name="to-download-and-install-configuration-manager"></a>Para transferir e instalar o Gestor de Configuração:  
+##### <a name="to-download-and-install-configuration-manager"></a>Порядок скачивания и установки Configuration Manager:  
 
-1.  Navegue para o [avaliações do System Center](https://www.microsoft.com/evalcenter/evaluate-system-center-2012-configuration-manager-and-endpoint-protection) página para transferir a versão de avaliação mais recente do System Center Configuration Manager.  
+1.  Перейдите на страницу [Оценки System Center](https://www.microsoft.com/evalcenter/evaluate-system-center-2012-configuration-manager-and-endpoint-protection), чтобы загрузить самую новую ознакомительную версию System Center Configuration Manager.  
 
-2.  Descomprima o suporte de dados de transferência para a localização predefinida.  
+2.  Распакуйте скачанный носитель в предварительно заданное расположение.  
 
-3.  Siga o procedimento de instalação listado em [instalar um site utilizando o Assistente de configuração do System Center Configuration Manager](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites). De acordo com esse procedimento, deve introduzir o seguinte:  
+3.  Выполните процедуру установки, описанную в статье [Установка сайта с помощью мастера установки System Center Configuration Manager](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites). В рамках этой процедуры вы будете вводить следующие данные:  
 
-    |Passo no procedimento de instalação do site|Seleção|  
+    |Шаг в процедуре установки сайта|Выбор|  
     |-----------------------------------------|---------------|  
-    |Passo 4: a página **Chave de produto**|Selecione **Avaliação**.|  
-    |Passo 7:  **Transferências de pré-requisitos**|Selecione **Transferir ficheiros necessários** e especifique a localização predefinida.|  
-    |Passo 10: **Definições de instalação e site**|-   **Código do site:LAB**<br />-   **Nome do site:Evaluation**<br />-   **Pasta de instalação:** especifique a localização predefinida.|  
-    |Passo 11: **Instalação de Site principal**|Selecione **Instalar o site principal como um site autónomo**, em seguida, clique em **Seguinte**.|  
-    |Passo 12: **Instalação da base de dados**|-   **Nome de SQL Server (FQDN):** aqui o FQDN.<br />-   **Nome da instância:** deixe em branco, porque irá utilizar a instância predefinida do SQL que instalou anteriormente.<br />-   **Porta do Service Broker:** deixe como a porta predefinida de 4022.|  
-    |Passo 13: **Instalação da base de dados**|Deixe estas definições como a predefinição.|  
-    |Passo 14: **Fornecedor de SMS**|Deixe estas definições como a predefinição.|  
-    |Passo 15: **Definições de comunicação de cliente**|Confirme se **Todas as funções do sistema de site aceitam apenas comunicação HTTPS dos clientes** não estiver selecionada|  
-    |Passo 16: **Funções do sistema de sites**|Introduza o FQDN e confirme que a seleção de **Todas as funções do sistema de site aceitam apenas comunicação HTTPS dos clientes** ainda está desmarcada.|  
+    |Шаг 4. Страница **Ключ продукта**|Выберите **Оценка**.|  
+    |Шаг 7.  **Загрузки необходимых компонентов**|Выберите **Загрузить требуемые файлы** и укажите заранее определенное расположение.|  
+    |Шаг 10. **Параметры сайта и установки**|-   **Код сайта:LAB**<br />-   **Имя сайта:Evaluation**<br />-   **Папка установки:** укажите заранее определенное расположение.|  
+    |Шаг 11. **Установка первичного сайта**|Выберите **Установить первичный сайт как автономный сайт**, а затем нажмите кнопку **Далее**.|  
+    |Шаг 12. **Установка базы данных**|-   **Имя SQL Server (FQDN):** введите полное доменное имя.<br />-   **Имя экземпляра:** оставьте это поле пустым, так как используется экземпляр SQL по умолчанию, который был установлен ранее.<br />-   **Порт Service Broker:** оставьте порт 4022 по умолчанию.|  
+    |Шаг 13. **Установка базы данных**|Оставьте для этих параметров значения по умолчанию.|  
+    |Шаг 14. **Поставщик SMS**|Оставьте для этих параметров значения по умолчанию.|  
+    |Шаг 15. **Параметры связи клиентов**|Убедитесь, что параметр **Все роли системы сайта принимают подключения от клиентов только по протоколу HTTPS** не выбран.|  
+    |Шаг 16. **Роли систем сайта**|Введите полное доменное имя и убедитесь, что параметр **Все роли системы сайта принимают подключения от клиентов только по протоколу HTTPS** по-прежнему не выбран.|  
 
-###  <a name="BKMK_EnablePubLab"></a>Ativar a publicação para o site do Configuration Manager  
-Cada site do Configuration Manager publica as suas próprias informações específicas de site no contentor gestão do sistema da sua partição de domínio no esquema do Active Directory. Bidirecional canais para comunicação entre o Active Directory e do Configuration Manager tem de ser abertos para processar este tráfego. Irá também ativar a Deteção de Florestas para determinar certos componentes do seu Active Directory e da infraestrutura de rede.  
+###  <a name="BKMK_EnablePubLab"></a> Включение публикации для сайта Configuration Manager  
+Каждый сайт Configuration Manager публикует собственные связанные с сайтом сведения в контейнере System Management в своем разделе домена схемы Active Directory. Двунаправленные каналы связи между Active Directory и Configuration Manager должны быть открыты для обработки этого трафика. Вы также дополнительно включите обнаружение леса для определения некоторых компонентов Active Directory и сетевой инфраструктуры.  
 
-##### <a name="to-configure-active-directory-forests-for-publishing"></a>Para configurar florestas do Active Directory para publicação:  
+##### <a name="to-configure-active-directory-forests-for-publishing"></a>Настройка лесов Active Directory для публикации  
 
-1.  No canto inferior esquerdo da consola do Configuration Manager, clique em **administração**.  
+1.  В нижнем левом углу консоли Configuration Manager щелкните элемент **Администрирование**.  
 
-2.  Na área de trabalho **Administração** , expanda **Configuração da Hierarquia**e clique em **Métodos de Deteção**.  
+2.  В рабочей области **Администрирование** разверните узел **Конфигурация иерархии**, а затем щелкните **Методы обнаружения**.  
 
-3.  Selecione **Deteção de Florestas do Active Directory** e clique em **Propriedades**.  
+3.  Выберите **Обнаружение в лесах Active Directory** и щелкните элемент **Свойства**.  
 
-4.  Na caixa de diálogo **Propriedades** , selecione **Ativar Deteção de Floresta do Active Directory**. Quando esta opção estiver ativa, selecione **Criar limites de site do Active Directory automaticamente quando os mesmos forem detetados**. É apresentada uma caixa de diálogo que indica **Quer executar a deteção completa assim que possível?** Clique em **Sim**.  
+4.  В диалоговом окне **Свойства** выберите **Включить обнаружение в лесах Active Directory**. После активации выберите **Автоматически создавать границы сайта Active Directory при их обнаружении**. Отображается диалоговое окно с сообщением **Выполнить полное обнаружение, как только это станет возможным?** Нажмите кнопку **Да**.  
 
-5.  No grupo **Método de Deteção** na parte superior do ecrã, clique em **Executar Agora a Deteção de Florestas**e, em seguida, navegue para **Florestas do Active Directory** na barra lateral. A floresta do Active Directory deve ser mostrada na lista de florestas detetadas.  
+5.  В группе **Метод обнаружения** в верхней части экрана щелкните **Выполнить обнаружение в лесах**, а затем перейдите в область **Леса Active Directory** на боковой панели. Ваш лес Active Directory должен отображаться в списке обнаруженных лесов.  
 
-6.  Navegue para a parte superior do ecrã, para o separador **Geral** .  
+6.  Перейдите в верхнюю часть экрана — на вкладку **Общие** .  
 
-7.  Na área de trabalho **Administração** , expanda **Configuração da Hierarquia**e clique em **Florestas do Active Directory**.  
+7.  В рабочей области **Администрирование** разверните узел **Конфигурация иерархии**, а затем щелкните **Леса Active Directory**.  
 
-##### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>Para permitir que um site do Configuration Manager publique informações do site para a floresta do Active Directory:  
+##### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>Настройка сайта Configuration Manager для публикации данных сайта в лесе Active Directory  
 
-1.  Na consola do Configuration Manager, clique em **Administração**.  
+1.  В консоли Configuration Manager щелкните **Администрирование**.  
 
-2.  Irá configurar uma nova floresta que ainda não tenha sido detetada.  
+2.  Вы настроите новый лес, который еще не был обнаружен.  
 
-3.  Na área de trabalho **Administração** , clique em **Florestas do Active Directory**.  
+3.  В рабочей области **Администрирование** щелкните **Леса Active Directory**.  
 
-4.  No separador **Publicação** das propriedades do site, selecione a floresta ligada e, em seguida, clique em **Ok** para guardar a configuração.
-
+4.  На вкладке **Публикация** свойств сайта выберите свой подключенный лес, а затем нажмите кнопку **ОК** для сохранения конфигурации.

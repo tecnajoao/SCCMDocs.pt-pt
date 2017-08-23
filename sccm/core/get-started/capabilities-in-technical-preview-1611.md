@@ -1,6 +1,6 @@
 ---
-title: "Capacidades na pré-visualização técnica 1611 do Configuration Manager"
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1611."
+title: "Возможности в Technical Preview 1611 для Configuration Manager"
+description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager версии 1611."
 ms.custom: na
 ms.date: 01/23/2017
 ms.reviewer: na
@@ -16,62 +16,62 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 5e77ebbfd3f3d573d903fe58024a22feb9884e4a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1611-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1611 do System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1611-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1611 для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
-
-
-
-Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1611. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.    
-
-**Problemas conhecidos neste Technical Preview:**   
-- ***Estado dos pré-requisitos***: Quando instalar a versão 1611, o estado geral dos pré-requisitos poderá mostrar, passou com avisos, mas não listar os pré-requisitos causado os avisos. Isto pode dever-se os seguintes pré-requisitos de duas:
-  - Opções de memória de criar o índice de SQL
-  - Verifica a existência de versão suportada do SQL Server  
-
- Uma vez que estes são apenas avisos, pode ser ignorados.
-
-- ***PowerShell***: Quando se liga ao Windows PowerShell a partir da consola do Configuration Manager, poderá receber o erro seguinte: **Não está assinado digitalmente Microsoft.ConfigurationManagement.PowerShell.Types.ps1xml**.  
-
-   Pode resolver este problema, substituindo determinados ficheiros com versões assinadas da versão 1610. Copiar todos os ficheiros com as seguintes extensões da **&lt;diretório de instalação > \AdminConsole\bin\**  pasta na instalação versão 1610: **. psd1**, **.ps1xml**, e **. psm1**. Colar estes ficheiros para o **&lt;diretório de instalação > \AdminConsole\bin\**  pasta na instalação do Technical Preview 1611, substituindo a versão de 1611 dos ficheiros.
+*Применимо к: System Center Configuration Manager (Technical Preview)*
 
 
-**Seguem-se novas funcionalidades que pode experimentar com esta versão.**  
 
-## <a name="pre-cache-content-for-available-deployments-and-task-sequences"></a>Pré-armazenar conteúdo em cache para as implementações disponíveis e sequências de tarefas
-Nesta pré-visualização técnica, para as implementações disponíveis e sequências de tarefas, pode optar por utilizar a funcionalidade de pré-cache para que os clientes transferir apenas o conteúdo relevante antes de um utilizador instala o conteúdo.
+В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager версии 1611. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager. Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.    
 
-Por exemplo, digamos que pretende implementar uma sequência de tarefas de atualização no local do Windows 10, apenas pretende uma única sequência de tarefas para todos os utilizadores e ter várias arquiteturas de e/ou idiomas. No ramo atual, se criar uma implementação disponível e, em seguida, o utilizador clica em **instalar** no Centro de Software, as transferências de conteúdo nessa altura. Esta ação adiciona mais tempo antes da instalação estiver pronta para começar. Em alternativa, no ramo atual se criar uma implementação de sequência de tarefas disponível, todos os conteúdos referenciados na sequência de tarefas é transferido. Isto inclui o pacote de atualização do sistema operativo para todos os idiomas e arquiteturas. Se cada aproximadamente 3 GB de tamanho, o pacote de transferência pode ser bastante grande.
+**Известные проблемы в этой версии Technical Preview:**   
+- ***Состояние готовности***. При установке версии 1611 общее состояние готовности может отображаться как "пройдено с предупреждениями", однако не указывается, какие необходимые компоненты вызывали предупреждения. Это может быть связано со следующими двумя необходимыми компонентами:
+  - Параметры "Память для создания индекса SQL"
+  - Проверки поддерживаемой версии SQL Server  
 
-A funcionalidade de conteúdo pré-cache dá-lhe a opção para permitir que o cliente transferir apenas o conteúdo aplicável logo que recebe a implementação. Por conseguinte, quando o utilizador clica em **instalar** no Centro de Software, o conteúdo está pronto e a instalação inicia rapidamente porque o conteúdo no disco rígido local.
+ Так как это только предупреждения, их можно проигнорировать.
 
-### <a name="to-configure-the-pre-cache-feature"></a>Configurar a funcionalidade de pré-cache
+- ***PowerShell***. При подключении к Windows PowerShell из консоли Configuration Manager может возникнуть следующая ошибка: **Файл Microsoft.ConfigurationManagement.PowerShell.Types.ps1xml не имеет цифровой подписи**.  
 
-1. Criação de pacotes de atualização para idiomas e arquiteturas específicas de sistema operativo. Especifique a arquitetura e idioma de **origem de dados** separador do pacote. Para o idioma, utilize a conversão decimal (por exemplo, 1033 é o valor decimal para inglês e 0x0409 é o equivalente hexadecimal). Para obter mais informações, consulte [criar uma sequência de tarefas para atualizar um sistema operativo](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
-
-    Os valores de arquitetura e de idioma são utilizados para corresponder a condições de passo de sequência de tarefas irá criar o passo seguinte para determinar se o pacote de atualização do sistema operativo deve ser previamente colocadas em cache.
-2. Crie uma sequência de tarefas com condicionais passos para os idiomas diferentes e arquiteturas. Por exemplo, para a versão inglesa pode criar um passo como o seguinte:
-
-    ![Propriedades da pré-cache de](media/precacheproperties2.png)
-
-    ![Opções de pré-cache](media/precacheoptions2.png)  
-
-3. Implemente a sequência de tarefas. Para a funcionalidade de pré-cache, configure o seguinte:
-    - No **geral** separador, selecione **previamente transferir conteúdo para esta sequência de tarefas**.
-    - No **definições de implementação** separador, configure a sequência de tarefas com o **disponível** para **objetivo**. Se criar um **necessário** implementação, a funcionalidade de pré-cache não funcionará.
-    - No **agendamento** separador, para o **agendar quando esta implementação ficará disponível** definição, escolha uma data futura que proporcione tempo suficiente para colocar em cache previamente o conteúdo antes da implementação é disponibilizada para os utilizadores de clientes. Por exemplo, pode definir o tempo disponível para ser 3 horas no futuro para permitir tempo suficiente para o conteúdo seja previamente em cache.  
-    - No **pontos de distribuição** separador, configure o **opções de implementação** definições. Se o conteúdo não é previamente em cache no cliente antes de um utilizador inicia a instalação, estas definições são utilizadas.
+   Эту проблему можно решить, заменив некоторые файлы подписанными копиями из версии 1610. Скопируйте все файлы со следующими расширениями из папки **&lt;каталог установки>\AdminConsole\bin\** в установке версии 1610: **.psd1**, **.ps1xml** и **.psm1**. Вставьте эти файлы в папку **&lt;каталог установки>\AdminConsole\bin\** установки Technical Preview 1611, перезаписав версию 1611 этих файлов.
 
 
-### <a name="user-experience"></a>Experiência de utilizador
-- Quando o cliente recebe a política de implementação, será iniciada colocar em cache o conteúdo previamente. Isto inclui todos os conteúdos referenciados (quaisquer outros tipos de pacote) e apenas o sistema operativo pacote de atualização que corresponda ao cliente com base nas condições que definiu na sequência de tarefas.
-- Quando a implementação é disponibilizada para os utilizadores (definição de **agendamento** separador da implementação), apresenta uma notificação a informar os utilizadores sobre a nova implementação e a implementação fica visível no Centro de Software. O utilizador pode aceder ao centro de Software e clicar em **instalar** para iniciar a instalação.
-- Se o conteúdo não está totalmente previamente em cache, em seguida, irá utilizar as definições especificadas no **a opção de implementação** separador da implementação. Recomendamos que não há tempo suficiente entre quando a implementação é criada e a hora em que a implementação fica disponível para os utilizadores para permitir que os clientes tempo suficiente para colocar em cache o conteúdo previamente.
+**Ниже перечислены новые возможности, доступные в этой версии.**  
+
+## <a name="pre-cache-content-for-available-deployments-and-task-sequences"></a>Предварительное кэширование содержимого для доступных развертываний и последовательностей задач
+В этом выпуске Technical Preview можно использовать для доступных развертываний и последовательностей задач функцию предварительного кэширования, благодаря которой клиенты будут скачивать только необходимое содержимое, прежде чем пользователь установит содержимое.
+
+Например, предположим, что нужно развернуть последовательность задач обновления Windows 10 на месте, требуется единственная последовательность задач для всех пользователей и имеется несколько архитектур или языков. В версии Current Branch, если вы создаете доступное развертывание, а затем пользователь нажимает кнопку **Установить** в центре программного обеспечения, содержимое скачивается только после этого. Из-за этого момент, когда установка может начаться, откладывается еще на некоторое время. Кроме того, при создании доступного развертывания последовательности задач в Current Branch скачивается все содержимое, на которое ссылается последовательность задач. Сюда относятся пакеты обновления операционной системы для всех языков и архитектур. Если размер каждого из них составляет приблизительно 3 ГБ, скачиваемый пакет может быть весьма большим.
+
+Функция предварительного кэширования содержимого дает возможность разрешить клиенту скачивать только нужное содержимое, как только будет получено развертывание. Поэтому, когда пользователь нажимает кнопку **Установить** в центре программного обеспечения, содержимое готово и установка начинается быстро, так как содержимое находится на локальном жестком диске.
+
+### <a name="to-configure-the-pre-cache-feature"></a>Настройка функции предварительного кэширования
+
+1. Создайте пакеты обновления операционной системы для определенных архитектур и языков. Укажите архитектуру и язык на вкладке **Источник данных** пакета. Для языка используйте десятичное преобразование (например, 1033 — это десятичное обозначение английского языка, а 0x0409 — шестнадцатеричный эквивалент). Подробные сведения см. в разделе [Создание последовательности задач для обновления операционной системы](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
+
+    Значения архитектуры и языка служат для проверки условий шагов последовательности задач, которые вы создадите в следующем шаге для определения необходимости в предварительном кэшировании пакета обновления операционной системы.
+2. Создайте последовательность задач с условными шагами для разных языков и архитектур. Например, для английской версии можно создать шаг наподобие следующего:
+
+    ![свойства предварительного кэширования](media/precacheproperties2.png)
+
+    ![параметры предварительного кэширования](media/precacheoptions2.png)  
+
+3. Выполнить развертывание последовательности задач. Для функции предварительного кэширования настройте указанные ниже значения.
+    - На вкладке **Общие** выберите **Предварительно скачивать содержимое для этой последовательности задач**.
+    - На вкладке **Параметры развертывания** настройте последовательность задач с **целью** **Доступное**. Если вы создадите **обязательное** развертывание, функция предварительного кэширования работать не будет.
+    - На вкладке **Планирование** для параметра **Развертывание доступно с** выберите время в будущем, чтобы у клиентов было достаточно времени для предварительного кэширования содержимого перед тем, как развертывание станет доступно пользователям. Например, можно указать, что развертывание будет доступно через 3 часа.  
+    - На вкладке **Точки развертывания** настройте **Параметры развертывания**. Если содержимое не было предварительно кэшировано на клиенте, когда пользователь начинает установку, применяются эти параметры.
 
 
-## <a name="see-also"></a>Consulte Também
-[Pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md)
+### <a name="user-experience"></a>Взаимодействие с пользователем
+- Когда клиент получает политику развертывания, он начинает предварительно кэшировать содержимое. Сюда относится все содержимое, на которое имеются ссылки (любые другие типы пакетов), и только тот пакет обновления операционной системы, который соответствует клиенту согласно условиям, заданным в последовательности задач.
+- Когда развертывание становится доступным пользователям (параметр на вкладке **Планирование** развертывания), выводится уведомление, сообщающее пользователям о новом развертывании, и развертывание отображается в центре программного обеспечения. Пользователь может перейти в центр программного обеспечения и нажать кнопку **Установить**, чтобы начать установку.
+- Если предварительное кэширование содержимого не было выполнено полностью, то применяются параметры, указанные на вкладке **Параметры развертывания** развертывания. Мы рекомендуем, чтобы с момента создания развертывания до того момента, когда оно станет доступно пользователям, было достаточно времени для предварительного кэширования содержимого клиентами.
+
+
+## <a name="see-also"></a>См. также
+[Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md)

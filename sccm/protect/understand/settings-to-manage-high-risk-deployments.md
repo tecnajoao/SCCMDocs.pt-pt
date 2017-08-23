@@ -1,6 +1,6 @@
 ---
-title: "Gerir implementações de alto risco | Microsoft Docs"
-description: "Saiba como configurar as definições do site no System Center Configuration Manager, para o avisar admins se criarem uma implementação de alto risco."
+title: "Управление развертываниями с высоким риском | Документы Майкрософт"
+description: "Узнайте, как настроить параметры сайта в System Center Configuration Manager, чтобы предупреждать администраторов о создании развертываний с высоким риском."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,45 +16,45 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8b5564f39f07a67a3c9278379ed59ca415603d21
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="settings-to-manage-high-risk-deployments-for-system-center-configuration-manager"></a>Definições para gerir implementações de alto risco para o System Center Configuration Manager
+# <a name="settings-to-manage-high-risk-deployments-for-system-center-configuration-manager"></a>Параметры для управления развертываниями с высоким риском для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Com o System Center Configuration Manager pode configurar as definições do site que irão avisar os administradores se criarem uma implementação de sequência de tarefas de alto risco. Uma implementação de alto risco é:  
+С помощью System Center Configuration Manager вы можете настроить на сайте параметры таким образом, чтобы предупреждать администраторов о том, что они создают развертывание последовательности задач с высоким риском. Развертыванием с высоким риском является:  
 
--   Uma implementação instalada automaticamente  
+-   развертывание, которое устанавливается автоматически;  
 
--   Tem a probabilidade de causar resultados indesejados  
+-   развертывание, которое может привести к нежелательным результатам.  
 
- Por exemplo, uma sequência de tarefas que tenha um objetivo **necessário** que implementa um sistema operativo é considerada de alto risco.  
+ Например, последовательность задач с целью **Обязательно**, которая выполняет развертывание операционной системы, считается развертыванием с высоким риском.  
 
- Para reduzir o risco de uma implementação de alto risco indesejada, pode configurar limites de tamanho nestas definições de verificação de implementação:  
+ Чтобы снизить риск нежелательного развертывания с высоким риском, можно настроить предельные значения размера в параметрах проверки развертывания:  
 
--   **Limites de tamanho de coleção**: Oculte coleções com mais clientes que o limite quando cria uma implementação.  
+-   **Ограничения на размер коллекции**: обеспечивает скрытие коллекций, число клиентов в которых превышает предельное значение, при создании развертывания.  
 
-    -   **Tamanho predefinido**: Esta definição oculta coleções, por predefinição, com mais clientes que o limite quando cria uma implementação. Pode ainda ver estas coleções quando criar a implementação, mas estas estão ocultadas por predefinição. O valor predefinido é 100. Introduza um valor de 0 para ignorar esta definição.  
+    -   **Размер по умолчанию**: по умолчанию обеспечивает скрытие коллекций, число клиентов в которых превышает предельное значение, при создании развертывания. Эти коллекции можно по-прежнему просматривать при создании развертывания, но они скрыты по умолчанию. Значение по умолчанию — 100. Введите значение 0, чтобы игнорировать этот параметр.  
 
-    -   **Tamanho máximo**: Esta definição oculta sempre coleções com mais clientes que o limite quando cria uma implementação. O valor predefinido é 0, o qual ignora esta definição. O valor **Tamanho máximo** tem de ser superior ao valor **Tamanho predefinido** .  
+    -   **Максимальный размер**: обеспечивает постоянное скрытие коллекций, число клиентов в которых превышает предельное значение, при создании развертывания. Значение по умолчанию — 0; в данном случае этот параметр игнорируется. Значение параметра **Максимальный размер** должно быть больше, чем значение параметра **Размер по умолчанию** .  
 
-     Por exemplo, definir **tamanho predefinido** a 100 e o **tamanho máximo** a 1000. Quando cria uma implementação de alto risco, a **selecionar coleção** janela só apresentará as coleções que contenham menos de 100 clientes. Se desmarcar a **ocultar coleções com um membro contagem maiores que o siteâ€™ configuração de tamanho mínimo de s** definição, a janela apresentará as coleções que contenham menos de 1 000 clientes.  
+     Например, для параметра **Размер по умолчанию** установлено значение 100, а для параметра **Максимальный размер** — значение 1000. При создании развертывания с высоким риском в окне **Выбор коллекции** будут отображаться только те коллекции, которые содержат менее 100 клиентов. Если снять флажок **Скрыть коллекции с количеством элементов, превышающим конфигурацию минимального размера сайта**, в окне будут отображаться коллекции, содержащие менее 1000 клиентов.  
 
--   **Coleções com servidores de sistema de sites**: Bloquear implementações ou exigir verificação antes da criação da implementação, quando a coleção de destino contém um computador com uma função de sistema de sites. Quando uma implementação é bloqueada, tem de selecionar uma coleção diferente que cumpra os critérios de verificação de implementação.  
+-   **Коллекции с серверами системы сайта**: обеспечивает блокировку развертываний или требует проверку перед созданием развертывания, когда целевая коллекция содержит компьютер с ролью системы сайта. Если развертывание заблокировано, необходимо выбрать другую коллекцию, соответствующую критериям проверки развертывания.  
 
 > [!NOTE]  
->  As implementações de alto risco são sempre limitadas a coleções personalizadas, coleções criadas por si e a coleção incorporada **Computadores Desconhecidos** . Quando cria uma implementação de alto risco, não é possível selecionar uma coleção incorporada como **Todos os Sistemas**.  
+>  Развертывания с высоким риском всегда ограничены пользовательскими коллекциями, создаваемыми вами коллекциями и встроенной коллекцией **Неизвестные компьютеры** . При создании развертывания с высоким риском нельзя выбрать встроенную коллекцию, например **Все системы**.  
 
-### <a name="to-configure-deployment-verification-for-a-site"></a>Para configurar a verificação de implementação para um site  
+### <a name="to-configure-deployment-verification-for-a-site"></a>Настройка проверки развертывания для сайта  
 
-1.  Na consola do Configuration Manager, escolha **administração** >**configuração do Site** > **Sites**e, em seguida, selecione o site primário a configurar.  
+1.  В консоли Configuration Manager последовательно щелкните **Администрирование** >**Конфигурация сайта** > **Сайты**, а затем выберите первичный сайт, который нужно настроить.  
 
-2.  No **home page** separador o **propriedades** grupo, escolha **propriedades**e, em seguida, escolha o **verificação de implementação** separador.  
+2.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**, а затем перейдите на вкладку **Проверка развертывания**.  
 
-3.  Depois de definir as configurações que pretende utilizar, escolha **OK** para guardar a configuração.  
+3.  После настройки требуемой конфигурации нажмите кнопку **ОК**, чтобы сохранить ее.  
 
-### <a name="see-also"></a>Consulte também  
- [Configurar sites e hierarquias do System Center Configuration Manager](../../core/servers/deploy/configure/configure-sites-and-hierarchies.md)
+### <a name="see-also"></a>См. также  
+ [Настройка сайтов и иерархий для System Center Configuration Manager](../../core/servers/deploy/configure/configure-sites-and-hierarchies.md)

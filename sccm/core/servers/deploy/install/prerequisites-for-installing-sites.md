@@ -1,6 +1,6 @@
 ---
-title: "Pré-requisitos para sites | Microsoft Docs"
-description: "Saiba mais sobre os pré-requisitos para instalar os diferentes tipos de sites do System Center Configuration Manager."
+title: "Необходимые условия для сайтов | Документация Майкрософт"
+description: "Сведения о необходимых условиях для установки различных типов сайтов System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -16,114 +16,114 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d46a8b66ace45d25da9d86f2e91b19ae1d6875ab
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Pré-requisitos de instalação de sites do System Center Configuration Manager
+# <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Необходимые условия для установки сайтов System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Antes de iniciar uma instalação de site, é uma boa ideia para saber mais sobre os pré-requisitos para instalar os diferentes tipos de sites do System Center Configuration Manager.
+Перед началом установки сайта рекомендуется изучить необходимые условия для установки различных типов сайтов System Center Configuration Manager.
 
-## <a name="primary-sites-and-the-central-administration-site"></a>Sites primários e o site de administração central
-Os seguintes pré-requisitos aplicam-se a instalação de um site de administração central como o primeiro site numa hierarquia, instalar um site primário autónomo ou instalar um site primário subordinado. Se estiver a instalar um site de administração central como parte de uma expansão da hierarquia, consulte o artigo [expandir um site primário autónomo](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand) neste tópico.
+## <a name="primary-sites-and-the-central-administration-site"></a>Первичные сайты и сайт центра администрирования
+Ниже перечислены необходимые условия для установки сайта центра администрирования в качестве первого сайта иерархии, автономного первичного или дочернего первичного сайта. Если вы устанавливаете сайт центра администрирования в рамках сценария расширения иерархии, см. подраздел [Развертывание автономного первичного сайта](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand) этого раздела.
 
-###  <a name="bkmk_PrereqPri"></a>Pré-requisitos para instalar um site primário ou site de administração central  
+###  <a name="bkmk_PrereqPri"></a> Необходимые условия для установки первичного сайта или сайта центра администрирования  
 
--   A conta de utilizador que instala o site tem de ter os seguintes direitos de:  
+-   Учетная запись пользователя, с помощью которой будет осуществляться установка сайта, должна иметь следующие разрешения.  
 
-    -   **Administrador** no computador do servidor do site  
-    -   **Administrador** em cada computador que alojará o **base de dados do site** ou uma instância do **fornecedor de SMS** para o site  
-    -   **Sysadmin** na instância do SQL Server que aloja a base de dados do site  
-
-        > [!IMPORTANT]  
-        >  Quando a conclusão da configuração, a conta de utilizador que executa a configuração e a conta de computador do servidor de site têm de reter os direitos de administrador do sistema no SQL Server. Não remova os direitos de administrador do sistema destas contas.  
-
--   Se estiver a instalar um site primário, terá os seguintes direitos adicionais:  
-    -  **Administrador** em computadores adicionais onde irá instalar o ponto de gestão inicial e o ponto de distribuição; caso contrário no servidor do site  
-
--   Se estiver a instalar um novo site primário subordinado abaixo de um site de administração central, terá os seguintes direitos adicionais:  
-
-    -   **Administrador** no computador que aloja o site de administração central  
-
-    -   Direitos de administração baseada em funções dentro do Gestor de configuração que sejam equivalentes à função de segurança de **administrador de infraestrutura** ou **administrador total**  
-
--   Tem de utilizar o suporte de dados de instalação correta (ficheiros de origem) e executar a configuração a partir dessa localização. Para obter informações sobre os ficheiros de origem correta a utilizar para instalar os diferentes tipos de sites, consulte [opções para a instalação de diferentes tipos de sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) no [preparar para instalar sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md) tópico.
-
--   O computador de servidor do site tem de ter acesso aos ficheiros de configuração atualizados da Microsoft, de uma das seguintes formas:
-    -  Antes de iniciar a instalação, pode transferir e armazenar uma cópia destes ficheiros na sua rede local utilizando [dispositivo de transferência da configuração](../../../../core/servers/deploy/install/setup-downloader.md).
-    -  Se copiar uma local destes ficheiros não estão disponível, o servidor do site tem de ter acesso à Internet, de modo que pode transferir estes ficheiros da Microsoft durante a instalação.
-
-- Antes de poder expandir um site primário autónomo que tenha uma ligação ponto site função do sistema serviço instalada, terá de desinstalar o ponto de ligação de serviço. Apenas uma instância desta função é permitida numa hierarquia e só é permitida no site de nível superior da hierarquia. Terá a oportunidade de reinstalar a função durante a instalação do site de administração central.
-- O servidor do site e computadores de base de dados do site tem de cumprir todas as configurações de pré-requisitos. Antes de iniciar a configuração, pode [executar manualmente o Verificador de pré-requisitos](../../../../core/servers/deploy/install/prerequisite-checker.md) para identificar e corrigir problemas.  
-
-
-### <a name="bkmk_expand"></a>Pré-requisitos para expandir um site primário autónomo
-Pode expandi-lo para uma hierarquia com um site de administração central, um site primário autónomo tem de cumprir os seguintes pré-requisitos:
-
--   **Tem de instalar a nova instalação de site de administração central utilizando suportes de dados de um CD. Pasta mais recente (que contém os ficheiros de origem) que corresponde à versão do site primário autónomo**
-
- Para garantir uma correspondência de versão, utilize os ficheiros de origem localizado no [CD. Pasta mais recente](/sccm/core/servers/manage/the-cd.latest-folder) no site primário autónomo.
-
- Para obter mais informações sobre os ficheiros de origem correta a utilizar para instalar sites diferentes, consulte [opções para a instalação de diferentes tipos de sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) no [preparar para instalar sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md) tópico.
-
-
--   **O site primário autónomo não pode ser configurado para migrar dados a partir de outra hierarquia do Configuration Manager**  
-
-     Tem de parar a migração ativa para o site primário autónomo de outras hierarquias do Configuration Manager e remover todas as configurações de migração. Isto inclui tarefas de migração que ainda não estão concluídas, a recolha de dados e a configuração da hierarquia de origem ativa.  
-
-     Isto é necessário porque as operações de migração são efetuadas pelo site de nível superior da hierarquia, as configurações de migração, não sendo transferem para o site de administração central quando expande um site primário autónomo.  
-
-     Depois de expandir o site primário autónomo, se reconfigurar a migração no site primário, o site de administração central executa as operações relacionadas com a migração. Para obter mais informações sobre como configurar a migração, consulte [configurar hierarquias de origem e sites de origem para migração para o System Center Configuration Manager](../../../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md).  
-
--   **A conta de computador do computador que irá alojar o novo site de administração central tem de ser um membro do grupo de utilizador administrador no site primário standa única**  
-
-     Para expandir com êxito o site primário autónomo, a conta de computador do novo site de administração central tem de ter **administrador** direitos no site primário autónomo. Isto é necessário apenas durante a expansão do site. A conta pode ser removida do grupo de utilizador no site primário quando a expansão do site for concluída.  
-
--   **A conta de utilizador que executa o programa de configuração para instalar o novo site de administração central tem de ter direitos de administração baseada em funções no site primário autónomo**  
-
-     Para instalar um site de administração central como parte da expansão do site, a conta de utilizador que executa a configuração para instalar o site de administração central tem de ser definida na administração baseada em funções no site primário autónomo como um **administrador total** ou um **administrador de infraestrutura**.  
-
--   **Tem de desinstalar as seguintes funções do sistema de sites do site primário autónomo antes de poder expandir o site:**  
-
-    -   Ponto de sincronização do Asset Intelligence  
-    -   Ponto de Endpoint Protection  
-    -   Ponto de ligação de serviço  
-
-   Estas funções de sistema de sites são suportadas apenas no site de nível superior da hierarquia. Por conseguinte, tem de desinstalar estas funções de sistema de sites antes de expandir o site primário autónomo. Depois de expandir o site, pode reinstalar estas funções de sistema de sites no site de administração central.  
-
-    Todas as outras funções do sistema de site podem permanecer instaladas no site primário.  
-
--   **A porta para o SQL Server Service Broker (SSB) entre o site primário autónomo e o computador que vai instalar o site de administração central tem de estar aberta**  
-
-     Para replicar com êxito os dados entre um site de administração central e um site primário, o Configuration Manager requer uma porta aberta entre os dois sites para SSB a utilizar. Quando instala um site de administração central e expandir um site primário autónomo, a verificação de pré-requisitos não Certifique-se de que a porta especificada para o SSB está aberta no site primário.  
-
-**Problemas conhecidos quando tiver configurado os serviços do Azure:**  
-Quando utilizar um dos seguintes serviços do Azure com o Configuration Manager e se pretende expandir um site, depois de expandir o site tem de remover e, em seguida, recrie a ligação a esse serviço.
-
-Serviços:  
--       [Operations Manager Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) (OMS)
--       [Preparação para a atualização](/sccm/core/clients/manage/upgrade/upgrade-analytics)
--       [Loja Windows para empresas](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
-
-Utilize os seguintes passos para resolver este problema:
- 1.    Na consola do Configuration Manager, elimine o serviço do Azure a partir do nó de serviços do Azure.
- 2.    No portal do Azure, elimine o inquilino que estão associado com o serviço a partir do nó do Azure Active Directory inquilinos.  Isto também elimina a aplicação web do Azure AD que estão associada com o serviço.  
- 3.   Reconfigure a ligação ao serviço do Azure para utilização com o Configuration Manager.
-
-
-## <a name="bkmk_secondary"></a>Sites secundários
-Seguem-se os pré-requisitos para instalar sites secundários:
--   O administrador configura a instalação do site secundário na consola do Configuration Manager tem de ter direitos de administração baseada em funções que sejam equivalentes à função de segurança de **administrador de infraestrutura** ou **administrador total**.  
--   A conta de computador do site primário principal tem de ser um **administrador** no computador do servidor de site secundário.  
--   Quando o site secundário utiliza uma instância anteriormente instalada do SQL Server para alojar a base de dados do site secundário:  
-
-    -   O **conta de computador** de principal tem de ter primário **sysadmin** direitos na instância do SQL Server no computador do servidor de site secundário.  
-
-    -   O **Sistema Local** conta de computador do servidor do site secundário tem de ter **sysadmin** direitos na instância do SQL Server no computador do servidor de site secundário.  
+    -   **Разрешения администратора** на компьютере сервера сайта.  
+    -   **Разрешения администратора** на каждом компьютере, где будет размещена **база данных сайта** или экземпляр **поставщика SMS** для сайта.  
+    -   **Разрешения системного администратора** на экземпляре SQL Server, где размещается база данных сайта.  
 
         > [!IMPORTANT]  
-        >  Quando a conclusão da configuração, ambas as contas têm de reter os direitos de administrador do sistema no SQL Server. Não remova os direitos de administrador do sistema destas contas.  
+        >  После завершения установки как учетная запись пользователя, с использованием которой запускается программа установки, так и учетная запись компьютера сервера сайта должны сохранить права системного администратора для SQL Server. Удаление прав системного администратора из этих учетных записей не поддерживается.  
 
--   O computador do servidor do site secundário tem de cumprir todas as configurações de pré-requisitos, que inclui o SQL Server e as funções do sistema de sites predefinido do ponto de gestão e ponto de distribuição.  
+-   При установке первичного сайта требуются следующие дополнительные разрешения.  
+    -  **Разрешения администратора** на дополнительных компьютерах, где будет устанавливаться начальная точка управления и точка распространения, если это не сервер сайта.  
+
+-   При установке нового дочернего первичного сайта на уровне ниже сайта центра администрирования необходимы следующие дополнительные разрешения.  
+
+    -   **Разрешения администратора** на компьютере, где размещается сайт центра администрирования.  
+
+    -   Разрешения ролевого администрирования в Configuration Manager, которые эквивалентны роли безопасности **Администратор инфраструктуры** или **Полный администратор**.  
+
+-   Необходимо использовать правильный установочный носитель (исходные файлы) и запустить программу установки из этого расположения. Сведения о правильных исходных файлах для установки различных сайтов см. в подразделе [Варианты установки различных типов сайтов](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) раздела [Подготовка к установке сайтов](../../../../core/servers/deploy/install/prepare-to-install-sites.md).
+
+-   Компьютер сервера сайта должен иметь доступ к обновленным файлам установки от корпорации Майкрософт одним из указанных далее способов.
+    -  Прежде чем начинать установку, вы можете скачать и сохранить копию этих файлов в локальной сети с помощью [загрузчика программы установки](../../../../core/servers/deploy/install/setup-downloader.md).
+    -  Если локальная копия этих файлов недоступна, сервер сайта должен иметь доступ к Интернету для их скачивания с сайта Майкрософт во время установки.
+
+- Перед развертыванием автономного первичного сайта с установленной ролью системы сайта точки подключения службы необходимо удалить эту точку подключения службы. В иерархии допускается только один экземпляр этой роли, который должен находиться на сайте верхнего уровня иерархии. У вас будет возможность переустановить роль во время установки сайта центра администрирования.
+- Компьютеры сервера и базы данных сайта должны соответствовать всем необходимым конфигурациям. Перед запуском программы установки вы можете [вручную запустить средство проверки готовности](../../../../core/servers/deploy/install/prerequisite-checker.md) для выявления и исправления проблем.  
+
+
+### <a name="bkmk_expand"></a> Необходимые условия для развертывания автономного первичного сайта
+Автономный первичный сайт должен удовлетворять следующим предварительным условиям развертывания в иерархию с сайтом центра администрирования.
+
+-   **Новый сайт центра администрирования необходимо установить с использованием правильной версии установочного носителя (содержащего исходные файлы), соответствующей версии автономного первичного сайта. Этот носитель хранится в папке CD.Latest.**
+
+ Чтобы обеспечить соответствие версий, используйте исходные файлы из [папки CD.Latest](/sccm/core/servers/manage/the-cd.latest-folder) на автономном первичном сайте.
+
+ Дополнительные сведения о правильных исходных файлах для установки различных сайтов см. в подразделе [Варианты установки различных типов сайтов](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) раздела [Подготовка к установке сайтов](../../../../core/servers/deploy/install/prepare-to-install-sites.md).
+
+
+-   **Автономный первичный сайт невозможно настроить для переноса данных из другой иерархии Configuration Manager.**  
+
+     Необходимо остановить активную миграцию на автономный первичный сайт из других иерархий Configuration Manager и удалить все конфигурации для миграции. Сюда относятся задания миграции, которые не были завершены, сбор данных и конфигурация активной исходной иерархии.  
+
+     Это необходимо по той причине, что операции миграции выполняются на сайте верхнего уровня в иерархии, а конфигурации для миграции не передаются на сайт центра администрирования при развертывании автономного первичного сайта.  
+
+     Если после развертывания автономного первичного сайта повторно настроить миграцию на первичном сайте, то все операции, связанные с миграцией, будет выполнять сайт центра администрирования. Дополнительные сведения о настройке миграции см. в разделе [Настройка исходных иерархий и исходных сайтов для миграции на System Center Configuration Manager](../../../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md).  
+
+-   **Учетная запись того компьютера, где будет размещаться новый сайт центра администрирования, должна быть членом группы "Администраторы" на автономном первичном сайте.**  
+
+     Чтобы успешно развернуть автономный первичный сайт, учетная запись компьютера на новом сайте центра администрирования должна иметь права **Администратор** на автономном первичном сайте. Это необходимо только во время развертывания сайта. После завершения развертывания сайта эту учетную запись можно удалить из группы на первичном сайте.  
+
+-   **Учетная запись пользователя, используемая для запуска программы установки нового сайта центра администрирования, должна иметь права ролевого администрирования на автономном первичном сайте.**  
+
+     Для установки сайта центра администрирования в рамках сценария расширения сайта учетная запись пользователя, используемая для запуска программы установки сайта центра администрирования, должна быть определена в ролевом администрировании автономного первичного сайта как **Полный администратор** или **Администратор инфраструктуры**.  
+
+-   **Перед развертыванием сайта необходимо удалить следующие роли системы сайта из автономного первичного сайта:**  
+
+    -   Точка синхронизации аналитики активов  
+    -   Точка Endpoint Protection  
+    -   Точка подключения службы  
+
+   Эти системные роли сайта поддерживаются только на сайте верхнего уровня в иерархии. Поэтому перед развертыванием автономного первичного сайта необходимо удалить эти роли системы сайта. Завершив развертывание сайта, можно повторно установить эти системные роли сайта на сайте центра администрирования.  
+
+    Все прочие системные роли сайта можно оставить установленными на первичном сайте.  
+
+-   **Должен быть открыт порт для SQL Server Service Broker (SSB) между автономным первичным сайтом и компьютером, на котором будет установлен сайт центра администрирования.**  
+
+     Для успешной репликации данных между сайтом центра администрирования и первичным сайтом Configuration Manager требует, чтобы порт, используемый SSB, был открыт между двумя сайтами. При установке сайта центра администрирования и развертывании автономного первичного сайта средство проверки готовности не сможет определить, что порт, указанный для SSB, открыт на первичном сайте.  
+
+**Известные проблемы после настройки служб Azure**  
+Если вы используете с Configuration Manager одну из следующих служб Azure и планируете расширить сайт, после расширения нужно удалить и повторно создать подключение к этой службе.
+
+Службы  
+-       [Operations Manager Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) (OMS)
+-       [Готовность к обновлению](/sccm/core/clients/manage/upgrade/upgrade-analytics)
+-       [Магазин Windows для бизнеса](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
+
+Для устранения проблемы сделайте следующее.
+ 1.    В консоли Configuration Manager удалите службу Azure из узла служб Azure.
+ 2.    На портале Azure удалите клиент, связанный со службой, с узла клиентов Azure Active Directory.  При этом будет удалено связанное со службой веб-приложение Azure AD.  
+ 3.   Повторно настройте подключение к службе Azure для использования с Configuration Manager.
+
+
+## <a name="bkmk_secondary"></a> Вторичные сайты
+Ниже описываются необходимые условия для установки вторичных сайтов.
+-   Администратор, который настраивает установку вторичного сайта в консоли Configuration Manager, должен иметь права ролевого администрирования, эквивалентные роли безопасности **Администратор инфраструктуры** или **Полный администратор**.  
+-   Учетная запись компьютера родительского первичного сайта должна иметь права **администратора** на сервере вторичного сайта.  
+-   Если вторичный сайт использует ранее установленный экземпляр SQL Server для размещения базы данных вторичного сайта:  
+
+    -   **Учетная запись компьютера** родительского первичного сайта должна иметь права **системного администратора** в экземпляре SQL Server на сервере вторичного сайта.  
+
+    -   Учетная запись **Local System** на сервере вторичного сайта должна иметь права **системного администратора** в экземпляре SQL Server на сервере вторичного сайта.  
+
+        > [!IMPORTANT]  
+        >  После завершения установки обе учетные записи должны сохранить права системного администратора для SQL Server. Удаление прав системного администратора из этих учетных записей не поддерживается.  
+
+-   Компьютер сервера вторичного сайта должен соответствовать всем необходимым конфигурациям, включая SQL Server и роли системы сайта по умолчанию для точки управления и точки распространения.  

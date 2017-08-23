@@ -1,6 +1,6 @@
 ---
-title: "Introdução aos relatórios | Microsoft Docs"
-description: "Saiba mais sobre o conjunto de ferramentas e recursos disponíveis para que possa gerir relatórios no Configuration Manager."
+title: "Общие сведения о ведении отчетов | Документы Майкрософт"
+description: "Дополнительные сведения о наборе средств и ресурсов, которые можно использовать для управления отчетами в Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,97 +16,97 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 5846ca3c91626491b03b36dd17b454bb9382a8dc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-reporting-in-system-center-configuration-manager"></a>Introdução aos relatórios no System Center Configuration Manager
+# <a name="introduction-to-reporting-in-system-center-configuration-manager"></a>Общие сведения о ведении отчетов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Relatórios no System Center Configuration Manager fornecem um conjunto de ferramentas e recursos que ajudam a utilizam as capacidades avançadas de relatórios do SQL Server Reporting Services (SSRS) e a experiência de que o Reporting Services Report Builder fornece de criação avançada. Relatórios ajudam a recolher, organizar e apresentar informações sobre utilizadores, hardware e inventário de software, atualizações de software, aplicações, estado do site e outras operações do Configuration Manager na sua organização. Os relatórios fornecem vários relatórios predefinidos que pode utilizar sem alterações ou modificar para corresponder aos seus requisitos, além de poder criar relatórios personalizados. Utilize as secções seguintes para ajudar a gerir relatórios no Configuration Manager.  
+Службы отчетов в System Center Configuration Manager включают набор средств и ресурсов, которые позволяют использовать дополнительные возможности служб SQL Server Reporting Services и широкий набор функций по созданию отчетов в построителе отчетов. Отчеты помогают собирать, упорядочивать и представлять информацию о пользователях, данные инвентаризации оборудования и программ, информацию об обновлениях, приложениях, о состоянии сайта и о других операциях Configuration Manager в организации. В службах отчетов предоставляется набор готовых отчетов, которые можно использовать без изменений или изменить согласно применимым требованиям. Также можно создавать пользовательские отчеты. В следующих разделах содержатся сведения об управлении отчетами в Configuration Manager.  
 
-##  <a name="BKMK_SQLServerReportingServices"></a> Serviços de Relatórios do SQL Server  
- O SQL Server Reporting Services fornece um conjunto completo de ferramentas e serviços prontos a utilizar para o ajudar a criar, implementar e gerir relatórios para a sua organização e funcionalidades de programação que lhe permitem expandir e personalizar a funcionalidade dos relatórios. O Reporting Services é uma plataforma de relatórios baseada em servidor que fornece funcionalidade de relatórios completa para diversas origens de dados.  
+##  <a name="BKMK_SQLServerReportingServices"></a> SQL Server Reporting Services  
+ Компонент SQL Server Reporting Services предоставляет полный набор готовых средств и служб для создания, развертывания и управления отчетами в вашей организации. Также поддерживаются возможности программирования, позволяющие расширять и настраивать функции отчетов. Службы Reporting Services — это серверная платформа для формирования отчетов, которая предоставляет полные функции создания отчетов для различных источников данных.  
 
- O Configuration Manager utiliza o SQL Server Reporting Services como a sua solução de relatórios. A integração com o Reporting Services proporciona as seguintes vantagens:  
+ Configuration Manager использует службы SQL Server Reporting Services в качестве решения для работы с отчетами. Интеграция с Reporting Services обеспечивает следующие преимущества.  
 
--   Utiliza um sistema de relatórios padrão da indústria para consultar a base de dados do Configuration Manager.  
+-   Использование системы отчетов отраслевого стандарта для запросов к базе данных Configuration Manager.  
 
--   Apresenta relatórios utilizando o Visualizador de relatórios do Configuration Manager ou utilizando o Gestor de relatórios, que é uma ligação ao relatório baseada na web.  
+-   Отображение отчетов с помощью средства просмотра отчетов Configuration Manager или с помощью диспетчера отчетов, который представляет собой веб-средство работы с отчетами.  
 
--   Fornece desempenho, disponibilidade e escalabilidade elevados.  
+-   Высокая производительность, надежность и масштабируемость.  
 
--   Fornece subscrições de relatórios que os utilizadores podem subscrever; por exemplo, um gestor pode subscrever para receber automaticamente por correio eletrónico um relatório diário que detalhe o estado da implementação de uma atualização do software.  
+-   Предоставляет пользователям возможность подписки на отчеты. Например, руководитель может подписаться на ежедневные отчеты о состоянии выпуска обновлений программного обеспечения и получать эти отчеты по электронной почте.  
 
--   Exporta relatórios que os utilizadores podem selecionar numa variedade de formatos populares.  
+-   Экспорт отчетов в различных широко распространенных форматах на выбор пользователей.  
 
- Para obter mais informações sobre o Reporting Services, veja [SQL Server Reporting Services](http://go.microsoft.com/fwlink/p/?LinkID=212032) no SQL Server 2008 Books Online.  
+ Дополнительные сведения о службах Reporting Services см. в статье [SQL Server Reporting Services](http://go.microsoft.com/fwlink/p/?LinkID=212032) набора документации SQL Server 2008 Books Online.  
 
-##  <a name="BKMK_ReportingServicesPoint"></a> Ponto do Reporting Services  
- O ponto do Reporting Services é uma função de sistema de sites que é instalada num servidor com o Microsoft SQL Server Reporting Services. O Gestor de configuração de cópias de ponto de relatório definições para o Reporting Services, cria pastas de relatórios com base em categorias de relatórios e define a política de segurança em pastas de relatórios e relatórios com base nas permissões baseadas em funções para os utilizadores administrativos do Configuration Manager do Reporting Services. Num intervalo de 10 minutos, o ponto do Reporting Services liga ao Reporting Services para reaplicar a política de segurança caso tenha sido alterada, por exemplo, utilizando o Gestor de Relatórios. Para mais informações sobre como planear e instalar um ponto do Reporting Services, consulte a seguinte documentação:  
+##  <a name="BKMK_ReportingServicesPoint"></a> Точка служб отчетов  
+ Точка служб отчетов — это роль системы сайта, которая устанавливается на сервере Microsoft SQL Server Reporting Services. Точка служб отчетов копирует определения отчетов Configuration Manager в Reporting Services, создает папки отчетов на базе категорий отчетов и устанавливает политику безопасности для отчетов и папок отчетов на основе ролевых разрешений для администраторов Configuration Manager. В течение 10-минутного интервала точка служб отчетов подключается к Reporting Services для повторного применения политики безопасности, если она была изменена, например, с помощью диспетчера отчетов. Дополнительные сведения о планировании и установке точки служб отчетов см. в следующей документации:  
 
--   [Planeamento de relatórios no System Center Configuration Manager](planning-for-reporting.md)  
+-   [Планирование ведения отчетов в System Center Configuration Manager](planning-for-reporting.md)  
 
--   [Configurar relatórios no System Center Configuration Manager](configuring-reporting.md)  
+-   [Настройка отчетов в System Center Configuration Manager](configuring-reporting.md)  
 
-##  <a name="BKMK_ConfigurationManagerReports"></a> Relatórios do Configuration Manager  
- Configuration Manager fornece definições de relatórios para mais de 400 relatórios em mais de 50 pastas de relatórios, que são copiados para a pasta de relatórios raiz no SQL Server Reporting Services durante o processo de instalação de ponto do Reporting Services. Os relatórios são apresentados na consola do Configuration Manager e organizados em subpastas com base na categoria do relatório. Os relatórios não são propagados para cima ou para baixo de hierarquia do Configuration Manager; são executados apenas relativamente a base de dados do site em que são criados. No entanto, porque o Configuration Manager replica dados globais em toda a hierarquia, tem acesso a informações de toda a hierarquia. Quando um relatório obtém dados de uma base de dados de site, tem acesso a dados do site atual e dos sites subordinados e aos dados globais de todos os sites da hierarquia. Como outros objetos do Configuration Manager, um utilizador administrativo tem de ter as permissões adequadas para executar ou modificar relatórios. Para executar um relatório, um utilizador administrativo tem de ter a permissão **Executar Relatório** para o objeto. Para criar ou modificar um relatório, um utilizador administrativo tem de ter a permissão **Modificar Relatório** para o objeto.  
+##  <a name="BKMK_ConfigurationManagerReports"></a> Отчеты Configuration Manager  
+ Configuration Manager предоставляет определения для свыше 400 отчетов в более чем 50 папок отчетов, которые копируются в корневую папку отчетов служб SQL Server Reporting Services при установке точки служб отчетов. Отчеты отображаются в консоли Configuration Manager и упорядочиваются по вложенным папкам на основе категорий отчетов. Отчеты не распространяются вверх или вниз по иерархии Configuration Manager, они выполняются только для базы данных того сайта, в котором они созданы. Тем не менее, поскольку Configuration Manager реплицирует глобальные данные по иерархии, у вас есть доступ к информации для всей иерархии. Когда отчет получает данные из базы данных сайта, он получает доступ к данным текущего сайта и его дочерних сайтов, а также к глобальным данным для всех сайтов в иерархии. Как и в отношении других объектов Configuration Manager, у пользователя с правами администратора должны быть необходимые разрешения для выполнения и изменения отчетов. Для запуска отчета пользователь с правами администратора должен иметь разрешение **Запуск отчета** для этого объекта. Для запуска отчета пользователь с правами администратора должен иметь разрешение **Изменение отчета** для этого объекта.  
 
-###  <a name="BKMK_CreatingReports"></a> Criar e modificar relatórios  
- O Configuration Manager utiliza o Microsoft SQL Server Report Builder como a exclusiva de criação e edição de ferramenta para relatórios baseados em modelos e baseados em SQL. Quando cria ou edita um relatório na consola do Configuration Manager, é aberto o Report Builder. Para obter mais informações sobre a gestão dos relatórios, veja [Operações e manutenção de relatórios no System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
+###  <a name="BKMK_CreatingReports"></a> Создание и изменение отчетов  
+ Configuration Manager использует построитель отчетов Microsoft SQL Server в качестве средства создания и редактирования отчетов на базе моделей и на базе SQL. При создании или редактировании отчета в консоли Configuration Manager открывается построитель отчетов. Дополнительные сведения об управлении отчетами см. в разделе [Использование и обслуживание отчетов в System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
 
-###  <a name="BKMK_RunningReports"></a> Executar relatórios  
- Quando executar um relatório na consola do Configuration Manager, o Visualizador de relatórios é aberto e estabelece ligação ao Reporting Services. Depois de especificar os parâmetros de relatório necessários, o Reporting Services obtém os dados e apresenta os resultados no visualizador. Também pode ligar ao SQL Services Reporting Services, ligar à origem de dados para o site e executar relatórios.  
+###  <a name="BKMK_RunningReports"></a> Обработка отчетов  
+ При запуске отчета в консоли Configuration Manager средство просмотра отчетов открывается и подключается к Reporting Services. После того, как пользователь укажет любые требуемые параметры отчетов, компонент Reporting Services получает данные и отображает результаты в средстве просмотра. Также можно подключиться к SQL Server Reporting Services, подключиться к источнику данных сайта и запустить отчеты.  
 
-###  <a name="BKMK_ReportPrompts"></a> Pedidos de relatório  
- Um pedido de relatório ou parâmetro de relatório no Configuration Manager é uma propriedade de relatório que pode configurar quando um relatório é criado ou modificado. Os pedidos de relatório são criados para limitar ou direcionar os dados que um relatório obtém. Um relatório pode conter mais do que um pedido, desde que os respetivos nomes sejam exclusivos e contenham apenas carateres alfanuméricos em conformidade com as regras do SQL Server para identificadores.  
+###  <a name="BKMK_ReportPrompts"></a> Запросы отчетов  
+ Запрос отчета или параметр отчета в Configuration Manager — это свойство отчета, которое можно настраивать при создании или изменении отчета. Запросы отчетов создаются для того, чтобы ограничить или точно очертить данные, получаемые отчетом. Отчет может содержать несколько запросов, если имена запросов уникальны и содержат только цифровые и буквенные символы, соответствующие правилам SQL Server для идентификаторов.  
 
- Quando executa um relatório, o pedido solicita um valor para um parâmetro necessário e, com base no valor, obtém os dados do relatório. Por exemplo, o relatório **Informações sobre o computador para um computador específico** obtém as informações de um computador específico e solicita ao utilizador administrativo um nome de computador. O Reporting Services passa o valor especificado a uma variável que está definida na instrução SQL para o relatório.  
+ При запуске отчетов запрос запрашивает значение требуемого параметра, а затем, в зависимости от этого значения, получает данные отчета. Например, отчет **Сведения об определенном компьютере** получает сведения об определенном компьютере и запрашивает у пользователя с правами администратора имя компьютера. Компонент Reporting Services передает указанное значение в переменную, которая определена в инструкции SQL для этого отчета.  
 
-###  <a name="BKMK_ReportLinks"></a> Ligações de relatórios  
- Ligações de relatórios no Configuration Manager são utilizadas num relatório de origem para fornecer aos utilizadores administrativos acesso fácil a dados adicionais, tais como informações mais detalhadas sobre cada um dos itens no relatório de origem. Se o relatório de destino necessitar de um ou mais pedidos para a execução, o relatório de origem terá de conter uma coluna com os valores adequados para cada pedido. Tem de especificar o número da coluna que fornece o valor para o pedido. Por exemplo, poderá ligar um relatório que liste computadores que foram detetados recentemente a um relatório que liste as últimas mensagens recebidas relativas a um computador específico. Quando a ligação for criada, poderá especificar que a coluna 2 do relatório de origem contém nomes de computador, que é um pedido necessário para o relatório de destino. Quando o relatório de origem for executado, serão apresentados ícones de ligação à esquerda de cada linha de dados. Quando clicar no ícone de uma linha, o Visualizador de Relatórios passará o valor da coluna especificada para essa linha como valor do pedido necessário para apresentar o relatório de destino. É possível configurar um relatório apenas com uma ligação e essa ligação pode ligar apenas a um único recurso de destino.  
+###  <a name="BKMK_ReportLinks"></a> Ссылки на отчеты  
+ Ссылки на отчеты в Configuration Manager используются в исходном отчете для предоставления администраторам удобного доступа к дополнительным данным, например к более подробной информации о каждом элементе исходного отчета. Если отчет назначения содержит один или несколько запросов, исходный отчет должен содержать столбец с соответствующими значениями для каждого запроса. Необходимо указать номер столбца, содержащего значение запроса. Например, можно связать отчет, перечисляющий недавно обнаруженные компьютеры, с отчетов, в котором перечислен последние сообщения, принятые определенным компьютером. При создании ссылки можно указать, что столбец 2 в исходном отчете содержит имена компьютеров, которые необходимо запросить для отчета назначения. При запуске исходного отчета слева от каждой строки данных отображаются значки ссылок. Если щелкнуть значок в строке, средство просмотра отчетов передает значение в указанном столбце для данной строки в качестве значения запроса, необходимого для отображения отчета назначения. При настройке отчета можно использовать только одну ссылку, а эта ссылка может указывать только на один ресурс назначения.  
 
 > [!WARNING]  
->  Se mover um relatório de destino para uma pasta de relatórios diferente, altera a localização do relatório de destino. A ligação do relatório no relatório de origem não é atualizada automaticamente com a nova localização e a ligação do relatório não funcionará no relatório de origem.  
+>  Если переместить отчет назначения в другую папку, изменится расположение отчета назначения. Ссылка на отчет в исходном отчете не изменяется автоматически с учетом нового расположения. Ссылка на отчет не будет работать в исходном отчете.  
 
-##  <a name="BKMK_ReportFolders"></a> Pastas de relatórios  
- Pastas de relatórios no System Center Configuration Manager fornecem um método para ordenar e filtrar relatórios armazenados no Reporting Services. As pastas de relatórios são particularmente úteis quando tem muitos relatórios para gerir. Quando é instalado um ponto do Reporting Services, os relatórios são copiados para o Reporting Services e organizados em mais de 50 pastas de relatórios. As pastas de relatórios são só de leitura. Não é possível modificá-las na consola do Configuration Manager.  
+##  <a name="BKMK_ReportFolders"></a> Папки отчетов  
+ Папки отчетов в System Center Configuration Manager позволяют сортировать и фильтровать отчеты, хранящиеся в службах Reporting Services. Папки отчетов наиболее удобны, если нужно управлять большим количеством отчетов. При установке точки служб отчетов, отчеты копируются в Reporting Services и упорядочиваются по более чем 50 папкам. Папки отчетов доступны только для чтения. Их нельзя изменять в консоли Configuration Manager.  
 
-##  <a name="BKMK_ReportSubscriptions"></a> Subscrições de relatórios  
- Uma subscrição de relatório no Reporting Services é um pedido recorrente de fornecimento de um relatório a uma hora específica ou em resposta a um evento, com um formato de ficheiro que é especificado na subscrição. As subscrições são uma alternativa à execução de um relatório a pedido. Os relatórios a pedido requerem que selecione ativamente o relatório de cada vez que pretender vê-lo. Em contraste, as subscrições podem ser utilizadas para agendar e automatizar a entrega de um relatório.  
+##  <a name="BKMK_ReportSubscriptions"></a> Подписки на отчеты  
+ Подписка на отчет в Reporting Services — это регулярный запрос на предоставление отчетов в определенное время или в качестве реакции на определенное событие. Отчет предоставляется в формате, указанном в подписке. Подписки предоставляют альтернативный способ запуска отчетов по требованию. При использовании отчетов по требованию необходимо выбирать отчет всякий раз, когда его нужно просмотреть. Для планирования и автоматической доставки отчетов можно использовать подписки.  
 
- Pode gerir subscrições de relatórios na consola do Configuration Manager. As subscrições são processadas no servidor de relatórios. As subscrições são distribuídas utilizando extensões de entrega que são implementadas no servidor. Por predefinição, pode criar subscrições que enviem relatórios para uma pasta partilhada ou para um endereço de correio eletrónico. Para obter mais informações sobre a gestão das subscrições dos relatórios, veja [Operações e manutenção de relatórios no System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
+ Подписками на отчеты можно управлять в консоли Configuration Manager. Они обрабатываются на сервере отчетов. Подписки распространяются с помощью модулей доставки, развернутых на сервере. По умолчанию можно создать подписки, которые отправляют отчеты в общую папку или на адрес электронной почты. Дополнительные сведения об управлении подписками на отчеты см. в разделе [Использование и обслуживание отчетов в System Center Configuration Manager](operations-and-maintenance-for-reporting.md).  
 
-##  <a name="BKMK_ReportBuilder"></a> Report Builder  
- O Configuration Manager utiliza o Microsoft SQL Server Reporting Services o Services Report Builder como a exclusiva de criação e edição de ferramenta baseados no modelo e relatórios baseados em SQL. Quando inicia a ação para criar ou editar um relatório na consola do Configuration Manager, é aberto o Report Builder. Quando cria ou modifica um relatório pela primeira vez, o Report Builder é instalado automaticamente. A versão do Report Builder associada à versão instalada do SQL Server é aberta quando executa ou edita relatórios.  
+##  <a name="BKMK_ReportBuilder"></a> Построитель отчетов  
+ Configuration Manager использует построитель отчетов Microsoft SQL Server Reporting Services в качестве средства создания и редактирования отчетов на базе моделей и на базе SQL. При запуске действия по созданию или редактированию отчета в консоли Configuration Manager открывается построитель отчетов. При первом создании или изменении отчета построитель отчетов автоматически устанавливается. Версия построителя отчетов, связанная с установленной версии SQL Server, открывается при запуске или изменении отчетов.  
 
- A instalação do Report Builder adiciona suporte para mais de 20 idiomas. Quando o Report Builder é executado, apresenta os dados no idioma do sistema operativo em execução no computador local. Se o Report Builder não suportar o idioma, os dados serão apresentados em inglês. O Report Builder suporta todas as capacidades do SQL Server 2008 Reporting Services, incluindo as seguintes:  
+ При установке построителя отчетов добавляется поддержка более 20 языков. При запуске построителя отчетов данные отображаются на языке операционной системы, под управлением которой работает локальный компьютер. Если построитель отчетов не поддерживает этот язык, данные отображаются на английском языке. Построитель отчетов поддерживает полную функциональность SQL Server 2008 Reporting Services, в том числе следующие возможности.  
 
--   Fornece um ambiente de criação de relatórios intuitivo com um aspeto semelhante ao do Microsoft Office.  
+-   Интуитивно понятная среда создания отчетов с интерфейсом, аналогичным интерфейсу Microsoft Office.  
 
--   Oferece o esquema de relatórios flexível da linguagem RDL (Report Definition Language) do SQL Server 2008.  
+-   Гибкая компоновка отчетов на языке определения отчетов SQL Server 2008.  
 
--   Fornece várias formas de visualização de dados, incluindo gráficos e medidores.  
+-   Различные виды наглядного отображения данных, в том числе диаграммы и шкалы.  
 
--   Fornece caixas de texto com formatação.  
+-   Текстовые поля с широкими возможностями форматирования.  
 
--   Exporta para o formato do Microsoft Word.  
+-   Экспорт в формат Microsoft Word.  
 
- Também é possível abrir o Report Builder a partir do SQL Server Reporting Services.  
+ Также можно открыть построитель отчетов в SQL Server Reporting Services.  
 
-##  <a name="BKMK_ReportModels"></a> Modelos de relatórios no SQL Server Reporting Services  
- SQL Server Reporting Services no Configuration Manager utiliza modelos de relatórios para ajudar os utilizadores administrativos a selecionar itens da base de dados a incluir nos relatórios baseados em modelos. Para o utilizador administrativo que está a criar o relatório, os modelos de relatórios expõem apenas vistas especificadas e itens para escolha. Para criar relatórios baseados em modelos, tem de estar disponível pelo menos um modelo de relatório. Os modelos de relatórios têm as seguintes funcionalidades:  
+##  <a name="BKMK_ReportModels"></a> Модели отчетов в SQL Server Reporting Services  
+ Службы SQL Reporting Services в Configuration Manager используют модели отчетов для того, чтобы помочь администраторам выбирать элементы из базы данных для включения в отчеты на базе моделей. Для пользователей с правами администратора, создающих отчет, модели отчетов предоставляют на выбор только указанные представления и элементы. Для создания отчетов на базе моделей требуется, чтобы по крайней мере одна модель отчетов была доступна. Модели отчетов обладают следующими характеристиками.  
 
--   Pode atribuir aos campos e às vistas da base de dados nomes comerciais lógicos para facilitar a produção de relatórios. Não é necessário conhecer a estrutura da base de dados para produzir relatórios.  
+-   Полям и представлениям базы данных можно назначать описательные имена, чтобы упростить создание отчетов. Для создания отчетов не требуется знание структуры базы данных.  
 
--   Pode agrupar itens de forma lógica.  
+-   Поддерживается логическая группировка элементов.  
 
--   Pode definir relações entre os itens.  
+-   Можно определять отношения между элементами.  
 
--   Pode proteger elementos do modelo para que os utilizadores administrativos vejam apenas os dados que tenham permissão para ver.  
+-   Можно защитить элементы моделей, чтобы администраторы могли просматривать лишь те данные, к которым у них есть доступ.  
 
- Apesar do Configuration Manager fornece modelos de relatórios de exemplo, pode também definir modelos de relatórios que satisfaçam os seus requisitos de negócio. Para obter mais informações sobre como criar modelos de relatórios, veja [Criar modelos de relatórios personalizados para o System Center Configuration Manager no SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
+ В Configuration Manager предоставлены образцы моделей отчетов, однако можно определить собственные модели отчетов согласно требованиям бизнеса. Дополнительные сведения о создании моделей отчетов см. в разделе [Создание моделей пользовательских отчетов для System Center Configuration Manager в службах SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
 
-## <a name="next-steps"></a>Passos seguintes
-[Planeamento de relatórios](planning-for-reporting.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Планирование ведения отчетов](planning-for-reporting.md)

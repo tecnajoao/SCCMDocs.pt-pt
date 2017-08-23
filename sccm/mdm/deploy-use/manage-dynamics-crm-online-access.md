@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso ao Dynamics CRM Online | Microsoft Docs
-description: Saiba como controlar o acesso ao Microsoft Dynamics CRM Online a partir de dispositivos iOS e Android com acesso condicional do Microsoft Intune.
+title: "Управление доступом к Dynamics CRM Online | Документы Майкрософт"
+description: "Сведения об управлении доступом к Microsoft Dynamics CRM Online с устройств iOS и Android с помощью условного доступа Microsoft Intune."
 ms.custom: na
 ms.date: 03/05/2017
 ms.reviewer: na
@@ -16,85 +16,85 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: bd00f12ae3bc14a34d24c22c3d5277d275d51e85
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-dynamics-crm-online-access-in-system-center-configuration-manager"></a>Gerir o acesso ao Dynamics CRM Online no System Center Configuration Manager
+# <a name="manage-dynamics-crm-online-access-in-system-center-configuration-manager"></a>Управление доступом к Dynamics CRM Online в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode controlar o acesso ao Microsoft Dynamics CRM Online dos dispositivos iOS e Android com acesso condicional do Microsoft Intune.  Acesso condicional do Intune tem dois componentes:
-* [Política de conformidade do dispositivo](../../protect/deploy-use/device-compliance-policies.md) que o dispositivo tem de cumprir para ser considerado conforme.
-* [Política de acesso condicional](../../protect/deploy-use/manage-access-to-services.md) que onde especifica as condições que o dispositivo tem de cumprir para poder aceder ao serviço.
+Управлять доступом к Microsoft Dynamics CRM Online с устройств iOS и Android можно с помощью условного доступа Microsoft Intune.  Условный доступ Intune включает два компонента:
+* [политику соответствия устройств](../../protect/deploy-use/device-compliance-policies.md), которой должны соответствовать устройства для признания их соответствующими;
+* [политику условного доступа](../../protect/deploy-use/manage-access-to-services.md), где указываются условия, которым должны соответствовать устройства для получения доступа к службе.
 
-Para saber mais sobre como funciona o acesso como condicional, leia o [gerir o acesso a serviços](../../protect/deploy-use/manage-access-to-services.md) artigo.
+Дополнительные сведения о принципах работы условного доступа см. в статье [Управление доступом к службам](../../protect/deploy-use/manage-access-to-services.md).
 
 
-Quando um utilizador direcionado tenta utilizar a aplicação Dynamics CRM no respetivo dispositivo, ocorre a seguinte avaliação:
+Когда целевой пользователь пытается использовать приложение Dynamics CRM на мобильном устройстве, оценивается следующее.
 
-![Diagrama que mostra os pontos de decisão utilizados para determinar se um dispositivo tem permissão para aceder a um serviço ou está bloqueado](media/mdm-ca-dynamics-crm-flow-diagram.png)
+![На схеме показаны точки принятия решений, с помощью которых определяется, следует ли предоставить или заблокировать доступ к службе для устройства](media/mdm-ca-dynamics-crm-flow-diagram.png)
 
-O dispositivo que necessita de acesso ao Dynamics CRM Online deve:
-* Ser um **Android** ou **iOS** dispositivo.
-* Ser **inscritos** com o Microsoft Intune.
-* Ser **compatíveis** com qualquer implementar políticas de conformidade do Microsoft Intune.
+Для получения доступа к Dynamics CRM Online устройство:
+* должно быть устройством **Android** или **iOS**;
+* должно быть **зарегистрировано** в Microsoft Intune;
+* должно **удовлетворять** всем развернутым политикам соответствия Microsoft Intune.
 
-O estado do dispositivo é armazenado no Azure Active Directory, o qual concede ou bloqueia o acesso, com base nas condições que especificar.
+Состояние устройства хранится в службе Azure Active Directory, которая предоставляет или блокирует доступ на основе указанных условий.
 
-Se não for cumprida uma condição, é apresentada ao utilizador uma das duas mensagens seguintes quando iniciar sessão:
-* Se o dispositivo não estiver inscrito no Microsoft Intune ou não está registado no Azure Active Directory, é apresentada uma mensagem com instruções sobre como instalar a aplicação do portal da empresa e inscrevê-lo.
-* Se o dispositivo não for conforme, será apresentada uma mensagem que direciona o utilizador para o Web site do Portal da empresa do Microsoft Intune ou a aplicação Portal da empresa, onde pode encontrar informações sobre o problema e como resolvê-lo.
+Если условие не выполняется, при входе пользователь получает следующие сообщения:
+* Если устройство не зарегистрировано в Microsoft Intune либо в Azure Active Directory, выводится сообщение с инструкциями о том, как установить приложение корпоративного портала и выполнить регистрацию.
+* Если устройство не соответствует требованиям, отображается сообщение, направляющее пользователя на веб-сайт (или к приложению) корпоративного портала Microsoft Intune, где можно найти сведения о данной проблеме и способах ее устранения.
 
-## <a name="configure-conditional-access-for-dynamics-crm-online"></a>Configurar o acesso condicional para o Dynamics CRM Online  
-### <a name="step-1-configure-active-directory-security-groups"></a>Passo 1: Configurar grupos de segurança do Active Directory
+## <a name="configure-conditional-access-for-dynamics-crm-online"></a>Настройка условного доступа для Dynamics CRM Online  
+### <a name="step-1-configure-active-directory-security-groups"></a>Шаг 1. Настройка групп безопасности Active Directory
 
-Antes de começar, configure grupos de segurança do Azure Active Directory para a política de acesso condicional. Pode configurar estes grupos no **Centro de administração do Office 365**. Estes grupos vão ser utilizados para visar ou excluir utilizadores da política. Quando um utilizador é direcionado por uma política, cada dispositivo que utiliza tem de estar em conformidade para poder aceder aos recursos.
+Прежде чем начать, настройте политику условного доступа в группах безопасности Azure Active Directory. Эти группы можно настроить в **Центре администрирования Office 365**. Эти группы будут использоваться для назначения или исключения пользователей из политики. Если на пользователя распространяется действие политики, каждое используемое им устройство должно соответствовать этой политике, чтобы он мог получить доступ к ресурсам.
 
-Pode especificar dois tipos de grupo a utilizar para a política do Dynamics CRM:
-* **Grupos direcionados** – contém os grupos de utilizadores aos quais será aplicada a política.
-* **Grupos excluídos** – contém os grupos de utilizadores excluídos da política.
+Для политики Dynamics CRM можно указать два типа групп:
+* **Целевые группы** — группы пользователей, к которым применяется политика.
+* **Исключенные группы** — группы пользователей, которые исключены из политики.
 
-Se um utilizador estiver em ambos os grupos, estará excluído da política.
+Если пользователь входит в обе группы, то он будет исключен из политики.
 
-### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Passo 2: Configurar e implementar uma política de conformidade
-[Criar e implementar](../../protect/deploy-use/device-compliance-policies.md) uma política de conformidade em todos os dispositivos que serão afetados pela política. Estes seriam todos os dispositivos que são utilizados pelos utilizadores nos grupos de destino.
+### <a name="step-2-configure-and-deploy-a-compliance-policy"></a>Шаг 2. Настройка и развертывание политики соответствия
+[Создайте и разверните](../../protect/deploy-use/device-compliance-policies.md) политику соответствия на всех устройствах, на которые будет влиять эта политика. К ним относятся все устройства, которые используются пользователями в целевой группе.
 
 > [!NOTE]
-> Enquanto as políticas de conformidade são implementadas nos grupos do Microsoft Intune, as políticas de acesso condicional são direcionadas para grupos de segurança do Azure Active Directory.
+> Во время развертывания политик в группах Microsoft Intune политики условного доступа нацеливаются на группы безопасности Azure Active Directory.
 
 > [!IMPORTANT]
-> Se não tiver implementado uma política de conformidade, os dispositivos serão tratados como conformes.
+> Если политика соответствия не развернута, устройства будут считаться соответствующими.
 
-Quando estiver pronto, avance para o Passo 3.
-### <a name="step-3-configure-the-dynamics-crm-policy"></a>Passo 3: Configurar a política do Dynamics CRM
-Em seguida, configure a política para exigir que os dispositivos apenas geridos e conformes podem aceder ao Dynamics CRM. Esta política será armazenada no Azure Active Directory.
+Когда будете готовы, перейдите к шагу 3.
+### <a name="step-3-configure-the-dynamics-crm-policy"></a>Шаг 3. Настройка политики Dynamics CRM
+Далее настройте в политике требование, разрешающее доступ к Dynamics CRM только для управляемых и соответствующих политике устройств. Эта политика будет храниться в Azure Active Directory.
 
-1.  Na consola de administração do Microsoft Intune, escolha **política > acesso condicional > política do Dynamics CRM Online**.
+1.  На консоли администрирования Microsoft Intune щелкните **Политика > Условный доступ > Политика Dynamics CRM Online**.
 
-     ![Captura de ecrã da página de política de acesso condicional do Dynamics CRM Online](media/mdm-ca-dynamics-crm-policy-configuration.png)
+     ![Снимок экрана страницы политики условного доступа Dynamics CRM Online](media/mdm-ca-dynamics-crm-policy-configuration.png)
 
-2.  Selecione **ativar o acesso condicional** política.
-3.  Em **Acesso a aplicações**, pode optar por aplicar a política de acesso condicional a:
+2.  Выберите вариант **Включить политику условного доступа**.
+3.  В разделе **Доступ для приложений**можно выбрать область применения политики условного доступа:
   * **iOS**
   * **Android**
-4.  Em **grupos Direcionados**, escolha **modificar** para selecionar os grupos de segurança do Azure Active Directory aos quais será aplicada a política. Pode optar por direcionar esta opção para todos os utilizadores ou apenas para um grupos específico de utilizadores.
-5.  Em **grupos excluídos**, opcionalmente, escolha **modificar** para selecionar os grupos de segurança do Azure Active Directory que estão excluídos desta política.
-6.  Quando tiver terminado, escolha **guardar**.
+4.  В разделе **Целевые группы** щелкните **Изменить**, чтобы выбрать группы безопасности Azure Active Directory, к которым будет применена политика. В качестве целевой аудитории можно выбрать всех пользователей или выбранную группу пользователей.
+5.  Дополнительно в разделе **Исключенные группы** можно щелкнуть **Изменить**, чтобы выбрать группы безопасности Azure Active Directory, которые будут исключены из этой политики.
+6.  По завершении нажмите кнопку **Сохранить**.
 
-Configurou acesso condicional para o Dynamics CRM. Não tem de implementar a política de acesso condicional, pois esta entra em vigor imediatamente.
-##  <a name="monitor-the-compliance-and-conditional-access-policies"></a>Monitorizar a conformidade e as políticas de acesso condicional
+Настройка условного доступа для Dynamics CRM теперь завершена. Развертывать политику условного доступа не нужно, она вступает в силу немедленно.
+##  <a name="monitor-the-compliance-and-conditional-access-policies"></a>Мониторинг соответствия и политик условного доступа
 
-No **grupos** área de trabalho, pode ver o estado de acesso condicional dos seus dispositivos.
+В рабочей области **Группы** вы можете просмотреть состояние условного доступа своих устройств.
 
-Selecione qualquer grupo de dispositivos móveis e, em seguida, no separador **Dispositivos** , selecione um dos seguintes **Filtros**:
-* **Dispositivos que não são registados no AAD** – estes dispositivos estão bloqueados no Dynamics CRM.
-* **Dispositivos não conformes** – estes dispositivos estão bloqueados no Dynamics CRM.
-* **Dispositivos que são registados no AAD e conformes** – estes dispositivos podem aceder ao Dynamics CRM.
+Выберите любую группу мобильных устройств, а затем на вкладке **Устройства** выберите один из следующих **фильтров**.
+* **Устройства, не зарегистрированные в AAD** — для этих устройств заблокирован доступ к Dynamics CRM.
+* **Устройства, не соответствующие условиям** — для этих устройств заблокирован доступ к Dynamics CRM.
+* **Устройства, зарегистрированные в AAD и соответствующие политикам** — эти устройства могут получить доступ к Dynamics CRM.
 
-###  <a name="see-also"></a>Consulte também
-[Gerir o acesso ao e-mail](../../protect/deploy-use/manage-email-access.md)
+###  <a name="see-also"></a>См. также
+[Управление доступом к электронной почте](../../protect/deploy-use/manage-email-access.md)
 
-[Gerir o acesso ao SharePoint Online](../../protect/deploy-use/manage-sharepoint-online-access.md)
+[Управление доступом к SharePoint Online](../../protect/deploy-use/manage-sharepoint-online-access.md)
 
-[Gerir o acesso ao Skype para empresas Online](../../protect/deploy-use/manage-skype-for-business-online-access.md)
+[Управление доступом Skype для бизнеса Online](../../protect/deploy-use/manage-skype-for-business-online-access.md)

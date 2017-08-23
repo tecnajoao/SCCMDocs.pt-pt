@@ -1,6 +1,6 @@
 ---
-title: Certifique-se de conformidade do dispositivo | Microsoft Docs
-description: "Gerir a configuração e conformidade dos dispositivos na sua organização ao utilizar o System Center Configuration Manager."
+title: "Обеспечение соответствия устройств | Документы Майкрософт"
+description: "Вы можете управлять конфигурациями и соответствием устройств в организации с помощью System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,57 +16,57 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: f7ecfe550d2e28579ea873442b2a68dc1c7c5483
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="ensure-device-compliance-with-system-center-configuration-manager"></a>Garantir a compatibilidade do dispositivo com o System Center Configuration Manager
+# <a name="ensure-device-compliance-with-system-center-configuration-manager"></a>Обеспечение соответствия устройств с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-As definições de compatibilidade no System Center Configuration Manager dá-lhe as ferramentas e recursos que necessita para gerir a configuração e conformidade dos dispositivos na sua organização. Isto ajuda-o a suportar os seguintes requisitos comerciais:  
+Параметры соответствия в System Center Configuration Manager предоставляют средства и ресурсы, необходимые для управления конфигурациями и соответствием устройств требованиям в вашей организации. Это поможет поддерживать следующие бизнес-требования.  
 
--   Comparar a configuração de PCs com o Windows, computadores Macs, servidores e dispositivos móveis que gere com as configurações de melhores práticas que cria ou obtém de outros fornecedores  
+-   Сравнение конфигурации компьютеров под управлением Windows и Mac, серверов и мобильных устройств, которыми вы управляете, с рекомендуемыми конфигурациями, которые вы создаете или получаете от других поставщиков.  
 
--   Identificar configurações de dispositivos não autorizados  
+-   Определение несанкционированных конфигураций устройств.  
 
--   Reportar a conformidade com as políticas de regulamentação e políticas de segurança internas  
+-   Составление отчетов о соответствии законодательным требованиям и внутренним политикам безопасности.  
 
--   Identificar vulnerabilidades de segurança  
+-   Определение уязвимостей системы безопасности.  
 
--   Fornecer o suporte técnico com as informações para detetar as causas prováveis de incidentes e problemas comunicados, ao identificar as configurações não compatíveis  
+-   Предоставление службе поддержки сведений для обнаружения возможных причин зарегистрированных инцидентов и проблем путем выявления несоответствующих конфигураций.  
 
--   Remediar automaticamente algumas definições não conformes em dispositivos móveis  
+-   Автоматическое исправление некоторых несовместимых параметров на мобильных устройствах.  
 
--   Remediar a incompatibilidade ao implementar aplicações, pacotes e programas ou scripts numa coleção que é automaticamente preenchida com dispositivos que reportam a que estão em conformidade  
+-   Устранение несоответствий путем развертывания приложений, пакетов и программ или скриптов в коллекции, в которую автоматически добавляются устройства, отправившие отчет о своем несоответствии требованиям.  
 
 
-## <a name="get-started"></a>Introdução  
- Aprenda as noções básicas sobre definições de compatibilidade e as tarefas que poderá realizar com as mesmas.  
+## <a name="get-started"></a>Начало работы  
+ Получите общее представление о параметрах соответствия и задачах, которые они позволяют выполнять.  
 
- [Introdução às definições de compatibilidade](../../compliance/get-started/get-started-with-compliance-settings.md)  
+ [Приступая к работе с параметрами соответствия](../../compliance/get-started/get-started-with-compliance-settings.md)  
 
-## <a name="plan-and-design"></a>Planear e estruturar  
- Antes de começar a trabalhar com definições de compatibilidade, certifique-se de que implementa os pré-requisitos necessários que encontrará neste tópico.  
+## <a name="plan-and-design"></a>Планирование и проектирование  
+ Перед началом работы с параметрами совместимости убедитесь, что выполнены все необходимые условия, описанные в этом разделе.  
 
- [Planear e configurar as definições de compatibilidade](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md)  
+ [Планирование и настройка параметров соответствия](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md)  
 
-## <a name="common-tasks"></a>Tarefas comuns  
- Nesta secção, irá encontrar alguns cenários comuns que o ajudarão a aprenderem a utilizar as definições de compatibilidade no Configuration Manager.  
+## <a name="common-tasks"></a>Типичные задачи  
+ В этом разделе вы найдете ряд распространенных сценариев, с помощью которых научитесь использовать параметры соответствия в Configuration Manager.  
 
- [Tarefas comuns para gerir a compatibilidade](../../compliance/plan-design/common-tasks-for-managing-compliance.md)  
+ [Распространенные задачи по управлению соответствием](../../compliance/plan-design/common-tasks-for-managing-compliance.md)  
 
-## <a name="remote-connection-profiles"></a>Perfis de ligação remota  
- Este tipo de item de configuração permite que os PCs dos utilizadores liguem remotamente a computadores de trabalho quando não estiverem ligados ao domínio ou se os seus computadores pessoais estiverem ligados através da Internet.  
+## <a name="remote-connection-profiles"></a>Профили удаленного подключения  
+ Элемент конфигурации этого типа позволяет настроить компьютеры пользователей на удаленное подключение к рабочим компьютерам, когда они не подключены к домену или если их персональные компьютеры подключены через Интернет.  
 
- [Criar perfis de ligação remota](/sccm/compliance/deploy-use/create-remote-connection-profiles)  
+ [Создание профилей удаленного подключения](/sccm/compliance/deploy-use/create-remote-connection-profiles)  
 
-## <a name="user-data-and-profiles"></a>Dados e perfis de utilizador  
- O tipo de item de configuração contém definições que podem gerir o redirecionamento de pastas, os ficheiros offline e os perfis itinerantes em computadores com o Windows 8 e posterior para utilizadores na sua hierarquia.  
+## <a name="user-data-and-profiles"></a>Профили и данные пользователей  
+ Элементы конфигурации этого типа содержат параметры, управляющие перенаправлением папок, автономными файлами и перемещаемыми профилями на компьютерах с Windows 8 и более поздней версии для пользователей в вашей иерархии.  
 
- [Criar itens de configuração de dados e perfis de utilizador](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items)  
+ [Создание элементов конфигурации данных и профилей пользователя](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items)  
 
-## <a name="windows-edition-upgrade-policy"></a>Política de atualização de edição do Windows  
- A política de atualização de edição permite atualizar automaticamente dispositivos Windows 10 para uma versão mais recente. Pode especificar uma chave de produto para atualizar versões de ambiente de trabalho do Windows 10 ou um ficheiro de licença que pode ser utilizado para atualizar dispositivos com o Windows 10 Mobile e o Windows 10 Holographic.  
+## <a name="windows-edition-upgrade-policy"></a>Политика обновления выпусков Windows  
+ Политика обновления выпусков позволяет автоматически обновлять устройства на базе Windows 10 до более новой версии. Можно указать ключ продукта для обновления классических версий Windows 10 или файл лицензии, используемый для обновления устройства под управлением Windows 10 Mobile и Windows 10 Holographic.  
 
- [Atualizar dispositivos Windows com a política de atualização de edição](/sccm/compliance/deploy-use/upgrade-windows-version)  
+ [Обновление устройств Windows с помощью политики обновления выпусков](/sccm/compliance/deploy-use/upgrade-windows-version)  

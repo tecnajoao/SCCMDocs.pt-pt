@@ -1,6 +1,6 @@
 ---
-title: Funcionalidades no Technical Preview 1602 do Configuration Manager
-description: "Saiba mais sobre as funcionalidades disponíveis no Technical Preview do System Center Configuration Manager, versão 1602."
+title: "Возможности в Technical Preview 1602 для Configuration Manager"
+description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1602."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,45 +17,45 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 2354f885aaf69683004ad78f0e1978e78fee9145
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Funcionalidades no Technical Preview 1602 do System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Возможности в Technical Preview 1602 для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (Technical Preview)*
+*Применимо к: System Center Configuration Manager (Technical Preview)*
 
-Este artigo apresenta as funcionalidades que estão disponíveis no Technical Preview do System Center Configuration Manager, versão 1602. Pode instalar esta versão para atualizar e adicionar novas capacidades ao seu local de pré-visualização técnica do Configuration Manager. Antes de instalar esta versão do technical preview, reveja o tópico introdutórias, [pré-visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md), para se familiarizar com os requisitos gerais e limitações para utilizar como uma pré-visualização técnica, ao atualizar entre versões e como fornecer comentários sobre as funcionalidades de um technical preview.  
+В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager, версия 1602. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager. Перед установкой этой версии прочтите вводную статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md), чтобы ознакомиться с общими требованиями и ограничениями на использование ознакомительной технической версии, а также узнать, как выполнять обновления и оставлять отзывы о возможностях этого выпуска.  
 
- Seguem-se novas funcionalidades que pode experimentar com esta versão.  
+ Ниже перечислены новые возможности, доступные в этой версии.  
 
-##  <a name="BKMK_MDM"></a>Melhorias na gestão de dispositivos móveis  
+##  <a name="BKMK_MDM"></a> Усовершенствования управления мобильными устройствами  
 
-### <a name="ios-activation-lock"></a>Bloqueio de ativação de iOS  
- O System Center Configuration Manager pode ajudá-lo a gerir o Bloqueio de Ativação do iOS, uma funcionalidade da aplicação Encontrar iPhone para iOS 7.1 e dispositivos posteriores. O Bloqueio de Ativação é ativado automaticamente ao utilizar a aplicação Encontrar o Meu iPhone num dispositivo. Depois de estar ativado, o Apple ID e a palavra-passe do utilizador têm de ser introduzidos primeiro para que qualquer pessoa possa:  
+### <a name="ios-activation-lock"></a>Блокировка активации iOS  
+ System Center Configuration Manager позволяет управлять функцией блокировки активации iOS, которая представляет собой отдельный компонент приложения "Найти iPhone" для устройств на базе iOS 7.1 и более поздних версий. Функция блокировки активации включается автоматически при использовании приложения Find My iPhone на устройстве. После включения функции необходимо ввести Apple ID и пароль пользователя, чтобы можно было выполнить следующие операции:  
 
--   Desativar a aplicação Encontrar o Meu iPhone  
+-   выключить приложение Find My iPhone;  
 
--   Apagar o dispositivo  
+-   удалить данные из устройства;  
 
--   Reativar o dispositivo  
+-   активировать устройство заново.  
 
- O Configuration Manager pode pedir o estado de bloqueio de ativação de dispositivos supervisionados e não supervisionados que executam o iOS 7.1 e posterior. Para dispositivos supervisionados, o Intune pode obter o código de desativação do Bloqueio de Ativação e enviá-lo diretamente para o dispositivo.  
+ Configuration Manager может запрашивать состояние блокировки активации защищенных и незащищенных устройств, работающих под управлением iOS 7.1 и более поздних версий. Для защищенных устройств Intune может получить код обхода блокировки активации и отправить его прямо на устройство.  
 
- Para obter mais informações, consulte [ajudar a proteger dispositivos iOS com o bloqueio de ativação desativando para o Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock)  
+ Дополнительные сведения см. в статье [Защита устройств iOS с помощью обхода блокировки активации для Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock).  
 
-##  <a name="BKMK_SC1601"></a>Melhoramentos ao centro de Software na versão 1602  
+##  <a name="BKMK_SC1601"></a> Усовершенствования центра программного обеспечения в версии 1602  
 
-### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Atualizar a política de computador e utilizador de PC do Centro de Software  
- Uma nova opção **sincronizar política** foi adicionado para o **opções** > **manutenção do computador** página do Centro de Software que faz com que o PC Atualize o Gestor de configuração de política de computador e utilizador.  
+### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Обновление политики компьютеров и пользователей ПК из центра программного обеспечения  
+ На страницу **Параметры** > **Обслуживание компьютера** центра программного обеспечения был добавлен новый параметр **Sync Policy** (Синхронизировать политику), который вынуждает ПК обновить свою политику компьютеров и пользователей Configuration Manager.  
 
-##  <a name="BKMK_Win10Servicing"></a>Melhoramentos à manutenção do Windows 10  
- Na versão 1602 Technical Preview, foram adicionados os seguintes melhoramentos para a manutenção do Windows 10:  
+##  <a name="BKMK_Win10Servicing"></a> Усовершенствования для обслуживания Windows 10  
+ В версии Technical Preview 1602 мы добавили следующие усовершенствования для обслуживания Windows 10:  
 
--   Novas opções de filtro para planos de manutenção.  Agora, pode filtrar para **idioma**, **necessário**, e **título**. Apenas as atualizações que cumprem os critérios especificados serão adicionadas à implementação associada.  
+-   Новые параметры фильтрации для планов обслуживания.  Теперь можно фильтровать по параметрам **Язык**, **Обязательно** и **Заголовок**. В соответствующее развертывание будут добавляться только обновления, соответствующие указанным условиям.  
 
--   Quando seleciona o **atualizações** sincronização de atualizações de classificação de recursos de software, é apresentada uma caixa de diálogo de aviso para informá-lo nesse WSUS [correção 3095113](https://support.microsoft.com/kb/3095113) é necessário para sincronizar as atualizações de software com êxito e para a manutenção do Windows 10 funcionar corretamente.  Na caixa de diálogo, pode ir para o artigo da base de dados de conhecimento para a correção.  
+-   При выборе классификации **Обновления** для синхронизации обновлений программного обеспечения отображается диалоговое окно с предупреждением, сообщающее, что для успешной синхронизации обновлений ПО и правильной работы обслуживания Windows 10 требуется [исправление 3095113](https://support.microsoft.com/kb/3095113) служб WSUS.  Из диалогового окна можно перейти к статье базы знаний об этом исправлении.  
 
--   Windows 10 disponíveis agora, as atualizações apenas são apresentadas no **manutenção do Windows 10** \ **todas as atualizações do Windows 10** nós da consola do Configuration Manager. Estas atualizações já não aparecem no **atualizações de Software** \ **todas as atualizações de Software** nós.  
+-   Доступные обновления Windows 10 теперь отображаются только в узле **Обслуживание Windows 10** \ **Все обновления Windows 10** консоли Configuration Manager. Эти обновления больше не отображаются в узле **Обновления программного обеспечения** \ **Все обновления программного обеспечения**.  
 
--   Os utilizadores finais que iniciam um pacote de atualização do Windows 10 serão apresentados uma caixa de diálogo que permite-lhes saber que actualizará o sistema operativo.  
+-   Пользователям, запускающим пакет обновления для Windows 10, отображается диалоговое окно, сообщающее о предстоящем обновлении операционной системы.  

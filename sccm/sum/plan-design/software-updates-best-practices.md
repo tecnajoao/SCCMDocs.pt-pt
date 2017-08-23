@@ -1,6 +1,6 @@
 ---
-title: "Melhores práticas para atualizações de software | Microsoft Docs"
-description: "Utilize estas melhores práticas para atualizações de software no System Center Configuration Manager."
+title: "Рекомендации по обновлениям программного обеспечения | Документы Майкрософт"
+description: "Следуйте этим рекомендациям по обновлениям программного обеспечения в System Center Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,44 +13,44 @@ ms.technology: configmgr-sum
 ms.assetid: 6d20389a-9de2-4a64-bced-9fc4fa519174
 ms.openlocfilehash: 5df20f3703442de1be6220ca2770e182e330c036
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="best-practices-for-software-updates-in-system-center-configuration-manager"></a>Procedimentos recomendados para atualizações de software no System Center Configuration Manager
+# <a name="best-practices-for-software-updates-in-system-center-configuration-manager"></a>Рекомендации по обновлениям программного обеспечения в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico contém melhores práticas para atualizações de software no System Center Configuration Manager. As informações estão ordenadas em melhores práticas para a instalação inicial e melhores práticas para operações em curso.  
+В этом разделе приводятся рекомендации по обновлениям программного обеспечения в System Center Configuration Manager. Информация сведена в рекомендации для начальной установки и рекомендации для текущих операций.  
 
-## <a name="installation-best-practices"></a>Melhores práticas de instalação  
- Utilize as seguintes melhores práticas quando instalar atualizações de software no Configuration Manager.  
+## <a name="installation-best-practices"></a>Рекомендации по установке  
+ Используйте приведенные ниже рекомендации при установке обновлений программного обеспечения в Configuration Manager.  
 
-### <a name="use-a-shared-wsus-database-for-software-update-points"></a>Utilize uma Base de Dados WSUS Partilhada para Pontos de Atualização de Software  
- Se instalar mais do que um ponto de atualização de software num site primário, utilize a mesma base de dados do WSUS para cada ponto de atualização de software localizado na mesma floresta do Active Directory. Ao partilhar a mesma base de dados, pode reduzir significativamente o impacto que pode ocorrer no desempenho do cliente e da rede quando os clientes mudam para um novo ponto de atualização de software. Ainda ocorre uma verificação de diferenças quando um cliente muda para um novo ponto de atualização de software que partilha uma base de dados com o antigo ponto de atualização de software, mas esta verificação é muito menor do que seria se o servidor WSUS tivesse a sua própria base de dados.  
+### <a name="use-a-shared-wsus-database-for-software-update-points"></a>Использование общей базы данных WSUS для точек обновления программного обеспечения  
+ При установке нескольких точек обновления программного обеспечения на первичном сайте следует использовать одну и те же базу данных WSUS для всех точек обновления программного обеспечения в одном лесу Active Directory. Благодаря использованию одной и той же базы данных можно значительно смягчить влияние на производительность сети и клиентов, который может иметь место, когда клиенты будут переключаться на новую точку обновления программного обеспечения. Когда клиент переключается на новую точку обновления программного обеспечения, которая совместно использует базу данных со старой точкой обновления программного обеспечения, происходит дельта-сканирование, но его объем много меньше, чем если бы сервер WSUS имел собственную базу данных.  
 
 > [!IMPORTANT]  
->  Também tem de partilhar as pastas de conteúdo do WSUS quando utiliza uma base de dados partilhada do WSUS para os pontos de atualização de software.  
+>  При использовании общей базы данных WSUS для точек обновления программного обеспечения необходимо также предоставить общий доступ к локальным папкам содержимого службы WSUS.  
 
- Para obter mais informações sobre a mudança de ponto de atualização de software, consulte o [mudança de ponto de atualização de Software](../../sum/plan-design/plan-for-software-updates.md#BKMK_SUPSwitching) secção o [planear atualizações de software no System Center Configuration Manager](../../sum/plan-design/plan-for-software-updates.md) tópico.  
+ Дополнительные сведения о переключении точек обновления программного обеспечения см. в подразделе [Переключение точек обновления программного обеспечения](../../sum/plan-design/plan-for-software-updates.md#BKMK_SUPSwitching) раздела [Планирование обновлений программного обеспечения в Configuration Manager](../../sum/plan-design/plan-for-software-updates.md).  
 
-### <a name="when-configuration-manager-and-wsus-use-the-same-sql-server-configure-one-of-these-to-use-a-named-instance-and-the-other-to-use-the-default-instance-of-sql-server"></a>Quando o Configuration Manager e o WSUS utilizam o mesmo SQL Server, configure um deles para utilizar uma instância nomeada e a outra para utilizar a instância predefinida do SQL Server  
- Quando as bases de dados do Configuration Manager e o WSUS utilizam o mesmo SQL Server e partilham a mesma instância do SQL Server, não é possível determinar facilmente a utilização de recursos entre as duas aplicações. Quando utilizar uma instância do SQL Server diferente para o Configuration Manager e o WSUS, é mais fácil diagnosticar e resolver problemas de utilização de recursos que possam ocorrer para cada aplicação.  
+### <a name="when-configuration-manager-and-wsus-use-the-same-sql-server-configure-one-of-these-to-use-a-named-instance-and-the-other-to-use-the-default-instance-of-sql-server"></a>Если Configuration Manager и службы WSUS используют один и тот же сервер SQL Server, настройте один из этих компонентов на использование именованного экземпляра SQL Server, а другой – на использование экземпляра SQL Server по умолчанию.  
+ Если базы данных Configuration Manager и WSUS используют один и тот же сервер SQL Server и экземпляр SQL Server, нельзя быстро распределить использование ресурсов между двумя приложениями. При использовании различных экземпляров SQL Server для Configuration Manager и WSUS значительно проще устранять неполадки и диагностировать проблемы, связанные с применением ресурсов, которые могут возникать в том или ином приложении.  
 
-### <a name="specify-the-store-updates-locally-setting-for-the-wsus-installation"></a>Especifique a definição "Armazenar atualizações localmente" para a instalação do WSUS  
- Quando instala o WSUS, selecione o **armazenar atualizações localmente** definição. Quando esta definição está selecionada, os termos de licenciamento que estão associados às atualizações de software são transferidos durante o processo de sincronização e armazenados no disco rígido local do servidor WSUS. Quando esta definição não estiver selecionada, os computadores cliente poderão falhar a verificação da existência de conformidade de atualizações de software para atualizações de software com termos de licenciamento. Quando instala o ponto de atualização de software, o Gestor de Sincronização do WSUS verifica se esta definição está ativada a cada 60 minutos, por predefinição.  
+### <a name="specify-the-store-updates-locally-setting-for-the-wsus-installation"></a>Укажите параметр "Хранить обновления локально" для установки служб WSUS  
+ При установке WSUS выберите параметр **Хранить обновления локально**. Если это сделано, условия лицензии, связанные с обновлениями программного обеспечения, загружаются во время процесса синхронизации и хранятся на локальном жестком диске сервера WSUS. Если этот параметр не выбран, клиентским компьютерам может быть недоступен поиск сведений о соответствии для обновлений программного обеспечения, для которых предусмотрены условия лицензии. При установке точки обновления программного обеспечения диспетчер синхронизации служб WSUS по умолчанию каждые 60 минут выполняет проверку того, что этот параметр включен.  
 
-## <a name="operational-best-practices"></a>Melhores Práticas Operacionais  
- Utilize as seguintes melhores práticas quando utilizar atualizações de software:  
+## <a name="operational-best-practices"></a>Рекомендации по использованию  
+ Руководствуйтесь следующими рекомендациями при работе с обновлениями программного обеспечения.  
 
-### <a name="limit-software-updates-to-1000-in-a-single-software-update-deployment"></a>Limite as atualizações de software a 1000 numa única implementação de atualização de software  
- Tem de limitar o número de atualizações de software a 1000 para cada implementação de atualização de software. Quando criar uma regra de implementação automática, certifique-se de que os critérios que especifica não resultam em mais de 1000 atualizações de software. Ao implementar manualmente atualizações de software, não selecione mais de 1000 atualizações para implementar.  
+### <a name="limit-software-updates-to-1000-in-a-single-software-update-deployment"></a>Укажите значение 1000 в качестве максимального количества обновлений для одного развертывания обновлений.  
+ Необходимо установить ограничение количества обновлений, равное 1000, для каждого развертывания обновлений программного обеспечения. При создании правила автоматического развертывания убедитесь в том, что критерий, указанный вами, не приведет к установке обновлений в количестве, превышающем 1000. При развертывании обновлений вручную выбирайте не более 1000 обновлений для развертывания.  
 
-### <a name="create-a-new-software-update-group-each-time-an-automatic-deployment-rule-runs-for-patch-tuesday-and-for-general-deployment"></a>Criar um novo grupo de atualização de software sempre que uma regra de implementação automática é executada para "Patch Terça" e para implementação geral  
- Existe um limite de 1000 atualizações de software para uma implementação de atualização de software. Quando criar uma regra de implementação automática, especifique se pretende utilizar um grupo de atualização existente ou criar um novo grupo de atualização sempre que a regra for executada. Quando especificar critérios numa regra de implementação automática que resulte em várias atualizações de software e a regra for executada periodicamente, especifique criar um novo grupo de atualização de software sempre que a regra for executada. Isto irá impedir que a implementação exceda o limite de 1000 atualizações de software por implementação.  
+### <a name="create-a-new-software-update-group-each-time-an-automatic-deployment-rule-runs-for-patch-tuesday-and-for-general-deployment"></a>Создавайте группу обновления программного обеспечения каждый раз, когда правило автоматического развертывания выполняется для комплексной установки исправлений и для общих развертываний.  
+ Для развертывания приложений программного обеспечения предусмотрен предел, составляющий 1000 обновлений. При создании правила автоматического развертывания указывается, должна ли использоваться существующая группа обновления, или следует создавать новую группу обновления при каждом выполнении правила. Если при указании условий в правиле автоматического развертывания, которые приводят к нескольким обновлениям программного обеспечения, правило выполняется согласно расписанию, следует создавать новую группу обновлений при каждом выполнении правила. Это предотвратит превышение ограничения в 1000 обновлений программного обеспечения для одного развертывания.  
 
-### <a name="use-an-existing-software-update-group-for-automatic-deployment-rules-for-endpoint-protection-definition-updates"></a>Utilize um grupo de atualização de software existente para regras de implementação automática de atualizações de definições do Endpoint Protection  
- Utilize sempre um grupo de atualização de software existente quando utilizar uma regra de implementação automática para implementar atualizações de definições do Endpoint Protection com frequência. Caso contrário, poderão ser criados centenas de grupos de atualização de software ao longo do tempo. Normalmente, os editores de atualizações de definição configuram as atualizações de definição para expirarem quando são substituídas por quatro atualizações mais recentes. Por conseguinte, o grupo de atualizações de software que é criado pela regra de implementação automática nunca irá conter mais de quatro atualizações de definições para o editor: uma ativa e três substituídas.  
+### <a name="use-an-existing-software-update-group-for-automatic-deployment-rules-for-endpoint-protection-definition-updates"></a>Следует использовать существующую группу обновления программного обеспечения для применения правил автоматического развертывания в рамках обновления определений Endpoint Protection.  
+ Всегда используйте существующую группу обновления программного обеспечения, если часто возникает необходимость развертывания обновлений определений Endpoint Protection с использованием правила автоматического развертывания. В противном случае с течением времени могут быть созданы сотни групп обновления программного обеспечения. Как правило, издатели обновлений определений указывают срок действия таких обновлений, согласно которому действие обновления завершается после его замены 4 новыми обновлениями. Таким образом, группа обновления программного обеспечения, созданная правилом автоматического развертывания, никогда не будет содержать более 4 обновлений определений данного издателя (1 активное, 3 замененных).  
 
-## <a name="see-also"></a>Consulte Também  
- [Planear atualizações de software no System Center Configuration Manager](../../sum/plan-design/plan-for-software-updates.md)
+## <a name="see-also"></a>См. также  
+ [Планирование обновлений программного обеспечения в System Center Configuration Manager](../../sum/plan-design/plan-for-software-updates.md)

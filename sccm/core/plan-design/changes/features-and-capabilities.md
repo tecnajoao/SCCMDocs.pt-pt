@@ -1,6 +1,6 @@
 ---
-title: Funcionalidades e capacidades | Microsoft Docs
-description: "Saiba mais sobre as principais capacidades de gestão do System Center Configuration Manager."
+title: "Функции и возможности | Документы Майкрософт"
+description: "Описание основных возможностей управления в System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -17,86 +17,86 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 4691f43dccdf73936107f4635321897b9779bead
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="features-and-capabilities-of-system-center-configuration-manager"></a>Funcionalidades e capacidades removidas do System Center Configuration Manager
+# <a name="features-and-capabilities-of-system-center-configuration-manager"></a>Функции и возможности в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Seguem-se as principais capacidades de gestão do System Center Configuration Manager. Cada capacidade tem os seus pré-requisitos e as capacidades que pretender utilizar podem influenciar a estrutura e implementação da sua hierarquia do Configuration Manager. Por exemplo, se pretender implementar software em dispositivos na sua hierarquia, tem de instalar a função de sistema de sites de ponto de distribuição.  
+Ознакомьтесь с основными возможностями управления в System Center Configuration Manager. Каждая возможность предусматривает собственные необходимые условия, а возможности, которые будут вами использоваться, могут повлиять на проектирование и реализацию иерархии Configuration Manager. Например, если требуется выполнить развертывание программного обеспечения на устройствах в вашей иерархии, необходимо установить роль системы сайта "точка распространения".  
 
- Para obter mais informações sobre como planear e instalar o Configuration Manager para suportar estas capacidades de gestão no seu ambiente, consulte [preparar para o System Center Configuration Manager](../../../core/plan-design/get-ready.md).  
+ Дополнительные сведения о том, как планировать и устанавливать Configuration Manager для поддержки этих возможностей управления в вашей среде, см. в статье [Подготовка к использованию System Center Configuration Manager](../../../core/plan-design/get-ready.md).  
 
- **Gestão de aplicações**  
+ **Управление приложениями**  
 
- Fornece um conjunto de ferramentas e recursos que o podem ajudar a criar, gerir, implementar e monitorizar aplicações numa gama de diferentes dispositivos que gere. Além disso, o Configuration Manager fornece ferramentas que ajudam a proteger os dados da sua empresa em aplicações do utilizador. Consulte [introdução à gestão de aplicações](/sccm/apps/understand/introduction-to-application-management).
+ Предоставляет набор средств и ресурсов, упрощающих создание, развертывание, отслеживание приложений и управление ими на обширном спектре обслуживаемых устройств. Кроме того, Configuration Manager предоставляет средства, помогающие защитить данные компании в приложениях пользователей. См. статью [Введение в управление приложениями](/sccm/apps/understand/introduction-to-application-management).
 
- **Acesso a recursos da empresa**  
+ **Доступ к ресурсам компании**  
 
- Fornece um conjunto de ferramentas e recursos que lhe permite conceder aos utilizadores da organização acesso a dados e aplicações de localizações remotas. Essas ferramentas incluem perfis Wi-Fi, perfis VPN, perfis de certificado e acesso condicional ao Exchange e ao SharePoint online. Consulte [proteger dados e o site de infraestrutura com o System Center Configuration Manager](../../../protect/understand/protect-data-and-site-infrastructure.md) e [gerir o acesso a serviços no System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-services.md).  
+ Обеспечивает набор средств и ресурсов, которые позволяют предоставлять пользователям в организации доступ к данным и приложениям из удаленных расположений. К этим средствам относятся профили Wi-Fi, профили VPN, профили сертификатов и условный доступ к Exchange и SharePoint Online. См. статьи [Защита данных и инфраструктуры сайтов с помощью System Center Configuration Manager](../../../protect/understand/protect-data-and-site-infrastructure.md) и [Управление доступом к службам в System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-services.md).  
 
- **Definições de compatibilidade**  
+ **Параметры соответствия**  
 
- Fornece um conjunto de ferramentas e recursos que podem ajudar a avaliar, controlar e remediar a compatibilidade de configuração de dispositivos de cliente na empresa. Além disso, pode utilizar as definições de compatibilidade para configurar uma variedade de definições de segurança e funcionalidades nos dispositivos que gere. Consulte [garantir a compatibilidade do dispositivo com o System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
+ Представляет собой набор средств и ресурсов, которые помогают оценивать, отслеживать и исправлять несоответствие конфигураций клиентских компьютеров в организации. Кроме того, можно использовать параметры соответствия для настройки различных компонентов и параметров безопасности на управляемых устройствах. См. статью [Обеспечение соответствия устройств с помощью System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
 
  **Endpoint Protection**  
 
- Fornece segurança, proteção antimalware e gestão da Firewall do Windows para os computadores da empresa. Consulte [Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
+ Обеспечивает безопасность, защиту от вредоносных программ и управление брандмауэром Windows для компьютеров предприятия. См. статью [Endpoint Protection в System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
 
- **Inventário**  
+ **Инвентаризация**  
 
- Fornece um conjunto de ferramentas para ajudar a identificar e monitorizar ativos:  
+ Предоставляет набор средств, упрощающих идентификацию и отслеживание активов.  
 
--   **Inventário de hardware**: Recolhe informações detalhadas sobre o hardware dos dispositivos na sua empresa. Consulte [introdução ao inventário de hardware no System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-hardware-inventory.md).  
+-   **Инвентаризация оборудования.**Осуществляет сбор подробных сведений об оборудовании устройств на предприятии. См. статью [Общие сведения об инвентаризации оборудования в System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-hardware-inventory.md).  
 
--   **Inventário de software**: Recolhe e comunica informações sobre os ficheiros que estão armazenados nos computadores cliente na sua organização. Consulte [introdução ao inventário de software no System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-software-inventory.md).  
+-   **Инвентаризация ПО.**Осуществляет сбор сведений о файлах, находящихся на клиентских компьютерах организации, и предоставляет соответствующие отчеты. См. статью [Общие сведения об инвентаризации программного обеспечения в System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-software-inventory.md).  
 
--   **Asset Intelligence**: Fornece ferramentas para recolher dados de inventário e monitorizar a utilização de licenças de software na sua empresa. Consulte [introdução ao Asset Intelligence no System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
+-   **Аналитика ресурсов-контейнеров.**Предоставляет средства для сбора данных инвентаризации и отслеживания использования лицензий на ПО в организации. См. статью [Общие сведения об аналитике активов в System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
 
-**Gestão de dispositivos móveis com o Microsoft Intune**  
+**Управление мобильными устройствами с помощью Microsoft Intune**  
 
- Pode utilizar o Configuration Manager para gerir iOS, Android (incluindo Samsung KNOX Standard), Windows Phone e dispositivos Windows com o serviço Microsoft Intune através da Internet.
+ Вы можете использовать Configuration Manager для управления устройствами iOS, Android (включая Samsung KNOX Standard), Windows Phone и Windows с помощью службы Microsoft Intune через Интернет.
 
- Apesar de utilizar o serviço do Intune, as tarefas de gestão são concluídas com a serviço ligação ponto função sistema de sites disponível através da consola do Configuration Manager. Consulte [gestão híbrida de dispositivos móveis (MDM) com o System Center Configuration Manager e o Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
+ Несмотря на использование службы Intune, задачи по управлению выполняются с помощью роли системы сайта подключения службы, доступной на консоли Configuration Manager. См. статью [Гибридное управление мобильными устройствами (MDM) с помощью System Center Configuration Manager и Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
- **Gestão de dispositivos móveis no local**  
+ **Локальное управление мобильными устройствами**  
 
- Inscreve e gere PCs e dispositivos móveis utilizando no local do Configuration Manager gestão e infraestrutura funcionalidades incorporadas nas plataformas de dispositivos (em vez de depender de um cliente do Configuration Manager instalado em separado). Atualmente, suporta a gestão de dispositivos Windows 10 Enterprise e Windows 10 Mobile. Consulte [gerir dispositivos móveis com a infraestrutura no local no System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+ Регистрирует компьютеры и мобильные устройства и управляет ими с помощью локальной инфраструктуры Configuration Manager и функций, встроенных в платформы устройств (не полагаясь на отдельно устанавливаемый клиент Configuration Manager). В настоящее время поддерживает управление устройствами Windows 10 Корпоративная и Windows 10 Mobile. См. статью [Управление мобильными устройствами с помощью локальной инфраструктуры в System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
- **Implementação do sistema operativo**  
+ **Развертывание операционной системы**  
 
- Fornece uma ferramenta para criar imagens do sistema operativo. Em seguida, pode utilizar estas imagens para implementar os sistemas operativos em computadores, através de PXE de arranque ou suportes de dados, tais como um conjunto de CD, DVD ou USB unidades flash. Tenha em atenção que isto aplica-se a computadores que são geridos pelo Configuration Manager, bem como computadores não geridos. Consulte [introdução à implementação do sistema operativo no System Center Configuration Manager](../../../osd/understand/introduction-to-operating-system-deployment.md).  
+ Предоставляет средство для создания образов операционных систем. Такие образы можно применять для развертывания операционных систем на компьютерах с использованием загрузки PXE или загрузочных носителей, например набора компакт-дисков, DVD-дисков или USB-накопителей. Обратите внимание на то, что это относится как к компьютерам под управлением Configuration Manager, так и к неуправляемым компьютерам. См. статью [Общие сведения о развертывании операционной системы в System Center Configuration Manager](../../../osd/understand/introduction-to-operating-system-deployment.md).  
 
- **Gestão de energia**  
+ **Управление питанием**  
 
- Fornece um conjunto de ferramentas e recursos que pode utilizar para gerir e monitorizar o consumo de energia dos computadores cliente na empresa. Consulte [introdução à gestão de energia no System Center Configuration Manager](../../../core/clients/manage/power/introduction-to-power-management.md).  
+ Предоставляет инструменты и ресурсы для мониторинга и управления энергопотреблением клиентских компьютеров в организации. См. статью [Общие сведения об управлении питанием в System Center Configuration Manager](../../../core/clients/manage/power/introduction-to-power-management.md).  
 
- **Consultas**  
+ **Запросы**  
 
- Fornece uma ferramenta para obter informações sobre os recursos da hierarquia e informações sobre os dados do inventário e as mensagens de estado. Em seguida, pode utilizar estas informações para relatórios ou para definir coleções de dispositivos ou utilizadores para definições de configuração e implementação de software. Consulte [introdução às consultas no System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md).  
+ Представляет собой средство для получения сведений о ресурсах в иерархии, а также информации о данных инвентаризации и сообщениях о состоянии. Эти сведения можно использовать для составления отчетов, а также для определения коллекций устройств или пользователей с целью развертывания программного обеспечения и настройки параметров конфигурации. См. статью [Общие сведения о запросах в System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md).  
 
- **Perfis de ligação remota**  
+ **Профили удаленного подключения**  
 
- Fornece um conjunto de ferramentas e recursos para ajudar a criar, implementar e monitorizar as definições de ligação remota para dispositivos na sua organização. Ao implementar estas definições, estará a minimizar o esforço necessário por parte dos utilizadores liguem aos seus computadores na rede empresarial. Consulte [trabalhar com perfis de ligação remota no System Center Configuration Manager](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
+ Обеспечивают набор средств и ресурсов, которые позволяют создавать, развертывать и отслеживать параметры удаленных подключений на устройствах в организации. Развертывание этих параметров упрощает подключение пользователей к их компьютерам в корпоративной сети. См. статью [Работа с профилями удаленного подключения в System Center Configuration Manager](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
 
- **Itens de configuração de perfis e dados do utilizador**  
+ **Элементы конфигурации данных и профилей пользователя**  
 
- Utilizador dados e perfis de itens de configuração no Configuration Manager contém definições que gerem o redirecionamento de pastas, ficheiros offline e perfis itinerantes em computadores que executam o Windows 8 e posterior para utilizadores na sua hierarquia. Consulte [trabalhar com dados e perfis de itens de configuração utilizador no System Center Configuration Manager](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
+ Элементы конфигурации данных и профилей пользователя в Configuration Manager содержат параметры, управляющие перенаправлением папок, автономными файлами и перемещаемыми профилями на компьютерах с Windows 8 и более поздней версии для пользователей вашей иерархии. См. статью [Работа с элементами конфигурации данных и профилей пользователя в System Center Configuration Manager](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
 
- **Controlo remoto**  
+ **Удаленное управление**  
 
- Fornece ferramentas para administrar remotamente computadores cliente da consola do Configuration Manager. Consulte [introdução ao controlo remoto no System Center Configuration Manager](../../../core/clients/manage/remote-control/introduction-to-remote-control.md).  
+ Предоставляет средства для удаленного администрирования клиентских компьютеров из консоли Configuration Manager. См. статью [Общие сведения об удаленном управлении в System Center Configuration Manager](../../../core/clients/manage/remote-control/introduction-to-remote-control.md).  
 
- **Relatórios**  
+ **Отчеты**  
 
- Fornece um conjunto de ferramentas e recursos que ajudam a utilizam as capacidades avançadas de relatórios do SQL Server Reporting Services na consola do Configuration Manager. Consulte [introdução aos relatórios no System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md).  
+ Включает набор средств и ресурсов, которые позволяют использовать функции расширенных отчетов SQL Server Reporting Services из консоли Configuration Manager. См. статью [Общие сведения о ведении отчетов в System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md).  
 
- **Medição de software**  
+ **Контроль за использованием программного обеспечения**  
 
- Fornece ferramentas para monitorizar e recolher dados de utilização de software dos clientes do Configuration Manager. Veja [Monitorizar a utilização da aplicação com a medição de software no System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+ Предоставляет средства мониторинга и сбора данных об использовании программного обеспечения на клиентах Configuration Manager. См. статью [Отслеживание применения приложений с помощью функции контроля использования программных продуктов в System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
- **Atualizações de software**  
+ **Обновления программного обеспечения**  
 
- Fornece um conjunto de ferramentas e recursos que podem ajudar a gerir, implementar e monitorizar atualizações de software na empresa. Consulte [introdução ao software atualizações no System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).  
+ Предоставляет набор средств и ресурсов, обеспечивающих управление обновлениями, их развертывание и отслеживание на предприятии. См. статью [Общие сведения об обновлениях программного обеспечения в System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).  

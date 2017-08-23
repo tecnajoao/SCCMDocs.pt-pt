@@ -1,6 +1,6 @@
 ---
-title: "Configurar a gestão de energia | Microsoft Docs"
-description: "Configure a gestão de energia no System Center Configuration Manager."
+title: "Настройка управления питанием | Документы Майкрософт"
+description: "Настройка функций управления питанием в System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,70 +17,70 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: e111ac2545dd9e0b96a50c10246bb75d286a737a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuring-power-management-in-system-center-configuration-manager"></a>Configurar a gestão de energia no System Center Configuration Manager
+# <a name="configuring-power-management-in-system-center-configuration-manager"></a>Настройка функций управления питанием в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Antes de poder utilizar a gestão de energia no System Center Configuration Manager, tem de efetuar os seguintes passos de configuração.  
+Прежде чем вы сможете использовать функции управления питанием в System Center Configuration Manager, необходимо выполнить следующие действия по настройке.  
 
-## <a name="enable-and-configure-power-management-client-settings"></a>Ativar e configurar as definições de cliente de gestão de energia  
- Este procedimento configura as predefinições de cliente para a gestão de energia e aplica-se a todos os computadores na sua hierarquia. Se pretender que estas definições se apliquem apenas a alguns computadores, crie uma definição personalizada do cliente do dispositivo e atribua-a a uma coleção que contenha os computadores que pretende que utilizem gestão de energia. Para obter mais informações sobre como criar definições personalizadas de dispositivos, consulte [como configurar as definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+## <a name="enable-and-configure-power-management-client-settings"></a>Включение и настройка параметров клиента, связанных с управлением питанием  
+ В ходе этой процедуры выполняется настройка стандартных параметров клиента для управления питанием и их применение ко всем компьютерам в иерархии. Если эти параметры требуется применить только к некоторым компьютерам, создайте настраиваемые параметры клиентского устройства и назначьте их коллекции, которая содержит необходимые компьютеры. Дополнительные сведения о создании настраиваемых параметров устройства см. в разделе [Настройка параметров клиента в System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
-#### <a name="to-enable-power-management-and-configure-client-settings"></a>Para ativar a gestão de energia e configurar as definições de cliente  
+#### <a name="to-enable-power-management-and-configure-client-settings"></a>Включение управления питанием и настройка параметров клиента  
 
-1.  Na consola do Configuration Manager, clique em **Administração**.  
+1.  В консоли Configuration Manager щелкните **Администрирование**.  
 
-2.  Na área de trabalho **Administração** , clique em **Definições do Cliente**.  
+2.  В рабочей области **Администрирование** щелкните **Параметры клиентов**.  
 
-3.  Clique em **Predefinições de Cliente**.  
+3.  Выберите **Параметры клиента по умолчанию**.  
 
-4.  No separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.  
+4.  На вкладке **Главная** в группе **Свойства** нажмите кнопку **Свойства**.  
 
-5.  Na caixa de diálogo **Predefinições de Cliente** , clique em **Gestão de Energia**.  
+5.  В диалоговом окне **Параметры клиента по умолчанию** нажмите кнопку **Управление питанием**.  
 
-6.  Configure o seguinte valor para as definições de cliente de gestão de energia:  
+6.  Задайте следующее значение для параметра клиента, связанного с управлением питанием:  
 
-    -   **Permitir gestão de energia dos dispositivos** – Na lista pendente, selecione **Verdadeiro** para ativar a gestão de energia.  
+    -   **Разрешить управление питанием устройств** — в раскрывающемся списке выберите значение **Да** , чтобы включить управление питанием;  
 
-7.  Configure as definições de cliente de que necessita. Para obter uma lista de definições de cliente de gestão de energia que pode configurar, consulte o [gestão de energia](../../../../core/clients/deploy/about-client-settings.md#power-management) secção o [sobre definições de cliente no System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) tópico.  
+7.  Настройте требуемые параметры клиента. Список параметров клиента, связанных с управлением питанием, которые вы можете настроить, см. в подразделе [Управление питанием](../../../../core/clients/deploy/about-client-settings.md#power-management) раздела [Сведения о параметрах клиента в System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md).  
 
-8.  Clique em **OK** para fechar a caixa de diálogo **Predefinições de Cliente** .  
+8.  Нажмите кнопку **ОК** , чтобы закрыть диалоговое окно **Параметры клиента по умолчанию** .  
 
- Os computadores cliente serão configurados com estas definições na próxima vez que transferirem a política de cliente. Para iniciar a obtenção da política para um único cliente, veja [Como gerir clientes no System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+ Заданные параметры будут применены к клиентским компьютерам при следующей загрузке политики клиента. Сведения о запуске получения политики для отдельного клиента см. в разделе [Управление клиентами в System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
 
-## <a name="exclude-computers-from-power-management"></a>Excluir computadores da gestão de energia  
- Pode impedir que as coleções de computadores recebam definições de gestão de energia. Se um computador for membro de qualquer coleção excluída das definições de gestão de energia, esse computador não aplica definições de gestão de energia, mesmo que seja membro de outra coleção que aplique definições de gestão de energia.  
+## <a name="exclude-computers-from-power-management"></a>Исключение компьютеров из управления питанием  
+ Можно запретить получение коллекциями компьютеров параметров управления питанием. Если компьютер является членом любой коллекции, исключенной из получателей параметров управления питанием, к нему не применяется схема управления питанием, даже если он входит в другую коллекцию, к которой такие схемы применяются.  
 
- Pode pretender excluir computadores da gestão de energia por qualquer uma das seguintes razões:  
+ Компьютеры может потребоваться исключить из схемы управления питанием по следующим причинам.  
 
--   Tem um requisito comercial para os computadores estarem sempre ligados.  
+-   Возможно наличие бизнес-требований, предполагающих, что компьютеры должны быть все время включены.  
 
--   Criou uma coleção de controlo dos computadores na qual não pretende aplicar definições de gestão de energia.  
+-   Можно создать контрольную коллекцию компьютеров, к которым не требуется применять параметры управления питанием.  
 
--   Alguns dos computadores não podem aplicar definições de gestão de energia.  
+-   Некоторые компьютеры не способны использовать параметры управления питанием.  
 
--   Pretende excluir computadores que executem o Windows Server da gestão de energia.  
+-   Необходимо исключить компьютеры под управлением Windows Server из получателей параметров управления питанием.  
 
 > [!NOTE]  
->  Se a opção **Permitir que os utilizadores excluam o seu dispositivo da gestão de energia** estiver configurada nas definições de cliente, os utilizadores podem excluir os seus próprios computadores da gestão de energia através do Centro de Software.  
+>  Если в параметрах клиентах установлен флажок **Разрешить пользователям исключить это устройство из схемы управления питанием** , пользователи могут исключить свои компьютеры из схем управления питанием с помощью центра программного обеспечения.  
 
- Para saber quais os computadores que foram excluídos da gestão de energia, execute o relatório **Computadores Excluídos**. Para obter mais informações sobre este relatório consulte [computadores excluídos](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Excluded) no [como monitorizar e planear a gestão de energia no System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
+ Чтобы выяснить, какие компьютеры исключены из управления питанием, запустите отчет **Исключенные компьютеры**. Дополнительные сведения об этом отчете см. в подразделе [Исключенные компьютеры](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Excluded) раздела [Отслеживание и планирование управления питанием в System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
 
 > [!IMPORTANT]  
->  As definições de energia aplicadas a computadores que executam o Windows XP ou o Windows Server 2003 não são revertidas para os valores originais, mesmo que exclua o computador da gestão de energia. Em versões posteriores do Windows, excluir um computador da gestão de energia faz com que todas as definições de energia sejam revertidas para os valores originais. Não é possível reverter as definições de energia individuais para os valores originais.  
+>  Параметры управления питанием, примененные к компьютерам под управлением Windows XP или Windows Server 2003, не будут возвращены к исходным значениям даже после исключения компьютера из списка получения параметров управления питанием. В более поздних версиях Windows исключение компьютера из получателей параметров управления питанием приводит к возврату параметров к исходным значениям. Нельзя вернуть исходные значения только для некоторых параметров управления питанием.  
 
-#### <a name="to-exclude-a-collection-of-computers-from-power-management"></a>Para excluir uma coleção de computadores da gestão de energia  
+#### <a name="to-exclude-a-collection-of-computers-from-power-management"></a>Исключение коллекции компьютеров из получателей параметров управления питанием  
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.  
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.  
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Coleções de Dispositivos**.  
+2.  В рабочей области **Активы и соответствие** щелкните **Коллекции устройств**.  
 
-3.  Na lista **Coleções de Dispositivos** , selecione a coleção que pretende excluir da gestão de energia e, no separador **Base** , no grupo **Propriedades** , clique em **Propriedades**.  
+3.  В списке **Коллекции устройств** выберите коллекцию, которую требуется исключить из управления питанием, затем на вкладке **Главная** в группе **Свойства** щелкните элемент **Свойства**.  
 
-4.  No **gestão de energia** separador do *< nome da coleção\>***propriedades** caixa de diálogo, selecione **nunca aplicar as definições de gestão de energia aos computadores desta coleção**.  
+4.  На вкладке **Управление питанием** окна *Свойства <имя коллекции\>***** установите флажок **Не применять параметры управления питанием к компьютерам в этой коллекции**.  
 
-5.  Clique em **OK** para fechar o *< nome da coleção\>***propriedades** caixa de diálogo e guardar as definições.  
+5.  Нажмите кнопку **ОК**, чтобы закрыть окно *Свойства <имя коллекции\>*****  и сохранить параметры.  

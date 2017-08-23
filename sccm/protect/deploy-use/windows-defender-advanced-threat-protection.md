@@ -1,6 +1,6 @@
 ---
-title: O Windows Defender Advanced Threat Protection | Microsoft Docs
-description: "Saiba como gerir e monitorizar o Windows Defender avançadas Threat Protection, um novo serviço que ajuda as empresas responder a ataques avançados."
+title: "Advanced Threat Protection в Защитнике Windows | Документы Майкрософт"
+description: "Сведения о мониторинге Advanced Threat Protection в Защитнике Windows и управлении этой новой службой, которая помогает предприятиям реагировать на атаки повышенной сложности."
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
@@ -16,99 +16,99 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 6c3b67278fa587c137a29e174e277fb0f15872c8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="windows-defender-advanced-threat-protection"></a>O Windows Defender Advanced Threat Protection
+# <a name="windows-defender-advanced-threat-protection"></a>Advanced Threat Protection в Защитнике Windows
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-A partir da versão 1606 do Configuration Manager (ramo atual), Endpoint Protection pode ajudar a gerir e monitorizar o Windows Defender Advanced Threat Protection (ATP. Windows Defender ATP é um novo serviço que o irão ajudar as empresas para detetar, analisar e responder a ataques avançados nas respetivas redes.  Saiba mais sobre [Windows Defender ATP](http://aka.ms/technet-wdatp). Políticas do Gestor de configuração podem ajudá-lo com a sua integração e monitor geridos Windows 10, versão 1607 (criar 14328) ou posterior.
+Начиная с Configuration Manager версии 1606 (Current Branch) Endpoint Protection помогает отслеживать службу Advanced Threat Protection (ATP) в Защитнике Windows и управлять ею. ATP в Защитнике Windows представляет собой новую службу, с помощью которой предприятия могут обнаруживать, исследовать атаки повышенной сложности и реагировать на них в своих сетях.  Узнайте больше об [ATP в Защитнике Windows](http://aka.ms/technet-wdatp). Политики Configuration Manager помогут вам подключить управляемую ОС Windows 10 версии 1607 (сборка 14328) или более поздние версии и вести за ней наблюдение.
 
-Windows Defender ATP é um serviço no [Centro de segurança do Windows](https://securitycenter.windows.com). Ao adicionar e implementar um ficheiro de configuração de integração do cliente, o Configuration Manager pode monitorizar o estado de implementação e funcionamento de agente do Windows Defender ATP. Windows Defender ATP só é suportada em computadores que executam o cliente do Configuration Manager. Gestão de dispositivos móveis no local e a computadores de geridos por MDM híbrida do Intune não são suportados.
+Служба ATP в Защитнике Windows доступна в [центре обеспечения безопасности](https://securitycenter.windows.com). После добавления и развертывания файла конфигурации подключения клиента Configuration Manager может отслеживать состояние развертывания и состояние работоспособности агента ATP в Защитнике Windows. Служба ATP в Защитнике Windows поддерживается только на компьютерах под управлением клиента Configuration Manager. Локальное управление мобильными устройствами и компьютеры с гибридным управлением MDM в Intune не поддерживаются.
 
- **Pré-requisitos**  
+ **Предварительные требования**  
 
--   Subscrição do serviço online do Windows Defender Advanced Threat Protection  
--   Computadores de clientes com o Windows 10, versão 1607 e posterior  
--   Computadores de clientes com a versão do Configuration Manager 1610 ou posterior do agente do cliente
+-   Подписка на веб-службу Advanced Threat Protection в Защитнике Windows  
+-   Клиентские компьютеры под управлением Windows 10 версии 1607 и выше  
+-   Клиентские компьютеры под управлением Configuration Manager версии 1610 или более поздней версии агента клиента
 
-## <a name="how-to-create-an-onboarding-configuration-file"></a>Como criar um ficheiro de configuração de integração  
+## <a name="how-to-create-an-onboarding-configuration-file"></a>Создание файла конфигурации подключения  
 
- 1.  Início de sessão para o [serviço online do Windows Defender ATP](https://securitycenter.windows.com/)   
+ 1.  Войдите в [веб-службу ATP в Защитнике Windows](https://securitycenter.windows.com/).   
 
- 2.  Clique em de **Endpoint gestão** item de menu.  
+ 2.  Выберите пункт меню **Управление конечными точками**.  
 
- 3.  Selecione **System Center Configuration Manager (ramo atual) versão 1606** e clique em **pacote de transferência**.  
+ 3.  Выберите **System Center Configuration Manager (Current Branch) версии 1606** и нажмите кнопку **Скачать пакет**.  
 
- 4.  Transfira o ficheiro de arquivo comprimido (. zip) e extraia os conteúdos.
-
-> [!IMPORTANT]
-> O ficheiro de configuração do Windows Defender ATP contém informações confidenciais que devem ser mantidas seguras.
-
-## <a name="onboard-devices-for-windows-defender-atp"></a>Carregar dispositivos para o Windows Defender ATP  
-
-1.  Na consola do Configuration Manager, navegue **ativos e compatibilidade** > **descrição geral** > **Endpoint Protection** > **Windows Defender ATP políticas** e clique em **criar Windows Defender ATP Policy**. É aberto o Assistente de política do Windows Defender ATP.  
-
-2.  Tipo de **nome** e **Descrição** para o Windows Defender ATP policy selecione **integração**. Clique em **Seguinte**.  
-
-3.  **Procurar** para o ficheiro de configuração fornecido pelo inquilino de serviço de nuvem de Windows Defender ATP da sua organização. Clique em **Seguinte**.  
-
-4.  Especifique os exemplos de ficheiros que são recolhidos e partilhados a partir dos dispositivos geridos para análise.  
-
-    -   **Nenhum**   
-
-    -   **Todos os tipos de ficheiro**  
-
-     Clique em **Seguinte**.  
-
-5.  Reveja o resumo e conclua o assistente.  
-
-6.  Agora pode implementar a política Windows Defender ATP para os computadores cliente geridos clicando **implementar**.  
-
-## <a name="monitor-windows-defender-atp"></a>Monitorizar o Windows Defender ATP  
-
-1.  Na consola do Configuration Manager, navegue **monitorização** > **descrição geral** > **segurança** e, em seguida, clique em **Windows Defender ATP**.  
-
-2.  Reveja o dashboard do Windows Defender Advanced Threat Protection.  
-
-    -   **Estado de implementação de agente do Windows Defender** – o número e a percentagem de computadores elegíveis cliente gerido com o Active Directory integrado de política Windows Defender ATP  
-
-    -   **Estado de funcionamento do agente do Windows Defender ATP** – percentagem de clientes de computador a comunicar o estado para os respetivos agente do Windows Defender ATP  
-
-        -   **Bom estado de funcionamento** -a funcionar corretamente  
-
-        -   **Inativa** -não existem dados enviados ao serviço durante o período de tempo  
-
-        -   **Estado do agente** -o serviço de sistema para o agente do Windows não está em execução  
-
-        -   **Não integrado** - foi aplicada a política, mas o agente não comunicou carregar política  
-
-
-## <a name="how-to-create-and-deploy-an-offboarding-configuration-file"></a>Como criar e implementar um ficheiro de configuração de exclusão  
-
-1.  Início de sessão para o [serviço online do Windows Defender ATP](https://securitycenter.windows.com/)   
-
-2.  Clique em de **Endpoint gestão** item de menu.  
-
-3.  Selecione **System Center Configuration Manager (ramo atual) versão 1606** e clique em **exclusão de ponto final**.  
-
-4.  Transfira o ficheiro de arquivo comprimido (. zip) e extraia os conteúdos. Exclusão de ficheiros são válidos durante 30 dias.
-
-5.  Na consola do Configuration Manager, navegue **ativos e compatibilidade** > **descrição geral** > **Endpoint Protection** > **Windows Defender ATP políticas** e clique em **criar Windows Defender ATP Policy**. É aberto o Assistente de política do Windows Defender ATP.  
-
-6.  Tipo de **nome** e **Descrição** para o Windows Defender ATP policy selecione **exclusão**. Clique em **Seguinte**.  
-
-7.  **Procurar** para o ficheiro de configuração fornecido pelo inquilino de serviço de nuvem de Windows Defender ATP da sua organização. Clique em **Seguinte**.  
-
-8.  Reveja o resumo e conclua o assistente.  
-
-9.  Agora pode implementar a política Windows Defender ATP para os computadores cliente geridos clicando **implementar**.  
+ 4.  Скачайте сжатый файл архива (ZIP-файл) и извлеките его содержимое.
 
 > [!IMPORTANT]
-> Os ficheiros de configuração do Windows Defender ATP contém informações confidenciais que devem ser mantidas seguras.
+> Файл конфигурации ATP в Защитнике Windows содержит конфиденциальные сведения, которые должны быть защищены.
 
-[Proteção Avançada Contra Ameaças do Windows Defender](https://technet.microsoft.com/itpro/windows/keep-secure/windows-defender-advanced-threat-protection)
+## <a name="onboard-devices-for-windows-defender-atp"></a>Подключение устройств для ATP в Защитнике Windows  
 
-[Resolver problemas de integração do Windows Defender Advanced Threat Protection](https://technet.microsoft.com/itpro/windows/keep-secure/troubleshoot-onboarding-windows-defender-advanced-threat-protection)
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Обзор** > **Endpoint Protection** > **Политики ATP в Защитнике Windows** и щелкните **Создать политику Windows Defender ATP**. Откроется мастер политики ATP в Защитнике Windows.  
+
+2.  Укажите значения в полях **Имя** и **Описание** для политики ATP в Защитнике Windows и выберите **Подключение**. Нажмите кнопку **Далее**.  
+
+3.  **Найдите** файл конфигурации, предоставленный клиентом облачной службы ATP в Защитнике Windows вашей организации. Нажмите кнопку **Далее**.  
+
+4.  Укажите образцы файлов, которые собираются и совместно используются с управляемых устройств для анализа.  
+
+    -   **Нет**   
+
+    -   **Все типы файлов**  
+
+     Нажмите кнопку **Далее**.  
+
+5.  Просмотрите сводные данные и завершите работу мастера.  
+
+6.  Теперь можно развернуть политику ATP в Защитнике Windows на клиентских компьютерах, щелкнув **Развернуть**.  
+
+## <a name="monitor-windows-defender-atp"></a>Мониторинг ATP в Защитнике Windows  
+
+1.  В консоли Configuration Manager последовательно выберите **Мониторинг** > **Обзор** > **Безопасность** и щелкните **ATP в Защитнике Windows**.  
+
+2.  Просмотрите сведения на панели мониторинга Advanced Threat Protection в Защитнике Windows.  
+
+    -   **Состояние развертывания агента Защитника Windows** — количество и процент соответствующих управляемых клиентских компьютеров с активной включенной политикой ATP в Защитнике Windows.  
+
+    -   **Состояние работоспособности агента ATP в Защитнике Windows** — процент клиентских компьютеров, сообщающих о состоянии агента ATP в Защитнике Windows.  
+
+        -   **Работоспособно** — работает должным образом.  
+
+        -   **Неактивно** — в течение определенного периода времени данные в службу не отправляются.  
+
+        -   **Состояние агента** — системная служба для агента в Windows не запущена.  
+
+        -   **Не подключено** — политика была применена, но агент не сообщил о ее подключении.  
+
+
+## <a name="how-to-create-and-deploy-an-offboarding-configuration-file"></a>Создание и развертывание файла конфигурации отключения  
+
+1.  Войдите в [веб-службу ATP в Защитнике Windows](https://securitycenter.windows.com/).   
+
+2.  Выберите пункт меню **Управление конечными точками**.  
+
+3.  Выберите **System Center Configuration Manager (Current Branch) версии 1606** и нажмите кнопку **Отключение конечной точки**.  
+
+4.  Скачайте сжатый файл архива (ZIP-файл) и извлеките его содержимое. Файлы отключения действуют в течение 30 дней.
+
+5.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Обзор** > **Endpoint Protection** > **Политики ATP в Защитнике Windows** и щелкните **Создать политику Windows Defender ATP**. Откроется мастер политики ATP в Защитнике Windows.  
+
+6.  Укажите значения в полях **Имя** и **Описание** для политики ATP в Защитнике Windows и выберите **Подключение**. Нажмите кнопку **Далее**.  
+
+7.  **Найдите** файл конфигурации, предоставленный клиентом облачной службы ATP в Защитнике Windows вашей организации. Нажмите кнопку **Далее**.  
+
+8.  Просмотрите сводные данные и завершите работу мастера.  
+
+9.  Теперь можно развернуть политику ATP в Защитнике Windows на клиентских компьютерах, щелкнув **Развернуть**.  
+
+> [!IMPORTANT]
+> Файлы конфигурации ATP в Защитнике Windows содержат конфиденциальные сведения, которые должны быть защищены.
+
+[Advanced Threat Protection в Защитнике Windows](https://technet.microsoft.com/itpro/windows/keep-secure/windows-defender-advanced-threat-protection)
+
+[Устранение неполадок с переходом на Advanced Threat Protection в Защитнике Windows](https://technet.microsoft.com/itpro/windows/keep-secure/troubleshoot-onboarding-windows-defender-advanced-threat-protection)

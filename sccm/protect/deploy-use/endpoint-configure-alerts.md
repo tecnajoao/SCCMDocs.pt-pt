@@ -1,6 +1,6 @@
 ---
-title: Configurar alertas do Endpoint Protection | Microsoft Docs
-description: Saiba como configurar alertas do Endpoint Protection no System Center Configuration Manager.
+title: "Настройка оповещений Endpoint Protection | Документация Майкрософт"
+description: "Информация о настройке оповещений Endpoint Protection в System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/23/2017
 ms.prod: configuration-manager
@@ -16,86 +16,86 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 7f4329b289b606dee5bf31aad8207de52667229f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Configurar alertas para o Endpoint Protection no Configuration Manager
+#  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Настройка оповещений для Endpoint Protection в Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
- Pode configurar alertas do Endpoint Protection no Microsoft System Center Configuration Manager para notificar os utilizadores administrativos quando ocorrem eventos específicos, como uma infeção de software maligno na sua hierarquia. As notificações são apresentadas no dashboard do Endpoint Protection na consola do Configuration Manager no **alertas** o nó do **monitorização** área de trabalho, ou podem ser enviados por e-mail para os utilizadores especificados.
+ Вы можете настроить оповещения Endpoint Protection в Microsoft System Center Configuration Manager для уведомления администраторов о наступлении определенных событий в иерархии, например о заражении вредоносными программами. Уведомления выводятся на панели мониторинга Endpoint Protection в консоли Configuration Manager в узле **Оповещения** рабочей области **Наблюдение** или могут отправляться по электронной почте определенным пользователям.
 
- Utilize os seguintes passos e os procedimentos suplementares descritos neste tópico para configurar alertas para o Endpoint Protection no Configuration Manager.
+ Ниже приведены этапы и дополнительные процедуры по настройке оповещений для Endpoint Protection в Configuration Manager.
 
 > [!IMPORTANT]
->  Tem de ter o **impor segurança** permissão para coleções para configurar alertas do Endpoint Protection.
+>  Для настройки оповещений Endpoint Protection требуется разрешение **Принудительно применить параметры безопасности** для коллекций.
 
-## <a name="steps-to-configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Passos para configurar alertas para o Endpoint Protection no Configuration Manager
+## <a name="steps-to-configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Этапы настройки оповещений для Endpoint Protection в Configuration Manager
 
-1.  Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
+1.  В консоли Configuration Manager щелкните элемент **Активы и соответствие**.
 
-2.  Na área de trabalho **Ativos e Compatibilidade** , clique em **Coleções de Dispositivos**.
+2.  В рабочей области **Активы и соответствие** щелкните **Коллекции устройств**.
 
-3.  Na lista **Coleções de Dispositivos** , selecione a coleção para a qual pretende configurar alertas e, no separador **Home Page** , no grupo **Propriedades** , clique em **Propriedades**.
-
-    > [!NOTE]
-    >  Não é possível configurar alertas de coleções de utilizadores.
-
-4.  No **alertas** separador do *< nome da coleção\>***propriedades** caixa de diálogo, selecione **ver esta coleção no dashboard do Endpoint Protection** se pretender ver detalhes sobre operações antimalware relativas a esta coleção no **monitorização** área de trabalho da consola do Configuration Manager.
+3.  В списке **Коллекции устройств** выберите коллекцию, для которой требуется настроить оповещения, затем на вкладке **Главная** в группе **Свойства** щелкните элемент **Свойства**.
 
     > [!NOTE]
-    >  Esta opção não está disponível para a coleção **Todos os Sistemas** .
+    >  Для коллекций пользователей оповещения настроить нельзя.
 
-5.  No **alertas** separador do *< nome da coleção\>***propriedades** caixa de diálogo, clique em **adicionar**.
+4.  На вкладке **Оповещения** диалогового окна *Свойства***<имя_коллекции\>** выберите **Просмотреть эту коллекцию на панели мониторинга Endpoint Protection**, если требуется просмотреть сведения об операциях защиты от вредоносных программ для данной коллекции в рабочей области **Наблюдение** консоли Configuration Manager.
 
-6.  No **adicionar novos alertas da coleção** caixa de diálogo a **gerar um alerta quando estas condições se aplicarem** secção, selecione os alertas que pretende que o Configuration Manager para gerar quando ocorrem eventos de Endpoint Protection especificados e, em seguida, clique em **OK**.
+    > [!NOTE]
+    >  Этот параметр недоступен для коллекции **Все системы** .
 
-7.  No **condições** lista do **alertas** separador, selecione cada alerta de Endpoint Protection e, em seguida, especifique as seguintes informações:
+5.  На вкладке **Оповещения** в диалоговом окне *Свойства***<имя коллекции\>** нажмите кнопку **Добавить**.
 
-    -   **Nome do alerta** - aceite o nome predefinido ou introduza um novo nome para o alerta.
+6.  В диалоговом окне **Добавить новые оповещения коллекций** в разделе **Создавать оповещение при выполнении следующих условий** выберите оповещения, которые Configuration Manager будет создавать при возникновении указанных событий Endpoint Protection, а затем нажмите кнопку **ОК**.
 
-    -   **Gravidade do alerta** - na lista, selecione o nível de alerta a apresentar na consola do Configuration Manager.
+7.  В списке **Условия** на вкладке **Оповещения** выберите каждое оповещение Endpoint Protection, а затем укажите приведенные ниже сведения.
 
-8.  Dependendo do alerta que selecionar, especifique as seguintes informações adicionais:
+    -   **Имя оповещения** — примите имя по умолчанию или введите новое имя оповещения.
 
-    -   **Deteção de software maligno** -este alerta é gerado se for detetado software maligno em qualquer computador na coleção que monitoriza. O **limiar de deteção de software maligno** Especifica os níveis de deteção de software maligno em que este alerta é gerado:
+    -   **Серьезность предупреждения** — в списке выберите уровень оповещения для отображения в консоли Configuration Manager.
 
-        -   **Elevado - todas as deteções** -o alerta é gerado quando existe um ou mais computadores na coleção especificada nos quais qualquer software maligno é detetado, independentemente da ação demora o cliente do Endpoint Protection.
+8.  В зависимости от выбранного оповещения укажите следующие дополнительные сведения:
 
-        -   **Médio – detetado, ação pendente** - o alerta é gerado quando existe um ou mais computadores na coleção especificada nos quais é detetado software maligno, e tem de remover manualmente o software maligno.
+    -   **Обнаружение вредоносных программ** — это оповещение создается при обнаружении вредоносной программы на любом компьютере в отслеживаемой коллекции. **Порог обнаружения вредоносных программ** — указывает уровни обнаружения вредоносных программ, при которых создается это оповещение.
 
-        -   **Baixa – detetado, ainda ativo** -o alerta é gerado quando existe um ou mais computadores na coleção especificada que software maligno é detetado e ainda está ativo.
+        -   **Высокий — все обнаружения**: оповещение создается, если вредоносные программы обнаружены на одном или нескольких компьютерах в указанной коллекции, независимо от действий, предпринятых клиентом Endpoint Protection.
 
-    -   **Surto de software maligno** -este alerta é gerado se for especificada é detetado software maligno numa percentagem especificada de computadores na coleção que monitoriza.
+        -   **Средний — обнаружено, ожидается действие**: оповещение создается, если вредоносные программы обнаружены на одном или нескольких компьютерах в указанной коллекции и требуется удалить вредоносные программы вручную.
 
-        -   **Percentagem de computadores com software maligno detetado** -o alerta é gerado quando a percentagem de computadores com software maligno detetado na coleção excede a percentagem que especificar. Especifique uma percentagem de **1** a **99**.
+        -   **Низкий — обнаружено, активно**: оповещение создается, если вредоносные программы обнаружены на одном или нескольких компьютерах в указанной коллекции и они все еще активны.
+
+    -   **Эпидемия вредоносных программ**: это оповещение создается при обнаружении заданной вредоносной программы на заданном числе компьютеров (значение указывается в процентах) в отслеживаемой коллекции.
+
+        -   **Доля компьютеров, на которых обнаружены вредоносные программы**: это оповещение создается, когда доля компьютеров коллекции, на которых обнаружены вредоносные программы, превышает указанное значение. Укажите значение в процентах от **1** до **99**.
 
             > [!NOTE]
-            >  O valor de percentagem baseia-se no número de computadores na coleção, mas exclui os computadores que não tenham um cliente de Configuration Manager instalado. Inclui computadores que ainda não tenham o cliente do Endpoint Protection instalado.
+            >  Процентное значение зависит от числа компьютеров в коллекции, но не охватывает компьютеры, на которых не установлен клиент Configuration Manager. Оно включает компьютеры, на которых еще не установлен клиент Endpoint Protection.
 
-    -   **Deteção de software maligno repetido** -este alerta é gerado se for detetado software maligno específico mais de um número especificado de vezes ao longo de um número especificado de horas nos computadores na coleção que monitoriza. Especifique as seguintes informações para configurar este alerta:
+    -   **Повторное обнаружение вредоносных программ**: это оповещение создается при обнаружении вредоносной программы больше, чем указанное число раз, за указанный период (в часах) на компьютерах в отслеживаемой коллекции. Для настройки данного оповещения укажите следующие сведения.
 
-        -   **Número de vezes que o software maligno foi detetado:** - O alerta é gerado quando o mesmo software maligno for detetado em computadores na coleção mais do que o número de vezes especificado. Especifique um número de **2** a **32**.
+        -   **Количество обнаружений вредоносных программ** : оповещение создается, когда одна и та же вредоносная программа обнаруживается на компьютерах в коллекции больше заданного числа раз. Укажите значение от **2** до **32**.
 
-        -   **Intervalo de deteção (horas):** Especifique o intervalo de deteção (em horas) em que o número de deteções de software maligno tem de ocorrer. Especifique um número de **1** a **168**.
+        -   **Интервал обнаружения (в часах)** : укажите интервал (в часах) для указанного числа обнаружений вредоносных программ. Укажите значение от **1** до **168**.
 
-    -   **Deteção de software maligno de vários** - este alerta é gerado se mais do que um número especificado de tipos de software maligno é detetado através de um número especificado de horas nos computadores na coleção que monitoriza. Especifique as seguintes informações para configurar este alerta:
+    -   **Обнаружение нескольких типов вредоносных программ**: это оповещение создается, если число типов вредоносных программ, обнаруженных на компьютерах в отслеживаемой коллекции, превышает заданное ограничение в течение заданного времени. Для настройки данного оповещения укажите следующие сведения.
 
-        -   **Número de tipos de software maligno detetado:** O alerta é gerado quando o número especificado de tipos de outro software maligno for detetado nos computadores na coleção. Especifique um número de **2** a **32**.
+        -   **Число типов обнаруженных вредоносных программ** : оповещение создается, когда на компьютерах коллекции обнаруживается заданное число разных типов вредоносных программ. Укажите значение от **2** до **32**.
 
-        -   **Intervalo de deteção (horas):** Especifique o intervalo de deteção, em horas, em que o número de deteções de software maligno tem de ocorrer. Especifique um número de **1** a **168**.
+        -   **Интервал обнаружения (в часах)** : укажите интервал (в часах) для указанного числа обнаружений вредоносных программ. Укажите значение от **1** до **168**.
 
-9. Clique em **OK** para fechar o *< nome da coleção\>***propriedades** caixa de diálogo.  
+9. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно *Свойства***<имя коллекции\>**.  
 
-## <a name="alert-for-outdated-malware-client"></a>Alerta de cliente de software maligno Desatualizadas
+## <a name="alert-for-outdated-malware-client"></a>Оповещение об устаревшем клиенте защиты от вредоносных программ
 
-A partir do Configuration Manager versão 1702, pode configurar um alerta para garantir que os clientes de Endpoint Protection não estão desatualizados. Agora, pode ver **versão de cliente Antimalware** e **estado de implementação do Endpoint Protection** acedendo **ativos e compatibilidade** > **descrição geral** > **dispositivos** > **todos os ambientes de trabalho e a servir clientes**. Verificar a existência de um alerta, ver **alertas** no **monitorização** área de trabalho. Se mais de 20% dos clientes geridos estão em execução uma versão do antimalware software expirada, a versão de cliente Antimalware está desactualizada é apresentado o alerta. Este alerta não aparecer no **monitorização** > **descrição geral** separador. Para atualizar os clientes de antimalware expirada, ative atualizações de software para clientes de antimalware.
+В Configuration Manager, начиная с версии 1702, можно настроить оповещение об устаревших клиентах Endpoint Protection. Теперь можно просмотреть **версию клиента защиты от вредоносных программ** и **состояние развертывания Endpoint Protection**, последовательно выбрав **Активы и соответствие** > **Обзор** > **Устройства** > **Все клиенты — настольные компьютеры и серверы**. Чтобы проверить наличие оповещения, откройте узел **Оповещения** в рабочей области **Мониторинг**. Если версия антивирусного ПО с истекшим сроком действия работает на более 20 % управляемых клиентах, выводится оповещение об устаревшей версии этого ПО. Это оповещение не отображается на вкладке **Мониторинг** > **Обзор**. Чтобы обновить клиенты защиты от вредоносных программ с истекшим сроком действия, включите для этих клиентов обновления программного обеспечения.
 
-Para configurar a percentagem em que o alerta é gerado, expanda **monitorização** > **alertas** > **todos os alertas**, faça duplo clique em **Antimalware clientes desatualizados** e modificar o **emitir um alerta se a percentagem de clientes geridos com uma versão desatualizada do cliente antimalware é mais do que** opção.
-
-> [!div class="button"]
-[Passo seguinte >](endpoint-definition-updates.md)
+Чтобы настроить значение процента, по достижении которого формируется оповещение, разверните узлы **Мониторинг** > **Оповещения** > **Все оповещения**, дважды щелкните **Устаревшие клиенты защиты от вредоносных программ** и измените значение параметра **Создавать оповещение, если процент управляемых клиентов с устаревшей версией клиента защиты от вредоносных программ превышает**.
 
 > [!div class="button"]
-[Volta >](endpoint-protection-site-role.md)
+[Следующий этап >](endpoint-definition-updates.md)
+
+> [!div class="button"]
+[Назад >](endpoint-protection-site-role.md)

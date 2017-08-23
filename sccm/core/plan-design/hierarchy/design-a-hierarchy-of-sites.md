@@ -1,191 +1,187 @@
 ---
-title: Criar uma hierarquia de site - Configuration Manager | Microsoft Docs
-description: "Compreenda as topologias disponíveis e as opções de gerenciamento do System Center Configuration Manager para que possa planejar a hierarquia de sites."
+title: "Проектирование иерархии сайтов Configuration Manager | Документы Майкрософт"
+description: "Сведения о доступных топологиях и вариантах управления, позволяющие спланировать иерархию сайтов System Center Configuration Manager."
 ms.custom: na
 ms.date: 6/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 07ce872e-1558-42ad-b5ad-582c5b1bdbb4
-caps.latest.revision: 22
-caps.handback.revision: 0
+caps.latest.revision: "22"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: db673277d1cc2d24e8dba2439b2b1891c883ebd0
 ms.openlocfilehash: 4710b1b89eb50cb7bcf4c4ee50c12a96b6561bc9
-ms.contentlocale: pt-pt
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Estruturar uma hierarquia de sites do System Center Configuration Manager
+# <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Разработка иерархии сайтов для System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Antes de instalar o primeiro site de uma nova hierarquia do System Center Configuration Manager, é uma boa ideia para entender as topologias disponíveis para o Configuration Manager, os tipos de sites disponíveis e suas relações entre si e o escopo de gerenciamento que cada tipo de site fornece.
-Em seguida, após considerar as opções de gerenciamento de conteúdo que podem reduzir o número de sites que você precisa instalar, você pode planejar uma topologia que atenda suas necessidades de negócios atuais de maneira eficaz e posteriormente pode ser expandido para gerenciar o crescimento futuro.  
+Перед установкой первого сайта новой иерархии System Center Configuration Manager рекомендуется получить представление о доступных топологиях для Configuration Manager, доступных типах сайтов и их связях друг с другом, а также об области управления, предоставляемой каждым типом сайта.
+После рассмотрения вариантов управления содержимым, позволяющих уменьшить количество устанавливаемых сайтов, можно приступить к планированию топологии, которая будет эффективно решать текущие потребности бизнеса и обеспечит масштабирование в соответствии с будущим ростом среды.  
 
 > [!NOTE]
-> Ao planejar uma nova instalação do Configuration Manager, esteja atento a [notas de versão]( /sccm/core/servers/deploy/install/release-notes), que detalham problemas atuais nas versões do ativos. As notas de versão se aplicam a todas as ramificações do Configuration Manager.  No entanto, quando você usa o [ramificação de visualização técnica]( /sccm/core/get-started/technical-preview), você encontrará problemas específicos apenas para essa ramificação na documentação para cada versão de Technical Preview.  
+> При планировании новой установки Configuration Manager следует иметь в виду [заметки о выпуске]( /sccm/core/servers/deploy/install/release-notes), в которых подробно описаны текущие проблемы в активных версиях. Заметки о выпуске применимы ко всем ветвям Configuration Manager.  Тем не менее при использовании [ветви Technical Preview]( /sccm/core/get-started/technical-preview) вы можете найти проблемы, характерные только для этой ветви, в документации по каждой версии Technical Preview.  
 
-##  <a name="bkmk_topology"></a>Topologia de hierarquia  
- Intervalo de topologias de hierarquia de um único site primário autônomo para um grupo de sites primários e secundários conectados com um site de administração central no site de nível superior (camada superior) da hierarquia.   O driver de chave do tipo e contagem de sites que você usa em uma hierarquia é normalmente o número e tipo de dispositivos, que você deve dar suporte, da seguinte maneira:   
+##  <a name="bkmk_topology"></a> Топология иерархии  
+ Топологии иерархии варьируются от одного отдельного автономного первичного сайта до группы подключенных первичных и вторичных сайтов с сайтом центра администрирования на сайте верхнего уровня иерархии.   Ключевыми факторами, определяющими тип и число сайтов, используемых в иерархии, как правило, являются число и тип устройств, которые необходимо поддерживать:   
 
- **Site primário autônomo:** Usar um site primário autônomo quando um único site primário pode dar suporte a gerenciamento de todos os seus dispositivos e usuários (consulte [números de dimensionamento e escala](/sccm/core/plan-design/configs/size-and-scale-numbers)). Essa topologia também tem êxito quando diferentes localizações geográficas de sua empresa podem ser atendidas com êxito por um único site primário.  Para ajudar a gerenciar o tráfego de rede, você pode usar pontos de gerenciamento preferenciais e uma infraestrutura de conteúdo cuidadosamente planejada (consulte [conceitos fundamentais para o gerenciamento de conteúdo no System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
+ **Автономный первичный сайт**. Автономный первичный сайт можно использовать в ситуациях, когда один первичный сайт может поддерживать управление всеми устройствами и пользователями (см. раздел [Изменение размеров и масштабирование чисел](/sccm/core/plan-design/configs/size-and-scale-numbers)). Эта топология также удобна, если обслуживание различных географических расположений организации может успешно осуществляться одним первичным сайтом.  Для управления сетевым трафиком можно использовать предпочтительные точки управления и тщательно спланированную инфраструктуру содержимого (см. раздел [Основные принципы управления содержимым в System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
 
- As vantagens desta topologia incluem:  
+ Преимущества этой топологии включают перечисленные ниже.  
 
--   Simplifica a sobrecarga administrativa.  
+-   Упрощенное администрирование.  
 
--   Atribuição de site do cliente simplificado e descoberta de recursos e serviços disponíveis.  
+-   Упрощенное назначение сайта клиентам и обнаружение доступных ресурсов и служб.  
 
--   Eliminação de latência possível introduzida pela replicação de banco de dados entre sites.
+-   Исключение возможных задержек, вызванных репликацией баз данных между сайтами.
 
--   Opção de expandir uma hierarquia primária autônoma em uma hierarquia maior com um site de administração central. o que lhe permite, depois, instalar novos sites primários para expandir a escala da implementação.  
+-   Возможность развернуть автономную основную иерархию до более крупной иерархии с сайтом центра администрирования. Это позволяет установить новые первичные сайты для расширения масштаба развертывания.  
 
 
-**Site de administração central com um ou mais sites primários filho:** Use essa topologia quando precisar de mais de um site primário para dar suporte ao gerenciamento de todos os seus dispositivos e usuários.  É necessário quando você precisa usar mais de um único site primário. As vantagens desta topologia incluem:  
+**Сайт центра администрирования с одним или несколькими дочерними первичными сайтами**. Эту топологию можно реализовать, когда для поддержки управления всеми устройствами и пользователями требуется несколько первичных сайтов.  Требуется, если необходимо использовать больше одного первичного сайта. Преимущества этой топологии включают перечисленные ниже.  
 
 
--   Ele dá suporte a até 25 sites primários que permitem que você estenda a escala de sua hierarquia.  
+-   Поддерживает до 25 первичных сайтов, позволяя расширить масштаб иерархии.  
 
--   Você sempre usará o site de administração central (a menos que você reinstale seus sites). Essa é uma opção permanente. Não é possível desanexar um site primário filho para torná-lo um site primário autônomo.
+-   Вы всегда будете использовать сайт центра администрирования (если не переустанавливаете сайты). Это постоянный вариант. Вы не можете отсоединить дочерний первичный сайт, чтобы превратить его в автономный первичный сайт.
 
- As secções seguintes podem ajudá-lo a compreender quando deve utilizar um site específico ou a opção de gestão de conteúdos em vez de um site adicional.  
+ В следующих разделах описано, когда следует использовать определенный сайт или параметр управления содержимым вместо дополнительного сайта.  
 
-##  <a name="BKMK_ChooseCAS"></a>Determinar quando usar um site de administração central  
- Use um site de administração central para definir as configurações de toda a hierarquia e monitorar todos os sites e objetos na hierarquia. Esse tipo de site não gerencia diretamente clientes mas coordena a replicação de dados entre sites, que inclui a configuração de sites e clientes em toda a hierarquia.  
+##  <a name="BKMK_ChooseCAS"></a> Определение необходимости в использовании сайта центра администрирования  
+ Сайт центра администрирования используется для настройки параметров всей иерархии и для мониторинга всех сайтов и объектов в иерархии. Этот тип сайта не осуществляет прямое управление клиентами, однако он координирует межсайтовую репликацию данных, включающую настройку сайтов и клиентов во всей иерархии.  
 
-**As informações a seguir podem ajudá-lo a decidir quando instalar um site de administração central:**  
+**При принятии решения об установке сайта центра администрирования обратите внимание на приведенную ниже информацию.**  
 
--   O site de administração central é o site de nível superior em uma hierarquia.  
+-   Сайт центра администрирования является сайтом верхнего уровня в иерархии.  
 
--   Quando você configura uma hierarquia que tem mais de um site primário, você deve instalar um site de administração central. Se você precisar imediatamente dois ou mais sites primários, instale primeiro o site de administração central. Quando você já tiver um site primário e, em seguida, instalar um site de administração central, você deve [expandir o site primário autônomo](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) para instalar o site de administração central. 
+-   При настройке иерархии, включающей несколько первичных сайтов, необходимо установить сайт центра администрирования. Если необходимо немедленно сохранить несколько первичных сайтов, сначала установите сайт центра администрирования. Если вы уже настроили первичный сайт и хотите установить сайт центра администрирования, необходимо [развернуть автономный первичный сайт](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand). 
 
--   O site de administração central oferece suporte a apenas sites primários como sites filho.  
+-   Сайт центра администрирования поддерживает в качестве дочерних сайтов только первичные сайты.  
 
--   O site de administração central não pode ter clientes atribuídos a ele.  
+-   Сайт центра администрирования не может назначаться клиентам.  
 
--   O site de administração central não oferece suporte a funções de sistema de site que suporte diretamente aos clientes, como pontos de gerenciamento e pontos de distribuição.  
+-   Сайт центра администрирования не поддерживает роли системы сайта, которые напрямую поддерживают клиенты, такие как точки управления и точки распространения.  
 
--   Você pode gerenciar todos os clientes na hierarquia e executar tarefas de gerenciamento do site para qualquer site filho, quando você usar um console do Configuration Manager que está conectado ao site de administração central. Isso pode incluir a instalação de pontos de gerenciamento ou outras funções de sistema de site em sites filho primários ou secundários.  
+-   Если консоль Configuration Manager подключена к сайту центра администрирования, вы можете управлять всеми клиентами в иерархии и выполнять задачи по управлению подчиненными сайтами. Это может включать в себя установку точек управления или других ролей системы сайта на дочерних первичных или вторичных сайтах.  
 
--   Quando utiliza um site de administração central, este é o único local onde pode ver os dados de todos os sites na hierarquia. Esses dados incluem informações como mensagens de status e dados de inventário.  
+-   При использовании сайта центра администрирования этот сайт является единственным местом, где можно просмотреть данные о сайтах, собранные со всех сайтов в иерархии. К этим данным относится такая информация, как данные инвентаризации и сообщения о состоянии.  
 
--   Você pode configurar operações de descoberta em toda a hierarquia do site de administração central ao atribuir métodos de descoberta para ser executado em sites individuais.  
+-   С сайта центра администрирования можно настроить операции обнаружения в иерархии, назначив запуск методов обнаружения на отдельных сайтах.  
 
--   Pode gerir a segurança em toda a hierarquia atribuindo diferentes funções de segurança, âmbitos de segurança e coleções a diferentes utilizadores administrativos. Essas configurações se aplicam a cada site na hierarquia.  
+-   Для управления безопасностью в иерархии различным пользователям следует назначить различные роли безопасности, области безопасности и коллекции. Эти конфигурации применяются к каждому узлу в иерархии.  
 
--   Pode configurar a replicação de ficheiros e a replicação de base de dados para controlar a comunicação entre sites na hierarquia. Isso inclui o agendamento de replicação de banco de dados para dados do site e gerenciar a largura de banda para a transferência de dados com base em arquivo entre sites.  
+-   Можно настроить репликацию файлов и баз данных для управления обменом данными между сайтами в иерархии. Сюда входит создание расписаний репликации баз данных для данных сайта, а также управление пропускной способностью передачи файловых данных между сайтами.  
 
-##  <a name="BKMK_ChoosePriimary"></a>Determinar quando usar um site primário  
- Utilize sites primários para gerir clientes. Pode instalar um site primário como site primário subordinado abaixo de um site de administração central ou como o primeiro site numa nova hierarquia. Um site primário que é instalado como o primeiro site de uma hierarquia cria um site primário autônomo. Os sites primários filho e sites primários autônomos oferecem suporte a sites secundários como sites filho do site primário.  
+##  <a name="BKMK_ChoosePriimary"></a> Определение необходимости в использовании первичного сайта  
+ Первичные сайты используются для управления клиентами. Первичный сайт можно установить как дочерний первичный сайт для сайта центра администрирования или как первый сайт новой иерархии. Первичный сайт, который устанавливается как первый сайт иерархии, становится автономным первичным сайтом. Как дочерние, так и автономные первичные сайты поддерживают наличие вторичных сайтов в качестве дочерних.  
 
- Considere a utilização de um site primário por qualquer um dos seguintes motivos:  
+ Первичный сайт рекомендуется использовать по любой из следующих причин:  
 
--   Para gerenciar usuários e dispositivos.  
+-   Для управления устройствами и пользователями.  
 
--   Para aumentar o número de dispositivos, você pode gerenciar com uma única hierarquia.  
+-   Для увеличения количества устройств, которыми можно управлять с помощью одной иерархии.  
 
--   Para fornecer um ponto adicional de conectividade para a administração da sua implantação.  
+-   Для предоставления дополнительной точки подключения с целью администрирования развертывания.  
 
--   Para satisfazer requisitos de gestão organizacional. Por exemplo, você pode instalar um site primário em uma localização remota para gerenciar a transferência de conteúdo de implantação em uma rede de baixa largura de banda. No entanto, com o System Center Configuration Manager, você pode usar opções para restringir o uso de largura de banda de rede ao transferir dados para um ponto de distribuição. Essa capacidade de gerenciamento de conteúdo pode substituir a necessidade de instalar sites adicionais.  
+-   Для соответствия требованиям организационного управления. Например, первичный сайт можно установить в удаленном расположении и использовать для управления передачей содержимого развертывания по сети с низкой пропускной способностью. Но в System Center Configuration Manager можно применять параметры для регулирования использования полосы пропускания сети при передаче данных в точку распространения. Эта возможность управления содержимым может заменить необходимость установки дополнительных сайтов.  
 
 
-**As informações a seguir podem ajudá-lo a decidir quando instalar um site primário:**  
+**При принятии решения об установке первичного сайта обратите внимание на приведенную ниже информацию.**  
 
--   Um site primário pode ser um site primário autônomo ou um site primário filho em uma hierarquia maior. Quando um site primário é um membro de uma hierarquia com um site de administração central, os sites utilizam a replicação de base de dados para replicar dados entre os sites. A menos que você precisa dar suporte a mais clientes e dispositivos que pode oferecer suporte a um único site primário, considere a instalação de um site primário autônomo.  Depois que um site primário autônomo é instalado, você pode expandi-lo para relatar para um novo site de administração central para escalar verticalmente sua implantação.  
+-   Первичный сайт может быть автономным первичным сайтом или дочерним первичным сайтом в более крупной иерархии. Когда первичный сайт является членом иерархии с сайтом центра администрирования, сайты используют репликацию базы данных для репликации данных между собой. Если количество клиентов и устройств не превышает возможности одного первичного сайта, рекомендуется установить автономный первичный сайт.  После установки автономного первичного сайта вы можете развернуть его для передачи данных на новый сайт центра администрирования, чтобы увеличить масштаб своего развертывания.  
 
--   Um site primário oferece suporte a apenas um site de administração central como um site pai.  
+-   Первичный сайт поддерживает в качестве родительского сайта только сайт центра администрирования.  
 
--   Um site primário oferece suporte somente a sites secundários como sites filho e também pode oferecer suporte a múltiplos sites secundários filho.  
+-   Первичный сайт поддерживает в качестве дочерних сайтов только вторичные сайты и может также поддерживать несколько подчиненных вторичных сайтов.  
 
--   Os sites primários são responsáveis pelo processamento de todos os dados de cliente de seus clientes atribuídos.  
+-   Первичные сайты отвечают за обработку всех клиентских данных, полученных с назначенных им клиентов.  
 
--   Sites primários usam a replicação de banco de dados para se comunicar diretamente com seu site de administração central (que é configurado automaticamente quando um novo site é instalado).  
+-   Для прямого взаимодействия с сайтом центра администрирования первичные сайты используют репликацию базы данных (это настраивается автоматически при установке нового сайта).  
 
-##  <a name="BKMK_ChooseSecondary"></a>Determinar quando usar um site secundário  
- Use sites secundários para gerenciar a transferência de dados de cliente e conteúdo de implantação em redes de baixa largura de banda.  
+##  <a name="BKMK_ChooseSecondary"></a> Определение необходимости в использовании вторичного сайта  
+ Вторичные сайты используются для управления передачей содержимого развертывания и клиентских данных по сетям с низкой пропускной способностью.  
 
- Gerencie um site secundário de um site de administração central ou site primário do pai direto do site secundário. Sites secundários devem ser anexados a um site primário, e você não pode movê-los para um site pai diferente sem desinstalá-los e, em seguida, reinstalá-los como um site filho abaixo do novo site primário.
+ Управление вторичным сайтом осуществляется с сайта центра администрирования или с прямого родительского первичного сайта вторичного сайта. Вторичные сайты должны быть присоединены к первичному сайту. Их перемещение на другой родительский сайт возможно только после их удаления и последующей переустановки в качестве дочерних сайтов нового первичного сайта.
 
-No entanto, você pode rotear o conteúdo entre dois sites secundários pares para ajudar a gerenciar a replicação baseada em arquivo de conteúdo de implantação. Para transferir dados do cliente para um site primário, o site secundário usa replicação baseada em arquivo. Um site secundário também utiliza a replicação de base de dados para comunicar com o respetivo site primário principal.  
+Однако в целях упрощения управления файловой репликацией содержимого развертывания это содержимое можно пересылать между двумя одноранговыми вторичными сайтами. Вторичный сайт передает клиентские данные на первичный сайт с помощью файловой репликации. Для взаимодействия со своим родительским первичным сайтом вторичный сайт также использует репликацию базы данных.  
 
- Considere a instalação de um site secundário se qualquer uma das seguintes condições se aplicar:  
+ Вторичный сайт можно установить в случае, если выполняется любое из указанных ниже условий.  
 
--   Você precisa de um ponto local de conectividade para um usuário administrativo.  
+-   Не требуется наличие локальной точки подключения для пользователя с правами администратора.  
 
--   Você deve gerenciar a transferência de conteúdo de implantação para sites inferiores na hierarquia.  
+-   Необходимо управлять передачей содержимого развертывания на сайты, расположенные ниже в иерархии.  
 
--   Você deve gerenciar as informações de cliente que são enviadas para sites mais altos na hierarquia.  
+-   Необходимо управлять клиентской информацией, передаваемой на сайты, расположенные выше в иерархии.  
 
- Se não pretender instalar um site secundário e tiver clientes em localizações remotas, considere utilizar o Windows BranchCache ou instalar pontos de distribuição ativados para o controlo da largura de banda e agendamento. Você pode usar essas opções de gerenciamento de conteúdo com ou sem sites secundários, e eles podem ajudar a reduzir o número de sites e servidores que você deve instalar. Para obter informações sobre as opções de gerenciamento de conteúdo no Configuration Manager, consulte [determinar quando usar as opções de gerenciamento de conteúdo](#BKMK_ChooseSecondaryorDP).  
+ Если вы не хотите устанавливать вторичный сайт, но необходимо поддерживать работу удаленных клиентов, можно использовать компонент Windows BranchCache или установить точки распространения, поддерживающие управление пропускной способностью сети и планированием. Эти возможности управления содержимым можно использовать как со вторичными сайтами, так и без них. Они позволяют уменьшить количество сайтов и серверов, которые требуется установить. Сведения о возможностях управления содержимым в Configuration Manager см. в разделе [Определение необходимости в использовании возможностей управления содержимым](#BKMK_ChooseSecondaryorDP).  
 
 
-**As informações a seguir podem ajudá-lo a decidir quando instalar um site secundário:**  
+**При принятии решения об установке вторичного сайта обратите внимание на приведенную ниже информацию.**  
 
--   Sites secundários instalam automaticamente SQL Server Express durante a instalação do site se uma instância local do SQL Server não está disponível.  
+-   В ходе установки сайтов SQL Server, экспресс-выпуск автоматически устанавливается на вторичные сайты, если локальный экземпляр сервера SQL Server недоступен.  
 
--   Instalação do site secundário é iniciada do console do Configuration Manager, em vez de executar a instalação diretamente em um computador.  
+-   Установка вторичного сайта инициируется из консоли Configuration Manager, а не посредством запуска программы установки непосредственно на компьютере.  
 
--   Sites secundários usam um subconjunto das informações do banco de dados do site, que reduz a quantidade de dados replicados pela replicação de banco de dados entre o site pai primário e secundário.  
+-   Вторичные сайты используют подмножество сведений в базе данных сайта, что сокращает объем данных, охватываемых репликацией базы данных между родительским первичным сайтом и вторичным сайтом.  
 
--   Sites secundários oferecem suporte a roteamento de conteúdo baseado em arquivo para outros sites secundários que têm um site primário pai em comum.  
+-   Вторичные сайты поддерживаются маршрутизацию файлового содержимого на другие вторичные сайты этого же родительского первичного сайта.  
 
--   As instalações do site secundário implantam automaticamente um ponto de gerenciamento e ponto de distribuição que estão localizados no servidor do site secundário.  
+-   При установке вторичного сайта автоматически развертываются точка управления и точка распространения, расположенные на сервере вторичного сайта.  
 
-##  <a name="BKMK_ChooseSecondaryorDP"></a>Determinar quando usar as opções de gerenciamento de conteúdo  
- Se tiver clientes em localizações de rede remotas, considere utilizar uma ou mais opções de gestão de conteúdo em vez de um site primário ou secundário. Geralmente, você pode remover a necessidade de instalar um site quando você usa o Windows BranchCache, configurar pontos de distribuição para controle de largura de banda ou copia manualmente conteúdo para pontos de distribuição (conteúdo de pré-teste).  
+##  <a name="BKMK_ChooseSecondaryorDP"></a> Определение необходимости в использовании возможностей управления содержимым  
+ При наличии удаленных клиентов можно использовать различные возможности управления содержимым вместо создания первичных и вторичных сайтов. Зачастую можно избежать установки еще одного сайта, если использовать компонент Windows BranchCache, настроить точки распространения для управления пропускной способностью или вручную скопировать содержимое в точки распространения (предварительная подготовка содержимого).  
 
 
-**Considere a implantação de um ponto de distribuição em vez de instalar outro site se alguma das seguintes condições se aplicar:**  
+**Рассмотрите возможность развертывания точки распространения вместо установки еще одного сайта, если выполняется какое-либо из перечисленных ниже условий.**  
 
--   A largura de banda de rede é suficiente para computadores cliente no local remoto para se comunicar com um ponto de gerenciamento para baixar política do cliente e enviar inventário, status do relatório e informações de descoberta.  
+-   Пропускная способность сети достаточна для того, чтобы удаленные клиентские компьютеры обменивались данными с точкой управления для загрузки клиентских политик, отправки данных инвентаризации, отправки отчетов и данных обнаружения.  
 
--   Serviço de transferência inteligente em segundo plano (BITS) não fornece controle de largura de banda suficiente para suas necessidades de rede.  
+-   Служба BITS не обеспечивает достаточного контроля над пропускной способностью сети, соответствующего действующим требованиям к сети.  
 
- Para obter mais informações sobre as opções de gerenciamento de conteúdo no Configuration Manager, consulte [conceitos fundamentais para o gerenciamento de conteúdo no System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+ Дополнительные сведения о возможностях управления содержимым в Configuration Manager см. в разделе [Основные принципы управления содержимым в System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-##  <a name="bkmk_beyond"></a>Além da topologia de hierarquia  
- Além de uma topologia de hierarquia inicial, considere quais serviços ou recursos estarão disponíveis em diferentes sites em que a hierarquia (funções de sistema de site) e as configurações e recursos de toda a hierarquia como serão gerenciados na sua infraestrutura. As seguintes considerações comuns são abordadas em tópicos separados. Estes são importantes, porque eles podem influenciar ou ser influenciados por seu design de hierarquia:  
+##  <a name="bkmk_beyond"></a> Компоненты, дополняющие топологию иерархии  
+ Помимо начальной топологии иерархии необходимо определить, какие службы и возможности будут доступны на различных сайтах иерархии (ролях системы сайта) и каким образом в инфраструктуре будет осуществляться управление возможностями и конфигурациями уровня иерархии. Ниже приведены типичные аспекты, которые рассматриваются в отдельных разделах. Их необходимо учитывать, так как они могут повлиять на структуру иерархии или зависеть от нее.  
 
--   Quando você estiver se preparando para [gerenciar computadores e dispositivos com o System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), considere se os dispositivos que você gerencia estão no local, na nuvem ou incluem dispositivos pertencentes ao usuário (BYOD).  Além disso, considere como você gerenciará dispositivos que são suportados por várias opções de gerenciamento, como computadores Windows 10 que podem ser gerenciados diretamente pelo Configuration Manager ou que a integração com o Microsoft Intune.  
+-   При подготовке к [управлению компьютерами и устройствами с помощью System Center Configuration Manager](/sccm/core/clients/manage/manage-clients) необходимо определить, где будут размещаться управляемые устройства: в локальной среде или в облаке. Также доступно использование устройств пользователей (BYOD).  Кроме того, необходимо определить, как вы будете управлять устройствами, поддерживающими различные возможности управления, например компьютерами Windows 10, которыми можно управлять напрямую с помощью Configuration Manager или посредством интеграции с Microsoft Intune.  
 
--   Entender como a infraestrutura de rede disponível pode afetar o fluxo de dados entre locais remotos (consulte [preparar seu ambiente de rede para o System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)). Considere também onde os usuários e dispositivos que você gerencia estão localizados geograficamente e se eles acessarem sua infraestrutura por meio de seu domínio corporativo ou pela Internet.  
+-   Необходимо понять, как доступная сетевая инфраструктура может повлиять на поток данных между удаленными расположениями (см. раздел [Подготовка сетевой среды для System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)). Кроме того, следует учесть географическое расположение пользователей и устройств, которыми вы управляете, и возможность получения ими доступа к вашей инфраструктуре через корпоративный домен или из Интернета.  
 
--   Plano para uma infraestrutura de conteúdo distribuir com eficiência as informações que você implanta (arquivos e aplicativos) para dispositivos gerenciados (consulte [gerenciar conteúda e infraestrutura de conteúdo para o System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md)).  
+-   Инфраструктуру содержимого необходимо тщательно спланировать для эффективного распространения информации (файлов и приложений), развертываемой на управляемых устройствах (см. раздел [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md)).  
 
--   Determinar qual [recursos e funcionalidades do System Center Configuration Manager](../../../core/plan-design/changes/features-and-capabilities.md) você planeja usar a infraestrutura do Windows ou funções do sistema de site precisam e em quais sites em uma hierarquia de sites múltiplos você pode implantá-los para o uso mais eficiente dos recursos de rede e servidor.  
+-   Определите, какие [функции и возможности System Center Configuration Manager](../../../core/plan-design/changes/features-and-capabilities.md) вы планируете использовать, какие роли системы сайта или какая инфраструктура Windows для них требуются, а также на каких сайтах в иерархии с несколькими сайтами можно их развернуть для наиболее эффективного использования ресурсов сети и серверов.  
 
--   Considere a segurança dos dados e dispositivos, incluindo a utilização de um PKI. Consulte [requisitos de certificado PKI para o System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+-   Обратите внимание на аспекты безопасности данных и устройств, включая использование PKI. См. раздел [Требования к PKI-сертификатам для System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
 
-**Revise os seguintes recursos para configurações específicas de site:**  
+**Изучите следующие ресурсы для конкретных конфигураций сайтов:**  
 
--   [Planejar o provedor de SMS para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md)  
+-   [Планирование использования поставщика SMS для System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md)  
 
--   [Planejar o banco de dados do site para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-site-database.md)  
+-   [План для базы данных сайта для System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-site-database.md)  
 
--   [Planejar para servidores de sistema de site e funções do sistema de site para o System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md)  
+-   [Планирование серверов системы сайта и ролей системы сайта для System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md)  
 
--   [Planejar a segurança no System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
+-   [Планирование безопасности в System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
 
--   [Gerir a largura de banda da rede](../../../core/plan-design/hierarchy/manage-network-bandwidth.md) ao implementar conteúdos num site  
+-   [Managing network bandwidth](../../../core/plan-design/hierarchy/manage-network-bandwidth.md) при развертывании содержимого в пределах сайта  
 
 
-**Considere as configurações que estendem sites e hierarquias:**  
+**Рассмотрим конфигурации, охватывающие сайты и иерархии:**  
 
--   [Opções de elevada disponibilidade para o System Center Configuration Manager](/sccm/protect/understand/high-availability-options) para sites e hierarquias
+-   [Варианты обеспечения высокой доступности для System Center Configuration Manager](/sccm/protect/understand/high-availability-options) для сайтов и иерархий
 
--   [Estender o esquema do Active Directory para o System Center Configuration Manager](../../../core/plan-design/network/extend-the-active-directory-schema.md) e configurar sites para [publicar dados do site para o System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md)  
+-   [Расширение схемы Active Directory для System Center Configuration Manager](../../../core/plan-design/network/extend-the-active-directory-schema.md) и настройка сайтов для [публикации данных для System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md)  
 
--   [Transferência de dados entre sites no System Center Configuration Manager](../../../core/servers/manage/data-transfers-between-sites.md)  
+-   [Передача данных между сайтами в System Center Configuration Manager](../../../core/servers/manage/data-transfers-between-sites.md)  
 
--   [Fundamentos da administração baseada em função para o System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md)
-
+-   [Основы ролевого администрирования для System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md)

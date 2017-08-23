@@ -1,157 +1,153 @@
 ---
-title: "Planejar funções do sistema de site | Microsoft Docs"
-description: "Considere a possibilidade de servidores do sistema de site e funções do sistema de site como planejar sua hierarquia do System Center Configuration Manager."
+title: "Планирование ролей системы сайта | Документы Майкрософт"
+description: "Планирование серверов системы сайта и ролей системы сайта при планировании иерархии System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 0a7415ba-2c53-4433-983e-780e92aa662f
-caps.latest.revision: 11
+caps.latest.revision: "11"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 0ebda27c0f3848615346c2ecf1ab8b9bb9ab6f0d
 ms.openlocfilehash: 0a3704a2d3b75ed7e0a7f718b681448ab6fc078d
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-site-system-servers-and-site-system-roles-for-system-center-configuration-manager"></a>Planear os servidores do sistema de sites e as funções do sistema de sites para o System Center Configuration Manager
+# <a name="plan-for-site-system-servers-and-site-system-roles-for-system-center-configuration-manager"></a>Планирование серверов системы сайта и ролей системы сайта для System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (ramificação atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Cada site do System Center Configuration Manager que você instala inclui um servidor de site que seja um **servidor do sistema de site**. O site também pode incluir servidores do sistema de sites adicionais em computadores que são remotos em relação ao servidor do site. Os servidores do sistema de sites (o servidor do site ou um servidor do sistema de sites remoto) suportam **funções do sistema de sites**.
+Каждый устанавливаемый сайт System Center Configuration Manager включает в себя сервер сайта, который является **сервером системы сайта**. Сайт может также включать дополнительные серверы системы сайта на компьютерах, расположенных удаленно от сервера сайта. Серверы системы сайта (сервер сайта или удаленный сервер системы сайта) поддерживают **роли системы сайта**.
 
 
-##  <a name="bkmk_siteservers"></a> Servidores do sistema de sites  
- Quando você instala uma função de sistema de site em um computador, esse computador torna-se um servidor de sistema de site. Em cada site, você pode instalar um ou mais servidores de sistema de site adicionais. Você também pode escolher para não instalar servidores de sistema de site adicionais e executar todas as funções de sistema de site diretamente no computador servidor do site. Cada servidor do sistema de site oferece suporte a uma ou mais funções de sistema de site. Servidores adicionais podem ajudar a expandir os recursos e a capacidade de uma site compartilhando a carga de processamento da CPU que colocar funções do sistema de site em um servidor.  
+##  <a name="bkmk_siteservers"></a> Серверы системы сайта  
+ Если на компьютере установить роль системы сайта, то такой компьютер становится сервером системы сайта. На каждом сайте вы можете установить один или несколько дополнительных серверов системы сайта. Вы можете также не устанавливать дополнительные серверы системы сайта и выполнять все роли системы сайта непосредственно на компьютере сервера сайта. Каждый сервер системы сайта поддерживает одну или несколько ролей системы сайта. Дополнительные серверы помогают расширить возможности и емкость сайта, распределяя нагрузку ЦП, которую создают роли системы сайта на сервере.  
 
- Ao considerar a adição de um servidor de sistema de site, certifique-se de que o servidor atende aos pré-requisitos para o uso pretendido. Ele também é uma boa ideia para adicioná-lo em um local de rede que tem largura de banda suficiente para se comunicar com pontos de extremidade esperados, incluindo o servidor do site, recursos de domínio, um local baseado em nuvem, servidores de sistema de site e clientes).  
+ Планируя добавление сервера системы сайта, убедитесь, что сервер отвечает требованиям предполагаемого использования. Вы также можете добавить его на сетевой ресурс, который имеет достаточную пропускную способность для взаимодействия с ожидаемыми конечными точками, включая сервер сайта, ресурсы домена, облачное расположение, серверы системы сайта и клиенты.  
 
- Se você configurar o servidor do sistema de site com um proxy para uso por funções do sistema de site, consulte [Site funções do sistema que podem usar um servidor proxy](#bkmk_proxy).  
+ Если необходимо настроить сервер системы сайта с прокси-сервером для использования ролями системы сайта, дополнительные сведения см. в разделе [Роли системы сайта, которые могут использовать прокси-сервер](#bkmk_proxy).  
 
 ##  <a name="bkmk_planroles"></a> Site system roles  
- As funções do sistema de sites são instaladas num computador para fornecer capacidades adicionais ao site. Alguns exemplos:  
+ Роли системы сайта устанавливаются на компьютере для предоставления сайту дополнительных возможностей. Примеры:  
 
--   Pontos de gerenciamento adicionais para que o site pode dar suporte a mais dispositivos, até a capacidade de suporte do site.  
+-   дополнительные точки управления для поддержки сайтом большего числа устройств (в пределах доступных ресурсов сайта);  
 
--   Pontos de distribuição adicionais para expandir sua infraestrutura de conteúdo, melhorando o desempenho de distribuições de conteúdo para usuários e dispositivos.  
+-   дополнительные точки распространения для расширения инфраструктуры содержимого и повышения производительности распространения содержимого для устройств и пользователей;  
 
--   Uma ou mais funções do sistema de sites específicas do recurso. Por exemplo, um ponto de atualização de software permite que você gerencie atualizações de software para dispositivos gerenciados, ou um ponto do reporting services permite que você execute relatórios para monitorar e compreender ou compartilhar informações sobre a implantação.  
-
-
-Diferentes sites do Configuration Manager podem dar suporte a diferentes conjuntos de funções do sistema de site. O conjunto com suporte de funções do sistema de site depende do tipo de site (um site de administração central, site primário ou site secundário). A topologia da sua hierarquia pode limitar o posicionamento de algumas funções em determinados tipos de site. Por exemplo, o ponto de ligação de serviço só é suportado no site de nível superior da hierarquia, que poderá ser um site de administração central ou um site primário autónomo. Esta função não é suportada num site primário subordinado nem em sites secundários.  
-
-Depois de instalar um site, você pode mover o local de algumas funções do sistema de sites do respectivo local padrão no servidor do site para outro servidor. Por exemplo, isso é verdadeiro para o ponto de gerenciamento ou ponto de distribuição, que são instalados por padrão em um servidor de site primário ou secundário. Você também pode instalar instâncias adicionais de algumas funções do sistema de sites para expandir os recursos do seu site (fornecer mais serviços aos clientes) e para atender aos requisitos de negócios. Algumas funções são obrigatórias, enquanto outros são opcionais.  
-
--   **Servidor de site do Configuration Manager.** Essa função identifica o servidor em que a instalação do Configuration Manager é executada para instalar um site ou o servidor no qual você instalar um site secundário. Esta função não pode ser movida ou desinstalada até o site ser desinstalado.  
-
--   **Sistema de site do Configuration Manager.** Essa função é atribuída a qualquer computador no qual você instala um site ou instala uma função de sistema de site. Esta função não pode ser movida ou desinstalada até que a última função do sistema de sites seja removida do computador.  
-
--   **Função de sistema de site do componente do Configuration Manager.** Essa função identifica um sistema de site que executa uma instância do serviço SMS Executive e é necessário para dar suporte a outras funções, como pontos de gerenciamento. Esta função não pode ser movida ou desinstalada até que a última função do sistema de sites aplicável seja removida do computador.  
-
--   **Servidor de banco de dados do site do Configuration Manager.** Essa função é atribuída a servidores de sistema de sites que mantêm uma instância do banco de dados de site para um site. Essa função pode ser movida apenas para um novo servidor ao modificar o site para usar uma instância diferente do SQL Server para hospedar o banco de dados do site.  
-
--   **Provedor de SMS.** A função de provedor de SMS é atribuída a cada computador que hospeda uma instância do provedor de SMS, a interface entre um console do Configuration Manager e o banco de dados do site. Por padrão, essa função é instalada automaticamente no servidor do site de um site de administração central e sites primários. Você pode instalar instâncias adicionais em cada site para fornecer acesso a usuários administrativos adicionais.  
-
-     Para instalar provedores adicionais, você deve executar a instalação do Configuration Manager para [gerenciar o provedor de SMS](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ManageSMSprovider). Em seguida, instalar provedores adicionais em computadores adicionais. Você só pode instalar uma instância do provedor de SMS em um computador e esse computador deve estar no mesmo domínio que o servidor do site.  
-
--   **Ponto do serviço da web do catálogo de aplicativos.** Uma função do sistema de sites que fornece informações sobre software ao Web site do Catálogo de Aplicações a partir da Biblioteca de Software. Embora esta função só seja suportada em sites primários, pode instalar várias instâncias desta função num site ou em vários sites na mesma hierarquia.  
-
--   **Ponto de site do catálogo de aplicativos.** Uma função do sistema de sites que fornece aos utilizadores uma lista de software disponível a partir do Catálogo de Aplicações. Embora esta função só seja suportada em sites primários, pode instalar várias instâncias desta função num site ou em vários sites na mesma hierarquia.  
-
-     Quando o catálogo de aplicativos dá suporte a computadores cliente na Internet, é uma prática recomendada de segurança para instalar o ponto de site do catálogo de aplicativos em uma rede de perímetro de segurança e para instalar o ponto de serviço da web de catálogo de aplicativos na intranet.  
-
--   **Ponto de sincronização do Asset Intelligence.** Uma função de sistema de site que se conecta à Microsoft para baixar informações do catálogo do Asset Intelligence. Essa função também carrega os títulos não categorizados, para que eles possam ser considerados para futura inclusão no catálogo. Uma hierarquia permite apenas uma única instância dessa função, e esta deve estar no site de nível superior da hierarquia (um site de administração central ou site primário autônomo). Se você expandir um site primário autônomo em uma hierarquia maior, você deve desinstalar essa função do site primário e, em seguida, instale-o no site de administração central.   Para obter mais informações, veja [Asset Intelligence no System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
-
--   **Ponto de registro de certificado.** Uma função de sistema de site que se comunica com um servidor que executa o serviço de registro de dispositivo de rede. Essa função gerencia solicitações de certificado de dispositivos que usam o protocolo de registro de certificado simples (SCEP). Esta função só é suportada em sites primários e no site de administração central.
-
-     Embora um ponto de registro de certificado único possa fornecer funcionalidade a uma hierarquia inteira, convém instalar várias instâncias dessa função em um site e em vários sites na mesma hierarquia. Isso pode ajudar com balanceamento de carga. Quando existem várias instâncias numa hierarquia, os clientes são atribuídos aleatoriamente a um dos pontos de registo de certificados.  
-
-     Cada ponto de registo de certificados necessita de acesso a uma instância separada do serviço de registo de dispositivos de rede. Não é possível configurar dois ou mais pontos de registo de certificados para utilizarem o mesmo serviço de registo de dispositivos de rede. Além disso, o ponto de registo de certificados não pode ser instalado no mesmo servidor que executa o Serviço de Inscrição de Dispositivos de Rede.  
-
-- **Ponto de conector de gateway de gerenciamento de nuvem.** Uma função de sistema de site para se comunicar com o [gateway de gerenciamento de nuvem](/sccm/core/clients/manage/setup-cloud-management-gateway).
-
--   **Ponto de distribuição.** Uma função do sistema de sites que contém ficheiros de origem para os clientes transferirem, como por exemplo, o conteúdo da aplicação, pacotes de software, atualizações de software, imagens do sistema operativo e imagens de arranque. Por predefinição, esta função é instalada no computador do servidor do site de novos sites primários e secundários quando o site é instalado. Não há suporte para essa função em um site de administração central. Pode instalar várias instâncias desta função num site suportado e em vários sites na mesma hierarquia. Para obter mais informações, veja [Conceitos fundamentais da gestão de conteúdos no System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) e [Gerir conteúdo e a infraestrutura de conteúdo do System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
-
--   **Ponto de status de fallback.** Uma função de sistema de site que ajuda você a monitorar a instalação do cliente e identificar os clientes que não são gerenciados porque eles não podem se comunicar com seu ponto de gerenciamento. Embora essa função é permitida apenas em sites primários, você pode instalar várias instâncias dessa função em um site e em vários sites na mesma hierarquia.     
+-   одна или несколько ролей системы сайта, определяемых конкретными компонентами. Например, точка обновления программного обеспечения, использующаяся для управления обновлениями программного обеспечения для управляемых устройств, или точка служб отчетов, позволяющая создавать отчеты для отслеживания и анализа данных о развертывании.  
 
 
--   **Ponto do Endpoint Protection.** Uma função de sistema de site do Configuration Manager usa para aceitar os termos de licença do Endpoint Protection e configurar a associação padrão para o serviço de proteção de nuvem. Uma hierarquia permite apenas uma única instância dessa função, e esta deve estar no site de nível superior da hierarquia (um site de administração central ou site primário autônomo). Se você expandir um site primário autônomo em uma hierarquia maior, você deve desinstalar essa função do site primário e, em seguida, instale-o no site de administração central. Para obter mais informações, consulte [Endpoint Protection no System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
+Разные сайты Configuration Manager могут поддерживать разные наборы ролей системы сайта. Поддерживаемые наборы ролей системы сайта зависят от типа сайта (сайт центра администрирования, первичный сайт или вторичный сайт). Топология иерархии может ограничивать размещение некоторых ролей на определенных типах сайтов. Например, точка подключения службы поддерживается только на сайте верхнего уровня иерархии, который может быть сайтом центра администрирования или автономным первичным сайтом. Эта роль не поддерживается на дочернем первичном сайте или на вторичных сайтах.  
 
--   **Ponto de registro.** Uma função de sistema de site que usa certificados PKI para o Configuration Manager para registrar dispositivos móveis e computadores Mac. Embora esta função só seja suportada em sites primários, pode instalar várias instâncias desta função num site ou em vários sites na mesma hierarquia.  
+После установки сайта можно переместить расположение некоторых ролей системы сайта из их расположений по умолчанию на сервере сайта на другой сервер. Например, точку управления или точку распространения, которые по умолчанию устанавливаются на сервере первичного или вторичного сайта. Вы также можете установить дополнительные экземпляры некоторых ролей системы сайта, чтобы расширить возможности сайта (предоставить клиентам больше услуг) и удовлетворить бизнес-требования. Некоторые роли обязательны, другие — устанавливаются по мере необходимости.  
 
-     Se um usuário registrar dispositivos móveis usando o Gerenciador de configuração e a conta do usuário do Active Directory está em uma floresta não confiável para floresta do servidor do site, você deve instalar um ponto de registro na floresta do usuário. O usuário pode ser autenticado.  
+-   **Сервер сайта Configuration Manager.** Эта роль определяет сервер, на котором запускается программа установки Configuration Manager для установки сайта, или сервер, на котором устанавливается вторичный сайт. Эту роль нельзя переместить или удалить до удаления сайта.  
 
--   **Ponto proxy do registro.** Uma função de sistema de site que gerencia as solicitações de registro do Gerenciador de configuração de dispositivos móveis e computadores Mac. Embora esta função só seja suportada em sites primários, pode instalar várias instâncias desta função num site ou em vários sites na mesma hierarquia.  
+-   **Система сайта Configuration Manager.** Эта роль назначается любому компьютеру, на котором устанавливается сайт или роль системы сайта. Эту роль нельзя переместить или удалить, пока с компьютера не удалена последняя роль системы сайта.  
 
-     Quando você oferece suporte a dispositivos móveis na Internet, instale o ponto proxy do registro em uma rede de perímetro de segurança e instalar o ponto de registro na intranet.  
+-   **Роль системы сайта компонента Configuration Manager.** Эта роль идентифицирует систему сайта, на которой запущен экземпляр службы SMS Executive. Она требуется для поддержки других ролей, таких как точки управления. Эту роль нельзя переместить или удалить, пока с компьютера не удалена последняя соответствующая роль системы сайта.  
 
--   **Conector do Exchange Server.** Para obter informações sobre essa função, consulte [gerenciar dispositivos móveis com o System Center Configuration Manager e o Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md)  
+-   **Сервер базы данных сайта Configuration Manager.** Эта роль назначается серверам системы сайта, на которых хранится экземпляр базы данных для сайта. Вы можете переместить эту роль на новый сервер, только задав для сайта использование другого экземпляра сервера SQL Server для размещения базы данных сайта.  
 
--   **Ponto de gerenciamento.** Uma função de sistema de site que fornece informações de localização de serviço e a política para clientes e recebe dados de configuração de clientes.  
+-   **Поставщик SMS.** Роль поставщика SMS назначается каждому компьютеру, на котором размещается экземпляр поставщика SMS, интерфейс между консолью Configuration Manager и базой данных сайта. По умолчанию эта роль автоматически устанавливается на сервере сайта центра администрирования и первичных сайтах. Вы можете установить дополнительные экземпляры на каждом сайте, чтобы предоставить доступ к сайту пользователям с правами администратора.  
 
-    Por predefinição, esta função é instalada no computador do servidor do site de novos sites primários e secundários quando o site é instalado. Sites primários dão suporte a várias instâncias dessa função. Sites secundários oferecem suporte a um único ponto de gerenciamento fornecer um ponto de contato para os clientes obtenham o computador e usuário local políticas (um ponto de gerenciamento em um site secundário é conhecido como um ponto de gerenciamento proxy).  
+     Чтобы установить дополнительные поставщики, необходимо запустить программу установки Configuration Manager для [управления поставщиком SMS](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ManageSMSprovider). Затем можно установить дополнительные поставщики на дополнительных компьютерах. На компьютере можно установить только один экземпляр поставщика SMS, и этот компьютер должен быть в том же домене, что и сервер сайта.  
 
-     Podem configurar pontos de gerenciamento para oferecer suporte a HTTP ou HTTPs, bem como para dar suporte a dispositivos móveis gerenciados com o gerenciamento de dispositivo móvel local do System Center Configuration Manager. Pode utilizar o tópico [Réplicas de bases de dados para pontos de gestão do System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md) para ajudar a reduzir a carga da CPU colocada no servidor da base de dados do site por pontos de gestão à medida que atendem pedidos de clientes.  
+-   **Точка веб-службы каталога приложений.** Роль системы сайта, которая предоставляет сведения о программном обеспечении из библиотеки программного обеспечения на веб-сайт каталога приложений. Несмотря на то что эта роль поддерживается только на первичных сайтах, можно установить несколько экземпляров этой роли на сайте или на нескольких сайтах в той же иерархии.  
 
--   **Ponto do Reporting services.** Uma função de sistema de site que se integra ao SQL Server Reporting Services para criar e gerenciar relatórios do Configuration Manager. Essa função tem suporte em sites primários e o site de administração central, e você pode instalar várias instâncias dessa função em um site com suporte. Para obter mais informações, veja [Planeamento de relatórios no System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md).  
+-   **Точка веб-сайта каталога приложений.** Роль системы сайта, которая предоставляет пользователям список программного обеспечения, доступного в каталоге приложений. Несмотря на то что эта роль поддерживается только на первичных сайтах, можно установить несколько экземпляров этой роли на сайте или на нескольких сайтах в той же иерархии.  
 
--   **Ponto de conexão de serviço.** Uma função de sistema de site que você usa para gerenciar dispositivos móveis com Microsoft Intune e o local de MDM Essa função também carrega dados de uso do seu site e é necessária para disponibilizar as atualizações para o Configuration Manager no console do Configuration Manager. Uma hierarquia permite apenas uma única instância dessa função, e esta deve estar no site de nível superior da hierarquia (um site de administração central ou site primário autônomo). Se você expandir um site primário autônomo em uma hierarquia maior, você deve desinstalar essa função do site primário e, em seguida, instale-o no site de administração central. Para obter mais informações, veja [Sobre o ponto de ligação de serviço no System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+     Если каталог приложений поддерживает клиентские компьютеры в Интернете, то в качестве меры безопасности рекомендуется установить точку веб-сайта каталога приложений в сети периметра и точку веб-службы каталога приложений в интрасети.  
 
--   **Ponto de atualização de software.** Uma função de sistema de site que se integra com o Windows Server Update Services (WSUS) para fornecer atualizações de software a clientes do Configuration Manager. Essa função tem suporte em todos os sites:  
+-   **Точка синхронизации каталога аналитики активов.** Роль системы сайта, которая подключается к службам Майкрософт для скачивания сведений о каталоге аналитики активов. Эта роль также передает продукты без категории для их последующего включения в каталог. Каждая иерархия поддерживает только один экземпляр этой роли и только на сайте верхнего уровня иерархии (на сайте центра администрирования или на автономном первичном сайте). При расширении автономного первичного сайта в более крупную иерархию необходимо удалить эту роль основного сайта, а затем установить ее на сайте центра администрирования.   Дополнительные сведения см. в статье [Аналитика активов в System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
 
-    -   Instale este sistema de site no site de administração central para sincronizar com o WSUS.  
+-   **Точка регистрации сертификатов.** Роль системы сайта, взаимодействующая с сервером, на котором выполняется служба регистрации сертификатов для сетевых устройств. Эта роль необходима для управления запросами сертификатов устройств, использующих протокол SCEP. Эта роль поддерживается только на первичных сайтах и на сайте центра администрирования.
 
-    -   Configure cada instância dessa função em sites primários filho para sincronizar com o site de administração central.  
+     Несмотря на то что одна точка регистрации сертификатов может обеспечить функционирование всей иерархии, можно установить несколько экземпляров этой роли на сайте или на нескольких сайтах в той же иерархии. Это необходимо для распределения нагрузки. Если в иерархии имеется несколько экземпляров, клиенты назначаются одной из точек регистрации сертификатов случайным образом.  
 
-    -   Considere a instalação de um ponto de atualização de software em sites secundários, quando a transferência de dados através da rede for lenta.  
+     Каждой точке регистрации сертификатов требуется доступ к отдельному экземпляру службы регистрации сертификатов для сетевых устройств. Несколько точек регистрации сертификатов нельзя настроить для использования одной и той же службы регистрации сертификатов для сетевых устройств. Кроме того, точку регистрации сертификатов нельзя устанавливать на том же сервере, на котором запущена служба регистрации сертификатов для сетевых устройств.  
 
-    Para obter mais informações, veja [Planear atualizações de software no System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
+- **Точка соединителя шлюза управления облаком.** Это роль системы сайта для взаимодействия со [шлюзом управления облаком](/sccm/core/clients/manage/setup-cloud-management-gateway).
 
--   **Ponto de migração de estado.** Uma função do sistema de sites que armazena dados de estado dos utilizadores quando um computador é migrado para um novo sistema operativo. Essa função tem suporte em sites primários e em sites secundários. Você pode instalar várias instâncias dessa função em um site e em vários sites na mesma hierarquia. Para obter mais informações sobre o armazenamento do estado do utilizador ao implementar sistemas operativos, veja [Gerir o estado do utilizador no System Center Configuration Manager](../../../osd/get-started/manage-user-state.md).  
+-   **Точка распространения.** Роль системы сайта, которая содержит исходные файлы для загрузки клиентами, такие как содержимое приложений, пакеты программного обеспечения, обновления программного обеспечения, образы операционных систем и загрузочные образы. По умолчанию при установке сайта эта роль устанавливается на компьютере сервера сайта для новых первичных и вторичных сайтов. На сайте центра администрирования эта роль не поддерживается. Можно установить несколько экземпляров этой роли на поддерживаемом сайте или на нескольких сайтах в той же иерархии. Дополнительные сведения см. в статьях [Основные принципы управления содержимым в System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) и [Управление содержимым и инфраструктурой содержимого для System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
--   **Ponto do validador de integridade do sistema.** Embora essa função do sistema de site permanece visível no console do Configuration Manager, ele não é mais usado.  
-
-###  <a name="bkmk_proxy"></a> Funções do sistema de sites que podem utilizar um servidor proxy  
- Algumas funções do sistema de site do Configuration Manager requerem conexões à Internet e usam um servidor proxy quando o servidor do sistema de site que hospeda a função é configurado para um. Normalmente, essa conexão é feita na **sistema** contexto do computador em que a função de sistema de site está instalada. A conexão não pode usar uma configuração de proxy para contas de usuário típicas. Quando um servidor proxy é necessário para concluir uma conexão à Internet, você deve configurar o computador para usar um servidor proxy:  
-
--   Você pode configurar um servidor proxy ao instalar uma função de sistema de site.  
-
--   Você pode adicionar ou modificar uma configuração de servidor proxy quando você usar o console do Configuration Manager.  
-
--   A mesma configuração de servidor proxy é usada para todas as funções de sistema de site em um servidor de sistema de site que pode usar uma configuração de servidor proxy. Se você precisar de funções do sistema de site diferente para usar diferentes servidores proxy, você deve instalar as funções do sistema de site em computadores do servidor de sistema de site diferente.  
-
--   Se modificar a configuração do servidor proxy ou instalar uma nova função de sistema de sites num computador que já tenha uma configuração de servidor proxy, a configuração original é substituída pela nova configuração.  
+-   **Резервная точка состояния.** Роль системы сайта, которая позволяет отслеживать выполнение установки клиентов и выявлять клиенты, управление которыми невозможно, так как они не могут подключиться к своей точке управления. Хотя эта роль поддерживается только на первичных сайтах, можно установить несколько экземпляров этой роли на одном сайте и нескольких сайтах в той же иерархии.     
 
 
-Para obter procedimentos sobre como configurar o servidor proxy para funções do sistema de site, consulte o [adicionar funções do sistema de site para o System Center Configuration Manager](../../../core/servers/deploy/configure/add-site-system-roles.md) tópico.  
+-   **Точка Endpoint Protection.** Роль системы сайта, используемая Configuration Manager для принятия условий лицензионного соглашения Endpoint Protection и настройки членства по умолчанию в службе Cloud Protection. Каждая иерархия поддерживает только один экземпляр этой роли и только на сайте верхнего уровня иерархии (на сайте центра администрирования или на автономном первичном сайте). При расширении автономного первичного сайта в более крупную иерархию необходимо удалить эту роль основного сайта, а затем установить ее на сайте центра администрирования. Дополнительные сведения см. в статье [Endpoint Protection](../../../protect/deploy-use/endpoint-protection.md) (О точке Endpoint Protection).  
 
-A seguir, são indicadas as funções do sistema de sites que podem utilizar um servidor proxy:  
+-   **Точка регистрации.** Роль системы сайта, которая использует PKI-сертификаты Configuration Manager для регистрации мобильных устройств и компьютеров Mac. Несмотря на то что эта роль поддерживается только на первичных сайтах, можно установить несколько экземпляров этой роли на сайте или на нескольких сайтах в той же иерархии.  
 
--   **Ponto de sincronização do Asset Intelligence.** Essa função do sistema de site se conecta à Microsoft, usa uma configuração de servidor proxy no computador que hospeda o ponto de sincronização do Asset Intelligence.  
+     Если пользователь регистрирует мобильные устройства с помощью Configuration Manager и учетная запись пользователя Active Directory находится в лесу, который не имеет доверительных отношений с лесом сервера сайта, необходимо установить точку регистрации в лесу пользователя. После этого пользователь может пройти проверку подлинности.  
 
--   **Ponto de distribuição baseado em nuvem.** Quando você usa um ponto de distribuição baseado em nuvem, o site primário que gerencia o ponto de distribuição baseado em nuvem deve ser capaz de se conectar ao Microsoft Azure para provisionar, monitorar e distribuir conteúdo ao ponto de distribuição. Se um servidor proxy é necessário para esta conexão, você deve configurar o servidor proxy no servidor do site primário. Você não pode configurar um servidor proxy no ponto de distribuição baseado em nuvem no Azure. Para obter mais informações, consulte o [definir configurações de proxy para sites primários que gerenciam serviços de nuvem](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md#BKMK_ConfigProxyforCloud) seção o [instalar pontos de distribuição baseado em nuvem no Microsoft Azure para o System Center Configuration Manager](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md) tópico.  
+-   **Прокси-точка регистрации.** Роль системы сайта, которая управляет запросами на регистрацию Configuration Manager от мобильных устройств и компьютеров Mac. Несмотря на то что эта роль поддерживается только на первичных сайтах, можно установить несколько экземпляров этой роли на сайте или на нескольких сайтах в той же иерархии.  
 
--   **Conector do Exchange Server.** Essa função do sistema de site se conecta a um Exchange Server e usa uma configuração de servidor proxy no computador que hospeda o conector do Exchange Server.  
+     Чтобы обеспечить безопасность при поддержке мобильных устройств в Интернете, установите прокси-точку регистрации в сети периметра и точку регистрации в интрасети.  
 
--   **Ponto de atualização de software.** Essa função do sistema de site pode exigir conexões com o Microsoft Update para baixar patches e sincronizar informações sobre atualizações. Normalmente, quando você configura o servidor proxy, cada função de sistema de site naquele computador que oferece suporte ao uso do servidor proxy usa o servidor proxy. Nenhuma configuração adicional é necessária. Uma exceção a isso é o ponto de atualizações de software. Por padrão, um ponto de atualizações de software não usa um servidor proxy disponível, a menos que você também habilitar as opções a seguir quando você configura o ponto de atualização de software:  
+-   **Коннектор Exchange Server.** Дополнительные сведения об этой роли см. в статье [Управление мобильными устройствами с помощью System Center Configuration Manager и Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
 
-    -   **Utilizar um servidor proxy para sincronizar atualizações de software**  
+-   **Точка управления.** Роль системы сайта, которая предоставляет клиентам политики и сведения о расположении служб, а также принимает данные конфигурации от клиентов.  
 
-    -   **Utilizar um servidor proxy quando transferir conteúdo usando regras de implementação automática**  
+    По умолчанию при установке сайта эта роль устанавливается на компьютере сервера сайта для новых первичных и вторичных сайтов. Первичные сайты поддерживают несколько экземпляров этой роли. Вторичные сайты поддерживают одну точку управления для предоставления локальной точки контакта для клиентов с целью получения политик компьютера и пользователя (точка управления на вторичном сайте называется прокси-точкой управления).  
+
+     Точки управления можно настроить для поддержки протоколов HTTP и HTTPS, а также для поддержки мобильных устройств, управляемых с помощью локального управления мобильными устройствами в System Center Configuration Manager. Можно использовать [реплики базы данных для точек управления для System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md), чтобы снизить нагрузку на ЦП сервера базы данных сайта, которую создают точки управления при обработке запросов от клиентов.  
+
+-   **Точка служб отчетов.** Роль системы сайта, которая интегрируется со службами SQL Server Reporting Services для создания отчетов и управления ими в Configuration Manager. Эта роль поддерживается на первичных сайтах и на сайте центра администрирования, кроме того, вы можете установить несколько экземпляров этой роли на поддерживаемом сайте. Дополнительные сведения см. в статье [Планирование создания отчетов в System Center Configuration Manager](../../../core/servers/manage/planning-for-reporting.md).  
+
+-   **Точка подключения службы.** Роль системы сайта, которая позволяет управлять мобильными устройствами с помощью Microsoft Intune и локально управлять мобильными устройствами. Эта роль также отправляет данные об использовании с сайта и требуется для того, чтобы обновления для Configuration Manager стали доступными в консоли Configuration Manager. Каждая иерархия поддерживает только один экземпляр этой роли и только на сайте верхнего уровня иерархии (на сайте центра администрирования или на автономном первичном сайте). При расширении автономного первичного сайта в более крупную иерархию необходимо удалить эту роль основного сайта, а затем установить ее на сайте центра администрирования. Дополнительные сведения см. в статье [Сведения о точке подключения службы в System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+
+-   **Точка обновления программного обеспечения.** Роль системы сайта, которая интегрируется со службами Windows Server Update Services (WSUS) для предоставления обновлений программного обеспечения клиентам Configuration Manager. Эта роль поддерживается на всех сайтах.  
+
+    -   Установите эту роль системы сайта на сайте центра администрирования для синхронизации со службами WSUS.  
+
+    -   Настройте каждый экземпляр этой роли на дочерних первичных сайтах для синхронизации с сайтом центра администрирования.  
+
+    -   Можно установить точку обновления программного обеспечения на вторичных сайтах, если данные передаются по сети слишком медленно.  
+
+    Дополнительные сведения см. в разделе [Планирование обновлений программного обеспечения в System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
+
+-   **Точка миграции состояния.** Роль системы сайта, которая хранит данные о состоянии пользователей при миграции компьютера на новую операционную систему. Эта роль поддерживается на первичных и вторичных сайтах. Вы можете установить несколько экземпляров этой роли на одном или нескольких сайтах в той же иерархии. Дополнительные сведения о сохранении пользовательской среды при развертывании операционной системы см. в разделе [Управление пользовательской средой в System Center Configuration Manager](../../../osd/get-started/manage-user-state.md).  
+
+-   **Точка проверки работоспособности систем.** Хотя эта роль системы сайта по-прежнему отображается в консоли Configuration Manager, она больше не используется.  
+
+###  <a name="bkmk_proxy"></a> Роли системы сайта, которые могут использовать прокси-сервер  
+ Для некоторых ролей системы сайта Configuration Manager требуется подключение к Интернету, и они будут использовать прокси-сервер, если он настроен для сервера системы сайта, на котором размещена роль. Как правило, подключение устанавливается в контексте **системы** компьютера, на котором установлена роль системы сайта. Это подключение не может использовать прокси-конфигурацию для обычных учетных записей пользователей. Если прокси-сервер необходим, чтобы установить подключение к Интернету, необходимо настроить компьютер с использованием прокси-сервера.  
+
+-   Вы можете настроить прокси-сервер во время установки роли системы сайта.  
+
+-   Вы можете добавить или изменить конфигурацию прокси-сервера при использовании консоли Configuration Manager.  
+
+-   Все роли системы сайта на сервере системы сайта, которые могут использовать конфигурацию прокси-сервера, используют одинаковую конфигурацию прокси-сервера. Если разным ролям системы сайта необходимо использовать разные прокси-серверы, необходимо установить роли системы сайта на разных серверах системы сайта.  
+
+-   При изменении конфигурации прокси-сервера или при установке новой роли системы сайта на компьютере, который уже имеет конфигурацию прокси-сервера, исходная конфигурация заменяется новой конфигурацией.  
+
+
+Процедуры настройки прокси-сервера для ролей системы сайта см. в статье [Добавление ролей системы сайта для System Center Configuration Manager](../../../core/servers/deploy/configure/add-site-system-roles.md).  
+
+Ниже перечислены роли системы сайта, которые могут использовать прокси-сервер.  
+
+-   **Точка синхронизации каталога аналитики активов.** Эта роль системы сайта подключается к Майкрософт и использует конфигурацию прокси-сервера на компьютере, на котором размещена точка синхронизации аналитики активов.  
+
+-   **Облачная точка распространения.** При использовании облачной точки распространения первичный сайт, который управляет этой точкой, должен быть способен подключиться к Microsoft Azure для подготовки, отслеживания и распространения содержимого в точке распространения. Если для такого подключения необходим прокси-сервер, необходимо настроить прокси-сервер на сервере первичного сайта. Невозможно настроить прокси-сервер для облачной точки распространения в Azure. Дополнительные сведения см. в разделе [Настройка параметров прокси-сервера для первичных сайтов, которые управляют облачными службами](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md#BKMK_ConfigProxyforCloud) статьи [Установка облачных точек распространения в Microsoft Azure для System Center Configuration Manager](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md).  
+
+-   **Коннектор Exchange Server.** Эта роль системы сайта подключается к Exchange Server и использует конфигурацию прокси-сервера на компьютере, на котором размещен соединитель Exchange Server.  
+
+-   **Точка обновления программного обеспечения.** Эта роль системы сайта может требовать подключение к Центру обновления Майкрософт для загрузки исправлений и синхронизации сведений об обновлениях. Как правило, при настройке прокси-сервера каждая роль системы сайта на компьютере, который поддерживает использование прокси-сервера, использует прокси-сервер. Никаких дополнительных настроек не требуется. Исключением может быть сценарий с точкой обновления программного обеспечения. По умолчанию точка обновления программного обеспечения не использует доступный прокси-сервер, если не включить следующие параметры при ее настройке.  
+
+    -   **Использовать прокси-сервер при синхронизации обновлений ПО**  
+
+    -   **Использовать прокси-сервер при загрузке содерж. с помощью правил авторазвертывания**  
 
     > [!TIP]  
-    >  Antes de selecionar qualquer opção, um servidor proxy deve ser definido no servidor do sistema de site que hospeda o ponto de atualizações de software. O servidor proxy só é utilizado para as opções específicas que selecionar.  
+    >  Прежде чем выбрать любой из этих вариантов, стоит убедиться, что прокси-сервер настроен на сервере системы сайта, где размещена точка обновления программного обеспечения. Прокси-сервер используется только для определенных выбранных параметров.  
 
- Para obter mais informações sobre servidores proxy para pontos de atualização de software, consulte a seção "Configurações do servidor Proxy" [instalar um ponto de atualização de software](../../../sum/get-started/install-a-software-update-point.md) tópico.  
+ Дополнительные сведения о прокси-серверах для точек обновления программного обеспечения см. в разделе "Параметры прокси-сервера" статьи [Установка и настройка точки обновления программного обеспечения](../../../sum/get-started/install-a-software-update-point.md).  
 
--   **Ponto de conexão de serviço.** Quando configurado para estar online (não offline), essa função do sistema de site conecta-se ao Microsoft Intune e o serviço de nuvem da Microsoft.  
-
+-   **Точка подключения службы.** Если в настройках выбран оперативный режим (не автономный), эта роль системы сайта подключается к Microsoft Intune и облачной службе Майкрософт.  

@@ -1,6 +1,6 @@
 ---
-title: Obter do Configuration Manager | Microsoft Docs
-description: "Onde encontrar o suporte de instalação para novas instalações de System Center Configuration Manager."
+title: "Получение Configuration Manager | Документы Майкрософт"
+description: "Сведения о получении установочного носителя для новых установок System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/11/2017
 ms.prod: configuration-manager
@@ -16,16 +16,16 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: be02514591881049fabc00baae9de70a8380aa9a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="where-to-get-installation-media-for-system-center-configuration-manager"></a>Onde obtê-suporte de instalação para o System Center Configuration Manager
+# <a name="where-to-get-installation-media-for-system-center-configuration-manager"></a>Получение установочного носителя для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Se tiver licenças de volume do System Center Configuration Manager com o Software Assurance ou, se tiver comprado licenças para as licenças de volume do System Center Configuration Manager, pode transferir o suporte de dados de origem de linha de base para instalar o System Center Configuration Manager a partir de [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx).   
+Если у вас есть корпоративные лицензии System Center Configuration Manager с Software Assurance или если вы приобрели лицензии по программе корпоративного лицензирования System Center Configuration Manager, то можете скачать базовый исходный носитель для установки System Center Configuration Manager на веб-сайте [Volume Licensing Service Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx).   
 
-Se gostaria de comprar licenças de volume para o System Center Configuration Manager, contate o seu Reseller Microsoft preferencial ou [como comprar através do licenciamento em Volume]( https://www.microsoft.com/Licensing/how-to-buy/how-to-buy.aspx). Também pode transferir o suporte de dados para instalar uma edição de avaliação do System Center Configuration Manager, da partir do [TechNet Evaluation Center]( https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection) Web site.
+Если вы хотите приобрести корпоративные лицензии System Center Configuration Manager, обратитесь к предпочтительному торговому посреднику Майкрософт или см. статью [Приобретение по программе корпоративного лицензирования Майкрософт]( https://www.microsoft.com/Licensing/how-to-buy/how-to-buy.aspx). Вы также можете скачать носитель для установки ознакомительного выпуска System Center Configuration Manager с веб-сайта [Центра оценки TechNet]( https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection).
 
-Para saber mais sobre o suporte de dados de linha de base para o Configuration Manager, consulte [versões de linha de base e atualização](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
+Сведения о базовых носителях Configuration Manager см. в разделе [Базовые и обновленные версии](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).

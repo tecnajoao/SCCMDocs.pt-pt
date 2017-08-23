@@ -1,6 +1,6 @@
 ---
-title: Planear a MDM no local | Microsoft Docs
-description: "Planear a gestão de dispositivos móveis no local gerir dispositivos móveis no System Center Configuration Manager."
+title: "Планирование локального управления мобильными устройствами | Документы Майкрософт"
+description: "Планирование локального управления мобильными устройствами для управления мобильными устройствами в System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,105 +17,105 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 544c3bea0c7df96887ee1717f061c39c64b82d01
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Planear a Gestão de Dispositivos Móveis no Local no System Center Configuration Manager
+# <a name="plan-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Планирование локального управления мобильными устройствами в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Considere os requisitos seguintes antes de a preparar a infraestrutura do Configuration Manager para processar no\-no local a gestão de dispositivos móveis.
+Перед подготовкой инфраструктуры Configuration Manager для обработки локального управления мобильными устройствами примите во внимание приведенные далее требования.
 
-##  <a name="bkmk_devices"></a>Dispositivos suportados  
- No local gestão de dispositivos móveis permite-lhe gerir dispositivos móveis ao utilizar as capacidades de gestão incorporadas nos sistemas de operativos de dispositivos.  A capacidade de gestão baseia-se na norma de Gestão de Dispositivos da Open Mobile Alliance (OMA) e muitas plataformas de dispositivos utilizam esta norma para permitir a gestão dos dispositivos.  Chamamos a estes **dispositivos modernos** (na documentação e a interface de utilizador da consola do Configuration Manager) para distingui-los a partir de outros dispositivos que necessitam do cliente do Configuration Manager para geri-los.  
+##  <a name="bkmk_devices"></a> Поддерживаемые устройства  
+ Локальное управление мобильными устройствами позволяет управлять мобильными устройствами с помощью средств, встроенных в операционные системы устройств.  Возможность управления устройствами основана на стандарте Open Mobile Alliance (OMA) Device Management (DM), который применяется на многих платформах.  Мы называем их **современными устройствами** (в документации и пользовательском интерфейсе консоли Configuration Manager), чтобы отличать их от других устройств, для управления которыми требуется клиент Configuration Manager.  
 
  > [!NOTE]  
->  O ramo atual do Configuration Manager suporta a inscrição na gestão de dispositivos móveis no local para dispositivos que executam os sistemas operativos seguintes:  
+>  Текущая ветвь Configuration Manager поддерживает регистрацию локального управления мобильными устройствами для устройств под управлением следующих операционных систем:  
 >   
-> -  Windows 10 Enterprise  
-> -   Windows 10 Pro  
-> -   Windows 10 Team \(a partir do Configuration Manager versão 1602\)  
+> -  Windows 10 Корпоративная  
+> -   Windows 10 Pro  
+> -   Windows 10 для совместной работы \(начиная с Configuration Manager версии 1602\)  
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Enterprise
-> -   Windows 10 Enterprise de IoT   
+> -   Windows 10 Mobile Корпоративная
+> -   Windows 10 IoT Корпоративная   
 
-##  <a name="bkmk_intune"></a>Utilização de subscrição do Microsoft Intune  
- Para começar a utilizar no\-no local a gestão de dispositivos móveis, terá de uma subscrição do Microsoft Intune. A subscrição só é necessária para controlar o licenciamento dos dispositivos e não é utilizada para gerir ou armazenar informações de gestão dos dispositivos. É processada a gestão de todos os da empresa da sua organização através da infraestrutura do Configuration Manager no local.  
+##  <a name="bkmk_intune"></a> Использование подписки Microsoft Intune  
+ Чтобы начать работу с локальным управлением мобильными устройствами, вам потребуется подписка Microsoft Intune. Подписка нужна только для отслеживания лицензирования устройств и не используется в целях хранения информации управления для устройств и управления ей. Все управление осуществляется в корпоративной среде вашей организации с помощью локальной инфраструктуры Configuration Manager.  
 
  > [!NOTE]  
- > A partir da versão 1610, o Configuration Manager suporta a gestão de dispositivos móveis utilizando o Microsoft Intune e a infraestrutura do Configuration Manager no local ao mesmo tempo.   
+ > Начиная с версии 1610 Configuration Manager поддерживает одновременное управление мобильными устройствами с помощью Microsoft Intune и локальной инфраструктуры Configuration Manager.   
 
- Se o seu site tiver dispositivos com ligação à internet, o serviço do Intune pode ser utilizado para notificar os dispositivos para verificar o ponto de gestão de dispositivos para atualizações de políticas. Esta utilização do Intune é estritamente a notificação apenas de dispositivos de acesso à internet. Dispositivos sem ligações à internet (e não pode ser contactado pelo Intune) dependem do intervalo de consulta configurado para dar entrada funções de sistema de sites para funções de gestão.  
+ Если сайт имеет устройства с подключением к Интернету, с помощью службы Intune можно указать им проверить точку управления устройствами на наличие обновлений политик. Такое использование Intune подходит исключительно для уведомления устройств с выходом в Интернет. Устройства без подключения к Интернету (с которыми не может связаться Intune) используют для проверки ролей системы сайта на предмет функций управления настроенный интервал опроса.  
 
 > [!TIP]  
->  Recomendamos que configurou o Intune antes de configurar as funções do sistema de sites necessárias para minimizar o tempo necessário para as funções de sistema de sites fiquem funcionais.  
+>  Мы рекомендуем настроить Intune перед установкой нужных ролей системы сайта, чтобы минимизировать время, необходимое для начала функционирования таких ролей.  
 
- Para obter informações sobre como configurar a subscrição do Intune, consulte [configurar uma subscrição do Microsoft Intune para gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md).  
+ Дополнительные сведения о настройке подписки см. в статье [Настройка подписки Microsoft Intune для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md).  
 
-##  <a name="bkmk_roles"></a>Funções do sistema de sites necessárias  
- No\-local gestão de dispositivos móveis requer, pelo menos, um de cada uma das seguintes funções do sistema de sites:  
+##  <a name="bkmk_roles"></a> Обязательные роли системы сайта  
+ Для локального управления мобильными устройствами требуется по меньшей мере одна из следующих ролей системы сайта:  
 
--   **Ponto proxy de registo** para suportar pedidos de inscrição.  
+-   **Прокси-точка регистрации** для поддержки запросов регистрации.  
 
--   **Ponto de inscrição** para suportar a inscrição de dispositivos.  
+-   **Точка регистрации** для поддержки регистрации устройств.  
 
--   **Ponto de gestão de dispositivos** para entrega de políticas. Esta função do sistema de sites é uma variação da função de ponto de gestão que foi configurada para permitir a gestão de dispositivos móveis.  
+-   **Точки управления устройствами** для применения политик. Эта роль системы сайта является разновидностью роли точки управления, которая была настроена для управления мобильными устройствами.  
 
--   **Ponto de distribuição** para a entrega de conteúdo.  
+-   **Точка распространения** для доставки содержимого.  
 
--   **Ponto de ligação de serviço** para ligar ao Intune para notificar dispositivos fora da firewall.  
+-   **Точка подключения службы** для подключения к Intune в целях уведомления устройств за пределами брандмауэра.  
 
- Estas funções de sistema de sites podem ser instaladas no servidor do sistema de sites único ou podem ser executadas separadamente em servidores diferentes, consoante as necessidades da sua organização. Cada servidor do sistema de site utilizado para no\-local gestão de dispositivos móveis tem de ser configurado como um ponto final HTTPS para comunicação com dispositivos fidedignos. Para obter mais informações, veja [Comunicações fidedignas necessárias](#bkmk_trustedComs).  
+ В зависимости от потребностей организации эти роли системы сайта можно установить на одном сервере системы сайта или запустить отдельно на разных серверах. Каждый сервер системы сайта, используемый для локального управления мобильными устройствами, должен быть настроен в качестве конечной точки HTTPS для взаимодействия с доверенными устройствами. Дополнительные сведения см. в статье [Требуемое доверенное взаимодействие](#bkmk_trustedComs).  
 
- Para obter mais informações sobre o posicionamento de funções do sistema de sites, veja [Planear os servidores do sistema de sites e as funções do sistema de sites para o System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).  
+ Дополнительные сведения о планировании ролей системы сайта см. в статье [Планирование серверов системы сайта и ролей системы сайта для System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).  
 
- Para obter mais informações sobre como adicionar as funções necessárias do sistema de site, veja [Instalar funções do sistema de sites para Gestão de Dispositivos Móveis no Local do System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md).  
+ Дополнительные сведения о добавлении нужных ролей системы сайта см. в статье [Установка ролей системы сайта для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md).  
 
-##  <a name="bkmk_trustedComs"></a>Comunicações fidedignas necessárias  
- No\-local funções de sistema de sites para ser ativada para comunicações HTTPS requer a gestão de dispositivos móveis. Consoante as suas necessidades, pode utilizar a autoridade de certificação (AC) da sua empresa para estabelecer as ligações fidedignas entre servidores e dispositivos ou pode utilizar uma AC disponível ao público para ser a autoridade fidedigna.  De qualquer forma, irá precisar que um certificado do servidor Web seja configurado com o IIS nos servidores do sistema de sites que alojam as funções do sistema de sites necessárias e irá precisar do certificado de raiz dessa AC instalado nos dispositivos que necessitam de ligar a esses servidores.  
+##  <a name="bkmk_trustedComs"></a> Требуемое доверенное взаимодействие  
+ Для локального управления мобильными устройствами требуется, чтобы роли системы сайта поддерживали связь по протоколу HTTPS. В зависимости от потребностей можно использовать центр сертификации (ЦС) вашего предприятия для установки доверенных подключений между серверами и устройствами либо использовать общедоступный ЦС в качестве доверенного.  В любом случае потребуется настроить сертификат веб-сервера с помощью служб IIS на серверах системы сайта, где размещаются роли системы сайта, а также установить корневой сертификат этого ЦС на компьютерах, которым требуется подключаться к серверам.  
 
- Se utilizar a AC da sua empresa para estabelecer comunicações fidedignas, terá de realizar as seguintes tarefas:  
+ При использовании ЦС предприятия для установки доверенных соединений необходимо выполнить следующие задачи:  
 
--   Criar e emitir o modelo do certificado do servidor Web na AC.  
+-   Создайте и выдайте шаблон сертификата веб-сервера в центре сертификации.  
 
--   Solicitar um certificado de servidor Web para cada servidor do sistema de sites que aloja uma função do sistema de sites necessária.  
+-   Запросите сертификат веб-сервера для каждого сервера системы сайта, где размещается нужная роль системы сайта.  
 
--   Configurar o IIS no servidor do sistema de sites para utilizar o certificado do servidor Web solicitado.  
+-   Настройте службы IIS на сервере системы сайта для использования запрошенного сертификата веб-сервера.  
 
- No caso de dispositivos associados ao domínio do Active Directory da empresa, o certificado de raiz da AC empresarial já se encontra disponível no dispositivo para ligações fidedignas. Isto significa que os dispositivos associados a um domínio (como computadores de secretária) serão considerados automaticamente fidedignos para ligações HTTPS com os servidores do sistema de sites. No entanto, os dispositivos não associados a um domínio (normalmente, dispositivos móveis) não terão o certificado de raiz necessário instalado. Os dispositivos irão necessitar que o certificado de raiz seja instalado manualmente nos mesmos para comunicar com servidores de sistema de sites que suportam no\-no local a gestão de dispositivos móveis.  
+ Для устройств, присоединенных к корпоративному домену Active Directory, корневой сертификат центра сертификации предприятия уже доступен на устройстве для установки доверенных соединений. Это означает, что присоединенные к домену устройства (например настольные компьютеры) автоматически считаются доверенными для связи с серверами системы сайта по протоколу HTTPS. Тем не менее, не присоединенные к домену устройства (обычно мобильные) не будут располагать нужным корневым сертификатом. На этих устройствах потребуется вручную установить корневой сертификат, чтобы они могли связаться с серверами системы сайта, поддерживающими локальное управление мобильными устройствами.  
 
- Tem de exportar o certificado de raiz da AC emissora para utilização pelos dispositivos individuais. Para obter o ficheiro de certificado de raiz, pode exportá-lo utilizando a AC ou um método mais simples que consiste em utilizar o certificado do servidor Web emitido pela AC para extrair a raiz e criar um ficheiro de certificado de raiz.   Em seguida, o certificado de raiz tem de ser entregue no dispositivo.  Alguns exemplos de métodos de entrega incluem  
+ Необходимо экспортировать корневой сертификат выдающего ЦС для использования отдельными устройствами. Чтобы получить файл корневого сертификата, его можно экспортировать с помощью центра сертификации. Но есть и более простой способ — использовать сертификат веб-сервера, выданный центром сертификации, для извлечения корня и создания файла корневого сертификата.   Потом этот корневой сертификат следует передать на устройство.  Некоторые примеры методов доставки:  
 
--   Sistema de ficheiros  
+-   Файловая система  
 
--   Anexo de e-mail  
+-   Вложение в сообщение электронной почты  
 
--   Cartão de memória  
+-   Карта памяти  
 
--   Dispositivo tethered  
+-   Связанное устройство  
 
--   Armazenamento na nuvem (por exemplo, o OneDrive)  
+-   Облачное хранилище (например OneDrive)  
 
--   Ligação de comunicação de proximidade (NFC)  
+-   Подключение NFC  
 
--   Leitor de código de barras  
+-   Сканер штрихкодов  
 
--   Pacote de aprovisionamento OOBE (out of box experience)  
+-   Пакет подготовки к запуску при первом включении компьютера  
 
- Para obter mais informações, veja [Configurar certificados para comunicações fidedignas para a Gestão de Dispositivos Móveis no Local do System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md)  
+ Дополнительные сведения см. в статье [Настройка сертификатов для доверенного взаимодействия для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md).  
 
-##  <a name="bkmk_enrollment"></a>Considerações sobre inscrição  
- Para ativar a inscrição de dispositivos no\-local gestão de dispositivos móveis, os utilizadores têm de ser concedidos permissões para inscrever e os respetivos dispositivos devem ser capazes de ter comunicações fidedignas com os servidores de sistema de sites que alojam as funções de sistema de sites necessárias.  
+##  <a name="bkmk_enrollment"></a> Рекомендации по регистрации  
+ Чтобы включить регистрацию устройств для локального управления мобильными устройствами, пользователям следует предоставить разрешение на регистрацию, а их устройства должны иметь возможность доверенной связи с серверами системы сайта, где размещаются нужные роли системы сайта.  
 
- Conceder permissão de inscrição de utilizador pode ser conseguido através da configuração de um perfil de inscrição nas definições de cliente do Configuration Manager. Pode utilizar as predefinições de cliente para emitir o perfil de inscrição para todos os utilizadores detetados ou pode configurar o perfil de inscrição nas definições de cliente personalizadas e emitir as definições para uma ou mais coleções de utilizador.  
+ Предоставить пользователю разрешения на регистрацию можно путем настройки профиля регистрации в параметрах клиента Configuration Manager. Параметры клиента по умолчанию можно использовать для передачи профиля регистрации всем обнаруженным пользователям, а также настроить профиль регистрации в пользовательских параметрах клиента и передать параметры в одну или несколько коллекций пользователей.  
 
- Com a permissão de inscrição de utilizadores concedida, os utilizadores podem inscrever os respetivos dispositivos. Para ser inscrito, o dispositivo do utilizador tem de ter o certificado de raiz da autoridade de certificação (AC) que emitiu o certificado do servidor Web utilizado nos servidores do sistema de sites que alojam as funções do sistema de sites necessárias.  
+ После получения данного разрешения пользователи могут регистрировать свои собственные устройства. Для регистрации устройство пользователя должно иметь корневой сертификат центра сертификации (ЦС), выдавшего сертификат веб-сервера, используемого на серверах системы сайта, где размещаются нужные роли системы сайта.  
 
- Como alternativa para a inscrição iniciada pelo utilizador, pode configurar um pacote de inscrição em volume que permite que o dispositivo seja inscrito sem a intervenção do utilizador. Este pacote pode ser fornecido ao dispositivo antes de ser inicialmente aprovisionado para utilização ou depois de o dispositivo passar pelo respetivo processo OOBE.  
+ В качестве альтернативы для регистрации, инициированной пользователем, можно настроить пакет массовой регистрации, позволяющий зарегистрировать устройство без вмешательства пользователя. Этот пакет можно передать на устройство, которое еще не подготовлено к использованию или уже прошло через процесс запуска при первом включении компьютера.  
 
- Para mais informações sobre como configurar e inscrever dispositivos, consulte  
+ Дополнительные сведения о настройке и регистрации устройств см. в статьях:  
 
--   [Configurar a inscrição de dispositivos para gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
+-   [Настройка регистрации устройств для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
 
--   [Inscrever dispositivos para gestão de dispositivos móveis no local no System Center Configuration Manager](../../mdm/deploy-use/enroll-devices-on-premises-mdm.md)  
+-   [Регистрация устройств для локального управления мобильными устройствами в System Center Configuration Manager](../../mdm/deploy-use/enroll-devices-on-premises-mdm.md)  

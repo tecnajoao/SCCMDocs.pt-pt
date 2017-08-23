@@ -1,6 +1,6 @@
 ---
-title: "Utilize o Centro de Software para implementar o Windows através da rede | Microsoft Docs"
-description: "Pode implementar um sistema operativo ao centro de Software para atualizar um computador existente com uma nova versão do Windows ou para atualizar o Windows para a versão mais recente."
+title: "Использование центра программного обеспечения для развертывания Windows по сети | Документы Майкрософт"
+description: "Можно развернуть операционную систему в центре программного обеспечения, чтобы обновить существующий компьютер до новой версии Windows или обновить Windows до последней версии."
 ms.custom: na
 ms.date: 6/16/2017
 ms.prod: configuration-manager
@@ -16,28 +16,28 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 8988409c68b7f69439ed03872c316b2139d25616
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-software-center-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utilizar o Centro de Software para implementar o Windows através da rede com o System Center Configuration Manager
+# <a name="use-software-center-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Использование центра программного обеспечения для развертывания Windows по сети с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-O Adquirente pode efectuar a sequência de tarefas que instala um sistema operativo no System Center Configuration Manager está disponível no Centro de Software. Pode implementar um sistema operativo ao centro de Software com os seguintes cenários de implementação do sistema operativo:
+Последовательность задач для установки операционной системы в System Center Configuration Manager можно сделать доступной в центре программного обеспечения. Вы можете развернуть операционную систему в центре программного обеспечения в следующих сценариях развертывания.
 
--   [Atualizar um computador existente com uma nova versão do Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)
+-   [Обновление существующего компьютера до новой версии Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)
 
--   [Atualize o Windows para a versão mais recente](upgrade-windows-to-the-latest-version.md)
+-   [Обновление Windows до последней версии](upgrade-windows-to-the-latest-version.md)
 
-Conclua os passos dos cenários de implementação do sistema operativo. Utilize as secções seguintes para se preparar para implementações que estão disponíveis no Centro de Software.
+Выполните действия в рамках одного из сценариев развертывания операционной системы. Затем используйте следующие разделы для подготовки к развертываниям, доступным в центре программного обеспечения.
 
-## <a name="configure-deployment-settings"></a>Configurar definições de implementação  
-Para disponibilizar a implementação do sistema operativo no Centro de Software, configure a implementação. Pode configurar a implementação no **definições de implementação** página do Assistente de implementação de Software ou o **definições de implementação** separador nas propriedades para a implementação. Na definição **Tornar disponível para o seguinte** , configure **Apenas Clientes do Configuration Manager** ou **Clientes do Configuration Manager, suportes de dados e PXE**. Depois do sistema implementa o sistema operativo, o sistema operativo será apresentado no Centro de Software para os membros da coleção de destino.
+## <a name="configure-deployment-settings"></a>Настройка параметров развертывания  
+Чтобы сделать развертывание операционной системы доступным в центре программного обеспечения, настройте развертывание. Развертывание можно настроить на странице **Параметры развертывания** мастера развертывания программного обеспечения или на вкладке **Параметры развертывания** в свойствах развертывания. Для параметра **Сделать доступной для** установите значение **Только клиенты Configuration Manager** или **Клиенты Configuration Manager, носители и PXE**. Развернутая операционная система будет отображаться в центре программного обеспечения для членов целевой коллекции.
 
-##  <a name="BKMK_Deploy"></a> Implementar a sequência de tarefas nos computadores  
-Implemente o sistema operativo numa coleção de destino. Para obter mais informações, veja [Implementar uma sequência de tarefas](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS). Ao implementar sistemas operativos no Centro de Software, pode configurar se a implementação está disponível ou necessário.
+##  <a name="BKMK_Deploy"></a> Развертывание последовательности задач на компьютерах  
+Выполните развертывание операционной системы в целевой коллекции. Дополнительные сведения см. в статье [Deploy a task sequence](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS). При развертывании операционной системы для центра программного обеспечения можно указать, является ли это развертывание обязательным или доступным.
 
--   **Implementação necessária**: Necessário implementações irão disponibilizar o sistema operativo no Centro de Software, mas será iniciado automaticamente no agendamento de atribuição configurado.
+-   **Обязательное развертывание**: обязательные развертывания сделают операционную систему доступной в центре программного обеспечения, но она будет автоматически запускаться по настроенному расписанию установки.
 
--   **Implementação disponível**: O sistema operativo estará disponível no Centro de Software e o utilizador pode instalá-la a pedido.
+-   **Доступное развертывание**: операционная система будет доступна в центре программного обеспечения и может быть установлена пользователем по запросу.

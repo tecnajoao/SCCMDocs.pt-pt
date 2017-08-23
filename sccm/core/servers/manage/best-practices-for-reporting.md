@@ -1,6 +1,6 @@
 ---
-title: "Melhores práticas de relatórios | Microsoft Docs"
-description: "Ler algumas dicas úteis sobre como utilizar a capacidade de relatórios do System Center Configuration Manager."
+title: "Рекомендации по ведению отчетов | Документы Майкрософт"
+description: "Ознакомьтесь с полезными советами по использованию возможности создания отчетов в System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,24 +17,24 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 759258999f3eaa810803a6a7f856f00fe7771a9e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="best-practices-for-reporting-in-system-center-configuration-manager"></a>Melhores práticas para relatórios no System Center Configuration Manager
+# <a name="best-practices-for-reporting-in-system-center-configuration-manager"></a>Рекомендации по ведению отчетов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Utilize as seguintes melhores práticas para criar relatórios no System Center Configuration Manager:  
+Следуйте приведенным далее рекомендациям по ведению отчетов в System Center Configuration Manager.  
 
-## <a name="for-best-performance-install-the-reporting-services-point-on-a-remote-site-system-server"></a>Para obter o melhor desempenho, instalar o ponto do Reporting Services num servidor do sistema de sites remoto  
- Embora possa instalar o ponto do Reporting Services no servidor do site ou num sistema de sites remoto, o desempenho aumenta quando instala o ponto do Reporting Services num servidor do sistema de sites remoto.  
+## <a name="for-best-performance-install-the-reporting-services-point-on-a-remote-site-system-server"></a>Для обеспечения оптимальной производительности точку служб отчетов рекомендуется установить на сервере удаленной системы сайта  
+ Несмотря на возможность установки точки служб отчетов на сервере сайта или в удаленной системе сайта, производительность будет выше, если точка служб отчетов будет установлена на сервере удаленной системы сайта.  
 
-## <a name="optimize-sql-server-reporting-services-queries"></a>Otimizar as consultas do SQL Server Reporting Services  
- Normalmente, os atrasos na criação de relatórios devem-se ao tempo necessário para executar as consultas e obter os resultados. Se estiver a utilizar o Microsoft SQL Server, ferramentas como o Analisador de Consultas e o Gerador de Perfis podem ajudar a otimizar as consultas.  
+## <a name="optimize-sql-server-reporting-services-queries"></a>Оптимизация запросов служб SQL Server Reporting Services  
+ Как правило, задержки при создании отчетов возникают из-за времени, которое требуется на выполнение запросов и получение результатов. При использовании Microsoft SQL Server оптимизировать работу с запросами помогут такие средства, как профилировщик и анализатор запросов.  
 
-## <a name="schedule-report-subscription-processing-to-run-outside-standard-office-hours"></a>Agendar o processamento de subscrição de relatório para ser executado fora do horário de expediente normal  
- Sempre que possível, agende o processamento de subscrição de relatório para execução fora de expediente normal para minimizar o processamento da CPU no Gestor de configuração do servidor de base de dados do site. Esta prática melhora também a disponibilidade para pedidos imprevistos de relatórios.  
+## <a name="schedule-report-subscription-processing-to-run-outside-standard-office-hours"></a>Планирование выполнения обработки подписок на отчеты в нерабочее время  
+ По возможности запланируйте выполнение обработки подписок на отчеты на нерабочее время. Это позволит снизить нагрузку на ЦП на сервере базы данных сайта Configuration Manager. Кроме того, повысится доступность непредсказуемых запросов отчетов.  
 
-## <a name="next-steps"></a>Passos seguintes
-[Configurar relatórios](configuring-reporting.md)
+## <a name="next-steps"></a>Дальнейшие действия
+[Настройка отчетов](configuring-reporting.md)

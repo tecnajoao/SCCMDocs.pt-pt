@@ -1,6 +1,6 @@
 ---
-title: "Noções básicas da administração baseada em funções | Microsoft Docs"
-description: "Utilize a administração baseada em funções para controlar o acesso administrativo do Configuration Manager e os objetos que pode gerir."
+title: "Основы ролевого администрирования | Документы Майкрософт"
+description: "Использование ролевого администрирования для управления административным доступом к Configuration Manager и управляемым объектам."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -16,198 +16,198 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: ddf2ad1cae51c1e36df5a6d86822e2b9abe604e2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-role-based-administration-for-system-center-configuration-manager"></a>Noções básicas da administração baseada em funções para o System Center Configuration Manager
+# <a name="fundamentals-of-role-based-administration-for-system-center-configuration-manager"></a>Основы ролевого администрирования для System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Com o System Center Configuration Manager, pode utilizar administração baseada em funções para proteger o acesso necessário para administrar o Configuration Manager. Também proteger o acesso aos objetos que gere, como coleções, implementações e sites. Depois de compreender os conceitos apresentados neste tópico, pode [configurar a administração baseada em funções para o System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+При работе с System Center Configuration Manager вы можете использовать ролевое администрирование для обеспечения безопасного доступа к функциям администрирования Configuration Manager. Вы также можете обезопасить доступ к управляемым вами объектам, таким как коллекции, развертывания и сайты. После изучения концепций, представленных в этом разделе, вы сможете [настроить ролевое администрирование для System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
- O modelo de administração baseada em funções centralmente define e gere as definições de acesso de segurança de toda a hierarquia para todos os sites e definições do site utilizando o seguinte:  
+ Модель ролевого администрирования централизованно определяет и контролирует параметры безопасности в масштабе иерархии для всех сайтов и параметров сайтов с помощью указанных ниже компонентов.  
 
--   *Funções de segurança* são atribuídas a utilizadores administrativos para fornecer esses utilizadores (ou grupos de utilizadores) permissões para diferentes objetos do Configuration Manager. Por exemplo, permissão para criar ou alterar as definições de cliente.  
+-   *Роли безопасности* назначаются пользователям с правами администратора для предоставления таким пользователям (или их группам) разрешений на разные объекты Configuration Manager. Например, это может быть разрешение на создание или изменение параметров клиентов.  
 
--   *Âmbitos de segurança* são utilizados para agrupam instâncias específicas de objetos que um utilizador administrativo é da responsabilidade de gerir, como uma aplicação que instala o Microsoft Office 2010.  
+-   *Области безопасности* служат для группирования конкретных экземпляров объектов, которыми должен управлять пользователь с правами администратора, например приложений, устанавливающих Microsoft Office 2010.  
 
--   *Coleções* são utilizados para especificar os grupos de recursos de utilizador e dispositivo que o utilizador administrativo pode gerir.  
+-   *Коллекции* служат для указания групп ресурсов устройств и пользователей, которыми может управлять пользователь с правами администратора.  
 
- Com a combinação de funções de segurança, âmbitos de segurança e coleções, segregar as atribuições administrativas que satisfazem os requisitos da sua organização. Utilizado em conjunto, definem o âmbito administrativo de um utilizador, que é que esse utilizador pode ver e gerir na sua implementação do Configuration Manager.  
+ Благодаря сочетанию ролей безопасности, областей безопасности и коллекций вы можете разделить административные назначения, соответствующие требованиям организации. Вместе они определяют область администрирования пользователя, то есть что именно этот пользователь может просматривать и чем может управлять в вашем развертывании Configuration Manager.  
 
-## <a name="benefits-of-role-based-administration"></a>Vantagens da administração baseada em funções  
+## <a name="benefits-of-role-based-administration"></a>Преимущества ролевого администрирования  
 
--   Sites não são utilizados como limites administrativos.  
+-   Сайты не являются административными границами.  
 
--   Criar utilizadores administrativos para uma hierarquia e só tem de atribuir-lhes segurança uma vez.  
+-   Вы создаете пользователей с правами администратора для иерархии, назначая им роли безопасности всего один раз.  
 
--   Todas as atribuições de segurança são replicadas e estão disponíveis em toda a hierarquia.  
+-   Все назначения безопасности реплицируются и доступны во всей иерархии.  
 
--   Existem funções de segurança incorporadas, que são utilizadas para atribuir as tarefas administrativas comuns. Crie as suas próprias funções de segurança personalizadas para suportar necessidades comerciais específicas.  
+-   Существуют встроенные роли безопасности, которые можно назначить стандартным административным задачам. Кроме того, вы можете создавать свои собственные роли безопасности, соответствующие определенным бизнес-требованиям.  
 
--   Os utilizadores administrativos ver apenas os objetos que têm permissões para gerir.  
+-   Пользователи видят только те объекты, на управление которыми у них есть разрешения.  
 
--   É possível auditar as ações de segurança administrativa.  
+-   Можно проводить аудит административных действий по обеспечению безопасности.  
 
-Quando estruturar e implementar segurança administrativa para o Configuration Manager, utilize o seguinte para criar um *âmbito administrativo* para um utilizador administrativo:  
+При проектировании и реализации административной безопасности для Configuration Manager используйте следующие сведения, чтобы создать *область администрирования* для пользователя с правами администратора:  
 
--   [Funções de segurança](#bkmk_Planroles)  
+-   [Роли безопасности](#bkmk_Planroles)  
 
--   [Coleções](#bkmk_planCol)  
+-   [Коллекции](#bkmk_planCol)  
 
--   [Âmbitos de segurança](#bkmk_PlanScope)  
+-   [Области безопасности](#bkmk_PlanScope)  
 
 
- O âmbito administrativo controla os objetos que um vistas de utilizador administrativo na consola do Configuration Manager e controla as permissões que um utilizador tem nesses objetos. As configurações da administração baseada em funções são replicadas para cada site da hierarquia como dados globais e são depois aplicadas a todas as ligações administrativas.  
+ В административную область входят объекты, которые пользователь с правами администратора может просматривать в консоли Configuration Manager, и разрешения, получаемые пользователем. Конфигурации ролевого администрирования реплицируются на все сайты в иерархии в виде глобальных данных, а затем применяются ко всем подключением пользователей с правами администраторов.  
 
 > [!IMPORTANT]  
->  Os atrasos na replicação entre sites podem impedir que um site receba alterações para a administração baseada em funções. Para obter informações sobre como monitorizar a replicação de base de dados entre sites, consulte o [transferências de dados entre sites no System Center Configuration Manager](../../core/servers/manage/data-transfers-between-sites.md) tópico.  
+>  Задержка репликации между сайтами может помещать сайту получить данные изменений конфигурации ролевого администрирования. Дополнительные сведения о мониторинге репликации базы данных между сайтами см. в статье [Передача данных между сайтами в System Center Configuration Manager](../../core/servers/manage/data-transfers-between-sites.md).  
 
-##  <a name="bkmk_Planroles"></a> Funções de segurança  
- Utilize funções de segurança para conceder permissões de segurança a utilizadores administrativos. As funções de segurança são grupos de permissões de segurança que são atribuídas aos utilizadores administrativos para que estes possam desempenhar as suas tarefas administrativas. Estas permissões de segurança definem as ações administrativas que um utilizador administrativo pode executar e as permissões que são concedidas para tipos de objetos específicos. Como melhor prática de segurança, atribua as funções de segurança que proporcionam menos permissões.  
+##  <a name="bkmk_Planroles"></a> Роли безопасности  
+ Использование ролей безопасности для предоставления разрешений пользователям с правами администратора. Роли безопасности представляют собой группы разрешений, назначаемых пользователям с правами администратора с тем, чтобы они могли выполнять задачи администрирования. Такие разрешения определяют, какие административные действия может выполнять администратор, а также разрешения, предоставляемые объектам определенного типа. Рекомендуется назначать роли безопасности, предоставляющие наименьшие разрешения.  
 
- O Configuration Manager possui várias funções de segurança incorporadas para suportar agrupamentos comuns de tarefas administrativas e pode criar as suas próprias funções de segurança personalizadas para suportar necessidades comerciais específicas. Exemplos das funções de segurança incorporadas:  
+ В Configuration Manager есть несколько встроенных ролей безопасности, позволяющих выполнять стандартные административные задачи; также можно создавать свои собственные роли безопасности, соответствующие определенным бизнес-требованиям. Примеры встроенных ролей безопасности.  
 
--   *Administrador total* concede todas as permissões no Configuration Manager.  
+-   *Полный администратор* — предоставляет все разрешения, предусмотренные в Configuration Manager.  
 
--   *Gestor do Asset Intelligence* concede permissões para gerir o ponto de sincronização do Asset Intelligence, do Asset Intelligence reporting classes de inventário de software, inventário de hardware e regras de medição.  
+-   *Менеджер активов* предоставляет разрешения на управление точкой синхронизации аналитики активов, классами отчетов аналитики активов, инвентаризацией ПО и оборудования, а также правилами отслеживания использования.  
 
--   *Gestor de atualizações de software* concede permissões para definir e implementar atualizações de software. Os utilizadores administrativos que estiverem associados esta função podem criar coleções, grupos de atualização de software, implementações e modelos.  
+-   *Менеджер обновления программного обеспечения* — предоставляет разрешения, позволяющие определять и развертывать обновления программного обеспечения. Пользователи-администраторы, связанные с этой ролью, могут создавать коллекции, группы обновления программного обеспечения, развертывания и шаблоны.  
 
 > [!TIP]  
->  Pode ver a lista de funções de segurança incorporadas e funções de segurança personalizadas criadas, incluindo as suas descrições, na consola do Configuration Manager. Para ver as funções no **administração** área de trabalho, expanda **segurança**e, em seguida, selecione **funções de segurança**.  
+>  В консоли Configuration Manager можно просмотреть список встроенных и пользовательских ролей безопасности, включая их описания. Для просмотра ролей в рабочей области **Администрирование** разверните узел **Безопасность** и выберите **Роли безопасности**.  
 
- Cada função de segurança tem permissões específicas para tipos de objetos diferentes. Por exemplo, o *autor da aplicação* função de segurança tem as seguintes permissões para aplicações: Aprovar, criar, eliminar, modificar, modificar pasta, mover objeto, ler, execute o relatório e definir âmbito de segurança.
+ Каждая роль безопасности включает определенные разрешения для различных типов объектов. Например, роль безопасности *Автор приложения* имеет следующие разрешения для приложений: "Утвердить", "Создать", "Удалить", "Изменить", "Изменить папку", "Переместить объект", "Считать", "Запустить отчет" и "Настроить область безопасности".
 
- Não é possível alterar as permissões das funções de segurança incorporadas, mas é possível copiar a função, alterá-la e guardar as alterações como uma nova função de segurança personalizada. Também pode importar funções de segurança exportadas de outra hierarquia, por exemplo, de uma rede de teste. Reveja as funções de segurança e as respetivas permissões para determinar se irá utilizar as funções de segurança incorporadas ou se tiver de criar as suas próprias funções de segurança personalizada.  
+ Разрешения для встроенных ролей безопасности изменить нельзя, однако можно скопировать роль, внести в нее изменения и сохранить в качестве новой пользовательской роли безопасности. Также можно импортировать роли безопасности, которые были ранее экспортированы из другой иерархии, например из тестовой сети. Просмотрите роли безопасности и их разрешения, чтобы определить, подходят ли для рассматриваемой среды встроенные роли или потребуется создать пользовательские роли безопасности.  
 
- ### <a name="to-help-you-plan-for-security-roles"></a>Para o ajudar a planear funções de segurança  
+ ### <a name="to-help-you-plan-for-security-roles"></a>Планирование ролей безопасности  
 
-1.  Identifique as tarefas que os utilizadores administrativos executam no Configuration Manager. Estas tarefas podem estar relacionadas com um ou mais grupos de tarefas de gestão, tais como a implementação de aplicações e pacotes, a implementação de sistemas operativos e definições de compatibilidade, a configuração de sites e da segurança, auditorias, o controlo remoto de computadores e a recolha de dados de inventário.  
+1.  Определите задачи, которые выполняют административные пользователи в Configuration Manager. Эти задачи могут быть связаны с одной или несколькими группами задач управления, например с развертыванием приложений и пакетов, развертыванием операционных систем и параметров соответствия, настройкой сайтов и параметров безопасности, аудитом, удаленным управлением компьютерами и сбором данных инвентаризации.  
 
-2.  Mapeie estas tarefas administrativas para uma ou mais das funções de segurança incorporadas.  
+2.  Свяжите эти задачи администрирования с одной или несколькими встроенными группами безопасности.  
 
-3.  Se alguns utilizadores administrativos executam as tarefas de várias funções de segurança, atribua-as a estes utilizadores administradores em vez de criar uma nova função de segurança que combine todas as tarefas.  
+3.  Если некоторые административные пользователи выполняют задачи, относящиеся к нескольким ролям безопасности, назначьте этим пользователям несколько ролей, но не создавайте новую роль безопасности, объединяющую в себе данные задачи.  
 
-4.  Se as tarefas identificadas não mapearem para as funções de segurança incorporadas, crie e teste novas funções de segurança.  
+4.  Если требуемые задачи не связаны ни с одной из встроенных ролей безопасности, создайте и протестируйте новые роли безопасности.  
 
-Para obter informações sobre como criar e configurar funções de segurança para a administração baseada em funções, consulte [criar funções de segurança personalizadas](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) e [configurar funções de segurança](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) no [configurar a administração baseada em funções para o System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) tópico.  
+Сведения о том, как создать и настроить роли безопасности для ролевого администрирования, см. в подразделах [Создание настраиваемых ролей безопасности](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) и [Настройка ролей безопасности](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) раздела [Настройка ролевого администрирования для System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
-##  <a name="bkmk_planCol"></a> Coleções  
- As coleções especificam os recursos de utilizador e de computador que um utilizador administrativo pode ver ou gerir. Por exemplo, para poderem implementar aplicações ou efetuar o controlo remoto, os utilizadores administrativos devem ter atribuída uma função de segurança que conceda acesso a uma coleção que contenha esses recursos. É possível selecionar coleções de utilizadores ou dispositivos.  
+##  <a name="bkmk_planCol"></a> Коллекции  
+ Коллекции включают ресурсы пользователей и компьютеров, доступные административному пользователю для просмотра и управления. Например, чтобы административный пользователь мог выполнять развертывание приложений или осуществлять удаленное управление, ему должна быть предоставлена роль безопасности, позволяющая осуществлять доступ к коллекции, содержащей эти ресурсы. Можно выбирать коллекции пользователей или устройств.  
 
- Para obter mais informações sobre coleções, consulte [introdução às coleções no System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md).  
+ Дополнительные сведения о коллекциях см. в разделе [Общие сведения о коллекциях в System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md).  
 
- Antes de configurar a administração baseada em funções, verifique se criou novas coleções por qualquer um dos seguintes motivos:  
+ Перед настройкой администрирования на основе ролей следует проверить, должны ли быть созданы новые коллекции. Это может потребоваться по следующим причинам.  
 
--   Organização funcional. Por exemplo, coleções separadas de servidores e de estações de trabalho.  
+-   Функциональная организация. Например, могут иметь место отдельные коллекции серверов и рабочих станций.  
 
--   Alinhamento geográfico. Por exemplo, coleções separadas para a América do Norte e para a Europa.  
+-   Объединение по географическому расположению. Например, можно создать различные коллекции для Северной Америки и Европы.  
 
--   Requisitos de segurança e processos empresariais. Por exemplo, coleções separadas para computadores de produção e de teste.  
+-   Требования безопасности и бизнес-процессы. Например, можно создать отдельные коллекции для компьютеров в производственной среде и тестовых компьютеров.  
 
--   Alinhamento organizacional. Por exemplo, coleções separadas para cada unidade de negócio.  
+-   Соответствие структуре организации. Например, можно создать отдельные коллекции для каждого филиала компании.  
 
-Para obter informações sobre como configurar coleções para a administração baseada em funções, consulte [configurar coleções para gerir a segurança](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) no [configurar a administração baseada em funções para o System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) tópico.  
+Сведения о настройке коллекций для ролевого администрирования см. в подразделе [Настройка коллекций для управления безопасностью](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) раздела [Настройка ролевого администрирования для System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
-##  <a name="bkmk_PlanScope"></a> Âmbitos de segurança  
- Utilize âmbitos de segurança para fornecer aos utilizadores administrativos acesso a objetos com capacidade de segurança. Um âmbito de segurança é um conjunto nomeado de objetos com capacidade de segurança que são atribuídos a utilizadores administrativos como um grupo. Todos os objetos com capacidade de segurança têm de ser atribuídos a um ou mais âmbitos de segurança. O Configuration Manager possui dois âmbitos de segurança incorporados:  
+##  <a name="bkmk_PlanScope"></a> Области безопасности  
+ Области безопасности позволяют предоставлять административным пользователям доступ к защищаемым объектам. Область безопасности — это именованный набор защищаемых объектов, назначаемых пользователям с правами администратора в виде группы. Все защищаемые объекты должны назначаться одной или нескольким областям безопасности. Configuration Manager имеет две следующие встроенные области безопасности.  
 
--   O *todos os* âmbito de segurança incorporado concede acesso a todos os âmbitos. Não é possível atribuir objetos a este âmbito de segurança.  
+-   Встроенная область безопасности *Все* предоставляет доступ ко всем областям. Этой области безопасности нельзя назначать объекты.  
 
--   O *predefinido* âmbito de segurança incorporado é utilizado para todos os objetos, por predefinição. Quando instalar o Configuration Manager pela primeira vez, todos os objetos são todos atribuídos a este âmbito de segurança.  
+-   Встроенная область безопасности *По умолчанию* используется по умолчанию для всех объектов. При первой установке Configuration Manager все объекты относятся к это области безопасности.  
 
-Se pretender restringir os objetos que os utilizadores administrativos podem ver e gerir, tem de criar e utilizar os seus próprio âmbitos de segurança personalizados. Os âmbitos de segurança não suportam uma estrutura hierárquica e não podem ser aninhados. Os âmbitos de segurança podem conter um ou mais tipos de objetos, nomeadamente:  
+Чтобы ограничить набор объектов, которые могут просматривать и контролировать административные пользователи, следует создать и использовать свои собственные области безопасности. Области безопасности не поддерживают иерархическую структуру и не могут быть вложены одна в другую. Области безопасности могут содержать объекты одного или нескольких типов, включая следующие.  
 
--   Subscrições de alertas  
+-   Подписки на оповещения  
 
--   Aplicações  
+-   Приложения  
 
--   Imagens de arranque  
+-   загрузочные образы,  
 
--   Grupos de limites  
+-   Группы границ  
 
--   Itens de configuração  
+-   элементы конфигурации,  
 
--   Definições de cliente personalizadas  
+-   Пользовательские параметры клиента  
 
--   Pontos de distribuição e grupos de pontos de distribuição  
+-   Точки распространения и группы точек распространения  
 
--   Pacotes de controladores  
+-   пакеты драйверов,  
 
--   Condições globais  
+-   Глобальные условия  
 
--   Tarefas de migração  
+-   Задания миграции  
 
--   Imagens de sistema operativo  
+-   Образы операционной системы  
 
--   Pacotes de instalação de sistema operativo  
+-   Пакеты установки операционных систем  
 
--   Pacotes  
+-   пакеты,  
 
--   Consultas  
+-   Запросы  
 
--   Sites  
+-   Сайты  
 
--   Regras de medição de software  
+-   правила отслеживания использования программного обеспечения.  
 
--   Grupos de atualizações de software  
+-   Группы обновлений программного обеспечения  
 
--   Pacotes de atualizações de software  
+-   Пакеты обновления программного обеспечения  
 
--   Pacotes de sequências de tarefas  
+-   Пакеты последовательности задач  
 
--   Pacotes e itens de definição de dispositivos Windows CE  
+-   Настройка элементов и пакетов для устройства Windows CE  
 
-Existem também alguns objetos que não podem ser incluídos em âmbitos de segurança porque apenas são protegidos por funções de segurança. Acesso administrativo a estes objetos não pode estar limitado a um subconjunto dos objetos disponíveis. Por exemplo, pode ter um utilizador administrativo que cria grupos de limites que são utilizados para um site específico. Uma vez que o objeto de limite não suporta âmbitos de segurança, não é possível atribuir a este utilizador um âmbito de segurança que forneça acesso apenas aos limites que possam estar associados a esse site. Dado que não é possível associar um objeto de limite a um âmbito de segurança, quando é atribuída a um utilizador uma função de segurança que inclui acesso a objetos de limites, esse utilizador pode aceder a todos os limites na hierarquia.  
+Также есть некоторые объекты, которые не могут быть включены в группы безопасности, так как их безопасность осуществляется ролями безопасности. Административный доступ к этим объектам нельзя ограничить подмножеством доступных объектов. Например, может присутствовать административный пользователь, создающий группы границ, используемые для определенного сайта. Так как объект границ не поддерживает области безопасности, нельзя назначить этому пользователю область, предоставляющую доступ только к границам, связанным с данным сайтом. Так как объект границы нельзя связать с областью безопасности, при назначении роли безопасности, включающей доступ к объектам границ пользователя, данный пользователь может получить доступ к любым границам в иерархии.  
 
-Exemplos de objetos que não são limitados por âmbitos de segurança:  
+Объекты, не ограничиваемые областями безопасности, включают:  
 
--   Florestas do Active Directory  
+-   Леса Active Directory  
 
--   Utilizadores administrativos  
+-   Административные пользователи  
 
--   Alertas  
+-   Предупреждения  
 
--   Políticas Antimalware  
+-   Политики защиты от вредоносных программ  
 
--   Limites  
+-   границы,  
 
--   Associações de computador  
+-   Связи с компьютерами  
 
--   Predefinições de cliente  
+-   Параметры клиента, используемые по умолчанию  
 
--   Modelos de implementação  
+-   Шаблоны развертывания  
 
--   Controladores de dispositivo  
+-   Драйверы устройств  
 
--   Conector do Exchange Server  
+-   Соединитель Exchange Server  
 
--   Mapeamentos site a site de migração  
+-   Сопоставления для миграции между сайтами  
 
--   Perfis de inscrição de dispositivos móveis  
+-   Профили регистрации мобильных устройств  
 
--   Funções de segurança  
+-   Роли безопасности  
 
--   Âmbitos de segurança  
+-   Области безопасности  
 
--   Endereços de sites  
+-   Адреса сайтов  
 
--   Funções do sistema de sites  
+-   Роли систем сайта  
 
--   Títulos de software  
+-   Названия программных продуктов  
 
--   Atualizações de software  
+-   Обновления программного обеспечения  
 
--   Mensagens de estado  
+-   Сообщения о состоянии  
 
--   Afinidades de dispositivo do utilizador  
+-   Сопоставления пользователей и устройств  
 
-Crie âmbitos de segurança quando tiver de limitar o acesso a instâncias de objetos separadas. Por exemplo:  
+Создание областей безопасности при необходимости ограничить доступ к отдельным экземплярам объектов. Пример.  
 
--   Tem um grupo de utilizadores administrativos que deve poder ver aplicações de produção e não aplicações de teste. Crie um âmbito de segurança para aplicações de produção e outro para as aplicações de teste.  
+-   Имеется группа административных пользователей, которые должны видеть приложения, находящиеся в производственной среде; тестовые приложения должны оставаться для них невидимыми. Следует создать одну область безопасности для производственных приложений, а другую – для тестовых приложений.  
 
--   Utilizadores administrativos diferentes necessitam de acesso diferente a algumas instâncias de um tipo de objeto. Por exemplo, um grupo de utilizadores administrativos necessita da permissão de leitura para grupos de atualização de software específicos e outro grupo de utilizadores administrativos necessita de permissões modificar e eliminar para outros grupos de atualização de software. Crie âmbitos de segurança diferentes para estes grupos de atualizações de software.  
+-   Различным административным пользователям требуется различный уровень доступа к некоторым экземплярам типа объектов. Например, одной группе административных пользователей требуется разрешение "Чтение" в отношении определенных групп обновления программного обеспечения, а другой группе административных пользователей необходимы разрешения "Изменение" и "Удаление" для других групп обновления программного обеспечения. Создание различных областей безопасности для этих групп обновления программного обеспечения.  
 
-Para obter informações sobre como configurar âmbitos de segurança para a administração baseada em funções, consulte o [configurar âmbitos de segurança para um objeto](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) no [configurar a administração baseada em funções para o System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md) tópico.  
+Сведения о настройке областей безопасности для ролевого администрирования см. в разделе [Настройка областей безопасности для объекта](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) статьи [Настройка ролевого администрирования для System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  

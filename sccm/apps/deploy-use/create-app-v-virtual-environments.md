@@ -1,6 +1,6 @@
 ---
-title: Criar ambientes virtuais App-V | Microsoft Docs
-description: "Crie ambientes virtuais com o Microsoft Application Virtualization para que as aplicações podem partilhar dados entre si."
+title: "Создание виртуальных сред App-V | Документы Майкрософт"
+description: "Создание с помощью Microsoft Application Virtualization виртуальных сред, позволяющих приложениям обмениваться данными друг с другом."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,44 +17,44 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 377ed9732fb16b062f53e78504aea394acdb7462
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-app-v-virtual-environments-in-system-center-configuration-manager"></a>Criar ambientes virtuais App-V no System Center Configuration Manager
+# <a name="create-app-v-virtual-environments-in-system-center-configuration-manager"></a>Создание виртуальных сред App-V в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-No Microsoft Application Virtualization (App-V) aplicações virtuais do ambiente virtual no System Center Configuration Manager (Gestor de configuração) implementada podem partilhar o mesmo sistema de ficheiros e registo em PCs com o cliente Windows. Ao contrário de aplicações virtuais padrão, estas aplicações podem partilhar dados entre si. Ambientes virtuais são criados ou modificados em computadores cliente quando a aplicação está instalada ou quando os clientes avaliam as aplicações instaladas. Pode ordenar estas aplicações para que a aplicação com a ordem mais elevada tenha prioridade quando várias aplicações tentarem modificar um sistema de ficheiros ou um valor de registo.  
+В виртуальной среде Microsoft Application Virtualization (App-V) в System Center Configuration Manager развернутые виртуальные приложения могут использовать одну и ту же файловую систему и реестр на клиентских компьютерах Windows. В отличие от стандартных виртуальных приложений эти приложения могут обмениваться данными друг с другом. Создание и изменение виртуальных сред на клиентских компьютерах происходит при установке приложения или при дальнейшей оценке установленных приложений клиентами. Вы можете упорядочить эти приложения. Тогда, если несколько приложений попытаются изменить значение файловой системы или реестра, действие выполнит только приложение с наибольшим приоритетом.  
 
 > [!IMPORTANT]  
->  Não confie em ambientes virtuais do App-V para fornecer proteção de segurança, tal como contra software maligno.  
+>  Не следует полагаться на защиту App-V в плане безопасности, например от вредоносных программ.  
 
- Utilize o procedimento seguinte para criar um ambiente virtual App-V no Configuration Manager.  
+ Используйте описанную ниже процедуру, чтобы создать виртуальную среду App-V в Configuration Manager.  
 
-## <a name="create-an-app-v-virtual-environment"></a>Criar um ambiente virtual App-V  
+## <a name="create-an-app-v-virtual-environment"></a>Создание виртуальной среды App-V  
 
-1.  Na consola do Configuration Manager, escolha **biblioteca de Software** > **gestão de aplicações** > **ambientes virtuais App-V**.  
+1.  В консоли Configuration Manager последовательно выберите **Библиотека программного обеспечения** > **Управление приложениями** > **Виртуальные среды App-V**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar ambiente Virtual**.  
+3.  На вкладке **Главная** в группе **Создать** нажмите кнопку **Создание виртуальной среды**.  
 
-4.  No **criar ambiente Virtual** caixa de diálogo, introduza as seguintes informações:  
+4.  В диалоговом окне **Создание виртуальной среды** укажите приведенные ниже сведения.  
 
-    -   **Nome**.  Introduza um nome exclusivo para o ambiente virtual (máximo de 128 carateres).  
+    -   **Имя**.  Введите уникальное имя виртуальной среды (не более 128 символов).  
 
-    -   **Descrição**. (Opcional) Introduza uma descrição para o ambiente virtual.  
+    -   **Описание**. Введите описание виртуальной среды (необязательно).  
 
-5.  Para adicionar um novo tipo de implementação para o ambiente virtual, escolha **adicionar**. Tem de adicionar pelo menos um tipo de implementação.  
+5.  Чтобы добавить новый тип развертывания в виртуальную среду, нажмите кнопку **Добавить**. Необходимо добавить по крайней мере один тип развертывания.  
 
-6.  No **adicionar aplicações** diálogo caixa, especifique um **nome do grupo** (máximo de 128 carateres). Irá utilizar este nome para designar o grupo de aplicações que adicionou ao ambiente virtual.  
+6.  В диалоговом окне **Добавление приложений** заполните поле **Имя группы** (не более 128 символов). Это имя будет использоваться для указания на группу приложений, добавляемых в виртуальную среду.  
 
-7.  Escolha **adicionar**, selecione as aplicações de App-V 5 e tipos de implementação que pretende adicionar ao grupo e, em seguida, escolha **OK**.  
+7.  Щелкните **Добавить**, выберите приложения и типы развертывания App-V 5, которые требуется добавить в группу, а затем нажмите кнопку **ОК**.  
 
-8.  No **adicionar aplicações** caixa de diálogo, pode selecionar **aumentar a ordem** ou **diminuir a ordem** de definir a aplicação que utiliza a prioridade se várias aplicações tentarem modificar as definições de sistema ou o registo do ficheiro no mesmo ambiente virtual.  
+8.  В диалоговом окне **Добавление приложений** можно нажать кнопку **Увеличить порядок** или **Уменьшить порядок**, чтобы указать, какое приложение получает приоритет, если несколько приложений пытаются изменить параметры файловой системы или реестра в одной виртуальной среде.  
 
-9. Para voltar para o **criar ambiente Virtual** diálogo caixa, escolha **OK**.  
+9. Чтобы вернуться в диалоговое окно **Создание виртуальной среды**, нажмите кнопку **ОК**.  
 
-10. Quando tiver terminado de adicionar grupos, escolha **OK** para criar o ambiente virtual. O novo ambiente virtual é apresentado no **ambientes virtuais App-V** nós da consola do Configuration Manager. Pode monitorizar o estado dos ambientes virtuais utilizando o relatório de estado do ambiente Virtual App-V.  
+10. Закончив добавление групп, нажмите кнопку **ОК**, чтобы создать виртуальную среду. Новая виртуальная среда отображается в узле **Виртуальные среды App-V** консоли Configuration Manager. Вы можете следить за состоянием виртуальных сред с помощью отчета "Состояние виртуальной среды App-V".  
 
     > [!NOTE]  
-    >  O ambiente virtual é adicionado ou modificado em computadores cliente quando a aplicação está instalada ou quando o cliente avalia as aplicações instaladas.  
+    >  Создание и изменение виртуальных сред на клиентских компьютерах происходит при установке приложения или при дальнейшей оценке установленных приложений клиентом.  

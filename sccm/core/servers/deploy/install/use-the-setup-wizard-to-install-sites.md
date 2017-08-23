@@ -1,110 +1,108 @@
 ---
-title: "Assistente de configuração | Microsoft Docs"
+title: "Мастер установки | Документация Майкрософт"
 ms.custom: na
 ms.date: 7/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1f703376-5f2c-4fd2-8209-7028c931ddc7
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 5945abb49fe06c59355805aa94b04d0d445ecbc3
 ms.openlocfilehash: 678f1b35fe6f7649dacb766f7c671f4ec8ea1435
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Utilize o Assistente de configuração para instalar sites do System Center Configuration Manager
+# <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Использование мастера установки для установки сайтов System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Para instalar um novo site do System Center Configuration Manager, utilizando uma interface de utilizador orientada, utilize o Assistente de configuração do Configuration Manager (setup.exe). O assistente suporta a instalação de um site primário ou site de administração central. Também é utilizar o Assistente para [atualizar uma instalação de avaliação](../../../../core/servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md) do Configuration Manager para uma instalação totalmente licenciada. Quando não quiser utilizar o assistente, em vez disso, pode utilizar um [script de instalação](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md) e execute uma instalação autónoma de linha de comandos.
+Чтобы установить новый сайт System Center Configuration Manager с помощью интерактивного пользовательского интерфейса, используйте мастер установки Configuration Manager (setup.exe). Мастер поддерживает установку первичного сайта или сайта центра администрирования. Можно также использовать мастер для [обновления ознакомительной версии](../../../../core/servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md) Configuration Manager до полностью лицензированной установки. Если вы не хотите использовать мастер, воспользуйтесь [сценарием установки](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md) и запустите автоматическую установку из командной строки.
 
-Para instalar um site secundário, tem de instalar o site a partir da consola do Configuration Manager. Os sites secundários não suportam uma instalação com script da linha de comandos.
+Установка вторичного сайта выполняется из консоли Configuration Manager. Вторичные сайты не поддерживают установку с помощью сценариев из командной строки.
 
-## <a name="bkmk_primary"></a>Instalar um site de administração central ou site primário
-Utilize o procedimento seguinte para instalar um site de administração central ou um site primário ou para atualizar um site de avaliação para um site totalmente licenciada do Configuration Manager.   
+## <a name="bkmk_primary"></a> Установка первичного сайта или сайта центра администрирования
+Следующая процедура предназначена для установки сайта центра администрирования, первичного сайта или для обновления ознакомительной версии сайта до полностью лицензированного сайта Configuration Manager.   
 
-Antes de iniciar a instalação do site, deve estar familiarizado com os detalhes nos seguintes artigos:
- -  [Preparar a instalação de sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md)
- -  [Pré-requisitos para instalar sites](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md)
+Прежде чем приступить к установке сайта, ознакомьтесь со сведениями в следующих статьях:
+ -  [Подготовка к установке сайтов](../../../../core/servers/deploy/install/prepare-to-install-sites.md)
+ -  [Необходимые условия для установки сайта](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md)
 
-Se estiver a instalar um site de administração central como parte de um cenário de expansão do site, reveja o [expandir um site primário autónomo](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) secção deste tópico antes de utilizar o procedimento seguinte.
+Если вы устанавливаете сайт центра администрирования в рамках сценария развертывания сайта, перед выполнением следующей процедуры просмотрите раздел [Развертывание автономного первичного сайта](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand).
 
-### <a name="bkmk_installpri"></a>Para instalar um site primário ou de administração central
+### <a name="bkmk_installpri"></a> Установка первичного сайта или сайта центра администрирования
 
-1.  No computador onde pretende instalar o site, execute  **&lt;InstallationMedia\>\SMSSETUP\BIN\X64\Setup.exe** para iniciar o **Assistente de configuração do System Center Configuration Manager**.  
+1.  На компьютере, где вы хотите установить сайт, запустите **&lt;InstallationMedia\>\SMSSETUP\BIN\X64\Setup.exe**, чтобы открыть **мастер установки System Center Configuration Manager**.  
 
     > [!NOTE]  
-    > Quando instalar um site de administração central para expandir num site primário autónomo ou instalar um novo site primário subordinado numa hierarquia existente, tem de utilizar o suporte de instalação (ficheiros de origem) que corresponde à versão do site existente ou sites. Se instalou atualizações na consola que alteraram a versão dos sites anteriormente instalados, não utilize o suporte de dados de instalação original. Em alternativa, utilize ficheiros de origem do [CD. Pasta mais recente](../../../../core/servers/manage/the-cd.latest-folder.md) de um site atualizado. O Configuration Manager requer a utilização de ficheiros de origem que corresponde à versão do site existente que o novo site irá ligar ao.  
+    > При установке сайта центра администрирования для развертывания на автономном первичном сайте или установке нового дочернего первичного сайта в существующей иерархии необходимо использовать установочный носитель (исходные файлы), соответствующий версии существующего сайта или сайтов. Если вы установили обновления в консоли, которые изменили версию ранее установленных сайтов, не применяйте исходный установочный носитель. Вместо него используйте исходные файлы из [папки CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) обновленного сайта. Configuration Manager требует использовать исходные файлы, соответствующие версии существующего сайта, к которому будет подключаться новый сайт.  
 
-2.  No **antes de começar** página, escolha **seguinte**.  
+2.  На странице **Перед началом работы** нажмите кнопку **Далее**.  
 
-3.  No **introdução** página, selecione o tipo de site que pretende instalar:  
+3.  На странице **Приступая к работе** выберите тип устанавливаемого сайта.  
 
-    -   **Site de administração central**, como o primeiro site numa nova hierarquia ou ao expandir um site primário autónomo:  
+    -   **Сайт центра администрирования** — используется при установке первого сайта новой иерархии или при расширении автономного первичного сайта.  
 
-        Selecione **instalar um site de administração central do Configuration Manager**.  
+        Выберите **Установка сайта центра администрирования Configuration Manager**.  
 
-         Durante o passo posterior deste procedimento, é-lhe dada a opção para instalar um site de administração central como o primeiro site numa nova hierarquia ou para instalar um site de administração central para expandir num site primário autónomo.  
+         На более поздних этапах процедуры предлагается выбор — установить сайт центра администрирования в качестве первого сайта новой иерархии либо установить сайт центра администрирования для расширения автономного первичного сайта.  
 
-    -    **Site primário**, como um site primário autónomo que é o primeiro site numa nova hierarquia, ou um subordinado principal:  
+    -    **Первичный сайт** — используется при установке автономного первичного сайта, который является первым сайтом в новой иерархии, или подчиненного первичного сайта.  
 
-        Selecione **instalar um site primário do Configuration Manager**.  
+        Выберите **Установка первичного сайта Configuration Manager**.  
 
         > [!TIP]  
-        > Normalmente, apenas seleciona a opção **utilizar opções de instalação típicas para um site primário autónomo** quando pretende instalar um site primário autónomo num ambiente de teste. Quando seleciona esta opção, a configuração:  
+        > Как правило, параметр **Использовать стандартные параметры для установки автономного первичного сайта** используется для установки автономного первичного сайта в тестовой среде. При выборе этого параметра выполняется следующее.  
 
-        > -   Configura automaticamente o site como um site primário autónomo.  
-        > -   Utiliza um caminho de instalação predefinido.  
-        > -   Utiliza uma instalação local da instância predefinida do SQL Server para a base de dados do site.  
-        > -   Instala um ponto de gestão e um ponto de distribuição no computador do servidor do site.  
-        > -   Configura o site com inglês e o idioma de apresentação do sistema operativo no servidor do site primário se corresponder a um dos idiomas que suporte do Configuration Manager.  
+        > -   Программа установки автоматически настраивает сайт в качестве автономного первичного сайта.  
+        > -   Используется путь установки по умолчанию.  
+        > -   Используется локальная установка экземпляра SQL Server по умолчанию для базы данных сайта.  
+        > -   На компьютере сервера сайта устанавливаются точка управления и точка распространения.  
+        > -   Сайт настраивается на английский язык и язык интерфейса операционной системы на сервере первичного сайта, если он совпадает с одним из поддерживаемых Configuration Manager языков.  
 
-4.  No **chave de produto** página:
-    - Escolha se pretende instalar o Configuration Manager como uma edição de avaliação ou uma edição licenciada.  
+4.  На странице **Ключ продукта**:
+    - Выберите вариант установки Configuration Manager — ознакомительная или лицензионная версия.  
 
-      -   Se selecionar uma edição licenciada, introduza a chave de produto e escolha **seguinte**.  
+      -   При выборе лицензионной версии введите ключ продукта и нажмите кнопку **Далее**.  
 
-      -   Se selecionar uma edição de avaliação, escolha **seguinte**. (Pode atualizar uma instalação de avaliação para uma instalação completa mais tarde.)  
-    - Começando com a versão de Outubro de 2016 da versão 1606 da linha de base de dados para o System Center Configuration Manager, pode especificar a data de expiração do seu contrato de Software Assurance. Nesta página, tem a opção para especificar o **data de expiração do Software Assurance** do seu contrato de licenciamento em como um lembrete para si conveniente dessa data. Se não introduzir este durante a configuração, pode especificá-la mais tarde a partir da consola do Configuration Manager.
+      -   При установке ознакомительной версии нажмите кнопку **Далее**. (Позже ознакомительную версию вы можете обновить до полной.)  
+    - Начиная с выпуска версии 1606 базового носителя для System Center Configuration Manager в октябре 2016 г. можно указывать дату окончания срока действия соглашения Software Assurance. На этой странице можно указать **дату окончания срока действия программы Software Assurance** по лицензионному соглашению. В итоге вы получите удобное напоминание. Если эти данные не введены во время установки, это можно сделать позднее из консоли Configuration Manager.
 
       > [!NOTE]   
-      > Microsoft não a validar a data de expiração que introduziu e não as utilizaremos esta data para validação da licença. Em vez disso, pode utilizá-lo como um lembrete da sua data de expiração. Isto é útil porque o Configuration Manager verifica periodicamente para novas atualizações de software disponibilizadas online — e o estado de licença do software assurance deve ser atual, de modo a que está elegível para utilizar estas atualizações adicionais.    
+      > Майкрософт не проверяет указанную дату окончания срока действия и не будет использовать ее для проверки лицензии. Вы сами можете использовать эти сведения в качестве напоминания об окончании срока действия. Это удобно, так как Configuration Manager периодически проверяет наличие новых обновлений программного обеспечения, предлагаемых через Интернет, поэтому ваши лицензии в рамках Software Assurance должны иметь соответствующее состояние для использования этих дополнительных обновлений.    
 
-      Para obter mais informações, consulte [licenciamento e ramos para o System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+      Дополнительные сведения см. в статье [Лицензирование и ветви в System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
-5.  No **termos de licenciamento de Software Microsoft** página, leia e aceite os termos de licenciamento.  
+5.  На странице **Условия лицензионного соглашения корпорации Майкрософт** прочтите и примите условия лицензии.  
 
-6.  No **licenças de pré-requisito** página, leia e aceite os termos de licenciamento para software de pré-requisito. A configuração transfere e instala automaticamente o software em sistemas de sites ou clientes quando tem necessário. Tem de verificar todas as caixas de antes de poder continuar para a página seguinte.  
+6.  На странице **Необходимые лицензии** прочтите и примите условия лицензий необходимых программных компонентов. При необходимости программа установки автоматически загрузит и установит программное обеспечение на системы сайта и на клиентские компьютеры. Перед переходом на следующую страницу необходимо установить все флажки.  
 
-7.  No **as transferências de pré-requisitos** página, especifique se a configuração deverá transferir os ficheiros redistribuíveis de pré-requisitos a partir da Internet ou utilizar ficheiros anteriormente transferidos:  
+7.  На странице **Загрузки необходимых компонентов** укажите, должна ли программа установки скачать последние версии необходимых распространяемых компонентов из Интернета или использовать скачанные ранее файлы.  
 
-    -   Se pretender que o programa de configuração para transferir os ficheiros neste momento, selecione **transferir ficheiros necessários** e especifique uma localização para armazenar os ficheiros.  
+    -   Если вы хотите, чтобы программа установки скачала файлы в данный момент, выберите **Скачать необходимые файлы** и укажите расположение для сохранения файлов.  
 
-    -   Se tiver transferido anteriormente os ficheiros utilizando [dispositivo de transferência da configuração](../../../../core/servers/deploy/install/setup-downloader.md), selecione **utilizar ficheiros anteriormente transferidos** e especifique a pasta de transferência.  
+    -   Если файлы были ранее скачаны с помощью [загрузчика программы установки](../../../../core/servers/deploy/install/setup-downloader.md), выберите пункт **Использовать ранее загруженные файлы** и укажите папку загрузки.  
 
         > [!TIP]  
-        > Se utilizar ficheiros anteriormente transferidos, certifique-se de que o caminho para a pasta de transferência contém a versão mais recente dos ficheiros.  
+        > При использовании скачанных ранее файлов убедитесь, что путь указывает на папку с файлами самой последней версии.  
 
-8.  No **seleção de idioma do servidor** página, selecione os idiomas que estão disponíveis para a consola do Configuration Manager e para relatórios. (O inglês está selecionado por predefinição e não pode ser removido.)  
+8.  На странице **Выбор языков интерфейса сервера** выберите языки, которые будут доступны для консоли и отчетов Configuration Manager. (По умолчанию выбран английский язык, удалить его нельзя.)  
 
-9. No **seleção de idioma do cliente** página, selecione os idiomas que estão disponíveis para os computadores cliente e especifique se pretende ativar todos os idiomas de cliente para clientes de dispositivos móveis. (O inglês está selecionado por predefinição e não pode ser removido.)  
+9. На странице **Выбор языков интерфейса клиентов** выберите языки, которые будут доступны для клиентских компьютеров, и укажите, следует ли включить все языки клиента для клиентов на мобильных устройствах. (По умолчанию выбран английский язык, удалить его нельзя.)  
 
     > [!IMPORTANT]  
-    > Quando utiliza um site de administração central, certifique-se de que configurou no site de administração central de idiomas de cliente incluem todos os idiomas de cliente que configurou em cada site primário subordinado. Isto acontece porque os clientes que instale a partir de um ponto de distribuição têm acesso para os idiomas de cliente do site de nível superior, enquanto os clientes que instale a partir de um ponto de gestão tem acesso para os idiomas de cliente do respetivo site primário atribuído.  
+    > При использовании сайта центра администрирования убедитесь, что в число языков клиента, настроенных на сайте центра администрирования, входят все языки клиента, настраиваемые на каждом дочернем первичном сайте. Это связано с тем, что клиенты, устанавливаемые из точки распространения, имеют доступ к языкам клиентов с сайта верхнего уровня, тогда как клиенты, устанавливаемые из точки управления, имеют доступ к языкам клиентов с назначенного им первичного сайта.  
 
-10. No **definições de instalação e Site** página, especifique as seguintes opções para o novo site que estiver a instalar:  
+10. На странице **Параметры сайта и установки** укажите следующие сведения для устанавливаемого сайта.  
 
-    -   **Código do site:** [Cada código do site numa hierarquia têm de ser exclusivo](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_sitecodes) e composto por três dígitos alfanuméricos (da A z) e de 0 a 9. Uma vez que o código de site é utilizado em nomes de pastas, não utilize nomes reservados ao Windows para o site, incluindo:    
+    -   **Код сайта:** [каждый код сайта в иерархии должен быть уникальным](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_sitecodes) и состоять из трех буквенно-цифровых знаков (буквы A–Z и цифры 0–9). Так как код сайта используется в именах папок, не используйте для сайта зарезервированные имена Windows, включая следующие.    
         -   AUX  
         -   CON    
         -   NUL    
@@ -112,161 +110,161 @@ Se estiver a instalar um site de administração central como parte de um cenár
         -   SMS  
 
         > [!NOTE]  
-        > A configuração não verifica se o código do site que especificou já está a ser utilizado ou se tiver um nome reservado.  
+        > В ходе установки не выполняется проверка того, что указанный вами код сайта уже используется или является зарегистрированным именем.  
 
-    -   **Nome do site:** Cada site requer este nome amigável, que pode ajudar a identificar o site.  
+    -   **Имя сайта:** каждый сайт должен иметь понятное имя, которое поможет вам найти его.  
 
-    -   **Pasta de instalação:** Este é o caminho da pasta para a instalação do Configuration Manager. Não é possível alterar a localização após a instalação do site. Além disso, o caminho não pode conter carateres Unicode nem espaços à direita.  
+    -   **Папка установки:** это путь к папке установки Configuration Manager. Это расположение нельзя изменить после установки сайта. Кроме того, сам путь не должен содержать символы Юникода или конечные пробелы.  
 
-11. No **instalação de Site** página, utilize a opção seguinte que corresponda ao seu cenário:  
+11. На странице **Установка сайта** используйте следующий параметр, соответствующий вашему сценарию.  
 
-    -   **Estou a instalar um site de administração central:**  
+    -   **Я устанавливаю сайт центра администрирования.**  
 
-         No **instalação do Site de Administração Central** página, selecione **instalar como o primeiro site numa nova hierarquia**e, em seguida, escolha **seguinte** para continuar.  
+         На странице **Установка сайта центра администрирования** выберите пункт **Установить как первый сайт в новой иерархии**, а затем нажмите кнопку **Далее**.  
 
-    -   **Estou a expandir um site primário autónomo numa hierarquia com um site de administração central:**  
+    -   **Я расширяю автономный первичный сайт до иерархии с сайтом центра администрирования.**  
 
-         No **instalação do Site de Administração Central** página, selecione **expandir um site primário autónomo existente numa hierarquia**, especifique o FQDN do servidor do site primário autónomo e, em seguida, escolha **seguinte** para continuar.  
+         На странице **Установка сайта центра администрирования** выберите пункт **Расширить существующий автономный первичный сайт в иерархии**, укажите полное доменное имя сервера автономного первичного сайта, а затем нажмите кнопку **Далее**.  
 
-         O suporte de dados que utilizar para instalar o novo site de administração central tem de corresponder à versão do site primário.  
+         Носитель, используемый для установки нового сайта центра администрирования, должен соответствовать версии первичного сайта.  
 
-    -   **Estou a instalar um site primário autónomo:**  
+    -   **Я устанавливаю автономный первичный сайт.**  
 
-         No **instalação do Site primário** página, selecione **instalar o site primário como um site autónomo**e, em seguida, escolha **seguinte**.  
+         На странице **Установка первичного сайта** выберите**Установить первичный сайт как автономный сайт** и нажмите кнопку **Далее**.  
 
-    -   **Estou a instalar um site primário subordinado:**  
+    -   **Я устанавливаю подчиненный дочерний первичный сайт.**  
 
-         No **instalação do Site primário** página, selecione **associar o site primário para uma hierarquia existente**, especifique o FQDN para o site de administração central e, em seguida, escolha **seguinte**.  
+         На странице **Установка первичного сайта** выберите **Включить первичный сайт в существующую иерархию**, укажите полное доменное имя сайта центра администрирования, а затем нажмите кнопку **Далее**.  
 
-12. No **informações da base de dados** página, especifique as seguintes informações:  
+12. На странице **Сведения о базе данных** укажите следующую информацию.  
 
-    -   **Nome do SQL Server (FQDN):** Por predefinição, está definida para ser o computador do servidor do site.
+    -   **Имя SQL Server (полное доменное имя):** по умолчанию здесь указывается компьютер сервера сайта.
 
-     Se utilizar uma porta personalizada, adicione essa porta para o FQDN do SQL Server. Para tal, siga o FQDN do servidor sequel com uma vírgula e, em seguida, o número de porta.   Por exemplo, para o servidor *SQLServer1.fabrikam.com*, utilize o seguinte procedimento para especificar a porta *1551*:  **SQLServer1.fabrikam.com, 1551**
+     Если вы используете собственный порт, добавьте его к полному доменному имени SQL Server. Для этого после полного доменного имени SQL Server укажите номер порта через запятую.   Например, чтобы указать для сервера *SQLServer1.fabrikam.com* порт *1551*, необходимо записать **SQLServer1.fabrikam.com,1551**
 
-    -   **Nome da instância:** Por predefinição, este está em branco. Utiliza a instância predefinida do SQL Server no computador do servidor do site.  
+    -   **Имя экземпляра:** по умолчанию это поле остается пустым. В результате используется экземпляр SQL по умолчанию на компьютере сервера сайта.  
 
-    -   **Nome da base de dados:** Por predefinição, está definida como CM_&lt;Sitecode\>. Está a utilizar um nome diferente que especificar.  
+    -   **Имя базы данных:** по умолчанию задано значение CM_&lt;код_сайта\>. Вы можете использовать любое другое имя.  
 
-    -   **A porta do Service Broker:** Por predefinição, está definida para utilizar a porta do SQL Server Service Broker (SSB) predefinida de 4022. SQL Server utiliza-o para comunicar diretamente com a base de dados do site de outros sites.  
+    -   **Порт Service Broker:** по умолчанию здесь задан стандартный порт 4022 SQL Server Service Broker (SSB). SQL использует его для взаимодействия непосредственно с базой данных сайта на других сайтах.  
 
-13. Na segunda **informações da base de dados** página, pode especificar localizações não predefinidas para o ficheiro de dados do SQL Server e o ficheiro de registo do SQL Server para a base de dados do site:  
+13. На второй странице **Сведения о базе данных** вы можете указать нестандартные расположения файла данных SQL Server и файла журнала SQL Server для базы данных сайта.  
 
-    -   São fornecidas localizações predefinidas de ficheiros para o SQL Server.  
+    -   Предоставляются расположения файлов по умолчанию для SQL Server.  
 
-    -   A opção para especificar localizações de ficheiros não predefinidas não está disponível quando utiliza um cluster do SQL Server.  
+    -   При использовании кластера SQL Server возможность указания расположений файлов не по умолчанию недоступна.  
 
-    -   O Verificador de pré-requisitos não executa uma verificação de espaço livre em disco para não predefinidas localizações de ficheiros.  
+    -   Средство проверки готовности к установке не проверяет наличие свободного дискового пространства для нестандартных расположений файлов.  
 
-14. No **as definições do fornecedor de SMS** página, especifique o FQDN para o servidor onde pretende instalar o fornecedor de SMS.  
+14. На странице **Параметры поставщика SMS** укажите полное доменное имя сервера, на котором будет установлен поставщик SMS.  
 
-    -   Por predefinição, o servidor de site é especificado.  
+    -   По умолчанию указан сервер сайта.  
 
-    -   Após a instalação do site, pode configurar fornecedores de SMS adicionais.  
+    -   После установки сайта вы можете настроить дополнительные поставщики SMS.  
 
-15. No **definições de comunicação de cliente** página, escolha se pretende configurar todos os sistemas de sites para aceitar apenas comunicações HTTPS de clientes ou o método de comunicação seja configurado para cada função do sistema de sites.  
+15. На странице **Параметры связи с клиентским компьютером** укажите, следует ли разрешить всем системам сайта принимать от клиентов подключения только по протоколу HTTPS или же следует настроить способ подключения по отдельности для каждой роли системы сайта.  
 
-    Quando seleciona **todas as funções de sistema de site aceitam apenas comunicação HTTPS dos clientes**, o computador cliente tem de ter um certificado PKI válido para autenticação de cliente. Para obter mais informações sobre os requisitos de certificado PKI, consulte [requisitos de certificado PKI para o Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
-
-    > [!NOTE]  
-    > Este passo só se aplica quando instala um site primário. Se estiver a instalar um site de administração central, ignore este passo.  
-
-16. No **funções do sistema de sites** página, escolha se pretende instalar um ponto de gestão ou ponto de distribuição. Para cada função que optar por instalar através da configuração:  
-
-    -   Tem de introduzir o **FQDN** para o computador que irá alojar a função e escolha o cliente do método de ligação que o servidor irá suportar (HTTP ou HTTPS).  
-
-    -   Se tiver selecionado **todas as funções de sistema de site aceitam apenas comunicação HTTPS dos clientes** na página anterior, as definições de ligação de cliente são automaticamente configuradas para HTTPS em não podem ser alteradas a menos que Retroceda e altere a definição.  
+    Если выбран параметр **Все роли системы сайта принимают подключения от клиентов только по протоколу HTTPS**, клиентский компьютер должен иметь действительный PKI-сертификат для проверки подлинности клиента. Дополнительные сведения о требованиях к PKI-сертификатам см. в статье [Требования к PKI-сертификатам для Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
 
     > [!NOTE]  
-    > Este passo só se aplica quando instala um site primário. Se estiver a instalar um site de administração central, ignore este passo.  
+    > Этот шаг применяется только при установке первичного сайта. При установке сайта центра администрирования пропустите этот шаг.  
+
+16. На странице **Системные роли сайта** выберите, какую точку следует установить — точку управления или точку распространения. Для каждой роли, которую вы выбираете для установки программой установки, выполните следующее.  
+
+    -   Введите **полное доменное имя** компьютера, на котором будет размещена роль, и выберите метод подключения клиента, который будет поддерживать этот сервер (HTTP или HTTPS).  
+
+    -   Если на предыдущей странице был выбран параметр **Все роли системы сайта принимают подключения от клиентов только по протоколу HTTPS**, параметры подключения клиента автоматически настраиваются для использования протокола HTTPS и не могут быть изменены до тех пор, пока вы не сделаете это самостоятельно.  
 
     > [!NOTE]  
-    > Para instalar funções do sistema de sites, a configuração utiliza o **conta de instalação do sistema de sites**. Por predefinição, esta utiliza a conta de computador do site primário. Esta conta tem de ser um administrador local num computador remoto para instalar a função de sistema de sites. Se esta conta não possui as permissões necessárias, desmarque as funções de sistema de sites e instalar mais tarde a partir da consola do Configuration Manager, depois de configurar contas adicionais para utilizar como contas de instalação de sistema do site.  
-
-17. No **dados de utilização** página, reveja as informações sobre os dados que a Microsoft recolhe e, em seguida, escolha **seguinte**.  
-
-18. O **programa de configuração de ponto de ligação de serviço** página apenas está disponível durante a configuração:  
-
-    -   Quando estiver a instalar um site primário autónomo.  
-
-    -   Quando estiver a instalar um site de administração central.  
+    > Этот шаг применяется только при установке первичного сайта. При установке сайта центра администрирования пропустите этот шаг.  
 
     > [!NOTE]  
-    > Se estiver a instalar um site primário subordinado, ignore este passo (esta página não está disponível).  
+    > Для установки ролей системы сайта программа установки использует **учетную запись установки системы сайта**. По умолчанию для этого используется учетная запись компьютера первичного сайта. Эта учетная запись должна обладать правами локального администратора на удаленном компьютере, чтобы установить роль системы сайта. Если эта учетная запись не имеет необходимых разрешений, отмените выбор ролей системы сайта и установите их позже с помощью консоли Configuration Manager, когда настроите дополнительные учетные записи для использования в качестве учетных записей установки системы сайта.  
 
-     Se estiver a instalar um site de administração central como parte de um cenário de expansão do site e esta função já está instalada no site primário autónomo, tem de desinstalar esta função do site primário autónomo. Apenas uma instância desta função é permitida numa hierarquia — e só é permitida no site de nível superior da hierarquia.  
+17. На странице **Данные об использовании** просмотрите сведения о собираемых корпорацией Майкрософт данных и нажмите кнопку **Далее**.  
 
-     Depois de selecionar uma configuração para o **ponto de ligação de serviço**, escolha **seguinte**. (Após a conclusão da configuração, pode alterar esta configuração a partir da consola do Configuration Manager).  
+18. Учетная запись **Установка точки подключения службы** доступна при установке только в следующих случаях:  
 
-19. No **resumo de definições** página, reveja as definições que selecionou. Quando estiver pronto, selecione **seguinte** para iniciar o Verificador de pré-requisitos.  
+    -   вы устанавливаете автономный первичный сайт;  
 
-20. No **a verificação dos pré-requisitos de instalação** página, quaisquer problemas que podem ser identificados estão listados.  
+    -   вы устанавливаете сайт центра администрирования.  
 
-    -   Quando o Verificador de pré-requisitos detetar um problema, escolha um item na lista para obter detalhes sobre como resolver o problema.  
+    > [!NOTE]  
+    > Если вы устанавливаете дочерний первичный сайт, пропустите этот шаг (эта страница недоступна).  
 
-    -   Tem de resolver cada item com o estado **falha** antes de continuar a instalar o site. Itens com o estado **aviso** devem ser resolvidos, mas não bloqueiam a instalação do site.  
+     Если вы устанавливаете сайт центра администрирования в рамках сценария расширения сайта, и эта роль уже установлена на автономном первичном сайте, необходимо удалить эту роль с этого сайта. В иерархии допускается только один экземпляр этой роли, который должен находиться на сайте верхнего уровня иерархии.  
 
-    -   Depois de resolver problemas, escolha **executar verificação** para voltar a executar o Verificador de pré-requisitos.  
+     После выбора конфигурации для параметра **Точка подключения службы** нажмите кнопку **Далее**. (После завершения программы установки вы можете изменить данную конфигурацию из консоли Configuration Manager.)  
 
-     Quando executa o Verificador de pré-requisitos e não as verificações de recebem um **falha** Estado, pode escolher **Iniciar instalação** para iniciar a instalação de site.  
+19. На странице **Сводка параметров** проверьте выбранные параметры. Когда вы будете готовы, нажмите **Далее** для запуска средства проверки.  
+
+20. На странице **Проверка готовности к установке** будут указаны все проблемы, которые могут быть идентифицированы.  
+
+    -   Если средство проверки готовности к установке обнаружит проблему, щелкните элемент в списке, чтобы узнать о способе ее устранения.  
+
+    -   Перед продолжением установки сайта необходимо разрешить каждый пункт с состоянием **Ошибка**. Пункты с состоянием **Предупреждение** должны быть разрешены, но они не препятствуют установке сайта.  
+
+    -   После устранения проблем нажмите кнопку **Выполнить проверку** для повторного выполнения проверки готовности к установке.  
+
+     Если при выполнении средства проверки готовности пункты с состоянием **Ошибка** отсутствуют, вы можете нажать кнопку **Начать установку** для запуска установки сайта.  
 
     > [!TIP]  
-    > Além dos comentários que é fornecido no assistente, pode encontrar informações adicionais sobre problemas de pré-requisitos ao visualizar o **ConfigMgrPrereq.log** ficheiro na raiz da unidade de sistema do computador que está a instalar. Para obter uma lista de regras de pré-requisitos de instalação e as descrições, consulte [lista de verificações de pré-requisitos para o System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
+    > В дополнение к обратной связи, предоставляемой в мастере, дополнительные сведения о проблемах с проверкой готовности вы можете найти при просмотре файла **ConfigMgrPrereq.log** в корне системного диска на том компьютере, где выполняется установка. Список правил и описаний необходимых условий для установки см. в статье [Список проверок готовности для System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
 
-21. No **instalação** página, o programa de configuração apresenta o estado da instalação. Quando a instalação de servidor do site principal estiver concluída, terá a opção de **fechar** o Assistente de instalação. Quando fechar o assistente, a instalação e configurações de site inicial continuam em segundo plano.  
+21. На странице **Установка** программа установки отображает состояние установки. После завершения установки сервера основного сайта вы сможете **Закрыть** мастер установки. После закрытия мастера установка и настройка начального сайта будут продолжены в фоновом режиме.  
 
-    -   Pode ligar uma consola do Configuration Manager para o site antes da configuração está concluída. Esta consola liga como só de leitura e permite-lhe ver objetos e definições, mas não é possível introduzir edições.  
+    -   Консоль Configuration Manager можно подключить к сайту до завершения установки. Эта консоль подключается с правами только для чтения и позволяет просматривать объекты и параметры, но не позволяет вносить изменения.  
 
-    -   Após a conclusão da configuração, poderá ligar uma consola que possa editar objetos e definições.  
-
-
-## <a name="bkmk_expand"></a>Expandir um site primário autónomo
-Quando tiver instalado um site primário autónomo como primeiro site, tem a opção mais tarde para expandir esse site para uma hierarquia maior instalando um site de administração central.   
-
-Quando expande um site primário autónomo, instala um novo site de administração central que utiliza a base de dados do site primário autónomo existente como referência. Depois de instala o novo site de administração central, o site primário autónomo funciona como um site primário subordinado.
-
--   Apenas um site primário autónomo pode ser expandido para uma nova hierarquia.  
-
--   Apenas um site primário autónomo pode ser expandido para uma hierarquia específica. Não é possível utilizar esta opção para associar sites primários autónomos adicionais na mesma hierarquia. Em vez disso, utilize a migração para migrar dados de uma hierarquia para outra.  
-
--   Depois de expandir um site autónomo numa hierarquia com um site de administração central, pode adicionar sites primários subordinados adicionais.  
-
--   Para remover um site primário de uma hierarquia com um site de administração central, tem de desinstalar o site primário.  
-
-Para expandir o site, utilize o Assistente de configuração do System Center Configuration Manager para instalar um novo site de administração central com os seguintes avisos:  
-
--   Tem de instalar o site de administração central utilizando a mesma versão do Configuration Manager como site primário autónomo.  
-
--   No **introdução** página do Assistente de configuração, selecionar a opção para instalar um site de administração central. Uma fase posterior da configuração, irá escolher uma opção para expandir um site primário autónomo existente.  
-
--   Quando configura o **seleção de idioma do cliente** página para o novo site de administração central, tem de selecionar os mesmos idiomas de cliente que estão configurados para o site primário autónomo que está a expandir.  
-
--   No **instalação de Site** página, selecione a opção para expandir o site primário autónomo.  
-
-Para expandir um site primário autónomo, consulte o [pré-requisitos para expandir um site](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand)e, em seguida, utilize o procedimento  *[para instalar um site de administração central ou primário](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_installpri)*, anteriormente neste artigo.
+    -   После завершения программы установки вы можете подключить консоль, позволяющую изменять объекты и параметры.  
 
 
-## <a name="bkmk_secondary"></a>Instalar um site secundário
- Utilize a consola do Configuration Manager para instalar um site secundário.  
+## <a name="bkmk_expand"></a> Развертывание автономного первичного сайта
+При установке автономного первичного сайта в качестве первого сайта вы можете позже развернуть этот сайт в более крупную иерархию, установив сайт центра администрирования.   
 
--   Se a consola que utiliza não está ligada ao site primário que será o site principal para o novo site secundário, o comando para instalar o site será replicado para o site primário correto.  
+При развертывании автономного первичного сайта устанавливается новый сайт центра администрирования, который использует для справки базу данных существующего автономного первичного сайта. После установки нового сайта центра администрирования автономный первичный сайт выступает в роли дочернего первичного сайта.
 
--   Antes de iniciar a instalação do site, certifique-se de que a conta de utilizador tem as permissões de pré-requisitos e, se o computador que irá alojar o novo site secundário cumpre todos os pré-requisitos para utilização como um servidor de site secundário.  
+-   В новой иерархии можно развернуть только автономный первичный сайт.  
 
--   Quando instala o site secundário, o Configuration Manager configura o novo site para utilizar as portas de comunicação de cliente que estão configuradas no site primário principal.  
+-   В отдельной иерархии можно развернуть только один автономный первичный сайт. Этот параметр нельзя использовать для присоединения дополнительных автономных первичных сайтов к той же иерархии. Вместо этого используйте миграции для переноса данных из одной иерархии в другую.  
 
-### <a name="bkmk_installsecondary"></a>Para instalar um site secundário  
+-   После развертывания автономного сайта в иерархии с сайтом центра администрирования вы можете добавить дополнительные дочерние первичные сайты.  
+
+-   Чтобы исключить первичный сайт из иерархии с сайтом центра администрирования, необходимо удалить этот первичный сайт.  
+
+Чтобы развернуть сайт, используйте мастер установки System Center Configuration Manager для установки нового сайта центра администрирования со следующими оговорками.  
+
+-   Необходимо установить сайт центра администрирования с использованием той же версии Configuration Manager, которая применяется для автономного первичного сайта.  
+
+-   На странице **Начало работы** мастера установки выберите параметр установки сайта центра администрирования. Позже вы выберете параметр для развертывания существующего автономного первичного сайта.  
+
+-   При настройке параметров на странице **Выбор языков интерфейса клиентов** для нового сайта центра администрирования необходимо выбрать те же языки клиентов, которые настроены для развертываемого автономного первичного сайта.  
+
+-   На странице **Установка сайта** выберите параметр развертывания автономного первичного сайта.  
+
+Чтобы развернуть автономный первичный сайт, сначала изучите [предварительные требования для развертывания сайта](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand), а затем выполните действия, описанные в этой статье в разделе *[Установка первичного сайта или сайта центра администрирования](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_installpri)*.
 
 
-1.  Na consola do Configuration Manager, navegue até à **administração** > **configuração do Site** > **Sites**. Selecione o site que será o site primário principal do novo site secundário.  
+## <a name="bkmk_secondary"></a> Установка вторичного сайта
+ Используйте консоль Configuration Manager для установки вторичного сайта.  
 
-2.  Escolha **Criar Site secundário** para iniciar o **criar Assistente de Site secundário**.  
+-   Если используемая вами консоль не подключена к первичному сайту, который станет родительским сайтом для нового вторичного сайта, команда установки сайта будет реплицирована на правильный первичный сайт.  
 
-3.  No **antes de começar** página, confirme se o site primário apresentado é o site que pretende ser o elemento principal do novo site secundário. Em seguida, escolha **seguinte**.  
+-   Перед началом установки сайта убедитесь, что учетная запись пользователя имеет необходимые разрешения, а компьютер, где будет размещаться новый вторичный сайт, соответствует всем необходимым условиям для использования в качестве сервера вторичного сайта.  
 
-4.  No **geral** página, especifique o seguinte:  
+-   При установке вторичного сайта Configuration Manager автоматически настроит новый сайт с использованием портов связи с клиентами, настроенных в родительском первичном сайте.  
 
-    -   **Código do site**: Cada código do site numa hierarquia tem de ser exclusivo e composto por três dígitos alfanuméricos (da A z) e de 0 a 9. Uma vez que o código de site é utilizado em nomes de pastas, não utilize nomes reservados ao Windows para o site, incluindo:  
+### <a name="bkmk_installsecondary"></a> Установка вторичного сайта  
+
+
+1.  В консоли Configuration Manager последовательно щелкните **Администрирование** > **Конфигурация сайта** > **Сайты**. Выберите сайт, который будет выступать в качестве родительского первичного сайта для нового вторичного сайта.  
+
+2.  Щелкните **Создать вторичный сайт**, чтобы запустить **Мастер создания вторичного сайта**.  
+
+3.  На странице **Перед началом работы** подтвердите, что выбранный первичный сайт является тем сайтом, который должен выступать в качестве родительского для нового вторичного сайта. Нажмите кнопку **Далее**.  
+
+4.  На странице **Общие** укажите следующие сведения.  
+
+    -   **Код сайта:** каждый код сайта в иерархии должен быть уникальным и состоять из трех буквенно-цифровых знаков (буквы A–Z и цифры 0–9). Так как код сайта используется в именах папок, не используйте для сайта зарезервированные имена Windows, включая следующие.  
 
         -   AUX    
         -   CON    
@@ -275,120 +273,119 @@ Para expandir um site primário autónomo, consulte o [pré-requisitos para expa
         -   SMS  
 
        > [!NOTE]  
-       > A configuração não verifica se o código do site que especificou já está a ser utilizado ou se é um nome reservado.  
+       > В ходе установки не выполняется проверка того, что указанный вами код сайта уже используется или является зарегистрированным именем.  
 
-    -   **Nome do servidor de site**: Este é o FQDN do servidor onde irá instalar o novo site secundário.  
+    -   **Имя сервера сайта**— это полное доменное имя сервера, где устанавливается новый вторичный сайт.  
 
-    -   **Nome do site**: Cada site requer este nome amigável, que pode ajudar a identificar o site.  
+    -   **Имя сайта:** каждый сайт должен иметь понятное имя, которое поможет вам найти его.  
 
-    -   **Pasta de instalação**: Este é o caminho da pasta para a instalação do Configuration Manager. Não é possível alterar a localização após a instalação do site. O caminho não pode conter carateres Unicode nem espaços à direita.  
+    -   **Папка установки**— это путь к папке установки Configuration Manager. Это расположение нельзя изменить после установки сайта. Сам путь не должен содержать символы Юникода или конечные пробелы.  
 
     > [!IMPORTANT]  
-    > Depois de especificar detalhes nesta página, pode escolher **resumo** para utilizar as predefinições para o resto das opções do site secundário e para ir diretamente para o **resumo** página do assistente.  
+    > После указания сведений на этой странице нажмите кнопку **Сводка**, чтобы использовать значения по умолчанию для оставшихся параметров вторичного сайта и перейти непосредственно на страницу **Сводка** мастера.  
 
-    > -   Utilize esta opção apenas quando estiver familiarizado com as predefinições neste assistente e, se forem as definições que pretende utilizar.  
-    > -   Grupos de limites não estão associados com o ponto de distribuição quando utiliza as predefinições. Por conseguinte, até configurar grupos de limites que incluem o servidor de site secundário, os clientes não utilizam o ponto de distribuição que está instalado neste site secundário como uma localização de origem de conteúdo.  
+    > -   Используйте этот параметр, только если вы знакомы с параметрами по умолчанию в этом мастере и они соответствуют тем значениям, которые вы хотите использовать.  
+    > -   При использовании параметров по умолчанию группы границ не сопоставляются с точкой распространения. Таким образом, до настройки групп границ, включающих сервер вторичного сайта, клиенты не будут использовать точку распространения, установленную на этом вторичном сайте, в качестве расположения источника содержимого.  
 
-5.  No **ficheiros de origem de instalação** página, escolha como o computador do site secundário obtém os ficheiros de origem para instalar o site.  
+5.  На странице **Исходные файлы установки** укажите, как вторичный сайт получает исходные файлы для установки сайта.  
 
-     Quando utiliza ficheiros de origem que estão armazenados na rede ou armazenados no computador do site secundário:  
+     При использовании исходных файлов, хранящихся в сети или на компьютере вторичного сайта.  
 
-    -   A localização do ficheiro de origem tem de incluir uma pasta denominada **Redist** que inclui todos os ficheiros que foram anteriormente transferidos utilizando o programa de configuração.  
+    -   Расположение исходных файлов должно включать в себя папку с именем **Redist**, где находятся все файлы, скачанные ранее с помощью загрузчика программы установки.  
 
-    -   Se qualquer um dos ficheiros da **Redist** não estão disponíveis, a configuração não irá instalar o site secundário.  
+    -   Если какие-либо файлы в папке **Redist** недоступны, программе установки не удается установить вторичный сайт.  
 
-    -   A conta de computador do site secundário tem de ter **leitura** permissões para a origem de pasta e partilha de ficheiros.  
+    -   Учетная запись компьютера для вторичного сайта должна иметь разрешения на **чтение** для локальной и сетевой папки исходных файлов.  
 
-6.  No **definições do SQL Server** página, especifique a versão do SQL Server para utilizar e, em seguida, configure as definições relacionadas.  
+6.  На странице **Параметры SQL Server** укажите используемую версию SQL Server, а затем настройте соответствующие параметры.  
 
     > [!NOTE]  
-    > A configuração não valida as informações que introduzir nesta página antes de iniciar a instalação. Antes de continuar, verifique estas definições.  
+    > Программа установки не проверяет данные, введенные на этой странице, до начала установки. Проверьте эти параметры перед продолжением.  
 
-     **Instalar e configurar uma cópia local do SQL Server Express no computador do site secundário**  
+     **Установить и настроить локальную копию SQL Server, экспресс-выпуск на компьютере вторичного сайта**  
 
-    -   **Porta do SQL Server Service**: Especifique a porta do serviço do SQL Server para o SQL Server Express utilizar. A porta de serviço normalmente é configurada para utilizar a porta TCP 1433, mas pode configurar outra porta.  
+    -   **Порт службы SQL Server**: укажите порт службы SQL Server, используемый экспресс-выпуском SQL Server. Обычно для службы используется TCP-порт 1433, но можно настроить и другой порт.  
 
-    -   **Porta do SQL Server Broker**: Especifique a porta do SQL Server Service Broker (SSB) para o SQL Server Express utilizar. O Mediador de serviço normalmente é configurado para utilizar a porta TCP 4022, mas pode configurar uma porta diferente. Tem de especificar uma porta válida que nenhum outro site ou serviço está a utilizar e que estão a bloquear o sem restrições de firewall.  
+    -   **Порт SQL Server Broker**: укажите порт SQL Server Service Broker (SSB), используемый экспресс-выпуском SQL Server. Обычно для Service Broker используется TCP-порт 4022, но можно настроить и другой порт. Необходимо указать действительный порт, который не использует ни один другой сайт или служба, и на который нет ограничений брандмауэра.  
 
     > [!IMPORTANT]  
-    > Quando o Configuration Manager instala o SQL Server Express, instala o SQL Server Express 2012 sem service Pack:  
+    > Когда Configuration Manager устанавливает экспресс-выпуск SQL Server, устанавливается SQL Server Express 2012 без пакета обновления.  
 
-    > -   Para o site secundário seja suportado, após a instalação, tem de atualizar o SQL Server Express 2012 para [uma versão suportada](/sccm/core/plan-design/configs/support-for-sql-server-versions#bkmk_SQLVersions).
-    > -   Além disso, se a nova instalação de site secundário não for concluída, mas a instalação do SQL Server Express 2012, tem de atualizar essa instância do SQL Server Express antes do Configuration Manager com êxito pode repetir a instalação de site secundário.  
+    > -   Чтобы обеспечить поддержку вторичного сайта после завершения его установки, необходимо обновить SQL Server Express 2012, установив [поддерживаемую версию](/sccm/core/plan-design/configs/support-for-sql-server-versions#bkmk_SQLVersions).
+    > -   Кроме того, если установка нового вторичного сайта завершается сбоем, но сначала завершается установка SQL Server Express 2012, необходимо обновить этот экземпляр SQL Server Express, прежде чем Configuration Manager сможет успешно повторить попытку установки вторичного сайта.  
 
-     **Utilizar uma instância existente do SQL Server**  
+     **Использовать существующий экземпляр SQL Server**  
 
-    -   **FQDN do SQL Server**: Reveja o FQDN para o computador a executar o SQL Server. Tem de utilizar um servidor local a executar o SQL Server para alojar a base de dados do site secundário e não é possível modificar esta definição.  
+    -   **Полное доменное имя SQL Server**: проверьте полное доменное имя компьютера SQL Server. Для размещения базы данных вторичного сайта необходимо использовать локальный сервер с SQL Server. Этот параметр не может быть изменен.  
 
-    -   **Instância do SQL Server**: Especifique a instância do SQL Server para utilizar como a base de dados do site secundário. Deixe esta opção em branco para utilizar a instância predefinida.  
+    -   **Экземпляр SQL Server**: укажите экземпляр сервера SQL Server, который будет использован для базы данных вторичного сайта. Не указывайте этот параметр, чтобы использовать экземпляр по умолчанию.  
 
-    -   **Nome de base de dados do site do ConfigMgr**: Especifique o nome a utilizar para a base de dados do site secundário.  
+    -   **Имя базы данных сайта Configuration Manager**: укажите имя базы данных вторичного сайта.  
 
-    -   **Porta do SQL Server Broker**: Especifique a porta do SQL Server Service Broker (SSB) para o SQL Server utilizar. Tem de especificar uma porta válida que nenhum outro site ou serviço está a utilizar e que não existem restrições de firewall bloquear.  
+    -   **Порт SQL Server Broker**: укажите порт SQL Server Service Broker (SSB), используемый SQL Server. Необходимо указать действительный порт, который не использует ни один другой сайт или служба, и на который нет ограничений брандмауэра.  
 
     > [!TIP]  
-    > Consulte [versões do SQL Server suportada](../../../../core/plan-design/configs/support-for-sql-server-versions.md) para obter uma lista das versões do SQL Server que suporta o System Center Configuration Manager.  
+    > В статье [Поддерживаемые версии SQL Server](../../../../core/plan-design/configs/support-for-sql-server-versions.md) приведен список версий SQL Server, поддерживаемых System Center Configuration Manager.  
 
-7.  No **ponto de distribuição** página, configure as definições do ponto de distribuição que irá ser instalado num servidor do site secundário.  
+7.  На странице **Точка распространения** настройте параметры точки распространения, которая будет установлена на сервере вторичного сайта.  
 
-     **Definições necessárias:**  
+     **Обязательные параметры**  
 
-    -   **Especifique a forma como os dispositivos cliente comunicam com o ponto de distribuição**: Escolha entre HTTP e HTTPS.  
+    -   **Укажите способ подключения клиентских устройств к точке распространения**: выберите HTTP или HTTPS.  
 
-    -   **Criar um certificado autoassinado ou importar um certificado de cliente PKI**: Escolha entre utilizar um certificado autoassinado (que lhe permite também permitir ligações anónimas de clientes do Configuration Manager para a biblioteca de conteúdos) ou importar um certificado a partir da sua PKI.  
+    -   **Создайте самозаверяющий сертификат или импортируйте клиентский сертификат PKI**: выберите использование самозаверяющего сертификата (который, помимо прочего, позволяет разрешить анонимные подключения клиентов Configuration Manager к библиотеке содержимого) или импорт сертификата из инфраструктуры открытых ключей.  
 
-         O certificado é utilizado para autenticar o ponto de distribuição para um ponto de gestão antes do ponto de distribuição envia mensagens de estado.  
+         Сертификат используется для проверки подлинности точки распространения при обращении к точке управления до отправки точкой распространения сообщений о состоянии.  
 
-         Para obter informações sobre os requisitos de certificados, consulte [requisitos de certificado PKI para o Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
+         Дополнительные сведения о требованиях к сертификатам см. в статье [Требования к PKI-сертификатам для Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
 
-    **Definições opcionais:**  
+    **Необязательные параметры**  
 
-    -   **Instalar e configurar o IIS se exigido pelo Configuration Manager**: Selecione esta definição para permitir que o Configuration Manager instale e configure serviços de informação Internet (IIS) no servidor se ainda não estiver instalado. IIS tem de ser instalado em todos os pontos de distribuição.  
+    -   **Установить и настроить службы IIS (если это требуется Configuration Manager)**: выберите этот параметр, чтобы позволить Configuration Manager установить и настроить службы IIS на сервере, если они еще не установлены. Службы IIS должны быть установлены во всех точках распространения.  
 
         > [!NOTE]  
-        > Embora esta definição é opcional, IIS tem de estar instalado no servidor para que um ponto de distribuição possa ser instalado com êxito.  
+        > Хотя этот параметр не является обязательным, службы IIS необходимо установить на сервере для успешной установки точки распространения.  
 
-    -   **Ativar e configurar o BranchCache para este ponto de distribuição**.  
+    -   **Включить и настроить BranchCache для этой точки распространения**.  
 
-    -   **Descrição**. Esta é uma descrição amigável do ponto de distribuição para o ajudar a reconhecê-lo.  
+    -   **Описание**. Это понятное описание для точки распространения, чтобы помочь вам найти ее.  
 
-    -   **Ativar conteúdo pré-configurado para este ponto de distribuição**.  
+    -   **Включить эту точку распространения в режиме предварительного копирования содержимого**.  
 
-8.  No **definições de unidade** página, especifique as definições de unidade para o ponto de distribuição do site secundário.  
+8.  На странице **Параметры диска** укажите параметры диска для точки распространения вторичного сайта.  
 
-     Pode configurar até duas unidades de disco para a biblioteca de conteúdos e duas unidades de disco para a partilha de pacote. No entanto, o Configuration Manager possa utilizar unidades adicionais quando as duas primeiras atingem a reserva do espaço de unidade configurada. O **definições de unidade** página é onde configura a prioridade das unidades de disco e a quantidade de espaço livre que deverá permanecer disponível em cada unidade de disco.  
+     Для библиотеки содержимого можно настроить не более двух дисков, а для общей папки пакета — два диска. Но Configuration Manager может использовать дополнительные диски, если на первых двух будет достигнут настроенный зарезервированный объем свободного пространства. На странице **Параметры диска** настраивается приоритетность дисков и объем свободного пространства, который остается на каждом из них.  
 
-    -   **(MB) de reserva do espaço na unidade**: O valor que configurar para esta definição determina a quantidade de espaço livre numa unidade antes do Configuration Manager escolher uma unidade diferente e continuar o processo de cópia para essa unidade. Ficheiros de conteúdo podem abranger várias unidades.  
+    -   **Зарезервированное место на диске (МБ)**. Значение, настроенное для этого параметра, указывает объем свободного пространства на диске до выбора Configuration Manager другого диска и продолжения процесса копирования уже на нем. Файлы содержимого могут занимать несколько дисков.  
 
-    -   **Localizações de conteúdo**: Especifique as localizações de conteúdos para a partilha de biblioteca e o pacote de conteúdos. O Configuration Manager copia os conteúdos para localização de conteúdos primária até a quantidade de espaço livre atinge o valor especificado para **reserva de espaço na unidade (MB)**.
+    -   **Расположения содержимого**. Укажите расположения содержимого для библиотеки содержимого и общей сетевой папки пакета. Configuration Manager будет копировать содержимое в основное расположение, пока размер свободного пространства не достигнет значения, заданного для параметра **Зарезервированное место на диске (МБ)**.
 
-     Por predefinição, as localizações de conteúdo estão definidas como **automática**. A localização de conteúdos primária está definida para a unidade de disco que tem mais espaço de disco no momento de instalação. A localização secundária é definida para a unidade de disco que tenha mais disco espaço livre após a unidade principal. Quando as unidades principais e secundárias atingem a reserva do espaço na unidade, o Configuration Manager seleciona uma outra unidade disponível com mais disco espaço livre e continua o processo de cópia.  
+     По умолчанию расположениям содержимого задано значение **Автоматически**. В качестве основного расположения выбирается диск с наибольшим объемом свободного места. В качестве дополнительного расположения выбирается диск, второй по объему свободного места. По достижении основным и дополнительным дисками значения зарезервированного пространства Configuration Manager выбирает другой доступный диск с наибольшим размером свободного пространства и продолжает процесс копирования.  
 
-9. No **validação de conteúdo** página, especifique se pretende validar a integridade dos ficheiros de conteúdo no ponto de distribuição.  
+9. На странице **Проверка содержимого** укажите, следует ли проверять целостность файлов содержимого в точке распространения.  
 
-    -   Quando ativar a validação de conteúdo com base numa agenda, o Configuration Manager iniciará o processo à hora agendada e todo o conteúdo no ponto de distribuição é verificado.  
+    -   Если включить проверку содержимого по расписанию, Configuration Manager начнет процесс в запланированное время, и будет проверено все содержимое точки распространения.  
 
-    -   Também pode configurar o **prioridade de validação de conteúdo**.  
+    -   Кроме того, вы можете настроить **Приоритет проверки содержимого**.  
 
-    -   Para ver os resultados do processo de validação de conteúdo, na consola do Configuration Manager, navegue até à **monitorização** > **estado da distribuição** > **estado do conteúdo**. O conteúdo para cada tipo de pacote (por exemplo, aplicação, pacote de atualização de Software e imagem de arranque) é apresentado.  
+    -   Для просмотра результатов процесса проверки содержимого в консоли Configuration Manager последовательно выберите **Мониторинг** > **Состояние распространения** > **Состояние содержимого**. Будет показано содержимое для каждого типа пакета (например, "Приложение", "Пакет обновления программного обеспечения" и "Загрузочный образ").  
 
-10. No **grupos de limites** página, gira os grupos de limites que este ponto de distribuição está atribuído a:  
+10. На странице **Группы границ** можно управлять группами границ, для которых назначена данная точка распространения.  
 
-    -   Durante a implementação de conteúdos, os clientes tem de ser um grupo de limites que estão associados com o ponto de distribuição para utilizá-la como uma localização de origem para o conteúdo.  
+    -   В ходе развертывания содержимого клиенты должны находиться в группе границ, назначенной точке распространения, чтобы использовать ее в качестве источника содержимого.  
 
-    -   Pode selecionar o **permitir a localização de origem de contingência para conteúdo** opção para permitir que os clientes fora destes grupos de limites recorram à contingência e utilizem o ponto de distribuição como localização de origem para o conteúdo quando não existem pontos de distribuição preferenciais disponíveis.  
+    -   Выберите параметр **Разрешить использовать резервный источник содержимого** , чтобы разрешить клиентам за пределами этих групп границ откат и использование точек распространения в качестве источника содержимого, если предпочтительные точки распространения недоступны.  
 
-     Para obter informações sobre pontos de distribuição preferenciais, consulte o [conceitos fundamentais da gestão de conteúdos](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) tópico.  
+     Сведения о предпочтительных точках распространения см. в статье [Основные принципы управления содержимым](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-11. No **resumo** página, verifique as definições e, em seguida, escolha **seguinte** para instalar o site secundário. Quando o assistente apresentar a **conclusão** página, pode fechar o assistente. A instalação do site secundário continua em segundo plano.  
+11. На странице **Сводка** проверьте параметры, а затем нажмите кнопку **Далее**, чтобы установить вторичный сайт. Когда мастер отображает страницу **завершения**, его можно закрыть. Установка вторичного сайта продолжается в фоновом режиме.  
 
 
-### <a name="bkmk_verify"></a>Para verificar o estado de instalação de site secundário  
+### <a name="bkmk_verify"></a> Проверка состояния установки вторичного сайта  
 
-1.  Na consola do Configuration Manager, navegue até à **administração** > **configuração do Site** > **Sites**.  
+1.  В консоли Configuration Manager последовательно щелкните **Администрирование** > **Конфигурация сайта** > **Сайты**.  
 
-2.  Selecione o servidor de site secundário que estiver a instalar e, em seguida, escolha **Mostrar estado da instalação**.  
+2.  Выберите устанавливаемый сервер вторичного сайта и нажмите кнопку **Показать состояние установки**.  
 
     > [!TIP]  
-    > Quando instalar mais do que um site secundário de uma vez, o Verificador de pré-requisitos é executada relativamente a um único site um momento e tem de concluir um site antes de iniciar a verificação do site seguinte.  
-
+    > При установке нескольких вторичных сайтов одновременно проверка предварительных условий выполняется для одного сайта за раз и должна завершиться на одном сайте, прежде чем начнется на следующем.  

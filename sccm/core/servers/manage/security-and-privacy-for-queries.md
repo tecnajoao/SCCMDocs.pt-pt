@@ -1,6 +1,6 @@
 ---
-title: "Segurança e privacidade para consultas | Microsoft Docs"
-description: "Compreenda as melhores práticas de segurança e privacidade quando consulta para obter informações da base de dados do site."
+title: "Безопасность и конфиденциальность запросов | Документы Майкрософт"
+description: "Рекомендации по обеспечению безопасности и конфиденциальности при запросе информации из базы данных сайта."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,24 +17,24 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: e42b13c68ecaeac94245838c2f42e2790799de2b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-queries-in-system-center-configuration-manager"></a>Segurança e privacidade para consultas no System Center Configuration Manager
+# <a name="security-and-privacy-for-queries-in-system-center-configuration-manager"></a>Безопасность и конфиденциальность запросов в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-As consultas no System Center Configuration Manager permitem-lhe obter as informações da base de dados de site com base nos critérios que especificar. O Configuration Manager recolhe as informações de base de dados do site durante o funcionamento normal. Por exemplo, através da utilização de informações que tenham sido recolhidas pela deteção ou inventário, pode configurar uma consulta para identificar os dispositivos que cumprem critérios específicos.  
+Запросы в System Center Configuration Manager позволяют получать сведения из базы данных сайта в соответствии с заданными условиями. Configuration Manager выполняет сбор сведений базы данных сайта в ходе стандартных операций. Например, используя сведения, собранные в ходе операций обнаружения или инвентаризации, вы можете настроить запрос для идентификации устройств, отвечающих заданным критериям.  
 
- Para obter mais informações sobre consultas, consulte [introdução às consultas no System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md). Para obter mais informações sobre melhores práticas de segurança e informações de privacidade para operações do Configuration Manager que recolher as informações que pode obter utilizando consultas, consulte [segurança e privacidade para o System Center Configuration Manager](../../../core/plan-design/security/security-and-privacy.md).  
+ Дополнительные сведения о запросах см. в разделе [Общие сведения о запросах в Configuration Manager](../../../core/servers/manage/introduction-to-queries.md). См. рекомендации по [обеспечению в Configuration Manager безопасности и конфиденциальности](../../../core/plan-design/security/security-and-privacy.md) операций по сбору данных, которые могут быть извлечены запросами.  
 
-## <a name="security-best-practices-for-queries"></a>Melhores Práticas de Segurança para Consultas  
- Utilize a melhor prática de segurança seguinte para consultas.  
+## <a name="security-best-practices-for-queries"></a>Рекомендации по обеспечению безопасности для запросов  
+ Примите во внимание следующие рекомендации по обеспечению безопасности при выполнении запросов.  
 
-|Procedimento recomendado de segurança|Mais informações|  
+|Рекомендация по безопасности|Дополнительные сведения|  
 |----------------------------|----------------------|  
-|Sempre que exporta ou importar uma consulta que é guardada numa localização de rede, proteja a localização e o canal de rede.|Limite quem pode aceder à pasta de rede.<br /><br /> Utilize a assinatura SMB (Server Message Block) ou a segurança IPsec entre a localização de rede e o servidor do site para impedir que um atacante adultere os dados da consulta antes de serem importados.|  
+|При импорте и экспорте запроса, сохраненного в сетевой папке, обеспечьте безопасность расположения и сетевого канала.|Ограничьте доступ пользователей к сетевой папке.<br /><br /> Используйте подписывание SMB или протокол IPsec при обмене данными между сетевой папкой и сервером сайта, чтобы предотвратить изменение данных запроса злоумышленником до их импорта.|  
 
-## <a name="see-also"></a>Consulte também  
- [Referência técnica de consultas para o System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)
+## <a name="see-also"></a>См. также  
+ [Технический справочник по запросам для System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)

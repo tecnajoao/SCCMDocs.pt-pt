@@ -1,6 +1,6 @@
 ---
-title: "Declaração de privacidade do System Center Configuration Manager - cmdletlLibrary do Configuration Manager | Microsoft Docs"
-description: Saiba mais sobre como a Microsoft recolhe e utiliza os dados relacionados com a biblioteca de cmdlets do System Center Configuration Manager.
+title: "Заявление о конфиденциальности System Center Configuration Manager — библиотека командлетов Configuration Manager | Документы Майкрософт"
+description: "Узнайте, как корпорация Майкрософт собирает и использует данные, связанные с библиотекой командлетов System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -17,35 +17,35 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 3936075555cc0bb370ea6e42c7e720b864d565f7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="system-center-configuration-manager-privacy-statement---configuration-manager-cmdlet-library"></a>Declaração de privacidade do System Center Configuration Manager - biblioteca de cmdlets do Configuration Manager
+# <a name="system-center-configuration-manager-privacy-statement---configuration-manager-cmdlet-library"></a>Заявление о конфиденциальности System Center Configuration Manager — библиотека командлетов Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Esta declaração de privacidade cobre as funcionalidades para a Biblioteca de Cmdlets do System Center Configuration Manager.  
+В настоящем заявлении о конфиденциальности описаны функции библиотеки командлетов System Center Configuration Manager.  
 
-## <a name="usage-data"></a>Dados de utilização  
- **O que faz esta funcionalidade:**   
-A biblioteca de cmdlets do System Center Configuration Manager permite-lhe gerir uma hierarquia do Configuration Manager utilizando cmdlets do Windows PowerShell e scripts. A biblioteca de cmdlets recolhe informações sobre como utilizar os cmdlets na biblioteca para identificar tendências e padrões de utilização. A biblioteca de cmdlets recolhe também os tipos e o número de erros que encontrar ao utilizar os cmdlets.  
+## <a name="usage-data"></a>Данные об использовании  
+ **Назначение:**   
+библиотека командлетов System Center Configuration Manager позволяет управлять иерархией Configuration Manager с помощью командлетов и скриптов Windows PowerShell. Библиотека командлетов собирает сведения об использовании командлетов в библиотеке, чтобы определить тенденции и шаблоны использования. Библиотека командлетов также собирает сведения о типах и количестве ошибок, возникших при использовании командлетов.  
 
- **Informações recolhidas, processadas ou transmitidas:**   
-Os dados de utilização recolhidos incluem início, paragem e terminação de cmdlets, em execução de cmdlets preteridos e métricas de atividade para operações de fornecedor do Systems Management Server (SMS) que estão relacionados com os cmdlets. Esta informação não é identificativa.  Informações de erro recolhidas incluem erros que devolvam os cmdlets e detalhes do erro para erros de exceção. Alguns relatórios de detalhe do erro podem inadvertidamente conter identificadores individuais, como um número de série para um dispositivo que está ligado ao seu computador. A biblioteca de cmdlets filtra e torna anónimas informações nos relatórios de erros para remover identificadores individuais antes da transmissão à Microsoft.  
+ **Собираемые, обрабатываемые и передаваемые сведения:**   
+Собранные данные об использовании включают запуск, остановку и завершение командлетов, запуск нерекомендуемых командлетов и метрики действий для операций поставщика Systems Management Server (SMS), связанного с командлетами. Эти сведения не позволяют установить вашу личность.  Собранные сведения об ошибках содержат ошибки, возвращенные командлетами, и сведения об ошибках для исключений Некоторые подробные отчеты об ошибках могут непреднамеренно содержать отдельные идентификаторы, например серийный номер устройства, подключенного к компьютеру. Библиотека командлетов фильтрует и анонимизирует сведения, содержащиеся в отчетах об ошибках, чтобы удалить отдельные идентификаторы перед их отправкой в Майкрософт.  
 
- **Utilização de informações:**   
-Estas informações são utilizadas para melhorar a qualidade, segurança e integridade dos produtos e serviços que oferecemos.  
+ **Использование сведений:**   
+мы используем эти сведения для повышения качества, безопасности и целостности предлагаемых продуктов и служб.  
 
- **Escolha/controlo:**   
-Esta funcionalidade de dados de utilização está ativada por predefinição. A biblioteca de cmdlets do System Center Configuration Manager tem duas chaves de registo que controlam esta funcionalidade.  
+ **Выбор и управление:**   
+эта функция данных об использовании включена по умолчанию. Библиотека командлетов System Center Configuration Manager имеет два раздела реестра для управления этой функцией.  
 
- Para optar ativamente por não participar, tem de definir estes dois valores de chave de registo, um para cada um dos fornecedores do Rastreio de Eventos para o Windows (ETW):  
+ Чтобы полностью отказаться от участия, необходимо установить эти два значения разделов реестра: один для каждого из поставщиков трассировки событий для Windows (ETW):  
 
--   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Provider:CeipLevel=0 (opta ativamente por não participar nos Dados de Utilização para o fornecedor de unidade)  
+-   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Provider:CeipLevel=0 (отказ от сбора данных об использовании для поставщика драйверов)  
 
--   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Cmdlets:CeipLevel=0 (opta ativamente por não participar nos Dados de Utilização para os cmdlets)  
+-   HKLM\Software\Microsoft\ConfigMgr10\PowerShell\Microsoft.ConfigurationManagement.PowerShell.Cmdlets:CeipLevel=0 (отказ от сбора данных об использовании для командлетов)  
 
- As alterações às definições de Dados de Utilização são específicas do computador em que são introduzidas.  
+ Изменения параметров сбора данных об использовании зависят от компьютера, на котором они были созданы.  
 
- Para obter mais informações sobre como configurar dados de utilização (coleção), consulte o [documentação da biblioteca de cmdlets do System Center Configuration Manager](https://technet.microsoft.com/en-us/library/dn958404.aspx).   
+ Дополнительные сведения о настройке сбора данных об использовании см. в разделе [Документация по библиотеке командлетов System Center Configuration Manager](https://technet.microsoft.com/en-us/library/dn958404.aspx).   

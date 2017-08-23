@@ -1,6 +1,6 @@
 ---
-title: "Criar coleções | Microsoft Docs"
-description: "Crie coleções no System Center Configuration Manager, para gerir mais facilmente os grupos de utilizadores e dispositivos."
+title: "Создание коллекций | Документы Майкрософт"
+description: "Создание коллекций в System Center Configuration Manager для упрощения управления группами пользователей и устройств."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,191 +17,191 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 44b4707b1a40624c51decf548d23ddd2164c5833
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Como criar coleções no System Center Configuration Manager
+# <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Создание коллекций в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-As coleções são agrupamentos de utilizadores ou dispositivos. Utilize coleções de tarefas, tais como a gestão de aplicações, implementar as definições de compatibilidade ou instalação de atualizações de software. Também pode utilizar coleções para gerir grupos de definições de cliente ou utilizá-las com a administração baseada em funções para especificar os recursos aos quais um utilizador administrativo pode aceder. O Configuration Manager contém várias coleções incorporadas. Para obter mais informações, consulte [introdução às coleções no System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md).  
+Коллекции — это группы пользователей или устройств. Коллекции можно использовать для таких задач, как управление приложениями, развертывание параметров соответствия и установка обновлений программного обеспечения. Кроме того, вы можете использовать коллекции для управления группами параметров клиентов. Совместное использование с ролевым администрированием позволяет указать ресурсы, к которым может получать доступ пользователь с правами администратора. Configuration Manager содержит несколько встроенных коллекций. Дополнительные сведения см. в статье [Общие сведения о коллекциях в System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md).  
 
 > [!NOTE]  
->  Uma coleção pode conter utilizadores ou dispositivos, mas não ambos.  
+>  Коллекция может содержать либо пользователей, либо устройства. Смешанные коллекции не поддерживаются.  
 
- A tabela seguinte apresenta as regras que pode utilizar para configurar os membros de uma coleção no Configuration Manager.  
+ В следующей таблице перечислены правила, которые можно использовать для настройки членства в коллекции в Configuration Manager.  
 
-|Tipo de regra de associação|Mais informações|  
+|Тип правила членства|Дополнительные сведения|  
 |--------------------------|----------------------|  
-|Regra direta|Utilize para escolher os utilizadores ou computadores que pretende adicionar a uma coleção. Não altere esta associação, exceto se remover um recurso do Configuration Manager. O Configuration Manager tem de ter detetado os recursos ou tem de ter importado os recursos antes de poder adicioná-los a uma coleção de regra direta. Coleções de regra direta têm um overhead administrativo mais elevado que as coleções de regra de consulta porque requerem alterações manuais.|  
-|Regra de consulta|Atualize dinamicamente a associação de uma coleção com base numa consulta que executa o Gestor de configuração com base numa agenda. Por exemplo, pode criar uma coleção de utilizadores que são membros da unidade organizacional Recursos Humanos nos Serviços de Domínio do Active Directory. Esta coleção é atualizada automaticamente quando os novos utilizadores são adicionados ou removidos da unidade organizacional recursos humanos.<br /><br /> Por exemplo consultas que pode utilizar para criar coleções, consulte [como criar consultas no System Center Configuration Manager](../../../../core/servers/manage/create-queries.md).|  
-|Regra de inclusão de coleção|Inclua os membros de outra coleção numa coleção do Configuration Manager que é atualizada a associação da coleção atual num agendamento se a coleção incluída for alterada.<br /><br /> Pode adicionar várias regras de inclusão de coleção a uma coleção.<br /> |  
-|Regra de exclusão de coleção|A regra de exclusão de coleção permitem-lhe excluir os membros de outra coleção de uma coleção do Configuration Manager. É atualizada a associação da coleção atual num agendamento se coleção excluída for alterada.<br /><br /> Pode adicionar várias regras de exclusão de coleção a uma coleção. Se uma coleção incluir ambos inclusão de coleção e excluir as regras de recolha e houver um conflito, a regra de exclusão de coleção tem prioridade.<br />              **Exemplo:** Criar uma coleção que tenha um incluem a regra de recolha e uma excluir regra de recolha. A regra de inclusão de coleção destina-se a uma coleção de computadores de secretária Dell. A regra de exclusão de coleção destina-se a uma coleção de computadores que têm menos de 4 GB de RAM. A nova coleção irá conter os computadores de secretária Dell que tenham, pelo menos, 4 GB de RAM.|  
+|Прямое правило|Позволяет выбирать пользователей или компьютеры, которые требуется добавить в коллекцию. Членство этого типа не изменяется, если только ресурс не удаляется из Configuration Manager. Прежде чем ресурсы можно будет добавлять в коллекцию прямого правила, Configuration Manager должен выполнить обнаружение ресурсов или их необходимо импортировать вручную. Коллекции с прямыми правилами предполагают более высокие административные временные затраты по сравнению с коллекциями с правилами запросов, так как они требуют внесения изменений вручную.|  
+|Правило запроса|Позволяет динамически обновлять членство в коллекции на основе запроса, выполняемого Configuration Manager по расписанию. Например, можно создать коллекцию пользователей, которые являются членами подразделения "Кадры" в доменных службах Active Directory. Такая коллекция обновляется автоматически при добавлении новых пользователей в подразделение "Кадры" или их удалении из него.<br /><br /> Примеры запросов, которые можно использовать для создания коллекций, см. в статье [Создание запросов в System Center Configuration Manager](../../../../core/servers/manage/create-queries.md).|  
+|Правило включения коллекции|Позволяет включать члены другой коллекции в коллекцию Configuration Manager. Членство в текущей коллекции обновляется согласно расписанию, если изменяется членство включенной коллекции.<br /><br /> Вы можете добавить в коллекцию несколько правил включения коллекции.<br /> |  
+|Правило исключения коллекции|Правило исключения коллекции позволяет исключать члены другой коллекции из коллекции Configuration Manager. Членство в текущей коллекции обновляется согласно расписанию, если изменилась исключенная коллекция.<br /><br /> Вы можете добавить в коллекцию несколько правил исключения коллекции. Если коллекция содержит правила "Включить коллекции" и "Исключить коллекции", между которыми возник конфликт, правило исключения имеет приоритет.<br />              **Пример.** Вы создаете коллекцию, которая имеет одно правило включения коллекции и одно правило исключения коллекции. Правило включения коллекции предназначено для коллекции настольных систем Dell. Правило исключения коллекции предназначено для коллекции компьютеров, имеющих менее 4 ГБ ОЗУ. Новая коллекция будет содержать настольные системы Dell, имеющие менее 4 ГБ ОЗУ.|  
 
- Utilize os procedimentos seguintes para ajudar a criar coleções no Configuration Manager. Também pode importar coleções que foram criadas neste ou noutro site do Configuration Manager. Para obter informações sobre como exportar e importar coleções, consulte [como gerir coleções no System Center Configuration Manager](../../../../core/clients/manage/collections/manage-collections.md).  
+ Ниже приведены процедуры создания коллекций в Configuration Manager. Кроме того, можно импортировать коллекции, созданные на этом или другом сайте Configuration Manager. Сведения об экспорте и импорте коллекций см. в разделе [Управление коллекциями в System Center Configuration Manager](../../../../core/clients/manage/collections/manage-collections.md).  
 
- Para obter informações sobre como criar coleções para computadores que executam o Linux e UNIX, consulte [como gerir clientes para servidores Linux e UNIX no System Center Configuration Manager](../../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md).  
+ Сведения о создании коллекций для компьютеров под управлением Linux и UNIX см. в статье [Управление клиентами для серверов Linux и UNIX в System Center Configuration Manager](../../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md).  
 
-##  <a name="BKMK_1"></a> Para criar uma coleção de dispositivos  
+##  <a name="BKMK_1"></a> Создание коллекции устройств  
 
-1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **coleções de dispositivos**.  
+1.  В консоли Configuration Manager выберите **Активы и соответствие** > **Коллекции устройств**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **criar coleção de dispositivos**.  
+3.  На вкладке **Главная** в группе **Создать** выберите элемент **Создать коллекцию устройств**.  
 
-4.  No **geral** página fornecer um **nome** e um **comentário**. Em seguida, no **coleção restritiva**, escolha **procurar** para selecionar uma coleção restritiva. A coleção irá conter apenas membros da coleção restritiva.  
+4.  На странице **Общие** заполните поля **Имя** и **Комментарий**. В поле **Ограничивающая коллекция** нажмите кнопку **Обзор**, чтобы выбрать ограничивающую коллекцию. Коллекция будет содержать только члены ограничивающей коллекции.  
 
-5.  No **regras de associação** página do **dispositivo Assistente para criar coleção**, no **Adicionar regra** lista, selecione o tipo de regra de associação que pretende utilizar para esta coleção. Pode configurar várias regras para cada coleção.  
+5.  На странице **Правила членства в коллекции** **мастера создания коллекции устройств** в списке **Добавить правило** выберите тип правила членства, которое будет использоваться для этой коллекции. Для каждой коллекции можно настроить несколько правил.  
 
         
-##### <a name="to-configure-a-direct-rule"></a>Para configurar uma regra direta  
+##### <a name="to-configure-a-direct-rule"></a>Настройка прямого правила  
 
-1.  Na página **Procurar Recursos** do **Assistente para Criar Regra de Associação Direta**, especifique as seguintes informações:  
+1.  На странице **Поиск ресурсов** **мастера создания статических правил членства в коллекции**укажите следующие сведения.  
 
--   **Classe de recursos**: Selecione o tipo de recurso que pretende procurar e adicionar à coleção. Selecione entre os valores **Recurso do Sistema** para procurar dados de inventário devolvidos de computadores cliente ou **Computador Desconhecido** para selecionar entre os valores devolvidos por computadores desconhecidos.  
+-   **Класс ресурсов:** выберите тип ресурсов, которые требуется найти и добавить в коллекцию. Выберите одно из значений **Системный ресурс** , чтобы выполнить поиск данных инвентаризации, возвращенных с клиентских компьютеров, или **Неизвестный компьютер** , чтобы выбрать значения, возвращенные неизвестными компьютерами.  
 
--   **O nome do atributo**: Selecione o atributo associado à classe de recursos selecionada que pretende procurar. Por exemplo, se pretender selecionar computadores pelo respetivo nome NetBIOS, selecione **Recurso do Sistema** na lista **Classe de recursos** e **Nome NetBIOS** na lista **Nome do atributo** .  
+-   **Имя атрибута:** выберите атрибут, связанный с выбранным классом ресурсов, поиск которого требуется выполнить. Например, чтобы выбирать компьютеры по имени NetBIOS, выберите в списке **Класс ресурсов** вариант **Системный ресурс** , а в списке **Имя атрибута** — **Имя NetBIOS** .  
 
--   **Excluir recursos marcados como obsoletos** - se um computador cliente estiver marcado como obsoleto, não inclua este valor nos resultados da pesquisa.  
+-   **Исключить ресурсы, помеченные как устаревшие** — если клиентский компьютер помечен как устаревший, он не будет включаться в результаты поиска.  
 
--   **Excluir recursos que não tenham o cliente do Configuration Manager instalado** -estes não serão apresentados nos resultados da pesquisa.  
+-   **Исключить ресурсы без установленного клиента Configuration Manager** — это значение не будет отображаться в результатах поиска.  
 
--   **Valor:** Introduza um valor para o qual pretende procurar o nome de atributo selecionado. Pode utilizar o caráter de percentagem **%** como caráter universal. Por exemplo, para procurar computadores com um nome NetBIOS que começa com "M", introduza **M %** neste campo.  
+-   **Значение:** введите значение, которое требуется найти для выбранного имени атрибута. Вы можете использовать символ процента **%** в качестве подстановочного знака. Например, чтобы найти компьютеры, NetBIOS-имя которых начинается с буквы "M", введите в это поле значение **M%**.  
 
-2.  No **selecionar recursos** página, selecione os recursos que pretende adicionar à coleção no **recursos** lista e, em seguida, escolha **seguinte**.  
+2.  На странице **Выбранные ресурсы** выберите в списке **Ресурсы** ресурсы, которые требуется добавить в коллекцию, а затем нажмите кнопку **Далее**.  
 
 
-##### <a name="to-configure-a-query-rule"></a>Para configurar uma regra de consulta  
+##### <a name="to-configure-a-query-rule"></a>Настройка правила запроса  
 
-1.  Na caixa de diálogo **Propriedades da Regra de Consulta** , especifique as seguintes informações:  
+1.  В диалоговом окне **Свойства правил запросов** укажите следующие сведения.  
 
--   **Nome**: Especifique um nome exclusivo.  
+-   **Имя** — укажите уникальное имя.  
 
--   **Importar instrução de consulta** -abre o **procurar consulta** caixa de diálogo onde pode selecionar um [consulta do Configuration Manager](../../../../core/servers/manage/create-queries.md) para utilizar como a regra de consulta para a coleção.   
+-   **Импортировать инструкцию запроса** — открывает диалоговое окно **Обзор запроса**, в котором можно выбрать [запрос Configuration Manager](../../../../core/servers/manage/create-queries.md) для использования в качестве правила запроса для коллекции.   
 
--   **Classe de recursos:** Selecione o tipo de recurso que pretende procurar e adicionar à coleção. Selecione um valor entre os valores de **Recurso do Sistema** para procurar dados de inventário devolvidos de computadores cliente ou **Computador Desconhecido** para selecionar entre os valores devolvidos por computadores desconhecidos.  
+-   **Класс ресурсов:** выберите тип ресурсов, которые требуется найти и добавить в коллекцию. Выберите одно из значений **Системный ресурс** , чтобы выполнить поиск данных инвентаризации, возвращенных с клиентских компьютеров, или **Неизвестный компьютер** , чтобы выбрать значения, возвращенные неизвестными компьютерами.  
 
--   **Editar instrução de consulta** -abre o **propriedades da declaração de consulta** caixa de diálogo onde pode criar uma consulta para utilizar como regra para a coleção. Para obter mais informações sobre consultas, veja [Referência técnica para consultas no System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
+-   **Изменить инструкцию запроса** — открывает диалоговое окно **Свойства формы запроса**, в котором можно создать запрос для использования в качестве правила для коллекции. Дополнительные сведения о запросах см. в статье [Технический справочник по запросам для System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
 
     
-##### <a name="to-configure-an-include-collection-rule"></a>Para configurar uma regra de inclusão de coleção  
+##### <a name="to-configure-an-include-collection-rule"></a>Настройка правила включения коллекции  
 
-No **selecionar coleções** diálogo caixa, selecione as coleções que pretende incluir na nova coleção, em seguida, escolha **OK**.  
+В диалоговом окне **Выбор коллекций** выберите коллекции, которые требуется включить в новую коллекцию, и нажмите кнопку **ОК**.  
 
-##### <a name="to-configure-an-exclude-collection-rule"></a>Para configurar uma regra de exclusão de coleção  
+##### <a name="to-configure-an-exclude-collection-rule"></a>Настройка правила исключения коллекции  
 
-No **selecionar coleções** diálogo caixa, selecione as coleções que pretende excluir da nova coleção, em seguida, escolha **OK**.  
+В диалоговом окне **Выбор коллекций** выберите коллекции, которые требуется исключить из новой коллекции, и нажмите кнопку **ОК**.  
 
--   **Utilizar atualizações incrementais para esta coleção** - Selecione esta opção para periodicamente procurar e atualizar apenas novos ou alterados recursos de avaliação de coleção anterior, independentemente de uma avaliação de coleção completa. As atualizações incrementais ocorrem em intervalos de 10 minutos.  
-
-> [!IMPORTANT]  
->  As coleções configuradas através de regras de consulta que utilizem as classes seguintes não suportam atualizações incrementais:  
->   
-> -   SMS_G_System_CollectedFile  
-> -   SMS_G_System_LastSoftwareScan  
-> -   SMS_G_System_AppClientState  
-> -   SMS_G_System_DCMDeploymentState  
-> -   SMS_G_System_DCMDeploymentErrorAssetDetails  
-> -   SMS_G_System_DCMDeploymentCompliantAssetDetails  
-> -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails  
-> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (apenas para coleções de utilizadores)  
-> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (apenas para coleções de utilizadores)  
-> -   SMS_G_System_SoftwareUsageData  
-> -   SMS_G_System_CI_ComplianceState  
-> -   SMS_G_System_EndpointProtectionStatus  
-> -   SMS_GH_System_*  
-> -   SMS_GEH_System_*  
-
--   **Agendar uma atualização completa para esta coleção** -agendar uma avaliação completa regular da associação à coleção.  
-
-6.  Conclua o assistente para criar a nova coleção. A nova coleção é apresentada no nó **Coleções de Dispositivos** da área de trabalho **Ativos e Compatibilidade** .  
-
-> [!NOTE]  
->  É necessário atualizar ou recarregar a consola do Configuration Manager para ver os membros da coleção. No entanto, os membros não irão aparecer na coleção após a primeira atualização agendada ou se selecionar manualmente **atualizar associação** para a coleção. Pode demorar alguns minutos para que uma atualização da coleção concluir.  
-
-##  <a name="BKMK_2"></a> Para criar uma coleção de utilizadores  
-
-1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **coleções de utilizadores**.  
-
-3.  No **home page** separador o **criar** grupo, escolha **criar coleção de utilizador**.  
-
-4.  No **geral** página do wizardprovide um **nome** e um **comentário**. Em seguida, no **coleção restritiva**, escolha **procurar** para selecionar uma coleção restritiva. A coleção irá conter apenas membros da coleção restritiva.  
-
-5.  No **regras de associação** página, especifique o seguinte:  
-
-    -   Na lista **Adicionar Regra** , selecione o tipo de regra de associação que pretende utilizar para esta coleção. Pode configurar várias regras para cada coleção.  
-
-##### <a name="to-configure-a-direct-rule"></a>Para configurar uma regra direta  
-
-1.  No **procurar recursos** página do **criar Assistente de regra de associação direta**, especifique:  
-
--   **Classe de recursos**: Selecione o tipo de recurso que pretende procurar e adicionar à coleção. Selecione a partir de **recurso de utilizador** valores para procurar informações de utilizador recolhidas pelo Configuration Manager ou **recurso do grupo de utilizador** para procurar informações do grupo de utilizador recolhidas pelo Configuration Manager.  
-
--   **O nome do atributo**: Selecione o atributo associado a classe de recursos que pretende procurar. Por exemplo, se pretender selecionar utilizadores pelo respetivo nome de Unidade Organizacional (UO), selecione **Recurso de Utilizador** na lista **Classe de recursos** e **Nome da UO de Utilizadores** na lista **Nome do atributo** .  
-
--   **Valor:** Introduza um valor que pretende procurar. Pode utilizar o caráter de percentagem **%** como caráter universal. Por exemplo, para procurar utilizadores na UO Contoso, introduza **Contoso** neste campo.  
-
-2.  No **selecionar recursos** página, selecione os recursos que pretende adicionar à coleção no **recursos** lista.  
-
-##### <a name="to-configure-a-query-rule"></a>Para configurar uma regra de consulta  
-
-1.  No **propriedades da regra de consulta** caixa de diálogo, fornecer:  
-
--   **Nome**: Um nome exclusivo.  
-
--   **Importar instrução de consulta** -abre o **procurar consulta** caixa de diálogo onde pode selecionar um [consulta do Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md) para utilizar como a regra de consulta para a coleção.  
-
--   **Classe de recursos**: Selecione o tipo de recurso que pretende procurar e adicionar à coleção. Selecione a partir de **recurso de utilizador** valores para procurar informações de utilizador recolhidas pelo Configuration Manager ou **recurso do grupo de utilizador** para procurar informações do grupo de utilizador recolhidas pelo Configuration Manager.  
-
--   **Editar instrução de consulta** -abre o **propriedades da declaração de consulta** caixa de diálogo onde poderá [criar uma consulta](../../../../core/servers/manage/queries-technical-reference.md) para utilizar como regra para a coleção.  
-
-##### <a name="to-configure-an-include-collection-rule"></a>Para configurar uma regra de inclusão de coleção  
-
-No **selecionar coleções** diálogo caixa, selecione as coleções que pretende incluir na nova coleção, em seguida, escolha **OK**.  
-
-##### <a name="to-configure-an-exclude-collection-rule"></a>Para configurar uma regra de exclusão de coleção  
-
-No **selecionar coleções** diálogo caixa, selecione as coleções que pretende excluir da nova coleção, em seguida, escolha **OK**.  
-
-
--   **Utilizar atualizações incrementais para esta coleção** - Selecione esta opção para periodicamente procurar e atualizar apenas novos ou alterados recursos de avaliação de coleção anterior, independentemente de uma avaliação de coleção completa. As atualizações incrementais ocorrem em intervalos de 10 minutos.  
+-   **Использовать добавочные обновления для этой коллекции** — установите этот флажок, чтобы выполнять периодический поиск и обновление только новых или измененных с момента предыдущей оценки коллекции ресурсов независимо от выполнения полной оценки коллекции. Добавочные обновления выполняются каждые 10 минут.  
 
 > [!IMPORTANT]  
->  As coleções configuradas através de regras de consulta que utilizem as classes seguintes não suportam atualizações incrementais:  
+>  Коллекции, которые настроены с помощью правил запроса, использующих следующие классы, не поддерживают добавочные обновления:  
 >   
-> -   SMS_G_System_CollectedFile  
-> -   SMS_G_System_LastSoftwareScan  
-> -   SMS_G_System_AppClientState  
-> -   SMS_G_System_DCMDeploymentState  
-> -   SMS_G_System_DCMDeploymentErrorAssetDetails  
-> -   SMS_G_System_DCMDeploymentCompliantAssetDetails  
-> -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails  
-> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (apenas para coleções de utilizadores)  
-> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (apenas para coleções de utilizadores)  
-> -   SMS_G_System_SoftwareUsageData  
-> -   SMS_G_System_CI_ComplianceState  
-> -   SMS_G_System_EndpointProtectionStatus  
-> -   SMS_GH_System_*  
-> -   SMS_GEH_System_*  
+> -   SMS_G_System_CollectedFile,  
+> -   SMS_G_System_LastSoftwareScan,  
+> -   SMS_G_System_AppClientState,  
+> -   SMS_G_System_DCMDeploymentState,  
+> -   SMS_G_System_DCMDeploymentErrorAssetDetails,  
+> -   SMS_G_System_DCMDeploymentCompliantAssetDetails,  
+> -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails,  
+> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (только для коллекций пользователей),  
+> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (только для коллекций пользователей),  
+> -   SMS_G_System_SoftwareUsageData,  
+> -   SMS_G_System_CI_ComplianceState,  
+> -   SMS_G_System_EndpointProtectionStatus,  
+> -   SMS_GH_System_*,  
+> -   SMS_GEH_System_*.  
 
--   **Agendar uma atualização completa para esta coleção** -agendar uma avaliação completa regular da associação à coleção.  
+-   **Запланировать полное обновление этой коллекции** — запланируйте периодическую полную оценку членства в коллекции.  
 
-6.  Conclua o assistente. A nova coleção é apresentada no nó **Coleções de Utilizadores** da área de trabalho **Ativos e Compatibilidade** .  
+6.  Следуйте указаниям мастера, чтобы завершить создание новой коллекции. Созданная коллекция отображается в узле **Коллекции устройств** рабочей области **Активы и соответствие** .  
 
 > [!NOTE]  
->  É necessário atualizar ou recarregar a consola do Configuration Manager para ver os membros da coleção. No entanto, os membros só irão aparecer na coleção após a primeira atualização agendada ou se selecionar manualmente a opção **Atualizar Associação** para a coleção. Pode demorar alguns minutos para que uma atualização da coleção concluir.  
+>  Необходимо обновить или повторно загрузить консоль Configuration Manager, чтобы отобразить члены коллекции. Но эти члены не отображаются в коллекции до первого запланированного обновления либо пока для коллекции вручную не будет выбран параметр **Обновить членство**. Для завершения обновления коллекции может потребоваться несколько минут.  
 
-##  <a name="BKMK_3"></a> Para importar uma coleção  
+##  <a name="BKMK_2"></a> Создание коллекции пользователей  
 
-1.  Na consola do Configuration Manager, escolha **ativos e compatibilidade** > **coleções de utilizadores** ou **coleções de dispositivos**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Коллекции пользователей**.  
 
-3.  No **home page** separador o **criar** grupo, escolha **importar coleções**.  
+3.  На вкладке **Главная** в группе **Создать** выберите элемент **Создать коллекцию пользователей**.  
 
-4.  No **geral** página do **Assistente Importar coleções**, escolha **seguinte**.  
+4.  На странице **Общие** мастера заполните поля **Имя** и **Комментарий**. В поле **Ограничивающая коллекция** нажмите кнопку **Обзор**, чтобы выбрать ограничивающую коллекцию. Коллекция будет содержать только члены ограничивающей коллекции.  
 
-5.  No **nome do ficheiro MOF** página, escolha **procurar** e, em seguida, navegue para o ficheiro MOF que contém as informações de recolha que pretende importar.  
+5.  На странице **Правила членства в коллекции** задайте приведенные ниже параметры.  
+
+    -   В списке **Добавить правило** выберите тип правила членства, которое будет использоваться для этой коллекции. Для каждой коллекции можно настроить несколько правил.  
+
+##### <a name="to-configure-a-direct-rule"></a>Настройка прямого правила  
+
+1.  На странице **Поиск ресурсов** **мастера создания правил непосредственного членства** укажите приведенные ниже сведения.  
+
+-   **Класс ресурсов:** выберите тип ресурсов, которые требуется найти и добавить в коллекцию. Выберите одно из значений **Пользователь (ресурс)** для поиска сведений о пользователе, собираемых Configuration Manager, или **Группа пользователей (ресурс)** для поиска сведения о группе пользователей, собираемых Configuration Manager.  
+
+-   **Имя атрибута:** выберите атрибут, связанный с классом ресурсов, поиск которого требуется выполнить. Например, чтобы выбирать пользователей по имени подразделения, выберите в списке **Класс ресурсов** значение **Пользователь (ресурс)** , а в списке **Имя атрибута** — значение **Имя подразделения пользователя** .  
+
+-   **Значение:** введите значение, которое требуется найти. Вы можете использовать символ процента **%** в качестве подстановочного знака. Например, чтобы найти пользователей в подразделении Contoso, введите **Contoso** в этом поле.  
+
+2.  На странице **Выбранные ресурсы** выберите в списке **Ресурсы** ресурсы, которые требуется добавить в коллекцию.  
+
+##### <a name="to-configure-a-query-rule"></a>Настройка правила запроса  
+
+1.  В диалоговом окне **Свойства правил запросов** задайте следующие параметры:  
+
+-   **Имя**: уникальное имя.  
+
+-   **Импортировать инструкцию запроса** — открывает диалоговое окно **Обзор запроса**, в котором можно выбрать [запрос Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md) для использования в качестве правила запроса для коллекции.  
+
+-   **Класс ресурсов:** выберите тип ресурсов, которые требуется найти и добавить в коллекцию. Выберите одно из значений **Пользователь (ресурс)** для поиска сведений о пользователе, собираемых Configuration Manager, или **Группа пользователей (ресурс)** для поиска сведения о группе пользователей, собираемых Configuration Manager.  
+
+-   **Изменить инструкцию запроса** — открывает диалоговое окно **Свойства формы запроса**, в котором можно [создать запрос](../../../../core/servers/manage/queries-technical-reference.md) для использования в качестве правила для коллекции.  
+
+##### <a name="to-configure-an-include-collection-rule"></a>Настройка правила включения коллекции  
+
+В диалоговом окне **Выбор коллекций** выберите коллекции, которые требуется включить в новую коллекцию, и нажмите кнопку **ОК**.  
+
+##### <a name="to-configure-an-exclude-collection-rule"></a>Настройка правила исключения коллекции  
+
+В диалоговом окне **Выбор коллекций** выберите коллекции, которые требуется исключить из новой коллекции, и нажмите кнопку **ОК**.  
+
+
+-   **Использовать добавочные обновления для этой коллекции** — установите этот флажок, чтобы выполнять периодический поиск и обновление только новых или измененных с момента предыдущей оценки коллекции ресурсов независимо от выполнения полной оценки коллекции. Добавочные обновления выполняются каждые 10 минут.  
+
+> [!IMPORTANT]  
+>  Коллекции, которые настроены с помощью правил запроса, использующих следующие классы, не поддерживают добавочные обновления:  
+>   
+> -   SMS_G_System_CollectedFile,  
+> -   SMS_G_System_LastSoftwareScan,  
+> -   SMS_G_System_AppClientState,  
+> -   SMS_G_System_DCMDeploymentState,  
+> -   SMS_G_System_DCMDeploymentErrorAssetDetails,  
+> -   SMS_G_System_DCMDeploymentCompliantAssetDetails,  
+> -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails,  
+> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (только для коллекций пользователей),  
+> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (только для коллекций пользователей),  
+> -   SMS_G_System_SoftwareUsageData,  
+> -   SMS_G_System_CI_ComplianceState,  
+> -   SMS_G_System_EndpointProtectionStatus,  
+> -   SMS_GH_System_*,  
+> -   SMS_GEH_System_*.  
+
+-   **Запланировать полное обновление этой коллекции** — запланируйте периодическую полную оценку членства в коллекции.  
+
+6.  Завершите работу мастера. Созданная коллекция отображается в узле **Коллекции пользователей** рабочей области **Активы и соответствие** .  
+
+> [!NOTE]  
+>  Необходимо обновить или повторно загрузить консоль Configuration Manager, чтобы отобразить члены коллекции. Однако эти члены не отображаются в коллекции до первого запланированного обновления либо пока для коллекции вручную не будет выбран параметр **Обновить членство** . Для завершения обновления коллекции может потребоваться несколько минут.  
+
+##  <a name="BKMK_3"></a> Импорт коллекции  
+
+1.  В консоли Configuration Manager выберите **Активы и соответствие** > **Коллекции пользователей** или **Коллекции устройств**.  
+
+3.  На вкладке **Главная** в группе **Создать** нажмите кнопку **Импортировать коллекции**.  
+
+4.  На странице **Общие** **мастера импорта коллекций** нажмите кнопку **Далее**.  
+
+5.  На странице **Имя MOF-файла** нажмите кнопку **Обзор** и перейдите к MOF-файлу, который содержит данные импортируемой коллекции.  
 
     > [!NOTE]  
-    >  O ficheiro que pretende importar tem de ter sido exportado de um site com a mesma versão do Configuration Manager que este. Para obter mais informações sobre a exportação de coleções, consulte [como gerir coleções no System Center Configuration Manager](../../../../core/clients/manage/collections/manage-collections.md).  
+    >  Импортируемый файл должен быть создан в результате экспорта с сайта, на котором выполняется та же версия Configuration Manager, что и на данном сайте. Дополнительные сведения об экспорте коллекций см. в статье [Управление коллекциями в Configuration Manager](../../../../core/clients/manage/collections/manage-collections.md).  
 
-6.  Conclua o assistente para importar a coleção. A nova coleção é apresentada no nó **Coleções de Utilizadores** ou **Coleções de Dispositivos** da área de trabalho **Ativos e Compatibilidade** . Atualizar ou recarregar a consola do Configuration Manager para ver os membros da coleção para a coleção recentemente importada.  
+6.  Завершите работу мастера, чтобы импортировать коллекцию. Новая коллекция отображается в узле **Коллекции пользователей** или **Коллекции устройств** рабочей области **Активы и соответствие** . Обновите или повторно загрузите консоль Configuration Manager, чтобы увидеть члены недавно импортированной коллекции.  

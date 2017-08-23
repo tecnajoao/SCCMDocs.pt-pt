@@ -1,6 +1,6 @@
 ---
-title: "Inscrição em massa de dispositivos | Microsoft Docs | MDM no local"
-description: "Inscrição em volume dispositivos de uma forma automática com gestão de dispositivos móveis no local no System Center Configuration Manager."
+title: "Массовая регистрация устройств | Документы Майкрософт | Локальное управление мобильными устройствами"
+description: "Автоматическая массовая регистрация устройств с помощью локального управления мобильными устройствами в System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,150 +17,150 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: be9596537e9c80a6d78aa0685d33382bfd242afe
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-bulk-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Como a inscrição em massa de dispositivos com gestão de dispositivos móveis no local no System Center Configuration Manager
+# <a name="how-to-bulk-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Массовая регистрация устройств с помощью локального управления мобильными устройствами в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
 
-Inscrição em massa na gestão de dispositivos móveis no local do System Center Configuration Manager é um meio mais automatizado de inscrição de dispositivos, em comparação com a inscrição do utilizador, que requer que os utilizadores introduzam as respetivas credenciais para inscrever o dispositivo.  A inscrição em massa utiliza um pacote de inscrição para autenticar o dispositivo durante a inscrição. O pacote (um ficheiro .ppkg) contém um perfil de certificado e, opcionalmente, um perfil Wi-Fi se o dispositivo precisar de conectividade de intranet para suportar a inscrição.  
+Массовая регистрация в локальном управлении мобильными устройствами в System Center Configuration Manager представляет собой более автоматизированное средство регистрации устройств по сравнению с регистрацией пользователем, при которой пользователям требуется вводить свои учетные данные.  Массовая регистрация использует пакет регистрации для проверки подлинности устройства во время регистрации. Пакет (PPKG-файл) содержит профиль сертификата и, возможно, профиль Wi-Fi, если для поддержки регистрации устройству требуется подключение к интрасети.  
 
 > [!NOTE]  
->  O ramo atual do Configuration Manager suporta a inscrição na gestão de dispositivos móveis no local para dispositivos que executam os sistemas operativos seguintes:  
+>  Текущая ветвь Configuration Manager поддерживает регистрацию локального управления мобильными устройствами для устройств под управлением следующих операционных систем:  
 >   
-> -  Windows 10 Enterprise  
-> -   Windows 10 Pro  
-> -   Windows 10 Team  
+> -  Windows 10 Корпоративная  
+> -   Windows 10 Pro  
+> -   Windows 10 для совместной работы  
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Enterprise
-> -   Windows 10 Enterprise de IoT   
+> -   Windows 10 Mobile Корпоративная
+> -   Windows 10 IoT Корпоративная   
 
-As tarefas seguintes explicam como em massa inscrever computadores e dispositivos para no\-no local a gestão de dispositivos móveis:  
+Следующие задачи описывают процесс массовой регистрации компьютеров и устройств для локального управления мобильными устройствами.\-  
 
--   [Criar um perfil de certificado](#bkmk_createCert)  
+-   [Создание профиля сертификата](#bkmk_createCert)  
 
--   [Criar um perfil Wi-Fi](#CreateWifi)  
+-   [Создание профиля Wi-Fi](#CreateWifi)  
 
--   [Criar um perfil de inscrição](#bkmk_createEnroll)  
+-   [Создание профиля регистрации](#bkmk_createEnroll)  
 
--   [Criar um ficheiro de pacote de inscrição (ppkg)](#bkmk_createPpkg)  
+-   [Создание файла пакета регистрации (PPKG)](#bkmk_createPpkg)  
 
--   [Utilizar o pacote para inscrever um dispositivo em massa](#bkmk_getPpkg)  
+-   [Массовая регистрация устройства с помощью пакета](#bkmk_getPpkg)  
 
--   [Verificar a inscrição de dispositivos](#bkmk_verifyEnroll)  
+-   [Проверка регистрации устройства](#bkmk_verifyEnroll)  
 
-##  <a name="bkmk_createCert"></a> Criar um perfil de certificado  
- O componente principal do pacote de inscrição é um perfil de certificado, o qual é utilizado para aprovisionar automaticamente um certificado de raiz fidedigna para o dispositivo que está a ser inscrito.  Este certificado de raiz é necessário para a comunicação fidedigna entre os dispositivos e as funções do sistema de sites necessárias para em\-no local a gestão de dispositivos móveis. Sem o certificado de raiz, o dispositivo não seria fidedigno nas ligações HTTPS entre si e os servidores que alojam o ponto de registo, o ponto proxy de registo, o ponto de distribuição e as funções do sistema de sites do ponto de gestão de dispositivos.  
+##  <a name="bkmk_createCert"></a> Создание профиля сертификата  
+ Основным компонентом пакета регистрации является профиль сертификата, который используется для автоматической подготовки доверенного корневого сертификата на регистрируемом устройстве.  Этот сертификат требуется для установки доверенных соединений между устройствами и ролями системы сайта, необходимыми для локального управления мобильными устройствами.\- Без такого корневого сертификата устройство перестает быть доверенным в рамках HTTPS-подключений между ним и серверами, где размещаются роли системы сайта для точки регистрации, прокси-точки регистрации, точки распространения и точки управления устройствами.  
 
- Como parte da preparação do sistema no\-local gestão de dispositivos móveis, pode exporta um certificado de raiz que pode utilizar o perfil de certificado do pacote de inscrição. Para obter instruções sobre como obter o certificado de raiz fidedigna, consulte [exportar o certificado com a mesma raiz como o certificado de servidor web](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
+ В процессе подготовки системы для локального управления мобильными устройствами вы экспортируете корневой сертификат, который можно использовать в профиле сертификата пакета регистрации.\- Инструкции по получению доверенного корневого сертификата см. в статье [Экспорт сертификата с таким же корнем, как в сертификате веб-сервера](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
 
- Utilize o certificado de raiz exportado para criar um perfil de certificado. Para obter instruções, consulte [como criar perfis de certificado no System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
+ Используйте экспортированный корневой сертификат для создания профиля сертификата. Инструкции см. в статье [Создание профилей сертификатов в System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
 
-##  <a name="CreateWifi"></a> Criar um perfil Wi-Fi  
- O outro componente do pacote utilizado para a inscrição em massa é um perfil Wi-Fi. Alguns dispositivos podem não ter a conectividade de rede necessária para suportar a inscrição até que as definições de rede sejam aprovisionadas. Incluir um perfil Wi-Fi no pacote de inscrição fornece um meio para estabelecer a conectividade de rede para o dispositivo.  
+##  <a name="CreateWifi"></a> Создание профиля Wi-Fi  
+ Другим компонентом пакета, который используется для массовой регистрации, является профиль Wi-Fi. Некоторые устройства могут не иметь возможности подключения к сети, необходимой для поддержки регистрации до подготовки параметров сети. Включение профиля Wi-Fi в пакет регистрации позволяет предоставить устройству возможность подключения к сети.  
 
- Para criar um perfil de Wi-Fi no Configuration Manager, siga as instruções no [como criar perfis de Wi-Fi no System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
+ Чтобы создать профиль Wi-Fi в Configuration Manager, следуйте инструкциям в статье [Создание профилей Wi-Fi в System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
 
 > [!IMPORTANT]  
->Tenha os seguintes problemas de dois em consideração quando criar um perfil de Wi-Fi para inscrição em massa:
+>При создании профиля Wi-Fi для массовой регистрации учитывайте следующие два момента.
 >
-> - O ramo atual do Configuration Manager só suporta as seguinte configurações de segurança Wi-Fi para\-no local a gestão de dispositivos móveis:  
+> - Текущая ветвь Configuration Manager поддерживает только следующие конфигурации безопасности Wi-Fi для локального управления мобильными устройствами.\-  
 >   
->   - Tipos de segurança: **WPA2 Enterprise** ou **WPA2 pessoal**  
->   - Tipos de encriptação: **AES** ou **TKIP**  
->   - Tipos de EAP: **Smart Card ou outro certificado** ou **PEAP**  
+>   - Типы безопасности: **WPA2 Enterprise** или **WPA2 Personal**  
+>   - Типы шифрования: **AES** или **TKIP**  
+>   - Типы EAP: **смарт-карта или иной сертификат** или **PEAP**  
 >
 >
-> - Apesar do Configuration Manager possui uma definição de informações do servidor proxy no perfil de Wi-Fi, não configura o proxy quando o dispositivo está inscrito. Se precisar de configurar um servidor proxy com os dispositivos inscritos, pode implementar as definições de itens de configuração a utilizar assim que os dispositivos estão inscritos ou criar o segundo pacote utilizando o Windows Image and Configuration Designer (ICD) para implementar ao longo do lado do pacote de inscrição em massa.
+> - Несмотря на то, что в профиле Wi-Fi в Configuration Manager есть параметр для сведений о прокси-сервере, Configuration Manager не настраивает прокси-сервер при регистрации устройства. Если необходимо настроить прокси-сервер с зарегистрированными устройствами, можно развернуть параметры с помощью элементов конфигурации после регистрации устройств или создать второй пакет с помощью конструктора образов и конфигураций Windows (ICD) для развертывания параллельно с пакетом массовой регистрации.
 
-##  <a name="bkmk_createEnroll"></a> Criar um perfil de inscrição  
- O perfil de inscrição permite especificar as definições necessárias para a inscrição de dispositivos, incluindo um perfil de certificado que aprovisionará dinamicamente um certificado de raiz fidedigna para o dispositivo e um perfil Wi-Fi que aprovisionará as definições de rede, se necessário.  
+##  <a name="bkmk_createEnroll"></a> Создание профиля регистрации  
+ Профиль регистрации позволяет указать параметры, необходимые для регистрации устройств, включая профиль сертификата, который будет динамически подготавливать доверенный корневой сертификат для устройства, и профиль Wi-Fi, который подготовит параметры сети, если это потребуется.  
 
- Antes de criar um perfil de inscrição, certifique-se de que tem um perfil de certificado e um perfil Wi-Fi criados (se necessário). Para obter mais informações, consulte [Criar um perfil de certificado](#bkmk_createCert) e [Criar um perfil Wi-Fi](#CreateWifi).  
+ Перед созданием профиля регистрации убедитесь, что создан профиль сертификата и профиль Wi-Fi (при необходимости). Дополнительные сведения см. в разделе [Создание профиля сертификата](#bkmk_createCert) и в [Создание профиля Wi-Fi](#CreateWifi).  
 
-#### <a name="to-create-an-enrollment-profile"></a>Para criar um perfil de inscrição:  
+#### <a name="to-create-an-enrollment-profile"></a>Создание профиля регистрации:  
 
-1.  Na consola do Configuration Manager, clique em **ativos e compatibilidade** >**descrição geral** >**todos os dispositivos pertencentes** >**Windows** >**perfis de inscrição**.  
+1.  В консоли Configuration Manager последовательно выберите **Активы и соответствие** >**Обзор** >**Все устройства, являющиеся собственностью организации** >**Windows** >**Профили регистрации**.  
 
-2.  Clique com o botão direito do rato em **Perfil de Inscrição** e, em seguida, clique em **Criar Perfil**.  
+2.  Щелкните правой кнопкой мыши элемент **Профиль регистрации** и выберите пункт **Создать профиль**.  
 
-3.  No assistente Criar Perfil de Inscrição, introduza um nome para o perfil, certifique-se de que a opção **No Local** está selecionada para **Autoridade de Gestão**e, em seguida, clique em **Seguinte**.  
+3.  В мастере создания профиля регистрации введите имя профиля, выберите значение **Локально** для параметра **Центр управления**и нажмите кнопку **Далее**.  
 
-4.  Selecione o código do site e clique em **Seguinte**.  
+4.  Выберите код сайта и нажмите кнопку **Далее**.  
 
-5.  Selecione **Apenas Intranet**, selecione os pontos proxy de registo que o dispositivo irá utilizar para iniciar o processo de inscrição e clique em **Seguinte**.  
+5.  Выберите **Intranet Only**(Только интрасеть), затем прокси-точки регистрации, которые устройство будет использовать для запуска процесса регистрации, и нажмите кнопку **Далее**.  
 
-6.  Selecione o perfil de certificado que contém o certificado de raiz fidedigna (o perfil que criou em [Create a certificate profile](#bkmk_createCert)) e clique em **Seguinte**.  
+6.  Выберите профиль сертификата, содержащий доверенный корневой сертификат (это профиль, созданный в [Create a certificate profile](#bkmk_createCert)), и нажмите кнопку **Далее**.  
 
-7.  Selecione o perfil W-Fi que contém as definições de rede necessárias para que os dispositivos liguem à intranet (o perfil que criou em [Create a Wi-Fi profile](#CreateWifi)) e clique em **Seguinte**.  
+7.  Выберите профиль W-Fi, который содержит необходимые параметры сети для подключения устройств к интрасети (это профиль, созданный в [Create a Wi-Fi profile](#CreateWifi)), и нажмите кнопку **Далее**.  
 
     > [!NOTE]  
-    >  Se não estiver a utilizar um perfil Wi-Fi para o pacote de inscrição, ignore este passo.  
+    >  Если профиль Wi-Fi не используется для пакета регистрации, пропустите этот шаг.  
 
-8.  Confirme as definições para o perfil de inscrição e clique em **seguinte**. Clique em **Fechar** para sair do assistente.  
+8.  Проверьте параметры профиля регистрации и нажмите кнопку **Далее**. Чтобы выйти из мастера, нажмите кнопку **Закрыть** .  
 
-##  <a name="bkmk_createPpkg"></a> Criar um ficheiro de pacote de inscrição (ppkg)  
- O pacote de inscrição é o ficheiro utiliza a inscrição em massa de dispositivos no\-no local a gestão de dispositivos móveis.  Este ficheiro tem de ser criado com o Configuration Manager. Pode criar tipos de pacotes semelhantes com o Windows Image and Configuration Designer (ICD), mas apenas os pacotes que criar no Configuration Manager podem ser utilizados para inscrever dispositivos para no\-no local a gestão de dispositivos móveis do início ao fim. Os pacotes criados com o Windows ICD só podem fornecer o nome principal de utilizador (UPN) necessário para a inscrição, mas não podem executar o processo de inscrição efetivo.  
+##  <a name="bkmk_createPpkg"></a> Создание файла пакета регистрации (PPKG)  
+ Пакет регистрации — это файл, используемый для массовой регистрации устройств для локального управления мобильными устройствами.\-  Этот файл должен быть создан с помощью Configuration Manager. Можно создать схожие типы пакетов в конструкторе образов и конфигураций Windows (ICD), однако для регистрации устройств для локального управления мобильными устройствами от начала и до конца можно использовать только пакеты, созданные в Configuration Manager.\- Пакеты, созданные с помощью Windows ICD, могут предоставить лишь имя участника-пользователя (UPN), необходимое для регистрации, но не позволяют выполнить сам процесс регистрации.  
 
- O processo para criar o pacote de inscrição requer o Windows Assessment and Deployment Kit (ADK) para Windows 10.  No servidor que executa a consola do Configuration Manager, certifique-se de que tem a versão 1511 do Windows ADK instalada. Para mais informações, consulte a secção ADK em [Transferir kits e ferramentas para o Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)  
+ При создании пакета регистрации требуется комплект средств для развертывания и оценки Windows (ADK) для Windows 10.  На сервере, где запущена консоль Configuration Manager, убедитесь, что установлен Windows ADK версии 1511. Дополнительные сведения см. в разделе об ADK статьи [Скачивание комплектов и средств для Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)  
 
 > [!TIP]  
->  Se remover um pacote de inscrição a partir da consola do Configuration Manager, não pode ser utilizado para inscrever dispositivos. Pode utilizar a remoção do pacote como uma forma de gerir pacotes que já não pretende utilizar na inscrição em massa de dispositivos.  
+>  После удаления пакета регистрации из консоли Configuration Manager его нельзя использовать для регистрации устройств. Функцию удаления можно использовать для управления пакетами, которые больше не нужны для массовой регистрации устройств.  
 
-#### <a name="to-create-an-enrollment-package-ppkg-file"></a>Para criar um ficheiro de pacote de inscrição (ppkg):  
+#### <a name="to-create-an-enrollment-package-ppkg-file"></a>Создание файла пакета регистрации (PPKG):  
 
-1.  Clique com o botão direito do rato no perfil de acabou de criar (em [Criar um perfil de inscrição](#bkmk_createEnroll)e clique em **Exportar**.  
+1.  Щелкните правой кнопкой мыши только что созданный профиль (в разделе [Создание профиля регистрации](#bkmk_createEnroll)) и выберите пункт **Экспорт**.  
 
-2.  Clique em **Procurar**, encontre uma localização na qual pretenda guardar o ficheiro .ppkg, introduza um nome para o pacote e, em seguida, clique em **Guardar**.  
+2.  Нажмите кнопку **Обзор**, найдите расположение для сохранения PPKG-файла, введите имя для пакета и нажмите кнопку **Сохранить**.  
 
-3.  Se pretender proteger o pacote por palavra-passe, clique na caixa de verificação junto a **Encriptar Pacote**, clique em **Exportar** e aguarde cerca de 10 segundos para concluir a exportação.  
+3.  Если вы хотите защитить пакет паролем, установите флажок **Зашифровать пакет**, а затем нажмите кнопку **Экспорт** и подождите около 10 секунд для завершения операции.  
 
     > [!NOTE]  
-    >  Se encriptou o pacote, o Configuration Manager fornece uma mensagem com a palavra-passe desencriptada no mesmo. Certifique-se de que guarda as informações de palavra-passe, uma vez quer irá precisar das mesmas para aprovisionar o pacote em dispositivos.  
+    >  При шифровании пакета Configuration Manager выводит сообщение с расшифрованным паролем. Обязательно сохраните сведения о пароле, поскольку они потребуются для подготовки пакета на устройствах.  
 
-4.  Clique em **OK**.  
+4.  Нажмите кнопку **ОК**.  
 
-##  <a name="bkmk_getPpkg"></a> Utilizar o pacote para inscrever um dispositivo em massa  
- Pode utilizar o pacote para inscrever dispositivos antes ou depois de o dispositivo ter sido aprovisionado através do processo de experiência de primeira execução (OOBE).   O pacote de inscrição também pode ser incluído como parte do pacote de aprovisionamento de um fabricante de equipamento original (OEM).  
+##  <a name="bkmk_getPpkg"></a> Массовая регистрация устройства с помощью пакета  
+ Пакет можно использовать для регистрации устройств до или после подготовки устройства в рамках процесса запуска при первом включении компьютера.   Пакет регистрации также можно включить в состав пакета подготовки поставщика вычислительной техники.  
 
- O pacote tem de ser fornecido fisicamente ao dispositivo para ser utilizado na inscrição em massa. Pode fornecer o pacote de inscrição ao dispositivo de várias formas, consoante as suas necessidades, incluindo:  
+ Этот пакет необходимо физически передать на устройство для использования при массовой регистрации. В зависимости от конкретных потребностей пакет регистрации можно передать на устройство разными способами:  
 
--   Copiar do sistema de ficheiros  
+-   Копирование из файловой системы  
 
--   Anexar ao e-mail  
+-   Вложение в сообщение электронной почты  
 
--   Copiar por ligação de comunicação de proximidade (NFC)  
+-   Копирование через подключение NFC  
 
--   Copiar do cartão de memória  
+-   Копирование с карты памяти  
 
--   Ler o código de barras  
+-   Сканирование штрихкода  
 
--   Copiar de um dispositivo tethered  
+-   Копирование со связанного устройства  
 
--   Incluir no pacote de aprovisionamento do OEM  
+-   Включение в пакет подготовки поставщика вычислительной техники  
 
-#### <a name="to-bulk-enroll-a-device"></a>Para inscrever um dispositivo em massa:  
+#### <a name="to-bulk-enroll-a-device"></a>Массовая регистрация устройства  
 
-1.  No dispositivo a inscrever, localize o pacote de inscrição (utilizando o explorador de ficheiros) e faça duplo clique no ficheiro .ppkg.  
+1.  Найдите пакет регистрации на регистрируемом устройстве (в проводнике) и дважды щелкните PPKG-файл.  
 
-2.  Clique em **Sim** na mensagem Controlo de Conta de Utilizador.  
+2.  В сообщении "Контроль учетных записей пользователей" щелкните **Да** .  
 
-3.  Na caixa de diálogo a perguntar se o pacote provém de uma origem confia, clique em **Sim, adicioná-lo**.  
+3.  В диалоговом окне с вопросом о надежности происхождения пакета нажмите кнопку **Да, добавить**.  
 
-     O processo de inscrição é iniciado e demora cerca de 5 minutos.  
+     Запускается процесс регистрации, занимающий около 5 минут.  
 
-4.  Abra **Definições**.  
+4.  Откройте **Параметры**.  
 
-5.  Clique em  **Contas** > **Acesso a trabalho**. Quando a inscrição é efetuada com êxito, verá a uma conta em **CompanyApps**  
+5.  Чтобы выйти из мастера, нажмите кнопку  **Учетные записи** > **Рабочий доступ**. После успешной регистрации в области **CompanyApps**появится учетная запись.  
 
-6.  Clique na conta e, em seguida, clique em **sincronização**, que inicia a gestão com o Configuration Manager.  
+6.  Выберите ее и нажмите кнопку **Синхронизация**, которая запускает управление с помощью Configuration Manager.  
 
-##  <a name="bkmk_verifyEnroll"></a> Verificar a inscrição de dispositivos  
- Pode verificar que dispositivos foram inscritos com êxito na consola do Configuration Manager.  
+##  <a name="bkmk_verifyEnroll"></a> Проверка регистрации устройства  
+ Вы можете подтвердить успешную регистрацию устройств в консоли Configuration Manager.  
 
--   Inicie a consola do Configuration Manager.  
+-   Запустите консоль Configuration Manager.  
 
--   Clique em **Ativos e Compatibilidade** > **Descrição geral** > **Dispositivos**. O dispositivo inscrito aparece na lista.  
+-   Чтобы выйти из мастера, нажмите кнопку **Активы и соответствие** > **Обзор** > **Устройства**. Зарегистрированное устройство отображается в списке.  

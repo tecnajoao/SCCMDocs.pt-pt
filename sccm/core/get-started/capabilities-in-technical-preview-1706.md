@@ -1,11 +1,10 @@
 ---
-title: "Visualização técnica 1706 | Microsoft Docs"
-description: "Saiba mais sobre os recursos disponíveis na versão de visualização técnica 1706 para o System Center Configuration Manager."
+title: "Technical Preview 1706 | Документация Майкрософт"
+description: "Сведения о функциях, доступных в Technical Preview для System Center Configuration Manager версии 1706."
 ms.custom: na
 ms.date: 06/30/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -14,18 +13,17 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
 ms.openlocfilehash: d45f504dfe0a4c7852b0e2c8ff60d54005346c02
-ms.contentlocale: pt-pt
-ms.lasthandoff: 07/07/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Recursos no Technical Preview 1706 do System Center Configuration Manager.
+# <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Возможности Technical Preview 1706 для System Center Configuration Manager
 
-*Aplica-se a: System Center Configuration Manager (Technical Preview)*
+*Применимо к: System Center Configuration Manager (Technical Preview)*
 
-Este artigo apresenta os recursos que estão disponíveis na visualização técnica para o System Center Configuration Manager, versão 1706. Você pode instalar esta versão para atualizar e adicionar novos recursos ao seu site do Configuration Manager technical preview. Antes de instalar esta versão da visualização técnica, analise [visualização técnica do System Center Configuration Manager](../../core/get-started/technical-preview.md) para se familiarizar com os requisitos gerais e limitações para usar uma visualização técnica, como atualizar entre versões e como fornecer comentários sobre os recursos em uma visualização técnica.     
+В этой статье содержатся сведения о функциях, доступных в Technical Preview для System Center Configuration Manager версии 1706. Этот выпуск можно установить для обновления и добавления новых возможностей в ознакомительную техническую версию сайта Configuration Manager. Перед установкой этой версии прочтите статью [Technical Preview для System Center Configuration Manager](../../core/get-started/technical-preview.md). Там приведены общие требования и ограничения на использование ознакомительной технической версии, а также сведения о том, как выполнять обновления и оставлять отзывы о функциях этого выпуска.     
 
 
 <!--  Known Issues Template   
@@ -33,17 +31,17 @@ Este artigo apresenta os recursos que estão disponíveis na visualização téc
 -   **Issue Name**. Details
     Workaround details.
 -->
-**Problemas conhecidos nesta visualização técnica:**
+**Известные проблемы в этой версии Technical Preview:**
 
--   **Mover o ponto de distribuição** -as opções no console para mover um ponto de distribuição entre sites não podem ser usadas com esta versão devido ao limite de visualização técnica de um único site primário.
+-   **Перемещение точки распространения**. Эта консольная функция, которая позволяет перемещать точки распространения между сайтами, не может использоваться в этом выпуске, так как Technical Preview может работать только с одним первичным сайтом.
 
--   **Configurações de conformidade do dispositivo** -comportamento oposto podem ocorrer durante as duas das novas configurações de conformidade do dispositivo:
-    - **Bloquear a depuração de USB no dispositivo**
-    - **Bloco de aplicativos de fontes desconhecidas**
+-   **Параметры соответствия устройств**. Использование следующих двух новых параметров соответствия устройств может привести к противоположным результатам:
+    - **Блокировать отладку по USB на устройстве**;
+    - **Блокировать приложения из неизвестных источников**.
 
-        Por exemplo, se o conjunto de administradores **depuração de USB do bloco no dispositivo** para **true**, todos os dispositivos que não têm a depuração de USB habilitado são marcados como não compatíveis.
+        Например, если администратор установит значение **true** для параметра **Блокировать отладку по USB на устройстве**, все устройства, для которых не включена отладка по USB, будут помечены как несовместимые.
 
-**A seguir estão os novos recursos, que você pode experimentar com esta versão.**  
+**Ниже перечислены новые возможности, доступные в этой версии.**  
 
 <!--  Rough Section Template
 ##  FEATURE
@@ -55,531 +53,530 @@ Este artigo apresenta os recursos que estão disponíveis na visualização téc
  -  Task 2              
 -->
 
-## <a name="improved-boundary-groups-for-software-update-points"></a>Grupos de limites aprimorada para pontos de atualização de software
+## <a name="improved-boundary-groups-for-software-update-points"></a>Улучшенные группы границ для точек обновления программного обеспечения
 <!-- 1324591 -->
-Esta versão inclui aperfeiçoamentos para o funcionam dos pontos de atualização de software com grupos de limites. O exemplo a seguir resume o novo comportamento de fallback:
--   Fallback para pontos de atualização de software agora usa um tempo configurável para fallback para grupos de limites de vizinho, com um tempo mínimo de 120 minutos.
+Этот выпуск включает улучшенные способы использования групп границ в работе точки обновления программного обеспечения. Ниже описан новый алгоритм резервирования.
+-   При резервировании точек обновления программного обеспечения теперь используется настраиваемое время (не менее 120 минут) для переключения на соседние группы границ.
 
--   Independentemente da configuração de fallback, um cliente tenta acessar o último ponto de atualização de software que ele usado para 120 minutos. Após a falha ao acessar o servidor para 120 minutos, o cliente verifica seu pool de pontos de atualização de software disponíveis, em seguida, para que ele possa encontrar um novo.
+-   Независимо от конфигурации резервирования, клиент в течение 120 минут обращается только к той точке обновления программного обеспечения, которая использовалась в прошлый раз. Если в течение 120 минут не удается установить связь с этим сервером, клиент проверяет пул доступных точек обновления программного обеспечения, чтобы выбрать из них новую.
 
-  -   Todos os pontos de atualização de software no grupo de limite atual do cliente são adicionados ao pool do cliente imediatamente.
+  -   Все точки обновления программного обеспечения, входящие в текущую группу границ для этого клиента, немедленно добавляются в пул клиента.
 
-  -   Como um cliente tenta usar seu servidor original para 120 minutos antes de atingir uma nova, sem servidores adicionais são contatados até depois de duas horas.
+  -   Так как клиент в течение 120 минут пытается использовать исходный сервер, и лишь затем ищет новый, обращения к дополнительным серверам начинаются по истечении этих двух часов.
 
-  -   Se o fallback para um grupo de vizinho estiver configurado para o mínimo de 120 minutos, pontos de atualização de software do grupo de limite vizinho será parte do pool do cliente de servidores disponíveis.
+  -   Если для переключения на соседнюю группу настроен минимальный период в 120 минут, точки обновления программного обеспечения из этой соседней группы границ будут включены в клиентский пул доступных серверов.
 
--   Após a falha ao alcançar o servidor original por duas horas, o cliente muda para um ciclo mais curto para entrar em contato com um novo ponto de atualização de software.
+-   Если в течение двух часов не удается подключиться к исходному серверу, клиент переключается на короткий цикл обращений к новой точке обновления программного обеспечения.
 
-    Isso significa que se um cliente não conseguir se conectar com um novo servidor, ele seleciona o próximo servidor a partir do pool de servidores disponíveis e rapidamente tenta contatar um.
+    Следовательно, если клиент не может подключиться к новому серверу, он быстро выбирает из пула доступных серверов следующий сервер и пытается связаться с ним.
 
-  -   Esse ciclo continua até que o cliente se conecta a um software de atualização de ponto que pode ser usado.
-  -   Até que o cliente encontrar um ponto de atualização de software, servidores adicionais são adicionados ao pool de servidores disponíveis quando o tempo de fallback para cada grupo de limites de vizinho for atendido.
+  -   Этот цикл продолжается, пока не удастся найти точку обновления программного обеспечения, которую клиент может использовать.
+  -   Пока клиент не найдет точку обновления программного обеспечения, в пул доступных серверов добавляются новые серверы по мере истечения времени резервирования для каждой из соседних групп границ.
 
-Para obter mais informações, consulte [pontos de atualização de software](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points) o tópico de grupos de limites para a ramificação atual.
+См. дополнительные сведения о [точках обновления программного обеспечения](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points) в статье, посвященной группам границ для Current Branch.
 
 
-## <a name="site-server-role-high-availability"></a>Disponibilidade alta da função de servidor de site
+## <a name="site-server-role-high-availability"></a>Высокий уровень доступности для роли сервера сайта
 <!-- 1128774 -->
-Alta disponibilidade para a função de servidor de site é uma solução com base do Configuration Manager para instalar um servidor de site primário adicional no *passivo* modo. O servidor do site de modo passivo Além disso é o servidor de site primário existente que está em *Active* modo. Um servidor do site de modo passivo está disponível para uso imediato, quando necessário.
+Высокий уровень доступности для роли сервера сайта — это решение на основе Configuration Manager, которое предусматривает установку дополнительного сервера первичного сайта в *пассивном* режиме. Сервер сайта в пассивном режиме — это дополнение к существующему серверу основного сайта, который работает в *активном* режиме. Сервер узла в пассивном режиме готов к использованию в любой момент, когда это необходимо.
 
-Um servidor de site primário no modo passivo:
--   Usa o mesmo banco de dados do site como o servidor do site ativo.
--   Recebe uma cópia da biblioteca de conteúdo de servidores de site ativo, que é mantida em sincronia.
--   Não gravar dados no banco de dados do site enquanto ele está em modo passivo.
--   Não suporta instalação ou remoção de funções do sistema de site opcional desde que ele está em modo passivo.
+Сервер первичного сайта в пассивном режиме:
+-   использует ту же базу данных сайта, что и активный сервер сайта;
+-   получает копию библиотеки содержимого от активного сервера сайта и поддерживает ее в синхронизированном состоянии;
+-   не записывает данные в базу данных сайта, пока находится в пассивном режиме;
+-   не поддерживает установку или удаление дополнительных ролей системы сайта, пока находится в пассивном режиме.
 
-Para tornar o servidor do site de modo passivo seu servidor do site de modo ativo, manualmente promovê-lo. Isso alterna o servidor de site ativo para ser o servidor do site passivo. As funções de sistema de site que estão disponíveis no servidor de modo ativo original permanecem disponíveis, desde que o computador está acessível. Somente a função de servidor de site é alternada entre o modo ativo e passivo.
+Переключение сервера сайта из пассивного режима в активный выполняется вручную. При этом сервер сайта, бывший ранее активным, переходит в пассивный режим. Все роли системы сайта, которые существуют на исходном активном сервере, останутся доступными, пока доступен соответствующий компьютер. Активный режим изменяется на пассивный только для роли сервера сайта.
 
-Para instalar um servidor do site de modo passivo, você deve usar o **criar Assistente de servidor de sistema de Site** para configurar um novo servidor do site com um tipo de **servidor do site primário** e um modo de **passivo**. O assistente, em seguida, executa a instalação do Configuration Manager no servidor especificado para instalar o novo servidor do site no modo passivo. Após a conclusão da instalação, o servidor do site de modo ativo mantém o servidor do site de modo passivo e sua biblioteca de conteúdo em sincronia com as alterações ou configurações que você faz para o servidor do site ativo.
+Чтобы установить сервер сайта в пассивном режиме, с помощью **мастера создания сервера системы сайта** настройте новый сервер сайта с типом **Сервер первичного сайта** и режимом работы **Пассивный**. Затем мастер выполнит установку Configuration Manager на указанном сервере, чтобы создать новый сервер сайта в пассивном режиме. После завершения установки будет выполнена синхронизация сервера сайта и его библиотеки содержимого в пассивном режиме. Для этого сервер сайта в активном режиме передаст все внесенные изменения.
 
-### <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
--   Um único servidor do site no modo passivo é suportado em cada site primário.
+### <a name="prerequisites-and-limitations"></a>Предварительные условия и ограничения
+-   Для каждого первичного сайта поддерживается один сервер сайта в пассивном режиме.
 
--   O servidor do site no modo passivo pode ser local ou baseado em nuvem no Azure.
+-   Сервер сайта в пассивном режиме может работать локально или в облаке Azure.
 
--   Os servidores do site de modo passivo e modo ativo devem ser do mesmo domínio.
+-   Серверы сайта, работающие в активном и пассивном режимах, должны входить в один и тот же домен.
 
--   O modo ativo e os servidores do site de modo passivo devem usar o mesmo site banco de dados, que deve ser remoto dos computadores de cada servidor do site.
+-   Серверы сайта в активном и пассивном режиме должны использовать одну и ту же базу данных сайта, которая не должна располагаться на компьютерах этих серверов.
 
-    -   O SQL Server que hospeda o banco de dados pode usar uma instância padrão, chamado de instância, o cluster do SQL Server ou um grupo de disponibilidade AlwaysOn.
+    -   Сервер SQL Server, на котором размещена эта база данных, может использовать экземпляр по умолчанию, именованный экземпляр, кластер SQL Server или группу доступности AlwaysOn.
 
-    -   O servidor do site no modo passivo é configurado para usar o mesmo banco de dados do site como o servidor do site de modo ativo. No entanto, o servidor do site de modo passivo não usa esse banco de dados até depois que ele é promovido para o modo ativo.
+    -   Для сервера сайта в пассивном режиме настраивается та же база данных сайта, что и для сервера сайта в активном режиме. Но при этом до переключения в активный режим этом сервер сайта в пассивном режиме не будет использовать эту базу данных.
 
--   O computador que executará o servidor do site de modo passivo:
+-   Для компьютера, который будет использоваться как сервер сайта в пассивном режиме, должны соблюдаться следующие условия.
 
-    -   Deve atender a [pré-requisitos para instalar um site primário](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#primary-sites-and-the-central-administration-site).
+    -   Все [обязательные условия для установки первичного сайта](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#primary-sites-and-the-central-administration-site).
 
-    -   Usando arquivos de origem que correspondem à versão do servidor do site de modo ativo é instalado.
+    -   Для его установки нужно использовать исходные файлы той же версии, что и для сервера сайта в активном режиме.
 
-    -   Não é possível ter uma função de sistema de site de qualquer site antes de instalar o site de modo passivo.
+    -   Если сайт устанавливается в пассивном режиме, перед этим на нем не должны выполняться роли системы сайта.
 
--   Os computadores de servidor do site de modo ativo e passivo podem executar diferentes sistemas operacionais ou versões de service pack, desde que ambos permanecem suportados pela versão do Configuration Manager.
+-   Компьютеры серверов сайта в активном и пассивном режимах могут работать под управлением разных операционных систем или разных версий пакетов, если обе эти версии поддерживаются используемой версией Configuration Manager.
 
--   Promoção do servidor do site de modo passivo para o servidor de modo ativo é manual. Não há nenhum failover automático.
+-   Переключение роли сервера сайта из пассивного режима в активный выполняется вручную. Автоматический переход на другой ресурс не применяется.
 
--   Funções do sistema de site podem ser instaladas somente no servidor do site que está no modo ativo.
+-   Роли системы сайта можно установить только на том сервере сайта, который работает в активном режиме.
 
-    -   Um servidor do site no modo ativo dá suporte a todas as funções de sistema de site. Você não pode instalar funções do sistema de site no servidor quando ele estiver no modo passivo.
+    -   Сервер сайта в активном режиме поддерживает все роли системы сайта. Вы не сможете установить роли системы сайта на том сервере, который работает в пассивном режиме.
 
-    -   Funções de sistema de site que usam um banco de dados (como o ponto de relatório) devem ter o banco de dados em um servidor remoto do modo ativo e servidores do site de modo passivo.
+    -   Для ролей системы сайта используемая база данных (например, точка формирования отчетов) должна выполняться на сервере, размещение которого не совпадает с размещением серверов сайта в активном и пассивном режимах.
 
-    -   O SMS_Provider não instalar no servidor do site no modo passivo. Como você deve se conectar a um SMS_Provider para o site para promover manualmente o servidor do site de modo passivo para o modo ativo, é recomendável [instalar pelo menos uma instância adicional do provedor](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider) em um computador adicional.
+    -   Роль Sms_provider не устанавливается на сервере сайта в пассивном режиме. Вам необходимо подключиться к роли SMS_Provider сайта, чтобы вручную перевести сервер сайта из пассивного в активный режим. Поэтому мы рекомендуем [установить по меньшей мере один дополнительный экземпляр этого поставщика](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider) на другом компьютере.
 
-**Problema conhecido**:   
-Com esta versão, **Status** para as seguintes condições são exibidas no console do como valores numéricos em vez de texto legível:
--   131071 – Falha na instalação do servidor de site
--   720895 – Falha na desinstalação de função de servidor site
--   851967 – falha no Failover
+**Известная проблема**.   
+В этом выпуске **состояние** отображается в консоли как числовое значение вместо текстового описания для следующих условий:
+-   131071 — сбой установки SQL Server;
+-   720895 — сбой удаления роли сервера сайта;
+-   851967 — сбой отработки отказа.
 
-### <a name="add-a-site-server-in-passive-mode"></a>Adicionar um servidor de site no modo passivo
-1.  No console, vá para **administração** > **configuração do Site** > **Sites** e iniciar o [Adicionar Assistente de funções de sistema de Site](/sccm/core/servers/deploy/configure/install-site-system-roles). Você também pode usar o **criar Assistente de servidor de sistema de Site**.
+### <a name="add-a-site-server-in-passive-mode"></a>Добавление сервера сайта в пассивном режиме
+1.  В консоли перейдите в раздел **Администрирование** > **Конфигурация сайта** > **Сайты**, а затем запустите [мастер добавления ролей системы сайта](/sccm/core/servers/deploy/configure/install-site-system-roles). Также можно использовать **мастер создания сервера системы сайта**.
 
-2.  Sobre o **geral** página, especifique o servidor que hospedará o servidor do site de modo passivo. O servidor especificado não pode hospedar outras funções do sistema de site antes de instalar um servidor do site no modo passivo.
+2.  На странице **Общие** укажите сервер, на котором будет размещен сервер сайта в пассивном режиме. Вы не сможете установить сервер сайта в пассивном режиме, если на выбранном сервере размещены роли системы сайта.
 
-3.  Sobre o **seleção de função do sistema** , selecione apenas **servidor do site primário no modo passivo**.
+3.  На странице **Выбор системной роли** выберите только **Сервер первичного сайта в пассивном режиме**.
 
-4.  Para concluir o assistente, você deve fornecer as seguintes informações que são usadas para executar a instalação e instalar a função de servidor de site no servidor especificado:
-    -   Optar por copiar os arquivos de instalação do servidor do site ativo para o novo servidor do site de modo passivo ou especifique um caminho para um local que contém o conteúdo do servidor site ativo **CD. Última** pasta.
+4.  Чтобы завершить работу мастера, предоставьте указанные ниже сведения для запуска программы установки и установки роли сервера сайта на указанном сервере.
+    -   Скопируйте файлы установки с активного сервера сайта на новый сервер сайта в пассивном режиме, или укажите путь к содержимому папки **CD.Latest** с сервера сайта в активном режиме.
 
-    -   Especifique o mesmo servidor de banco de dados do site e o nome do banco de dados usado pelo servidor do site de modo ativo.
+    -   Укажите тот же сервер базы данных сайта и то же имя базы данных, которые используются на сервере сайта в активном режиме.
 
-5.  Em seguida, o Configuration Manager instala o servidor do site no modo passivo no servidor especificado.
+5.  Теперь Configuration Manager установит сервер сайта в пассивном режиме на указанном сервере.
 
-Status de instalação detalhadas, acesse **administração** > **configuração do Site** > **Sites**.
--   Exibe o status do servidor do site no modo passivo como **instalando**.
+Подробное состояние установки можно отслеживать в разделе **Администрирование** > **Конфигурация сайта** > **Сайты**.
+-   Для сервера сайта в пассивном режиме здесь отображается состояние **Установка**.
 
--   Selecione o servidor e, em seguida, clique em **Mostrar Status** abrir **Status de instalação do servidor de Site** para obter mais informações.
-
-
-
-### <a name="promote-the-passive-mode-site-server-to-active-mode"></a>Promover o servidor do site de modo passivo para o modo ativo
-Quando você quiser alterar o servidor de site de modo passivo para o modo ativo, faça isso o **nós** painel **administração** > **configuração do Site** > **Sites**. Desde que você pode acessar uma instância do SMS_Provider, você pode acessar o site para fazer essa alteração.
-1.  No **nós** painel do console do Configuration Manager, selecione o servidor do site no modo passivo e, em seguida, na faixa de opções, escolha **promover para ativo**.
-
-2.  Simples **Status** para o servidor que você está promovendo exibe no **nós** painel como **promoção**.
-
-3.  Depois que a promoção for concluída, o **Status** coluna mostra **Okey** para novo *Active* servidor do site de modo e para o novo *passivo* servidor de site do modo.
-
-4.  Em **administração** > **configuração do Site** > **Sites**, o nome do servidor do site primário agora exibe o nome do novo *Active* servidor de site do modo.
-Para o status detalhado, vá para **monitoramento** > **Status do servidor de Site**.
-    -   O **modo** coluna identifica qual servidor *Active* ou *passivo*.
-
-    -   Ao promover um servidor de modo passivo para o modo ativo, selecione o servidor de site que você está promovendo como ativo e, em seguida, escolha **Mostrar Status** na faixa de opções. Isso abre o **Status de promoção do servidor de Site** janela que exibe detalhes adicionais sobre o processo.
-
-Quando um servidor do site no modo ativo muda para o modo passivo, somente a função de sistema de site é feita passiva. Todas as outras funções de sistema de site que estão instaladas no computador permanecem ativas e acessível aos clientes.
+-   Выберите сервер, а затем нажмите кнопку **Показать состояние**, чтобы открыть раздел **Состояние установки сервера сайта** с подробными сведениями.
 
 
-### <a name="daily-monitoring"></a>Monitoramento diário
-Quando você tiver um site primário no modo passivo, monitore-diariamente para garantir que ele permaneça em sincronia com o servidor do site de modo ativo e pronto para uso. Para fazer isso, vá para **monitoramento** > **Status do servidor de Site**. Aqui você pode exibir o modo ativo e os servidores do site de modo passivo.
 
-O **resumo** guia:
--   O **modo** coluna identifica qual servidor está ativo ou passivo.
--   O **Status** listas de colunas **Okey** quando o servidor de modo passivo está em sincronia com o servidor de modo ativo.
--   Para exibir detalhes adicionais sobre o estado de sincronização de conteúdo, clique em **Mostrar status** do estado de sincronização de conteúdo. Isso abre a guia de biblioteca de conteúdo em que você pode tentar corrigir problemas de sincronização de conteúdo.
+### <a name="promote-the-passive-mode-site-server-to-active-mode"></a>Переключение сервера сайта из пассивного режима в активный
+Если вы хотите перевести сервер сайта из пассивного режима в активный, это можно сделать в области **Узлы** раздела **Администрирование** > **Конфигурация сайта** > **Сайты**. Чтобы получить соответствующее разрешение, вам нужен доступ к экземпляру роли SMS_Provider.
+1.  В области **Узлы** консоли Configuration Manager выберите сервер сайта в пассивном режиме, а затем на ленте выберите действие **Перевести в активный режим**.
 
-O **biblioteca de conteúdo** guia:
--   Exibição de **estado** para conteúdo que sincroniza do servidor do site ativo para o servidor do site de modo passivo.
--   Você pode selecionar o conteúdo com um estado de **falha**e, em seguida, escolha **sincronizar itens selecionados** na faixa de opções. Essa ação tenta ressincronizar esse conteúdo de origem do conteúdo para o servidor do site de modo passivo. Durante a recuperação, o estado exibe como **em andamento**, e quando ele está em sincronizado, ele exibe como **sucesso**.
+2.  Теперь для выбранного сервера простое описание **состояния** в области **Узлы** должно иметь значение **Идет перевод**.
 
-### <a name="try-it-out"></a>Experimente!
-Tente concluir as seguintes tarefas e, em seguida, envie-nos **comentários** do **início** guia da faixa de opções para nos contar como ela funcionou:
--   Posso instalar um site primário no modo passivo.
--   Posso usar o console para promover o servidor do site de modo passivo para tornar o servidor do site de modo ativo e confirme a alteração do status de ambos os servidores de site.
+3.  Когда переключение завершится, в столбце **Состояние** отобразится значение **ОК** как для сервера сайта, который теперь находится в *активном* режиме, так и для другого, который теперь будет в *пассивном* режиме.
+
+4.  В разделе **Администрирование** > **Конфигурация сайта** > **Сайты** в качестве имени сервера первичного сайта теперь будет указан новый *активный* сервер сайта.
+Подробное описание состояния можно отслеживать в разделе **Мониторинг** > **Состояние сервера сайта**.
+    -   Столбец **Режим** обозначает, какой сервер является *активным* или *пассивным*.
+
+    -   При переключении сервера из пассивного режима в активный режим вам нужно указать соответствующий сервер сайта и выбрать на ленте действие **Показать состояние**. При этом откроется **окно с состоянием переключения сервера сайта** с подробной информацией о процессе.
+
+Когда сервер сайта переключается из активного режима в пассивный, изменения распространяются только на роль системы сайта. Все остальные роли, установленные на этом компьютере, остаются активными и доступными для клиентов.
 
 
-## <a name="include-trust-for-specific-files-and-folders-in-a-device-guard-policy"></a>Incluir relação de confiança para arquivos e pastas específicos em uma política de proteção do dispositivo
+### <a name="daily-monitoring"></a>Ежедневный мониторинг
+Если вы используете первичный сайт в пассивном режиме, ежедневно отслеживайте его состояние, чтобы контролировать его синхронизацию с сервером сайта в активном режиме и готовность к использованию. Для этого можно использовать раздел **Мониторинг** > **Состояние сервера сайта**. Здесь отображаются серверы сайта, работающие в активном и пассивном режимах.
+
+Вкладка **Сводка**.
+-   Столбец **Режим** обозначает, какой сервер является активным или пассивным.
+-   Столбец **Состояние** содержит значения **ОК**, когда сервер в пассивном режиме синхронизирован с сервером в активном режиме.
+-   Чтобы просмотреть дополнительные сведения о состоянии синхронизации содержимого, щелкните **Показать состояние** в соответствующей области. Откроется вкладка библиотеки содержимого, где можно попытаться устранить проблемы с синхронизацией содержимого.
+
+Вкладка **Библиотека содержимого**:
+-   Изучите **состояние** содержимого, синхронизация которого выполняется между активным узлом сервера и сервером сайта в пассивном режиме.
+-   Вы можете выбрать содержимое с состоянием **Сбой**, а затем выбрать на ленте действие **Синхронизировать выбранные элементы**. Это действие пытается повторно синхронизировать выбранное содержимое из источника с сервером сайта в пассивном режиме. В ходе восстановления будет отображаться состояние **Выполняется**, а при успешном завершении синхронизации — **Выполнено**.
+
+### <a name="try-it-out"></a>Попробуйте!
+Попробуйте выполнить следующие задачи, а затем отправьте нам **отзыв** с помощью вкладки на ленте **Главная**, чтобы сообщить о результатах.
+-   Я могу установить первичный сайт в пассивном режиме.
+-   Я могу перевести сервер сайта из пассивного режима в активный режим с помощью консоли, а затем проверить изменение состояния для обоих серверов сайта.
+
+
+## <a name="include-trust-for-specific-files-and-folders-in-a-device-guard-policy"></a>Включение доверительных отношений для отдельных файлов и папок в политику Device Guard
 <!-- 1324676 -->
-Nesta versão, adicionamos mais recursos para [Device Guard](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager) gerenciamento de política
+В этом выпуске мы добавили дополнительные возможности для управления политиками [Device Guard](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager).
 
-Agora você pode adicionar opcionalmente a relação de confiança para arquivos específicos para pastas em uma política de proteção do dispositivo. Isso permite que você:
+Теперь вы можете включить отношение доверия для конкретных файлов или папок в политику Device Guard. Это позволяет:
 
-1.  Solucionar problemas com comportamentos do instalador gerenciado
-2.  Aplicativos de linha de negócios de confiança que não podem ser implantados com o Configuration Manager
-3.  Confie em aplicativos que estão incluídos em uma imagem de implantação de sistema operacional.
+1.  устранять проблемы, связанные с поведением управляемого установщика;
+2.  доверять бизнес-приложениям, которые не могут быть развернуты с помощью Configuration Manager;
+3.  доверять приложениям, которые включены в образ развертывания операционной системы.
 
-### <a name="try-it-out"></a>Experimente!
+### <a name="try-it-out"></a>Попробуйте!
 
-1.  Enquanto você estiver criando uma política de proteção do dispositivo, na guia inclusões do Assistente para criar o Device Guard política, clique em **adicionar**.
-2.  No **Adicionar arquivo confiável ou pasta** caixa de diálogo, especifique informações sobre o arquivo ou pasta que você deseja confiar. Você pode especificar um caminho de arquivo ou pasta local ou se conectar a um dispositivo remoto ao qual você tem permissão para se conectar e especifique um caminho de arquivo ou pasta em que o dispositivo.
-3.  Conclua o assistente.
+1.  Создавая политику Device Guard, щелкните **Добавить** на вкладке включений мастера создания политики Device Guard.
+2.  В диалоговом окне **Добавление надежного файла или папки** укажите сведения о файле или папке, для которых нужно настроить доверие. Здесь можно указать локальный путь к файлу или папке либо подключиться к удаленному устройству, если у вас есть необходимые разрешения, чтобы указать путь к файлу или папке на этом устройстве.
+3.  Завершите работу мастера.
 
 
-## <a name="hide-task-sequence-progress"></a>Ocultar o andamento da sequência de tarefas
+## <a name="hide-task-sequence-progress"></a>Скрытие хода выполнения последовательности задач
 <!-- 1354291 -->
-Nesta versão, você pode controlar quando o andamento da sequência de tarefas é exibido aos usuários finais por meio de uma nova variável. Na sequência de tarefas, use o **definir variável de sequência de tarefas** etapa para definir o valor para o **TSDisableProgressUI** variável para ocultar ou exibir o andamento da sequência de tarefas. Você pode usar a etapa Definir variável de sequência de tarefas várias vezes em uma sequência de tarefas para alterar o valor da variável. Isso permite ocultar ou exibir o andamento da sequência de tarefas em diferentes seções da sequência de tarefas.
+В этом выпуске вы получаете новую переменную, которая указывает, нужно ли демонстрировать пользователям ход выполнения последовательности задач. В последовательности задач с помощью шага **Задать переменную последовательности задач** укажите значение для переменной **TSDisableProgressUI**, чтобы скрыть или отобразить ход выполнения последовательности задач. Шаг задания переменной последовательности задач можно использовать в последовательности задач многократно, чтобы изменять значение переменной. Так вы сможете скрывать или отображать ход выполнения последовательности задач на разных этапах последовательности задач.
 
-#### <a name="to-hide-task-sequence-progress"></a>Para ocultar o andamento da sequência de tarefas
-No editor de sequência de tarefas, use o [definir variável de sequência de tarefas](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) etapa para definir o valor da **TSDisableProgressUI** variável para **True** para ocultar o andamento da sequência de tarefas.
+#### <a name="to-hide-task-sequence-progress"></a>Скрытие хода выполнения последовательности задач
+В редакторе последовательности задач, используйте шаг [Задать переменную последовательности задач](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable), чтобы присвоить переменной **TSDisableProgressUI** значение **True** и скрыть ход выполнения последовательности задач.
 
-#### <a name="to-display-task-sequence-progress"></a>Para exibir o andamento da sequência de tarefas
-No editor de sequência de tarefas, use o [definir variável de sequência de tarefas](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) etapa para definir o valor da **TSDisableProgressUI** variável para **False** para exibir o andamento da sequência de tarefas.
+#### <a name="to-display-task-sequence-progress"></a>Отображение хода выполнения последовательности задач
+В редакторе последовательности задач, используйте шаг [Задать переменную последовательности задач](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable), чтобы присвоить переменной **TSDisableProgressUI** значение **False** и отобразить ход выполнения последовательности задач.
 
-## <a name="specify-a-different-content-location-for-install-content-and-uninstall-content"></a>Especificar um local de conteúdo diferente para o conteúdo de instalar e desinstalar o conteúdo
+## <a name="specify-a-different-content-location-for-install-content-and-uninstall-content"></a>Выбор другого расположения для установки и удаления содержимого
 <!-- 1097546 -->
-No Configuration Manager atualmente, você especificar o local de instalação que contém os arquivos de instalação para um aplicativo. Quando você especificar um local de instalação, isso também é usado como o local de desinstalação para o conteúdo do aplicativo.
-Com base nos seus comentários, quando você deseja desinstalar um aplicativo implantado e o conteúdo do aplicativo não está no computador cliente, em seguida, o cliente baixará todos os arquivos de instalação do aplicativo novamente antes do aplicativo é desinstalado.
-Para resolver esse problema, agora você pode especificar os dois uma instalação de conteúdo local e um recurso opcional desinstalar o local do conteúdo. Além disso, você pode optar por não especificar um local de conteúdo de desinstalação.
+Сейчас в Configuration Manager вы указываете расположение содержимого, в котором хранятся файлы установки для приложения. Указанное расположение для установки используется еще и как расположение удаления для содержимого приложения.
+Пользователи сообщают нам, что при попытке удалить развернутое приложение, содержимое которого отсутствует на клиентском компьютере, клиент сначала скачивает все файлы установки приложения, и лишь затем удаляет приложение.
+Чтобы решить эту проблему, вы теперь можете отдельно указывать расположение содержимого установки и расположение содержимого удаления (необязательно). Вы можете также не указывать расположение содержимого удаления.
 
-### <a name="try-it-out"></a>Experimente!
+### <a name="try-it-out"></a>Попробуйте!
 
-1. Nas propriedades de tipo de implantação de um aplicativo, clique no **conteúdo** guia.
-2. Configurar o **conteúdo local de instalação** como normal.
-3. Para **desinstalar as configurações do conteúdo**, escolha um dos seguintes:
-    - **Mesmo que instalar conteúdo** -será usado o mesmo local do conteúdo, independentemente de se você estiver instalando ou desinstalando o aplicativo.
-    - **Nenhum conteúdo de desinstalação** -Escolha esta opção se você não quiser fornecer um local de conteúdo de desinstalação para o aplicativo.
-    - **Diferente do conteúdo da instalação** -Escolha esta opção se você deseja especificar um local de conteúdo de desinstalação é diferente do local de conteúdo de instalação.
-5. Se você selecionou **difere do conteúdo de instalação**, procurar ou digite o local do conteúdo de aplicativo que será usado para desinstalar o aplicativo.
-6. Clique em **Okey** para fechar a caixa de diálogo de propriedades de tipo de implantação.
+1. В свойствах типа развертывания для приложения выберите вкладку **Содержимое**.
+2. Настройте пункт **Install content location** (Расположение содержимого установки) в обычном режиме.
+3. Для пункта **Uninstall content settings** (Параметры содержимого удаления) выберите один из следующих вариантов.
+    - **Same as install content** (То же, что и для содержимого установки). Одно и то же расположение содержимого будет использоваться как при установке, так и при удалении приложения.
+    - **No uninstall content** (Нет содержимого удаления). Выберите этот вариант, чтобы не указывать для приложения расположение содержимого удаления.
+    - **Different from install content** (Отличается от содержимого установки). Выберите этот вариант, чтобы указать расположение содержимого удаления, отличное от расположения содержимого установки.
+5. Если вы выбрали вариант **Different from install content** (Отличается от содержимого установки), перейдите к нужному расположению или вручную укажите путь к нему. Выбранное расположение будет использоваться при удалении приложения.
+6. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно свойств типа развертывания.
 
 
-## <a name="accessibility-improvements"></a>Aprimoramentos de acessibilidade  
+## <a name="accessibility-improvements"></a>Улучшения специальных возможностей  
 <!--1253000 -->
-Essa visualização apresenta vários aprimoramentos para o [recursos de acessibilidade](/sccm/core/understand/accessibility-features) no console do Configuration Manager. Estas atualizações incluem:     
+В этой предварительной версии реализован ряд улучшений для [специальных возможностей](/sccm/core/understand/accessibility-features) в консоли Configuration Manager. Сюда входит следующее.     
 
-**Novos atalhos de teclado para movimentar-se o console:**
--   CTRL + M - define se concentrar no painel principal (central).
--   CTRL + T - define o destaque o nó superior no painel de navegação. Se o foco já estiver nesse painel, o foco é definido para o último nó que você visitou.
--   CTRL + I - define o destaque para a barra de navegação de trilha abaixo da faixa de opções.
--   CTRL + L - define o destaque o **pesquisa** campo, quando disponível.
--   CTRL + D - define o destaque o painel de detalhes, quando disponível.
--   ALT – altera o foco para dentro e fora da faixa de opções.
+**Новые сочетания клавиш для перемещения по консоли:**
+-   CTRL+M устанавливает фокус на главной (центральной) панели.
+-   CTRL+T устанавливает фокус на верхний узел в панели навигации. Если фокус уже находится в этой области, он перемещается к последнему посещенному узлу.
+-   CTRL+I устанавливает фокус на панели строки навигации, которая расположена под лентой.
+-   CTRL+L устанавливает фокус на поле **поиска**, если оно доступно.
+-   CTRL+L устанавливает фокус на панели подробных сведений, если она доступна.
+-   ALT переносит фокус на ленту или убирает фокус с ленты.
 
-**Melhorias gerais:**
--   Melhorar a navegação no painel de navegação quando você digita as letras de um nome de nó.
--   Navegação de teclado por meio do modo de exibição principal e a faixa de opções agora são circulares.
--   Agora, a navegação pelo teclado no painel de detalhes é circular. Para retornar para o painel ou o objeto anterior, use Ctrl + D, em seguida, Shift + TAB.
--   Depois de atualizar um modo de exibição do espaço de trabalho, o foco é definido para o painel principal do espaço de trabalho.
--   Corrigido um problema para permitir que os leitores de tela de anunciar os nomes dos itens de lista.
--   Adicionado nomes acessíveis para vários controles na página que permite que os leitores de tela de anunciar informações importantes.
+**Общие улучшения:**
+-   Улучшение навигации в области навигации при вводе букв имени узла.
+-   Теперь между основным представлением и лентой выполняется циклическая навигация.
+-   Теперь в области сведений выполняется циклическая навигация с помощью клавиатуры. Чтобы вернуться к предыдущему объекту или панели, нажмите клавиши CTRL+D, а затем SHIFT+TAB.
+-   Когда представление рабочей области обновится, фокус будет установлен на главной панели этой рабочей области.
+-   Устранена проблема, мешавшая средствам чтения с экрана сообщать имена элементов списка.
+-   Добавлены описательные имена для нескольких элементов управления на странице, позволяя средствам чтения с экрана сообщать важные сведения.
 
 
-## <a name="changes-to-the-azure-services-wizard-to-support-upgrade-readiness"></a>Alterações para o Assistente de serviços do Azure para oferecer suporte a preparação para atualização
+## <a name="changes-to-the-azure-services-wizard-to-support-upgrade-readiness"></a>Изменения в мастере служб Azure для поддержки службы "Проверка готовности к обновлению"
 <!-- 1353331 -->
-A partir desta versão, use o Assistente de serviços do Azure para configurar uma conexão do Configuration Manager para [atualizar preparação](/sccm/core/clients/manage/upgrade/upgrade-analytics). O uso do assistente simplifica a configuração do conector usando um assistente comuns de serviços do Azure relacionados.   
+Начиная с этого выпуска, для настройки подключения Configuration Manager к службе [Проверка готовности к обновлению](/sccm/core/clients/manage/upgrade/upgrade-analytics) следует использовать мастер служб Azure. Этот мастер упрощает настройку соединителя, предоставляя единый интерфейс для всех связанных служб Azure.   
 
-Embora o método para configurar a conexão foi alterado, pré-requisitos para a conexão e como você pode usar preparação para atualização permanecem inalterados.   
+Хотя способ настройки подключения изменен, это не влияет на предварительные условия для подключения и порядок использования службы "Проверка готовности к обновлению".   
 
-### <a name="prerequisites-for-upgrade-readiness"></a>Pré-requisitos para a preparação para atualização
-Os pré-requisitos para uma [conexão para preparação de atualização](/sccm/core/clients/manage/upgrade/upgrade-analytics#create-a-connection-to-upgrade-readiness) são as mesmas detalhadas para a atual ramificação do Configuration Manager. Eles são repetidos aqui por conveniência:  
+### <a name="prerequisites-for-upgrade-readiness"></a>Предварительные условия для службы "Проверка готовности к обновлению"
+Сохраняются в силе все необходимые условия для [подключения к службе "Проверка готовности к обновлению"](/sccm/core/clients/manage/upgrade/upgrade-analytics#create-a-connection-to-upgrade-readiness), которые описаны для Configuration Manager версии Current Branch. Мы продублируем их здесь для вашего удобства.  
 
-**Pré-requisitos**
--   Para adicionar a conexão, o seu ambiente do Configuration Manager deve primeiro configurar uma [ponto de conexão de serviço](/sccm/core/servers/deploy/configure/about-the-service-connection-point) em uma [modo online](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation). Quando você adiciona a conexão ao seu ambiente, ele também instalará o Microsoft Monitoring Agent no computador que executa essa função do sistema de site.
--   Registrar o Configuration Manager como uma ferramenta de gerenciamento "Aplicativo Web e/ou API Web" e obter o [ID do cliente do registro](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
--   Crie uma chave de cliente para a ferramenta de gerenciamento registrados no Active Directory do Azure.
--   No Portal de gerenciamento do Azure, forneça o aplicativo web registrado com permissão para acessar o OMS, conforme descrito em [fornecem o Configuration Manager com permissões para OMS](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms).
+**Предварительные требования**
+-   Чтобы добавить подключение, в среде Configuration Manager необходимо сначала настроить [точку подключения службы](/sccm/core/servers/deploy/configure/about-the-service-connection-point) в [оперативном режиме](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation). При добавлении подключения в среду выполняется установка агента Microsoft Monitoring Agent на компьютере, где запущена эта роль системы сайта.
+-   Зарегистрируйте Configuration Manager как средство управления "Веб-приложение и (или) веб-API" и получите [идентификатор клиента для регистрации](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
+-   Создайте ключ клиента для зарегистрированного средства управления в Azure Active Directory.
+-   На портале управления Azure укажите зарегистрированное веб-приложение с разрешением на доступ к OMS, как описано в разделе [Предоставление Configuration Manager разрешений для OMS](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms).
 
 > [!IMPORTANT]       
-> Ao configurar a permissão para acessar o OMS, certifique-se de escolher o **Colaborador** função e atribua a ela permissões para o grupo de recursos do aplicativo registrado.
+> При настройке разрешения на доступ к OMS выберите роль **Участник** и предоставьте ей разрешения на доступ к группе ресурсов зарегистрированного приложения.
 
-Depois que os pré-requisitos estiverem configurados, você está pronto para usar o Assistente para criar a conexão.
+Настроив необходимые компоненты, вы можете использовать мастер для создания подключения.
 
-### <a name="use-the-azure-services-wizard-to-configure-upgrade-readiness"></a>Use o Assistente de serviços do Azure para configurar a preparação para atualização
-1.  No console, vá para **administração** > **visão geral** > **serviços de nuvem** > **serviços do Azure**e, em seguida, escolha **configurar os serviços do Azure** do **início** guia da faixa de opções, para iniciar o **Assistente serviços Azure**.
+### <a name="use-the-azure-services-wizard-to-configure-upgrade-readiness"></a>Использование мастера служб Azure для настройки подключения к службе "Проверка готовности к обновлению"
+1.  В консоли последовательно выберите **Администрирование** > **Обзор** > **Облачные службы** > **Службы Azure** и щелкните **Настроить службы Azure** на вкладке ленты **Главная**, чтобы запустить **Мастер служб Azure**.
 
-2.  Sobre o **serviços do Azure** página, selecione o **conector de preparação de atualização**e, em seguida, clique em **próximo**.
+2.  На странице **Службы Azure** выберите **Проверка готовности к обновлению** и нажмите кнопку **Далее**.
 
-3.  Sobre o **aplicativo** , especifique seu **ambiente do Azure** (technical preview oferece suporte somente a nuvem pública). Em seguida, clique em **importação** para abrir o **importar aplicativos** janela.
+3.  На странице **Приложение** укажите **среду Azure** (ознакомительная техническая версия поддерживает только общедоступное облако). Нажмите кнопку **Импорт**, которая открывает окно **Импорт приложений**.
 
-4.  No **importar aplicativos** janela, especifique os detalhes de um aplicativo web que já existe no AD do Azure.
-    -   Forneça um nome amigável para o nome do locatário do AD do Azure. Em seguida, especifique a ID de locatário, o nome do aplicativo, a ID do cliente, a chave secreta para o aplicativo web do Azure e o URI de ID do aplicativo.
-    -   Clique em **verificar**e se for bem-sucedido, clique em **Okey** para continuar.
+4.  В окне **Импорт приложений** укажите сведения о веб-приложении, которое уже существует в Azure AD.
+    -   Укажите понятное имя для клиента Azure AD. Теперь укажите идентификатор клиента, имя приложения, идентификатор клиента, секретный ключ для веб-приложения Azure и URI идентификатора приложения.
+    -   Нажмите кнопку **Проверить**. Если проверка пройдет успешно, щелкните **ОК**, чтобы продолжить.
 
-5.   Sobre o **configuração** página, especifique a assinatura, o grupo de recursos e o espaço de trabalho de análise do Windows que deseja usar com esta conexão para preparação de atualização.  
+5.   На странице **Конфигурация** укажите подписку, группу ресурсов и рабочую область Windows Analytics, которые вы хотите использовать для этого подключения к службе "Проверка готовности к обновлению".  
 
-6.  Clique em **próximo** para ir para o **resumo** página e, em seguida, conclua o Assistente para criar a conexão.
+6.  Нажмите **Далее** для перехода к странице **Сводка**, а затем завершите работу мастера, чтобы создать подключение.
 
 
-## <a name="new-client-settings-for-cloud-services"></a>Novas configurações de cliente para serviços de nuvem
+## <a name="new-client-settings-for-cloud-services"></a>Новые параметры клиентов для облачных служб
 <!-- 1319883 -->
 
-Nesta versão, adicionamos duas novas configurações de cliente do Configuration Manager. Você encontrará esses no **serviços de nuvem** seção.  Essas configurações fornecem os seguintes recursos:
+В этом выпуске мы добавили в Configuration Manager два новых параметра клиента. Вы найдете их в разделе **Облачные службы**.  Эти параметры предоставляют следующие возможности:
 
-- Controlar quais clientes do Configuration Manager podem acessar um gateway de gerenciamento de nuvem é configurada.
-- Registre automaticamente os clientes Windows 10 ingressados no domínio do Configuration Manager com o Active Directory do Azure.
+- выбор клиентов Configuration Manager, которые могут обращаться к настроенному шлюзу управления облаком;
+- автоматическая регистрация в Azure Active Directory клиентов Configuration Manger, присоединенных к домену Windows 10.
 
-Essas novas configurações ajudam você a realizar os recursos descritos no [1705 do Configuration Manager Technical Preview](/sccm/core/get-started/capabilities-in-technical-preview-1705#new-capabilities-for-azure-ad-and-cloud-management).
+Эти новые параметры помогут реализовать функции, [описанные для Configuration Manager версии Technical Preview 1705](/sccm/core/get-started/capabilities-in-technical-preview-1705#new-capabilities-for-azure-ad-and-cloud-management).
 
-### <a name="before-you-start"></a>Antes de começar
+### <a name="before-you-start"></a>Перед началом работы
 
-Você deve ter instalado e configurado o Azure AD Connect entre o Active Directory no local e seu locatário do AD do Azure.
+Вам потребуется установленный и настроенный соединитель Azure AD Connect между локальной Active Directory и клиентом Azure AD.
 
-Se você remover a conexão, os dispositivos não são cancelados, mas nenhum novo dispositivo será registrado.
+Если вы удалите это подключение, регистрация устройств не отменится, но вы не сможете регистрировать новые устройства.
 
-### <a name="try-it-out"></a>Experimente!
+### <a name="try-it-out"></a>Попробуйте!
 
-1. Configure a seguinte seção de configurações (encontradas nos serviços de nuvem) cliente usando as informações em [como definir as configurações de cliente](/sccm/core/clients/deploy/configure-client-settings).
-    -   **Registrar automaticamente os novos dispositivos de ingressados no domínio do Windows 10 com o Azure Active Directory** – defina como **Sim** (padrão), ou **não**.
-    -   **Habilitar clientes para usar um gateway de gerenciamento de nuvem** – defina como **Sim** (padrão), ou **não**.
-2.  Implante as configurações do cliente na coleção necessária de dispositivos.
+1. [Настройте параметры клиента](/sccm/core/clients/deploy/configure-client-settings) для облачных служб:
+    -   **Автоматически регистрировать новые присоединенные к домену устройства с Windows 10 в Azure Active Directory** — установите значение **Да** (по умолчанию) или **Нет**.
+    -   **Разрешить клиентам использовать шлюз управления облачными клиентами** — установите **Да** (по умолчанию) или **Нет**.
+2.  Разверните параметры клиента в нужную коллекцию устройств.
 
-Para confirmar que o dispositivo está unido ao AD do Azure, execute o comando **dsregcmd.exe /status** em uma janela de prompt de comando. O **AzureAdjoined** campo nos resultados mostrarão **Sim** se o dispositivo está unido do AD do Azure.
+Чтобы убедиться, что устройство присоединено к Azure AD, выполните в окне командной строки команду **dsregcmd.exe /status**. Если устройство присоединено к Azure AD, в поле **AzureAdjoined** отобразится значение **Да**.
 
-## <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Criar e executar scripts do PowerShell do console do Configuration Manager
+## <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Создание и запуск скриптов PowerShell из консоли Configuration Manager
 <!-- 1236459 -->
 
-No Configuration Manager, você pode implantar scripts para os dispositivos de cliente usando pacotes e programas. Esse technical preview, adicionamos a nova funcionalidade que permite que você execute as seguintes ações:
+Configuration Manager позволяет развертывать скрипты на клиентские устройства с использованием пакетов и программ. В этой версии Technical Preview мы добавили новые функциональные возможности, которые позволяют выполнять следующее:
 
-- Importar Scripts do PowerShell para o Configuration Manager
-- Editar os scripts do console do Configuration Manager (para scripts não assinados apenas)
-- Scripts de marca como aprovado ou negado, para melhorar a segurança
-- Executar scripts em coleções de computadores de cliente do Windows e de locais gerenciados PCs com Windows. Você não implantar scripts, em vez disso, eles são executados em tempo real em dispositivos cliente.
-- Examine os resultados retornados pelo script no console do Configuration Manager.
-
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Para usar scripts, você deve ser um membro da função de segurança apropriado do Configuration Manager.
-
-- **Para importar e criar scripts** -sua conta deve ter **criar** permissões para **SMS Scripts** no **Gerenciador de configurações de conformidade** função de segurança.
-- **Para aprovar ou negar scripts** -sua conta deve ter **aprovar** permissões para **SMS Scripts** no **Gerenciador de configurações de conformidade** função de segurança.
-- **Para executar scripts** -sua conta deve ter **Executar Script** permissões para **coleções** no **Gerenciador de configurações de conformidade** função de segurança.
-
-Para obter mais informações sobre funções de segurança do Configuration Manager, consulte [conceitos básicos da administração baseada em função](/sccm/core/understand/fundamentals-of-role-based-administration).
-
-Por padrão, os usuários não é possível aprovar um script que criou. Como scripts são poderoso e versátil e podem ser implantados em vários dispositivos, apresentamos um novo conceito de fornecer a capacidade de separar as funções entre a pessoa que os autores de script e a pessoa que aprova o script. Isso fornece um nível adicional de segurança contra a execução de um script sem supervisão. Você pode desativar esta aprovação secundária, para facilitar o teste, especialmente durante a versão de visualização técnica.
-
-Para permitir que os usuários aprovem seus próprios scripts:
-
-1. Na consola do Configuration Manager, clique em **Administração**.
-2. Na área de trabalho **Administração** , expanda **Configuração do Site**e clique em **Sites**.
-3. Na lista de sites, escolha o seu site e, em seguida, no **início** guia o **Sites** de grupo, clique em **configurações da hierarquia**.
-4. No **geral** guia do **propriedades de configurações de hierarquia** caixa de diálogo caixa, desmarque a caixa de seleção **não permitem que os autores de script aprovar seus próprios scripts**.
+- Импорт скриптов PowerShell в Configuration Manager.
+- изменение скриптов из консоли Configuration Manager (только для неподписанных скриптов);
+- установка статуса скриптов "Утверждено" или "Отклонено" для повышения безопасности;
+- выполнение скриптов для коллекций клиентских компьютеров Windows и локальных управляемых компьютеров Windows (вам не нужно развертывать скрипты, они просто выполняются на клиентских устройствах практически в режиме реального времени);
+- анализ результатов, возвращаемых скриптом, в консоли Configuration Manager.
 
 
-### <a name="try-it-out"></a>Experimente!
+### <a name="prerequisites"></a>Предварительные требования
 
-#### <a name="import-and-edit-a-script"></a>Importar e editar um script
+Чтобы использовать скрипты, необходимо быть членом соответствующей роли безопасности Configuration Manager.
 
-1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.
-2. No **biblioteca de Software** espaço de trabalho, clique em **Scripts**.
-3. No **início** guia o **criar** de grupo, clique em **criar Script**.
-4. No **Script** página do **criar Script** assistente, configure o seguinte:
-    - **Nome do script** -Insira um nome para o script. Embora você possa criar vários scripts com o mesmo nome, isso tornará mais difícil localizar o script que é necessário no console do Configuration Manager.
-    - **Linguagem de script** - atualmente, apenas **PowerShell** scripts têm suporte.
-    - **Importação** -importar um script do PowerShell para o console. O script é exibido no **Script** campo.
-    - **Limpar** -remove o script atual a partir de **Script** campo.
-    - **Script** -exibe o script importado no momento. Você pode editar o script neste campo conforme necessário.
-5. Conclua o assistente. O novo script é exibido no **Script** lista com um status de **aguardando aprovação**. Antes de executar esse script em dispositivos cliente, você deve aprová-lo.
+- **Чтобы импортировать или создавать скрипты**, нужна учетная запись с разрешениями на **создание** **скриптов SMS** в роли безопасности **Менеджер параметров соответствия**.
+- **Чтобы утверждать или отклонять скрипты**, нужна учетная запись с разрешениями на **утверждение** **скриптов SMS** в роли безопасности **Менеджер параметров соответствия**.
+- **Чтобы выполнять скрипты**, нужна учетная запись с разрешениями **запускать скрипт** для **коллекций** в роли безопасности **Менеджер параметров соответствия**.
+
+Дополнительные сведения о ролях безопасности Configuration Manager см. в статье с [общими сведениями о ролевом администрировании](/sccm/core/understand/fundamentals-of-role-based-administration).
+
+По умолчанию пользователь не может утверждать созданные им скрипты. Учитывая мощь и гибкость скриптов, а также возможность их развертывания на множестве устройств, мы создали новую концепцию разделения ролей: создавать и утверждать скрипты должны разные люди. Это обеспечит дополнительный уровень защиты от бесконтрольного выполнения скриптов. Вы можете отключить эту функцию дополнительного утверждения, чтобы упростить тестирование, например, на время использования выпуска Technical Preview.
+
+Чтобы разрешить пользователям самостоятельно утверждать свои скрипты, выполните следующие действия.
+
+1. В консоли Configuration Manager щелкните **Администрирование**.
+2. В рабочей области **Администрирование** разверните узел **Конфигурация сайта**и выберите **Сайты**.
+3. В списке сайтов выберите нужный сайт и на вкладке **Главная** в группе **Сайты** щелкните **Параметры иерархии**.
+4. На вкладке **Общие** в диалоговом окне **Свойства параметров иерархии** снимите флажок **Не разрешать авторам скриптов утверждать свои собственные скрипты**.
 
 
-#### <a name="approve-or-deny-a-script"></a>Aprovar ou negar um script
+### <a name="try-it-out"></a>Попробуйте!
+
+#### <a name="import-and-edit-a-script"></a>Импорт и редактирование скрипта
+
+1. В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.
+2. В рабочей области **Библиотека программного обеспечения** щелкните **Скрипты**.
+3. На вкладке **Главная** в группе **Создать** щелкните **Создать скрипт**.
+4. На странице **Скрипт** в **мастере создания скрипта** настройте следующие сведения.
+    - **Имя скрипта**. Введите здесь имя для скрипта. Вы можете создавать сразу несколько скриптов с одинаковыми именами, но это затруднит поиск нужного скрипта в консоли Configuration Manager.
+    - **Язык скрипта**. Сейчас поддерживаются только скрипты **PowerShell**.
+    - **Импорт**. Импорт скрипта PowerShell в консоли. Скрипт отображается в поле **Скрипт**.
+    - **Очистить**. Удаление текущего скрипта из поля **Скрипт**.
+    - **Скрипт**. Отображение текущего импортируемого скрипта. В этом поле при необходимости вы можете изменять скрипт.
+5. Завершите работу мастера. Новый скрипт отображается в списке **Скрипт** с состоянием **Ожидается утверждение**. Прежде чем выполнять такой скрипт на клиентских устройствах, его необходимо утвердить.
+
+
+#### <a name="approve-or-deny-a-script"></a>Утверждение или отклонение скрипта
 
 
 
-Antes de executar um script, ele deve ser aprovado. Para aprovar um script:
+Выполняемый скрипт должен быть сначала утвержден. Чтобы утвердить скрипт, выполните следующее.
 
-1. Na consola do Configuration Manager, clique em **Biblioteca de Software**.
-2. No **biblioteca de Software** espaço de trabalho, clique em **Scripts**.
-3. No **Script** , escolha o script que você deseja aprovar ou negar e, em seguida, no **início** guia o **Script** de grupo, clique em **aprovar/Deny**.
-4. No **aprovar ou negar script** caixa de diálogo, **aprovar**, ou **Deny** o script e, opcionalmente, insira um comentário sobre a sua decisão. Se você negar um script, ele não pode ser executado em dispositivos cliente.
-5. Conclua o assistente. No **Script** lista, você verá o **estado de aprovação** alteração de coluna dependendo da ação executada.
+1. В консоли Configuration Manager щелкните **Библиотека программного обеспечения**.
+2. В рабочей области **Библиотека программного обеспечения** щелкните **Скрипты**.
+3. В списке **Скрипт** выберите нужный скрипт для утверждения или отклонения, затем щелкните **Утвердить или отклонить** на вкладке **Главная** в группе **Скрипт**.
+4. В диалоговом окне **Утверждение или отклонение скрипта** выберите действие **Утвердить** или **Отклонить**. Также вы можете здесь добавить комментарий к своему решению. Отклоненный скрипт не может выполняться на клиентских устройствах.
+5. Завершите работу мастера. Вы увидите, что в списке **Скрипт** изменится значение в столбце **Состояние утверждения** в зависимости выбранного вами действия.
 
-#### <a name="run-a-script"></a>Executar um script
+#### <a name="run-a-script"></a>Выполнить сценарий
 
-Depois que um script tiver sido aprovado, ela pode ser executada em uma coleção que você escolher.
+Утвержденный скрипт можно выполнить в любой указанной коллекции.
 
-1. Na consola do Configuration Manager, clique em **Ativos e Compatibilidade**.
-2. Na área de trabalho **Ativos e Compatibilidade** , clique em **Coleções de Dispositivos**.
-3. No **coleções de dispositivos** lista, clique na coleção de dispositivos nos quais você deseja executar o script.
-3. No **início** guia o **todos os sistemas** de grupo, clique em **Executar Script**.
-4. No **Script** página do **Executar Script** assistente, escolha um script na lista. Somente scripts aprovados são mostrados. Clique em **próximo**e, em seguida, conclua o assistente.
+1. В консоли Configuration Manager щелкните элемент **Активы и соответствие**.
+2. В рабочей области **Активы и соответствие** щелкните **Коллекции устройств**.
+3. В списке **Коллекции устройств** выберите нужную коллекцию, в которой будет выполняться скрипт.
+3. На вкладке **Главная** в группе **Все системы** нажмите кнопку **Запустить скрипт**.
+4. На странице **Скрипт** мастера **запуска скрипта** выберите в списке нужный скрипт. Здесь отображаются только утвержденные скрипты. Нажмите кнопку **Далее** и завершите работу мастера.
 
-#### <a name="monitor-a-script"></a>Monitorar um script
+#### <a name="monitor-a-script"></a>Мониторинг скрипта
 
-Depois de executar um script para os dispositivos cliente, use este procedimento para monitorar o sucesso da operação.
+Когда вы запустите скрипт на клиентских устройствах, вы можете отслеживать результаты операции, используя эту процедуру.
 
-1. No console do Configuration Manager, clique em **monitoramento**.
-2. No **monitoramento** espaço de trabalho, clique em **resultados do Script**.
-3. No **resultados do Script** lista, que você exibir os resultados para cada script executado em dispositivos cliente. Um código de saída do script **0**, geralmente indica que o script foi executado com êxito.
+1. В консоли Configuration Manager щелкните элемент **Мониторинг**.
+2. В рабочей области **Мониторинг** щелкните **Результаты выполнения скриптов**.
+3. В списке **Результаты выполнения скриптов** можно просмотреть результаты для каждого скрипта, который вы запускали на клиентских устройствах. Обычно код завершения **0** означает, что скрипт выполнен успешно.
 
-## <a name="pxe-network-boot-support-for-ipv6"></a>Suporte de inicialização de rede do PXE para IPv6
+## <a name="pxe-network-boot-support-for-ipv6"></a>Поддержка сетевой загрузки PXE для IPv6
 <!-- 1269793 -->
-Agora você pode habilitar o suporte de inicialização de rede do PXE para IPv6 iniciar uma implantação de sistema operacional da sequência de tarefas. Quando você usa essa configuração, os pontos de distribuição habilitados para PXE oferecerá suporte IPv4 e IPv6. Essa opção não exige que o WDS e interromperá o WDS, se ele estiver presente.
+Теперь вы можете включить поддержку сетевой загрузки PXE для протокола IPv6, чтобы запускать последовательность задач для развертывания операционной системы. Если вы используете этот параметр, точки распространения с поддержкой PXE будут работать с обоими протоколами: IPv4 и IPv6. Этот параметр не требует наличия WDS. Он останавливает службу WDS, если она запущена.
 
-#### <a name="to-enable-pxe-boot-support-for-ipv6"></a>Para habilitar o suporte de inicialização PXE para IPv6
-Use o procedimento a seguir para habilitar a opção para suporte a IPv6 para PXE.
+#### <a name="to-enable-pxe-boot-support-for-ipv6"></a>Включение сетевой загрузки PXE для IPv6
+Используйте следующую процедуру, чтобы включить поддержку IPv6 для PXE.
 
-1. No console do Configuration Manager, vá para **administração** > **visão geral** > **pontos de distribuição**e clique em **propriedades** para pontos de distribuição habilitados para PXE.
-2. Sobre o **PXE** guia, selecione **suporte a IPv6** para habilitar o suporte a IPv6 para PXE.
+1. В консоли Configuration Manager перейдите в раздел **Администрирование** > **Обзор** > **Точки распространения** и нажмите кнопку **Свойства** для точек распространения с поддержкой PXE.
+2. На вкладке **PXE** выберите **Поддержка IPv6**, чтобы включить поддержку IPv6 для PXE.
 
-## <a name="manage-microsoft-surface-driver-updates"></a>Gerenciar atualizações de driver do Microsoft Surface
+## <a name="manage-microsoft-surface-driver-updates"></a>Управление обновлениями драйверов Microsoft Surface
 <!-- 1098490 -->
-Agora você pode usar o Configuration Manager para gerenciar atualizações de driver do Microsoft Surface.
+Теперь для управления обновлениями драйверов Microsoft Surface вы можете использовать Configuration Manager.
 
-### <a name="prerequisites"></a>Pré-requisitos
-Todos os pontos de atualização de software devem executar o Windows Server 2016.
+### <a name="prerequisites"></a>Предварительные требования
+Все точки обновления программного обеспечения должны работать под управлением Windows Server 2016.
 
-### <a name="try-it-out"></a>Experimente!
-Tente concluir as seguintes tarefas e, em seguida, envie-nos **comentários** do **início** guia da faixa de opções para nos contar como ela funcionou:
-1. Habilite a sincronização para os drivers da Microsoft Surface. Use o procedimento [Configurar classificação e produtos](/sccm/sum/get-started/configure-classifications-and-products) e selecione **drivers incluem Microsoft Surface e atualizações de firmware** no **classificações** guia para permitir que drivers de superfície.
-2. [Sincronizar os drivers da Microsoft Surface](/sccm/sum/get-started/synchronize-software-updates.md).
-3. [Implantar pacotes de drivers Microsoft Surface sincronizados](/sccm/sum/deploy-use/deploy-software-updates)
+### <a name="try-it-out"></a>Попробуйте!
+Попробуйте выполнить следующие задачи, а затем отправьте нам **отзыв** с помощью вкладки на ленте **Главная**, чтобы сообщить о результатах.
+1. Включите синхронизацию для драйверов Microsoft Surface. Следуйте инструкциям из руководства по [настройке классификаций и продуктов для синхронизации](/sccm/sum/get-started/configure-classifications-and-products), а затем выберите **Включить драйверы и обновления встроенного ПО Microsoft Surface** на вкладке **Классификации**, чтобы разрешить драйверы Surface.
+2. [Синхронизируйте драйверы Microsoft Surface](/sccm/sum/get-started/synchronize-software-updates.md).
+3. [Разверните синхронизированные драйверы Microsoft Surface](/sccm/sum/deploy-use/deploy-software-updates).
 
-## <a name="configure-windows-update-for-business-deferral-policies"></a>Configurar o Windows Update para políticas de adiamento de negócios
+## <a name="configure-windows-update-for-business-deferral-policies"></a>Настройка политик отсрочки центра обновления Windows для бизнеса
 <!-- 1290890 -->
-Agora você pode configurar políticas de adiamento de atualizações de recurso do Windows 10 ou qualidade atualizações para o Windows 10 dispositivos gerenciados diretamente pelo Windows Update para empresas. Você pode gerenciar as políticas de adiamento no novo **Windows Update para políticas de negócios** nó **biblioteca de Software** > **serviço do Windows 10**.
+Теперь вы можете настроить политики отсрочки обновлений компонентов Windows 10 или исправлений для устройств Windows 10 непосредственно с помощью управляемых средств обновления Windows для бизнеса. Вы можете управлять политиками отсрочки в новом узле **Политики Центра обновления Windows для бизнеса**, который расположен в разделе **Библиотека программного обеспечения** > **Обслуживание Windows 10**.
 
-### <a name="prerequisites"></a>Pré-requisitos
-Dispositivos Windows 10 gerenciados pelo Windows Update para empresas devem ter conectividade com a Internet.
+### <a name="prerequisites"></a>Предварительные требования
+Устройства Windows 10, управляемые Центром обновления Windows для бизнеса, должны иметь возможность подключения к Интернету.
 
-#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Para criar uma atualização do Windows para a política de adiamento de negócios
-1. Em **biblioteca de Software** > **serviço do Windows 10** > **Windows Update para políticas de negócios**
-2. No **início** guia o **criar** grupo, selecione **criar o Windows Update para política de negócios** para abrir o Windows Update criar Assistente de política de negócios.
-3. Sobre o **geral** , forneça um nome e uma descrição para a política.
-4. No **políticas de adiamento** página, defina se deseja adiar ou pausar atualizações do recurso.    
-    Atualizações de recurso são geralmente novos recursos do Windows. Depois de configurar o **nível de preparação de Branch** configuração, você pode definir se e por quanto tempo, deseja adiar a receber atualizações do recurso após a disponibilidade da Microsoft.
-    - **Nível de preparação de branch**: Defina a ramificação para a qual o dispositivo receberá atualizações do Windows (ramificação atual ou da ramificação atual para negócios).
-    - **Período de adiamento (dias)**:  Especifique o número de dias para os quais as atualizações de recurso serão adiadas. Você pode adiar a receber essas atualizações de recurso por um período de 180 dias a partir de seu lançamento.
-    - **Pausar atualizações de recursos iniciando**: Selecione se deve pausar dispositivos recebam atualizações de recursos por um período de até 60 dias desde o momento você pausar as atualizações. Depois que o máximo de dias passaram, funcionalidade pausar automaticamente irá expirar e o dispositivo verificará as atualizações do Windows para as atualizações aplicáveis. Após essa verificação, você pode pausar as atualizações novamente. Você pode retomar o recurso de atualizações, desmarcando a caixa de seleção.   
-5. Escolha se deseja adiar ou pausar atualizações de qualidade.     
-    Atualizações de qualidade são geralmente correções e aprimoramentos para a funcionalidade existente do Windows e são geralmente publicadas primeira terça-feira de cada mês, que podem ser liberadas a qualquer momento pela Microsoft. Você pode definir se e por quanto tempo, deseja adiar a receber atualizações de qualidade após sua disponibilidade.
-    - **Período de adiamento (dias)**: Especifique o número de dias para os quais as atualizações de recurso serão adiadas. Você pode adiar a receber essas atualizações de recurso por um período de 180 dias a partir de seu lançamento.
-    - **Pausar atualizações qualidade iniciando**: Selecione se deve pausar dispositivos de atualizações de qualidade de recebimento por um período de até 35 dias desde o momento você pausar as atualizações. Depois que o máximo de dias passaram, funcionalidade pausar automaticamente irá expirar e o dispositivo verificará as atualizações do Windows para as atualizações aplicáveis. Após essa verificação, você pode pausar as atualizações novamente. Você pode retomar qualidade atualizações desmarcando a caixa de seleção.
-6. Selecione **instalar as atualizações de outros Microsoft Products** para habilitar a configuração de diretiva de grupo que verifique as configurações de adiamento aplicáveis ao Microsoft Update, bem como as atualizações do Windows.
-7. Selecione **inclua drivers com o Windows Update** para atualizar automaticamente os drivers do Windows Updates. Se você desmarcar essa configuração, atualizações de driver não são baixadas do Windows Update.
-8. Conclua o Assistente para criar a nova política de adiamento.
+#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Создание политики отсрочки Центра обновления Windows для бизнеса
+1. Откройте узел **Библиотека программного обеспечения** > **Обслуживание Windows 10** > **Политики Центра обновления Windows для бизнеса**
+2. На вкладке **Главная** в группе **Создать** выберите **Создать политику Центра обновления Windows для бизнеса**, чтобы открыть соответствующий мастер создания.
+3. На странице **Общие** укажите имя и описание для новой политики.
+4. На странице **Политики отсрочки** укажите, следует ли откладывать или приостанавливать обновления компонентов.    
+    Обновление компонентов обычно включает новые функции Windows. Настроив параметр **Уровень готовности ветви**, вы можете дополнительно указать, нужно ли (и на какой период) отложить получение обновления компонентов после предоставления их в открытый доступ корпорацией Майкрософт.
+    - **Уровень готовности ветви**. Укажите ветвь, для которой это устройство будет получать обновления Windows (Current Branch или Current Branch for Business).
+    - **Период отсрочки в днях**. Укажите длительность периода, на который будет отложено обновление компонентов. Вы можете отложить получение обновлений компонентов на период до 180 дней после их выпуска.
+    - **Начало приостановки получения обновлений компонентов**. Вы можете приостановить получение обновлений компонентов на устройстве на период до 60 дней с момента приостановки обновлений. По прошествии этого максимального срока приостановка автоматически отключается и устройство начинает проверку доступных обновлений в Центре обновления Windows. После этой проверки вы можете снова приостановить обновления. Паузу в обновлении компонентов можно в любой момент прервать, сняв этот флажок.   
+5. Выберите, следует ли отложить или приостановить получение исправлений.     
+    Пакеты исправления обычно содержат исправления ошибок и улучшения существующих функциональных возможностей Windows. Они традиционно публикуются корпорацией Майкрософт в первый вторник каждого месяца, но при необходимости могут быть выпущены в любое время. Вы можете указать, нужно ли (и как надолго) отложить получение пакетов исправления после их публикации.
+    - **Период отсрочки для обновлений компонентов (в днях)**. Укажите длительность периода, на который будет отложено обновление компонентов. Вы можете отложить получение обновлений компонентов на период до 180 дней после их выпуска.
+    - **Начало приостановки получения исправлений**. Вы можете приостановить получение исправлений на устройстве на период до 35 дней с момента приостановки обновлений. По прошествии этого максимального срока приостановка автоматически отключается и устройство начинает проверку доступных обновлений в Центре обновления Windows. После этой проверки вы можете снова приостановить обновления. Паузу в получении исправлений можно в любой момент прервать, сняв этот флажок.
+6. Выберите **Установка обновлений для других продуктов Майкрософт**, чтобы включить параметр групповой политики, который распространяет параметры отсрочки на Центр обновления Майкрософт и на любые обновления Windows.
+7. Выберите **Включать драйверы в обновления Windows**, чтобы автоматически обновлять драйверы устройств из Центра обновления Windows. Если этот флажок снят, обновления драйверов не загружаются из Центра обновления Windows.
+8. Следуйте указаниям мастера, чтобы завершить создание политики отсрочки.
 
-#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>Para implantar uma atualização do Windows para a política de adiamento de negócios
-1. Em **biblioteca de Software** > **serviço do Windows 10** > **Windows Update para políticas de negócios**
-2. No **início** guia o **implantação** grupo, selecione **implantar o Windows Update para política de negócios**.
-3. Configure as seguintes definições:
-    - **Política de configuração para implantar**: Selecione a atualização do Windows para a política de negócios que você deseja implantar.
-    - **Coleção**: Clique em **procurar** para selecionar a coleção onde você deseja implantar a política.
-    - **Corrigir regras não compatíveis quando suportadas**: Selecione esta opção para corrigir automaticamente quaisquer regras não compatíveis para o Windows Management Instrumentation (WMI), o registro, scripts e todas as configurações para dispositivos móveis registrados pelo Configuration Manager.
-    - **Permitir correção fora da janela de manutenção**: Se uma janela de manutenção tiver sido configurada para a coleção na qual você está implantando a diretiva, habilite esta opção Permitir que as configurações de conformidade corrijam o valor fora da janela de manutenção. Para obter mais informações sobre janelas de manutenção, consulte [como usar janelas de manutenção](/sccm/core/clients/manage/collections/use-maintenance-windows).
-    - **Gerar um alerta**: Configura um alerta que será gerado se a conformidade de linha de base de configuração for menor que uma porcentagem especificada por uma data e hora especificadas. Também pode especificar se pretende que seja enviado um alerta para o System Center Operations Manager.
-    - **Atraso aleatório (horas)**: Especifica uma janela de atraso para evitar o processamento excessivo no serviço de registro de dispositivo de rede. O valor padrão é 64 horas.
-    - **Agenda**: Especifique o agendamento de avaliação de conformidade pelo qual o perfil implantado é avaliado nos computadores cliente. O agendamento pode ser simples ou personalizado. O perfil é avaliado por computadores cliente quando o utilizador inicia sessão.
-4.  Conclua o Assistente para implantar o perfil.
+#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>Развертывание политики отсрочки Центра обновления Windows для бизнеса
+1. Откройте узел **Библиотека программного обеспечения** > **Обслуживание Windows 10** > **Политики Центра обновления Windows для бизнеса**
+2. На вкладке **Главная** в группе **Развертывание** выберите пункт **Развернуть политику Центра обновления Windows для бизнеса**.
+3. Настройте следующие параметры.
+    - **Развертываемая политика конфигурации**. Выберите политику Центра обновления Windows для бизнеса, которую вы хотите развернуть.
+    - **Коллекция**. Нажмите кнопку **Обзор**, чтобы выбрать коллекцию, в которой необходимо развернуть политику.
+    - **Исправлять несоответствующие параметры, когда это возможно**. Установите этот флажок, чтобы автоматически исправлять правила, не соответствующие параметрам инструментария WMI, реестра, скриптов и другим параметрам мобильных устройств, зарегистрированных с помощью Configuration Manager.
+    - **Разрешить исправление за пределами периодов обслуживания**. Если для коллекции, в которой развертывается элемент конфигурации, настроен период обслуживания, установите этот флажок, чтобы разрешить исправление параметров соответствия за пределами этого периода. Дополнительные сведения о периодах обслуживания см. в разделе [Использование периодов обслуживания](/sccm/core/clients/manage/collections/use-maintenance-windows).
+    - **Создавать оповещение**. Укажите, будет ли создаваться оповещение, если процент соответствия конфигурационной базе меньше заданного значения в указанную дату и время. Также можно указать, требуется ли отправлять оповещение в System Center Operations Manager.
+    - **Произвольная задержка (ч)**. Укажите интервал задержки, чтобы избежать перегрузки службы регистрации сетевых устройств. Значение по умолчанию: 64 часа.
+    - **Расписание**. Укажите расписание проверки соответствия на клиентских компьютерах для развернутого профиля. Это может быть простое или настраиваемое расписание. Проверка профиля выполняется клиентскими компьютерами при входе пользователя в систему.
+4.  Завершите работу мастера, чтобы развернуть профиль.
 
 
 
-## <a name="support-for-entrust-certification-authorities"></a>Suporte para autoridades de certificação Entrust
+## <a name="support-for-entrust-certification-authorities"></a>Поддержка центров сертификации Entrust
 <!-- 1350740 -->
-Agora, o Configuration Manager dá suporte a autoridades de certificação Entrust; Isso permite o fornecimento de certificado PFX para dispositivos registrados no Microsoft Intune.
+Configuration Manager теперь поддерживает центры сертификации Entrust. Это обеспечивает доставку сертификатов PFX на устройства, зарегистрированные в Microsoft Intune.
 
-Você pode configurar Entrust como a autoridade de certificação quando adicionar a função do ponto de registro de certificado no Configuration Manager. Ao adicionar um novo perfil de certificado que emite os certificados PFX, você pode selecionar um Microsoft ou Entrust autoridade de certificação.
+Настроить Entrust в качестве центра сертификации можно, когда вы добавляете роль точки регистрации сертификатов в Configuration Manager. При добавлении нового профиля сертификата, выдающего сертификаты PFX, можно выбрать центр сертификации Майкрософт или Entrust.
 
-**Problema conhecido**: Na visualização técnica 1706, os certificados PFX não são emitidos para autoridades de certificação da Microsoft. Isso não afeta os certificados PFX importados ou perfis SCEP.
+**Известная проблема.** В версии Technical Preview 1706 сертификаты PFX не выдаются для центров сертификации Майкрософт. Это не влияет на импортированные сертификаты PFX или профили SCEP.
 
 
-## <a name="cisco-ipsec-support-for-macos-vpn-profiles"></a>Suporte para perfis VPN macOS Cisco (IPsec)
+## <a name="cisco-ipsec-support-for-macos-vpn-profiles"></a>Поддержка Cisco (IPSec) для профилей VPN на устройствах macOS
 <!-- 1321367 -->
 
-Você pode criar um macOS perfil VPN com a Cisco (IPsec) como o tipo de conexão. Para obter mais informações, consulte [criar perfis de VPN](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
+Вы можете создавать профили VPN на устройствах macOS с использованием Cisco (IPsec) в качестве типа соединения. См. дополнительные сведения о [создании профилей VPN](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
 
 
-## <a name="new-windows-configuration-item-settings"></a>Novas definições de item de configuração do Windows
+## <a name="new-windows-configuration-item-settings"></a>Новые параметры элемента конфигурации Windows
 <!-- 1354715 -->
 
-Nesta versão, adicionamos as seguintes novas configurações que você pode usar itens de configuração do Windows:
+В этом выпуске мы добавили следующие новые параметры, которые можно использовать в элементах конфигурации Windows.
 
-### <a name="password"></a>Palavra-passe
+### <a name="password"></a>Пароль
 
-- **Criptografia de dispositivo**
+- **Шифрование устройства**
 
-### <a name="device"></a>Dispositivo
+### <a name="device"></a>Устройство
 
-- **Modificação das configurações de região (somente no desktop)**
-- **Modificação das configurações de energia e modo de suspensão**
-- **Modificação das configurações de idioma**
-- **Modificação de tempo do sistema**
-- **Modificação do nome de dispositivo**
+- **Изменение региональных стандартов (только для настольных систем)**
+- **Изменение параметров питания и спящего режима**
+- **Изменение языковых параметров**
+- **Изменение системного времени**
+- **Изменение названия устройства**
 
-### <a name="store"></a>Arquivo
+### <a name="store"></a>Магазин
 
-- **Atualização automática de aplicativos da store**
-- **Usar armazenamento particular**
-- **Inicialização do aplicativo originado de armazenamento**
+- **Автоматическое обновление приложений из магазина**
+- **Использование только частного магазина**
+- **Запуск приложений из Магазина**
 
 ### <a name="microsoft-edge"></a>Microsoft Edge
 
-- **Bloquear o acesso para aproximadamente: sinalizadores**
-- **Substituição de prompt SmartScreen**
-- **Substituição de prompt SmartScreen para arquivos**
-- **Endereço IP do localhost WebRTC**
-- **Mecanismo de pesquisa padrão**
-- **URL de XML OpenSearch**
-- **Home Pages (somente no desktop)**
+- **Запрещение доступа к флагам about**
+- **Переопределение запросов SmartScreen**
+- **Переопределение запросов SmartScreen для файлов**
+- **IP-адрес localhost для протокола WebRtc**
+- **Поисковая система по умолчанию**
+- **URL-адрес OpenSearch Xml**
+- **Домашние страницы (только для настольных систем)**
 
-Para obter mais informações sobre as configurações de conformidade, consulte [garantir a conformidade do dispositivo](/sccm/compliance/understand/ensure-device-compliance).
+См. дополнительные сведения об [обеспечении соответствия устройств](/sccm/compliance/understand/ensure-device-compliance).
 
 
-## <a name="new-device-compliance-policy-rules"></a>Novas regras de política de conformidade do dispositivo
+## <a name="new-device-compliance-policy-rules"></a>Новые правила политик соответствия устройств
 
-* **Tipo de senha necessária**. Especifique se o usuário deve criar uma senha alfanumérica ou uma senha numérica. Para senhas alfanuméricas, você também especificar o número mínimo de conjuntos de caracteres que a senha deve ter. Os quatro conjuntos de caracteres são: Letras minúsculas, letras maiusculas, símbolos e números.
+* **Требуемый тип пароля** Указывает, какой пароль должны создавать пользователи — буквенно-цифровой или цифровой. Для буквенно-цифровых паролей нужно дополнительно указать минимально допустимое число наборов символов в пароле. Поддерживаются четыре набора символов: строчные буквы, прописные буквы, символы и цифры.
 
-    **Suporte para:**
+    **Поддерживается в:**
     * Windows Phone 8+
-    * Windows 8.1 +
+    * Windows 8.1+
     * iOS 6+
 <br></br>
-* **Depuração de USB do bloco no dispositivo**. Você não precisa definir essas configurações, como a depuração de USB já está desabilitado no Android para dispositivos de trabalho.
+* **Блокировать отладку по USB на устройстве** Этот параметр настраивать не обязательно, так как отладка по USB уже отключена на устройствах Android for Work.
 
-    **Suporte para:**
+    **Поддерживается в:**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Impedir que aplicativos de fontes desconhecidas**. Exigir que dispositivos impeçam a instalação de aplicativos de fontes desconhecidas. Você não precisa definir essa configuração, como Android para dispositivos de trabalho sempre restringir a instalação de fontes desconhecidas.
+* **Блокировать приложения из неизвестных источников**. На устройствах должен быть настроен запрет на установку приложений из неизвестных источников. Этот параметр настраивать не обязательно, так как устройства Android for Work всегда ограничивают установку из неизвестных источников.
 
-    **Suporte para:**
+    **Поддерживается в:**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Exigir verificação de ameaças em aplicativos**. Essa configuração especifica que o recurso de aplicativos Verifique se está habilitado no dispositivo.
+* **Требовать проверку угроз в приложениях**. Этот параметр указывает, что на устройстве должна быть включена функция проверки приложений.
 
-    **Suporte para:**
-    * Android 4.2 por meio de 4.4
+    **Поддерживается в:**
+    * Android 4.2–4.4
     * Samsung KNOX Standard 4.0+
 
-Consulte [criar e implantar uma política de conformidade do dispositivo](https://docs.microsoft.com/sccm/mdm/deploy-use/create-compliance-policy) para experimentar as novas regras de conformidade do dispositivo.
+Дополнительные сведения о применении новых правил соответствия см. в руководстве по [созданию и развертыванию политик соответствия устройств](https://docs.microsoft.com/sccm/mdm/deploy-use/create-compliance-policy).
 
-## <a name="new-mobile-application-management-policy-settings"></a>Novas configurações de política de gerenciamento de aplicativos móveis
-Começando com esta versão, você pode usar três novas configurações de política do aplicativo móvel (MAM) de gerenciamento:
+## <a name="new-mobile-application-management-policy-settings"></a>Новые параметры политики управления мобильными приложениями
+Начиная с этого выпуска вы можете использовать три новых параметра политики управления мобильными приложениями.
 
-- **Bloquear captura de tela (somente para dispositivos Android):** Especifica que as funcionalidades de captura de ecrã do dispositivo estão bloqueadas durante a utilização desta aplicação.
+- **Блокировать снимки экрана (только устройства Android).** Запрещает создавать снимки экрана на устройстве при использовании этого приложения.
 
-- **Desabilite sincronização do contato:** Impede que o aplicativo salvando dados para o aplicativo nativo de contatos no dispositivo.
+- **Отключить синхронизацию контактов.** Запрещает приложению сохранять данные в собственном приложении "Контакты" на устройстве.
 
-- **Desabilite a impressão:** Impede que o aplicativo de dados de escola ou trabalho de impressão.
+- **Отключить печать.** Запрещает приложению распечатывать рабочие или учебные данные.
 
-Consulte [proteger aplicativos usando políticas de proteção de aplicativos no Configuration Manager](https://docs.microsoft.com/sccm/mdm/deploy-use/protect-apps-using-mam-policies) para testar as novas configurações de política de proteção do aplicativo.
+См. дополнительные сведения о новых возможностях [защиты приложений с помощью политик управления мобильными приложениями в Configuration Manager](https://docs.microsoft.com/sccm/mdm/deploy-use/protect-apps-using-mam-policies).
 
-## <a name="android-and-ios-enrollment-restrictions"></a>Restrições de registro do Android e iOS
+## <a name="android-and-ios-enrollment-restrictions"></a>Ограничения регистрации устройств iOS и Android
 <!-- 1290826 -->
-A partir desta versão, administradores agora podem especificar que os usuários não podem registrar dispositivos Android ou iOS pessoais em seu ambiente híbrido. Isso permite que você limite registrado dispositivos declaradas previamente, dispositivos da empresa ou dispositivos iOS registrados somente com o programa de registro do dispositivo.
+Начиная с этого выпуска администраторы могут запрещать пользователям регистрировать личные устройства Android или iOS в гибридной среде. Таким образом вы сможете разрешать регистрацию только предварительно объявленным и принадлежащим компании устройствам, а также устройствам iOS, зарегистрированным по программе регистрации устройств.
 
-### <a name="try-it-out"></a>Experimente
-1. Na consola do Configuration Manager, na área de trabalho **Administração** , aceda a **Serviços Cloud** > **Subscrição do Microsoft Intune**.
-2. No **início** guia o **assinatura** de grupo, escolha **configurar plataformas** e, em seguida, selecione **Android** ou **iOS**.
-3. Selecione **bloco de dispositivos de propriedade pessoal**.
+### <a name="try-it-out"></a>Попробуйте!
+1. В консоли Configuration Manager в рабочей области **Администрирование** перейдите к разделу **Облачные службы** > **Подписка Microsoft Intune**.
+2. На вкладке **Главная** в группе **Подписка** щелкните **Настройка платформ**, а затем выберите **Android** или **iOS**.
+3. Выберите **Разрешить регистрацию только предварительно объявленных устройств**.
 
-## <a name="android-for-work-application-management-policy-for-copy-paste"></a>Android para a política de gerenciamento de aplicativos de trabalho para copiar e colar
-Nós atualizamos as descrições de configuração para o Android para o trabalho de itens de configuração para o **Permitir compartilhamento de dados entre trabalho e perfil pessoal**.
+## <a name="android-for-work-application-management-policy-for-copy-paste"></a>Политики управления копированием и вставкой в приложении Android for Work
+Мы обновили описания параметров настройки для Android for Work для элементов конфигурации **Разрешить обмен данными между рабочим и личным профилями**.
 
-|Antes da 1706 Technical Preview | Novo nome de opção | Comportamento|
+|До выпуска Technical Preview 1706 | Новое имя параметра | Поведение|
 |-|-|-|
-|Impedir que qualquer compartilhamento entre limites| Compartilhamento restrições padrão| Trabalho para pessoal: Padrão (esperado a ser bloqueada em todas as versões) <br>Pessoal para trabalho: Padrão (permitido em 6.x+, bloqueado no 5. x)|
-|Sem restrições|   Aplicativos no perfil pessoal podem lidar com solicitações de perfil de trabalho de compartilhamento| Trabalho para pessoal: Permitido  <br>Pessoal para trabalho: Permitido|
-|Aplicativos no perfil de trabalho podem lidar com solicitações de perfil pessoal de compartilhamento |Aplicativos no perfil de trabalho podem lidar com solicitações de perfil pessoal de compartilhamento |Trabalho para pessoal: Predefinição<br>Pessoal para trabalho: Permitido<br>(Só é útil em 5. x, onde o pessoal para o trabalho está bloqueado)|
+|Запретить межграничный общий доступ| Ограничения общего доступа по умолчанию| Из рабочего профиля в личный: по умолчанию (предположительно будет заблокировано во всех версиях) <br>Из личного профиля в рабочий: по умолчанию (допускается в версии 6.x+, заблокировано в 5.x)|
+|Нет ограничений|   Приложения в личном профиле могут обрабатывать запросы на совместный доступ из рабочего профиля| Из рабочего профиля в личный: допускается  <br>Из личного профиля в рабочий: допускается|
+|Приложения в рабочем профиле могут обрабатывать запросы на совместный доступ из личного профиля |Приложения в рабочем профиле могут обрабатывать запросы на совместный доступ из личного профиля |Из рабочего профиля в личный: по умолчанию<br>Из личного профиля в рабочий: допускается<br>(Применимо только в версиях 5.x, где заблокирована передача данных из личного профиля в рабочий)|
 
-Nenhuma dessas opções impedir o comportamento de copiar e colar diretamente. Adicionamos uma configuração personalizada para o serviço e o aplicativo de Portal da empresa 1704 que pode ser configurado para impedir a copiar e colar. Isso pode ser definido por meio do URI personalizado.
+Ни один из этих параметров не запрещает копирование и вставку напрямую. В версии 1704 мы добавили пользовательскую настройку для службы и приложения корпоративного портала, установка которой предотвращает копирование и вставку. Ее можно настроить с помощью специального URI.
 
 -   OMA-URI: ./Vendor/MSFT/WorkProfile/DisallowCrossProfileCopyPaste
--   Tipo de valor: Booleano
+-   Тип значения: логическое значение
 
-Definir DisallowCrossProfileCopyPaste como true impede que o comportamento de copiar e colar entre perfis de trabalho e do Android para trabalho pessoal.
+Если вы установите значение True для параметра DisallowCrossProfileCopyPaste, копирование и вставка будут запрещены между личным и рабочим профилями Android for Work.
 
-### <a name="try-it-out"></a>Experimente
-1. No console do Configuration Manager, selecione **ativos e conformidade** > **visão geral** > **as configurações de conformidade** > **itens de configuração**.
-2. Escolha **criar** para criar um novo item de configuração e especificar **nome** e **Android para trabalho**.
-3. O dispositivo definir grupos para configurar, selecione **perfil de trabalho**e escolha **próximo**.
-4. Selecione o valor para **Permitir compartilhamento de dados entre perfis pessoais e de trabalho**e, em seguida, conclua o assistente.
+### <a name="try-it-out"></a>Попробуйте!
+1. В консоли Configuration Manager последовательно выберите **Активы и соответствие** > **Обзор** > **Параметры соответствия** > **Элементы конфигурации**.
+2. Выберите **Создать** для создания нового элемента конфигурации и укажите **Имя** и тип **Android for Work**.
+3. Выберите **Рабочий профиль** в нужных группах параметров устройств, затем выберите **Далее**.
+4. Выберите значение для параметра **Разрешить обмен данными между рабочим и личным профилями**, а затем завершите работу мастера.
 
-## <a name="device-health-attestation-assessment-for-compliance-policies-for-conditional-access"></a>Avaliação de atestado de integridade do dispositivo para políticas de conformidade para acesso condicional
+## <a name="device-health-attestation-assessment-for-compliance-policies-for-conditional-access"></a>Внутренняя оценка подтверждения работоспособности устройства для политик соответствия требованиям для условного доступа
 <!-- 1097546 -->
-Começar com esta versão, você pode usar o status de atestado de integridade do dispositivo como uma regra de política de conformidade para acesso condicional aos recursos da empresa.
+Начиная с этого выпуска вы можете использовать статус оценки подтверждения работоспособности устройств в правилах политик соответствия, определяющих условный доступ к ресурсам компании.
 
-### <a name="try-it-out"></a>Experimente
-Selecione uma regra de atestado de integridade do dispositivo como parte de uma avaliação de política de conformidade.
-
+### <a name="try-it-out"></a>Попробуйте!
+Включите правило подтверждения работоспособности устройства в алгоритм оценки политики соответствия.

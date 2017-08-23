@@ -1,6 +1,6 @@
 ---
-title: "Atualizar o Windows para a versão mais recente | Microsoft Docs"
-description: "Saiba como utilizar o Gestor de configuração para atualizar um sistema operativo do Windows 7 ou posterior para Windows 10."
+title: "Обновление Windows до последней версии | Документы Майкрософт"
+description: "Узнайте, как использовать Configuration Manager для обновления операционной системы Windows 7 или более поздней версии до Windows 10."
 ms.custom: na
 ms.date: 02/06/2017
 ms.prod: configuration-manager
@@ -16,76 +16,76 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 026d61113a918e43ac4395ef092b1931f33f16d3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager"></a>Atualizar o Windows para a versão mais recente com o System Center Configuration Manager
+# <a name="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager"></a>Обновление Windows до последней версии с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Este tópico fornece os passos no System Center Configuration Manager, para atualizar um sistema operativo num computador do Windows 7 ou posterior para o Windows 10 ou do Windows Server 2012 para o Windows Server 2016, num computador de destino. Pode escolher de entre vários métodos de implementação diferentes, como um suporte de dados autónomo ou o Centro de Software. O cenário de atualização no local:  
+В этом разделе описываются шаги в System Center Configuration Manager по обновлению операционной системы на компьютере с Windows 7 или более поздней версии до Windows 10 или Windows Server 2012 или более поздней версии до Windows Server 2016. Вы можете выбирать из множества различных способов развертывания, таких как автономный носитель или центр программного обеспечения. Сценарий обновления на месте имеет следующие особенности:  
 
--   Atualiza o sistema operativo nos computadores atualmente com:
-    - Windows 7, Windows 8 ou Windows 8.1. Também pode efetuar atualizações de compilação em compilação do Windows 10. Por exemplo, pode atualizar o Windows 10 RTM para o Windows 10, versão 1511.  
-    - Windows Server 2012. Também pode fazer atualizações de compilação em compilação do Windows Server 2016. Para obter mais informações sobre caminhos de atualização suportados, consulte [caminhos de atualização suportados](https://docs.microsoft.com/windows-server/get-started/supported-upgrade-paths#upgrading-previous-retail-versions-of-windows-server-to-windows-server-2016).    
+-   Обновление операционной системы на компьютерах, работающих под управлением:
+    - Windows 7, Windows 8, Windows 8.1. Вы также можете выполнить обновления между сборками для Windows 10. Например, можно обновить Windows 10 RTM до Windows 10 версии 1511.  
+    - Windows Server 2012. Вы также можете выполнить обновления между сборками для Windows Server 2016. См. дополнительные сведения о [поддерживаемых вариантах обновления](https://docs.microsoft.com/windows-server/get-started/supported-upgrade-paths#upgrading-previous-retail-versions-of-windows-server-to-windows-server-2016).    
 
--   Mantém as aplicações, definições e dados do utilizador no computador.  
+-   Сохранение приложений, параметров и данных пользователя на компьютере.  
 
--   Não tem dependências externas, como o Windows ADK.  
+-   Отсутствие внешних зависимостей, таких как Windows ADK.  
 
--   É mais rápido e mais resiliente do que as implementações tradicionais do sistema operativo.  
+-   Более высокая скорость и надежность по сравнению с традиционным развертыванием операционной системы.  
 
- Utilize as secções seguintes para implementar sistemas operativos na rede utilizando uma sequência de tarefas.  
+ В следующих разделах описано развертывание операционных систем по сети с помощью последовательности задач.  
 
-##  <a name="BKMK_Plan"></a> Planearear  
+##  <a name="BKMK_Plan"></a> План  
 
--   **Reveja as limitações da sequência de tarefas para atualizar um sistema operativo**  
+-   **Обзор ограничений последовательности задач для обновления операционной системы**  
 
-     Reveja os seguintes requisitos e limitações da sequência de tarefas para atualizar um sistema operativo para se certificar de que satisfaz as suas necessidades:  
+     Просмотрите следующие требования и ограничения, применяемые к последовательности задач для обновления операционной системы, чтобы убедиться, что она соответствует вашим потребностям:  
 
-    -   Apenas deve adicionar passos de sequência de tarefas que estejam relacionados com a tarefa principal de implementar sistemas operativos e configurar computadores depois de a imagem estar instalada. Isto inclui passos que instalam pacotes, aplicações ou atualizações e passos que executam linhas de comandos, o PowerShell ou definem variáveis dinâmicas.  
+    -   Шаги последовательности задач, связанные с основной задачей развертывания операционной системы и настройки компьютеров, следует добавлять только после установки образа. Сюда входят действия по установке пакетов, приложений или обновлений, а также действия для выполнения команд из командной строки, PowerShell или установки динамических переменных.  
 
-    -   Reveja os controladores e aplicações que estão instalados nos computadores para se certificar de que são compatíveis com o Windows 10 antes de implementar a sequência de tarefas de atualização.  
+    -   Перед развертыванием последовательности задач обновления проверьте драйверы и приложения, установленные на компьютерах, чтобы убедиться, что они совместимы с Windows 10.  
 
-    -   As tarefas seguintes não são compatíveis com a atualização no local e necessitam que utilize uma implementação do sistema operativo tradicional:  
+    -   Следующие задачи не совместимы с обновлением на месте. Для их выполнения требуется использовать традиционную процедуру развертывания операционной системы:  
 
-        -   Alterar a associação ao domínio dos computadores ou atualizar os Administradores Locais.  
+        -   Изменение членства компьютеров в домене или обновление локальных администраторов.  
 
-        -   Implementar uma alteração fundamental no computador, incluindo a criação de partições no disco, a transição de uma arquitetura x86 para x64, a implementação de UEFI ou a modificação do idioma base do sistema operativo.  
+        -   Реализация фундаментального изменения на компьютере, включая секционирование диска, переход с архитектуры x86 на x64, реализацию UEFI или изменение основного языка операционной системы.  
 
-        -   Tem requisitos personalizados, incluindo uma imagem base personalizada, com 3<sup>rd</sup> encriptação de disco de terceiros ou necessitar de operações offline de WinPE.  
+        -   У вас есть особые требования, к которым относится использование пользовательского базового образа,<sup></sup> средств шифрования диска сторонних производителей или для которых требуется выполнение автономных операций WinPE.  
 
--   **Planear e implementar requisitos de infraestrutura**  
+-   **Планирование и реализация требований к инфраструктуре**  
 
-     Os únicos pré-requisitos para o cenário de atualização são que têm um ponto de distribuição disponível para o pacote de atualização do sistema operativo e quaisquer outros pacotes que incluir na sequência de tarefas. Para obter mais informações, consulte [instalar ou modificar um ponto de distribuição](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).
+     Единственное необходимое условие для сценария обновления — наличие точки распространения для пакета обновления операционной системы и любых других пакетов, включаемых в последовательность задач. Дополнительные сведения см. в разделе [Установка или изменение точки распространения](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).
 
-##  <a name="BKMK_Configure"></a> Configurar  
+##  <a name="BKMK_Configure"></a> Настройка  
 
-1.  **Preparar o pacote de atualização do sistema operativo**  
+1.  **Подготовка пакета обновления операционной системы**  
 
-     O pacote de atualização do Windows 10 contém os ficheiros de origem necessários para atualizar o sistema operativo no computador de destino. O pacote de atualização tem de ser a mesma edição, arquitetura e de idioma que os clientes que atualizar.  Para obter mais informações, consulte [gerir pacotes de atualização do sistema operativo](../get-started/manage-operating-system-upgrade-packages.md).  
+     Пакет обновления Windows 10 содержит исходные файлы, необходимые для обновления операционной системы на конечном компьютере. Этот пакет должен иметь тот же выпуск, ту же архитектуру и тот же язык, что и клиенты, для которых будет выполняться обновление.  Дополнительные сведения см. в статье [Управление пакетами обновления операционной системы](../get-started/manage-operating-system-upgrade-packages.md).  
 
-2.  **Criar uma sequência de tarefas para atualizar o sistema operativo**  
+2.  **Создание последовательности задач для обновления операционной системы**  
 
-     Utilize os passos em [criar uma sequência de tarefas para atualizar um sistema operativo](create-a-task-sequence-to-upgrade-an-operating-system.md) para automatizar a atualização do sistema operativo.  
+     Чтобы автоматизировать обновление операционной системы, выполните инструкции из раздела [Создание последовательности задач для обновления операционной системы](create-a-task-sequence-to-upgrade-an-operating-system.md).  
 
     > [!IMPORTANT]
-    > Quando utilizar suportes de dados autónomos, tem de incluir uma imagem de arranque na sequência de tarefas para que seja disponível no Assistente de suporte de dados de sequência de tarefas.
+    > При использовании автономного носителя необходимо включить образ загрузки в последовательность задач, чтобы он был доступен в мастере создания носителя с последовательностью задач.
 
     > [!NOTE]  
-    > Normalmente, utilize os passos em [criar uma sequência de tarefas para atualizar um sistema operativo](create-a-task-sequence-to-upgrade-an-operating-system.md) para criar uma sequência de tarefas para atualizar um sistema operativo para o Windows 10. A sequência de tarefas inclui o passo Atualizar sistema operativo, bem como passos recomendados adicionais e processo de atualização de grupos para lidar com o ponto-a-ponto. No entanto, pode criar uma sequência de tarefas personalizada e adicionar o [atualizar sistema operativo](../understand/task-sequence-steps.md#BKMK_UpgradeOS) passo de sequência de tarefas para atualizar o sistema operativo. Este é o único passo necessário para atualizar o sistema operativo para o Windows 10. Se escolher este método, adicione também o [reiniciar o computador](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) passo após o passo Atualizar sistema operativo para concluir a atualização. Certifique-se de utilizar o **o sistema operativo predefinido atualmente instalado** definição para reiniciar o computador para o sistema operativo instalado e não do Windows PE.  
+    > Обычно инструкции из статьи [Создание последовательности задач для обновления операционной системы в System Center Configuration Manager](create-a-task-sequence-to-upgrade-an-operating-system.md) используются, чтобы создать последовательность задач для обновления операционной системы до Windows 10. Последовательность задач включает шаг обновления операционной системы, а также дополнительные рекомендуемые шаги и группы для обработки комплексного процесса обновления. Однако вы можете создать настраиваемую последовательность задач и добавить шаг [Обновление операционной системы](../understand/task-sequence-steps.md#BKMK_UpgradeOS) для обновления операционной системы. Это единственный шаг, необходимый для обновления операционной системы до Windows 10. При выборе этого метода также добавьте шаг [Перезагрузка компьютера](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) после шага обновления операционной системы, чтобы завершить обновление. Обязательно используйте параметр **Операционная система по умолчанию, установленная в данный момент**, чтобы перезагрузить компьютер, загрузив установленную операционную систему, а не среду Windows PE.  
 
-##  <a name="BKMK_Deploy"></a> Implementar  
+##  <a name="BKMK_Deploy"></a> Развернуть  
 
--   Utilize um dos seguintes métodos de implementação para implementar o sistema operativo:  
+-   Используйте один из следующих методов для развертывания операционной системы:  
 
-    -   [Utilizar o Centro de Software para implementar o Windows através da rede](use-software-center-to-deploy-windows-over-the-network.md)  
+    -   [Использование центра программного обеспечения для развертывания Windows по сети](use-software-center-to-deploy-windows-over-the-network.md)  
 
-    -   [Utilizar um suporte de dados autónomo para implementar o Windows sem utilizar a rede](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
+    -   [Применение автономного носителя для развертывания Windows без использования сети](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
 
-## <a name="monitor"></a>Monitor  
+## <a name="monitor"></a>Монитор  
 
--   **Monitorizar a implementação da sequência de tarefas**  
+-   **Мониторинг развертывания последовательности задач**  
 
-     Para monitorizar a implementação de sequência de tarefas para atualizar o sistema operativo, consulte [monitorizar implementações do sistema operativo](monitor-operating-system-deployments.md).  
+     Сведения о мониторинге развертывания последовательности задач для обновления операционной системы см. в разделе [Мониторинг развертываний операционных систем](monitor-operating-system-deployments.md).  

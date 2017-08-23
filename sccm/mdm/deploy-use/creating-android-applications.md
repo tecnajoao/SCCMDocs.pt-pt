@@ -1,6 +1,6 @@
 ---
-title: "Criar aplicações Android | Microsoft Docs"
-description: "Consulte as considerações deve ter em conta quando criar e implementar aplicações em dispositivos Android."
+title: "Создание приложений Android | Документация Майкрософт"
+description: "Узнайте, какие аспекты необходимо учитывать при создании и развертывании приложений для устройств Android."
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
@@ -16,51 +16,51 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 3a89abc81cd70f4e499bf4e3087fd53915377c44
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-android-applications-with-system-center-configuration-manager"></a>Criar aplicações Android com o System Center Configuration Manager
+# <a name="create-android-applications-with-system-center-configuration-manager"></a>Создание приложений Android с помощью System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Uma aplicação do System Center Configuration Manager tem um ou mais tipos de implementação. Tipos de implementação incluem os ficheiros de instalação e informações necessários para implementar software num dispositivo. Um tipo de implementação tem também as regras que especificam quando e como o software é implementado.  
+В приложении System Center Configuration Manager доступны один или несколько способов развертывания. Типы развертывания включают файлы установки и сведения, необходимые для развертывания программного обеспечения на устройстве. Тип развертывания также содержит правила, определяющие время и способ развертывания программного обеспечения.  
 
- Pode criar aplicações utilizando os seguintes métodos:  
+ Существуют следующие методы создания приложений.  
 
--   Crie automaticamente os tipos de aplicação e implementação ao ler os ficheiros de instalação da aplicação.  
--   Criar manualmente a aplicação e adicionar posteriormente os tipos de implementação.  
--   Importe uma aplicação de um ficheiro.  
+-   Автоматическое создание приложения и типов развертывания посредством считывания файлов установки приложения.  
+-   Создание приложения вручную с последующим добавлением типов развертывания.  
+-   Импорт приложения из файла.  
 
-Consulte [iniciar o Assistente para criar aplicação](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard) para os passos necessários para criar aplicações de Configuration Manager e tipos de implementação. Além disso, mantenha as seguintes considerações em mente quando criar e implementar aplicações em dispositivos Android.  
+Действия, необходимые для создания приложений Configuration Manager и типов развертывания, см. в разделе [Запуск мастера создания приложений](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). При создании и развертывании приложений для устройств Android также учитывайте приведенные ниже аспекты.  
 
-## <a name="general-considerations-for-android-apps"></a>Considerações gerais para aplicações Android
+## <a name="general-considerations-for-android-apps"></a>Общие рекомендации для приложений Android
 
-O Configuration Manager suporta a implementação dos seguintes tipos de aplicação para Android:
+Configuration Manager поддерживает развертывание перечисленных ниже типов приложений для Android.
 
-|Tipo de Dispositivo|Ficheiros suportados|
+|Тип устройства|Поддерживаемые файлы|
 |-|-|
-|Android|. apk|
+|Android|.apk|
 
-As seguintes ações de implementação são suportadas:
+Поддерживаются следующие действия развертывания.
 
-|Tipo de Dispositivo|Ações suportadas|
+|Тип устройства|Поддерживаемые действия|
 |-|-|
-|Android|**Disponível**, **necessário** o utilizador tenha de consentir a instalação e desinstalação.|
-|Android for Work | **Necessário** |
+|Android|**Доступное**, **Обязательное** Пользователь должен давать согласие на установку и удаление.|
+|Android for Work | **Обязательное** |
 
-## <a name="approve-and-deploy-android-for-work-apps"></a>Aprovar e implementar Android para aplicações de trabalho
-Como administrador do Configuration Manager, também pode aprovar aplicações no [Play para o Web site de trabalho](https://play.google.com/work)e implementar essas aplicações para Android gerida para dispositivos de trabalho.
+## <a name="approve-and-deploy-android-for-work-apps"></a>Утверждение и развертывание приложений Android for Work
+Как администратор Configuration Manager, вы можете также утверждать приложения на [веб-сайте Play for Work ](https://play.google.com/work) и развертывать эти приложения на управляемых устройствах Android for Work.
 
-Siga estes passos para aprovar aplicações na Play para o arquivo de trabalho, sincronizá-los para a consola do Configuration Manager e implementá-las para o Android gerida para dispositivos de trabalho. Para implementar aplicações para perfis de utilizador de trabalho, terá de aprovar as aplicações na Play para o trabalho e, em seguida, sincronizar as aplicações com a consola do Configuration Manager.
+Приведенные ниже действия предназначены для утверждения приложений в магазине Play for Work, их синхронизации с консолью Configuration Manager и последующего развертывания управляемых устройствах Android for Work. Для развертывания приложений для рабочих профилей пользователей необходимо утвердить приложения в Play for Work и синхронизировать их в консоли Configuration Manager.
 
-1. Abra um browser e aceda a: https://play.google.com/work.
-2. Inicie sessão com a conta de administrador do Google vinculado ao seu inquilino do Intune.
-3. Procurar as aplicações que pretende implementar no seu ambiente e escolha **aprovar** para cada um deles para disponibilizar a aplicação para Android para o trabalho.
-4. Na consola do Configuration Manager, vá para **administrador** > **descrição geral** > **serviços em nuvem** > **Android para trabalho** e escolha **sincronização**.
-5. Aguarde até 10 minutos para as aplicações sincronizar e, em seguida, aceda a **biblioteca de Software** > **descrição geral** > **gestão de aplicações** > **informações de licença para aplicações da loja**.
-6. Escolha uma aplicação sincronizada a partir da Play para o trabalho e, em seguida, escolha **Criar aplicação**.
-7. Concluir o assistente e escolha **fechar**.
-8. Aceda a **biblioteca de Software** > **descrição geral** > **gestão de aplicações** > **aplicações**, escolha um Android para a aplicação de trabalho e implementar como habitualmente.
+1. Откройте браузер и перейдите по адресу https://play.google.com/work.
+2. Выполните вход с помощью учетной записи администратора Google, привязанной к клиенту Intune.
+3. Найдите приложения, которые нужно развернуть в вашей среде, и нажмите для каждого из них кнопку **Одобрить**. Приложения станут доступны для Android for Work.
+4. В консоли Configuration Manager последовательно выберите **Администрирование** > **Обзор** > **Облачные службы** > **Android for Work** и щелкните **Синхронизировать**.
+5. Подождите 10 минут до завершения синхронизации, а затем последовательно выберите **Библиотека программного обеспечения** > **Обзор** > **Управление приложениями** > **Сведения о лицензии для приложений Магазина**.
+6. Выберите приложение, синхронизированное из Play for Work, а затем щелкните **Создать приложение**.
+7. Завершите работу с мастером и нажмите кнопку **Закрыть**.
+8. Последовательно выберите пункты **Библиотека программного обеспечения** > **Обзор** > **Управление приложениями** > **Приложения**, выберите приложение Android for Work и разверните его как обычно.
 
-Para sincronizar Play para aplicações de trabalho com o Configuration Manager, necessitará de aprovar pela primeira vez, pelo menos, uma aplicação na Play para o Web site de trabalho.
+Чтобы синхронизировать приложения Play for Work с Configuration Manager, на веб-сайте Play for Work сначала необходимо утвердить хотя бы одно приложение.

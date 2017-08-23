@@ -1,77 +1,73 @@
 ---
-title: "Noções básicas de sites e hierarquias | Documentos do Microsoft"
-description: "Obter informações básicas sobre o System Center Configuration Manager sites e hierarquias."
+title: "Основные принципы работы сайтов и иерархий | Документы Майкрософт"
+description: "Основные сведения о сайтах и иерархиях System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4db1e15f-e832-4cf9-be33-d3971e635a55
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 68527c0e82861106b7ec28b34bffa8fd74b2dd4a
 ms.openlocfilehash: f13f38be2a19ab8a1ead246e5272515dd0570984
-ms.contentlocale: pt-pt
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-sites-and-hierarchies-for-system-center-configuration-manager"></a>Noções básicas sobre sites e hierarquias do System Center Configuration Manager
+# <a name="fundamentals-of-sites-and-hierarchies-for-system-center-configuration-manager"></a>Основные принципы работы сайтов и иерархий в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Uma implementação do System Center Configuration Manager tem de estar instalada num domínio do Active Directory. A base desta implementação inclui um ou mais sites do Configuration Manager que formam uma hierarquia de sites. Desde um único site a uma hierarquia de vários sites, o tipo e a localização dos sites que instala proporcionam a capacidade de aumentar verticalmente a implementação quando necessário, bem como fornecer serviços principais a utilizadores e dispositivos geridos.
+Развертывание System Center Configuration Manager должно быть установлено в домене Active Directory. Основой такого развертывания является один или несколько сайтов Configuration Manager, формирующих иерархию сайтов. В иерархии как с одним, так и с несколькими сайтами тип и расположение устанавливаемых сайтов обеспечивают возможность масштабирования (расширения) развертывания по мере необходимости и предоставления основных служб для управляемых пользователей и устройств.
 
-## <a name="hierarchies-of-sites"></a>Hierarquias de sites
-Ao instalar o System Center Configuration Manager pela primeira vez, o primeiro site do Configuration Manager que instalar determina o âmbito da sua hierarquia. O primeiro site do Configuration Manager é foundation a partir do qual irá gerir dispositivos e utilizadores na sua empresa. Este site primeiro tem de ser um site de administração central ou um site primário autónomo.  
+## <a name="hierarchies-of-sites"></a>Иерархии сайтов
+При первой установке System Center Configuration Manager первый устанавливаемый сайт Configuration Manager определяет область иерархии. Он является фундаментом, на основе которого будет осуществляться управление устройствами и пользователями предприятия. Этот первый сайт должен быть сайтом центра администрирования или автономным первичным сайтом.  
 
- Um *site de administração central* é adequado para implementações em grande escala, fornece um ponto central de administração e a flexibilidade para suportar dispositivos que estão distribuídos numa infraestrutura de rede global. Depois de instalar um site de administração central, terá de instalar uma ou mais sites primários como sites subordinados. Esta configuração é necessária pois um site de administração central não suporta diretamente gestão de dispositivos, que é a função de um site primário. Um site de administração central suporta vários sites primários subordinados. Os sites primário subordinado são utilizados para gerir diretamente os dispositivos e para controlar a largura de banda da rede quando os dispositivos geridos se encontram em localizações geográficas diferentes.  
+ *Сайт центра администрирования* подходит для крупномасштабного развертывания. Он является центральным узлом администрирования и характеризуется гибкостью, поддерживая устройства, распределенные по глобальной сетевой инфраструктуре. После установки сайта центра администрирования требуется установить один или несколько первичных сайтов в качестве подчиненных сайтов. Это необходимо потому, что сайт центра администрирования не поддерживает непосредственное управление устройствами, так как это функция первичного сайта. Сайт центра администрирования поддерживает несколько подчиненных первичных сайтов. Они используются для непосредственного управления устройствами и регулирования пропускной способности сети в условиях, когда управляемые устройства находятся в разных географических точках.  
 
- Um *site primário autónomo* é adequado para implementações mais pequenas e pode ser utilizado para gerir dispositivos sem ser necessário instalar sites adicionais. Embora um site primário autónomo, pode limitar o tamanho da implementação, suporta um cenário para expandir a hierarquia numa momento posterior ao instalar um novo site de administração central. Com este cenário de expansão do site, o site primário autónomo torna-se um site primário subordinado e, em seguida, pode instalar sites primários subordinados adicionais abaixo do novo site de administração central. Em seguida, pode expandir a implementação inicial de crescimento futuro da sua empresa.  
+ *Автономный первичный сайт* подходит для небольших развертываний и может использоваться для управления устройствами без установки дополнительных сайтов. Несмотря на то, что автономный первичный сайт может ограничивать размер развертывания, на более позднем этапе он поддерживает сценарий расширения иерархии путем установки нового сайта центра администрирования. В этом сценарии расширения сайта автономный первичный сайт становится подчиненным первичным сайтом, и после этого можно установить дополнительные подчиненные первичные сайты на уровне ниже нового сайта центра администрирования. Затем можно расширить первоначальное развертывание для адаптации к дальнейшему росту предприятия.  
 
 > [!TIP]  
->  Um site primário autónomo e um site primário subordinado realmente são o mesmo tipo de site: um site primário. A diferença no nome baseia-se na relação hierárquica que é criada quando utiliza também um site de administração central. Esta relação de hierarquia também pode limitar a instalação de determinadas funções de sistema de sites que se estendem a funcionalidade do Configuration Manager. Esta limitação de funções de ocorre porque apenas podem ser instaladas determinadas funções de sistema de sites no site de nível superior da hierarquia, um site de administração central ou um site primário autónomo.  
+>  Автономный и подчиненный первичные сайты по сути являются одним типом сайта — первичным сайтом. Разница в названии связана с иерархическими отношениями, которые создаются, если одновременно используется сайт центра администрирования. Это отношение иерархии может также ограничивать установку определенных ролей системы сайта, расширяющих функциональные возможности Configuration Manager. Это ограничение ролей связано с тем, что определенные роли системы сайта можно установить только на сайте верхнего уровня иерархии, на сайте центра администрирования или на автономном первичном сайте.  
 
- Depois de instalar o primeiro site, pode instalar sites adicionais. Se o primeiro site tiver um site de administração central, em seguida, pode instalar um ou mais sites primários subordinados. Depois de instalar um site primário (autónomo ou subordinado-principal), em seguida, pode instalar um ou mais sites secundários.  
+ После установки первого сайта можно установить дополнительные сайты. Если первый сайт был сайтом центра администрирования, можно установить один или несколько подчиненных первичных сайтов. После установки первичного сайта (автономного или подчиненного первичного) можно установить один или несколько вторичных сайтов.  
 
- Um *site secundário* só pode ser instalado como site subordinado abaixo de um site primário. Este tipo de sites aumentam o alcance de um site primário para gerir dispositivos em locais com ligação de rede lenta ao site primário. Apesar de um site secundário expande o site primário, o site primário gere todos os clientes. O site secundário fornece suporte para dispositivos na localização remota. Fornece suporte por comprimir e, em seguida, gerir a transferência de informações na sua rede que enviar (implementar) para os clientes, e que os clientes enviam para o site.  
+ *Вторичный сайт* можно установить только как дочерний сайт на уровне ниже первичного сайта. Данный тип сайта расширяет возможности первичного сайта, позволяя управлять устройствами в расположениях с медленным сетевым подключением к первичному сайту. Несмотря на то, что вторичный сайт расширяет первичный, всеми клиентами управляет первичный сайт. Вторичный сайт обеспечивает поддержку устройств в удаленном расположении. Это достигается посредством сжатия и последующего управления передачей по сети информации, которая отправляется (развертывается) клиентам и которую клиенты отправляют обратно на сайт.  
 
- Os diagramas seguintes mostram alguns exemplos de estruturas de sites.  
+ Ниже приведены некоторые примеры устройств сайтов.  
 
- ![Exemplos de hierarquia](media/Hierarchy_examples.png)  
+ ![Примеры иерархии](media/Hierarchy_examples.png)  
 
- Para obter mais informações, consulte os tópicos seguintes:  
+ Дополнительные сведения см. в следующих разделах:  
 
--   [Introdução ao System Center Configuration Manager](../../core/understand/introduction.md)  
+-   [Общие сведения о System Center Configuration Manager](../../core/understand/introduction.md)  
 
--   [Estruturar uma hierarquia de sites para o System Center Configuration Manager](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md)  
+-   [Разработка иерархии сайтов для System Center Configuration Manager](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md)  
 
--   [Instalar sites do System Center Configuration Manager](/sccm/core/servers/deploy/install/installing-sites)  
+-   [Установка сайтов System Center Configuration Manager](/sccm/core/servers/deploy/install/installing-sites)  
 
-## <a name="site-system-servers-and-site-system-roles"></a>Servidores do sistema de sites e funções do sistema de sites  
- Cada site do Configuration Manager instala *funções do sistema de sites* que suporte operações de gestão. As seguintes funções são instaladas por predefinição quando instala um site:
+## <a name="site-system-servers-and-site-system-roles"></a>Серверы системы сайта и роли системы сайта  
+ Каждый сайт Configuration Manager устанавливает *роли системы сайта*, поддерживающие операции управления. Следующие роли устанавливаются по умолчанию при установке сайта:
 
--   A função de servidor do site é atribuída ao computador em que instalar o site.
+-   роль сервера сайта назначается компьютеру, где установлен сайт;
 
--   A função de servidor de base de dados do site é atribuída para o SQL Server que aloja a base de dados do site.
+-   роль сервера базы данных сайта назначается серверу SQL Server, на котором размещена база данных сайта.
 
-Outras funções de sistema de sites são opcionais e só são utilizadas quando pretender utilizar as funcionalidades que estão ativa na função de sistema de sites. Qualquer computador que aloje uma função de sistema de sites é referido como um servidor de sistema de sites.  
+Другие роли системы сайта являются необязательными и применяются только при необходимости использовать функции, активные для роли системы сайта. Любой компьютер, на котором размещена роль системы сайта, называется сервером системы сайта.  
 
- Para uma implementação mais pequena do Configuration Manager, poderá inicialmente executar todos os do seu site de funções do sistema diretamente no computador do servidor de site. Em seguida, como o seu ambiente gerido e precisa de aumentar, pode instalar servidores do sistema de sites adicionais para funções de sistema de sites adicionais de anfitriões para melhorar a eficiência do site no fornecimento de serviços em mais dispositivos.  
+ Для небольшого развертывания Configuration Manager можно сначала запустить все роли системы сайта непосредственно на компьютере сервера сайта. Затем по мере расширения управляемой среды можно устанавливать дополнительные серверы системы сайта для размещения дополнительных ролей системы сайта, чтобы повысить эффективность сайта в плане обслуживания большего числа устройств.  
 
- Para obter informações sobre as funções do sistema de sites diferente, consulte o artigo [funções do sistema de sites](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md#bkmk_planroles) no [planear servidores de sistema de sites e funções de sistema de sites para o System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).
+ Сведения о различных ролях системы сайта см. в подразделе [Роли системы сайта](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md#bkmk_planroles) раздела [Планирование серверов системы сайта и ролей системы сайта для System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).
 
-## <a name="publishing-site-information-to-active-directory-domain-services"></a>Publicação de informações de sites nos Serviços de Domínio do Active Directory  
- Para simplificar a gestão do Configuration Manager, pode expandir o esquema do Active Directory para suportar os detalhes que são utilizados pelo Configuration Manager e, em seguida, tiver sites publiquem as respetivas informações chave serviços de domínio do Active Directory (AD DS). Em seguida, os computadores que pretende gerir podem obter de forma segura informações relacionadas com o site da origem fidedigna do AD DS. As informações que os clientes podem obter identificam sites disponíveis, servidores do sistema de sites e os serviços que esses servidores de sistema de sites fornecem.  
+## <a name="publishing-site-information-to-active-directory-domain-services"></a>Публикация сведений о сайтах в доменных службах Active Directory  
+ Для упрощения управления Configuration Manager можно расширить схему Active Directory для поддержки сведений, используемых Configuration Manager, а затем позволить сайтам публиковать ключевые сведения в доменных службах Active Directory (AD DS). Это позволяет управляемым компьютерам безопасно получать сведения, относящиеся к сайту, из надежного источника AD DS. Сведения, которые могут получать клиенты, определяют доступные сайты, серверы системы сайта и службы, предоставляемые этими серверами системы сайта.  
 
- *Expandir o esquema do Active Directory* são efetuadas apenas uma vez para cada floresta e pode ser efetuado antes ou depois de instalar o Configuration Manager.   Quando expande o esquema, tem de criar um novo contentor do Active Directory com o nome gestão do sistema em cada domínio. O contentor contém um site do Configuration Manager que publicarão os dados para os clientes localizarem. Para obter mais informações, consulte o artigo [preparar o Active Directory para publicação sites](../../core/plan-design/network/extend-the-active-directory-schema.md).  
+ *Расширение схемы Active Directory* выполняется только один раз для каждого леса и может осуществляться до или после установки Configuration Manager.   При расширении схемы необходимо создать контейнер Active Directory с именем System Management в каждом домене. Контейнер содержит сайт Configuration Manager, который будет публиковать данные для клиентов. Дополнительные сведения см. в разделе [Подготовка Active Directory к публикации сайта](../../core/plan-design/network/extend-the-active-directory-schema.md).  
 
- *Publicar dados do site* melhora a segurança da sua hierarquia do Configuration Manager e reduz a sobrecarga administrativa, mas não é necessário para funcionalidades básicas do Configuration Manager.  
-
+ *Публикация данных сайта* повышает безопасность иерархии Configuration Manager и упрощает администрирование, но не требуется для поддержки базовых функций Configuration Manager.  

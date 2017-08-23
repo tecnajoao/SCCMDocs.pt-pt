@@ -1,6 +1,6 @@
 ---
-title: Monitorizar clientes Linux/UNIX - Configuration Manager | Microsoft Docs
-description: Monitorizar clientes em servidores Linux e UNIX no System Center Configuration Manager.
+title: "Обновление клиентов для Linux и UNIX в Configuration Manager | Документы Майкрософт"
+description: "Наблюдайте за клиентами для серверов Linux и UNIX в System Center Configuration Manager."
 ms.custom: na
 ms.date: 08/04/2017
 ms.prod: configuration-manager
@@ -16,39 +16,39 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 62843bd544217734c4566d656a7c3a35bd5613cb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: pt-PT
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Como monitorizar clientes para servidores Linux e UNIX no System Center Configuration Manager
+# <a name="how-to-monitor-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Мониторинг клиентов для серверов Linux и UNIX в System Center Configuration Manager
 
-*Aplica-se a: O System Center Configuration Manager (ramo atual)*
+*Применимо к: System Center Configuration Manager (Current Branch)*
 
-Pode ver informações de servidores Linux e UNIX na consola do System Center Configuration Manager utilizando os mesmos métodos que utiliza para ver informações de clientes baseados em Windows.  
+Для просмотра сведений с серверов Linux и UNIX в консоли System Center Configuration Manager используются те же методы, что и для просмотра сведений с клиентских компьютеров под управлением Windows.  
 
- As informações que pode ver incluem:  
+ Для просмотра доступны следующие данные.  
 
--   Detalhes do Estado de clientes, nos dashboards de consola do Configuration Manager  
+-   Сведения о состоянии клиентов на панелях мониторинга консоли Configuration Manager  
 
--   Detalhes sobre clientes nos relatórios do Configuration Manager predefinido  
+-   Сведения о клиентах в отчетах Configuration Manager по умолчанию  
 
--   Detalhes de inventário no Explorador de Recursos  
+-   Сведения об инвентаризации в обозревателе ресурсов  
 
- As secções seguintes descrevem como obter estes detalhes do Explorador de recursos e os relatórios.  
+ В следующих разделах описывается, как получить эти сведения из обозревателя ресурсов и отчетов.  
 
-##  <a name="BKMK_UseResourceExpforLnU"></a>Utilize o Explorador de recursos para ver o inventário para servidores Linux e UNIX  
+##  <a name="BKMK_UseResourceExpforLnU"></a> Использование обозревателя ресурсов для просмотра данных инвентаризации для серверов Linux и UNIX  
 
- Depois de um cliente do Configuration Manager submete inventário de hardware para o site do Configuration Manager, pode utilizar o Explorador de recursos para ver estas informações. O cliente do Configuration Manager para Linux e UNIX não adiciona novas classes ou vistas de inventário para o Explorador de recursos. Os dados de inventário de Linux e UNIX são mapeados para as classes WMI existentes. Pode ver os detalhes de inventário para os seus servidores Linux e UNIX nas classificações baseadas no Windows utilizando o Explorador de Recursos.  
+ После того как клиент Configuration Manager отправит данные инвентаризации оборудования на сайт Configuration Manager, эти сведения вы можете просмотреть с помощью обозревателя ресурсов. Клиент Configuration Manager для Linux и UNIX не добавляет в обозреватель ресурсов новые классы или представления для инвентаризации. Данные инвентаризации Linux и UNIX сопоставляются с существующими WMI-классами. С помощью обозревателя ресурсов вы можете просмотреть сведения об инвентаризации для серверов Linux и UNIX в классификациях на основе Windows.  
 
- Por exemplo, é possível recolher a lista de todos os programas instalados nativamente encontrados nos seus servidores Linux e UNIX. Exemplos de programas instalados nativamente incluem **.rpms** no Linux ou **.pkgs** no Solaris. Depois do inventário ter sido submetido por um cliente Linux ou UNIX, pode ver a lista de todos os os programas instalados nativamente Linux ou UNIX no Explorador de recursos na consola do Configuration Manager.  
+ Например, вы можете составить список всех изначально установленных программ, обнаруженных на серверах Linux и UNIX. Примерами изначально установленных программ являются **.rpms** в Linux или **.pkgs** в Solaris. После того как клиент Linux или UNIX отправит данные инвентаризации, в обозревателе ресурсов в консоли Configuration Manager вы можете просмотреть список всех изначально установленных программ UNIX или Linux.  
 
- Para obter informações sobre como utilizar o Explorador de recursos, consulte [como utilizar o Explorador de recursos para ver o inventário de hardware no System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
+ Сведения о том, как использовать обозреватель ресурсов, см. в разделе [Использование обозревателя ресурсов для просмотра данных инвентаризации оборудования в System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
 
-##  <a name="BKMK_UseReportsforLnU"></a> Como utilizar Relatórios para Ver Informações de Servidores Linux e UNIX  
- Os relatórios do Configuration Manager incluem informações de servidores Linux e UNIX, juntamente com informações de computadores baseados em Windows. Não são necessárias configurações adicionais para integrar os dados de Linux e UNIX nos relatórios.  
+##  <a name="BKMK_UseReportsforLnU"></a> Использование отчетов для просмотра сведений для серверов Linux и UNIX  
+ Отчеты для Configuration Manager содержат сведения с серверов Linux и UNIX, а также сведения с компьютеров под управлением Windows. Для интеграции данных в отчетах Linux и UNIX выполнять дополнительные настройки не требуется.  
 
- Por exemplo, se executar o relatório chamado Contagem de Versões de Sistemas Operativos, este apresenta a lista dos diferentes sistemas operativos e o número de clientes que estão a executar cada sistema operativo. O relatório é baseado nas informações de inventário de hardware foi enviadas por diferentes clientes do Configuration Manager que são executados nos diferentes sistemas operativos.  
+ Например, при выполнении отчета с именем «Количество версий операционной системы» в нем отображается список других операционных систем и количество клиентов, работающих под управлением каждой операционной системы. Отчет основан на данных инвентаризации оборудования, которые были отправлены различными клиентами Configuration Manager, работающими в разных операционных системах.  
 
- Também é possível criar relatórios personalizados específicos de dados de servidores Linux e UNIX. A propriedade **Legenda** da classe de inventário de hardware **Sistema Operativo** é um atributo útil que poderá utilizar para identificar Sistemas Operativos específicos na consulta do relatório.  
+ Кроме того, вы можете создать настраиваемые отчеты, связанные с данными серверов Linux и UNIX. Свойство **Caption** класса инвентаризации оборудования **Operating System** является полезным атрибутом, который вы можете использовать для идентификации конкретных операционных систем в запросе отчета.  
 
- Para obter informações sobre os relatórios no Configuration Manager, consulte [relatórios no System Center Configuration Manager](../../../core/servers/manage/reporting.md).  
+ Сведения об отчетах в Configuration Manager см. в разделе [Ведение отчетов в System Center Configuration Manager](../../../core/servers/manage/reporting.md).  
